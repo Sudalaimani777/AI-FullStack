@@ -56,6 +56,96 @@ const checkPalindrome = () => {
 // checkPalindrome();
 
 // 5. Create a function that counts vowels in a string:-
-const countVowels = () => {
-    
+//i)Using Regular Loop :-
+const countVowelsUsingLoop = () => {
+  const userInput = prompt(`Enter the word to find how many vowels`);
+  const checkUserInput = userInput.trim();
+  const vowels = "aeiouAEIOU";
+  let counter = 0;
+  for(let i = 0; i < checkUserInput.length ; i++){
+    if(vowels.includes(checkUserInput[i])){
+      counter++
+    }
+  }
+  console.log(`The number of vowels in a string ${userInput} is ${counter}`);
+  return counter;
 }
+// countVowelsUsingLoop();
+
+//ii)Using Regular Expression :-
+const countVowels = () => {
+    const userInput = prompt(`Enter the string to count the number of vowels`);
+    const vowels = userInput.match(/[aeiou]/gi);
+    const count = vowels ? vowels.length : 0;
+    console.log(`The number of vowels in the string "${userInput}" is: ${count}`);
+}
+// countVowels();
+
+//6. Use ternary operator to check age > 18 and print 'Adult' or 'Minor':-
+//i)
+const checkUserAge = () => {
+  const userInput = prompt(`Enter your age to validate if you are a minor or not`);
+  const data = Number(userInput);
+  const validation = data > 18 ? alert("Congrats you are a Adult") : alert(`You are not an adult`);
+}
+// checkUserAge();
+
+//ii)
+const checkUserMinorOrAdult = () => {
+   const userBirthYear = prompt(`Enter your birth year to check you are an adult or not`);
+   const adultAge = 18;
+   const currentYear = new Date().getFullYear();
+   const calculatedUserAge = currentYear - Number(userBirthYear);
+   if(adultAge < calculatedUserAge){
+    alert(`Congrats You are an Adult`);
+   }
+   else{
+    const remainingYears = adultAge - calculatedUserAge;
+    alert(`You are not an adult, you need ${remainingYears} years to become an adult`)
+   }
+}
+// checkUserMinorOrAdult();
+
+// 7. Create nested object and print one inner property:-
+const nestedObject = {
+  name: "K.Sudalaimani",
+  age: 22,
+  address:{
+    doorNo: "19/4",
+    street: "East Street",
+    city: "Ettaiyapuram"
+  }
+}
+console.log(nestedObject.address.city);
+
+//8. Use forEach to print all elements of an array:-
+const array = [1, 2, 3, 4, 5];
+array.forEach((element) => {
+  console.log(element)
+})
+
+//9. Create a function that sums all numbers in array using reduce:-
+//i)
+const reduceMethod = [1, 2, 3, 4, 5].reduce((a, b) => a + b);
+console.log(reduceMethod)
+//a - accumulator(stores the ongoing total)
+//b- current element
+
+//ii)
+const trying = () => {
+  arr = [1, 3, 4, 5];
+  const total = arr.reduce((a, b) => a + b);
+  console.log(total);
+}
+trying();
+
+// 10. Combine two arrays using spread operator:-
+const arrOne = [1, 2, 3, 4];
+const arrTwo = [5, 6, 7, 8];
+const combinedArray =[...arrOne ,...arrTwo]
+console.log(combinedArray);
+//OR
+const arrayOne = [1, 2, 3, 4, 5];
+const arrayTwo = [6, 7, 8, 9, 10];
+arrayOne.push(...arrayTwo);
+console.log(arrayOne);
