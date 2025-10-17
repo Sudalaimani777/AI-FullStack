@@ -1,0 +1,82 @@
+What is Programming ?
+    Instruction (Code) - Speaking to the Computer.
+    Algorithm - Steps to solve the problem. (Specific Task).
+
+What is Javascript ?
+    It is a programming language fo the web.
+    JS can update or even change the HTML and CSS.
+    JS can calculate, manipulate or even validate the data.
+
+1)Chapter One - Getting Started :-
+    It is easy to create a JS file and run the JS code in the browser and its console.
+    Just create the JS file with .js extension and then link with the HTML file then run the html to view the JF awsomeness
+
+2)Chapter Two - Console :-
+    The console is the browser's terminal.
+
+    Syntax:-
+        console.log("Hello World");
+
+        log - It is basically a diary.
+
+3)Chapter Three - Variables :-
+    There are three types of variables in JS 
+        var - global scope or functional scope
+            re-assignable 💹
+            re-declarable 
+        let - block scope 
+            re-assignable 💹
+            re-declarable 🟥
+        const - block scope
+            re-assignable 🟥
+            re-declarable 🟥
+    
+Undefined :-
+    Variable defined 💹
+    value un defined 🟥
+
+Ways to define and not to define a Variable :-
+
+    Correct Method :-
+        CamelCase - let userName; //Most Preferrable.
+        BBQ case - let user-name;
+        Pascal Casing  - let UserName;
+        Dollar Casing - let $userName;
+        Normal Casing - let username;
+    
+    Incorrect Methods used in the beginning :-
+        Number Casing - let 1user; in the beginning.
+        Throws as error if the variable name starts with special characters expect $ and _
+
+4)Chapter Four - Data Types :-
+    In JS there are two main types of data types such as,
+        i)Primitive.
+        ii)Non-Primitive (Reference).
+    
+    i)Primitive :-
+        String - Group of characters which is grouped in quotes like "", '', ``
+        Number - Numeric digits
+        Boolean - There are two values in the boolean (true and false) 
+        null.
+        Undefined.
+    
+    ii)Non-Primitive (Reference) :-
+        Arrays :-
+            Collection of many data types that is stored in the single variable.
+                ["Hello", 2, null];
+            These values are accessed by its index number.The index value starts from 0.
+            To checking the total length of the array use .length method to check the length.
+            
+            There are many methods in array such as,
+                Push - Add the element in the last of the array.
+                Pop -  Remove the element in the last of the array.
+                unshift  - Add the element at the index of 0.
+                shift - Removes the element at the index of 0.
+        Objects.
+            Objects are similar to the arrays, but the values in the objects must contains the key for each element.
+                const userName = {
+                        name: "value"
+                }
+            Accessing the object by traversin using "." notation
+
+                userName.name // o/p -> value.
