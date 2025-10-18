@@ -1,82 +1,758 @@
-What is Programming ?
-    Instruction (Code) - Speaking to the Computer.
-    Algorithm - Steps to solve the problem. (Specific Task).
+===============================================
+    JAVASCRIPT LEARNING NOTES
+    Last Updated: October 18, 2025
+===============================================
 
-What is Javascript ?
-    It is a programming language fo the web.
-    JS can update or even change the HTML and CSS.
-    JS can calculate, manipulate or even validate the data.
+What is Programming?
+    • Instruction (Code) - Speaking to the computer through programming languages.
+    • Algorithm - Step-by-step procedure to solve a specific problem or complete a task.
 
-1)Chapter One - Getting Started :-
-    It is easy to create a JS file and run the JS code in the browser and its console.
-    Just create the JS file with .js extension and then link with the HTML file then run the html to view the JF awsomeness
+What is JavaScript?
+    JavaScript is a programming language for the web that enables:
+    • Updating or changing HTML and CSS dynamically
+    • Calculating, manipulating, and validating data
+    • Creating interactive web applications
+    • Running both in browsers (frontend) and servers (backend with Node.js)
 
-2)Chapter Two - Console :-
-    The console is the browser's terminal.
+===============================================
+CHAPTER 1: GETTING STARTED
+===============================================
 
-    Syntax:-
-        console.log("Hello World");
+Setting Up JavaScript:
+    1. Create a JavaScript file with .js extension (e.g., script.js)
+    2. Link the JS file to your HTML file using:
+       <script src="script.js"></script>
+    3. Open the HTML file in a browser to run the code
+    4. Use the browser console (F12) to view output and debug
 
-        log - It is basically a diary.
+Key Points:
+    ✓ JavaScript is easy to set up and run in any modern browser
+    ✓ No additional software or compilation required
+    ✓ Can see results immediately in the console
 
-3)Chapter Three - Variables :-
-    There are three types of variables in JS 
-        var - global scope or functional scope
-            re-assignable 💹
-            re-declarable 
-        let - block scope 
-            re-assignable 💹
-            re-declarable 🟥
-        const - block scope
-            re-assignable 🟥
-            re-declarable 🟥
+===============================================
+CHAPTER 2: CONSOLE
+===============================================
+
+What is the Console?
+    • The console is the browser's built-in terminal for developers
+    • Used for debugging, testing code, and viewing output
+    • Access it by pressing F12 or Ctrl+Shift+I (Windows)
+
+Console Methods:
     
-Undefined :-
-    Variable defined 💹
-    value un defined 🟥
+    1. console.log()
+       Syntax: console.log("Hello World");
+       Purpose: Logs messages/data to the console (like a diary/log book)
+       
+    2. Other useful console methods:
+       • console.error() - Display error messages
+       • console.warn() - Display warnings
+       • console.table() - Display data in table format
+       • console.clear() - Clear the console
 
-Ways to define and not to define a Variable :-
+===============================================
+CHAPTER 3: VARIABLES
+===============================================
 
-    Correct Method :-
-        CamelCase - let userName; //Most Preferrable.
-        BBQ case - let user-name;
-        Pascal Casing  - let UserName;
-        Dollar Casing - let $userName;
-        Normal Casing - let username;
+Three Types of Variable Declarations in JavaScript:
+
+1. var (Old way - avoid using)
+   • Scope: Global or Function scope
+   • Re-assignable: ✓ YES
+   • Re-declarable: ✓ YES
+   Example: var name = "John";
+   
+2. let (Modern - Use for changing values)
+   • Scope: Block scope { }
+   • Re-assignable: ✓ YES
+   • Re-declarable: ✗ NO
+   Example: let age = 25;
+   
+3. const (Modern - Use for constants)
+   • Scope: Block scope { }
+   • Re-assignable: ✗ NO
+   • Re-declarable: ✗ NO
+   Example: const PI = 3.14;
+
+Understanding Undefined:
+    • Variable is declared: ✓ YES
+    • Value is assigned: ✗ NO
+    Example:
+        let myVar;          // myVar is undefined
+        console.log(myVar); // Output: undefined
+
+Variable Naming Conventions:
     
-    Incorrect Methods used in the beginning :-
-        Number Casing - let 1user; in the beginning.
-        Throws as error if the variable name starts with special characters expect $ and _
-
-4)Chapter Four - Data Types :-
-    In JS there are two main types of data types such as,
-        i)Primitive.
-        ii)Non-Primitive (Reference).
+    ✓ CORRECT METHODS:
+        • camelCase - let userName;        // ⭐ Most Preferred
+        • kebab-case - let user-name;      // Used in CSS
+        • PascalCase - let UserName;       // Used for classes
+        • Dollar prefix - let $userName;   // Valid in JS
+        • Underscore - let _userName;      // Valid in JS
+        • Normal - let username;           // Valid but less readable
     
-    i)Primitive :-
-        String - Group of characters which is grouped in quotes like "", '', ``
-        Number - Numeric digits
-        Boolean - There are two values in the boolean (true and false) 
-        null.
-        Undefined.
+    ✗ INCORRECT METHODS:
+        • Starting with number - let 1user;          // ❌ Error
+        • Special characters - let user@name;        // ❌ Error (except $ and _)
+        • Reserved keywords - let class;             // ❌ Error
+        • Spaces - let user name;                    // ❌ Error
     
-    ii)Non-Primitive (Reference) :-
-        Arrays :-
-            Collection of many data types that is stored in the single variable.
-                ["Hello", 2, null];
-            These values are accessed by its index number.The index value starts from 0.
-            To checking the total length of the array use .length method to check the length.
-            
-            There are many methods in array such as,
-                Push - Add the element in the last of the array.
-                Pop -  Remove the element in the last of the array.
-                unshift  - Add the element at the index of 0.
-                shift - Removes the element at the index of 0.
-        Objects.
-            Objects are similar to the arrays, but the values in the objects must contains the key for each element.
-                const userName = {
-                        name: "value"
-                }
-            Accessing the object by traversin using "." notation
+    Rules:
+        → Variable names must start with a letter, $, or _
+        → Cannot start with a number
+        → Case-sensitive (userName ≠ username)
+        → Cannot use reserved keywords (let, const, if, for, etc.)
 
-                userName.name // o/p -> value.
+===============================================
+CHAPTER 4: DATA TYPES
+===============================================
+
+JavaScript has TWO main categories of data types:
+
+┌─────────────────────────────────────────────┐
+│  I. PRIMITIVE DATA TYPES (Immutable)       │
+└─────────────────────────────────────────────┘
+
+1. String
+   • Group of characters enclosed in quotes
+   • Syntax: "text", 'text', or `text`
+   • Example: 
+       let name = "John";
+       let greeting = 'Hello';
+       let template = `Hi ${name}`;  // Template literal
+
+2. Number
+   • Numeric values (integers and decimals)
+   • Example: 
+       let age = 25;
+       let price = 99.99;
+       let negative = -10;
+
+3. Boolean
+   • Logical data type with only two values
+   • Values: true or false
+   • Example:
+       let isStudent = true;
+       let isLoggedIn = false;
+
+4. Null
+   • Intentional absence of any value
+   • Must be assigned explicitly
+   • Example: let data = null;
+
+5. Undefined
+   • Variable declared but not assigned a value
+   • Automatically assigned by JavaScript
+   • Example: 
+       let x;
+       console.log(x); // undefined
+
+┌─────────────────────────────────────────────┐
+│  II. NON-PRIMITIVE (REFERENCE) DATA TYPES  │
+└─────────────────────────────────────────────┘
+
+1. ARRAYS
+   
+   Definition:
+       • Collection of multiple values stored in a single variable
+       • Can hold different data types: strings, numbers, booleans, etc.
+       • Values are accessed by index number (starting from 0)
+   
+   Syntax:
+       const myArray = ["Hello", 2, true, null];
+   
+   Accessing Array Elements:
+       console.log(myArray[0]);  // "Hello" (first element)
+       console.log(myArray[1]);  // 2 (second element)
+   
+   Array Property:
+       • .length - Returns the total number of elements
+       Example: myArray.length; // 4
+   
+   Common Array Methods:
+       
+       Adding Elements:
+       • push() - Adds element(s) at the END of the array
+         Example: myArray.push("new item");
+       
+       • unshift() - Adds element(s) at the BEGINNING (index 0)
+         Example: myArray.unshift("first item");
+       
+       Removing Elements:
+       • pop() - Removes the LAST element
+         Example: myArray.pop();
+       
+       • shift() - Removes the FIRST element (at index 0)
+         Example: myArray.shift();
+       
+       Other Useful Methods:
+       • indexOf() - Find the index of an element
+       • includes() - Check if element exists
+       • slice() - Extract a portion of array
+       • splice() - Add/remove elements at specific position
+
+2. OBJECTS
+   
+   Definition:
+       • Collection of key-value pairs (properties)
+       • Similar to arrays but uses named keys instead of numeric indexes
+       • Each value must have a corresponding key
+   
+   Syntax:
+       const person = {
+           name: "Sudalaimani",
+           age: 22,
+           isStudent: true,
+           hobbies: ["coding", "reading"]
+       };
+   
+   Accessing Object Properties:
+       
+       Method 1 - Dot Notation (Most Common):
+           console.log(person.name);  // Output: "Sudalaimani"
+           console.log(person.age);   // Output: 22
+       
+       Method 2 - Bracket Notation:
+           console.log(person["name"]);  // Output: "Sudalaimani"
+           console.log(person["age"]);   // Output: 22
+   
+   Adding/Modifying Properties:
+       person.city = "Chennai";      // Add new property
+       person.age = 23;              // Modify existing property
+   
+   Deleting Properties:
+       delete person.isStudent;
+
+┌─────────────────────────────────────────────┐
+│  CHECKING DATA TYPES                        │
+└─────────────────────────────────────────────┘
+
+Use typeof operator to check the data type:
+    console.log(typeof "Hello");     // "string"
+    console.log(typeof 42);          // "number"
+    console.log(typeof true);        // "boolean"
+    console.log(typeof undefined);   // "undefined"
+    console.log(typeof null);        // "object" (known JS quirk)
+    console.log(typeof [1,2,3]);     // "object"
+    console.log(typeof {name: "x"}); // "object"
+
+===============================================
+CHAPTER 5: TYPE CONVERSION
+===============================================
+
+Type conversion (also called type casting) is the process of converting a value from one data type to another.
+
+┌─────────────────────────────────────────────┐
+│  CONVERTING TO STRING                       │
+└─────────────────────────────────────────────┘
+
+1. Number to String:
+   
+   Method: String() constructor
+   
+   Example:
+       let value = String(7);
+       console.log(value);        // "7"
+       console.log(typeof value); // "string"
+       
+       value = String(4 + 4);
+       console.log(value);        // "8"
+       console.log(typeof value); // "string"
+
+2. Boolean to String:
+   
+   Example:
+       let value = String(true);
+       console.log(value);        // "true"
+       console.log(typeof value); // "string"
+
+3. Array to String:
+   
+   Example:
+       let value = String(["Apple", "Orange"]);
+       console.log(value);        // "Apple,Orange"
+       console.log(typeof value); // "string"
+
+┌─────────────────────────────────────────────┐
+│  CONVERTING TO NUMBER                       │
+└─────────────────────────────────────────────┘
+
+1. String to Number:
+   
+   Method: Number() constructor
+   
+   Example:
+       let value = Number("55");
+       console.log(value);        // 55
+       console.log(typeof value); // "number"
+       
+       value = Number("Hello");
+       console.log(value);        // NaN (Not a Number)
+       
+       value = Number("5" + "5");
+       console.log(value);        // 55
+       
+       value = Number("5 + 5");
+       console.log(value);        // NaN (string expression)
+
+2. Array to Number:
+   
+   Example:
+       let value = Number([1, 2, 3]);
+       console.log(value);        // NaN (cannot convert array to number)
+
+┌─────────────────────────────────────────────┐
+│  CONVERTING TO BOOLEAN                      │
+└─────────────────────────────────────────────┘
+
+Method: Boolean() constructor
+
+Falsy Values (convert to false):
+    • false
+    • 0 (zero)
+    • "" (empty string)
+    • null
+    • undefined
+    • NaN
+
+Truthy Values (convert to true):
+    • Any non-zero number (1, 2, -1, etc.)
+    • Any non-empty string
+    • Arrays (even empty)
+    • Objects (even empty)
+
+Examples:
+    let value = Boolean();          // false (no value)
+    console.log(value);
+    
+    value = Boolean("Hello");       // true (non-empty string)
+    console.log(value);
+    
+    value = Boolean(0);             // false (zero)
+    console.log(value);
+    
+    value = Boolean(1);             // true (non-zero)
+    console.log(value);
+    
+    value = Boolean(2);             // true (has value)
+    console.log(value);
+    
+    value = Boolean("Hi");          // true (non-empty string)
+    console.log(value);
+    
+    value = Boolean(null);          // false (null value)
+    console.log(value);
+
+┌─────────────────────────────────────────────┐
+│  CONVERTING TO ARRAY                        │
+└─────────────────────────────────────────────┘
+
+String to Array:
+   
+   Method: Array() constructor
+   
+   Example:
+       let value = Array("Hello");
+       console.log(value);        // ["Hello"]
+       console.log(typeof value); // "object"
+
+┌─────────────────────────────────────────────┐
+│  PARSING NUMBERS                            │
+└─────────────────────────────────────────────┘
+
+1. parseInt() - Convert to Integer:
+   
+   • Parses a string and returns an integer
+   • Removes decimal part
+   
+   Example:
+       let value = parseInt(100.4);
+       console.log(value);        // 100
+       
+       value = parseInt("42");
+       console.log(value);        // 42
+       
+       value = parseInt("42.99");
+       console.log(value);        // 42
+
+2. parseFloat() - Convert to Float:
+   
+   • Parses a string and returns a floating-point number
+   • Keeps decimal part
+   
+   Example:
+       let value = parseFloat(10.333);
+       console.log(value);        // 10.333
+       
+       value = parseFloat("3.14");
+       console.log(value);        // 3.14
+
+Key Differences:
+    parseInt()    → Returns whole numbers (integers)
+    parseFloat()  → Returns decimal numbers (floats)
+    Number()      → Converts entire value, returns NaN if invalid
+
+===============================================
+CHAPTER 6: NUMBERS & MATH OPERATIONS
+===============================================
+
+Working with numbers and performing mathematical calculations.
+
+┌─────────────────────────────────────────────┐
+│  BASIC ARITHMETIC OPERATORS                 │
+└─────────────────────────────────────────────┘
+
+JavaScript supports the following arithmetic operators:
+
+Operator    Description              Example     Result
+--------    -----------              -------     ------
+   +        Addition                 20 + 10     30
+   -        Subtraction              20 - 10     10
+   *        Multiplication           20 * 10     200
+   /        Division                 20 / 10     2
+   %        Modulo (Remainder)       20 % 10     0
+   **       Exponentiation           2 ** 3      8
+
+Example Code:
+    const numOne = 20;
+    const numTwo = 10;
+    let value;
+    
+    value = numOne + numTwo;       // 30
+    value = numOne - numTwo;       // 10
+    value = numOne * numTwo;       // 200
+    value = numOne / numTwo;       // 2
+    value = numOne % numTwo;       // 0
+
+┌─────────────────────────────────────────────┐
+│  MATH OBJECT                                │
+└─────────────────────────────────────────────┘
+
+JavaScript's built-in Math object provides mathematical functions and constants.
+
+1. Math.PI
+   • Returns the value of PI (π)
+   • Value: 3.141592653589793
+   
+   Example:
+       let value = Math.PI;
+       console.log(value);  // 3.141592653589793
+
+2. Math.round()
+   • Rounds to the nearest integer
+   • .5 and above rounds up, below .5 rounds down
+   
+   Example:
+       let value = Math.round(2.5);   // 3
+       value = Math.round(2.1);       // 2
+       value = Math.round(2.9);       // 3
+
+3. Math.ceil()
+   • Rounds UP to the nearest integer
+   • Always rounds to the higher value
+   
+   Example:
+       let value = Math.ceil(2.1);    // 3
+       value = Math.ceil(2.9);        // 3
+
+4. Math.floor()
+   • Rounds DOWN to the nearest integer
+   • Always rounds to the lower value
+   
+   Example:
+       let value = Math.floor(2.1);   // 2
+       value = Math.floor(2.9);       // 2
+
+5. Math.sqrt()
+   • Returns the square root of a number
+   
+   Example:
+       let value = Math.sqrt(100);    // 10
+       value = Math.sqrt(64);         // 8
+
+6. Math.abs()
+   • Returns the absolute (positive) value
+   • Removes negative sign
+   
+   Example:
+       let value = Math.abs(-3);      // 3
+       value = Math.abs(-10);         // 10
+
+7. Math.min()
+   • Returns the smallest number from arguments
+   
+   Example:
+       let value = Math.min(1, 2, 3);        // 1
+       value = Math.min(10, 5, 20, 3);       // 3
+
+8. Math.max()
+   • Returns the largest number from arguments
+   
+   Example:
+       let value = Math.max(1, 3, 45);       // 45
+       value = Math.max(10, 5, 20, 3);       // 20
+
+9. Math.random()
+   • Returns a random decimal number between 0 (inclusive) and 1 (exclusive)
+   • Useful for generating random numbers
+   
+   Example:
+       let value = Math.random();            // 0.5678... (random)
+       
+       // Random number between 0 and 1000
+       value = Math.random() * 1000;
+       
+       // Random integer between 1 and 10
+       value = Math.ceil(Math.random() * 10);
+
+10. Math.pow()
+    • Returns the power of a number
+    • Syntax: Math.pow(base, exponent)
+    
+    Example:
+        let value = Math.pow(2, 3);       // 8 (2^3)
+        value = Math.pow(5, 2);           // 25 (5^2)
+
+Common Use Cases:
+    • Round prices: Math.round(price * 100) / 100
+    • Generate random IDs: Math.random() * 10000
+    • Calculate distances: Math.sqrt(x*x + y*y)
+    • Find min/max values in datasets
+
+===============================================
+CHAPTER 7: STRINGS & STRING METHODS
+===============================================
+
+Strings are sequences of characters used to represent text.
+
+┌─────────────────────────────────────────────┐
+│  STRING BASICS                              │
+└─────────────────────────────────────────────┘
+
+Creating Strings:
+    const fName = "Sudalai";
+    const lName = "Mani";
+    const greeting = 'Hello';
+    const template = `Hi ${fName}`;  // Template literal
+
+┌─────────────────────────────────────────────┐
+│  STRING CONCATENATION                       │
+└─────────────────────────────────────────────┘
+
+1. Using + Operator:
+   
+   Example:
+       const fName = "Sudalai";
+       const lName = "Mani";
+       
+       let fullName = fName + lName;           // "SudalaiMani"
+       fullName = fName + " " + lName;         // "Sudalai Mani"
+
+2. Using += (Append):
+   
+   Example:
+       let name = "Arun";
+       name = name + "kumar";                  // "Arunkumar"
+       
+       // Shorthand
+       name += " Prasadh";                     // "Arunkumar Prasadh"
+
+3. Using concat() Method:
+   
+   Example:
+       let fullName = fName.concat(" ", lName);  // "Sudalai Mani"
+
+┌─────────────────────────────────────────────┐
+│  STRING PROPERTIES                          │
+└─────────────────────────────────────────────┘
+
+1. length Property:
+   • Returns the number of characters in a string
+   
+   Example:
+       const name = "Sudalai";
+       console.log(name.length);              // 7
+
+┌─────────────────────────────────────────────┐
+│  STRING METHODS - CASE CONVERSION           │
+└─────────────────────────────────────────────┘
+
+1. toLowerCase()
+   • Converts all characters to lowercase
+   • Does NOT modify original string
+   
+   Example:
+       const name = "Sudalai";
+       let value = name.toLowerCase();        // "sudalai"
+       console.log(name);                     // "Sudalai" (unchanged)
+
+2. toUpperCase()
+   • Converts all characters to uppercase
+   • Does NOT modify original string
+   
+   Example:
+       let value = name.toUpperCase();        // "SUDALAI"
+
+┌─────────────────────────────────────────────┐
+│  STRING METHODS - ACCESSING CHARACTERS      │
+└─────────────────────────────────────────────┘
+
+1. Bracket Notation [index]:
+   • Access character at specific index
+   • Returns undefined if index doesn't exist
+   
+   Example:
+       const name = "Sudalai";
+       let value = name[2];                   // "d"
+       value = name[0];                       // "S"
+       value = name[500];                     // undefined
+
+2. charAt(index):
+   • Returns character at specified index
+   • Returns empty string if index doesn't exist
+   
+   Example:
+       let value = name.charAt(1);            // "u"
+       value = name.charAt(0);                // "S"
+
+┌─────────────────────────────────────────────┐
+│  STRING METHODS - EXTRACTION                │
+└─────────────────────────────────────────────┘
+
+1. slice(start, end)
+   • Extracts a portion of a string
+   • Parameters: start index (inclusive), end index (exclusive)
+   • Does NOT modify original string
+   
+   Example:
+       const name = "Sudalai";
+       let value = name.slice(0, 3);          // "Sud"
+       value = name.slice(2);                 // "dalai" (from index 2 to end)
+       value = name.slice(-3);                // "lai" (last 3 characters)
+       console.log(name);                     // "Sudalai" (unchanged)
+
+┌─────────────────────────────────────────────┐
+│  STRING METHODS - SPLITTING                 │
+└─────────────────────────────────────────────┘
+
+1. split(separator)
+   • Splits a string into an array of substrings
+   • Separator determines where to split
+   
+   Example:
+       const str = "Hello JavaScript";
+       
+       // Split by space
+       let value = str.split(" ");            // ["Hello", "JavaScript"]
+       
+       // Split into individual characters
+       value = str.split("");                 // ["H","e","l","l","o"," ","J",...]
+       
+       // Split by comma (no comma found, returns whole string)
+       value = str.split(",");                // ["Hello JavaScript"]
+
+┌─────────────────────────────────────────────┐
+│  STRING METHODS - SEARCHING                 │
+└─────────────────────────────────────────────┘
+
+1. includes(searchString, position)
+   • Checks if string contains specified substring
+   • Returns true or false
+   • Optional: specify starting position
+   • Case-sensitive
+   
+   Example:
+       const str = "Hello JavaScript";
+       
+       let value = str.includes("H");         // true
+       value = str.includes("h");             // false (case-sensitive)
+       value = str.includes("H", 0);          // true (search from index 0)
+       value = str.includes("o");             // true
+       value = str.includes("Python");        // false
+
+2. indexOf(searchString)
+   • Returns the index of first occurrence
+   • Returns -1 if not found
+   
+   Example:
+       let index = str.indexOf("Java");       // 6
+       index = str.indexOf("Python");         // -1
+
+3. lastIndexOf(searchString)
+   • Returns the index of last occurrence
+   • Returns -1 if not found
+
+┌─────────────────────────────────────────────┐
+│  STRING METHODS - REPLACEMENT               │
+└─────────────────────────────────────────────┘
+
+1. replace(searchValue, newValue)
+   • Replaces the FIRST occurrence of a value
+   • Does NOT modify original string
+   • Returns new string with replacement
+   
+   Example:
+       const name = "Sudalai";
+       let value = name.replace("Sudalai", "Arul");  // "Arul"
+       console.log(name);                            // "Sudalai" (unchanged)
+       
+       const text = "I love JavaScript. JavaScript is great!";
+       value = text.replace("JavaScript", "JS");     // "I love JS. JavaScript is great!"
+       
+       // To replace all occurrences, use replaceAll()
+       value = text.replaceAll("JavaScript", "JS");  // "I love JS. JS is great!"
+
+┌─────────────────────────────────────────────┐
+│  STRING METHODS - TRIMMING                  │
+└─────────────────────────────────────────────┘
+
+1. trim()
+   • Removes whitespace from both ends
+   
+   Example:
+       const str = "   Hello   ";
+       let value = str.trim();                // "Hello"
+
+2. trimStart() / trimLeft()
+   • Removes whitespace from the beginning
+
+3. trimEnd() / trimRight()
+   • Removes whitespace from the end
+
+┌─────────────────────────────────────────────┐
+│  OTHER USEFUL STRING METHODS                │
+└─────────────────────────────────────────────┘
+
+1. startsWith(searchString)
+   • Checks if string starts with specified substring
+   • Returns true or false
+
+2. endsWith(searchString)
+   • Checks if string ends with specified substring
+
+3. repeat(count)
+   • Repeats the string specified number of times
+   
+   Example:
+       let value = "Ha".repeat(3);            // "HaHaHa"
+
+4. substring(start, end)
+   • Similar to slice() but doesn't accept negative indexes
+
+Important Notes:
+    ✓ String methods DO NOT modify the original string (immutable)
+    ✓ They return a NEW string with the changes
+    ✓ Most methods are case-sensitive
+    ✓ Always store the result in a variable if you need it
+
+Common Use Cases:
+    • Validate user input: includes(), startsWith()
+    • Format names: toUpperCase(), toLowerCase(), trim()
+    • Parse data: split(), slice()
+    • Clean input: trim(), replace()
+    • Search text: includes(), indexOf()
+
+===============================================
+END OF NOTES
+===============================================
