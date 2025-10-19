@@ -25,8 +25,8 @@ This repository is my personal learning journey into Full-Stack Development, sta
 - **DOM manipulation exercises**
 
 **Learning Start Date:** October 2025  
-**Current Focus:** JavaScript Fundamentals & DOM Manipulation  
-**Latest Update:** Enhanced JavaScript notes with professional formatting and additional examples (Oct 18, 2025)
+**Current Focus:** JavaScript Fundamentals & Advanced Concepts  
+**Latest Update:** Added Chapters 8 & 9 - Template Strings and Advanced Array Methods (Oct 19, 2025)
 
 ## 📁 Repository Structure
 
@@ -35,11 +35,16 @@ AI-FullStackGitRepo/
 │
 ├── JavaScript/
 │   ├── Topics/                    # Learning modules organized by concepts
-│   │   ├── notes.txt             # 📚 Comprehensive JavaScript notes (Updated Oct 18, 2025)
+│   │   ├── notes.txt             # 📚 Comprehensive JavaScript notes (Updated Oct 19, 2025)
 │   │   ├── 1-Start/              # Introduction to JavaScript
 │   │   ├── 2-Console/            # Console methods and debugging
 │   │   ├── 3-Variables/          # var, let, const
 │   │   ├── 4-DataTypes/          # Primitive & Non-Primitive types
+│   │   ├── 5-TypeConversion/     # Type casting and conversion
+│   │   ├── 6-Numbers/            # Math operations and Number methods
+│   │   ├── 7-String/             # String methods and manipulation
+│   │   ├── 8-TemplateString/     # ES6 Template literals
+│   │   ├── 9-ArrayMethods/       # Advanced array manipulation
 │   │   └── ...more topics
 │   │
 │   └── JS-Tasks/                 # Practical coding exercises
@@ -92,6 +97,60 @@ Understanding variable declarations:
   - Property: `.length`
 - **Objects**: Key-value pair collections
   - Access via dot notation: `object.property`
+
+#### 5. **Type Conversion**
+- Converting between different data types
+- **String Conversion**: `String()`, `.toString()`
+- **Number Conversion**: `Number()`, `parseInt()`, `parseFloat()`
+- **Boolean Conversion**: `Boolean()` - Truthy vs Falsy values
+- Understanding NaN (Not a Number)
+
+#### 6. **Numbers & Math Operations**
+- Basic arithmetic operators: `+`, `-`, `*`, `/`, `%`, `**`
+- **Math Object Methods**:
+  - `Math.round()`, `Math.ceil()`, `Math.floor()`
+  - `Math.sqrt()`, `Math.abs()`, `Math.pow()`
+  - `Math.min()`, `Math.max()`
+  - `Math.random()` - Random number generation
+  - `Math.PI` - Pi constant
+
+#### 7. **Strings & String Methods**
+- String concatenation and manipulation
+- **String Methods**:
+  - Case conversion: `toLowerCase()`, `toUpperCase()`
+  - Character access: `charAt()`, bracket notation `[]`
+  - Extraction: `slice()`, `substring()`
+  - Searching: `includes()`, `indexOf()`, `lastIndexOf()`
+  - Splitting: `split()`
+  - Replacement: `replace()`, `replaceAll()`
+  - Trimming: `trim()`, `trimStart()`, `trimEnd()`
+- String immutability concept
+
+#### 8. **Template Strings (ES6)** 🆕
+- Modern string syntax using backticks ``
+- **String Interpolation**: Embedding expressions with `${}`
+- Multi-line strings without escape characters
+- Accessing nested object properties
+- **Benefits over traditional concatenation**:
+  - Better readability and maintainability
+  - Natural spacing and formatting
+  - Can include any JavaScript expression
+- Dynamic HTML generation
+
+#### 9. **Advanced Array Methods** 🆕
+- **Array Properties**: `length`, `Array.isArray()`
+- **Accessing Elements**: Index notation, getting last element
+- **Searching Methods**:
+  - `indexOf()` - Find element index
+  - `includes()` - Check element existence
+- **Mutating Methods** (modify original):
+  - `push()`, `pop()` - Add/remove from end
+  - `unshift()`, `shift()` - Add/remove from start
+  - `splice()` - Add, remove, or replace elements
+- **Non-Mutating Methods** (create new array):
+  - `slice()` - Extract portion of array
+- Understanding mutating vs non-mutating methods
+- Performance considerations
 
 ## 🛠️ Practice Tasks
 
@@ -153,8 +212,19 @@ const findLargestNumber = (array) => {
 
 ## 📝 Learning Notes
 
-### Recent Updates (October 18, 2025)
-The `notes.txt` file has been completely revamped with:
+### Recent Updates (October 19, 2025)
+**New Chapters Added to notes.txt:**
+- ✨ **Chapter 8: Template Strings (ES6)** - Modern string interpolation and formatting
+- ✨ **Chapter 9: Advanced Array Methods** - Comprehensive array manipulation guide
+
+The notes now include:
+- 🎯 Comparison between ES5 and ES6 string syntax
+- 📊 Complete guide to mutating vs non-mutating array methods
+- 🔍 Detailed examples with all array search and modification methods
+- 📋 Quick reference tables for easy lookup
+
+### Previous Updates (October 18, 2025)
+The `notes.txt` file was completely revamped with:
 - ✨ Professional formatting with clear chapter divisions
 - 📖 Enhanced explanations and more code examples
 - 🎯 Visual aids using ASCII art and symbols
@@ -186,6 +256,13 @@ The `notes.txt` file has been completely revamped with:
 **Array Methods:**
 - `push()`, `pop()`, `shift()`, `unshift()`
 - `indexOf()`, `includes()`, `slice()`, `splice()`
+- Understanding mutating vs non-mutating methods
+
+**Template Strings (ES6):**
+- Using backticks `` for modern string syntax
+- String interpolation with `${}`
+- Multi-line strings
+- Embedding expressions and nested properties
 
 **Object Access:**
 - Dot notation: `object.property`
@@ -231,9 +308,14 @@ The `notes.txt` file has been completely revamped with:
 | Console Methods | ✅ Complete | Oct 2025 |
 | Variables | ✅ Complete | Oct 2025 |
 | Data Types | ✅ Complete | Oct 2025 |
+| Type Conversion | ✅ Complete | Oct 2025 |
+| Numbers & Math | ✅ Complete | Oct 2025 |
+| Strings & Methods | ✅ Complete | Oct 2025 |
+| Template Strings | ✅ Complete | Oct 19, 2025 |
+| Array Methods | ✅ Complete | Oct 19, 2025 |
 | Basic Tasks | ✅ Complete | Oct 2025 |
 | Advanced Tasks | ✅ Complete | Oct 2025 |
-| Documentation & Notes | ✅ Enhanced | Oct 18, 2025 |
+| Documentation & Notes | ✅ Enhanced | Oct 19, 2025 |
 | DOM Manipulation | 🔄 In Progress | - |
 | Bonus Challenges | 🔄 In Progress | - |
 | Functions & Scope | ⏳ Upcoming | - |
@@ -262,11 +344,13 @@ The `notes.txt` file has been completely revamped with:
 
 ### Immediate Goals
 - [x] ~~Enhance JavaScript learning notes~~ ✅ Completed Oct 18, 2025
+- [x] ~~Add Template Strings chapter~~ ✅ Completed Oct 19, 2025
+- [x] ~~Add Advanced Array Methods chapter~~ ✅ Completed Oct 19, 2025
 - [ ] Complete DOM manipulation exercises
 - [ ] Finish Bonus challenges
 - [ ] Learn Event Handling
-- [ ] Master Array methods (map, filter, reduce)
-- [ ] Add more advanced array method examples
+- [ ] Master functional array methods (map, filter, reduce)
+- [ ] Study Object methods and prototypes
 
 ### Future Topics
 - Functions & Closures
@@ -296,16 +380,32 @@ This project is for educational purposes. Feel free to fork and learn!
 
 ## 📅 Recent Changes
 
+### October 19, 2025
+- 🆕 **Chapter 8: Template Strings (ES6)** - Complete guide to modern string interpolation
+  - String interpolation with `${}`
+  - Multi-line string support
+  - Comparison between ES5 and ES6 syntax
+  - Dynamic HTML generation examples
+- 🆕 **Chapter 9: Advanced Array Methods** - Comprehensive array manipulation
+  - Detailed guide on mutating vs non-mutating methods
+  - Complete coverage of push, pop, shift, unshift, splice, slice
+  - Array searching with indexOf and includes
+  - Performance tips and best practices
+  - Quick reference comparison table
+- 📊 Updated README with all 9 chapters documented
+- 📈 Updated progress tracker with latest completions
+
 ### October 18, 2025
 - ✨ **Major Update:** Completely revamped `notes.txt` with professional formatting
 - 📚 Added comprehensive examples and additional array methods
 - 🔧 Fixed typos and improved grammar throughout documentation
 - 📖 Enhanced explanations for variables, data types, and objects
 - 🎨 Added visual formatting with ASCII art and symbols
+- 📝 Added Chapters 5-7 (Type Conversion, Numbers, Strings)
 
 ### October 17, 2025
 - 📝 Created comprehensive README.md
 - 📊 Added progress tracker and project structure
 - 🔗 Included learning resources and documentation links
 
-*Last Updated: October 18, 2025*
+*Last Updated: October 19, 2025*
