@@ -3,8 +3,8 @@
 ================================================================================
 
 📁 Folder Analysis: JavaScript\Topics\
-Total Folders: 9
-Total Tasks: 45 (5 tasks per folder)
+Total Folders: 13
+Total Tasks: 65 (5 tasks per folder)
 
 ================================================================================
 📂 1-Start
@@ -99,7 +99,7 @@ Task 3: Perform calculations inside template literals
 Task 4: Create HTML templates using template literals
 Task 5: Compare template literals with regular string concatenation
 
-Status: [ ] Completed
+Status: [✅] Completed
 
 
 ================================================================================
@@ -111,17 +111,65 @@ Task 3: Create custom push() and pop() methods
 Task 4: Implement custom shift() and unshift() methods
 Task 5: Create custom includes() method
 
-Status: [ ] Completed
+Status: [✅] Completed
+
+
+================================================================================
+📂 10-Objects
+================================================================================
+Task 1: Create an object with different data types
+Task 2: Access object properties using dot and bracket notation
+Task 3: Add, modify, and delete object properties
+Task 4: Create an object with methods (functions)
+Task 5: Loop through an object's properties
+
+Status: [✅] Completed
+
+
+================================================================================
+📂 11-IfElse
+================================================================================
+Task 1: Write an if-else statement for a simple condition
+Task 2: Use else-if for multiple conditions
+Task 3: Use logical operators (&&, ||) in if statements
+Task 4: Write a simple program to check voting eligibility
+Task 5: Use ternary operator as a shortcut for if-else
+
+Status: [✅] Completed
+
+
+================================================================================
+📂 12-Switch
+================================================================================
+Task 1: Write a switch statement for a simple case
+Task 2: Use default case in a switch statement
+Task 3: Write a program to check the day of the week
+Task 4: Use multiple cases for the same code block
+Task 5: Compare switch statements with if-else
+
+Status: [✅] Completed
+
+
+================================================================================
+📂 13-Functions
+================================================================================
+Task 1: Write a function declaration and call it
+Task 2: Write a function expression and call it
+Task 3: Use arrow functions for shorter syntax
+Task 4: Create a function with default parameters
+Task 5: Write a function that returns a value
+
+Status: [✅] Completed
 
 
 ================================================================================
                             PROGRESS TRACKER
 ================================================================================
 
-Total Topics: 9
-Completed: 9/9
-In Progress: 0/9
-Not Started: 0/9
+Total Topics: 13
+Completed: 13/13
+In Progress: 0/13
+Not Started: 0/13
 
 Overall Progress: [██████████] 100%
 
@@ -139,6 +187,10 @@ Recommended Order:
 7. ✅ 7-String (Text Manipulation)
 8. ✅ 8-TemplateString (Modern Strings)
 9. ✅ 9-ArrayMethods (Array Operations)
+10. ✅ 10-Objects (Key-Value Pairs)
+11. ✅ 11-IfElse (Conditional Logic)
+12. ✅ 12-Switch (Advanced Conditions)
+13. ✅ 13-Functions (Reusable Code)
 
 ================================================================================
                                 NOTES
@@ -159,4 +211,4 @@ Recommended Order:
 
 ================================================================================
 
-Last Updated: October 22, 2025
+Last Updated: November 13, 2025
