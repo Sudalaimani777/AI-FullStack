@@ -498,696 +498,561 @@ JavaScript's built-in Math object provides mathematical functions and constants.
    • Useful for generating random numbers
    
    Example:
-       let value = Math.random();            // 0.5678... (random)
+       let value = Math.random();
+       console.log(value);  // e.g., 0.12345...
        
-       // Random number between 0 and 1000
-       value = Math.random() * 1000;
-       
-       // Random integer between 1 and 10
-       value = Math.ceil(Math.random() * 10);
-
-10. Math.pow()
-    • Returns the power of a number
-    • Syntax: Math.pow(base, exponent)
-    
-    Example:
-        let value = Math.pow(2, 3);       // 8 (2^3)
-        value = Math.pow(5, 2);           // 25 (5^2)
-
-Common Use Cases:
-    • Round prices: Math.round(price * 100) / 100
-    • Generate random IDs: Math.random() * 10000
-    • Calculate distances: Math.sqrt(x*x + y*y)
-    • Find min/max values in datasets
+       // To get a random number within a range (e.g., 1 to 10)
+       value = Math.floor(Math.random() * 10 + 1);
+       console.log(value);  // Random integer between 1 and 10
 
 ===============================================
 CHAPTER 7: STRINGS & STRING METHODS
 ===============================================
 
-Strings are sequences of characters used to represent text.
+Strings are used for storing and manipulating text.
 
 ┌─────────────────────────────────────────────┐
-│  STRING BASICS                              │
+│  STRING CONCATENATION & APPENDING           │
 └─────────────────────────────────────────────┘
 
-Creating Strings:
-    const fName = "Sudalai";
-    const lName = "Mani";
-    const greeting = 'Hello';
-    const template = `Hi ${fName}`;  // Template literal
+1. Concatenation (+)
+   • Joining two or more strings together
+   
+   Example:
+       const firstName = "Sudalai";
+       const lastName = "Mani";
+       let value = firstName + " " + lastName;
+       console.log(value);  // "Sudalai Mani"
+
+2. Appending (+=)
+   • Adding a string to an existing one
+   
+   Example:
+       let message = "Hello";
+       message += " World";
+       console.log(message); // "Hello World"
 
 ┌─────────────────────────────────────────────┐
-│  STRING CONCATENATION                       │
+│  PROPERTIES & METHODS                       │
 └─────────────────────────────────────────────┘
 
-1. Using + Operator:
+1. length
+   • Property that returns the number of characters
    
    Example:
-       const fName = "Sudalai";
-       const lName = "Mani";
-       
-       let fullName = fName + lName;           // "SudalaiMani"
-       fullName = fName + " " + lName;         // "Sudalai Mani"
+       const text = "Hello";
+       console.log(text.length); // 5
 
-2. Using += (Append):
+2. concat()
+   • Method to join strings (alternative to +)
    
    Example:
-       let name = "Arun";
-       name = name + "kumar";                  // "Arunkumar"
-       
-       // Shorthand
-       name += " Prasadh";                     // "Arunkumar Prasadh"
+       const str1 = "Hello";
+       const str2 = "World";
+       console.log(str1.concat(" ", str2)); // "Hello World"
 
-3. Using concat() Method:
+3. toUpperCase() / toLowerCase()
+   • Convert string to upper or lower case
    
    Example:
-       let fullName = fName.concat(" ", lName);  // "Sudalai Mani"
+       const text = "JavaScript";
+       console.log(text.toUpperCase()); // "JAVASCRIPT"
+       console.log(text.toLowerCase()); // "javascript"
 
-┌─────────────────────────────────────────────┐
-│  STRING PROPERTIES                          │
-└─────────────────────────────────────────────┘
-
-1. length Property:
-   • Returns the number of characters in a string
+4. indexOf() / lastIndexOf()
+   • Find the index of a character or substring
+   • indexOf() finds the first occurrence
+   • lastIndexOf() finds the last occurrence
+   • Returns -1 if not found
    
    Example:
-       const name = "Sudalai";
-       console.log(name.length);              // 7
+       const str = "hello world";
+       console.log(str.indexOf('o'));       // 4 (first 'o')
+       console.log(str.lastIndexOf('o'));   // 7 (second 'o')
+       console.log(str.indexOf('z'));       // -1
 
-┌─────────────────────────────────────────────┐
-│  STRING METHODS - CASE CONVERSION           │
-└─────────────────────────────────────────────┘
-
-1. toLowerCase()
-   • Converts all characters to lowercase
-   • Does NOT modify original string
+5. charAt()
+   • Returns the character at a specific index
    
    Example:
-       const name = "Sudalai";
-       let value = name.toLowerCase();        // "sudalai"
-       console.log(name);                     // "Sudalai" (unchanged)
+       const str = "Hello";
+       console.log(str.charAt(0)); // "H"
+       console.log(str.charAt(1)); // "e"
 
-2. toUpperCase()
-   • Converts all characters to uppercase
-   • Does NOT modify original string
+6. substring()
+   • Extracts a part of a string between two indexes
    
    Example:
-       let value = name.toUpperCase();        // "SUDALAI"
+       const str = "JavaScript";
+       console.log(str.substring(0, 4)); // "Java"
 
-┌─────────────────────────────────────────────┐
-│  STRING METHODS - ACCESSING CHARACTERS      │
-└─────────────────────────────────────────────┘
-
-1. Bracket Notation [index]:
-   • Access character at specific index
-   • Returns undefined if index doesn't exist
+7. slice()
+   • Similar to substring(), but can use negative indexes
+   • Negative index starts from the end of the string
    
    Example:
-       const name = "Sudalai";
-       let value = name[2];                   // "d"
-       value = name[0];                       // "S"
-       value = name[500];                     // undefined
+       const str = "JavaScript";
+       console.log(str.slice(0, 4));  // "Java"
+       console.log(str.slice(-6));    // "Script"
 
-2. charAt(index):
-   • Returns character at specified index
-   • Returns empty string if index doesn't exist
-   
-   Example:
-       let value = name.charAt(1);            // "u"
-       value = name.charAt(0);                // "S"
-
-┌─────────────────────────────────────────────┐
-│  STRING METHODS - EXTRACTION                │
-└─────────────────────────────────────────────┘
-
-1. slice(start, end)
-   • Extracts a portion of a string
-   • Parameters: start index (inclusive), end index (exclusive)
-   • Does NOT modify original string
-   
-   Example:
-       const name = "Sudalai";
-       let value = name.slice(0, 3);          // "Sud"
-       value = name.slice(2);                 // "dalai" (from index 2 to end)
-       value = name.slice(-3);                // "lai" (last 3 characters)
-       console.log(name);                     // "Sudalai" (unchanged)
-
-┌─────────────────────────────────────────────┐
-│  STRING METHODS - SPLITTING                 │
-└─────────────────────────────────────────────┘
-
-1. split(separator)
+8. split()
    • Splits a string into an array of substrings
-   • Separator determines where to split
+   • Takes a separator as an argument
    
    Example:
-       const str = "Hello JavaScript";
-       
-       // Split by space
-       let value = str.split(" ");            // ["Hello", "JavaScript"]
-       
-       // Split into individual characters
-       value = str.split("");                 // ["H","e","l","l","o"," ","J",...]
-       
-       // Split by comma (no comma found, returns whole string)
-       value = str.split(",");                // ["Hello JavaScript"]
+       const tags = "web,dev,css,js";
+       console.log(tags.split(',')); // ["web", "dev", "css", "js"]
 
-┌─────────────────────────────────────────────┐
-│  STRING METHODS - SEARCHING                 │
-└─────────────────────────────────────────────┘
-
-1. includes(searchString, position)
-   • Checks if string contains specified substring
-   • Returns true or false
-   • Optional: specify starting position
-   • Case-sensitive
+9. replace()
+   • Replaces a specified value with another value
+   • Only replaces the first match by default
    
    Example:
-       const str = "Hello JavaScript";
-       
-       let value = str.includes("H");         // true
-       value = str.includes("h");             // false (case-sensitive)
-       value = str.includes("H", 0);          // true (search from index 0)
-       value = str.includes("o");             // true
-       value = str.includes("Python");        // false
+       const str = "Hello World";
+       console.log(str.replace("World", "JS")); // "Hello JS"
 
-2. indexOf(searchString)
-   • Returns the index of first occurrence
-   • Returns -1 if not found
-   
-   Example:
-       let index = str.indexOf("Java");       // 6
-       index = str.indexOf("Python");         // -1
-
-3. lastIndexOf(searchString)
-   • Returns the index of last occurrence
-   • Returns -1 if not found
-
-┌─────────────────────────────────────────────┐
-│  STRING METHODS - REPLACEMENT               │
-└─────────────────────────────────────────────┘
-
-1. replace(searchValue, newValue)
-   • Replaces the FIRST occurrence of a value
-   • Does NOT modify original string
-   • Returns new string with replacement
-   
-   Example:
-       const name = "Sudalai";
-       let value = name.replace("Sudalai", "Arul");  // "Arul"
-       console.log(name);                            // "Sudalai" (unchanged)
-       
-       const text = "I love JavaScript. JavaScript is great!";
-       value = text.replace("JavaScript", "JS");     // "I love JS. JavaScript is great!"
-       
-       // To replace all occurrences, use replaceAll()
-       value = text.replaceAll("JavaScript", "JS");  // "I love JS. JS is great!"
-
-┌─────────────────────────────────────────────┐
-│  STRING METHODS - TRIMMING                  │
-└─────────────────────────────────────────────┘
-
-1. trim()
-   • Removes whitespace from both ends
-   
-   Example:
-       const str = "   Hello   ";
-       let value = str.trim();                // "Hello"
-
-2. trimStart() / trimLeft()
-   • Removes whitespace from the beginning
-
-3. trimEnd() / trimRight()
-   • Removes whitespace from the end
-
-┌─────────────────────────────────────────────┐
-│  OTHER USEFUL STRING METHODS                │
-└─────────────────────────────────────────────┘
-
-1. startsWith(searchString)
-   • Checks if string starts with specified substring
-   • Returns true or false
-
-2. endsWith(searchString)
-   • Checks if string ends with specified substring
-
-3. repeat(count)
-   • Repeats the string specified number of times
-   
-   Example:
-       let value = "Ha".repeat(3);            // "HaHaHa"
-
-4. substring(start, end)
-   • Similar to slice() but doesn't accept negative indexes
-
-Important Notes:
-    ✓ String methods DO NOT modify the original string (immutable)
-    ✓ They return a NEW string with the changes
-    ✓ Most methods are case-sensitive
-    ✓ Always store the result in a variable if you need it
-
-Common Use Cases:
-    • Validate user input: includes(), startsWith()
-    • Format names: toUpperCase(), toLowerCase(), trim()
-    • Parse data: split(), slice()
-    • Clean input: trim(), replace()
-    • Search text: includes(), indexOf()
+10. includes()
+    • Checks if a string contains a specified substring
+    • Returns true or false
+    
+    Example:
+        const str = "Hello World";
+        console.log(str.includes("World")); // true
+        console.log(str.includes("Moon"));  // false
 
 ===============================================
-CHAPTER 8: TEMPLATE STRINGS (ES6)
+CHAPTER 8: TEMPLATE STRINGS (TEMPLATE LITERALS)
 ===============================================
 
-Template literals (template strings) are a modern way to work with strings in JavaScript,
-introduced in ES6. They provide better readability and powerful string interpolation features.
+Introduced in ES6, template literals provide an easier way to work with strings, especially for embedding expressions and creating multi-line strings.
 
 ┌─────────────────────────────────────────────┐
-│  TEMPLATE STRING BASICS                     │
+│  SYNTAX                                     │
 └─────────────────────────────────────────────┘
+
+Template literals use backticks (``) instead of single or double quotes.
+
+Example:
+    const message = `This is a template literal.`;
+
+┌─────────────────────────────────────────────┐
+│  FEATURES & ADVANTAGES                      │
+└─────────────────────────────────────────────┘
+
+1. Expression Interpolation
+   • Easily embed variables and expressions directly into a string
+   • Syntax: ${expression}
+   
+   Old Way (Concatenation):
+       const name = "John";
+       const age = 30;
+       const message = "My name is " + name + " and I am " + age + " years old.";
+   
+   New Way (Template Literal):
+       const name = "John";
+       const age = 30;
+       const message = `My name is ${name} and I am ${age} years old.`;
+
+2. Multi-line Strings
+   • Create strings that span multiple lines without using `\n`
+   
+   Old Way:
+       const html = '<ul>\n' +
+                    '  <li>Item 1</li>\n' +
+                    '  <li>Item 2</li>\n' +
+                    '</ul>';
+   
+   New Way:
+       const html = `
+           <ul>
+             <li>Item 1</li>
+             <li>Item 2</li>
+           </ul>
+       `;
+
+3. Tagged Templates (Advanced)
+   • Allows you to parse template literals with a function.
+   
+   Example:
+       function myTag(strings, personExp, ageExp) {
+           const str0 = strings[0]; // "That "
+           const str1 = strings[1]; // " is a "
+           const str2 = strings[2]; // "."
+           
+           const ageStr = ageExp > 99 ? 'centenarian' : 'youngster';
+           
+           return `${str0}${personExp}${str1}${ageStr}${str2}`;
+       }
+       
+       const person = 'Mike';
+       const age = 28;
+       const output = myTag`That ${person} is a ${age}.`;
+       console.log(output); // "That Mike is a youngster."
+
+===============================================
+CHAPTER 9: ARRAY & ARRAY METHODS
+===============================================
+
+Arrays are list-like objects used to store multiple values in a single variable.
+
+┌─────────────────────────────────────────────┐
+│  CREATING ARRAYS                            │
+└─────────────────────────────────────────────┘
+
+1. Array Literal (Most common)
+   const numbers = [1, 2, 3, 4, 5];
+   const fruits = ["Apple", "Banana", "Orange"];
+
+2. Array Constructor
+   const numbers = new Array(1, 2, 3, 4, 5);
+
+┌─────────────────────────────────────────────┐
+│  COMMON ARRAY METHODS                       │
+└─────────────────────────────────────────────┘
+
+1. push()
+   • Adds one or more elements to the END of an array
+   • Returns the new length of the array
+   
+   Example:
+       const fruits = ["Apple", "Banana"];
+       fruits.push("Orange");
+       console.log(fruits); // ["Apple", "Banana", "Orange"]
+
+2. pop()
+   • Removes the LAST element from an array
+   • Returns the removed element
+   
+   Example:
+       const fruits = ["Apple", "Banana", "Orange"];
+       const removed = fruits.pop();
+       console.log(fruits);  // ["Apple", "Banana"]
+       console.log(removed); // "Orange"
+
+3. unshift()
+   • Adds one or more elements to the BEGINNING of an array
+   • Returns the new length of the array
+   
+   Example:
+       const fruits = ["Banana", "Orange"];
+       fruits.unshift("Apple");
+       console.log(fruits); // ["Apple", "Banana", "Orange"]
+
+4. shift()
+   • Removes the FIRST element from an array
+   • Returns the removed element
+   
+   Example:
+       const fruits = ["Apple", "Banana", "Orange"];
+       const removed = fruits.shift();
+       console.log(fruits);  // ["Banana", "Orange"]
+       console.log(removed); // "Apple"
+
+5. indexOf()
+   • Returns the first index at which a given element can be found
+   • Returns -1 if the element is not present
+   
+   Example:
+       const fruits = ["Apple", "Banana", "Orange"];
+       console.log(fruits.indexOf("Banana")); // 1
+       console.log(fruits.indexOf("Grape"));  // -1
+
+6. includes()
+   • Determines whether an array includes a certain value
+   • Returns true or false
+   
+   Example:
+       const fruits = ["Apple", "Banana", "Orange"];
+       console.log(fruits.includes("Banana")); // true
+       console.log(fruits.includes("Grape"));  // false
+
+7. slice()
+   • Returns a shallow copy of a portion of an array into a new array
+   • Does NOT modify the original array
+   
+   Example:
+       const numbers = [1, 2, 3, 4, 5];
+       const subArray = numbers.slice(1, 4); // from index 1 to 3
+       console.log(subArray); // [2, 3, 4]
+       console.log(numbers);  // [1, 2, 3, 4, 5] (original is unchanged)
+
+8. splice()
+   • Changes the contents of an array by removing or replacing existing elements and/or adding new elements
+   • MODIFIES the original array
+   
+   Syntax: splice(start, deleteCount, item1, item2, ...)
+   
+   Example (Removing):
+       const numbers = [1, 2, 3, 4, 5];
+       numbers.splice(2, 2); // remove 2 elements starting from index 2
+       console.log(numbers); // [1, 2, 5]
+   
+   Example (Adding):
+       const numbers = [1, 2, 5];
+       numbers.splice(2, 0, 3, 4); // at index 2, delete 0, add 3 and 4
+       console.log(numbers); // [1, 2, 3, 4, 5]
+
+===============================================
+CHAPTER 10: OBJECTS
+===============================================
+
+Objects are collections of key-value pairs. They are a fundamental building block in JavaScript.
+
+┌─────────────────────────────────────────────┐
+│  OBJECT LITERALS                            │
+└─────────────────────────────────────────────┘
+
+The most common way to create an object.
 
 Syntax:
-    • Use backticks `` instead of quotes "" or ''
-    • Can span multiple lines
-    • Allows string interpolation with ${}
-
-Creating Template Strings:
-    const name = "Sudalaimani";
-    const greeting = `Hello ${name}`;         // "Hello Sudalaimani"
-
-┌─────────────────────────────────────────────┐
-│  OLD WAY (ES5) vs NEW WAY (ES6)            │
-└─────────────────────────────────────────────┘
-
-Example Object:
-    const userData = {
+    const person = {
         name: "Sudalaimani",
         age: 22,
-        job: "Web Developer",
-        city: "Chennai",
-        hobby: [
-            {
-                games: {
-                    indoorGames: "FreeFire",
-                    outdoorGames: "Cricket"
-                }
-            },
-            "Studying"
-        ]
+        isStudent: true,
+        address: {
+            city: "Ettaiyapuram",
+            street: "East Street"
+        },
+        hobbies: ["Playing", "Studying"],
+        // A function inside an object is called a method
+        getFullName: function() {
+            return this.name;
+        }
     };
 
-Without Template String (ES5) - Old Method:
-    ❌ Hard to read and maintain
-    ❌ Multiple + operators needed
-    ❌ Easy to make spacing mistakes
-    
-    console.log("The user name is" + " " + userData.name + " " + 
-                "and his age is " + userData.age);
-    
-    Output: "The user name is Sudalaimani and his age is 22"
-
-With Template String (ES6) - Modern Method:
-    ✅ Clean and readable
-    ✅ No concatenation operators needed
-    ✅ Natural spacing
-    ✅ Can access nested properties easily
-    
-    console.log(`The user name is ${userData.name} and his age is ${userData.age}.
-                 He used to play ${userData.hobby[0].games.indoorGames} a lot`);
-    
-    Output: "The user name is Sudalaimani and his age is 22.
-             He used to play FreeFire a lot"
+Key Characteristics:
+    • Reference Type: Objects are not stored directly in variables; the variable holds a reference (or pointer) to the object's location in memory.
+    • Mutable: You can change, add, or remove properties after the object is created.
 
 ┌─────────────────────────────────────────────┐
-│  STRING INTERPOLATION                       │
+│  ACCESSING PROPERTIES                       │
 └─────────────────────────────────────────────┘
 
-Embedding Expressions:
-    • Use ${expression} to embed any JavaScript expression
-    • Can include variables, calculations, function calls, and object properties
+1. Dot Notation (.)
 
-Examples:
-    1. Variables:
-       const name = "Sudalai";
-       const age = 22;
-       console.log(`My name is ${name}`);              // "My name is Sudalai"
-    
-    2. Calculations:
-       const price = 100;
-       const quantity = 3;
-       console.log(`Total: ${price * quantity}`);      // "Total: 300"
-    
-    3. Expressions:
-       const num = 10;
-       console.log(`Is even: ${num % 2 === 0}`);       // "Is even: true"
-    
-    4. Function Calls:
-       const getName = () => "Sudalaimani";
-       console.log(`Hello ${getName()}`);              // "Hello Sudalaimani"
-    
-    5. Nested Object Properties:
-       console.log(`Game: ${userData.hobby[0].games.indoorGames}`);
-       // Output: "Game: FreeFire"
-    
-    6. Ternary Operators:
-       const age = 22;
-       console.log(`You are ${age >= 18 ? 'adult' : 'minor'}`);
-       // Output: "You are adult"
+   • The easiest and most common way.
+   • Cannot be used if the key is a number or contains special characters/spaces.
+   
+   Example:
+       console.log(person.name);      // "Sudalaimani"
+       console.log(person.address.city); // "Ettaiyapuram"
+
+2. Bracket Notation ([])
+   • More versatile.
+   • Use when the key is stored in a variable or contains spaces/special characters.
+   
+   Example:
+       console.log(person["age"]);         // 22
+       let key = "name";
+       console.log(person[key]);           // "Sudalaimani"
+       // person."City" would be an error, but person["City"] works.
 
 ┌─────────────────────────────────────────────┐
-│  MULTI-LINE STRINGS                         │
+│  MANIPULATING OBJECTS                       │
 └─────────────────────────────────────────────┘
 
-Old Way (ES5):
-    const message = "Line 1\n" +
-                   "Line 2\n" +
-                   "Line 3";
+1. Adding/Updating Properties:
+   person.email = "test@example.com"; // Adds a new property
+   person.age = 23;                     // Updates an existing property
 
-New Way (ES6):
-    const message = `Line 1
-    Line 2
-    Line 3`;
-    
-    // Preserves line breaks naturally!
-
-┌─────────────────────────────────────────────┐
-│  ADVANTAGES OF TEMPLATE STRINGS             │
-└─────────────────────────────────────────────┘
-
-✅ Better Readability
-   • Code is easier to read and understand
-   • Natural string formatting
-
-✅ String Interpolation
-   • Embed variables and expressions directly
-   • No need for concatenation operators
-
-✅ Multi-line Support
-   • Write strings across multiple lines naturally
-   • No need for \n or + operators
-
-✅ Expression Evaluation
-   • Can include any JavaScript expression
-   • Calculations, function calls, conditionals
-
-✅ Reduced Errors
-   • Fewer syntax errors with quotes and spaces
-   • Less concatenation means fewer mistakes
-
-Common Use Cases:
-    • Dynamic HTML generation
-    • Creating formatted messages
-    • Building URLs with parameters
-    • Logging with variables
-    • Creating SQL queries (with caution)
-    • Generating email templates
-
-Example - Dynamic HTML:
-    const user = {name: "Sudalai", age: 22};
-    const html = `
-        <div class="user-card">
-            <h2>${user.name}</h2>
-            <p>Age: ${user.age}</p>
-        </div>
-    `;
-
-Important Notes:
-    ⚠ Use backticks `` not regular quotes
-    ⚠ ${} is used for interpolation, not just $
-    ⚠ Template strings preserve all whitespace and line breaks
+2. Calling Methods:
+   console.log(person.getFullName());   // "Sudalaimani"
 
 ===============================================
-CHAPTER 9: ADVANCED ARRAY METHODS
+CHAPTER 11: CONDITIONAL STATEMENTS (IF/ELSE)
 ===============================================
 
-Comprehensive guide to array manipulation methods in JavaScript.
+Conditional statements control behavior in JavaScript and determine whether or not pieces of code can run.
 
 ┌─────────────────────────────────────────────┐
-│  ARRAY BASICS                               │
+│  IF...ELSE STATEMENT                        │
 └─────────────────────────────────────────────┘
 
-Example Arrays:
-    const fruits = ["🍎", "🍇", "🥭", "🍉", "🍍", "🍒", "🍌", "🍑", "🍐", "🍊"];
-    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+Executes a block of code if a specified condition is true. If the condition is false, another block of code can be executed.
+
+Syntax:
+    if (condition) {
+        // block of code to be executed if the condition is true
+    } else {
+        // block of code to be executed if the condition is false
+    }
+
+Example:
+    let age = 18;
+    if (age >= 18) {
+        console.log("You are an adult.");
+    } else {
+        console.log("You are a minor.");
+    }
 
 ┌─────────────────────────────────────────────┐
-│  ARRAY PROPERTIES                           │
+│  ELSE IF STATEMENT                          │
 └─────────────────────────────────────────────┘
 
-1. length Property:
-   • Returns the number of elements in the array
-   
-   Example:
-       console.log(fruits.length);                    // 10
-       console.log(numbers.length);                   // 10
+Used to specify a new condition to test, if the first condition is false.
+
+Example:
+    const color = "red";
+    if (color === "blue") {
+        console.log("The color is blue");
+    } else if (color === "green") {
+        console.log("The color is green");
+    } else if (color === "red") {
+        console.log("The color is red");
+    } else {
+        console.log("The color is not blue, green, or red");
+    }
 
 ┌─────────────────────────────────────────────┐
-│  CHECKING IF VALUE IS AN ARRAY              │
+│  COMPARISON & LOGICAL OPERATORS             │
 └─────────────────────────────────────────────┘
 
-1. Array.isArray():
-   • Static method to check if a value is an array
-   • Returns true or false
-   
-   Example:
-       console.log(Array.isArray(fruits));           // true
-       console.log(Array.isArray(numbers));          // true
-       
-       const str = "Summa";
-       console.log(Array.isArray(str));              // false
-       
-       const obj = {name: "test"};
-       console.log(Array.isArray(obj));              // false
+Comparison Operators:
+    ==      Equal to (value)
+    ===     Strictly equal to (value and type)
+    !=      Not equal to (value)
+    !==     Strictly not equal to (value and type)
+    >       Greater than
+    <       Less than
+    >=      Greater than or equal to
+    <=      Less than or equal to
 
-   Why use it?
-       • typeof returns "object" for arrays
-       • Array.isArray() is more accurate
+Logical Operators:
+    &&      AND (both conditions must be true)
+    ||      OR (at least one condition must be true)
+    !       NOT (inverts the boolean value)
+
+Example (Logical AND):
+    const a = 10;
+    const b = 10;
+    if (a > 5 && b === 10) {
+        console.log("Both conditions are true.");
+    }
+
+Example (Logical OR):
+    const c = 20;
+    const d = 30;
+    if (c === 20 || d === 25) {
+        console.log("At least one condition is true.");
+    }
+
+===============================================
+CHAPTER 12: SWITCH STATEMENT
+===============================================
+
+The switch statement is used to perform different actions based on different conditions. It's often a more elegant alternative to a long `if...else if...else` chain.
 
 ┌─────────────────────────────────────────────┐
-│  ACCESSING ARRAY ELEMENTS                   │
+│  SYNTAX                                     │
 └─────────────────────────────────────────────┘
 
-1. Using Index []:
-   • Arrays are zero-indexed (start at 0)
-   • Returns undefined if index doesn't exist
-   
-   Example:
-       console.log(fruits[0]);                       // "🍎" (first element)
-       console.log(fruits[9]);                       // "🍊" (last element)
-       console.log(fruits[100]);                     // undefined (doesn't exist)
+    switch(expression) {
+        case value1:
+            // code block
+            break;
+        case value2:
+            // code block
+            break;
+        default:
+            // code block if no case matches
+    }
 
-2. Getting Last Element:
-   • Use length - 1
-   
-   Example:
-       const lastIndex = fruits.length - 1;          // 9
-       console.log(fruits[lastIndex]);               // "🍊"
-       
-       // Or directly:
-       console.log(fruits[fruits.length - 1]);       // "🍊"
+How it works:
+    1. The `expression` is evaluated once.
+    2. The value of the expression is compared with the values of each `case`.
+    3. If there is a match, the associated block of code is executed.
+    4. The `break` keyword stops the execution inside the switch block. Without it, execution would "fall through" to the next case.
+    5. The `default` block is executed if no case matches.
+
+Example:
+    const color = "red";
+    switch(color) {
+        case "blue":
+            console.log("The color is blue");
+            break;
+        case "red":
+            console.log("The color is red");
+            break;
+        default:
+            console.log("Not a valid color");
+    }
+
+Using with Expressions:
+    const age = 20;
+    switch(true) {
+        case age >= 18:
+            console.log("Wow, you are an adult");
+            break;
+        case age < 18:
+            console.log("Sorry, you are not an adult");
+            break;
+        default:
+            console.log("Not a valid age");
+    }
+
+===============================================
+CHAPTER 13: FUNCTIONS
+===============================================
+
+Functions are one of the fundamental building blocks in JavaScript. A function is a reusable set of statements that performs a task or calculates a value.
 
 ┌─────────────────────────────────────────────┐
-│  SEARCHING IN ARRAYS                        │
+│  FUNCTION DECLARATION (OR STATEMENT)        │
 └─────────────────────────────────────────────┘
 
-1. indexOf(element):
-   • Finds the first index of an element
-   • Returns -1 if element not found
-   • Case-sensitive for strings
-   
-   Example:
-       console.log(fruits.indexOf("🍊"));            // 9
-       console.log(fruits.indexOf("🍎"));            // 0
-       console.log(fruits.indexOf("Orange"));        // -1 (not found)
+A function defined with the `function` keyword. These are "hoisted," meaning they can be called before they are defined in the code.
 
-2. includes(element):
-   • Checks if array contains an element
-   • Returns true or false
-   • More readable than indexOf() for existence checks
-   
-   Example:
-       console.log(numbers.includes(3));             // true
-       console.log(numbers.includes(100));           // false
-       
-       console.log(fruits.includes("🍉"));           // true
+Syntax:
+    function functionName(parameter1, parameter2) {
+        // code to be executed
+        return parameter1 + parameter2;
+    }
 
-   Comparison:
-       // Old way:
-       if (fruits.indexOf("🍎") !== -1) { }
-       
-       // New way (better):
-       if (fruits.includes("🍎")) { }
+Example:
+    // Calling the function
+    let result = greet("Mani");
+    console.log(result); // "Hello Mani"
+
+    // Defining the function
+    function greet(user) {
+        return `Hello ${user}`;
+    }
 
 ┌─────────────────────────────────────────────┐
-│  MUTATING METHODS (Modify Original Array)   │
+│  FUNCTION EXPRESSION                        │
 └─────────────────────────────────────────────┘
 
-These methods CHANGE the original array!
+A function created and assigned to a variable. These are not hoisted and cannot be called before they are defined.
 
-1. push(element):
-   • Adds element(s) to the END of array
-   • Returns new length of array
-   
-   Example:
-       const nums = [1, 2, 3];
-       nums.push(4);
-       console.log(nums);                            // [1, 2, 3, 4]
-       
-       nums.push(5, 6, 7);                           // Can add multiple
-       console.log(nums);                            // [1, 2, 3, 4, 5, 6, 7]
+Syntax (Anonymous Function):
+    const variableName = function(parameter1, parameter2) {
+        // code to be executed
+    };
 
-2. pop():
-   • Removes the LAST element from array
-   • Returns the removed element
-   
-   Example:
-       const nums = [1, 2, 3, 4, 5];
-       const removed = nums.pop();
-       console.log(removed);                         // 5
-       console.log(nums);                            // [1, 2, 3, 4]
+Syntax (Arrow Function - ES6):
+    const sum = (a, b) => a + b;
 
-3. unshift(element):
-   • Adds element(s) to the BEGINNING of array
-   • Returns new length of array
-   • Shifts existing elements to higher indexes
-   
-   Example:
-       const nums = [2, 3, 4];
-       nums.unshift(1);
-       console.log(nums);                            // [1, 2, 3, 4]
-       
-       nums.unshift(-1, 0);                          // Can add multiple
-       console.log(nums);                            // [-1, 0, 1, 2, 3, 4]
-
-4. shift():
-   • Removes the FIRST element from array
-   • Returns the removed element
-   • Shifts remaining elements to lower indexes
-   
-   Example:
-       const nums = [1, 2, 3, 4, 5];
-       const removed = nums.shift();
-       console.log(removed);                         // 1
-       console.log(nums);                            // [2, 3, 4, 5]
-
-Summary:
-    push()    → Add to end      🔚➕
-    pop()     → Remove from end 🔚➖
-    unshift() → Add to start    🔜➕
-    shift()   → Remove from start 🔜➖
+Example:
+    // console.log(sum(2, 3)); // Throws an error because it's called before definition
+    const sum = (a, b) => a + b;
+    console.log(sum(20, 30)); // 50
 
 ┌─────────────────────────────────────────────┐
-│  NON-MUTATING METHODS (Create New Array)    │
+│  PARAMETERS & ARGUMENTS                     │
 └─────────────────────────────────────────────┘
 
-These methods DO NOT change the original array!
+    • Parameters are the names listed in the function definition.
+    • Arguments are the real values passed to the function when it is called.
 
-1. slice(start, end):
-   • Extracts a portion of array
-   • Parameters: start index (inclusive), end index (exclusive)
-   • Returns NEW array
-   • Original array remains unchanged
-   
-   Example:
-       const fruits = ["🍎", "🍇", "🥭", "🍉", "🍍"];
-       
-       const sliced = fruits.slice(0, 3);
-       console.log(sliced);                          // ["🍎", "🍇", "🥭"]
-       console.log(fruits);                          // ["🍎", "🍇", "🥭", "🍉", "🍍"] (unchanged)
-       
-       // Copy entire array:
-       const copy = fruits.slice();
-       
-       // Get last 3 elements:
-       const lastThree = fruits.slice(-3);           // ["🥭", "🍉", "🍍"]
+Default Parameters (ES6):
+You can provide default values for parameters.
 
-┌─────────────────────────────────────────────┐
-│  SPLICE METHOD (Mutating & Powerful)        │
-└─────────────────────────────────────────────┘
-
-2. splice(start, deleteCount, ...items):
-   • Most versatile array method
-   • Can ADD, REMOVE, and REPLACE elements
-   • Modifies the ORIGINAL array
-   • Returns array of removed elements
-   
-   Parameters:
-       start       → Index to start changes
-       deleteCount → Number of elements to remove
-       items       → Elements to add (optional)
-
-   Example 1 - Removing Elements:
-       const fruits = ["🍎", "🍇", "🥭", "🍉", "🍍"];
-       
-       const removed = fruits.splice(0, 1);
-       console.log(removed);                         // ["🍎"] (removed)
-       console.log(fruits);                          // ["🍇", "🥭", "🍉", "🍍"] (modified!)
-
-   Example 2 - Adding Elements:
-       const nums = [1, 2, 5, 6];
-       nums.splice(2, 0, 3, 4);                      // Insert 3, 4 at index 2
-       console.log(nums);                            // [1, 2, 3, 4, 5, 6]
-
-   Example 3 - Replacing Elements:
-       const fruits = ["🍎", "🍇", "🥭"];
-       fruits.splice(0, 1, "🍏");                    // Replace first element
-       console.log(fruits);                          // ["🍏", "🍇", "🥭"]
-
-   Example 4 - Remove Multiple:
-       const nums = [1, 2, 3, 4, 5];
-       nums.splice(1, 3);                            // Remove 3 elements starting at index 1
-       console.log(nums);                            // [1, 5]
-
-┌─────────────────────────────────────────────┐
-│  SLICE vs SPLICE                            │
-└─────────────────────────────────────────────┘
-
-slice():
-    ✓ Does NOT modify original array
-    ✓ Returns NEW array with extracted elements
-    ✓ Use for: Creating copies, extracting portions
-    
-    Example: const copy = arr.slice();
-
-splice():
-    ⚠ MODIFIES original array
-    ✓ Returns array of REMOVED elements
-    ✓ Can add, remove, and replace
-    ✓ Use for: Inserting, deleting, replacing elements
-    
-    Example: arr.splice(2, 1, "new");
-
-┌─────────────────────────────────────────────┐
-│  QUICK REFERENCE GUIDE                      │
-└─────────────────────────────────────────────┘
-
-Method          Mutates?    Purpose                      Returns
-------          --------    -------                      -------
-push()          YES ⚠       Add to end                   New length
-pop()           YES ⚠       Remove from end              Removed element
-unshift()       YES ⚠       Add to start                 New length
-shift()         YES ⚠       Remove from start            Removed element
-splice()        YES ⚠       Add/Remove/Replace           Removed elements
-slice()         NO ✓        Extract portion              New array
-indexOf()       NO ✓        Find index                   Index or -1
-includes()      NO ✓        Check existence              true/false
-Array.isArray() NO ✓        Check if array               true/false
-
-Common Patterns:
-    • Add to end: arr.push(item)
-    • Add to start: arr.unshift(item)
-    • Remove last: arr.pop()
-    • Remove first: arr.shift()
-    • Copy array: arr.slice()
-    • Check if array: Array.isArray(arr)
-    • Check if exists: arr.includes(item)
-    • Find position: arr.indexOf(item)
-    • Remove at index: arr.splice(index, 1)
-    • Insert at index: arr.splice(index, 0, item)
-
-Performance Tips:
-    • push() and pop() are faster than unshift() and shift()
-    • unshift() and shift() re-index all elements
-    • Use slice() for non-destructive operations
-    • Use splice() when you need to modify the original
+Example:
+    function add(a, b = 20) {
+        return a + b;
+    }
+    console.log(add(2));      // 22 (uses default b=20)
+    console.log(add(2, 300)); // 302 (overwrites default)
 
 ===============================================
 END OF NOTES
