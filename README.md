@@ -19,16 +19,16 @@
 ## 🎯 About
 
 This repository is my personal learning journey into Full-Stack Development, starting with JavaScript fundamentals. It contains:
-- **9 Comprehensive Learning Chapters** with detailed notes and examples
-- **45 Topic-Specific Practice Tasks** aligned with each chapter (NEW!)
+- **13 Comprehensive Learning Chapters** with detailed notes and examples
+- **65 Topic-Specific Practice Tasks** aligned with each chapter (NEW!)
 - **Structured coding exercises** (Basic, Advanced, Bonus, DOM)
 - **Professional documentation** with enhanced formatting and quick references
 - **Hands-on projects** and real-world applications
 
 **Learning Start Date:** October 2025  
 **Current Focus:** JavaScript Fundamentals & Practical Application  
-**Latest Milestone:** Completed TopicTasks (all 9 chapters) and updated tasksList (Oct 22, 2025)  
-**Completion Status:** 45/45 tasks completed across 9 topics ✅
+**Latest Milestone:** Completed all 13 fundamental chapters and 65 practice tasks (Nov 13, 2025)  
+**Completion Status:** 65/65 tasks completed across 13 topics ✅
 
 ## 📁 Repository Structure
 
@@ -37,7 +37,7 @@ AI-FullStackGitRepo/
 │
 ├── JavaScript/
 │   ├── Topics/                    # Learning modules organized by concepts
-│   │   ├── notes.txt             # 📚 Comprehensive JavaScript notes (9 chapters)
+│   │   ├── notes.txt             # 📚 Comprehensive JavaScript notes (13 chapters)
 │   │   ├── 1-Start/              # Introduction to JavaScript
 │   │   ├── 2-Console/            # Console methods and debugging
 │   │   ├── 3-Variables/          # var, let, const
@@ -46,9 +46,13 @@ AI-FullStackGitRepo/
 │   │   ├── 6-Numbers/            # Math operations and Number methods
 │   │   ├── 7-String/             # String methods and manipulation
 │   │   ├── 8-TemplateString/     # ES6 Template literals
-│   │   └── 9-ArrayMethods/       # Advanced array manipulation
+│   │   ├── 9-ArrayMethods/       # Advanced array manipulation
+│   │   ├── 10-Objects/           # Object literals, methods, and properties
+│   │   ├── 11-IfElse/            # Conditional logic with if/else
+│   │   ├── 12-Switch/            # Switch statements for multi-way branching
+│   │   └── 13-Functions/         # Function declarations, expressions, and arrow functions
 │   │
-│   ├── TopicTasks/ 🆕            # Topic-specific practice exercises (45 total tasks)
+│   ├── TopicTasks/ 🆕            # Topic-specific practice exercises (65 total tasks)
 │   │   ├── tasksList.txt         # 📋 Complete task list with progress tracking
 │   │   ├── 1-Start/              # ✅ Getting Started tasks (5 tasks)
 │   │   ├── 2-Console/            # ✅ Console methods tasks (5 tasks)
@@ -56,9 +60,13 @@ AI-FullStackGitRepo/
 │   │   ├── 4-DataTypes/          # ✅ Data types practice (5 tasks)
 │   │   ├── 5-TypeConversion/     # ✅ Type conversion exercises (5 tasks)
 │   │   ├── 6-Numbers/            # ✅ Number operations tasks (5 tasks)
-│   │   ├── 7-Strings/            # ✅ String manipulation tasks (5 tasks)
+│   │   ├── 7-String/             # ✅ String manipulation tasks (5 tasks)
 │   │   ├── 8-TemplateString/     # ✅ Template literals practice (5 tasks)
-│   │   └── 9-ArrayMethods/       # ✅ Array methods practice (5 tasks)
+│   │   ├── 9-ArrayMethods/       # ✅ Array methods practice (5 tasks)
+│   │   ├── 10-Objects/           # ✅ Object manipulation tasks (5 tasks)
+│   │   ├── 11-IfElse/            # ✅ Conditional logic tasks (5 tasks)
+│   │   ├── 12-Switch/            # ✅ Switch statement tasks (5 tasks)
+│   │   └── 13-Functions/         # ✅ Function-related tasks (5 tasks)
 │   │
 │   └── JS-Tasks/                 # General coding exercises
 │       ├── Basic/                # Foundational exercises (10+ tasks completed)
@@ -165,6 +173,33 @@ Understanding variable declarations:
 - Understanding mutating vs non-mutating methods
 - Performance considerations
 
+#### 10. Objects 🆕
+- **Object Literals**: Creating objects with key-value pairs.
+- **Accessing Properties**: Dot notation (`.`) vs. Bracket notation (`[]`).
+- **Methods**: Functions as object properties.
+- **`this` keyword**: Referring to the current object instance.
+- **Nested Objects**: Objects within objects.
+
+#### 11. Conditional Statements (If/Else) 🆕
+- **`if...else`**: Executing code based on conditions.
+- **`else if`**: Handling multiple conditions.
+- **Comparison Operators**: `==`, `===`, `!=`, `!==`, `>`, `<`.
+- **Logical Operators**: `&&` (AND), `||` (OR), `!` (NOT).
+
+#### 12. Switch Statement 🆕
+- An alternative to long `if...else if` chains.
+- **`case`**: Defines a condition to match.
+- **`break`**: Prevents "fall-through" to the next case.
+- **`default`**: The fallback case if no match is found.
+
+#### 13. Functions 🆕
+- **Function Declaration**: Reusable blocks of code defined with the `function` keyword.
+- **Function Expression**: Assigning a function to a variable.
+- **Arrow Functions (ES6)**: A more concise syntax for writing functions.
+- **Parameters & Arguments**: Passing data into functions.
+- **Default Parameters**: Assigning default values to parameters.
+- **Return Statement**: Outputting a value from a function.
+
 ## 🛠️ Practice Tasks
 
 ### Basic Tasks (Completed)
@@ -228,7 +263,7 @@ const findLargestNumber = (array) => {
 The **TopicTasks** folder contains structured, beginner-friendly exercises aligned with each learning topic. Each folder includes 5 focused tasks that build directly on the concepts learned.
 
 ### Task Structure
-- **Total Tasks**: 45 tasks (5 per topic)
+- **Total Tasks**: 65 tasks (5 per topic)
 - **Format**: Progressive difficulty within each topic
 - **Approach**: Hands-on practice with immediate feedback
 
@@ -290,6 +325,39 @@ The **TopicTasks** folder contains structured, beginner-friendly exercises align
 - HTML template generation
 - Compare with concatenation
 
+#### 9-ArrayMethods (5 Tasks) ✅
+- Custom `indexOf()` implementation
+- Custom `lastIndexOf()` implementation
+- Custom `push()` and `pop()`
+- Custom `shift()` and `unshift()`
+- Custom `includes()`
+
+#### 10-Objects (5 Tasks) ✅
+- Create and access object properties
+- Add, modify, and delete properties
+- Implement object methods
+- Loop through object properties
+
+#### 11-IfElse (5 Tasks) ✅
+- `if-else` for simple conditions
+- `else-if` for multiple conditions
+- Logical operators (`&&`, `||`)
+- Voting eligibility checker
+- Ternary operator practice
+
+#### 12-Switch (5 Tasks) ✅
+- Simple `switch` statement
+- `default` case usage
+- Day of the week program
+- Multi-case blocks
+- `switch` vs. `if-else` comparison
+
+#### 13-Functions (5 Tasks) ✅
+- Function declarations and expressions
+- Arrow function syntax
+- Default parameters
+- Functions with return values
+
 **Example from TopicTasks:**
 ```javascript
 // Task 2: String interpolation with variables
@@ -309,11 +377,11 @@ console.log(result);  // Output: "The addition of 7 and 10 is 17"
 
 The `tasksList.txt` file provides:
 - ✅ Complete task descriptions for each topic
-- 📊 Progress tracker (8/9 topics completed)
+- 📊 Progress tracker (13/13 topics completed)
 - 📝 Task guidelines and learning path
 - 🎯 Recommended learning order
 
-**Progress**: 8/8 current topics completed (Chapter 9 tasks pending)
+**Progress**: 13/13 topics completed. All 65 fundamental tasks are done!
 
 ### Benefits of TopicTasks
 - 🎯 **Focused Practice**: Each task targets specific concepts
@@ -324,7 +392,19 @@ The `tasksList.txt` file provides:
 
 ## 📝 Learning Notes
 
-### Recent Updates (October 19, 2025)
+### Recent Updates (November 13, 2025)
+**New Chapters Added to notes.txt:**
+- ✨ **Chapter 10: Objects** - In-depth look at object literals, methods, and properties.
+- ✨ **Chapter 11: Conditional Statements (If/Else)** - Mastering conditional logic.
+- ✨ **Chapter 12: Switch Statement** - Advanced conditional branching.
+- ✨ **Chapter 13: Functions** - Declarations, expressions, and arrow functions.
+
+The notes now include:
+- 🎯 Detailed explanations of function hoisting, expressions vs. declarations.
+- 📊 Clear examples for `if/else`, `switch`, and logical operators.
+- 🔍 In-depth guide to object manipulation and the `this` keyword.
+
+### Previous Updates (October 19, 2025)
 **New Chapters Added to notes.txt:**
 - ✨ **Chapter 8: Template Strings (ES6)** - Modern string interpolation and formatting
 - ✨ **Chapter 9: Advanced Array Methods** - Comprehensive array manipulation guide
@@ -334,15 +414,6 @@ The notes now include:
 - 📊 Complete guide to mutating vs non-mutating array methods
 - 🔍 Detailed examples with all array search and modification methods
 - 📋 Quick reference tables for easy lookup
-
-### Previous Updates (October 18, 2025)
-The `notes.txt` file was completely revamped with:
-- ✨ Professional formatting with clear chapter divisions
-- 📖 Enhanced explanations and more code examples
-- 🎯 Visual aids using ASCII art and symbols
-- 📚 Additional content on array methods and object manipulation
-- 🔍 Added `typeof` operator section
-- ✅ Fixed typos and improved grammar throughout
 
 ### Key Concepts Covered
 
@@ -425,10 +496,14 @@ The `notes.txt` file was completely revamped with:
 | Strings & Methods | ✅ Complete | Oct 2025 |
 | Template Strings | ✅ Complete | Oct 19, 2025 |
 | Array Methods | ✅ Complete | Oct 19, 2025 |
+| Objects | ✅ Complete | Nov 13, 2025 |
+| If/Else Statements | ✅ Complete | Nov 13, 2025 |
+| Switch Statement | ✅ Complete | Nov 13, 2025 |
+| Functions | ✅ Complete | Nov 13, 2025 |
 | Basic Tasks | ✅ Complete | Oct 2025 |
 | Advanced Tasks | ✅ Complete | Oct 2025 |
-| **TopicTasks (All Chapters)** | ✅ **Complete** | **Oct 22, 2025** |
-| Documentation & Notes | ✅ Enhanced | Oct 19, 2025 |
+| **TopicTasks (All Chapters)** | ✅ **Complete** | **Nov 13, 2025** |
+| Documentation & Notes | ✅ Enhanced | Nov 13, 2025 |
 | DOM Manipulation | 🔄 In Progress | - |
 | Bonus Challenges | 🔄 In Progress | - |
 | Functions & Scope | ⏳ Upcoming | - |
@@ -460,7 +535,8 @@ The `notes.txt` file was completely revamped with:
 - [x] ~~Add Template Strings chapter~~ ✅ Completed Oct 19, 2025
 - [x] ~~Add Advanced Array Methods chapter~~ ✅ Completed Oct 19, 2025
 - [x] ~~Create TopicTasks folder with structured exercises~~ ✅ Completed Oct 21, 2025
-- [ ] Complete remaining TopicTasks (Chapter 9)
+- [x] ~~Complete remaining TopicTasks (Chapter 9)~~ ✅ Completed Oct 22, 2025
+- [x] ~~Complete TopicTasks for Chapters 10-13~~ ✅ Completed Nov 13, 2025
 - [ ] Complete DOM manipulation exercises
 - [ ] Finish Bonus challenges
 - [ ] Learn Event Handling
@@ -495,21 +571,19 @@ This project is for educational purposes. Feel free to fork and learn!
 
 ## 📅 Recent Changes
 
-### October 21, 2025 🎉
-- 🆕 **Added TopicTasks Folder** - Structured practice exercises for hands-on learning
-  - 📁 Created 8 topic folders with completed exercises
-  - ✅ 40 tasks completed across Chapters 1-8
-  - 📋 Added comprehensive tasksList.txt with progress tracking
-  - 🎯 Each topic includes 5 focused practice tasks
-  - 💡 Tasks build directly on concepts from each chapter
-  - 📝 Includes practical examples like:
-    - String interpolation with template literals
-    - Variable declaration and re-assignment
-    - Type conversion programs
-    - Calculator implementations
-    - HTML template generation
-- 📊 Updated repository structure in README
-- 📈 Added detailed TopicTasks section with task breakdown
+### November 13, 2025 🎉
+- ✅ **JavaScript Fundamentals Mastered!** - All 13 core topics and 65 practice tasks are now complete.
+  - 📚 Added Chapters 10-13 to `notes.txt`: Objects, If/Else, Switch, and Functions.
+  - 🛠️ Completed all 20 new practice tasks for these chapters in the `TopicTasks` folder.
+  - 📊 Updated `tasksList.txt` to reflect 100% completion.
+  - 🚀 Updated this README with the latest progress, structure, and learning milestones.
+
+### October 22, 2025 ✅
+- ✅ **Completed TopicTasks** - All 9 topic practice tasks finished
+  - 📁 Confirmed all 9 topic folders have the 5 tasks completed (45 tasks total)
+  - 📋 Updated `TopicTasks/tasksList.txt` to mark progress complete
+  - 📈 Updated repository stats and progress tracker
+  - 🧪 Verified example scripts in `9-ArrayMethods` include custom method implementations and tests
 
 ### October 21, 2025 🎉
 - 🆕 **Added TopicTasks Folder** - Structured practice exercises for hands-on learning
@@ -530,9 +604,10 @@ This project is for educational purposes. Feel free to fork and learn!
 ### October 22, 2025 ✅
 - ✅ **Completed TopicTasks** - All 9 topic practice tasks finished
   - 📁 Confirmed all 9 topic folders have the 5 tasks completed (45 tasks total)
-  - � Updated `TopicTasks/tasksList.txt` to mark progress complete
+  - 📋 Updated `TopicTasks/tasksList.txt` to mark progress complete
   - 📈 Updated repository stats and progress tracker
   - 🧪 Verified example scripts in `9-ArrayMethods` include custom method implementations and tests
+
 ### October 18, 2025
 - ✨ **Major Update:** Completely revamped `notes.txt` with professional formatting
 - 📚 Added comprehensive examples and additional array methods
@@ -550,15 +625,15 @@ This project is for educational purposes. Feel free to fork and learn!
 
 ## 📊 Repository Statistics
 
-**Learning Journey Duration:** 4+ days (Oct 17 - Oct 21, 2025)  
-**Total Chapters:** 9 comprehensive chapters  
-**Total Practice Tasks:** 45+ tasks (40 completed in TopicTasks)  
-**Lines of Documentation:** 1000+ lines in notes.txt  
-**Code Examples:** 150+ practical examples  
-**Completion Rate:** 89% (40/45 TopicTasks completed)  
+**Learning Journey Duration:** 1 month (Oct 17 - Nov 13, 2025)  
+**Total Chapters:** 13 comprehensive chapters  
+**Total Practice Tasks:** 65+ tasks (65 completed in TopicTasks)  
+**Lines of Documentation:** 1500+ lines in notes.txt  
+**Code Examples:** 200+ practical examples  
+**Completion Rate:** 100% (65/65 TopicTasks completed)  
 
 ### Task Distribution:
-- 📚 **TopicTasks**: 45 structured exercises (40 completed)
+- 📚 **TopicTasks**: 65 structured exercises (65 completed)
 - 🎯 **Basic Tasks**: 10+ completed
 - 🧠 **Advanced Tasks**: 5+ completed
 - 🎁 **Bonus Tasks**: In progress
