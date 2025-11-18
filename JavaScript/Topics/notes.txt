@@ -1,6 +1,6 @@
 ===============================================
     JAVASCRIPT LEARNING NOTES
-    Last Updated: October 18, 2025
+    Last Updated: November 18, 2025
 ===============================================
 
 What is Programming?
@@ -1053,6 +1053,175 @@ Example:
     }
     console.log(add(2));      // 22 (uses default b=20)
     console.log(add(2, 300)); // 302 (overwrites default)
+
+===============================================
+CHAPTER 14: DOM (DOCUMENT OBJECT MODEL)
+===============================================
+
+What is the DOM?
+    • DOM stands for Document Object Model
+    • It represents the HTML document as a tree of objects
+    • Each HTML element becomes an object that can be manipulated with JavaScript
+    • The DOM allows JavaScript to dynamically change HTML content, structure, and styles
+
+┌─────────────────────────────────────────────┐
+│  THE DOCUMENT OBJECT                        │
+└─────────────────────────────────────────────┘
+
+The `document` object is a built-in JavaScript object that represents the entire HTML page.
+
+Key Point:
+    • `document` is a reserved keyword in JavaScript
+    • You cannot create a variable named `document`
+    • It provides access to all HTML elements and their properties
+
+Example:
+    const val = document;
+    console.log(val); // Prints the entire HTML document object
+
+┌─────────────────────────────────────────────┐
+│  DOCUMENT PROPERTIES                        │
+└─────────────────────────────────────────────┘
+
+The document object has many useful properties:
+
+1. document.all
+   • Returns an HTMLCollection of all elements in the document
+   • Includes every single HTML element
+   
+   Example:
+       console.log(document.all);
+       console.log(document.all[0]); // First element (usually <html>)
+       console.log(document.all.length); // Total number of elements
+
+2. document.doctype
+   • Returns the Document Type Declaration (<!DOCTYPE>)
+   • Shows the HTML version being used
+   
+   Example:
+       console.log(document.doctype); // <!DOCTYPE html>
+
+3. document.domain
+   • Returns the domain name of the document server
+   • Useful for security and cross-origin checks
+   
+   Example:
+       console.log(document.domain); // e.g., "localhost" or "example.com"
+
+4. document.URL
+   • Returns the complete URL of the current document
+   • Includes protocol, domain, and path
+   
+   Example:
+       console.log(document.URL); // e.g., "http://localhost:5500/index.html"
+
+5. document.body
+   • Returns the <body> element of the document
+   • Most commonly used for DOM manipulation
+   
+   Example:
+       console.log(document.body); // Prints the entire <body> element
+
+6. Other Useful Properties:
+   • document.head - Returns the <head> element
+   • document.title - Returns or sets the document's title
+   • document.forms - Returns all <form> elements
+   • document.images - Returns all <img> elements
+   • document.links - Returns all <a> elements with href attribute
+   • document.scripts - Returns all <script> elements
+
+┌─────────────────────────────────────────────┐
+│  WHY USE THE DOM?                           │
+└─────────────────────────────────────────────┘
+
+The DOM enables JavaScript to:
+    1. ✅ Create dynamic HTML elements
+    2. ✅ Modify existing HTML elements and attributes
+    3. ✅ Change CSS styles dynamically
+    4. ✅ Add or remove HTML elements from the page
+    5. ✅ Create new events and event handlers
+    6. ✅ React to existing events (clicks, keypresses, etc.)
+
+┌─────────────────────────────────────────────┐
+│  DOM TREE STRUCTURE                         │
+└─────────────────────────────────────────────┘
+
+The HTML DOM is structured as a tree of objects:
+
+    Document
+       │
+       └─── <html>
+               │
+               ├─── <head>
+               │      ├─── <title>
+               │      └─── <meta>
+               │
+               └─── <body>
+                      ├─── <div>
+                      ├─── <p>
+                      └─── <script>
+
+Each node in the tree is an object that can be accessed and modified.
+
+┌─────────────────────────────────────────────┐
+│  ACCESSING ELEMENTS (BASICS)                │
+└─────────────────────────────────────────────┘
+
+Common methods to select/access HTML elements:
+
+1. getElementById()
+   • Selects an element by its ID attribute
+   • Returns a single element
+   
+   Example:
+       const element = document.getElementById('myId');
+
+2. getElementsByClassName()
+   • Selects all elements with a specific class name
+   • Returns an HTMLCollection (array-like)
+   
+   Example:
+       const elements = document.getElementsByClassName('myClass');
+
+3. getElementsByTagName()
+   • Selects all elements with a specific tag name
+   • Returns an HTMLCollection
+   
+   Example:
+       const paragraphs = document.getElementsByTagName('p');
+
+4. querySelector()
+   • Selects the first element that matches a CSS selector
+   • Returns a single element
+   
+   Example:
+       const element = document.querySelector('.myClass');
+
+5. querySelectorAll()
+   • Selects all elements that match a CSS selector
+   • Returns a NodeList
+   
+   Example:
+       const elements = document.querySelectorAll('div.container');
+
+┌─────────────────────────────────────────────┐
+│  PRACTICAL EXAMPLE                          │
+└─────────────────────────────────────────────┘
+
+Basic DOM exploration:
+    const val = document;
+    
+    console.log(val.all);      // All HTML elements
+    console.log(val.doctype);  // Document type
+    console.log(val.domain);   // Domain name
+    console.log(val.URL);      // Complete URL
+    console.log(val.body);     // Body element
+
+Next Steps:
+    • Learn to select specific elements
+    • Modify element content and styles
+    • Create and remove elements dynamically
+    • Handle user events (clicks, inputs, etc.)
 
 ===============================================
 END OF NOTES
