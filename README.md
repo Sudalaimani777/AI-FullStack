@@ -19,16 +19,17 @@
 ## 🎯 About
 
 This repository is my personal learning journey into Full-Stack Development, starting with JavaScript fundamentals. It contains:
-- **13 Comprehensive Learning Chapters** with detailed notes and examples
-- **65 Topic-Specific Practice Tasks** aligned with each chapter (NEW!)
-- **Structured coding exercises** (Basic, Advanced, Bonus, DOM)
+- **14 Comprehensive Learning Chapters** with detailed notes and examples
+- **65 Topic-Specific Practice Tasks** aligned with each chapter
+- **Structured coding exercises** (Basic, Advanced, Bonus)
+- **Real-world projects** including a To-Do App
 - **Professional documentation** with enhanced formatting and quick references
-- **Hands-on projects** and real-world applications
+- **Hands-on DOM manipulation** and event handling
 
 **Learning Start Date:** October 2025  
-**Current Focus:** JavaScript Fundamentals & Practical Application  
-**Latest Milestone:** Completed all 13 fundamental chapters and 65 practice tasks (Nov 13, 2025)  
-**Completion Status:** 65/65 tasks completed across 13 topics ✅
+**Current Focus:** DOM Manipulation & Interactive Web Applications  
+**Latest Milestone:** Reorganized project structure and started DOM chapter (Nov 18, 2025)  
+**Completion Status:** 65/65 TopicTasks completed across 13 topics ✅
 
 ## 📁 Repository Structure
 
@@ -36,23 +37,25 @@ This repository is my personal learning journey into Full-Stack Development, sta
 AI-FullStackGitRepo/
 │
 ├── JavaScript/
-│   ├── Topics/                    # Learning modules organized by concepts
-│   │   ├── notes.txt             # 📚 Comprehensive JavaScript notes (13 chapters)
-│   │   ├── 1-Start/              # Introduction to JavaScript
-│   │   ├── 2-Console/            # Console methods and debugging
-│   │   ├── 3-Variables/          # var, let, const
-│   │   ├── 4-DataTypes/          # Primitive & Non-Primitive types
-│   │   ├── 5-TypeConversion/     # Type casting and conversion
-│   │   ├── 6-Numbers/            # Math operations and Number methods
-│   │   ├── 7-String/             # String methods and manipulation
-│   │   ├── 8-TemplateString/     # ES6 Template literals
-│   │   ├── 9-ArrayMethods/       # Advanced array manipulation
-│   │   ├── 10-Objects/           # Object literals, methods, and properties
-│   │   ├── 11-IfElse/            # Conditional logic with if/else
-│   │   ├── 12-Switch/            # Switch statements for multi-way branching
-│   │   └── 13-Functions/         # Function declarations, expressions, and arrow functions
-│   │
-│   ├── TopicTasks/ 🆕            # Topic-specific practice exercises (65 total tasks)
+│   └── Topics/                    # Learning modules organized by concepts
+│       ├── notes.txt             # 📚 Comprehensive JavaScript notes (14 chapters)
+│       ├── 1-Start/              # Introduction to JavaScript
+│       ├── 2-Console/            # Console methods and debugging
+│       ├── 3-Variables/          # var, let, const
+│       ├── 4-DataTypes/          # Primitive & Non-Primitive types
+│       ├── 5-TypeConversion/     # Type casting and conversion
+│       ├── 6-Numbers/            # Math operations and Number methods
+│       ├── 7-String/             # String methods and manipulation
+│       ├── 8-TemplateString/     # ES6 Template literals
+│       ├── 9-ArrayMethods/       # Advanced array manipulation
+│       ├── 10-Objects/           # Object literals, methods, and properties
+│       ├── 11-IfElse/            # Conditional logic with if/else
+│       ├── 12-Switch/            # Switch statements for multi-way branching
+│       ├── 13-Functions/         # Function declarations, expressions, and arrow functions
+│       └── 14-DOM/               # 🆕 Document Object Model manipulation
+│
+├── Tasks/                         # All practice exercises and projects
+│   ├── TopicTasks/               # Topic-specific practice exercises (65 total tasks)
 │   │   ├── tasksList.txt         # 📋 Complete task list with progress tracking
 │   │   ├── 1-Start/              # ✅ Getting Started tasks (5 tasks)
 │   │   ├── 2-Console/            # ✅ Console methods tasks (5 tasks)
@@ -60,7 +63,7 @@ AI-FullStackGitRepo/
 │   │   ├── 4-DataTypes/          # ✅ Data types practice (5 tasks)
 │   │   ├── 5-TypeConversion/     # ✅ Type conversion exercises (5 tasks)
 │   │   ├── 6-Numbers/            # ✅ Number operations tasks (5 tasks)
-│   │   ├── 7-String/             # ✅ String manipulation tasks (5 tasks)
+│   │   ├── 7-Strings/            # ✅ String manipulation tasks (5 tasks)
 │   │   ├── 8-TemplateString/     # ✅ Template literals practice (5 tasks)
 │   │   ├── 9-ArrayMethods/       # ✅ Array methods practice (5 tasks)
 │   │   ├── 10-Objects/           # ✅ Object manipulation tasks (5 tasks)
@@ -68,11 +71,13 @@ AI-FullStackGitRepo/
 │   │   ├── 12-Switch/            # ✅ Switch statement tasks (5 tasks)
 │   │   └── 13-Functions/         # ✅ Function-related tasks (5 tasks)
 │   │
-│   └── JS-Tasks/                 # General coding exercises
-│       ├── Basic/                # Foundational exercises (10+ tasks completed)
-│       ├── Advanced/             # Complex problem-solving (algorithms & logic)
-│       ├── Bonus/                # Additional challenges
-│       └── DOM/                  # DOM manipulation tasks
+│   ├── JS-Tasks/                 # General coding exercises
+│   │   ├── Basic/                # ✅ Foundational exercises (10+ tasks)
+│   │   ├── Advanced/             # ✅ Complex problem-solving (6+ tasks)
+│   │   └── Bonus/                # 🔄 Additional challenges
+│   │
+│   └── Projects/                 # Real-world applications
+│       └── To-do_App/            # 🔄 Task list application with DOM manipulation
 │
 └── README.md                     # This file
 ```
@@ -200,6 +205,14 @@ Understanding variable declarations:
 - **Default Parameters**: Assigning default values to parameters.
 - **Return Statement**: Outputting a value from a function.
 
+#### 14. **DOM Manipulation** 🆕
+- **Document Object Model**: Understanding the HTML DOM tree structure.
+- **Selecting Elements**: Using `document` methods to access HTML elements.
+- **Document Properties**: Accessing `document.all`, `document.body`, `document.URL`, etc.
+- **Dynamic HTML**: Creating, modifying, and removing elements.
+- **Event Handling**: Responding to user interactions.
+- **CSS Manipulation**: Changing styles dynamically.
+
 ## 🛠️ Practice Tasks
 
 ### Basic Tasks (Completed)
@@ -208,6 +221,10 @@ Understanding variable declarations:
 3. ✅ Perform arithmetic operations (addition, subtraction, multiplication, division)
 4. ✅ Type conversion (String ↔ Number)
 5. ✅ Create and display object with personal details
+6. ✅ Array manipulation with fruits
+7. ✅ Greeting function with user input
+8. ✅ Number validation (positive, negative, zero)
+9. ✅ Day of the week using switch statement
 
 **Example from Basic Tasks:**
 ```javascript
@@ -228,6 +245,8 @@ const stringToNumber = () => {
 2. ✅ Find largest number in an array
 3. ✅ Custom `myMap()` function (Array.map implementation)
 4. ✅ Palindrome checker
+5. ✅ Vowel counter (using loops and regex)
+6. ✅ Age validator with ternary operators
 
 **Example from Advanced Tasks:**
 ```javascript
@@ -253,10 +272,17 @@ const findLargestNumber = (array) => {
 ```
 
 ### Bonus Tasks
-🔄 Additional challenges and complex problems
+🔄 Additional challenges and complex problems (In Progress)
 
-### DOM Tasks
-🔄 Document Object Model manipulation exercises
+### Projects
+
+#### To-Do App 🔄
+A task list application demonstrating:
+- DOM manipulation techniques
+- Event handling (add, delete, clear tasks)
+- Dynamic HTML element creation
+- CSS frameworks integration (Materialize CSS)
+- jQuery for simplified DOM operations
 
 ## 🎯 Topic-Specific Practice Tasks (NEW!)
 
@@ -392,7 +418,14 @@ The `tasksList.txt` file provides:
 
 ## 📝 Learning Notes
 
-### Recent Updates (November 13, 2025)
+### Recent Updates (November 18, 2025)
+**Project Restructuring:**
+- 🗂️ **Major Folder Reorganization** - Created dedicated `Tasks/` folder for better organization.
+- 📁 Moved `TopicTasks/`, `JS-Tasks/`, and `Projects/` under the new `Tasks/` directory.
+- ✨ **Chapter 14: DOM** - Started Document Object Model manipulation.
+- 🎯 Cleaner separation between learning materials (`JavaScript/Topics/`) and practice exercises (`Tasks/`).
+
+### Previous Updates (November 13, 2025)
 **New Chapters Added to notes.txt:**
 - ✨ **Chapter 10: Objects** - In-depth look at object literals, methods, and properties.
 - ✨ **Chapter 11: Conditional Statements (If/Else)** - Mastering conditional logic.
@@ -470,9 +503,14 @@ The notes now include:
    cd AI-FullStack
    ```
 
-2. **Navigate to any topic:**
+2. **Navigate to learning topics:**
    ```bash
    cd JavaScript/Topics/1-Start
+   ```
+
+3. **Or navigate to practice tasks:**
+   ```bash
+   cd Tasks/TopicTasks/1-Start
    ```
 
 3. **Open the HTML file:**
@@ -500,11 +538,12 @@ The notes now include:
 | If/Else Statements | ✅ Complete | Nov 13, 2025 |
 | Switch Statement | ✅ Complete | Nov 13, 2025 |
 | Functions | ✅ Complete | Nov 13, 2025 |
+| DOM Manipulation | 🔄 In Progress | Nov 18, 2025 |
 | Basic Tasks | ✅ Complete | Oct 2025 |
 | Advanced Tasks | ✅ Complete | Oct 2025 |
 | **TopicTasks (All Chapters)** | ✅ **Complete** | **Nov 13, 2025** |
-| Documentation & Notes | ✅ Enhanced | Nov 13, 2025 |
-| DOM Manipulation | 🔄 In Progress | - |
+| Documentation & Notes | ✅ Enhanced | Nov 18, 2025 |
+| To-Do App Project | 🔄 In Progress | Nov 18, 2025 |
 | Bonus Challenges | 🔄 In Progress | - |
 | Functions & Scope | ⏳ Upcoming | - |
 | Async/Promises | ⏳ Upcoming | - |
@@ -537,9 +576,12 @@ The notes now include:
 - [x] ~~Create TopicTasks folder with structured exercises~~ ✅ Completed Oct 21, 2025
 - [x] ~~Complete remaining TopicTasks (Chapter 9)~~ ✅ Completed Oct 22, 2025
 - [x] ~~Complete TopicTasks for Chapters 10-13~~ ✅ Completed Nov 13, 2025
+- [x] ~~Reorganize project structure~~ ✅ Completed Nov 18, 2025
+- [x] ~~Start DOM chapter~~ ✅ Started Nov 18, 2025
 - [ ] Complete DOM manipulation exercises
+- [ ] Complete To-Do App project
 - [ ] Finish Bonus challenges
-- [ ] Learn Event Handling
+- [ ] Learn Event Handling (click, keyboard, mouse events)
 - [ ] Master functional array methods (map, filter, reduce)
 - [ ] Study Object methods and prototypes
 
@@ -570,6 +612,15 @@ This project is for educational purposes. Feel free to fork and learn!
 **Note:** This repository is actively maintained and updated as I progress through my Full-Stack development journey. Check back regularly for new content and exercises!
 
 ## 📅 Recent Changes
+
+### November 18, 2025 🗂️
+- 🏗️ **Major Project Restructuring** - Reorganized folder structure for better clarity and scalability.
+  - 📁 Created new `Tasks/` directory to house all practice exercises and projects.
+  - 🔄 Moved `TopicTasks/`, `JS-Tasks/`, and `Projects/` folders under `Tasks/`.
+  - 📚 Added **Chapter 14: DOM** to `JavaScript/Topics/` - Started Document Object Model learning.
+  - 🎯 Clear separation: `JavaScript/Topics/` for learning, `Tasks/` for practice.
+  - 🆕 Added To-Do App project showcasing DOM manipulation and event handling.
+  - 📊 Updated README.md to reflect new structure and current progress.
 
 ### November 13, 2025 🎉
 - ✅ **JavaScript Fundamentals Mastered!** - All 13 core topics and 65 practice tasks are now complete.
@@ -625,9 +676,9 @@ This project is for educational purposes. Feel free to fork and learn!
 
 ## 📊 Repository Statistics
 
-**Learning Journey Duration:** 1 month (Oct 17 - Nov 13, 2025)  
-**Total Chapters:** 13 comprehensive chapters  
-**Total Practice Tasks:** 65+ tasks (65 completed in TopicTasks)  
+**Learning Journey Duration:** 1+ month (Oct 17 - Nov 18, 2025)  
+**Total Chapters:** 14 comprehensive chapters  
+**Total Practice Tasks:** 80+ tasks across all categories  
 **Lines of Documentation:** 1500+ lines in notes.txt  
 **Code Examples:** 200+ practical examples  
 **Completion Rate:** 100% (65/65 TopicTasks completed)  
@@ -635,8 +686,8 @@ This project is for educational purposes. Feel free to fork and learn!
 ### Task Distribution:
 - 📚 **TopicTasks**: 65 structured exercises (65 completed)
 - 🎯 **Basic Tasks**: 10+ completed
-- 🧠 **Advanced Tasks**: 5+ completed
+- 🧠 **Advanced Tasks**: 6+ completed
 - 🎁 **Bonus Tasks**: In progress
-- 🌐 **DOM Tasks**: In progress
+- 🚀 **Projects**: 1 in progress (To-Do App)
 
-*Last Updated: October 22, 2025*
+*Last Updated: November 18, 2025*
