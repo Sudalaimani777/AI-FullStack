@@ -29,6 +29,7 @@ This repository is my personal learning journey into Full-Stack Development, sta
 **Learning Start Date:** October 2025  
 **Current Focus:** DOM Manipulation & Interactive Web Applications  
 **Latest Milestone:** Reorganized project structure and started DOM chapter (Nov 18, 2025)  
+**Recent Update:** Added 8+ DOM practice files covering events, element creation, and traversal (Nov 19, 2025)  
 **Completion Status:** 65/65 TopicTasks completed across 13 topics ✅
 
 ## 📁 Repository Structure
@@ -53,6 +54,19 @@ AI-FullStackGitRepo/
 │       ├── 12-Switch/            # Switch statements for multi-way branching
 │       ├── 13-Functions/         # Function declarations, expressions, and arrow functions
 │       └── 14-DOM/               # 🆕 Document Object Model manipulation
+│           ├── domSingleElement.js      # Selecting single elements
+│           ├── domMultipleElement.js    # Selecting multiple elements
+│           ├── script.js                # Main DOM practice file
+│           ├── index.html               # HTML for DOM practice
+│           └── DOM-Practice-Using-Todo-App/
+│               ├── todo.html            # Todo app interface
+│               ├── domMultipleElementsTodo.js  # Multiple element selection in Todo
+│               ├── events.js            # Event handling basics
+│               ├── mouseEvent.js        # Mouse event listeners
+│               ├── keyboardEvent.js     # Keyboard event listeners
+│               ├── createElement.js     # Creating new DOM elements
+│               ├── removeElement.js     # Removing DOM elements
+│               └── traversingDOM.js     # DOM tree traversal
 │
 ├── Tasks/                         # All practice exercises and projects
 │   ├── TopicTasks/               # Topic-specific practice exercises (65 total tasks)
@@ -207,11 +221,19 @@ Understanding variable declarations:
 
 #### 14. **DOM Manipulation** 🆕
 - **Document Object Model**: Understanding the HTML DOM tree structure.
-- **Selecting Elements**: Using `document` methods to access HTML elements.
+- **Selecting Elements**: 
+  - Single element selection: `getElementById()`, `querySelector()`
+  - Multiple element selection: `getElementsByClassName()`, `getElementsByTagName()`, `querySelectorAll()`
 - **Document Properties**: Accessing `document.all`, `document.body`, `document.URL`, etc.
 - **Dynamic HTML**: Creating, modifying, and removing elements.
-- **Event Handling**: Responding to user interactions.
-- **CSS Manipulation**: Changing styles dynamically.
+- **Event Handling**: 
+  - Mouse events: `click`, `dblclick`, `mouseenter`, `mouseleave`
+  - Keyboard events: `keydown`, `keyup`, `keypress`
+  - Form events: `submit`, `change`, `input`
+- **DOM Traversal**: Navigating parent, child, and sibling elements.
+- **Creating Elements**: Using `createElement()`, `appendChild()`, `insertBefore()`.
+- **Removing Elements**: Using `remove()`, `removeChild()`.
+- **CSS Manipulation**: Changing styles dynamically with `.style` and `.classList`.
 
 ## 🛠️ Practice Tasks
 
@@ -278,11 +300,33 @@ const findLargestNumber = (array) => {
 
 #### To-Do App 🔄
 A task list application demonstrating:
-- DOM manipulation techniques
-- Event handling (add, delete, clear tasks)
-- Dynamic HTML element creation
-- CSS frameworks integration (Materialize CSS)
-- jQuery for simplified DOM operations
+- **DOM Selection**: Single and multiple element selection techniques
+- **Element Creation**: Dynamic `<li>` and link creation
+- **Event Handling**: 
+  - Form submit events for adding tasks
+  - Click events for deleting individual tasks
+  - Event delegation for dynamic elements
+  - Mouse and keyboard event listeners
+- **DOM Manipulation**: Creating, appending, and removing elements
+- **DOM Traversal**: Navigating parent-child relationships
+- **CSS Integration**: Materialize CSS for styling
+- **Practical Features**:
+  - Add new tasks
+  - Remove individual tasks with confirmation
+  - Clear all tasks at once
+  - Responsive UI with FontAwesome icons
+
+**Files:**
+- `index.html` & `script.js` - Main todo application
+- Practice files in `14-DOM/DOM-Practice-Using-Todo-App/`:
+  - `todo.html` - Practice interface
+  - `domMultipleElementsTodo.js` - Multiple element selection
+  - `events.js` - Event handling fundamentals
+  - `mouseEvent.js` - Mouse interaction handlers
+  - `keyboardEvent.js` - Keyboard interaction handlers
+  - `createElement.js` - Element creation techniques
+  - `removeElement.js` - Element removal methods
+  - `traversingDOM.js` - DOM tree navigation
 
 ## 🎯 Topic-Specific Practice Tasks (NEW!)
 
@@ -578,11 +622,12 @@ The notes now include:
 - [x] ~~Complete TopicTasks for Chapters 10-13~~ ✅ Completed Nov 13, 2025
 - [x] ~~Reorganize project structure~~ ✅ Completed Nov 18, 2025
 - [x] ~~Start DOM chapter~~ ✅ Started Nov 18, 2025
+- [x] ~~Add DOM practice files~~ ✅ Completed Nov 19, 2025
 - [ ] Complete DOM manipulation exercises
 - [ ] Complete To-Do App project
 - [ ] Finish Bonus challenges
-- [ ] Learn Event Handling (click, keyboard, mouse events)
-- [ ] Master functional array methods (map, filter, reduce)
+- [ ] Master Event Handling (all event types)
+- [ ] Learn functional array methods (map, filter, reduce)
 - [ ] Study Object methods and prototypes
 
 ### Future Topics
@@ -612,6 +657,21 @@ This project is for educational purposes. Feel free to fork and learn!
 **Note:** This repository is actively maintained and updated as I progress through my Full-Stack development journey. Check back regularly for new content and exercises!
 
 ## 📅 Recent Changes
+
+### November 19, 2025 🎯
+- 📚 **Expanded DOM Learning** - Added comprehensive DOM practice files.
+  - 🆕 Created 8 new practice files in `14-DOM/DOM-Practice-Using-Todo-App/`:
+    - `todo.html` - Practice interface for todo application
+    - `domMultipleElementsTodo.js` - Multiple element selection techniques
+    - `events.js` - Event handling fundamentals
+    - `mouseEvent.js` - Mouse event listeners (click, dblclick, mouseenter, etc.)
+    - `keyboardEvent.js` - Keyboard event listeners (keydown, keyup, keypress)
+    - `createElement.js` - Creating and appending new DOM elements
+    - `removeElement.js` - Removing elements from the DOM
+    - `traversingDOM.js` - Navigating the DOM tree (parent, child, sibling)
+  - 📝 Added `domSingleElement.js` and `domMultipleElement.js` for element selection
+  - 🎓 Comprehensive coverage of DOM manipulation, event handling, and traversal
+  - 📊 Updated README.md with detailed DOM topics and To-Do App features
 
 ### November 18, 2025 🗂️
 - 🏗️ **Major Project Restructuring** - Reorganized folder structure for better clarity and scalability.
@@ -676,12 +736,13 @@ This project is for educational purposes. Feel free to fork and learn!
 
 ## 📊 Repository Statistics
 
-**Learning Journey Duration:** 1+ month (Oct 17 - Nov 18, 2025)  
+**Learning Journey Duration:** 1+ month (Oct 17 - Nov 19, 2025)  
 **Total Chapters:** 14 comprehensive chapters  
 **Total Practice Tasks:** 80+ tasks across all categories  
 **Lines of Documentation:** 1500+ lines in notes.txt  
 **Code Examples:** 200+ practical examples  
 **Completion Rate:** 100% (65/65 TopicTasks completed)  
+**DOM Practice Files:** 11 files covering selection, events, creation, and traversal  
 
 ### Task Distribution:
 - 📚 **TopicTasks**: 65 structured exercises (65 completed)
@@ -689,5 +750,6 @@ This project is for educational purposes. Feel free to fork and learn!
 - 🧠 **Advanced Tasks**: 6+ completed
 - 🎁 **Bonus Tasks**: In progress
 - 🚀 **Projects**: 1 in progress (To-Do App)
+- 🎓 **DOM Practice Files**: 11 files (element selection, events, manipulation, traversal)
 
-*Last Updated: November 18, 2025*
+*Last Updated: November 19, 2025*
