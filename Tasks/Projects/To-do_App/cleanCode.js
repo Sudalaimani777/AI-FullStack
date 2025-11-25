@@ -9,8 +9,6 @@ const inputField = document.querySelector("#task");
 
 //Load All Events :-
 function loadAllEvent() {
-    //Load if the task is present in the local storage :-
-    document.addEventListener("DOMContentLoaded", loadTask);
     //Add Task Event :-
     taskForm.addEventListener("submit", addTask);
     //Clear All Task Event :-
@@ -19,33 +17,6 @@ function loadAllEvent() {
     listContainer.addEventListener("click", removeTask);
 }
 loadAllEvent();
-
-//Load Task :-
-function loadTask(e) {
-    let taskContainer = [];
-    if (localStorage.getItem("tasks") === null) {
-        taskContainer = [];
-    }
-    else {
-        taskContainer = JSON.parse(localStorage.getItem("tasks"));
-    }
-    taskContainer.forEach((storedTask) => {
-            //Creating the LI :-
-            const li = document.createElement("li");
-            li.className = "collection-item";
-            li.innerText = storedTask;
-            //Creating the Link :-
-            const link = document.createElement("a");
-            link.href = "#";
-            link.className = "delete-item secondary-content";
-            link.innerHTML = '<i class="fa fa-remove"></i>';
-            //Appending the Link to the LI :-
-            li.appendChild(link);
-            //Append the Li to the list container  :-
-            listContainer.appendChild(li);
-        })
-}
-
 
 //Add Task Function :-
 function addTask(e) {
@@ -75,7 +46,7 @@ function addTask(e) {
 };
 
 //Clear Task Function :-
-function clearTask() {
+function clearTask () {
     // listContainer.innerHTML = "";
     const listItem = Array.from(listContainer.children);
     console.log(listItem);
@@ -83,21 +54,21 @@ function clearTask() {
 };
 
 //Remove Task Function :-
-function removeTask(e) {
+function removeTask(e){
     console.log(e.target.parentElement.classList.contains("delete-item"));
-    if (e.target.parentElement.classList.contains("delete-item")) {
-        if (confirm("Are you sure to remove the task ?")) {
+    if(e.target.parentElement.classList.contains("delete-item")){
+        if(confirm("Are you sure to remove the task ?")){
             e.target.parentElement.parentElement.remove();
         }
     }
 };
 
 //Local Storage :-
-function storeTask(providedTask) {
+function storeTask(providedTask){
     let taskContainer = [];
-    if (localStorage.getItem("tasks") === null) {
+    if(localStorage.getItem("tasks") === null){
         taskContainer = []
-    } else {
+    }else{
         taskContainer = JSON.parse(localStorage.getItem("tasks"));
     }
     taskContainer.push(providedTask);
