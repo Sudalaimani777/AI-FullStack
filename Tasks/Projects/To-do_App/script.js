@@ -30,22 +30,21 @@ function loadTask(e) {
         taskContainer = JSON.parse(localStorage.getItem("tasks"));
     }
     taskContainer.forEach((storedTask) => {
-            //Creating the LI :-
-            const li = document.createElement("li");
-            li.className = "collection-item";
-            li.innerText = storedTask;
-            //Creating the Link :-
-            const link = document.createElement("a");
-            link.href = "#";
-            link.className = "delete-item secondary-content";
-            link.innerHTML = '<i class="fa fa-remove"></i>';
-            //Appending the Link to the LI :-
-            li.appendChild(link);
-            //Append the Li to the list container  :-
-            listContainer.appendChild(li);
-        })
+        //Creating the LI :-
+        const li = document.createElement("li");
+        li.className = "collection-item";
+        li.innerText = storedTask;
+        //Creating the Link :-
+        const link = document.createElement("a");
+        link.href = "#";
+        link.className = "delete-item secondary-content";
+        link.innerHTML = '<i class="fa fa-remove"></i>';
+        //Appending the Link to the LI :-
+        li.appendChild(link);
+        //Append the Li to the list container  :-
+        listContainer.appendChild(li);
+    })
 }
-
 
 //Add Task Function :-
 function addTask(e) {
@@ -92,15 +91,19 @@ function removeTask(e) {
     }
 };
 
+//Remove Task from the local storage :-
+function removeTaskFromLocalStorage(providedTask) {
+    
+}
+
 //Local Storage :-
 function storeTask(providedTask) {
     let taskContainer = [];
     if (localStorage.getItem("tasks") === null) {
-        taskContainer = []
+        taskContainer = [];
     } else {
         taskContainer = JSON.parse(localStorage.getItem("tasks"));
     }
     taskContainer.push(providedTask);
-
     localStorage.setItem("tasks", JSON.stringify(taskContainer));
 }
