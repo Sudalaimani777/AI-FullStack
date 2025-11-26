@@ -6,6 +6,8 @@ const clearTaskButton = document.querySelector(".clear-tasks");
 const listContainer = document.querySelector(".collection");
 //Input Field :-
 const inputField = document.querySelector("#task");
+//Filter the task :-
+const filterTask = document.querySelector("#search");
 
 //Load All Events :-
 function loadAllEvent() {
@@ -17,6 +19,8 @@ function loadAllEvent() {
     clearTaskButton.addEventListener("click", clearTask);
     //Clear Particular Task :-
     listContainer.addEventListener("click", removeTask);
+    //Filter the task :-
+    filterTask.addEventListener("keyup", filterTasks);
 }
 loadAllEvent();
 
@@ -43,6 +47,23 @@ function loadTask(e) {
         li.appendChild(link);
         //Append the Li to the list container  :-
         listContainer.appendChild(li);
+    })
+}
+
+//Filler Tasks Function :-
+function filterTasks(e) {
+    //Getting the input field:-
+    const filterTask = e.target.value.toLowerCase();
+
+    //Getting the list collection :-
+    document.querySelectorAll(".collection-item").forEach((taskToFilter) => {
+        console.log(taskToFilter);
+        const item = taskToFilter.innerText.toLowerCase();
+        if (item.indexOf(filterTask) != -1) {
+            taskToFilter.style.display = "block";
+        } else {
+            taskToFilter.style.display = "none";
+        }
     })
 }
 
@@ -79,6 +100,7 @@ function clearTask() {
     const listItem = Array.from(listContainer.children);
     console.log(listItem);
     listItem.forEach((element) => element.remove());
+    clearAllTaskFromLocalStorage();
 };
 
 //Remove Task Function :-
@@ -88,12 +110,33 @@ function removeTask(e) {
         if (confirm("Are you sure to remove the task ?")) {
             e.target.parentElement.parentElement.remove();
         }
+        removeTaskFromLocalStorage(e.target.parentElement.parentElement);
     }
 };
 
 //Remove Task from the local storage :-
-function removeTaskFromLocalStorage(providedTask) {
-    
+function removeTaskFromLocalStorage(taskToRemove) {
+    let taskContainer;
+    if (localStorage.getItem("tasks") === null) {
+        taskContainer = [];
+    }
+    else {
+        taskContainer = JSON.parse(localStorage.getItem("tasks"));
+    }
+    taskContainer.forEach((task, taskIndex) => {
+        console.log("Task", task);
+        console.log("Task index", taskIndex);
+        if (taskToRemove.innerText === task) {
+            taskContainer.splice(taskIndex, 1);
+        }
+        //Updating the local storage :-
+        localStorage.setItem("tasks", JSON.stringify(taskContainer));
+    })
+}
+
+//Clear All task from the local storage:-
+function clearAllTaskFromLocalStorage() {
+    localStorage.removeItem("tasks");
 }
 
 //Local Storage :-
