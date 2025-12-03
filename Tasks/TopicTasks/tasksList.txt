@@ -4,7 +4,7 @@
 
 📁 Folder Analysis: JavaScript\Topics\
 Total Folders: 13
-Total Tasks: 65 (5 tasks per folder)
+Total Tasks: 80 (includes subfolder tasks)
 
 ================================================================================
 📂 1-Start
@@ -117,11 +117,26 @@ Status: [✅] Completed
 ================================================================================
 📂 10-Objects
 ================================================================================
-Task 1: Create an object with different data types
-Task 2: Access object properties using dot and bracket notation
-Task 3: Add, modify, and delete object properties
-Task 4: Create an object with methods (functions)
-Task 5: Loop through an object's properties
+✨ Main Folder:
+Task 1: Create an object with different data types (string, number, nested object, array)
+Task 2: Access object properties using dot notation and bracket notation
+Task 3: Access nested object properties and array elements within objects
+Task 4: Create object methods and use the 'this' keyword
+Task 5: Modify object properties and add elements to arrays within objects
+
+📁 Subfolder: 1-Constructor-This
+Task 1: Create a constructor function following ES5 naming conventions
+Task 2: Use the 'new' keyword to create object instances from constructor
+Task 3: Understand 'this' keyword behavior in different contexts (global, function, object)
+Task 4: Implement methods inside constructor functions using 'this'
+Task 5: Create nested methods and understand lexical 'this' with arrow functions
+
+📁 Subfolder: 2-Built-in-Constructor
+Task 1: Compare string literals vs String constructor (typeof differences)
+Task 2: Compare number literals vs Number constructor
+Task 3: Compare array literals vs Array constructor
+Task 4: Compare object literals vs Object constructor
+Task 5: Understand the difference between primitive types and object wrappers
 
 Status: [✅] Completed
 
@@ -211,4 +226,4 @@ Recommended Order:
 
 ================================================================================
 
-Last Updated: November 13, 2025
+Last Updated: December 3, 2025
