@@ -11,7 +11,7 @@ function loadAllEvent (){
 loadAllEvent();
 
 function inputData (e){
-    let value = e.target.value.toLowerCase();
+    let value = e.target.value.toLowerCase().trim();
     if(value.length < 6){
         checkBtn.disabled = true;
         para.textContent = "Text must be at least 6 characters long.";
@@ -19,6 +19,7 @@ function inputData (e){
     else{
         checkBtn.disabled = false;
         para.textContent = "Correct Input.";
+        value = "";
     }
 }
 
