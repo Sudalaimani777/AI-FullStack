@@ -1,28 +1,33 @@
+const inputField = document.querySelector("#inputField");
 const form = document.querySelector("#form");
-const checkBtn = document.querySelector("#btn");
 const para = document.querySelector("#para");
+const btn = document.querySelector("#btn");
 
-function loadAllEvent (){
-    //Form Event :-
-    form.addEventListener("keyup", inputData);
-    //Submit Btn :-
-    checkBtn.addEventListener("submit", checkValidData);
+function loadAllEvent () {
+    //Click Event :-
+    form.addEventListener("submit", validateBtn);
+    //Input Value Event :-
+    inputField.addEventListener("keyup", checkValue);
 }
 loadAllEvent();
 
-function inputData (e){
-    let value = e.target.value.toLowerCase().trim();
-    if(value.length < 6){
-        checkBtn.disabled = true;
-        para.textContent = "Text must be at least 6 characters long.";
+function checkValue (e){
+    let text = e.target.value.trim();
+    if(text.length < 6){
+        btn.disabled = true;
+        para.textContent = "Must enter more than 6 chatacters";
+        para.style.color = "red";
     }
     else{
-        checkBtn.disabled = false;
-        para.textContent = "Correct Input.";
-        value = "";
+        btn.disabled = false;
+        para.textContent = "Correct validation";
+        para.style.color = "green";
     }
 }
 
-function checkValidData(e){
+function validateBtn (e){
     e.preventDefault();
+    alert("Successfully Submitted");
+    para.textContent = "";
+    inputField.value = "";
 }
