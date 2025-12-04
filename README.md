@@ -42,178 +42,197 @@ This repository is my personal learning journey into Full-Stack Development, sta
 ```
 AI-FullStackGitRepo/
 │
-├── JavaScript/                    # 📚 Core Learning Materials
-│   └── Topics/                   # Learning modules organized by concepts (14 chapters)
-│       ├── notes.txt             # 📖 Comprehensive JavaScript notes (1228+ lines)
-│       │                         # Complete guide covering all 14 chapters
-│       │
-│       ├── 1-Start/              # Chapter 1: Introduction to JavaScript
-│       │   ├── index.html        # Setup and first program
-│       │   └── script.js         # Basic console output
-│       │
-│       ├── 2-Console/            # Chapter 2: Console methods and debugging
-│       │   ├── index.html        # Browser console as dev tool
-│       │   └── script.js         # log, error, warn, info methods
-│       │
-│       ├── 3-Variables/          # Chapter 3: Variable declarations
-│       │   ├── index.html        # var, let, const
-│       │   └── script.js         # Scope, naming conventions
-│       │
-│       ├── 4-DataTypes/          # Chapter 4: Primitive & Non-Primitive types
-│       │   ├── index.html        # String, Number, Boolean, null, undefined
-│       │   └── script.js         # Arrays, Objects, typeof operator
-│       │
-│       ├── 5-TypeConversion/     # Chapter 5: Type casting and conversion
-│       │   ├── index.html        # String(), Number(), Boolean()
-│       │   └── script.js         # Implicit vs explicit conversion
-│       │
-│       ├── 6-Numbers/            # Chapter 6: Math operations and Number methods
-│       │   ├── index.html        # Arithmetic operators
-│       │   └── script.js         # Math object, random numbers, rounding
-│       │
-│       ├── 7-String/             # Chapter 7: String methods and manipulation
-│       │   ├── index.html        # charAt, indexOf, slice, substring
-│       │   └── script.js         # split, replace, trim, case conversion
-│       │
-│       ├── 8-TemplateString/     # Chapter 8: ES6 Template literals
-│       │   ├── index.html        # Backticks, string interpolation
-│       │   └── script.js         # Multi-line strings, expressions
-│       │
-│       ├── 9-ArrayMethods/       # Chapter 9: Advanced array manipulation
-│       │   ├── index.html        # push, pop, shift, unshift
-│       │   └── script.js         # indexOf, includes, slice, splice
-│       │
-│       ├── 10-Objects/           # Chapter 10: Object-oriented programming
-│       │   ├── index.html        # Object literals, properties, methods
-│       │   ├── script.js         # Dot vs bracket notation, this keyword
-│       │   │
-│       │   ├── 1-Constructor-This/      # Subchapter: Constructor functions
-│       │   │   ├── index.html           # ES5 constructor pattern
-│       │   │   └── script.js            # new keyword, this binding
-│       │   │
-│       │   └── 2-Built-in-Constructor/  # Subchapter: Built-in constructors
-│       │       ├── index.html           # String(), Number(), Array()
-│       │       └── script.js            # Literals vs constructors
-│       │
-│       ├── 11-IfElse/            # Chapter 11: Conditional logic
-│       │   ├── index.html        # if, else if, else statements
-│       │   └── script.js         # Comparison & logical operators
-│       │
-│       ├── 12-Switch/            # Chapter 12: Switch statements
-│       │   ├── index.html        # case, break, default
-│       │   └── script.js         # Multi-way branching
-│       │
-│       ├── 13-Functions/         # Chapter 13: Functions & arrow functions
-│       │   ├── index.html        # Declarations, expressions
-│       │   └── script.js         # Parameters, return values, ES6 arrows
-│       │
-│       └── 14-DOM/               # Chapter 14: Document Object Model
-│           ├── index.html        # Main DOM practice file
-│           ├── script.js         # Combined DOM exercises
-│           ├── domSingleElement.js       # getElementById, querySelector
-│           ├── domMultipleElement.js     # querySelectorAll, getElementsByClassName
+├── FrontEnd/                      # 🎨 Frontend Development
+│   └── JavaScript/               # JavaScript learning materials
+│       └── Topics/               # Learning modules (14 chapters)
+│           ├── notes.txt         # 📖 Comprehensive JavaScript notes (1228+ lines)
+│           │                     # Complete guide covering all 14 chapters
 │           │
-│           └── DOM-Practice-Using-Todo-App/  # Advanced DOM practice (8 files)
-│               ├── todo.html                  # Practice interface
-│               ├── domMultipleElementsTodo.js # Multiple element selection
-│               ├── events.js                  # Event handling basics
-│               ├── mouseEvent.js              # click, dblclick, hover
-│               ├── keyboardEvent.js           # keydown, keyup, keypress
-│               ├── createElement.js           # Creating DOM elements
-│               ├── removeElement.js           # Removing elements
-│               └── traversingDOM.js           # Parent, child, sibling navigation
+│           ├── 1-Start/          # Chapter 1: Introduction to JavaScript
+│           │   ├── index.html    # Setup and first program
+│           │   └── script.js     # Basic console output
+│           │
+│           ├── 2-Console/        # Chapter 2: Console methods and debugging
+│           │   ├── index.html    # Browser console as dev tool
+│           │   └── script.js     # log, error, warn, info methods
+│           │
+│           ├── 3-Variables/      # Chapter 3: Variable declarations
+│           │   ├── index.html    # var, let, const
+│           │   └── script.js     # Scope, naming conventions
+│           │
+│           ├── 4-DataTypes/      # Chapter 4: Primitive & Non-Primitive types
+│           │   ├── index.html    # String, Number, Boolean, null, undefined
+│           │   └── script.js     # Arrays, Objects, typeof operator
+│           │
+│           ├── 5-TypeConversion/ # Chapter 5: Type casting and conversion
+│           │   ├── index.html    # String(), Number(), Boolean()
+│           │   └── script.js     # Implicit vs explicit conversion
+│           │
+│           ├── 6-Numbers/        # Chapter 6: Math operations and Number methods
+│           │   ├── index.html    # Arithmetic operators
+│           │   └── script.js     # Math object, random numbers, rounding
+│           │
+│           ├── 7-String/         # Chapter 7: String methods and manipulation
+│           │   ├── index.html    # charAt, indexOf, slice, substring
+│           │   └── script.js     # split, replace, trim, case conversion
+│           │
+│           ├── 8-TemplateString/ # Chapter 8: ES6 Template literals
+│           │   ├── index.html    # Backticks, string interpolation
+│           │   └── script.js     # Multi-line strings, expressions
+│           │
+│           ├── 9-ArrayMethods/   # Chapter 9: Advanced array manipulation
+│           │   ├── index.html    # push, pop, shift, unshift
+│           │   └── script.js     # indexOf, includes, slice, splice
+│           │
+│           ├── 10-Objects/       # Chapter 10: Object-oriented programming
+│           │   ├── index.html    # Object literals, properties, methods
+│           │   ├── script.js     # Dot vs bracket notation, this keyword
+│           │   │
+│           │   ├── 1-Constructor-This/      # Subchapter: Constructor functions
+│           │   │   ├── index.html           # ES5 constructor pattern
+│           │   │   └── script.js            # new keyword, this binding
+│           │   │
+│           │   └── 2-Built-in-Constructor/  # Subchapter: Built-in constructors
+│           │       ├── index.html           # String(), Number(), Array()
+│           │       └── script.js            # Literals vs constructors
+│           │
+│           ├── 11-IfElse/        # Chapter 11: Conditional logic
+│           │   ├── index.html    # if, else if, else statements
+│           │   └── script.js     # Comparison & logical operators
+│           │
+│           ├── 12-Switch/        # Chapter 12: Switch statements
+│           │   ├── index.html    # case, break, default
+│           │   └── script.js     # Multi-way branching
+│           │
+│           ├── 13-Functions/     # Chapter 13: Functions & arrow functions
+│           │   ├── index.html    # Declarations, expressions
+│           │   └── script.js     # Parameters, return values, ES6 arrows
+│           │
+│           └── 14-DOM/           # Chapter 14: Document Object Model
+│               ├── index.html    # Main DOM practice file
+│               ├── script.js     # Combined DOM exercises
+│               ├── domSingleElement.js       # getElementById, querySelector
+│               ├── domMultipleElement.js     # querySelectorAll, getElementsByClassName
+│               │
+│               └── DOM-Practice-Using-Todo-App/  # Advanced DOM practice (8 files)
+│                   ├── todo.html                  # Practice interface
+│                   ├── domMultipleElementsTodo.js # Multiple element selection
+│                   ├── events.js                  # Event handling basics
+│                   ├── mouseEvent.js              # click, dblclick, hover
+│                   ├── keyboardEvent.js           # keydown, keyup, keypress
+│                   ├── createElement.js           # Creating DOM elements
+│                   ├── removeElement.js           # Removing elements
+│                   └── traversingDOM.js           # Parent, child, sibling navigation
 │
-├── Tasks/                        # 🎯 All Practice Exercises & Projects
+├── BackEnd/                      # 🔧 Backend Development (Coming Soon)
+│   └── (Empty - Future backend projects)
+│
+├── Projects/                     # 🚀 Real-World Applications
 │   │
-│   ├── TopicTasks/              # 📝 Topic-specific exercises (65 total tasks)
-│   │   ├── tasksList.txt        # 📋 Complete task list with progress tracking
-│   │   │                        # Progress: 13/13 topics, 100% complete
-│   │   │
-│   │   ├── 1-Start/             # ✅ Getting Started (5 tasks)
-│   │   │   ├── index.html       # HTML file linking, first script
-│   │   │   └── script.js        # alert(), console.log(), comments
-│   │   │
-│   │   ├── 2-Console/           # ✅ Console methods (5 tasks)
-│   │   │   ├── index.html       # Different console methods
-│   │   │   └── script.js        # log, error, warn, info
-│   │   │
-│   │   ├── 3-Variables/         # ✅ Variable declarations (5 tasks)
-│   │   │   ├── index.html       # var vs let vs const
-│   │   │   └── script.js        # Re-declaration, re-assignment
-│   │   │
-│   │   ├── 4-DataTypes/         # ✅ Data types (5 tasks)
-│   │   │   ├── index.html       # Primitive vs reference types
-│   │   │   └── script.js        # Arrays, array methods
-│   │   │
-│   │   ├── 5-TypeConversion/    # ✅ Type conversion (5 tasks)
-│   │   │   ├── index.html       # Converting between types
-│   │   │   └── script.js        # Type converter program
-│   │   │
-│   │   ├── 6-Numbers/           # ✅ Number operations (5 tasks)
-│   │   │   ├── index.html       # Math operations
-│   │   │   └── script.js        # Calculator program
-│   │   │
-│   │   ├── 7-Strings/           # ✅ String manipulation (5 tasks)
-│   │   │   ├── index.html       # String methods
-│   │   │   └── script.js        # Text processing
-│   │   │
-│   │   ├── 8-TemplateString/    # ✅ Template literals (5 tasks)
-│   │   │   ├── index.html       # String interpolation
-│   │   │   └── script.js        # HTML template generation
-│   │   │
-│   │   ├── 9-ArrayMethods/      # ✅ Array methods (5 tasks)
-│   │   │   ├── index.html       # Custom array method implementations
-│   │   │   └── script.js        # indexOf, push, pop, includes
-│   │   │
-│   │   ├── 10-Objects/          # ✅ Object manipulation (5 tasks + 10 subfolder tasks)
-│   │   │   ├── index.html       # Object literals, methods
-│   │   │   └── script.js        # Dot/bracket notation, nested objects
-│   │   │
-│   │   ├── 11-IfElse/           # ✅ Conditional logic (5 tasks)
-│   │   │   ├── index.html       # if/else statements
-│   │   │   └── script.js        # Voting eligibility, ternary operators
-│   │   │
-│   │   ├── 12-Switch/           # ✅ Switch statements (5 tasks)
-│   │   │   ├── index.html       # case, break, default
-│   │   │   └── script.js        # Day of week program
-│   │   │
-│   │   └── 13-Functions/        # ✅ Functions (5 tasks)
-│   │       ├── index.html       # Function types
-│   │       └── script.js        # Declarations, expressions, arrows
+│   ├── BackEnd/                 # Backend projects (Coming Soon)
+│   │   └── (Empty - Future backend projects)
 │   │
-│   ├── JS-Tasks/                # 🧠 General Coding Exercises
-│   │   │
-│   │   ├── Basic/               # ✅ Foundational exercises (10+ tasks)
-│   │   │   ├── index.html       # Hello World, variables, arithmetic
-│   │   │   └── script.js        # Functions, arrays, objects
-│   │   │
-│   │   ├── Advanced/            # ✅ Complex problem-solving (6+ tasks)
-│   │   │   ├── index.html       # String reversal, palindrome checker
-│   │   │   └── script.js        # Custom myMap(), largest number finder
-│   │   │
-│   │   └── Bonus/               # 🔄 Additional challenges
-│   │       ├── index.html       # Extra practice problems
-│   │       └── script.js        # Advanced algorithms
+│   └── FrontEnd/                # Frontend projects
+│       └── JavascriptProjects/  # JavaScript-based applications
+│           │
+│           ├── CharacterValidator/  # ✅ Input validation project
+│           │   ├── index.html       # Form with validation
+│           │   └── script.js        # Real-time character count validation
+│           │                        # Features: keyup events, disabled button logic
+│           │
+│           ├── ColorPicker/         # ✅ Random color generator
+│           │   ├── index.html       # Color display interface
+│           │   └── script.js        # Hex color generation, clipboard API
+│           │                        # Features: random colors, copy to clipboard
+│           │
+│           ├── SimpleCounterApp/    # ⏳ Counter application (Planned)
+│           │   └── (Empty - Future project)
+│           │
+│           └── To-do_App/           # ✅ Full-featured task manager
+│               ├── index.html       # Task list interface with Materialize CSS
+│               ├── script.js        # Complete implementation (Local Storage)
+│               ├── cleanCode.js     # Refactored clean version
+│               └── notes.txt        # Development notes and features
+│                                    # Features: CRUD operations, filtering,
+│                                    # persistence, event delegation
+│
+├── Tasks/                        # 🎯 All Practice Exercises
 │   │
-│   └── Projects/                # 🚀 Real-World Applications
-│       │
-│       ├── CharacterValidator/  # ✅ Input validation project
-│       │   ├── index.html       # Form with validation
-│       │   └── script.js        # Real-time character count validation
-│       │                        # Features: keyup events, disabled button logic
-│       │
-│       ├── ColorPicker/         # ✅ Random color generator
-│       │   ├── index.html       # Color display interface
-│       │   └── script.js        # Hex color generation, clipboard API
-│       │                        # Features: random colors, copy to clipboard
-│       │
-│       └── To-do_App/           # ✅ Full-featured task manager
-│           ├── index.html       # Task list interface with Materialize CSS
-│           ├── script.js        # Complete implementation (Local Storage)
-│           ├── cleanCode.js     # Refactored clean version
-│           └── notes.txt        # Development notes and features
-│                                # Features: CRUD operations, filtering,
-│                                # persistence, event delegation
+│   ├── BackEnd/                 # Backend practice tasks (Coming Soon)
+│   │   └── (Empty - Future backend exercises)
+│   │
+│   └── FrontEnd/                # Frontend practice tasks
+│       └── Javascript/          # JavaScript exercises
+│           │
+│           ├── TopicTasks/      # 📝 Topic-specific exercises (65 total tasks)
+│           │   ├── tasksList.txt # 📋 Complete task list with progress tracking
+│           │   │                 # Progress: 13/13 topics, 100% completee
+│           │   │
+│           │   ├── 1-Start/      # ✅ Getting Started (5 tasks)
+│           │   │   ├── index.html # HTML file linking, first script
+│           │   │   └── script.js  # alert(), console.log(), comments
+│           │   │
+│           │   ├── 2-Console/    # ✅ Console methods (5 tasks)
+│           │   │   ├── index.html # Different console methods
+│           │   │   └── script.js  # log, error, warn, info
+│           │   │
+│           │   ├── 3-Variables/  # ✅ Variable declarations (5 tasks)
+│           │   │   ├── index.html # var vs let vs const
+│           │   │   └── script.js  # Re-declaration, re-assignment
+│           │   │
+│           │   ├── 4-DataTypes/  # ✅ Data types (5 tasks)
+│           │   │   ├── index.html # Primitive vs reference types
+│           │   │   └── script.js  # Arrays, array methods
+│           │   │
+│           │   ├── 5-TypeConversion/ # ✅ Type conversion (5 tasks)
+│           │   │   ├── index.html # Converting between types
+│           │   │   └── script.js  # Type converter program
+│           │   │
+│           │   ├── 6-Numbers/    # ✅ Number operations (5 tasks)
+│           │   │   ├── index.html # Math operations
+│           │   │   └── script.js  # Calculator program
+│           │   │
+│           │   ├── 7-Strings/    # ✅ String manipulation (5 tasks)
+│           │   │   ├── index.html # String methods
+│           │   │   └── script.js  # Text processing
+│           │   │
+│           │   ├── 8-TemplateString/ # ✅ Template literals (5 tasks)
+│           │   │   ├── index.html # String interpolation
+│           │   │   └── script.js  # HTML template generation
+│           │   │
+│           │   ├── 9-ArrayMethods/ # ✅ Array methods (5 tasks)
+│           │   │   ├── index.html # Custom array method implementations
+│           │   │   └── script.js  # indexOf, push, pop, includes
+│           │   │
+│           │   ├── 10-Objects/   # ✅ Object manipulation (5 tasks + 10 subfolder tasks)
+│           │   │   ├── index.html # Object literals, methods
+│           │   │   └── script.js  # Dot/bracket notation, nested objects
+│           │   │
+│           │   ├── 11-IfElse/    # ✅ Conditional logic (5 tasks)
+│           │   │   ├── index.html # if/else statements
+│           │   │   └── script.js  # Voting eligibility, ternary operators
+│           │   │
+│           │   ├── 12-Switch/    # ✅ Switch statements (5 tasks)
+│           │   │   ├── index.html # case, break, default
+│           │   │   └── script.js  # Day of week program
+│           │   │
+│           │   └── 13-Functions/ # ✅ Functions (5 tasks)
+│           │       ├── index.html # Function types
+│           │       └── script.js  # Declarations, expressions, arrows
+│           │
+│           └── JS-Tasks/         # 🧠 General Coding Exercises
+│               │
+│               ├── Basic/        # ✅ Foundational exercises (10+ tasks)
+│               │   ├── index.html # Hello World, variables, arithmetic
+│               │   └── script.js  # Functions, arrays, objects
+│               │
+│               ├── Advanced/     # ✅ Complex problem-solving (6+ tasks)
+│               │   ├── index.html # String reversal, palindrome checker
+│               │   └── script.js  # Custom myMap(), largest number finder
+│               │
+│               └── Bonus/        # 🔄 Additional challenges
+│                   ├── index.html # Extra practice problems
+│                   └── script.js  # Advanced algorithms
 │
 └── README.md                    # 📄 This comprehensive documentation file
 ```
@@ -746,15 +765,20 @@ The notes now include:
 
 2. **Navigate to learning topics:**
    ```bash
-   cd JavaScript/Topics/1-Start
+   cd FrontEnd/JavaScript/Topics/1-Start
    ```
 
 3. **Or navigate to practice tasks:**
    ```bash
-   cd Tasks/TopicTasks/1-Start
+   cd Tasks/FrontEnd/Javascript/TopicTasks/1-Start
    ```
 
-3. **Open the HTML file:**
+4. **Or explore projects:**
+   ```bash
+   cd Projects/FrontEnd/JavascriptProjects/To-do_App
+   ```
+
+5. **Open the HTML file:**
    - Simply double-click `index.html`
    - Or right-click → Open with → Browser
 
@@ -859,6 +883,17 @@ This project is for educational purposes. Feel free to fork and learn!
 **Note:** This repository is actively maintained and updated as I progress through my Full-Stack development journey. Check back regularly for new content and exercises!
 
 ## 📅 Recent Changes
+
+### December 4, 2025 🏗️
+- 🗂️ **Major Repository Restructure** - Organized for full-stack development
+  - 📁 Created `FrontEnd/` and `BackEnd/` top-level directories
+  - 🔄 Moved learning materials to `FrontEnd/JavaScript/Topics/`
+  - 🚀 Reorganized projects under `Projects/FrontEnd/JavascriptProjects/`
+  - 🎯 Restructured tasks under `Tasks/FrontEnd/Javascript/`
+  - ⏳ Added `SimpleCounterApp` project placeholder
+  - 🎨 Prepared structure for future backend development
+  - 📝 Updated README.md to reflect complete new architecture
+  - 🌟 Improved scalability and organization for full-stack learning
 
 ### December 3, 2025 📊
 - 📝 **README Update** - Comprehensive documentation overhaul
@@ -1006,4 +1041,4 @@ This project is for educational purposes. Feel free to fork and learn!
 - ✅ Batch Operations
 - ✅ User Feedback Notifications
 
-*Last Updated: December 3, 2025*
+*Last Updated: December 4, 2025*
