@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Counter App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <section>
-        <h1>Counter</h1>
-        <h3 id="count"></h3>
-        <button id="increment">+</button>
-        <button id="reset">Reset</button>
-        <button id="decrement">-</button>
+
+<body class="bg-gradient-to-br from-purple-500 to-pink-500 min-h-screen flex items-center justify-center font-sans">
+    <section class="bg-white rounded-2xl shadow-2xl p-12 text-center max-w-md w-full">
+        <h1 class="text-4xl font-bold text-gray-800 mb-6">Counter</h1>
+        <h3 id="count" class="text-7xl font-extrabold text-purple-600 mb-8">0</h3>
+        <div class="flex gap-4 justify-center">
+            <button id="increment"
+                class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-200 transform hover:scale-105 text-2xl">+</button>
+            <button id="reset"
+                class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-200 transform hover:scale-105">Reset</button>
+            <button id="decrement"
+                class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-200 transform hover:scale-105 text-2xl">-</button>
+        </div>
     </section>
     <script src="./script.js"></script>
 </body>
+
 </html>
