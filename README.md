@@ -208,7 +208,14 @@ AI-FullStackGitRepo/
 │           │   │
 │           │   ├── 10-Objects/   # ✅ Object manipulation (5 tasks + 10 subfolder tasks)
 │           │   │   ├── index.html # Object literals, methods
-│           │   │   └── script.js  # Dot/bracket notation, nested objects
+│           │   │   ├── script.js  # Dot/bracket notation, nested objects
+│           │   │   ├── 1-Constructor-This/ # ✅ Constructor functions (5 tasks)
+│           │   │   │   ├── index.html      # Constructor examples
+│           │   │   │   ├── script.js       # 'this' keyword, BankAccount system
+│           │   │   │   └── taskFour.js     # Bank transaction methods
+│           │   │   └── 2-Built-in-Constructor/ # ✅ Built-in constructors (5 tasks)
+│           │   │       ├── index.html          # Primitive vs Object wrappers
+│           │   │       └── script.js           # String, Number, Array, Object constructors
 │           │   │
 │           │   ├── 11-IfElse/    # ✅ Conditional logic (5 tasks)
 │           │   │   ├── index.html # if/else statements
@@ -621,10 +628,25 @@ The **TopicTasks** folder contains structured, beginner-friendly exercises align
 - Custom `includes()`
 
 #### 10-Objects (5 Tasks) ✅
-- Create and access object properties
-- Add, modify, and delete properties
-- Implement object methods
-- Loop through object properties
+**Main Folder:**
+- Create and access object properties (dot/bracket notation)
+- Work with nested objects and arrays
+- Implement object methods with `this` keyword
+- Modify properties and add array elements
+
+**Subfolder: 1-Constructor-This (5 Tasks) ✅**
+- Create ES5 constructor functions with proper naming
+- Use `new` keyword to create object instances
+- Understand `this` in different contexts (global, function, object)
+- Implement methods inside constructors (BankAccount system)
+- Master lexical `this` with arrow functions
+
+**Subfolder: 2-Built-in-Constructor (5 Tasks) ✅**
+- Compare string literals vs String constructor
+- Compare number literals vs Number constructor
+- Compare array literals vs Array constructor
+- Compare object literals vs Object constructor
+- Understand primitive types vs object wrappers
 
 #### 11-IfElse (5 Tasks) ✅
 - `if-else` for simple conditions
@@ -1053,4 +1075,4 @@ This project is for educational purposes. Feel free to fork and learn!
 - ✅ Batch Operations
 - ✅ User Feedback Notifications
 
-*Last Updated: December 5, 2025*
+*Last Updated: December 6, 2025*
