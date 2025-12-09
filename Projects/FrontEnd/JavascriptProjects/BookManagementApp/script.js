@@ -3,14 +3,16 @@ const authorName = document.querySelector("#authorName");
 const bookNumber = document.querySelector("#bookNumber");
 const addBooksBtn = document.querySelector("#form");
 const bookCollection = document.querySelector("#book-collection");
-const deleteBooksBtn = document.querySelector("#delete-books")
 
 function loadAllEvents() {
     //Add Books Event :-
     addBooksBtn.addEventListener("submit", addBooks);
+    //Remove Books Event (Event Delegation) :-
+    bookCollection.addEventListener("click", removeBooks);
 }
 loadAllEvents();
 
+//Add Books Function :-
 function addBooks(e) {
     e.preventDefault();
     //Getting the Input Values :-
@@ -41,7 +43,7 @@ function addBooks(e) {
 
         //Creating the Delete Button :-
         const deleteBtnSpan = document.createElement("span");
-        deleteBtnSpan.className = "flex justify-end md:justify-center";
+        deleteBtnSpan.className = "deleteSpan flex justify-end md:justify-center";
         const deleteBtn = document.createElement("button");
         deleteBtn.textContent = "Delete";
         deleteBtn.className = "px-4 py-2 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600 active:bg-red-700 transition duration-200 shadow-sm hover:shadow-md";
@@ -58,4 +60,11 @@ function addBooks(e) {
     }
 }
 
-
+//Remove Books Function :-
+function removeBooks(e) {
+    if(e.target.parentElement.classList.contains("deleteSpan")){
+        if(confirm("Are you sure to remove the Books ?")){
+            e.target.parentElement.parentElement.remove();
+        }
+    }
+}
