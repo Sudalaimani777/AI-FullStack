@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Manangement App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen py-8 px-4">
+    <main class="max-w-5xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold text-center text-indigo-900 mb-8 drop-shadow-md">Book Management App
+        </h1>
+
+        <form id="form" class="bg-white rounded-xl shadow-xl p-6 md:p-8 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <input type="text" name="bookName" id="bookName" placeholder="Book Name"
+                    class="px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition duration-200">
+                <input type="text" name="authorName" id="authorName" placeholder="Author Name"
+                    class="px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition duration-200">
+                <input type="number" name="bookNumber" id="bookNumber" placeholder="Book ID"
+                    class="px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition duration-200">
+                <input type="submit" value="Add Book"
+                    class="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 active:bg-indigo-800 cursor-pointer transition duration-200 shadow-md hover:shadow-lg">
+            </div>
+        </form>
+
+        <section class="bg-white rounded-xl shadow-xl p-6 md:p-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Book Collection</h2>
+            <ul id="book-collection" class="space-y-3">
+                <!-- <li class="books">
+                    <span>BookName</span>
+                    <span>Author Name</span>
+                    <span>Book Number</span>
+                    <span><button id="delete-books">Detete</button></span> 
+                </li> -->
+            </ul>
+        </section>
+    </main>
+    <script src="./script.js"></script>
+</body>
+
+</html>
