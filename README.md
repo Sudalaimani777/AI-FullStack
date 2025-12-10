@@ -85,16 +85,30 @@ AI-FullStackGitRepo/
 │           │   └── script.js     # indexOf, includes, slice, splice
 │           │
 │           ├── 10-Objects/       # Chapter 10: Object-oriented programming
-│           │   ├── index.html    # Object literals, properties, methods
-│           │   ├── script.js     # Dot vs bracket notation, this keyword
 │           │   │
-│           │   ├── 1-Constructor-This/      # Subchapter: Constructor functions
-│           │   │   ├── index.html           # ES5 constructor pattern
-│           │   │   └── script.js            # new keyword, this binding
+│           │   ├── 0-Objects/                    # Subchapter: Object fundamentals
+│           │   │   ├── index.html                # Object literals, properties, methods
+│           │   │   └── script.js                 # Dot vs bracket notation
 │           │   │
-│           │   └── 2-Built-in-Constructor/  # Subchapter: Built-in constructors
-│           │       ├── index.html           # String(), Number(), Array()
-│           │       └── script.js            # Literals vs constructors
+│           │   ├── 1-Constructor-This/           # Subchapter: Constructor functions
+│           │   │   ├── index.html                # ES5 constructor pattern
+│           │   │   └── script.js                 # new keyword, this binding
+│           │   │
+│           │   ├── 2-Built-in-Constructor/       # Subchapter: Built-in constructors
+│           │   │   ├── index.html                # String(), Number(), Array()
+│           │   │   └── script.js                 # Literals vs constructors
+│           │   │
+│           │   ├── 3-PrototypeExplain/           # Subchapter: Prototype basics
+│           │   │   ├── index.html                # Prototype chain explanation
+│           │   │   └── script.js                 # __proto__, prototype property
+│           │   │
+│           │   ├── 4-Prototype-Inheritance/      # Subchapter: Prototype inheritance
+│           │   │   ├── index.html                # Inheritance patterns
+│           │   │   └── script.js                 # Object.create(), prototype chain
+│           │   │
+│           │   └── 5-ES6-Classes/                # Subchapter: Modern class syntax
+│           │       ├── index.html                # ES6 class keyword
+│           │       └── script.js                 # Class declarations, inheritance
 │           │
 │           ├── 11-IfElse/        # Chapter 11: Conditional logic
 │           │   ├── index.html    # if, else if, else statements
@@ -209,11 +223,11 @@ AI-FullStackGitRepo/
 │           │   ├── 10-Objects/   # ✅ Object manipulation (5 tasks + 10 subfolder tasks)
 │           │   │   ├── index.html # Object literals, methods
 │           │   │   ├── script.js  # Dot/bracket notation, nested objects
-│           │   │   ├── 1-Constructor-This/ # ✅ Constructor functions (5 tasks)
+│           │   │   ├── 1-Constructor/ # ✅ Constructor functions (5 tasks)
 │           │   │   │   ├── index.html      # Constructor examples
 │           │   │   │   ├── script.js       # 'this' keyword, BankAccount system
 │           │   │   │   └── taskFour.js     # Bank transaction methods
-│           │   │   └── 2-Built-in-Constructor/ # ✅ Built-in constructors (5 tasks)
+│           │   │   └── 2-Built-in-constructor/ # ✅ Built-in constructors (5 tasks)
 │           │   │       ├── index.html          # Primitive vs Object wrappers
 │           │   │       └── script.js           # String, Number, Array, Object constructors
 │           │   │
@@ -348,6 +362,25 @@ Understanding variable declarations:
 - **Methods**: Functions as object properties.
 - **`this` keyword**: Referring to the current object instance.
 - **Nested Objects**: Objects within objects.
+- **Constructor Functions**: Creating object blueprints with function constructors.
+  - Using `new` keyword to instantiate objects
+  - Understanding `this` binding in constructors
+- **Built-in Constructors**: JavaScript's native constructors.
+  - `String()`, `Number()`, `Array()`, `Object()`
+  - Differences between literals and constructor-created objects
+- **Prototype Fundamentals**: Understanding JavaScript's prototype-based inheritance.
+  - `__proto__` property and prototype chain
+  - `prototype` property on constructor functions
+  - Prototype lookup mechanism
+- **Prototype Inheritance**: Implementing inheritance patterns.
+  - `Object.create()` for prototypal inheritance
+  - Sharing methods through prototypes
+  - Constructor inheritance patterns
+- **ES6 Classes**: Modern syntax for object-oriented programming.
+  - `class` keyword and class declarations
+  - Constructor methods and instance properties
+  - Class inheritance with `extends` and `super`
+  - Static methods and properties
 
 #### 11. Conditional Statements (If/Else) 🆕
 - **`if...else`**: Executing code based on conditions.
@@ -634,14 +667,14 @@ The **TopicTasks** folder contains structured, beginner-friendly exercises align
 - Implement object methods with `this` keyword
 - Modify properties and add array elements
 
-**Subfolder: 1-Constructor-This (5 Tasks) ✅**
+**Subfolder: 1-Constructor (5 Tasks) ✅**
 - Create ES5 constructor functions with proper naming
 - Use `new` keyword to create object instances
 - Understand `this` in different contexts (global, function, object)
 - Implement methods inside constructors (BankAccount system)
 - Master lexical `this` with arrow functions
 
-**Subfolder: 2-Built-in-Constructor (5 Tasks) ✅**
+**Subfolder: 2-Built-in-constructor (5 Tasks) ✅**
 - Compare string literals vs String constructor
 - Compare number literals vs Number constructor
 - Compare array literals vs Array constructor
@@ -1075,4 +1108,4 @@ This project is for educational purposes. Feel free to fork and learn!
 - ✅ Batch Operations
 - ✅ User Feedback Notifications
 
-*Last Updated: December 6, 2025*
+*Last Updated: December 10, 2025*
