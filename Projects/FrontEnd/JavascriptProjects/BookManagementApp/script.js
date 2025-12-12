@@ -1,44 +1,50 @@
-const bookName = document.querySelector("#bookName");
-const authorName = document.querySelector("#authorName");
-const bookNumber = document.querySelector("#bookNumber");
 const addBooksBtn = document.querySelector("#form");
 const bookCollection = document.querySelector("#book-collection");
 
-function loadAllEvents() {
+//Load All Event :-
+function loadAllEvents () {
     //Add Books Event :-
-    addBooksBtn.addEventListener("submit", addBooks);
-    //Remove Books Event (Event Delegation) :-
+    addBooksBtn.addEventListener("submit", addBooksFunc);
+    //Remove Books Event :-
     bookCollection.addEventListener("click", removeBooks);
 }
 loadAllEvents();
 
-//Add Books Function :-
-function addBooks(e) {
-    e.preventDefault();
-    //Getting the Input Values :-
-    if (bookName.value === "" || authorName.value === "" || bookNumber.value === "") {
-        alert("Enter all the fields")
+//Creating the Constructor For the Books :-
+class Books  {
+    constructor(bookName, authorName, isbn){
+        this.bookName = bookName;
+        this.authorName = authorName;
+        this.isbn = isbn;
     }
-    else {
+}
+
+//Creating the Constructor for the UI creation methods :-
+class UI {
+    constructor(){
+
+    }
+    //Add Books Method :-
+    addBook(book){
         const li = document.createElement("li");
         li.className = "books bg-gray-50 hover:bg-gray-100 p-4 rounded-lg border border-gray-200 transition duration-200 grid grid-cols-1 md:grid-cols-4 gap-3 items-center";
 
         //Creating the Book Span :-
         const bookSpan = document.createElement("span");
         bookSpan.className = "text-gray-800 font-semibold";
-        bookSpan.textContent = bookName.value;
+        bookSpan.textContent = book.bookName;
         li.appendChild(bookSpan);
 
         //Creating the Author Span :-
         const authorSpan = document.createElement("span");
         authorSpan.className = "text-gray-600";
-        authorSpan.textContent = authorName.value;
+        authorSpan.textContent = book.authorName;
         li.appendChild(authorSpan);
 
         //Creating the Book Number Span :-
         const bookNumberSpan = document.createElement("span");
         bookNumberSpan.className = "text-indigo-600 font-medium";
-        bookNumberSpan.textContent = `ID: ${bookNumber.value}`;
+        bookNumberSpan.textContent = `ISBN: ${book.isbn}`;
         li.appendChild(bookNumberSpan);
 
         //Creating the Delete Button :-
@@ -58,13 +64,44 @@ function addBooks(e) {
         bookNumber.value = "";
         authorName.value = "";
     }
+    //Remove Books Methods :-
+    deleteBook (targetElement) {
+        if(targetElement.classList.contains("deleteSpan")){
+            if(confirm("Are You sure to remove the books ?")){
+                targetElement.parentElement.remove();
+            }
+        }
+    }
+}
+
+//Add Books Function :-
+function addBooksFunc(e){
+    //Prevent the Default while sbumitting the data 
+    e.preventDefault();
+
+    //Getting the Author Name, Book Name and the ISBN id for the books :-
+    const book = document.querySelector("#bookName").value;
+    const author = document.querySelector("#authorName").value;
+    const isbn = document.querySelector("#bookNumber").value;
+
+    //Creating the Books Object :-
+    const bookData = new Books(book, author, isbn);
+    //Creating the Add Books Objects :-
+    const ui = new UI();
+
+    if(book === "" || author === "" || isbn === ""){
+        alert("Enter the requied fields")
+    }
+    else{
+        ui.addBook(bookData);
+    }
 }
 
 //Remove Books Function :-
-function removeBooks(e) {
+function removeBooks(e){
+    //Method for remove books:-
+    const ui = new UI();
     if(e.target.parentElement.classList.contains("deleteSpan")){
-        if(confirm("Are you sure to remove the Books ?")){
-            e.target.parentElement.parentElement.remove();
-        }
+        ui.deleteBook(e.target.parentElement);
     }
 }
