@@ -2,7 +2,7 @@ const addBooksBtn = document.querySelector("#form");
 const bookCollection = document.querySelector("#book-collection");
 
 //Load All Event :-
-function loadAllEvents () {
+function loadAllEvents() {
     //Add Books Event :-
     addBooksBtn.addEventListener("submit", addBooksFunc);
     //Remove Books Event :-
@@ -11,8 +11,8 @@ function loadAllEvents () {
 loadAllEvents();
 
 //Creating the Constructor For the Books :-
-class Books  {
-    constructor(bookName, authorName, isbn){
+class Books {
+    constructor(bookName, authorName, isbn) {
         this.bookName = bookName;
         this.authorName = authorName;
         this.isbn = isbn;
@@ -21,11 +21,11 @@ class Books  {
 
 //Creating the Constructor for the UI creation methods :-
 class UI {
-    constructor(){
+    constructor() {
 
     }
     //Add Books Method :-
-    addBook(book){
+    addBook(book) {
         const li = document.createElement("li");
         li.className = "books bg-gray-50 hover:bg-gray-100 p-4 rounded-lg border border-gray-200 transition duration-200 grid grid-cols-1 md:grid-cols-4 gap-3 items-center";
 
@@ -59,23 +59,23 @@ class UI {
 
         bookCollection.appendChild(li);
 
-        //Clear all the Input Fields :-
-        bookName.value = "";
-        bookNumber.value = "";
-        authorName.value = "";
+    }
+    //Clear all the Input Fields :-
+    clearFields() {
+        document.querySelector("#bookName").value = "";
+        document.querySelector("#bookNumber").value = "";
+        document.querySelector("#authorName").value = "";
     }
     //Remove Books Methods :-
-    deleteBook (targetElement) {
-        if(targetElement.classList.contains("deleteSpan")){
-            if(confirm("Are You sure to remove the books ?")){
-                targetElement.parentElement.remove();
-            }
+    deleteBook(targetElement) {
+        if (confirm("Are You sure to remove the books ?")) {
+            targetElement.parentElement.remove();
         }
     }
 }
 
 //Add Books Function :-
-function addBooksFunc(e){
+function addBooksFunc(e) {
     //Prevent the Default while sbumitting the data 
     e.preventDefault();
 
@@ -89,19 +89,23 @@ function addBooksFunc(e){
     //Creating the Add Books Objects :-
     const ui = new UI();
 
-    if(book === "" || author === "" || isbn === ""){
-        alert("Enter the requied fields")
+    if (book.trim() === "" || author.trim() === "" || isbn.trim() === "") {
+        alert("Enter the required fields");
+        return;
     }
-    else{
+    else {
+        //Add Books Method Call :-
         ui.addBook(bookData);
+        //Clear Fields Method Call :-
+        ui.clearFields();
     }
 }
 
 //Remove Books Function :-
-function removeBooks(e){
+function removeBooks(e) {
     //Method for remove books:-
     const ui = new UI();
-    if(e.target.parentElement.classList.contains("deleteSpan")){
+    if (e.target.parentElement.classList.contains("deleteSpan")) {
         ui.deleteBook(e.target.parentElement);
     }
 }
