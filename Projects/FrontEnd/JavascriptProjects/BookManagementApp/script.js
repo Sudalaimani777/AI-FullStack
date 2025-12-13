@@ -3,6 +3,10 @@ const bookCollection = document.querySelector("#book-collection");
 
 //Load All Event :-
 function loadAllEvents() {
+    //DOM Content Load Event :-
+    document.addEventListener("DOMContentLoaded", function(){
+        StoreBookToLS.displayBookFromLS();
+    });
     //Add Books Event :-
     addBooksBtn.addEventListener("submit", addBooksFunc);
     //Remove Books Event :-
@@ -74,6 +78,50 @@ class UI {
     }
 }
 
+//Store Books in the Local Storage :-
+class StoreBookToLS{
+    //Get Book To Local Storage :-
+    static getBooks(){
+        let bookContainer;
+        if(localStorage.getItem("books") === null){
+            bookContainer = []
+        }
+        else{
+            bookContainer = JSON.parse(localStorage.getItem("books"))
+        }
+        return bookContainer;
+    }
+    //Add Book To Local Storage :-
+    static addBookToLS(book){
+        const bookContainer = StoreBookToLS.getBooks();
+        bookContainer.push(book);
+        localStorage.setItem("books", JSON.stringify(bookContainer));
+    }
+    //Remove Book To Local Storage :-
+    static removeBooksToLS(isbn){
+        const bookContainer  =StoreBookToLS.getBooks();
+        bookContainer.forEach((book, index) => {
+            if(book.isbn === isbn){
+                bookContainer.splice(index, 1)
+            }
+        });
+        localStorage.setItem("books", JSON.stringify(bookContainer));
+    };
+    //Display Book Which is Stored in the Local Storage :-
+    static displayBookFromLS(){
+        const bookContainer = StoreBookToLS.getBooks();
+        const ui = new UI();
+        bookContainer.forEach(book => {
+            ui.addBook(book);
+        });
+    }
+    //Check If ISBN Already Exists :-
+    static checkISBN(isbn){
+        const bookContainer = StoreBookToLS.getBooks();
+        return bookContainer.some(book => book.isbn === isbn);
+    }
+}
+
 //Add Books Function :-
 function addBooksFunc(e) {
     //Prevent the Default while sbumitting the data 
@@ -93,12 +141,19 @@ function addBooksFunc(e) {
         alert("Enter the required fields");
         return;
     }
-    else {
+
+    if(StoreBookToLS.checkISBN(isbn)){
+        alert("ISBN already exists. Please enter a unique ISBN.");
+        return;
+    }
+   
         //Add Books Method Call :-
         ui.addBook(bookData);
+        //Add Book To Local Storage :-
+        StoreBookToLS.addBookToLS(bookData);
         //Clear Fields Method Call :-
         ui.clearFields();
-    }
+    
 }
 
 //Remove Books Function :-
@@ -106,6 +161,12 @@ function removeBooks(e) {
     //Method for remove books:-
     const ui = new UI();
     if (e.target.parentElement.classList.contains("deleteSpan")) {
+        //Get ISBN form the Book Element :-
+        const bookElement = e.target.parentElement.parentElement;
+        const isbn = bookElement.querySelector(".text-indigo-600").textContent.replace("ISBN: ", "");
+        //Remove Books Form UI :-
         ui.deleteBook(e.target.parentElement);
+        //Remove Book From the Local Storage :-
+        StoreBookToLS.removeBooksToLS(isbn);
     }
 }
