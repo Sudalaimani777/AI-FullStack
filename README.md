@@ -22,17 +22,17 @@ This repository is my personal learning journey into Full-Stack Development, sta
 - **14 Comprehensive Learning Chapters** with detailed notes and examples
 - **65 Topic-Specific Practice Tasks** aligned with each chapter (100% completed)
 - **Structured coding exercises** (Basic, Advanced, Bonus)
-- **3 Real-world projects** showcasing different JavaScript concepts
+- **5 Real-world projects** showcasing different JavaScript concepts
 - **Professional documentation** with enhanced formatting and quick references
 - **Hands-on DOM manipulation** and event handling practice
 
 **Learning Start Date:** October 17, 2025  
 **Current Focus:** Advanced JavaScript Concepts & Real-World Projects  
-**Latest Milestone:** Completed 4 projects (To-Do App, Character Validator, Color Picker, Counter App)  
-**Recent Achievement:** Built Simple Counter App with modern Tailwind CSS styling  
+**Latest Milestone:** Completed 5 projects including Book Management App  
+**Recent Achievement:** Built Book Management App with ES6 Classes and Local Storage  
 **Completion Status:** 
 - ✅ 65/65 TopicTasks completed
-- ✅ 4/4 Projects completed (To-Do App, Character Validator, Color Picker, Simple Counter App)
+- ✅ 5/5 Projects completed (To-Do App, Character Validator, Color Picker, Counter App, Book Management App)
 - ✅ 14/14 Learning Chapters completed
 - ✅ Basic & Advanced Tasks completed
 - 🔄 Bonus Tasks in progress
@@ -163,6 +163,12 @@ AI-FullStackGitRepo/
 │           │   ├── index.html       # Counter interface with Tailwind CSS
 │           │   └── script.js        # Increment, decrement, reset functionality
 │           │                        # Features: state management, event listeners
+│           │
+│           ├── BookManagementApp/   # ✅ Book library management system
+│           │   ├── index.html       # Book collection interface with Tailwind CSS
+│           │   └── script.js        # ES6 Classes (Books, UI, StoreBookToLS)
+│           │                        # Features: CRUD operations, Local Storage,
+│           │                        # ISBN validation, duplicate checking
 │           │
 │           └── To-do_App/           # ✅ Full-featured task manager
 │               ├── index.html       # Task list interface with Materialize CSS
@@ -586,6 +592,142 @@ A fully functional task management application demonstrating advanced DOM manipu
 - ✅ Applied form validation and user feedback
 - ✅ Practiced clean code principles and refactoring
 
+#### ✅ Simple Counter App (COMPLETED)
+A clean and modern counter application built with Tailwind CSS.
+
+**Core Features:**
+- ✅ **Increment/Decrement**: Increase or decrease counter value
+- ✅ **Reset Functionality**: Return counter to zero
+- ✅ **Modern UI**: Beautiful Tailwind CSS styling with gradients
+- ✅ **State Management**: Simple counter state tracking
+
+**Technical Implementation:**
+- **DOM Manipulation**: Direct element value updates
+- **Event Handling**: Click events for all buttons
+- **Modern CSS**: Tailwind utility classes for responsive design
+- **State Management**: Simple variable-based state
+
+**Learning Outcomes:**
+- ✅ Applied modern CSS framework (Tailwind)
+- ✅ Implemented basic state management
+- ✅ Created responsive button interactions
+
+#### ✅ Book Management App (COMPLETED)
+A professional book library management system demonstrating ES6 classes and data persistence.
+
+**Core Features:**
+- ✅ **Add Books**: Create new book entries with name, author, and ISBN
+- ✅ **Display Books**: View all books in a responsive grid layout
+- ✅ **Delete Books**: Remove books with confirmation dialog
+- ✅ **ISBN Validation**: Prevent duplicate ISBN entries
+- ✅ **Form Validation**: Ensure all required fields are filled
+- ✅ **Local Storage**: Persistent data across browser sessions
+- ✅ **Auto-Load**: Books automatically load on page refresh
+
+**Technical Implementation:**
+- **ES6 Class Architecture**:
+  - `Books` class: Constructor for book data modeling (bookName, authorName, isbn)
+  - `UI` class: Methods for DOM operations (addBook, clearFields, deleteBook)
+  - `StoreBookToLS` class: Static methods for Local Storage operations
+- **CRUD Operations**:
+  - **Create**: Add new books via form submission
+  - **Read**: Display books from Local Storage on page load
+  - **Delete**: Remove books from both UI and storage
+- **Data Persistence**:
+  - JSON serialization: `JSON.stringify()` and `JSON.parse()`
+  - `localStorage.getItem()` and `localStorage.setItem()`
+  - Auto-load with `DOMContentLoaded` event
+  - Real-time UI and storage synchronization
+- **Validation Logic**:
+  - Empty field detection using `trim()`
+  - ISBN uniqueness check with `Array.some()`
+  - User-friendly error messages with `alert()`
+  - Confirmation dialogs for delete operations
+- **DOM Manipulation**:
+  - Dynamic element creation (`createElement`)
+  - Grid-based layout with Tailwind CSS classes
+  - Event delegation for delete buttons
+  - Form reset after successful submission
+- **Modern CSS (Tailwind)**:
+  - Gradient backgrounds (`bg-gradient-to-br`)
+  - Responsive grid system (`grid grid-cols-1 md:grid-cols-4`)
+  - Hover effects and transitions
+  - Shadow and rounded corners for modern UI
+
+**Code Structure:**
+```javascript
+// Book data model
+class Books {
+    constructor(bookName, authorName, isbn) {
+        this.bookName = bookName;
+        this.authorName = authorName;
+        this.isbn = isbn;
+    }
+}
+
+// UI operations
+class UI {
+    addBook(book) {
+        // Creates list items with book details
+        // Adds delete button with event handling
+        // Appends to book collection
+    }
+    clearFields() {
+        // Resets all form input fields
+    }
+    deleteBook(targetElement) {
+        // Shows confirmation dialog
+        // Removes book from DOM
+    }
+}
+
+// Storage operations
+class StoreBookToLS {
+    static getBooks() {
+        // Retrieves books array from localStorage
+        // Returns empty array if none exist
+    }
+    static addBookToLS(book) {
+        // Adds book to storage array
+        // Saves updated array to localStorage
+    }
+    static removeBooksToLS(isbn) {
+        // Finds book by ISBN
+        // Removes from array using splice()
+        // Updates localStorage
+    }
+    static displayBookFromLS() {
+        // Loads all books on page load
+        // Creates UI elements for each book
+    }
+    static checkISBN(isbn) {
+        // Validates ISBN uniqueness
+        // Returns true if ISBN exists
+    }
+}
+```
+
+**Event Flow:**
+1. User fills form and clicks "Add Book"
+2. `addBooksFunc()` validates input fields
+3. `checkISBN()` verifies ISBN uniqueness
+4. `Books` class creates book object
+5. `UI.addBook()` displays book in grid
+6. `StoreBookToLS.addBookToLS()` saves to storage
+7. Form fields cleared automatically
+
+**Learning Outcomes:**
+- ✅ Mastered ES6 class syntax and constructor functions
+- ✅ Implemented static methods for utility operations
+- ✅ Applied Object-Oriented Programming principles
+- ✅ Integrated Local Storage API for data persistence
+- ✅ Built robust form validation with duplicate checking
+- ✅ Created dynamic UI with responsive Tailwind CSS
+- ✅ Implemented event delegation patterns
+- ✅ Applied JSON serialization for data storage
+- ✅ Designed three-class architecture for separation of concerns
+- ✅ Used `Array.some()` for efficient duplicate detection
+
 ## 🎯 Topic-Specific Practice Tasks (NEW!)
 
 The **TopicTasks** folder contains structured, beginner-friendly exercises aligned with each learning topic. Each folder includes 5 focused tasks that build directly on the concepts learned.
@@ -868,6 +1010,8 @@ The notes now include:
 | **To-Do App Project** | ✅ **Complete** | **Nov 26, 2025** |
 | **Character Validator** | ✅ **Complete** | **Nov 2025** |
 | **Color Picker** | ✅ **Complete** | **Nov 2025** |
+| **Simple Counter App** | ✅ **Complete** | **Dec 2025** |
+| **Book Management App** | ✅ **Complete** | **Dec 13, 2025** |
 | Bonus Challenges | 🔄 In Progress | - |
 | ES6+ Advanced Features | ⏳ Upcoming | - |
 | Async/Promises | ⏳ Upcoming | - |
@@ -940,6 +1084,21 @@ This project is for educational purposes. Feel free to fork and learn!
 **Note:** This repository is actively maintained and updated as I progress through my Full-Stack development journey. Check back regularly for new content and exercises!
 
 ## 📅 Recent Changes
+
+### December 13, 2025 📚
+- ✅ **Book Management App Completed!** - Professional library management system with ES6 classes
+  - 📖 Implemented three-class architecture (Books, UI, StoreBookToLS)
+  - 💾 Integrated Local Storage API for persistent book data
+  - ✔️ Added ISBN validation and duplicate checking
+  - 🎨 Designed responsive interface with Tailwind CSS (gradient backgrounds, grid layout)
+  - 🔄 Implemented full CRUD operations (Create, Read, Delete)
+  - ⚠️ Added confirmation dialogs for delete operations
+  - 📝 Form validation with empty field detection
+  - 🔢 ISBN uniqueness validation using Array.some()
+  - 🚀 Auto-load books on page refresh with DOMContentLoaded
+  - 🏗️ Static methods for storage operations (getBooks, addBookToLS, removeBooksToLS)
+  - 📊 Enhanced README with comprehensive project documentation
+  - 🎯 **Total projects completed: 5** (Book Management App is the latest milestone!)
 
 ### December 5, 2025 ✅
 - 🎉 **Simple Counter App Completed!** - Modern counter application with Tailwind CSS
@@ -1060,14 +1219,14 @@ This project is for educational purposes. Feel free to fork and learn!
 
 ## 📊 Repository Statistics
 
-**Learning Journey Duration:** 1.5+ months (Oct 17 - Dec 3, 2025)  
+**Learning Journey Duration:** 2+ months (Oct 17 - Dec 13, 2025)  
 **Total Chapters:** 14 comprehensive chapters  
 **Total Practice Tasks:** 80+ tasks across all categories  
 **Lines of Documentation:** 1,228+ lines in notes.txt  
 **Code Examples:** 200+ practical examples  
 **Completion Rate:** 100% (65/65 TopicTasks completed)  
 **DOM Practice Files:** 11 files covering selection, events, creation, and traversal  
-**Projects Completed:** 3 (To-Do App, Character Validator, Color Picker)  
+**Projects Completed:** 5 (To-Do App, Character Validator, Color Picker, Simple Counter App, Book Management App)  
 
 ### Task Distribution:
 - 📚 **TopicTasks**: 65 structured exercises (✅ 65/65 completed)
@@ -1076,10 +1235,12 @@ This project is for educational purposes. Feel free to fork and learn!
 - 🎯 **Basic Tasks**: 10+ foundational exercises (✅ completed)
 - 🧠 **Advanced Tasks**: 6+ complex problems (✅ completed)
 - 🎁 **Bonus Tasks**: Additional challenges (🔄 in progress)
-- 🚀 **Projects**: 3 completed applications
-  - ✅ To-Do App (Local Storage, CRUD operations)
-  - ✅ Character Validator (Real-time validation)
+- 🚀 **Projects**: 5 completed applications
+  - ✅ To-Do App (Local Storage, CRUD operations, Real-time filter)
+  - ✅ Character Validator (Real-time validation, Button state management)
   - ✅ Color Picker (Random generation, Clipboard API)
+  - ✅ Simple Counter App (State management, Tailwind CSS)
+  - ✅ Book Management App (ES6 Classes, Local Storage, ISBN validation)
 - 🎓 **DOM Practice Files**: 11 comprehensive files (✅ completed)
 
 ### Project Features Implemented:
@@ -1108,4 +1269,23 @@ This project is for educational purposes. Feel free to fork and learn!
 - ✅ Batch Operations
 - ✅ User Feedback Notifications
 
-*Last Updated: December 10, 2025*
+**Simple Counter App:**
+- ✅ Increment/Decrement Operations
+- ✅ Reset Functionality
+- ✅ State Management
+- ✅ Modern Tailwind CSS Styling
+- ✅ Responsive Design
+
+**Book Management App:**
+- ✅ ES6 Class Architecture (Books, UI, StoreBookToLS)
+- ✅ CRUD Operations (Create, Read, Delete)
+- ✅ Local Storage Persistence
+- ✅ ISBN Duplicate Validation
+- ✅ Form Validation & Error Handling
+- ✅ Dynamic DOM Manipulation
+- ✅ Confirmation Dialogs
+- ✅ Responsive Grid Layout (Tailwind CSS)
+- ✅ Auto-load on Page Load
+- ✅ Static Methods for Storage Operations
+
+*Last Updated: December 13, 2025*
