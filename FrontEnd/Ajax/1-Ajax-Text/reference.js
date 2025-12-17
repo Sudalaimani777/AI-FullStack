@@ -1,38 +1,106 @@
-//Ajax is a developer dream beacuse,  AJAX -> Asynchronous Javascript And XML
+// ==========================================
+// AJAX - Asynchronous Javascript And XML
+// ==========================================
 /**
- * 1) It read data from the web server - after the page loads
- * 2) Update the web page without reloading the page
- * 3) Send data to the web server - in the background
+ * AJAX is a developer's dream because it enables:
+ * 1) Reading data from the web server - after the page has loaded
+ * 2) Updating the web page without reloading the entire page
+ * 3) Sending data to the web server - in the background
+ * 
+ * Server: A service provider that handles requests and sends responses
  */
 
-//Server -> Service Provide, 
-
+// ==========================================
+// DOM ELEMENT SELECTION
+// ==========================================
+// Select the button element that will trigger the AJAX request
 const button = document.querySelector("button");
 
-//Load All Event :-
-function loadAllEvent (){
+// ==========================================
+// EVENT LISTENER INITIALIZATION
+// ==========================================
+/**
+ * Function to initialize all event listeners
+ * This function is called once when the page loads
+ */
+function loadAllEvent() {
+    // Attach click event listener to the button
+    // When clicked, it will execute the getText function
     button.addEventListener("click", getText);
 }
+// Initialize event listeners when script loads
 loadAllEvent();
 
-//Get Text Function :-
-function getText(){
+// ==========================================
+// AJAX REQUEST FUNCTION
+// ==========================================
+/**
+ * Function to fetch text data from a file using AJAX
+ * This demonstrates the XMLHttpRequest (XHR) workflow:
+ * 1. Create XHR object
+ * 2. Configure the request with open()
+ * 3. Set up onload handler
+ * 4. Send the request
+ */
+function getText() {
+    // Select the h3 element where we'll display the fetched data
     const text = document.querySelector("h3");
-    
-    //Creating the xhr object :-
+
+    // ==========================================
+    // STEP 1: CREATE XMLHttpRequest OBJECT
+    // ==========================================
+    // Create a new instance of XMLHttpRequest
+    // This object handles the entire AJAX communication
     const xhr = new XMLHttpRequest();
 
+    // Log the XHR object to see its initial state (readyState = 0: UNSENT)
     console.log(xhr);
 
-    //Open :-
+    // ==========================================
+    // STEP 2: CONFIGURE THE REQUEST
+    // ==========================================
+    /**
+     * xhr.open(method, url, async)
+     * - method: HTTP method (GET, POST, PUT, DELETE, etc.)
+     * - url: The file or endpoint to request
+     * - async: true for asynchronous, false for synchronous (always use true)
+     * 
+     * GET method is used to retrieve data from the server
+     * true means the request is asynchronous (non-blocking)
+     */
     xhr.open("GET", "data.txt", true);
 
-    //Load the Data :-
-    xhr.onload = function (){
+    // ==========================================
+    // STEP 3: DEFINE ONLOAD CALLBACK
+    // ==========================================
+    /**
+     * The onload event fires when the request completes successfully
+     * This handler processes the server response
+     * 
+     * Key properties available in 'this' context:
+     * - this.status: HTTP status code (200 = success, 404 = not found, etc.)
+     * - this.responseText: The response data as text
+     * - this.readyState: Current state of the request (4 = DONE)
+     */
+    xhr.onload = function () {
+        // Log the complete XHR object to inspect the response
         console.log(this);
+
+        // Check if request was successful (status 200)
+        // If successful: display the response text
+        // If failed: display the error status code
         const response = this.status === 200 ? text.textContent = this.responseText : text.textContent = `${this.status} - Not Found`
         return response;
     }
-    //Send :-
-    xhr.send(); //We need to send the data to the server, without send the data will never be called by the client
+
+    // ==========================================
+    // STEP 4: SEND THE REQUEST
+    // ==========================================
+    /**
+     * Send the request to the server
+     * Without this line, the request will never be initiated
+     * For GET requests, send() doesn't require parameters
+     * For POST requests, you would pass data here: xhr.send(data)
+     */
+    xhr.send();
 }
