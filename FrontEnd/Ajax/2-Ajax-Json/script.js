@@ -62,7 +62,7 @@ function getManyCustomers() {
                     <ul class="bg-white rounded-xl shadow-lg p-6 space-y-3 border-l-4 border-indigo-500 hover:shadow-xl transition-shadow duration-300">
                         <li class="text-gray-700"><span class="font-semibold text-indigo-600">ID:</span> ${customer.Id}</li>
                         <li class="text-gray-700"><span class="font-semibold text-indigo-600">Name:</span> ${customer.Name}</li>
-                        <li class="text-gray-700"><span class="font-semibold text-indigo-600">Company:</span> ${customer.Age}</li>
+                        <li class="text-gray-700"><span class="font-semibold text-indigo-600">Age:</span> ${customer.Age}</li>
                         <li class="text-gray-700"><span class="font-semibold text-indigo-600">Phone Number:</span> ${customer.PhoneNumber}</li>
                     </ul>
                 `
