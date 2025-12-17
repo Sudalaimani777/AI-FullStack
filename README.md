@@ -19,12 +19,12 @@
 ## 🎯 About
 
 This repository is my personal learning journey into Full-Stack Development, starting with JavaScript fundamentals. It contains:
-- **14 Comprehensive Learning Chapters** with detailed notes and examples
+- **15 Comprehensive Learning Chapters** with detailed notes and examples (including AJAX & APIs)
 - **65 Topic-Specific Practice Tasks** aligned with each chapter (100% completed)
 - **Structured coding exercises** (Basic, Advanced, Bonus)
 - **5 Real-world projects** showcasing different JavaScript concepts
 - **Professional documentation** with enhanced formatting and quick references
-- **Hands-on DOM manipulation** and event handling practice
+- **Hands-on DOM manipulation, AJAX, and API integration** practice
 
 **Learning Start Date:** October 17, 2025  
 **Current Focus:** Advanced JavaScript Concepts & Real-World Projects  
@@ -33,7 +33,7 @@ This repository is my personal learning journey into Full-Stack Development, sta
 **Completion Status:** 
 - ✅ 65/65 TopicTasks completed
 - ✅ 5/5 Projects completed (To-Do App, Character Validator, Color Picker, Counter App, Book Management App)
-- ✅ 14/14 Learning Chapters completed
+- ✅ 15/15 Learning Chapters completed (JavaScript Fundamentals + AJAX/API)
 - ✅ Basic & Advanced Tasks completed
 - 🔄 Bonus Tasks in progress
 
@@ -43,6 +43,23 @@ This repository is my personal learning journey into Full-Stack Development, sta
 AI-FullStackGitRepo/
 │
 ├── FrontEnd/                      # 🎨 Frontend Development
+│   ├── Ajax/                     # 🌐 AJAX & API Learning
+│   │   ├── 1-Ajax-Text/          # Text file loading with AJAX
+│   │   │   ├── index.html        # Interface for text loading
+│   │   │   ├── script.js         # XMLHttpRequest implementation
+│   │   │   ├── reference.js      # Reference code and examples
+│   │   │   └── data.txt          # Sample text data
+│   │   │
+│   │   ├── 2-Ajax-Json/          # JSON data loading with AJAX
+│   │   │   ├── index.html        # JSON data display interface
+│   │   │   ├── script.js         # JSON parsing and rendering
+│   │   │   ├── customer.json     # Single customer data
+│   │   │   └── customers.json    # Multiple customers array
+│   │   │
+│   │   └── 3-External-API/       # External API integration
+│   │       ├── index.html        # API data display interface
+│   │       └── script.js         # Fetch API and external endpoints
+│   │
 │   └── JavaScript/               # JavaScript learning materials
 │       └── Topics/               # Learning modules (14 chapters)
 │           ├── notes.txt         # 📖 Comprehensive JavaScript notes (1228+ lines)
@@ -423,6 +440,26 @@ Understanding variable declarations:
 - **Creating Elements**: Using `createElement()`, `appendChild()`, `insertBefore()`.
 - **Removing Elements**: Using `remove()`, `removeChild()`.
 - **CSS Manipulation**: Changing styles dynamically with `.style` and `.classList`.
+
+#### 15. **AJAX & API Integration** 🆕
+- **AJAX Fundamentals**: Asynchronous JavaScript and XML for dynamic content.
+- **XMLHttpRequest**: Traditional AJAX implementation.
+  - Creating XHR objects
+  - Handling `readyState` and `status` codes
+  - `GET` and `POST` requests
+- **Loading Text Files**: Reading `.txt` files asynchronously.
+- **Working with JSON**: 
+  - Parsing JSON data with `JSON.parse()`
+  - Handling single objects and arrays
+  - Rendering JSON data to the DOM
+- **Fetch API**: Modern promise-based HTTP requests.
+  - `fetch()` syntax and usage
+  - Handling responses with `.then()` and `.json()`
+  - Error handling with `.catch()`
+- **External APIs**: Integrating third-party API endpoints.
+  - Making API calls to external services
+  - Processing and displaying API responses
+  - Understanding API documentation
 
 ## 🛠️ Practice Tasks
 
@@ -967,21 +1004,26 @@ The notes now include:
    cd FrontEnd/JavaScript/Topics/1-Start
    ```
 
-3. **Or navigate to practice tasks:**
+3. **Or explore AJAX & API modules:**
+   ```bash
+   cd FrontEnd/Ajax/1-Ajax-Text
+   ```
+
+4. **Or navigate to practice tasks:**
    ```bash
    cd Tasks/FrontEnd/Javascript/TopicTasks/1-Start
    ```
 
-4. **Or explore projects:**
+5. **Or explore projects:**
    ```bash
    cd Projects/FrontEnd/JavascriptProjects/To-do_App
    ```
 
-5. **Open the HTML file:**
+6. **Open the HTML file:**
    - Simply double-click `index.html`
    - Or right-click → Open with → Browser
 
-4. **View console output:**
+7. **View console output:**
    - Press `F12` or `Ctrl+Shift+I` (Windows)
    - Navigate to the "Console" tab
 
@@ -1003,6 +1045,7 @@ The notes now include:
 | Switch Statement | ✅ Complete | Nov 13, 2025 |
 | Functions | ✅ Complete | Nov 13, 2025 |
 | DOM Manipulation | ✅ Complete | Nov 26, 2025 |
+| AJAX & API Integration | ✅ Complete | Dec 2025 |
 | Basic Tasks | ✅ Complete | Oct 2025 |
 | Advanced Tasks | ✅ Complete | Oct 2025 |
 | **TopicTasks (All Chapters)** | ✅ **Complete** | **Nov 13, 2025** |
@@ -1014,8 +1057,7 @@ The notes now include:
 | **Book Management App** | ✅ **Complete** | **Dec 13, 2025** |
 | Bonus Challenges | 🔄 In Progress | - |
 | ES6+ Advanced Features | ⏳ Upcoming | - |
-| Async/Promises | ⏳ Upcoming | - |
-| API Integration | ⏳ Upcoming | - |
+| Async/Promises (Advanced) | ⏳ Upcoming | - |
 
 **Legend:** ✅ Complete | 🔄 In Progress | ⏳ Upcoming
 
@@ -1051,11 +1093,12 @@ The notes now include:
 - [x] ~~Complete To-Do App project~~ ✅ Completed Nov 26, 2025
 - [x] ~~Build Character Validator project~~ ✅ Completed Nov 2025
 - [x] ~~Build Color Picker project~~ ✅ Completed Nov 2025
+- [x] ~~Learn AJAX and API integration~~ ✅ Completed Dec 2025
 - [ ] Finish Bonus challenges
 - [ ] Learn ES6+ advanced features (destructuring, spread operator)
 - [ ] Study higher-order Array methods (map, filter, reduce, forEach)
-- [ ] Master Object methods and prototypes
-- [ ] Build a weather app using API integration
+- [ ] Build a weather app using external API
+- [ ] Master Promises and Async/Await patterns
 
 ### Future Topics
 - Functions & Closures
@@ -1084,6 +1127,18 @@ This project is for educational purposes. Feel free to fork and learn!
 **Note:** This repository is actively maintained and updated as I progress through my Full-Stack development journey. Check back regularly for new content and exercises!
 
 ## 📅 Recent Changes
+
+### December 17, 2025 🌐
+- ✅ **AJAX & API Integration Learning Completed!** - Comprehensive asynchronous programming module
+  - 🌐 Learned XMLHttpRequest for traditional AJAX calls
+  - 📄 Implemented text file loading asynchronously
+  - 📊 Mastered JSON data parsing and rendering
+  - 🔗 Integrated external API endpoints using Fetch API
+  - 🎯 Created 3 practice modules (Ajax-Text, Ajax-Json, External-API)
+  - 💡 Understanding of `readyState`, `status` codes, and response handling
+  - 🚀 Modern Fetch API with promises and error handling
+  - 📝 Updated README with comprehensive Ajax documentation
+  - 🏆 **Total chapters completed: 15** (AJAX/API is the latest addition!)
 
 ### December 13, 2025 📚
 - ✅ **Book Management App Completed!** - Professional library management system with ES6 classes
@@ -1219,13 +1274,14 @@ This project is for educational purposes. Feel free to fork and learn!
 
 ## 📊 Repository Statistics
 
-**Learning Journey Duration:** 2+ months (Oct 17 - Dec 13, 2025)  
-**Total Chapters:** 14 comprehensive chapters  
+**Learning Journey Duration:** 2+ months (Oct 17 - Dec 17, 2025)  
+**Total Chapters:** 15 comprehensive chapters (14 JavaScript + 1 AJAX/API)  
 **Total Practice Tasks:** 80+ tasks across all categories  
 **Lines of Documentation:** 1,228+ lines in notes.txt  
 **Code Examples:** 200+ practical examples  
 **Completion Rate:** 100% (65/65 TopicTasks completed)  
 **DOM Practice Files:** 11 files covering selection, events, creation, and traversal  
+**AJAX Practice Files:** 3 modules (Text loading, JSON parsing, External APIs)  
 **Projects Completed:** 5 (To-Do App, Character Validator, Color Picker, Simple Counter App, Book Management App)  
 
 ### Task Distribution:
@@ -1288,4 +1344,13 @@ This project is for educational purposes. Feel free to fork and learn!
 - ✅ Auto-load on Page Load
 - ✅ Static Methods for Storage Operations
 
-*Last Updated: December 13, 2025*
+**AJAX & API Learning Modules:**
+- ✅ XMLHttpRequest Implementation
+- ✅ Text File Loading with AJAX
+- ✅ JSON Data Parsing and Rendering
+- ✅ Fetch API with Promises
+- ✅ External API Integration
+- ✅ Error Handling for API Calls
+- ✅ Asynchronous Data Loading
+
+*Last Updated: December 17, 2025*
