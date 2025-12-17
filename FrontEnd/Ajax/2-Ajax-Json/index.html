@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2-Ajax-JSON</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+
+<body class="bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-100 min-h-screen p-6">
+    <section class="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl p-8 mb-6">
+        <h1
+            class="text-4xl font-bold text-gray-800 text-center mb-8 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+            Get Customer and Customers Data</h1>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button id="single-customer"
+                class="bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl">
+                Get Single Customer Data
+            </button>
+            <button id="many-customers"
+                class="bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl">
+                Get Many Customers Datas
+            </button>
+        </div>
+    </section>
+    <section id="datas" class="max-w-4xl mx-auto">
+
+    </section>
     <script src="./script.js"></script>
 </body>
+
 </html>
