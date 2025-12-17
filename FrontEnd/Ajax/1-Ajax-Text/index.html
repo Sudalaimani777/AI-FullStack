@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1-Ajax-Text</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <section>
-        <h3></h3>
-        <button>Get Data</button>
+
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex items-center justify-center p-4">
+    <section class="bg-white rounded-2xl shadow-2xl p-8 max-w-2xl w-full">
+        <div class="text-center mb-6">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">Ajax Text Demo</h1>
+            <p class="text-gray-600">Click the button to load data</p>
+        </div>
+        <h3 class="text-lg text-gray-700 mb-6 p-4 bg-gray-50 rounded-lg min-h-[100px] border-2 border-gray-200"></h3>
+        <button
+            class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl">
+            Get Data
+        </button>
     </section>
     <script src="./script.js"></script>
 </body>
+
 </html>
