@@ -19,6 +19,10 @@ const userFirstName = fNmae => {
 }
 console.log("Sudalaimani");
 
+//Single Parameter does not need Parenthesis and curly braces :-
+const sayHello = name => console.log(`Hi ${name}`);
+sayHello("Sudalaimani");
+
 //3) No need of Curley Bracred "{}" if there is a sinngle return :-
 const add = (a,b) => a+b;
 console.log(add(2,4));
@@ -149,3 +153,17 @@ Regular function = Forgets who you are when you go to different places 😵
 Arrow function = Always remembers who you are! 😊✨
 Use new keyword = Creates your own special space (like your own locker or backpack)
  */
+
+
+//Uses in Array Methods :-
+const users = ["Sudalaimani", "ArunKumar", "MariKannan", "MuthuvelRaja", "Arul"];
+
+//Normal ForEach :-
+users.forEach(function(names){
+    console.log(names);
+});
+
+//Array Methods in ES6  :-
+users.forEach((names) => console.log("Array methods used in the ES6 -> ",names));
+//Withot Parenthesis :-
+users.forEach(names => console.log("Array methods used in the ES6 -> ",names));
