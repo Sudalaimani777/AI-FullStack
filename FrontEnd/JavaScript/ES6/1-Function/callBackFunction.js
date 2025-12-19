@@ -59,7 +59,7 @@ function greetUser(userName, callback){
 function goodByeUser(name){
     setTimeout(() => {
         console.log("Goodbye " + name);
-    }, 3000)
+    }, 3000);
 }
 
 
