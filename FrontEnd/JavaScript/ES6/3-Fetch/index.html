@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-Fetch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen py-8">
+    <section class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
+        <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">ES6 - Fetch API</h2>
+        <div class="mb-6 p-6 bg-blue-50 rounded-lg border border-blue-200">
+            <button id="getTextBtn"
+                class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg shadow transition duration-200">Get
+                Text</button>
+            <h3 id="getTextResp" class="mt-4 text-gray-700 font-medium"></h3>
+        </div>
+        <div class="mb-6 p-6 bg-green-50 rounded-lg border border-green-200">
+            <button id="getJsonBtn"
+                class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-lg shadow transition duration-200">Get
+                JSON</button>
+            <section id="getJsonResp" class="mt-4 text-gray-700"></section>
+        </div>
+        <div class="mb-6 p-6 bg-purple-50 rounded-lg border border-purple-200">
+            <button id="getApiBtn"
+                class="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-6 rounded-lg shadow transition duration-200">Get
+                API</button>
+            <section id="getApiResp" class="mt-4 text-gray-700"></section>
+        </div>
+    </section>
+    <script src="./script.js"></script>
+</body>
+
+</html>

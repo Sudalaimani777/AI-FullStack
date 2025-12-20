@@ -1,0 +1,29 @@
+[
+    {
+        "userName": "Sudalaimani",
+        "userAge": 22,
+        "address": {
+            "streetNumber" : "19/4",
+            "Street": "North Street",
+            "district": "Tuticorin"
+        }
+    },
+    {
+        "userName": "Arun Prasad",
+        "userAge": 25,
+        "address": {
+            "streetNumber" : "14/4",
+            "Street": "North Street",
+            "district": "Chennai"
+        }
+    },
+    {
+        "userName": "Raj Kumar",
+        "userAge": 30,
+        "address": {
+            "streetNumber" : "19/4",
+            "Street": "North Street",
+            "district": "Nagarkovil"
+        }
+    }
+]
