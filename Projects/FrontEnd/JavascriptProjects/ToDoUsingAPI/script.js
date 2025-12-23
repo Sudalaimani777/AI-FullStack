@@ -11,7 +11,7 @@ function loadAllEvent() {
 }
 loadAllEvent();
 
-function fetchTaskFromAPI(url) {
+function fetchTaskFromAPI() {
     UserTaskLibrary.get("https://694904f71ee66d04a450e3d2.mockapi.io/api/v1/user").then(userTask => {
         userTask.forEach(userTaskItem => {
             showTaskUI(userTaskItem);
