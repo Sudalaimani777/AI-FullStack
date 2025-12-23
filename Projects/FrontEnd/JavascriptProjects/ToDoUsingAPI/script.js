@@ -1,41 +1,44 @@
-import Library from "./library.js";
+import UserTaskLibrary from "./library.js";
 
-const inputForm = document.querySelector("#form");
-const inputField = document.querySelector("#userTask");
-const userTasks = document.querySelector("#userTasks")
+const userInputField = document.querySelector("#userTaskField");
+const taskForm = document.querySelector("#taskForm");
+const userTaskContainer = document.querySelector("#userTasks");
 
 function loadAllEvent() {
-    document.addEventListener("DOMContentLoaded", fetchAndDisplayTasks);
-    inputForm.addEventListener("submit", addUserTask);
-    userTasks.addEventListener("click", removeTask);
+    document.addEventListener("DOMContentLoaded", fetchTaskFromAPI);
+    taskForm.addEventListener("submit", addTask);
+    userTaskContainer.addEventListener("click", removeTaskFromAPI);
 }
 loadAllEvent();
 
-function fetchAndDisplayTasks() {
-    Library.get("https://694904f71ee66d04a450e3d2.mockapi.io/api/v1/user").then(task => {
-        task.forEach(taskItems => {
-            showOnUI(taskItems);
+function fetchTaskFromAPI(url) {
+    UserTaskLibrary.get("https://694904f71ee66d04a450e3d2.mockapi.io/api/v1/user").then(userTask => {
+        userTask.forEach(userTaskItem => {
+            showTaskUI(userTaskItem);
         })
-    }).catch(err => console.log(err))
+    })
 }
 
-function addUserTask(e) {
+function addTask(e) {
+    const userEnteredTask = {
+        userTask: userInputField.value
+    }
     e.preventDefault();
-    if (inputField.value.trim() === "") {
-        alert("Please enter a task");
-    } else {
-        const userTask = Library.post("https://694904f71ee66d04a450e3d2.mockapi.io/api/v1/user", { userTaskTitle: inputField.value })
-        userTask.then(data => showOnUI(data)).catch(err => console.log(err));
-        inputField.value = "";
+    if (userInputField.value.trim() === "") {
+        alert("Enter the valid task");
+    }
+    else {
+        const userTaskFromAPI = UserTaskLibrary.post("https://694904f71ee66d04a450e3d2.mockapi.io/api/v1/user", userEnteredTask)
+        userTaskFromAPI.then(userTaskData => showTaskUI(userTaskData)).catch(err => console.log(err))
+        userInputField.value = "";
     }
 }
 
-function showOnUI(task) {
+function showTaskUI(task) {
     const p = document.createElement("p");
     p.className = "flex items-center justify-between bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 hover:bg-gray-100 transition duration-200";
-    p.textContent = task.userTaskTitle;
+    p.textContent = task.userTask;
     p.setAttribute("data-id", task.id);
-
     const span = document.createElement("span");
     span.className = "deleteBtnWrapper ml-3"
     const deleteTaskBtn = document.createElement("button");
@@ -46,15 +49,16 @@ function showOnUI(task) {
     userTasks.appendChild(p);
 }
 
-function removeTask(e){
-   if(e.target.parentElement.classList.contains("deleteBtnWrapper")){
-    if(confirm("Are you sure to delete this task?")){
-        const taskItem = e.target.parentElement.parentElement;
-        const taskId= taskItem.getAttribute("data-id");
+function removeTaskFromAPI(e) {
+    if (e.target.parentElement.classList.contains("deleteBtnWrapper")) {
+        if (confirm("Are you sure to delete this task?")) {
+            const taskElement = e.target.parentElement.parentElement;
+            const taskID = taskElement.getAttribute("data-id");
 
-        Library.delete(`https://694904f71ee66d04a450e3d2.mockapi.io/api/v1/user/${taskId}`).then(() => {
-            taskItem.remove();
-        }).catch(err => console.log(err));
+            //Remove Task From API :-
+            UserTaskLibrary.delete(`https://694904f71ee66d04a450e3d2.mockapi.io/api/v1/user/${taskID}`).then(() => {
+                taskElement.remove();
+            })
+        }
     }
-   }
 }
