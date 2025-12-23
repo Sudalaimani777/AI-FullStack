@@ -1,0 +1,49 @@
+# Errors to Prevent - Static vs Instance Methods
+
+## Error 1: Cannot use import statement outside a module
+**Problem:** Using ES6 import without type="module"
+**Solution:** Add type="module" to script tag in HTML
+```html
+<script type="module" src="./script.js"></script>
+```
+
+## Error 2: Library.post is not a function
+**Problem:** Trying to call static method on an instance
+**Wrong:**
+```javascript
+const lib = new Library();
+lib.post(url, data);  // ❌ Error
+```
+**Correct:**
+```javascript
+Library.post(url, data);  // ✅ Works
+```
+
+## Error 3: Class constructor Library cannot be invoked without 'new'
+**Problem:** Calling class as a function: Library()
+**Wrong:**
+```javascript
+Library().post(url, data);  // ❌ Error
+```
+**Correct:**
+```javascript
+Library.post(url, data);  // ✅ Works
+```
+
+## Key Rules
+
+### Static Methods (with 'static' keyword)
+- Called directly on the class name
+- Syntax: ClassName.methodName()
+- Example: Library.post(url, data)
+- Cannot be called on instances
+
+### Instance Methods (without 'static' keyword)
+- Called on instances created with 'new'
+- Syntax: new ClassName().methodName()
+- Example: const lib = new Library(); lib.post(url, data)
+- Cannot be called on the class itself
+
+### When to Use What?
+- **Static methods:** When you don't need object-specific data (utility functions, API calls)
+- **Instance methods:** When you need to store/use object properties (state management)
