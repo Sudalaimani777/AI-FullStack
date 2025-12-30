@@ -426,4 +426,4 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 **Author:** Sudalaimani  
 **Learning Period:** October 17, 2025 - Present  
 **Last Updated:** December 23, 2025  
-**Status:** ✅ Frontend Complete | 🔄 Backend In Progress
+**Status:** ✅ Frontend In Progress | 🔄 Backend In Progress
