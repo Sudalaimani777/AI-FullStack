@@ -85,7 +85,28 @@ Practice challenges organized by difficulty level.
 ---
 
 ### Bonus
-Empty folder for additional practice tasks and experiments.
+**10 Additional Practice Tasks:** ✅
+
+1. **Fibonacci Series** - Generate Fibonacci sequence up to n terms
+2. **Remove Duplicates** - Filter duplicate values from arrays (2 methods)
+3. **Array Sorting** - Sort arrays in ascending/descending order
+4. **Odd/Even Finder** - Separate odd and even numbers from arrays
+5. **Object Merging** - Merge two objects using spread operator
+6. **String Filtering** - Filter names starting with specific letter
+7. **Square Calculator** - Return square of a number using arrow function
+8. **Template Literals** - Print formatted user details
+9. **Prime Number Filter** - Extract only prime numbers from array
+10. **Temperature Converter** - Convert Celsius to Fahrenheit
+
+**Skills Covered:**
+- Advanced algorithms (Fibonacci, prime numbers)
+- Set data structure for duplicates removal
+- Array sorting with custom comparators
+- Object manipulation with spread operator
+- String methods (startsWith)
+- Arrow functions and template literals
+- Array filtering with complex logic
+- Mathematical operations and conversions
 
 ---
 
@@ -403,7 +424,7 @@ Feel free to:
 
 ## 📅 Last Updated
 
-December 23, 2025
+December 30, 2025
 
 ---
 
