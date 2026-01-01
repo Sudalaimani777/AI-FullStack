@@ -102,22 +102,6 @@ function showTaskUI(task) {
     divTwo.appendChild(divThree);
 }
 
-// function handleRemoveTask(e) {
-//     if (e.target.innerText === "Delete") {
-//         if (confirm("Are you sure to delete this task?")) {
-//             const taskElement = e.target.parentElement.parentElement;
-//             const taskId = taskElement.firstChild.getAttribute("data-id");
-//             console.log(taskId);
-
-//             Task.delete(`${API_URL}${"/"}${taskId}`).then( () => {
-//                 taskElement.remove();
-//             }).catch(err => {
-//                 alert("Error unable to remove the task because ", err);
-//             })
-//         }
-//     }
-// }
-
 function handleTaskActions(e) {
     // Handle Edit Button Click
     if (e.target.innerText === "Edit") {
