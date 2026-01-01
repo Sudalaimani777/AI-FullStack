@@ -1,0 +1,43 @@
+1) What is Async ?
+    The async will always return the "Promise"
+
+async function getData(){
+    return "Hello Async";   //In this function instead of returning the Promise we return the "character" which is a value.So it will automatically wrap up the value and return it into the Promise.But this function "getData" now will always return the Promise
+}
+
+2)Async and Await :-
+    The async and await are used to handle the promises.
+    The "await" is used infront of the Promise which is stored in the variable. Also the await is used only inside the await function
+
+    Example :-
+
+    Promise :-
+    const promise = new Promise((resolve, reject) => {
+        resolve("Resolved");
+        reject("Rejected");
+    });
+
+    async function :-
+
+    async function getData(){
+        const response = await promise;
+    }
+
+3)Real World Example :-
+
+const API_URL = "https://jsonplaceholder.typicode.com/users";
+
+async function fetchUserData (){
+    //fetch() -> Returns a Promise that resolves to the Response object representing the response to the request (response.json() also returns a Promise)
+    const response = await fetch(API_URL);
+    console.log(response);
+    const data = await response.json();
+    data.forEach((user) => {
+        console.log(user)
+    })
+    console.log(data);
+}
+fetchUserData();
+
+    We need to handle the error in the async await function.In the normal Promise we handle the error using "cathc()".But in  the async await we use the try catch methods to handle the errors.
+
