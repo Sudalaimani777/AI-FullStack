@@ -1,1 +1,119 @@
+import Task from "./library.js";
+
 const API_URL = "https://6955ebb8b9b81bad7af1c22f.mockapi.io/api/v1/task"
+
+const taskContainer = document.querySelector("#taskContainer");
+const taskForm = document.querySelector("form");
+const taskInput = document.querySelector("#inputField");
+
+
+function loadAllEvents() {
+    document.addEventListener("DOMContentLoaded", handleFetchTask);
+    taskForm.addEventListener("submit", handleAddTask);
+    taskContainer.addEventListener("click", handleRemoveTask);
+}
+loadAllEvents();
+
+function handleFetchTask() {
+    Task.get(API_URL).then(tasks => {
+        tasks.forEach(task => showTaskUI(task));
+    }).catch(err => console.log(err));
+}
+
+function handleAddTask(e) {
+    const userTask = {
+        userTask: taskInput.value
+    }
+    e.preventDefault();
+    if (taskInput.value.trim() === "") {
+        alert("Please Enter the Task")
+    }
+    else {
+        const addTaskToAPI = Task.post(API_URL, userTask)
+        addTaskToAPI.then(task => showTaskUI(task)).catch(err => console.log(err));
+        taskInput.value = "";
+    }
+}
+
+
+function showTaskUI(task) {
+    // Check if header and task list wrapper already exist
+    let divOne = taskContainer.querySelector(".header-section");
+    let divTwo = taskContainer.querySelector(".task-list");
+
+    // Create header only if it doesn't exist
+    if (!divOne) {
+        //DIV 1 which contains the H2:-
+        divOne = document.createElement("div");
+        divOne.className = "flex items-center justify-between mb-6 pb-4 border-b-2 border-gray-200 header-section";
+
+        //H2 :-
+        const h2 = document.createElement("h2");
+        h2.className = "text-xl sm:text-2xl font-bold text-gray-800";
+        h2.innerText = "Your Tasks";
+
+        divOne.appendChild(h2);
+        taskContainer.appendChild(divOne);
+    }
+
+    // Create task list wrapper only if it doesn't exist
+    if (!divTwo) {
+        //DIV 2 (main wrapper) which contains the Tasks :-
+        divTwo = document.createElement("div");
+        divTwo.className = "space-y-3 task-list";
+        taskContainer.appendChild(divTwo);
+    }
+
+    //DIV 3 :-
+    const divThree = document.createElement("div");
+    divThree.className = "group flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl border-l-4 border-indigo-500 hover:shadow-lg hover:scale-[1.02] transition-all duration-200";
+
+    //P :-
+    const p = document.createElement("p");
+    p.className = "text-gray-800 text-base flex-1 mb-3 sm:mb-0 break-words font-medium";
+    p.innerText = task.userTask;
+    p.setAttribute("data-id", task.id);
+
+    //DIV 4 which contains the Edit and Delete Buttons :-
+    const divFour = document.createElement("div");
+    divFour.className = "flex gap-2 w-full sm:w-auto sm:ml-4";
+
+    //Edit Button :-
+    const editBtn = document.createElement("button");
+    editBtn.className = "flex-1 sm:flex-none px-5 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-semibold rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200";
+    editBtn.innerText = "Edit";
+
+    //Delete  Button :-
+    const deleteBtn = document.createElement("button");
+    deleteBtn.className = "flex-1 sm:flex-none px-5 py-2.5 bg-rose-500 hover:bg-rose-600 text-white text-sm font-semibold rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200";
+    deleteBtn.innerText = "Delete";
+
+    //Append the p in the DIV 3 :-
+    divThree.appendChild(p);
+
+    //Append the Edit and Delete Buttons in DIV 4 :-
+    divFour.appendChild(editBtn);
+    divFour.appendChild(deleteBtn);
+
+    //Append the DIV 4 in DIV 3 :-
+    divThree.appendChild(divFour);
+
+    //Append the DIV 3 in DIV 2 :-
+    divTwo.appendChild(divThree);
+}
+
+function handleRemoveTask(e) {
+    if (e.target.innerText === "Delete") {
+        if (confirm("Are you sure to delete this task?")) {
+            const taskElement = e.target.parentElement.parentElement;
+            const taskId = taskElement.firstChild.getAttribute("data-id");
+            console.log(taskId);
+
+            Task.delete(`${API_URL}${"/"}${taskId}`).then( () => {
+                taskElement.remove();
+            }).catch(err => {
+                alert("Error unable to remove the task because ", err);
+            })
+        }
+    }
+}
