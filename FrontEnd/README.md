@@ -9,7 +9,7 @@ FrontEnd/
 ├── Ajax/                    # AJAX & HTTP requests (3 projects)
 └── JavaScript/              # JavaScript fundamentals & ES6+
     ├── Topics/              # 14 fundamental topics (2,293 lines of docs)
-    └── ES6/                 # Modern JS: Functions, Promises, Fetch, HTTP (820 lines of docs)
+    └── ES6/                 # Modern JS: Functions, Promises, Fetch, HTTP, Async/Await (820 lines of docs)
 ```
 
 ## Modules
@@ -37,13 +37,13 @@ Core JavaScript fundamentals (14 topics).
 Modern JavaScript features and async programming.
 
 **Modules:**
-- 1-Function - Arrow functions, callbacks, higher-order functions
+- 1-Function - Arrow functions, callbacks, higher-order functions (214 lines notes)
 - 2-Promise - Promise creation and chaining
-- 3-Fetch - Fetch API (text, JSON, API)
-- 4-HTTP - CRUD operations with EasyHttp class
-- Async - Async/Await patterns
+- 3-Fetch - Fetch API (text, JSON, API data)
+- 4-HTTP - CRUD operations with EasyHttp class (GET, POST, PUT, DELETE)
+- Async - Async/Await patterns with try-catch error handling
 
-**Documentation:** 820 lines in notes.txt
+**Documentation:** 820 lines in notes.txt covering all ES6+ features
 
 ## Learning Path
 
@@ -62,12 +62,14 @@ Modern JavaScript features and async programming.
 
 - Vanilla JavaScript (no frameworks)
 - ES6+ syntax (arrow functions, promises, async/await)
-- DOM manipulation
-- AJAX/Fetch API
+- DOM manipulation & event handling
+- AJAX & Fetch API
 - HTTP methods (GET, POST, PUT, DELETE)
-- JSON parsing
-- Event handling
-- Async programming
+- RESTful API integration
+- JSON data handling
+- Asynchronous programming patterns
+- Error handling (try-catch, .catch())
+- Modern JavaScript best practices
 
 ## Total Documentation
 

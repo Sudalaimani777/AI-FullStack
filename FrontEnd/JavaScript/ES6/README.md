@@ -30,7 +30,9 @@ ES6/
 │   ├── script.js               # HTTP method implementations
 │   └── index.html              # HTTP examples demo
 └── Async/                       # Async/Await patterns
-    ├── script.js               # (Placeholder for async/await)
+    ├── notes.txt               # Async/await fundamentals
+    ├── script.js               # Async function examples with promises
+    ├── realWorldExample.js     # API fetching with async/await & error handling
     └── index.html              # Async examples demo
 ```
 
@@ -492,20 +494,112 @@ http.delete("https://694904f71ee66d04a450e3d2.mockapi.io/api/v1/user/1")
 ### Module 5: Async/Await (Async/)
 **Modern async programming with clean, synchronous-looking code**
 
-> 📝 **Note:** This module is prepared for async/await patterns, the next evolution after Promises!
+#### What is Async?
+The `async` keyword always makes a function return a Promise.
 
-**Preview - Async/Await Syntax:**
+**Key Concepts:**
 ```javascript
-// With Promises (Good)
-fetch("https://api.example.com/data")
+// Async function automatically wraps return value in a Promise
+async function getData() {
+    return "Hello Async"; // Automatically wrapped in Promise
+}
+
+getData().then(result => console.log(result)); // Output: Hello Async
+```
+
+#### What is Await?
+The `await` keyword:
+- Can only be used inside `async` functions
+- Pauses execution until the Promise resolves
+- Makes async code look synchronous!
+
+**Basic Example:**
+```javascript
+const promise = new Promise((resolve, reject) => {
+    resolve("Resolved");
+});
+
+// With Promises (Old Way)
+function normalMethod() {
+    promise.then(response => console.log(response));
+}
+
+// With Async/Await (Modern Way)
+async function getUserDataAsync() {
+    const response = await promise; // Wait for promise to resolve
+    console.log(response);
+}
+```
+
+#### Handling Multiple Promises
+
+**Sequential Execution:**
+```javascript
+const PromiseOne = new Promise(resolve => {
+    setTimeout(() => resolve("Promise One Resolved"), 10000);
+});
+
+const promiseTwo = new Promise(resolve => {
+    setTimeout(() => resolve("Promise Two Resolved"), 20000);
+});
+
+async function handleTwoPromises() {
+    console.log("Hello World");
+    
+    // Wait for Promise One (10 seconds)
+    const handlePromiseOne = await PromiseOne;
+    console.log(handlePromiseOne);
+    
+    // Wait for Promise Two (20 seconds)
+    const handlePromiseTwo = await promiseTwo;
+    console.log(handlePromiseTwo);
+}
+```
+
+#### Real-World API Example
+
+**Without Error Handling:**
+```javascript
+const API_URL = "https://jsonplaceholder.typicode.com/users";
+
+async function fetchUserData() {
+    const response = await fetch(API_URL); // Returns Promise
+    const data = await response.json();    // Returns Promise
+    console.log(data);
+}
+```
+
+**With Error Handling (Best Practice):**
+```javascript
+async function fetchUserDataWithErrorHandling() {
+    try {
+        const response = await fetch(API_URL);
+        const data = await response.json();
+        console.log(data);
+    } catch (err) {
+        console.log("Error:", err);
+    }
+}
+```
+
+**Why Use Try/Catch?**
+- Promises use `.catch()` for errors
+- Async/Await uses `try/catch` blocks
+- More readable error handling
+- Catches all errors in the try block
+
+**Comparison: Promise vs Async/Await**
+```javascript
+// ❌ With Promises - Nested chains
+fetch(API_URL)
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(err => console.log(err));
 
-// With Async/Await (Better!)
-async function getData() {
+// ✅ With Async/Await - Cleaner!
+async function fetchData() {
     try {
-        const response = await fetch("https://api.example.com/data");
+        const response = await fetch(API_URL);
         const data = await response.json();
         console.log(data);
     } catch (err) {
@@ -513,6 +607,9 @@ async function getData() {
     }
 }
 ```
+
+**Kid-Friendly Analogy:**
+> Async/Await is like waiting in line at a theme park! You get a ticket (async function), then wait (await) for your turn on the ride. The line doesn't disappear, but you can do other things while waiting! 🎢
 
 ## 📖 Documentation
 
@@ -546,6 +643,13 @@ Comprehensive kid-friendly ES6 documentation covering:
 - Headers and body formatting
 - JSON.stringify() usage
 - API interaction patterns
+
+**Section 5: Async/Await**
+- Async function fundamentals
+- Await keyword usage
+- Try/catch error handling
+- Converting promises to async/await
+- Real-world API examples
 
 **Documentation Format:**
 - ✅ **What**: Clear definitions
@@ -634,6 +738,34 @@ fetch(url, {
 // DELETE - Removing data
 ```
 
+### 5. Async/Await
+```javascript
+// ✅ Always use try/catch for error handling
+async function fetchData() {
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data);
+    } catch (err) {
+        console.log(err); // Don't forget error handling!
+    }
+}
+
+// ✅ Use async/await for cleaner code
+// Better than promise chains for complex operations
+async function processUserData() {
+    try {
+        const response = await fetch(userUrl);
+        const user = await response.json();
+        const postsResponse = await fetch(postsUrl);
+        const posts = await postsResponse.json();
+        return { user, posts };
+    } catch (err) {
+        console.error(err);
+    }
+}
+```
+
 ## 🎓 Key Learning Outcomes
 
 ### Arrow Functions Mastery
@@ -660,6 +792,13 @@ fetch(url, {
 - ✅ PUT requests for updating
 - ✅ DELETE requests for removing
 - ✅ Custom HTTP wrapper classes
+
+### Async/Await Mastery
+- ✅ Understanding async functions return Promises
+- ✅ Using await to pause execution
+- ✅ Try/catch blocks for error handling
+- ✅ Converting Promise chains to async/await
+- ✅ Real-world API fetching patterns
 
 ## 🚀 How to Use This Module
 
@@ -719,9 +858,11 @@ Each folder contains:
   - [ ] Implement PUT requests
   - [ ] Implement DELETE requests
 - [ ] **Async**: Async/Await patterns
+  - [ ] Understand async functions
+  - [ ] Use await with Promises
+  - [ ] Implement try/catch error handling
   - [ ] Convert promises to async/await
-  - [ ] Use try/catch for error handling
-  - [ ] Sequential async operations
+  - [ ] Fetch data from APIs with async/await
 
 ## 🎯 Next Steps
 
@@ -775,6 +916,19 @@ fetch(url, {
     headers: { "Content-type": "application/json" },
     body: JSON.stringify(data)
 })
+```
+
+### Async/Await
+```javascript
+async function fetchData() {
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data);
+    } catch (err) {
+        console.log(err);
+    }
+}
 ```
 
 ---
