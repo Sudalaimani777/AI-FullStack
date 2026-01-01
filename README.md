@@ -18,7 +18,7 @@
 
 This repository is my personal learning journey into Full-Stack Development, starting with JavaScript fundamentals. It contains:
 - **15 Comprehensive Learning Chapters** with detailed notes and examples (JavaScript Topics + AJAX & APIs)
-- **4 ES6 Advanced Modules** (Functions, Promises, Fetch, HTTP) with 820+ lines of notes
+- **5 ES6 Advanced Modules** (Functions, Promises, Fetch, HTTP, Async/Await) with 820+ lines of notes
 - **80+ Topic-Specific Practice Tasks** aligned with each chapter (100% completed)
 - **Structured coding exercises** (Basic, Advanced, Bonus)
 - **6 Real-world projects** showcasing different JavaScript concepts
@@ -27,14 +27,14 @@ This repository is my personal learning journey into Full-Stack Development, sta
 
 **Learning Start Date:** October 17, 2025  
 **Current Focus:** ES6 Advanced Features & Asynchronous JavaScript  
-**Latest Milestone:** Completed ES6 learning modules (Functions, Promises, Fetch, HTTP)  
-**Recent Achievement:** Mastered Arrow Functions, Callbacks, Higher-Order Functions, and Asynchronous Programming  
+**Latest Milestone:** Completed all ES6 modules including Async/Await  
+**Recent Achievement:** Mastered Async/Await, Error Handling, and Modern Asynchronous Patterns  
 
 **Completion Status:** 
 - ✅ 80/80 TopicTasks completed
 - ✅ 6/6 Projects completed
 - ✅ 15/15 Learning Chapters completed (JavaScript Fundamentals + AJAX/API)
-- ✅ 4/4 ES6 Advanced Modules completed (Functions, Promises, Fetch, HTTP)
+- ✅ 5/5 ES6 Advanced Modules completed (Functions, Promises, Fetch, HTTP, Async/Await)
 - ✅ Basic, Advanced & Bonus Tasks completed (30 total)
 
 ## 📁 Repository Structure
@@ -70,7 +70,7 @@ AI-FullStackGitRepo/
 │           ├── 2-Promise/        # Async programming with promises
 │           ├── 3-Fetch/          # Fetch API
 │           ├── 4-HTTP/           # HTTP methods (GET, POST, PUT, DELETE)
-│           └── Async/            # Async/Await patterns
+          └── Async/            # Async/Await with try-catch error handling
 │
 ├── Projects/                     # 🚀 Real-World Applications
 │   └── FrontEnd/
@@ -86,8 +86,10 @@ AI-FullStackGitRepo/
 │   └── FrontEnd/
 │       └── Javascript/
 │           ├── TopicTasks/      # 80 tasks across 13 topics
-│           ├── JS-Tasks/        # Basic (10) + Advanced (10)
+│           ├── JS-Tasks/        # Basic (10) + Advanced (10) + Bonus (10)
 │           └── ES6/             # ES6 practice exercises
+│               ├── 2-Promise/          # Promise patterns
+│               └── Async-EasyHttp/     # Async/Await HTTP library
 │
 └── BackEnd/                      # 🔧 Backend Development (Coming Soon)
 ```
@@ -225,7 +227,7 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 | 2. Promises | ✅ Complete | Dec 22, 2025 |
 | 3. Fetch API | ✅ Complete | Dec 22, 2025 |
 | 4. HTTP Methods | ✅ Complete | Dec 22, 2025 |
-| 5. Async/Await | ⏳ Upcoming | - |
+| 5. Async/Await | ✅ Complete | Jan 1, 2026 |
 | **Practice & Projects** |
 | Basic Tasks | ✅ Complete | Oct 2025 |
 | Advanced Tasks | ✅ Complete | Oct 2025 |
@@ -250,11 +252,11 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 ## 💡 Immediate Goals
 
 ### Current Focus
-- [ ] Learn Async/Await syntax (modern promise handling)
 - [ ] Study Destructuring and Spread/Rest operators
 - [ ] Learn ES6 Modules (import/export)
 - [ ] Build a weather app using external API with async/await
 - [ ] Create a full CRUD application with API integration
+- [ ] Practice advanced async patterns (Promise.all, Promise.race)
 
 ### Completed Goals
 - [x] ~~Enhance JavaScript learning notes~~ ✅ Completed Oct 18, 2025
@@ -279,6 +281,7 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 - [x] ~~Understand HTTP methods and API responses~~ ✅ Completed Dec 22, 2025
 - [x] ~~Build ToDoUsingAPI project~~ ✅ Completed Dec 2025
 - [x] ~~Complete Bonus Tasks (10 advanced challenges)~~ ✅ Completed Dec 30, 2025
+- [x] ~~Learn Async/Await syntax and patterns~~ ✅ Completed Jan 1, 2026
 
 ### Future Topics
 - **Advanced ES6+ Features**
@@ -288,10 +291,10 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
   - [ ] Default parameters
   - [ ] Template literals (advanced)
 - **Asynchronous JavaScript (Advanced)**
-  - [ ] Async/Await syntax
   - [ ] Promise.all() and Promise.race()
-  - [ ] Error handling with try/catch
   - [ ] Parallel vs Sequential async operations
+  - [ ] Advanced error handling patterns
+  - [ ] Async iterators and generators
 - **Backend Development**
   - [ ] Node.js fundamentals
   - [ ] Express.js framework
@@ -344,7 +347,9 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 - ✅ Fetch API for modern HTTP requests
 - ✅ HTTP methods (GET, POST, PUT, DELETE)
 - ✅ API response handling
-- ✅ Async/Await patterns
+- ✅ Async/Await patterns with try-catch
+- ✅ Error handling in async operations
+- ✅ Sequential and parallel promise execution
 
 ### 🌐 AJAX & API Integration
 - ✅ XMLHttpRequest implementation
@@ -439,5 +444,5 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 **Repository:** AI Full-Stack Development Learning Journey  
 **Author:** Sudalaimani  
 **Learning Period:** October 17, 2025 - Present  
-**Last Updated:** December 30, 2025  
+**Last Updated:** January 1, 2026  
 **Status:** ✅ Frontend In Progress | 🔄 Backend In Progress

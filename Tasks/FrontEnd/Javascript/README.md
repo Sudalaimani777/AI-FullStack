@@ -7,6 +7,8 @@ Welcome to the JavaScript Tasks repository! This folder contains a comprehensive
 ```
 Javascript/
 ├── ES6/                    # ES6+ features and modern JavaScript
+│   ├── 2-Promise/          # Promise-based async programming
+│   └── Async-EasyHttp/     # Async/Await with HTTP library
 ├── JS-Tasks/              # Categorized JavaScript challenges
 └── TopicTasks/            # Topic-specific practice exercises
 ```
@@ -14,6 +16,8 @@ Javascript/
 ---
 
 ## 🎯 ES6 Folder
+
+Modern JavaScript (ES6+) practice tasks focusing on asynchronous programming and advanced features.
 
 ### 2-Promise
 Modern asynchronous JavaScript using Promises.
@@ -29,6 +33,24 @@ Modern asynchronous JavaScript using Promises.
 - Mom's laptop buying decision simulator
 - setTimeout for async operations
 - DOM manipulation based on Promise outcomes
+
+### Async-EasyHttp
+Async/Await patterns with custom HTTP library.
+
+**Contents:**
+- EasyHttp library with async/await methods
+- GET, POST, PUT, DELETE operations
+- Try-catch error handling
+- RESTful API integration
+- Modern async patterns
+
+**Skills Covered:**
+- Async function declarations
+- Await keyword with Promises
+- Error handling with try-catch blocks
+- HTTP request methods
+- JSON data handling
+- API integration patterns
 
 ---
 
@@ -348,6 +370,8 @@ Function declarations and expressions.
 ### Advanced Concepts
 - ✅ ES6+ features (template literals, spread operator, arrow functions)
 - ✅ Promises and asynchronous programming
+- ✅ Async/Await with try-catch error handling
+- ✅ HTTP methods and RESTful APIs
 - ✅ Higher-order functions (map, reduce, filter, forEach)
 - ✅ Custom method implementations
 - ✅ DOM manipulation
@@ -424,7 +448,7 @@ Feel free to:
 
 ## 📅 Last Updated
 
-December 30, 2025
+January 1, 2026
 
 ---
 

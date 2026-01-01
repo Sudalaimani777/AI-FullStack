@@ -10,7 +10,8 @@ Tasks/
 └── FrontEnd/                # 80+ JavaScript exercises
     └── Javascript/
         ├── ES6/             # ES6-specific tasks
-        │   └── 2-Promise/
+        │   ├── 2-Promise/
+        │   └── Async-EasyHttp/
         ├── JS-Tasks/        # Categorized challenges
         │   ├── Basic/       # Beginner exercises
         │   ├── Advanced/    # Complex problems
@@ -23,6 +24,7 @@ Tasks/
 ### ES6/
 ES6+ feature practice exercises.
 - **2-Promise/** - Promise handling and async patterns
+- **Async-EasyHttp/** - Async/Await with HTTP library (GET, POST, PUT, DELETE)
 
 ### JS-Tasks/
 Categorized by difficulty level.
