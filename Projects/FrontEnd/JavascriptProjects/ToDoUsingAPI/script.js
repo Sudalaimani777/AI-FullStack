@@ -1,7 +1,10 @@
 import UserTaskLibrary from "./library.js";
 
+//Input Field & Form :-
 const userInputField = document.querySelector("#userTaskField");
+//Task Container :-
 const taskForm = document.querySelector("#taskForm");
+//Remove Task :-
 const userTaskContainer = document.querySelector("#userTasks");
 
 function loadAllEvent() {
