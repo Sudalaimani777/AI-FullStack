@@ -6,13 +6,14 @@ Complete JavaScript applications demonstrating practical development skills.
 
 ```
 FrontEnd/
-└── JavascriptProjects/      # 6 production-ready JavaScript applications
-    ├── BookManagementApp/   # OOP, LocalStorage CRUD, ES6 classes
-    ├── CharacterValidator/  # Real-time input validation
-    ├── ColorPicker/         # Random color generation, Clipboard API
-    ├── SimpleCounterApp/    # State management basics
-    ├── To-do_App/           # Advanced LocalStorage, search/filter
-    └── ToDoUsingAPI/        # REST API integration, ES6 modules
+└── JavascriptProjects/           # 7 production-ready JavaScript applications
+    ├── BookManagementApp/        # OOP, LocalStorage CRUD, ES6 classes
+    ├── CharacterValidator/       # Real-time input validation
+    ├── ColorPicker/              # Random color generation, Clipboard API
+    ├── CRUD_Application_Using_API/ # Modern CRUD, async/await, inline editing
+    ├── SimpleCounterApp/         # State management basics
+    ├── To-do_App/                # Advanced LocalStorage, search/filter
+    └── ToDoUsingAPI/             # REST API integration, ES6 modules
 ```
 
 ## Projects Overview
@@ -31,6 +32,11 @@ FrontEnd/
 **Tech:** Vanilla JS, Clipboard API  
 **Features:** Random RGB/Hex generation, copy-to-clipboard  
 **Skills:** Color algorithms, browser APIs
+
+### CRUD_Application_Using_API
+**Tech:** Async/Await, Fetch API, ES6 Modules  
+**Features:** Full CRUD with inline editing, 270 lines, event delegation  
+**Skills:** Modern async patterns, RESTful operations, dynamic UI updates
 
 ### SimpleCounterApp
 **Tech:** DOM manipulation, state management  
@@ -51,8 +57,8 @@ FrontEnd/
 
 - **Vanilla JavaScript** (ES6+)
 - **LocalStorage API** (3 projects)
-- **Fetch API / REST** (1 project)
-- **Tailwind CSS** (5 projects)
+- **Fetch API / REST** (2 projects)
+- **Tailwind CSS** (6 projects)
 - **Materialize CSS** (1 project)
 
 ## Complexity Matrix
@@ -63,6 +69,7 @@ FrontEnd/
 | CharacterValidator | ~30 | ⭐ | No | No |
 | ColorPicker | 106 | ⭐⭐ | Clipboard | No |
 | BookManagementApp | 191 | ⭐⭐⭐ | No | LocalStorage |
+| CRUD_Application_Using_API | 270 | ⭐⭐⭐⭐⭐ | MockAPI | No |
 | To-do_App | 290 | ⭐⭐⭐⭐ | No | LocalStorage |
 | ToDoUsingAPI | 98 | ⭐⭐⭐⭐ | MockAPI | No |
 
@@ -73,15 +80,18 @@ FrontEnd/
 3. **ColorPicker** → Browser APIs
 4. **BookManagementApp** → OOP & persistence
 5. **To-do_App** → Advanced features
-6. **ToDoUsingAPI** → API integration
+6. **CRUD_Application_Using_API** → Modern async/await & inline editing
+7. **ToDoUsingAPI** → API integration with Promises
 
 ## Key Skills Demonstrated
 
 - ES6 Classes & OOP
 - LocalStorage CRUD operations
 - REST API integration (GET, POST, PUT, DELETE)
+- Async/Await patterns
 - Event delegation
 - Real-time validation
+- Inline editing with UI state management
 - Search & filter algorithms
 - State management
 - Modular architecture
@@ -94,10 +104,11 @@ FrontEnd/
 - [BookManagementApp](JavascriptProjects/BookManagementApp/README.md)
 - [CharacterValidator](JavascriptProjects/CharacterValidator/README.md)
 - [ColorPicker](JavascriptProjects/ColorPicker/README.md)
+- [CRUD_Application_Using_API](JavascriptProjects/CRUD_Application_Using_API/README.md)
 - [SimpleCounterApp](JavascriptProjects/SimpleCounterApp/README.md)
 - [To-do_App](JavascriptProjects/To-do_App/README.md)
 - [ToDoUsingAPI](JavascriptProjects/ToDoUsingAPI/README.md)
 
 ## Total Code
 
-~1,000+ lines of production JavaScript across 6 applications.
+~1,270+ lines of production JavaScript across 7 applications.

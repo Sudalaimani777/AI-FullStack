@@ -6,12 +6,13 @@ A comprehensive collection of fully functional JavaScript applications demonstra
 
 ```
 JavascriptProjects/
-├── BookManagementApp/      # Full CRUD book library with localStorage
-├── CharacterValidator/      # Real-time input validation
-├── ColorPicker/            # Random color palette generator
-├── SimpleCounterApp/       # Interactive counter application
-├── To-do_App/              # Complete task manager with search
-└── ToDoUsingAPI/           # API-integrated todo with MockAPI
+├── BookManagementApp/           # Full CRUD book library with localStorage
+├── CharacterValidator/          # Real-time input validation
+├── ColorPicker/                # Random color palette generator
+├── CRUD_Application_Using_API/ # Modern CRUD with inline editing & API
+├── SimpleCounterApp/           # Interactive counter application
+├── To-do_App/                  # Complete task manager with search
+└── ToDoUsingAPI/               # API-integrated todo with MockAPI
 ```
 
 ---
@@ -175,7 +176,155 @@ function generateRandomColor() {
 
 ---
 
-### 4. Simple Counter App
+### 4. CRUD Application Using API
+**Complexity:** 🔴 Advanced | **Status:** ✅ Complete
+
+Modern task management application with full CRUD operations, inline editing, and RESTful API integration using async/await.
+
+#### ✨ Features
+- **Create Tasks** - Add new tasks with validation
+- **Read Tasks** - Fetch all tasks on page load
+- **Update Tasks** - Inline editing with Edit/Save toggle
+- **Delete Tasks** - Remove tasks with confirmation
+- **Event Delegation** - Single handler for all actions
+- **Modern UI** - Responsive design with Tailwind CSS
+- **ES6 Modules** - Clean, modular architecture
+- **Async/Await** - Modern promise handling
+
+#### 🛠️ Technical Implementation
+
+**Task Class Library (library.js):**
+```javascript
+class Task {
+  static async get(url) {
+    const response = await fetch(url);
+    return await response.json();
+  }
+  
+  static async post(url, data) {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+    return await response.json();
+  }
+  
+  static async put(url, data) { ... }  // Update task
+  static async delete(url) { ... }      // Delete task
+}
+```
+
+**API Endpoints:**
+- **Base URL:** `https://6955ebb8b9b81bad7af1c22f.mockapi.io/api/v1/task`
+- **GET** - Fetch all tasks
+- **POST** - Create new task
+- **PUT** - Update existing task
+- **DELETE** - Remove task by ID
+
+**Event Management:**
+```javascript
+function loadAllEvents() {
+  document.addEventListener("DOMContentLoaded", handleFetchTask);
+  taskForm.addEventListener("submit", handleAddTask);
+  taskContainer.addEventListener("click", handleTaskActions);
+}
+```
+
+**Inline Editing System:**
+The app features a sophisticated inline editing mechanism:
+
+1. **Edit Mode:**
+   - Click "Edit" button
+   - Task text converts to input field
+   - Button changes to "Save"
+   - Input auto-filled with current task
+
+2. **Save Mode:**
+   - Validates non-empty input
+   - Sends PUT request to API
+   - Converts input back to text
+   - Button reverts to "Edit"
+
+3. **Delete Mode:**
+   - Confirmation dialog
+   - DELETE request to API
+   - Removes element from DOM
+
+**Event Delegation Pattern:**
+```javascript
+function handleTaskActions(e) {
+  if (e.target.innerText === "Edit") {
+    // Convert paragraph to input
+    const input = document.createElement("input");
+    taskElement.replaceChild(input, taskP);
+    e.target.innerText = "Save";
+  }
+  else if (e.target.innerText === "Save") {
+    // Validate and update via API
+    Task.put(`${API_URL}/${taskId}`, userTask);
+    taskElement.replaceChild(p, input);
+    e.target.innerText = "Edit";
+  }
+  else if (e.target.innerText === "Delete") {
+    // Confirm and delete
+    Task.delete(`${API_URL}/${taskId}`);
+    taskElement.remove();
+  }
+}
+```
+
+**UI/UX Features:**
+- Dynamic header creation (only once)
+- Task list with individual cards
+- Gradient borders and hover effects
+- Responsive mobile-first design
+- Color-coded buttons (Edit: Green, Save: Blue, Delete: Red)
+- Smooth transitions and transforms
+- Empty state handling
+
+**Error Prevention & Validation:**
+- Input trimming and validation
+- Confirmation before deletion
+- Try-catch error handling
+- User-friendly error messages
+- Prevents duplicate headers
+- Validates task IDs with data attributes
+
+**Key Technical Concepts:**
+- ✅ Async/Await instead of Promises
+- ✅ Static class methods for utilities
+- ✅ Event delegation for efficiency
+- ✅ DOM element replacement (replaceChild)
+- ✅ Data attributes for ID tracking
+- ✅ Dynamic element creation
+- ✅ Button state management
+- ✅ Real-time UI synchronization
+- ✅ RESTful CRUD operations
+- ✅ Error handling and validation
+
+**Comprehensive Documentation:**
+The project includes extensive documentation:
+- [notes.txt](CRUD_Application_Using_API/notes.txt) - 434 lines covering:
+  - Project overview and structure
+  - Technical implementation details
+  - 12 common errors to prevent
+  - 12 learning outcome categories
+  - Best practices demonstrated
+  - 33 possible enhancements
+  - Debugging tips and workflow
+  - Project metadata
+
+#### 📂 Files
+- [index.html](CRUD_Application_Using_API/index.html) - Tailwind CSS responsive UI
+- [script.js](CRUD_Application_Using_API/script.js) - Main application logic (199 lines)
+- [library.js](CRUD_Application_Using_API/library.js) - Task API class (71 lines)
+- [notes.txt](CRUD_Application_Using_API/notes.txt) - Comprehensive documentation (434 lines)
+- [README.md](CRUD_Application_Using_API/README.md) - Project documentation
+
+---
+
+### 5. Simple Counter App
 **Complexity:** 🟢 Beginner | **Status:** ✅ Complete
 
 Clean and simple counter application demonstrating basic JavaScript concepts.
@@ -216,7 +365,7 @@ function resetCount() { count = 0; }
 
 ---
 
-### 5. To-do App
+### 6. To-do App
 **Complexity:** 🔴 Advanced | **Status:** ✅ Complete
 
 Feature-rich task management application with full CRUD operations and search functionality.
@@ -307,7 +456,7 @@ localStorage.clear();
 
 ---
 
-### 6. ToDo Using API
+### 7. ToDo Using API
 **Complexity:** 🔴 Advanced | **Status:** ✅ Complete
 
 Modern task manager with RESTful API integration using MockAPI and ES6 modules.
@@ -513,8 +662,7 @@ The project includes [errorToPrevent.txt](ToDoUsingAPI/errorToPrevent.txt) cover
 |---------|-----------|-------|--------------|-----|-------------|
 | **Book Management** | 🔴 Advanced | 191 | ✅ Yes | ❌ No | ✅ Yes (3) |
 | **Character Validator** | 🟡 Intermediate | 31 | ❌ No | ❌ No | ❌ No |
-| **Color Picker** | 🟡 Intermediate | 106 | ❌ No | ❌ No | ❌ No |
-| **Simple Counter** | 🟢 Beginner | 28 | ❌ No | ❌ No | ❌ No |
+| **Color Picker** | 🟡 Intermediate | 106 | ❌ No | ❌ No | ❌ No || **CRUD Using API** | 🔴 Advanced | 270 | ❌ No | ✅ Yes | ✅ Yes (1) || **Simple Counter** | 🟢 Beginner | 28 | ❌ No | ❌ No | ❌ No |
 | **To-do App** | 🔴 Advanced | 290 | ✅ Yes | ❌ No | ❌ No |
 | **ToDo API** | 🔴 Advanced | 98 | ❌ No | ✅ Yes | ✅ Yes (1) |
 
@@ -596,23 +744,25 @@ The project includes [errorToPrevent.txt](ToDoUsingAPI/errorToPrevent.txt) cover
 
 ### 🔴 Advanced Path
 5. **Book Management App** - OOP with ES6 classes
-6. **ToDo Using API** - External API integration
+6. **CRUD Application Using API** - Async/await with inline editing
+7. **ToDo Using API** - External API integration with Promises
 
 ---
 
 ## 🎯 Skills Matrix
 
-| Skill | Simple Counter | Char Validator | Color Picker | Todo App | Book Manager | Todo API |
-|-------|---------------|----------------|--------------|----------|--------------|----------|
-| DOM Selection | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Event Handling | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Form Validation | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| LocalStorage | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ |
-| ES6 Classes | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ |
-| API Integration | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| ES6 Modules | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Event Delegation | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ |
-| Promises | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| Skill | Simple Counter | Char Validator | Color Picker | CRUD API | Todo App | Book Manager | Todo API |
+|-------|---------------|----------------|--------------|----------|----------|--------------|----------|
+| DOM Selection | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Event Handling | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Form Validation | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| LocalStorage | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ |
+| ES6 Classes | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ✅ |
+| API Integration | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ |
+| ES6 Modules | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ |
+| Event Delegation | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ |
+| Async/Await | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| Inline Editing | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
 
 ---
 
@@ -711,6 +861,7 @@ Ways to improve these projects:
 - ✅ **Color Picker** - DOM creation & Clipboard API
 - ✅ **To-do App** - LocalStorage mastery
 - ✅ **Book Management App** - OOP implementation
+- ✅ **CRUD Application Using API** - Modern async/await with inline editing
 - ✅ **ToDo Using API** - API integration & modules
 
 ---
@@ -743,6 +894,6 @@ Built with modern JavaScript best practices, focusing on:
 
 ---
 
-**Last Updated:** December 23, 2025
+**Last Updated:** January 2, 2026
 
 **Happy Coding! 💻✨**

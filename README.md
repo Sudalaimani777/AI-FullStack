@@ -21,7 +21,7 @@ This repository is my personal learning journey into Full-Stack Development, sta
 - **5 ES6 Advanced Modules** (Functions, Promises, Fetch, HTTP, Async/Await) with 820+ lines of notes
 - **80+ Topic-Specific Practice Tasks** aligned with each chapter (100% completed)
 - **Structured coding exercises** (Basic, Advanced, Bonus)
-- **6 Real-world projects** showcasing different JavaScript concepts
+- **7 Real-world projects** showcasing different JavaScript concepts
 - **Professional documentation** with enhanced formatting and quick references
 - **Hands-on DOM manipulation, AJAX, and API integration** practice
 
@@ -32,7 +32,7 @@ This repository is my personal learning journey into Full-Stack Development, sta
 
 **Completion Status:** 
 - ✅ 80/80 TopicTasks completed
-- ✅ 6/6 Projects completed
+- ✅ 7/7 Projects completed
 - ✅ 15/15 Learning Chapters completed (JavaScript Fundamentals + AJAX/API)
 - ✅ 5/5 ES6 Advanced Modules completed (Functions, Promises, Fetch, HTTP, Async/Await)
 - ✅ Basic, Advanced & Bonus Tasks completed (30 total)
@@ -74,10 +74,11 @@ AI-FullStackGitRepo/
 │
 ├── Projects/                     # 🚀 Real-World Applications
 │   └── FrontEnd/
-│       └── JavascriptProjects/   # 6 production applications
+│       └── JavascriptProjects/   # 7 production applications
 │           ├── BookManagementApp/   # ES6 Classes, LocalStorage (191 lines)
 │           ├── To-do_App/           # Advanced features (290 lines)
 │           ├── ToDoUsingAPI/        # REST API integration (98 lines)
+│           ├── CRUD_Application_Using_API/  # Async/await, inline editing (270 lines)
 │           ├── ColorPicker/         # Browser APIs (106 lines)
 │           ├── CharacterValidator/  # Real-time validation
 │           └── SimpleCounterApp/    # State management
@@ -101,7 +102,7 @@ AI-FullStackGitRepo/
 | Learning Topics | 14 | ✅ Complete |
 | ES6 Modules | 5 | ✅ Complete |
 | AJAX Projects | 3 | ✅ Complete |
-| Applications | 6 | ✅ Complete |
+| Applications | 7 | ✅ Complete |
 | Practice Tasks | 110+ | ✅ Complete |
 | JS-Tasks (Basic+Advanced+Bonus) | 30 | ✅ Complete |
 | Documentation Lines | 4,000+ | ✅ Complete |
@@ -240,6 +241,7 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 | **Simple Counter App** | ✅ **Complete** | **Dec 5, 2025** |
 | **Book Management App** | ✅ **Complete** | **Dec 13, 2025** |
 | **ToDoUsingAPI** | ✅ **Complete** | **Dec 2025** |
+| **CRUD_Application_Using_API** | ✅ **Complete** | **Jan 2, 2026** |
 | **Future Goals** |
 | Bonus Challenges | 🔄 In Progress | - |
 | Async/Await | ⏳ Upcoming | - |
@@ -255,8 +257,8 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 - [ ] Study Destructuring and Spread/Rest operators
 - [ ] Learn ES6 Modules (import/export)
 - [ ] Build a weather app using external API with async/await
-- [ ] Create a full CRUD application with API integration
 - [ ] Practice advanced async patterns (Promise.all, Promise.race)
+- [ ] Learn backend fundamentals (Node.js, Express)
 
 ### Completed Goals
 - [x] ~~Enhance JavaScript learning notes~~ ✅ Completed Oct 18, 2025
@@ -282,6 +284,7 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 - [x] ~~Build ToDoUsingAPI project~~ ✅ Completed Dec 2025
 - [x] ~~Complete Bonus Tasks (10 advanced challenges)~~ ✅ Completed Dec 30, 2025
 - [x] ~~Learn Async/Await syntax and patterns~~ ✅ Completed Jan 1, 2026
+- [x] ~~Build CRUD_Application_Using_API with inline editing~~ ✅ Completed Jan 2, 2026
 
 ### Future Topics
 - **Advanced ES6+ Features**
@@ -388,6 +391,15 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 - ✅ Error handling
 - ✅ Dynamic UI updates
 
+**CRUD_Application_Using_API:**
+- ✅ Full CRUD operations with REST API
+- ✅ Async/await with modern error handling
+- ✅ Inline editing with state management
+- ✅ Event delegation pattern
+- ✅ Dynamic UI updates (replaceChild, createElement)
+- ✅ PUT/DELETE API methods
+- ✅ Comprehensive documentation (434 lines)
+
 **ColorPicker:**
 - ✅ Random Hex/RGB color generation
 - ✅ Modern Clipboard API
@@ -411,7 +423,7 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 
 ### 📊 Repository Statistics
 
-**Learning Journey Duration:** 2+ months (Oct 17 - Dec 30, 2025)  
+**Learning Journey Duration:** 2+ months (Oct 17 - Jan 2, 2026)  
 **Total Chapters:** 15 (14 JavaScript Topics + 1 AJAX/API)  
 **ES6 Modules:** 5 advanced modules  
 **Total Practice Tasks:** 110+ across all categories  
@@ -421,8 +433,8 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 **Completion Rate:** 100% (110/110 tasks completed)  
 **DOM Practice Files:** 11 comprehensive files  
 **AJAX Modules:** 3 progressive projects  
-**Projects:** 6 production applications  
-**Total Code Lines:** 1,400+ across all projects
+**Projects:** 7 production applications  
+**Total Code Lines:** 1,670+ across all projects
 
 ## 🔗 Quick Links
 
@@ -436,7 +448,7 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 - [Coding Challenges](Tasks/FrontEnd/Javascript/JS-Tasks/README.md) - Basic + Advanced
 
 ### 🚀 Projects
-- [All Projects](Projects/FrontEnd/README.md) - 6 applications overview
+- [All Projects](Projects/FrontEnd/README.md) - 7 applications overview
 - [JavaScript Projects](Projects/FrontEnd/JavascriptProjects/README.md) - Detailed project docs
 
 ---
@@ -444,5 +456,5 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 **Repository:** AI Full-Stack Development Learning Journey  
 **Author:** Sudalaimani  
 **Learning Period:** October 17, 2025 - Present  
-**Last Updated:** January 1, 2026  
+**Last Updated:** January 2, 2026  
 **Status:** ✅ Frontend In Progress | 🔄 Backend In Progress
