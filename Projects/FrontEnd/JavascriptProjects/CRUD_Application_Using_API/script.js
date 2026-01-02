@@ -14,6 +14,7 @@ function loadAllEvents() {
 }
 loadAllEvents();
 
+//Fetch the Task when the window is Loaded :-
 function handleFetchTask() {
     Task.get(API_URL).then(tasks => {
         tasks.forEach(task => showTaskUI(task));
@@ -102,88 +103,92 @@ function showTaskUI(task) {
     divTwo.appendChild(divThree);
 }
 
-// function handleRemoveTask(e) {
-//     if (e.target.innerText === "Delete") {
-//         if (confirm("Are you sure to delete this task?")) {
-//             const taskElement = e.target.parentElement.parentElement;
-//             const taskId = taskElement.firstChild.getAttribute("data-id");
-//             console.log(taskId);
 
-//             Task.delete(`${API_URL}${"/"}${taskId}`).then( () => {
-//                 taskElement.remove();
-//             }).catch(err => {
-//                 alert("Error unable to remove the task because ", err);
-//             })
-//         }
-//     }
-// }
 
+/**
+ * Handles all task-related actions (Edit, Save, Delete) using event delegation
+ * @param {Event} e - The event object from the click event
+ */
 function handleTaskActions(e) {
-    // Handle Edit Button Click
+    // Handle Edit Action - Convert task text to editable input field
     if (e.target.innerText === "Edit") {
+        // Get references to the task container and its elements
         const taskElement = e.target.parentElement.parentElement;
         const taskP = taskElement.querySelector("p");
         const taskId = taskP.getAttribute("data-id");
-        const currentText = taskP.innerText;
+        const currentTask = taskP.innerText;
 
-        // Create input field
+        // Create an input element to allow task editing
         const input = document.createElement("input");
         input.type = "text";
-        input.value = currentText;
-        input.className = "text-gray-800 text-base flex-1 mb-3 sm:mb-0 break-words font-medium px-3 py-2 border-2 border-indigo-300 rounded-lg focus:outline-none focus:border-indigo-500";
+        input.value = currentTask;
         input.setAttribute("data-id", taskId);
+        input.className = "text-gray-800 text-base flex-1 mb-3 sm:mb-0 break-words font-medium px-3 py-2 border-2 border-indigo-300 rounded-lg focus:outline-none focus:border-indigo-500";
 
-        // Replace p with input
+        // Replace the paragraph element with the input field
         taskElement.replaceChild(input, taskP);
 
-        // Change Edit button to Save
+        // Change the Edit button to Save button
         e.target.innerText = "Save";
-        e.target.className = "flex-1 sm:flex-none px-5 py-2.5 bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200";
+        e.target.className = "flex-1 sm:flex-none px-5 py-2.5 bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200"
     }
-    // Handle Save Button Click
+    // Handle Save Action - Update the task in the API and UI
     else if (e.target.innerText === "Save") {
+        // Get references to the input field and task ID
         const taskElement = e.target.parentElement.parentElement;
         const input = taskElement.querySelector("input");
         const taskId = input.getAttribute("data-id");
-        const newText = input.value.trim();
+        const newTask = input.value.trim();
 
-        if (newText === "") {
-            alert("Task cannot be empty!");
+        // Validate that the task is not empty
+        if (newTask === "") {
+            alert("Task cannot be empty")
             return;
         }
 
-        // Update via API
-        Task.put(`${API_URL}/${taskId}`, { userTask: newText })
-            .then(updatedTask => {
-                // Create new p element
-                const p = document.createElement("p");
-                p.innerText = newText;
-                p.className = "text-gray-800 text-base flex-1 mb-3 sm:mb-0 break-words font-medium";
-                p.setAttribute("data-id", taskId);
+        // Prepare the updated task object
+        const userTask = {
+            userTask: newTask
+        }
 
-                // Replace input with p
-                taskElement.replaceChild(p, input);
+        // Send PUT request to update the task in the API
+        Task.put(`${API_URL}/${taskId}`, userTask).then(() => {
+            // Create a paragraph element with the updated task text
+            const p = document.createElement("p");
+            p.innerText = newTask;
+            p.calssName = "text-gray-800 text-base flex-1 mb-3 sm:mb-0 break-words font-medium";
+            p.setAttribute("data-id", taskId);
 
-                // Change Save back to Edit
-                e.target.innerText = "Edit";
-                e.target.className = "flex-1 sm:flex-none px-5 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-semibold rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200";
-            })
-            .catch(err => {
-                alert("Error updating task: " + err);
-                console.log(err);
-            });
+            // Replace the input field back to paragraph element
+            taskElement.replaceChild(p, input);
+
+            // Change the Save button back to Edit button
+            e.target.innerText = "Edit";
+            e.target.calssName = "flex-1 sm:flex-none px-5 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-semibold rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200"
+        }).catch(err => {
+            // Handle any errors during the update operation
+            alert("Unable to update the task");
+            console.log(err);
+        })
     }
-    // Handle Delete Button Click
+
+    // Handle Delete Action - Remove the task from API and UI
     else if (e.target.innerText === "Delete") {
-        if (confirm("Are you sure to delete this task?")) {
+        // Confirm deletion with the user
+        if (confirm("Are you sure to remove the task ?")) {
+            // Get references to the task element and its ID
             const taskElement = e.target.parentElement.parentElement;
             const taskId = taskElement.firstChild.getAttribute("data-id");
 
+            // Send DELETE request to remove the task from the API
             Task.delete(`${API_URL}/${taskId}`).then(() => {
+                // Remove the task element from the DOM
                 taskElement.remove();
             }).catch(err => {
-                alert("Error unable to remove the task because " + err);
-            })
+                // Handle any errors during the delete operation
+                alert("Unable to delete the task");
+                console.log(err)
+            });
         }
     }
 }
