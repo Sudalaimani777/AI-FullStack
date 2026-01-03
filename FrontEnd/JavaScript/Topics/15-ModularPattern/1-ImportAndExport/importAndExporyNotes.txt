@@ -1,0 +1,497 @@
+Import and Export - Complete Guide (A-Z)
+=========================================
+
+TABLE OF CONTENTS:
+-----------------
+1. What are Modules?
+2. Export Types
+3. Import Types
+4. Syntax Examples
+5. Best Practices
+6. Common Patterns
+7. Troubleshooting
+
+
+1. WHAT ARE MODULES?
+====================
+Modules are reusable pieces of code that can be exported from one file and imported into another.
+
+Benefits:
+- Code Organization: Split large codebases into smaller files
+- Reusability: Use the same code in multiple places
+- Maintainability: Easier to find and fix bugs
+- Encapsulation: Keep variables private, expose only what's needed
+- Dependency Management: Clear relationships between files
+
+
+2. EXPORT TYPES
+===============
+
+A. NAMED EXPORTS
+----------------
+Export multiple things from a file. Must import with exact same name (or use 'as' to rename).
+
+Syntax:
+// Export while declaring
+export const name = "John";
+export function greet() { return "Hello"; }
+export class User { }
+
+// Export after declaring
+const age = 25;
+function calculate() { }
+export { age, calculate };
+
+// Export with rename
+const secret = "123";
+export { secret as password };
+
+
+B. DEFAULT EXPORT
+-----------------
+Export ONE main thing from a file. Can import with any name you want.
+
+Syntax:
+// Export function
+export default function() { 
+    console.log("Main function"); 
+}
+
+// Export class
+export default class User {
+    constructor(name) {
+        this.name = name;
+    }
+}
+
+// Export value
+const config = { theme: "dark" };
+export default config;
+
+// Export after declaring
+function calculate() { return 42; }
+export default calculate;
+
+IMPORTANT: Only ONE default export per file!
+
+
+C. MIXED EXPORTS
+----------------
+You can have both named and default exports in the same file:
+
+// math.js
+export const PI = 3.14;
+export function add(a, b) { return a + b; }
+export default function multiply(a, b) { return a * b; }
+
+
+3. IMPORT TYPES
+===============
+
+A. IMPORTING NAMED EXPORTS
+---------------------------
+Must use exact names (or rename with 'as'):
+
+// Import specific items
+import { name, greet } from './module.js';
+
+// Import with rename
+import { password as secret } from './module.js';
+
+// Import everything as object
+import * as myModule from './module.js';
+// Use as: myModule.name, myModule.greet()
+
+
+B. IMPORTING DEFAULT EXPORT
+----------------------------
+Can use any name you want:
+
+import multiply from './math.js';
+import calculator from './math.js';  // Same import, different name
+import calc from './math.js';        // Also valid
+
+
+C. IMPORTING BOTH NAMED AND DEFAULT
+------------------------------------
+import multiply, { PI, add } from './math.js';
+//     ^^^^^^^^  ^^^^^^^^^^^
+//     default   named exports
+
+
+D. IMPORT FOR SIDE EFFECTS
+---------------------------
+Import a module just to run its code (no exports needed):
+
+import './initializeApp.js';  // Runs the file
+
+
+E. DYNAMIC IMPORTS
+------------------
+Load modules conditionally or on-demand (returns a Promise):
+
+// Load module when needed
+if (condition) {
+    import('./module.js').then(module => {
+        module.doSomething();
+    });
+}
+
+// With async/await
+async function loadModule() {
+    const module = await import('./module.js');
+    module.doSomething();
+}
+
+
+4. SYNTAX EXAMPLES
+==================
+
+EXAMPLE 1: Simple Named Exports
+--------------------------------
+// utils.js
+export const APP_NAME = "MyApp";
+export const VERSION = "1.0.0";
+
+export function formatDate(date) {
+    return date.toLocaleDateString();
+}
+
+export function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+// main.js
+import { APP_NAME, VERSION, formatDate } from './utils.js';
+
+console.log(APP_NAME);           // "MyApp"
+console.log(VERSION);            // "1.0.0"
+console.log(formatDate(new Date()));
+
+
+EXAMPLE 2: Default Export (Class)
+----------------------------------
+// User.js
+export default class User {
+    constructor(name, email) {
+        this.name = name;
+        this.email = email;
+    }
+    
+    greet() {
+        return `Hello, ${this.name}!`;
+    }
+}
+
+// app.js
+import User from './User.js';
+
+const user = new User("Alice", "alice@example.com");
+console.log(user.greet());  // "Hello, Alice!"
+
+
+EXAMPLE 3: Mixed Exports
+-------------------------
+// math.js
+export const PI = 3.14159;
+export const E = 2.71828;
+
+export function add(a, b) {
+    return a + b;
+}
+
+export function subtract(a, b) {
+    return a - b;
+}
+
+// Main calculator function (default)
+export default function calculate(operation, a, b) {
+    switch(operation) {
+        case 'add': return add(a, b);
+        case 'subtract': return subtract(a, b);
+        default: return 0;
+    }
+}
+
+// app.js
+import calculate, { PI, E, add, subtract } from './math.js';
+
+console.log(calculate('add', 5, 3));  // 8
+console.log(PI);                       // 3.14159
+console.log(add(10, 20));             // 30
+
+
+EXAMPLE 4: Import All as Namespace
+-----------------------------------
+// colors.js
+export const RED = "#FF0000";
+export const GREEN = "#00FF00";
+export const BLUE = "#0000FF";
+
+export function rgbToHex(r, g, b) {
+    return `#${r.toString(16)}${g.toString(16)}${b.toString(16)}`;
+}
+
+// app.js
+import * as Colors from './colors.js';
+
+console.log(Colors.RED);              // "#FF0000"
+console.log(Colors.rgbToHex(255, 0, 0));  // "#ff00"
+
+
+EXAMPLE 5: Re-exporting
+-----------------------
+Useful for creating index files:
+
+// components/Button.js
+export default function Button() { }
+
+// components/Input.js
+export default function Input() { }
+
+// components/index.js (barrel export)
+export { default as Button } from './Button.js';
+export { default as Input } from './Input.js';
+
+// app.js
+import { Button, Input } from './components/index.js';
+
+
+5. BEST PRACTICES
+=================
+
+✅ DO:
+------
+1. Use Named Exports for multiple utilities
+   export function validateEmail() { }
+   export function validatePhone() { }
+
+2. Use Default Export for main component/class
+   export default class MainComponent { }
+
+3. Keep one module = one responsibility
+
+4. Use descriptive file names matching exports
+   // UserService.js
+   export default class UserService { }
+
+5. Group related exports
+   // Instead of multiple files
+   export { add, subtract, multiply, divide } from './math.js';
+
+6. Use absolute paths or aliases (with bundler)
+   import { User } from '@/models/User';
+
+7. Import only what you need
+   import { add } from './utils.js';  // ✅ Good
+   import * as utils from './utils.js';  // ❌ Imports everything
+
+
+❌ DON'T:
+---------
+1. Mix module systems
+   export default something;
+   module.exports = something;  // ❌ Don't mix
+
+2. Use default export for multiple utilities
+   // ❌ Bad
+   export default { util1, util2, util3 };
+   // ✅ Good
+   export { util1, util2, util3 };
+
+3. Create circular dependencies
+   // a.js imports b.js, b.js imports a.js ❌
+
+4. Forget file extensions in imports (if required)
+   import { add } from './math';     // ❌ Might not work
+   import { add } from './math.js';  // ✅ Safer
+
+
+6. COMMON PATTERNS
+==================
+
+PATTERN 1: Configuration File
+------------------------------
+// config.js
+export const API_URL = "https://api.example.com";
+export const TIMEOUT = 5000;
+export const MAX_RETRIES = 3;
+
+export default {
+    API_URL,
+    TIMEOUT,
+    MAX_RETRIES
+};
+
+
+PATTERN 2: Service Module
+--------------------------
+// userService.js
+const API_BASE = "https://api.example.com";
+
+async function getUser(id) {
+    const response = await fetch(`${API_BASE}/users/${id}`);
+    return response.json();
+}
+
+async function createUser(userData) {
+    const response = await fetch(`${API_BASE}/users`, {
+        method: 'POST',
+        body: JSON.stringify(userData)
+    });
+    return response.json();
+}
+
+export { getUser, createUser };
+
+
+PATTERN 3: Utility Collection
+------------------------------
+// stringUtils.js
+export function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+export function truncate(str, length) {
+    return str.length > length ? str.slice(0, length) + '...' : str;
+}
+
+export function slugify(str) {
+    return str.toLowerCase().replace(/\s+/g, '-');
+}
+
+
+PATTERN 4: Constants File
+--------------------------
+// constants.js
+export const STATUS = {
+    PENDING: 'pending',
+    SUCCESS: 'success',
+    ERROR: 'error'
+};
+
+export const COLORS = {
+    PRIMARY: '#007bff',
+    SECONDARY: '#6c757d',
+    SUCCESS: '#28a745'
+};
+
+
+PATTERN 5: Factory Pattern
+---------------------------
+// userFactory.js
+class User {
+    constructor(name, role) {
+        this.name = name;
+        this.role = role;
+    }
+}
+
+export function createAdmin(name) {
+    return new User(name, 'admin');
+}
+
+export function createGuest(name) {
+    return new User(name, 'guest');
+}
+
+
+7. TROUBLESHOOTING
+==================
+
+ERROR 1: "Cannot use import statement outside a module"
+--------------------------------------------------------
+Problem: Browser/Node doesn't recognize file as module
+
+Solutions:
+// In HTML
+<script type="module" src="app.js"></script>
+
+// In package.json (Node.js)
+{
+  "type": "module"
+}
+
+// Or use .mjs extension
+import something from './module.mjs';
+
+
+ERROR 2: "Export 'xyz' is not defined"
+---------------------------------------
+Problem: Importing something that doesn't exist
+
+Check:
+- Spelling matches exactly
+- Item is actually exported
+- Using correct syntax (named vs default)
+
+
+ERROR 3: CORS errors in browser
+--------------------------------
+Problem: Loading modules from file:// protocol
+
+Solution: Use a local server:
+npx serve
+# or
+python -m http.server
+
+
+ERROR 4: Circular dependency
+-----------------------------
+Problem: File A imports B, File B imports A
+
+Solution: 
+- Restructure code
+- Move shared code to third file
+- Use dynamic imports
+
+
+8. QUICK REFERENCE CHEAT SHEET
+===============================
+
+EXPORTS:
+--------
+Named:     export const x = 1;
+           export function fn() {}
+           export { x, fn };
+
+Default:   export default class {}
+           export default function() {}
+           export default 42;
+
+Mixed:     export const x = 1;
+           export default function() {}
+
+Rename:    export { x as myX };
+
+Re-export: export { x } from './other.js';
+           export * from './other.js';
+
+IMPORTS:
+--------
+Named:     import { x, fn } from './module.js';
+
+Default:   import MyClass from './module.js';
+
+Mixed:     import MyClass, { x, fn } from './module.js';
+
+Rename:    import { x as myX } from './module.js';
+
+All:       import * as Module from './module.js';
+
+Side-effect: import './module.js';
+
+Dynamic:   const module = await import('./module.js');
+
+
+NOTES:
+------
+- File extensions (.js) are often required
+- Paths must start with ./ or ../ for relative
+- Named imports must match export names
+- Default imports can use any name
+- One default export per file maximum
+- Named exports can be multiple
+- Modules are singletons (loaded once)
+- Imports are hoisted (loaded first)
+

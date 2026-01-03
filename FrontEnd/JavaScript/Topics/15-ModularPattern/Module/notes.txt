@@ -1,0 +1,29 @@
+1)Modular Pattern :-
+    In  JS it is a design pattern that provides encapsulation and privacy for variables and function, exposing only what you want to be public
+
+    Benifits :-
+        Privacy :- Create private variables and functions that can't be accessed form outside
+
+        Organization :- Groups related code toegther 
+
+        Namespace :- Prevent global code pollution
+
+2)What is IIFE :-
+    IIFE (Immediately Invoked Function Expression)
+
+    Think of it like a secret box that opens itself immediately and then disappears.
+
+    Simple Explanation:
+
+        Immediately = Right away, no waiting
+        Invoked = Run/Execute
+        Function = A block of code
+        Expression = Produces a value
+
+        It's a function that runs as soon as you create it, then everything inside stays private.
+
+    Real-World Analogy:-
+        Imagine you write a secret note, put it in a box, the box reads the note to itself immediately, and then the note is locked away forever. No one else can see what was in the note.
+
+    Kid-Friendly Summary:
+        It's like whispering a secret to yourself - you say it once, only you hear it, and then it's gone! 🤫
