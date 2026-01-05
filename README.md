@@ -17,7 +17,7 @@
 ## 🎯 About
 
 This repository is my personal learning journey into Full-Stack Development, starting with JavaScript fundamentals. It contains:
-- **15 Comprehensive Learning Chapters** with detailed notes and examples (JavaScript Topics + AJAX & APIs)
+- **16 Comprehensive Learning Chapters** with detailed notes and examples (JavaScript Topics + AJAX & APIs)
 - **5 ES6 Advanced Modules** (Functions, Promises, Fetch, HTTP, Async/Await) with 820+ lines of notes
 - **80+ Topic-Specific Practice Tasks** aligned with each chapter (100% completed)
 - **Structured coding exercises** (Basic, Advanced, Bonus)
@@ -33,7 +33,7 @@ This repository is my personal learning journey into Full-Stack Development, sta
 **Completion Status:** 
 - ✅ 80/80 TopicTasks completed
 - ✅ 7/7 Projects completed
-- ✅ 15/15 Learning Chapters completed (JavaScript Fundamentals + AJAX/API)
+- ✅ 16/16 Learning Chapters completed (JavaScript Fundamentals + AJAX/API)
 - ✅ 5/5 ES6 Advanced Modules completed (Functions, Promises, Fetch, HTTP, Async/Await)
 - ✅ Basic, Advanced & Bonus Tasks completed (30 total)
 
@@ -99,7 +99,7 @@ AI-FullStackGitRepo/
 
 | Category | Count | Status |
 |----------|-------|--------|
-| Learning Topics | 14 | ✅ Complete |
+| Learning Topics | 15 | ✅ Complete |
 | ES6 Modules | 5 | ✅ Complete |
 | AJAX Projects | 3 | ✅ Complete |
 | Applications | 7 | ✅ Complete |
@@ -149,7 +149,7 @@ AI-FullStackGitRepo/
 
 **Phase 1: JavaScript Fundamentals**
 1. 📖 Start with [FrontEnd/JavaScript/Topics/](FrontEnd/JavaScript/Topics/README.md)
-   - Complete all 14 topics from basics to DOM manipulation
+   - Complete all 15 topics from basics to modular patterns
 2. 🎯 Practice with [Tasks/TopicTasks/](Tasks/FrontEnd/Javascript/TopicTasks/README.md)
    - 80 exercises aligned with each topic
 
@@ -222,6 +222,7 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 | Switch Statement | ✅ Complete | Nov 13, 2025 |
 | Functions | ✅ Complete | Nov 13, 2025 |
 | DOM Manipulation | ✅ Complete | Nov 26, 2025 |
+| ModularPattern (Import/Export, IIFE) | ✅ Complete | Jan 5, 2026 |
 | AJAX & API Integration | ✅ Complete | Dec 17, 2025 |
 | **ES6 Advanced Features (ES6/)** |
 | 1. Functions (Arrow, Callback, Higher-Order) | ✅ Complete | Dec 22, 2025 |
@@ -244,9 +245,9 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 | **CRUD_Application_Using_API** | ✅ **Complete** | **Jan 2, 2026** |
 | **Future Goals** |
 | Bonus Challenges | 🔄 In Progress | - |
-| Async/Await | ⏳ Upcoming | - |
+| Async/Await | ✅ Complete | Jan 1, 2026 |
 | Destructuring & Spread | ⏳ Upcoming | - |
-| Modules (Import/Export) | ⏳ Upcoming | - |
+| Modules (Import/Export) | ✅ Complete | Jan 5, 2026 |
 | Backend Development | ⏳ Upcoming | - |
 
 **Legend:** ✅ Complete | 🔄 In Progress | ⏳ Upcoming
@@ -255,7 +256,6 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 
 ### Current Focus
 - [ ] Study Destructuring and Spread/Rest operators
-- [ ] Learn ES6 Modules (import/export)
 - [ ] Build a weather app using external API with async/await
 - [ ] Practice advanced async patterns (Promise.all, Promise.race)
 - [ ] Learn backend fundamentals (Node.js, Express)
@@ -285,12 +285,12 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 - [x] ~~Complete Bonus Tasks (10 advanced challenges)~~ ✅ Completed Dec 30, 2025
 - [x] ~~Learn Async/Await syntax and patterns~~ ✅ Completed Jan 1, 2026
 - [x] ~~Build CRUD_Application_Using_API with inline editing~~ ✅ Completed Jan 2, 2026
+- [x] ~~Master ES6 Modules (import/export) and IIFE pattern~~ ✅ Completed Jan 5, 2026
 
 ### Future Topics
 - **Advanced ES6+ Features**
   - [ ] Destructuring (arrays and objects)
   - [ ] Spread and Rest operators
-  - [ ] Modules (import/export)
   - [ ] Default parameters
   - [ ] Template literals (advanced)
 - **Asynchronous JavaScript (Advanced)**
@@ -329,6 +329,7 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 - ✅ Functions (declarations, expressions, arrows)
 - ✅ DOM manipulation and traversal
 - ✅ Event handling and delegation
+- ✅ Modular patterns (Import/Export, IIFE)
 
 ### 🎯 Advanced Problem Solving
 - ✅ Fibonacci algorithm implementation
@@ -423,8 +424,8 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 
 ### 📊 Repository Statistics
 
-**Learning Journey Duration:** 2+ months (Oct 17 - Jan 2, 2026)  
-**Total Chapters:** 15 (14 JavaScript Topics + 1 AJAX/API)  
+**Learning Journey Duration:** 2+ months (Oct 17 - Jan 5, 2026)  
+**Total Chapters:** 16 (15 JavaScript Topics + 1 AJAX/API)  
 **ES6 Modules:** 5 advanced modules  
 **Total Practice Tasks:** 110+ across all categories  
 **JS-Tasks:** 30 (Basic 10 + Advanced 10 + Bonus 10)  
@@ -439,7 +440,7 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 ## 🔗 Quick Links
 
 ### 📚 Learning Resources
-- [JavaScript Fundamentals](FrontEnd/JavaScript/Topics/README.md) - 14 topics, 2,293 lines of docs
+- [JavaScript Fundamentals](FrontEnd/JavaScript/Topics/README.md) - 15 topics, 2,293 lines of docs
 - [ES6 Guide](FrontEnd/JavaScript/ES6/README.md) - 5 modules, 820 lines of docs
 - [AJAX Tutorial](FrontEnd/Ajax/README.md) - 3 progressive projects
 
@@ -456,5 +457,5 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 **Repository:** AI Full-Stack Development Learning Journey  
 **Author:** Sudalaimani  
 **Learning Period:** October 17, 2025 - Present  
-**Last Updated:** January 2, 2026  
+**Last Updated:** January 5, 2026  
 **Status:** ✅ Frontend In Progress | 🔄 Backend In Progress

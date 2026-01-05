@@ -3,7 +3,7 @@
 A comprehensive JavaScript learning resource covering fundamental concepts to advanced ES6+ features. Master JavaScript from basics to modern development practices with hands-on examples and detailed documentation.
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-yellow)
-![Topics](https://img.shields.io/badge/Topics-14-blue)
+![Topics](https://img.shields.io/badge/Topics-15-blue)
 ![Status](https://img.shields.io/badge/Status-Complete-green)
 
 ## 📋 Table of Contents
@@ -21,7 +21,7 @@ A comprehensive JavaScript learning resource covering fundamental concepts to ad
 
 This comprehensive JavaScript learning resource provides:
 
-- ✅ **14 Core Topics** - Complete JavaScript fundamentals
+- ✅ **15 Core Topics** - Complete JavaScript fundamentals
 - ✅ **5 ES6 Modules** - Modern JavaScript features
 - ✅ **2,293 Lines** of detailed documentation (Topics)
 - ✅ **820 Lines** of ES6 notes (kid-friendly!)
@@ -90,7 +90,10 @@ JavaScript/
     ├── 11-IfElse/            # Conditional Statements
     ├── 12-Switch/            # Switch Statements
     ├── 13-Functions/         # Function Types
-    └── 14-DOM/               # Document Object Model
+    ├── 14-DOM/               # Document Object Model
+    └── 15-ModularPattern/    # Code Organization Patterns
+        ├── 1-ImportAndExport/
+        └── 2-ImmediatelyInvokeFunctionExpression/
 ```
 
 ---
@@ -429,7 +432,7 @@ async function safeApiCall() {
 
 ## 📖 Core Topics
 
-### Complete JavaScript Fundamentals (14 Topics)
+### Complete JavaScript Fundamentals (15 Topics)
 
 ### 1-Start: Getting Started
 - Setting up JavaScript
@@ -656,6 +659,40 @@ element.addEventListener("click", function() {
 });
 ```
 
+### 15-ModularPattern: Code Organization
+```javascript
+// ES6 Import/Export
+// export.js
+export const userName = "John";
+export function greet() {
+  return "Hello!";
+}
+
+// import.js
+import { userName, greet } from './export.js';
+console.log(userName); // "John"
+console.log(greet());  // "Hello!"
+
+// IIFE (Immediately Invoked Function Expression)
+(function() {
+  const privateVar = "Hidden";
+  console.log("Executes immediately!");
+})();
+
+// Module Pattern
+const myModule = (function() {
+  // Private
+  const privateData = "secret";
+  
+  // Public API
+  return {
+    publicMethod() {
+      console.log("Public access");
+    }
+  };
+})();
+```
+
 ---
 
 ## 🎓 Learning Path
@@ -677,10 +714,13 @@ Phase 3: Control Flow (Topics 11-13)
 Phase 4: Browser Interaction (Topic 14)
 6. DOM Manipulation
 
-Phase 5: Modern JavaScript (ES6)
-7. Functions (Arrow, Callbacks, Higher-Order)
-8. Promises → Fetch → HTTP
-9. Async/Await
+Phase 5: Code Organization (Topic 15)
+7. ModularPattern (Import/Export, IIFE)
+
+Phase 6: Modern JavaScript (ES6)
+8. Functions (Arrow, Callbacks, Higher-Order)
+9. Promises → Fetch → HTTP
+10. Async/Await
 ```
 
 ### Difficulty Progression
@@ -691,7 +731,8 @@ Phase 5: Modern JavaScript (ES6)
 | **Phase 2** | 7-10 | 🟡 Intermediate | 2-3 weeks |
 | **Phase 3** | 11-13 | 🟡 Intermediate | 1-2 weeks |
 | **Phase 4** | 14 | 🔴 Advanced | 1-2 weeks |
-| **Phase 5** | ES6 | 🔴 Advanced | 2-3 weeks |
+| **Phase 5** | 15 | 🟡 Intermediate | 1 week |
+| **Phase 6** | ES6 | 🔴 Advanced | 2-3 weeks |
 
 ---
 
@@ -833,7 +874,7 @@ function get_user_data() { }
 
 | Category | Count |
 |----------|-------|
-| **Total Topics** | 14 |
+| **Total Topics** | 15 |
 | **ES6 Modules** | 5 |
 | **Documentation Lines** | 3,113+ |
 | **Code Examples** | 100+ |
@@ -858,4 +899,4 @@ After completing this course, you will:
 
 **Master JavaScript from Zero to Hero! 🚀**
 
-**Last Updated:** January 1, 2026
+**Last Updated:** January 5, 2026

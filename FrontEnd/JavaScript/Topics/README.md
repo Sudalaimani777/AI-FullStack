@@ -2,7 +2,7 @@
 
 ## 📚 Overview
 
-This is a comprehensive JavaScript fundamentals learning module covering 14 essential topics from basic syntax to advanced DOM manipulation. Each topic is structured with hands-on examples, detailed notes, and practical exercises to build a strong foundation in JavaScript programming.
+This is a comprehensive JavaScript fundamentals learning module covering 15 essential topics from basic syntax to advanced modular patterns. Each topic is structured with hands-on examples, detailed notes, and practical exercises to build a strong foundation in JavaScript programming.
 
 ## 📁 Folder Structure
 
@@ -28,8 +28,11 @@ Topics/
 ├── 11-IfElse/                   # Conditional statements
 ├── 12-Switch/                   # Switch case statements
 ├── 13-Functions/                # Function declarations and expressions
-└── 14-DOM/                      # Document Object Model
-    └── DOM-Practice-Using-Todo-App/  # Practical DOM project
+├── 14-DOM/                      # Document Object Model
+│   └── DOM-Practice-Using-Todo-App/  # Practical DOM project
+└── 15-ModularPattern/           # Code organization patterns
+    ├── 1-ImportAndExport/       # ES6 module system
+    └── 2-ImmediatelyInvokeFunctionExpression/  # IIFE pattern
 ```
 
 ## 🎯 Learning Path
@@ -174,6 +177,38 @@ console.log(val.body);
 **Practical Project:**
 - `DOM-Practice-Using-Todo-App/` - Complete Todo application using DOM manipulation
 
+### Phase 7: Code Organization (Topic 15)
+**Modular Pattern**
+
+Organize and structure JavaScript code efficiently:
+
+**15-ModularPattern**: Modern code organization patterns
+
+1. **Import and Export**: ES6 module system for code reusability
+   ```javascript
+   // export.js
+   export const userName = "Sudalaimani";
+   export function greet() { return "Hello!"; }
+   
+   // import.js
+   import { userName, greet } from './export.js';
+   ```
+
+2. **IIFE (Immediately Invoked Function Expression)**: Encapsulation pattern
+   ```javascript
+   (function() {
+       const privateVar = "Hidden";
+       console.log("Executed immediately!");
+   })();
+   ```
+
+**Key Concepts:**
+- Module encapsulation and scope isolation
+- Code reusability with import/export
+- Preventing global namespace pollution
+- Self-executing functions for initialization
+- Creating private variables and methods
+
 ## 📖 Documentation
 
 ### notes.txt
@@ -204,6 +239,7 @@ CHAPTER 11: If-Else Statements
 CHAPTER 12: Switch Statements
 CHAPTER 13: Functions
 CHAPTER 14: DOM Manipulation
+CHAPTER 15: Modular Patterns (Import/Export, IIFE)
 ```
 
 ## 🎓 Key Learning Outcomes
@@ -276,7 +312,7 @@ CHAPTER 14: DOM Manipulation
 ## 🚀 How to Use This Module
 
 ### 1. Sequential Learning
-Start from Topic 1 and progress through Topic 14 in order. Each topic builds on previous concepts.
+Start from Topic 1 and progress through Topic 15 in order. Each topic builds on previous concepts.
 
 ### 2. Hands-On Practice
 Each folder contains:
@@ -324,6 +360,9 @@ Each folder contains:
 - [ ] **12-Switch**: Switch case logic
 - [ ] **13-Functions**: Function types and patterns
 - [ ] **14-DOM**: DOM manipulation and events
+- [ ] **15-ModularPattern**: Code organization patterns
+  - [ ] 1-ImportAndExport: ES6 modules
+  - [ ] 2-ImmediatelyInvokeFunctionExpression: IIFE pattern
 
 ## 🎯 Next Steps
 

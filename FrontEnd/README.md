@@ -8,7 +8,7 @@ JavaScript learning resources organized from fundamentals to advanced concepts.
 FrontEnd/
 ├── Ajax/                    # AJAX & HTTP requests (3 projects)
 └── JavaScript/              # JavaScript fundamentals & ES6+
-    ├── Topics/              # 14 fundamental topics (2,293 lines of docs)
+    ├── Topics/              # 15 fundamental topics (2,293 lines of docs)
     └── ES6/                 # Modern JS: Functions, Promises, Fetch, HTTP, Async/Await (820 lines of docs)
 ```
 
@@ -23,13 +23,14 @@ AJAX learning progression with XMLHttpRequest and JSON.
 - 3-External-API - External API integration
 
 ### JavaScript/Topics/
-Core JavaScript fundamentals (14 topics).
+Core JavaScript fundamentals (15 topics).
 
 **Coverage:**
 - Start, Console, Variables, DataTypes, TypeConversion
 - Numbers, String, TemplateString, ArrayMethods
 - Objects (6 sub-topics: Constructors, Prototypes, ES6 Classes)
 - IfElse, Switch, Functions, DOM
+- ModularPattern (Import/Export, IIFE)
 
 **Documentation:** 2,293 lines in notes.txt
 
