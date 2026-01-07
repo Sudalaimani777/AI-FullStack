@@ -9,30 +9,89 @@ This is a comprehensive JavaScript fundamentals learning module covering 15 esse
 ```
 Topics/
 ├── notes.txt                    # 2,293 lines of detailed documentation
+├── README.md                    # This documentation file
 ├── 1-Start/                     # Getting started with JavaScript
+│   ├── index.html
+│   └── script.js
 ├── 2-Console/                   # Console methods and debugging
+│   ├── index.html
+│   └── script.js
 ├── 3-Variables/                 # var, let, const declarations
+│   ├── index.html
+│   └── script.js
 ├── 4-DataTypes/                 # Primitive and non-primitive types
+│   ├── index.html
+│   └── script.js
 ├── 5-TypeConversion/            # Type casting and coercion
+│   ├── index.html
+│   └── script.js
 ├── 6-Numbers/                   # Number operations and methods
+│   ├── index.html
+│   └── script.js
 ├── 7-String/                    # String manipulation
+│   ├── index.html
+│   └── script.js
 ├── 8-TemplateString/            # Template literals and interpolation
+│   ├── index.html
+│   └── script.js
 ├── 9-ArrayMethods/              # Array manipulation methods
+│   ├── 1-BasicMethods/          # push, pop, shift, unshift, slice, splice
+│   │   ├── index.html
+│   │   └── script.js
+│   └── 2-AdvancedMethods/       # Higher-order array methods
+│       ├── 1-Map/               # Transforming arrays
+│       │   ├── index.html
+│       │   └── script.js
+│       ├── 2-Filter/            # Filtering arrays
+│       │   ├── index.html
+│       │   └── script.js
+│       └── 3-Reduce/            # Reducing arrays to single value
+│           ├── index.html
+│           └── script.js
 ├── 10-Objects/                  # Object fundamentals
 │   ├── 0-Objects/               # Basic object concepts
+│   │   ├── index.html
+│   │   └── script.js
 │   ├── 1-Constructor-This/      # Constructor functions and this keyword
 │   ├── 2-Built-in-Constructor/  # Built-in constructor functions
 │   ├── 3-PrototypeExplain/      # Prototype chain explanation
 │   ├── 4-Prototype-Inheritance/ # Prototypal inheritance
 │   └── 5-ES6-Classes/           # Modern class syntax
 ├── 11-IfElse/                   # Conditional statements
+│   ├── index.html
+│   └── script.js
 ├── 12-Switch/                   # Switch case statements
+│   ├── index.html
+│   └── script.js
 ├── 13-Functions/                # Function declarations and expressions
+│   ├── index.html
+│   └── script.js
 ├── 14-DOM/                      # Document Object Model
+│   ├── index.html
+│   ├── script.js
+│   ├── domSingleElement.js      # Single element selection methods
+│   ├── domMultipleElement.js    # Multiple element selection methods
 │   └── DOM-Practice-Using-Todo-App/  # Practical DOM project
+│       ├── todo.html
+│       ├── createElement.js     # Creating DOM elements
+│       ├── removeElement.js     # Removing DOM elements
+│       ├── traversingDOM.js     # DOM traversal methods
+│       ├── events.js            # Event handling
+│       ├── mouseEvent.js        # Mouse event examples
+│       ├── keyboardEvent.js     # Keyboard event examples
+│       └── domMultipleElementsTodo.js
 └── 15-ModularPattern/           # Code organization patterns
     ├── 1-ImportAndExport/       # ES6 module system
+    │   ├── index.html
+    │   ├── main.js              # Main entry point
+    │   ├── calculation.js       # Math operations module
+    │   ├── getUserData.js       # User data module
+    │   └── importAndExporyNotes.txt  # Module notes
     └── 2-ImmediatelyInvokeFunctionExpression/  # IIFE pattern
+        ├── index.html
+        ├── module.js            # IIFE module example
+        ├── notes.txt            # IIFE notes
+        └── iifeNotes.txt        # Additional IIFE documentation
 ```
 
 ## 🎯 Learning Path
@@ -61,11 +120,13 @@ Master data handling and manipulation:
 - **6-Numbers**: Math operations, Number methods, parsing
 - **7-String**: String methods, manipulation, searching
 - **8-TemplateString**: Modern string interpolation with backticks
-- **9-ArrayMethods**: Array operations (push, pop, slice, splice, map, filter)
+- **9-ArrayMethods**: Array operations organized into:
+  - **1-BasicMethods**: push, pop, shift, unshift, slice, splice
+  - **2-AdvancedMethods**: Higher-order methods (Map, Filter, Reduce)
 
 **Key Concepts:**
 ```javascript
-// Array Methods Example
+// Basic Array Methods Example
 const fruits = ["🍎", "🍇", "🥭", "🍉", "🍍"];
 
 // Adding/Removing
@@ -80,6 +141,12 @@ fruits.indexOf("🍇");     // 1
 
 // Non-mutating
 fruits.slice(0, 3);       // Returns copy
+
+// Advanced Array Methods
+const numbers = [1, 2, 3, 4, 5];
+numbers.map(n => n * 2);      // [2, 4, 6, 8, 10]
+numbers.filter(n => n > 2);   // [3, 4, 5]
+numbers.reduce((a, b) => a + b, 0);  // 15
 ```
 
 ### Phase 3: Structured Data (Topic 10)
@@ -171,11 +238,17 @@ console.log(val.body);
 - Modify CSS styles programmatically
 - Add or remove HTML elements
 - Create new events
-- Single element selection (`getElementById`, `querySelector`)
-- Multiple element selection (`querySelectorAll`, `getElementsByClassName`)
+- Single element selection (`getElementById`, `querySelector`) - See `domSingleElement.js`
+- Multiple element selection (`querySelectorAll`, `getElementsByClassName`) - See `domMultipleElement.js`
 
-**Practical Project:**
-- `DOM-Practice-Using-Todo-App/` - Complete Todo application using DOM manipulation
+**Practical Project - DOM-Practice-Using-Todo-App:**
+A comprehensive Todo application demonstrating:
+- `createElement.js` - Creating DOM elements dynamically
+- `removeElement.js` - Removing elements from DOM
+- `traversingDOM.js` - DOM traversal methods (parent, child, sibling)
+- `events.js` - Event handling fundamentals
+- `mouseEvent.js` - Mouse event examples (click, hover, etc.)
+- `keyboardEvent.js` - Keyboard event examples (keyup, keydown, etc.)
 
 ### Phase 7: Code Organization (Topic 15)
 **Modular Pattern**
@@ -184,17 +257,25 @@ Organize and structure JavaScript code efficiently:
 
 **15-ModularPattern**: Modern code organization patterns
 
-1. **Import and Export**: ES6 module system for code reusability
-   ```javascript
-   // export.js
-   export const userName = "Sudalaimani";
-   export function greet() { return "Hello!"; }
+1. **Import and Export** (`1-ImportAndExport/`): ES6 module system for code reusability
+   - `main.js` - Main entry point importing modules
+   - `calculation.js` - Math operations as exportable functions
+   - `getUserData.js` - User data handling module
+   - `importAndExporyNotes.txt` - Detailed module notes
    
-   // import.js
-   import { userName, greet } from './export.js';
+   ```javascript
+   // calculation.js
+   export const add = (a, b) => a + b;
+   export const subtract = (a, b) => a - b;
+   
+   // main.js
+   import { add, subtract } from './calculation.js';
    ```
 
-2. **IIFE (Immediately Invoked Function Expression)**: Encapsulation pattern
+2. **IIFE** (`2-ImmediatelyInvokeFunctionExpression/`): Encapsulation pattern
+   - `module.js` - IIFE module implementation
+   - `notes.txt` & `iifeNotes.txt` - Comprehensive IIFE documentation
+   
    ```javascript
    (function() {
        const privateVar = "Hidden";
@@ -257,12 +338,18 @@ CHAPTER 15: Modular Patterns (Import/Export, IIFE)
 - Mutable data structures
 
 ### Array Method Proficiency
+**Basic Methods (1-BasicMethods/):**
 - **Adding**: `push()`, `unshift()`
 - **Removing**: `pop()`, `shift()`
 - **Searching**: `indexOf()`, `includes()`
 - **Extracting**: `slice()` (non-mutating)
 - **Modifying**: `splice()` (mutating)
 - **Checking**: `Array.isArray()`
+
+**Advanced Methods (2-AdvancedMethods/):**
+- **Map**: Transform each element → returns new array
+- **Filter**: Select elements by condition → returns new array
+- **Reduce**: Accumulate to single value → returns single value
 
 ### Function Patterns
 1. **Function Declaration**: Hoisted, named functions
@@ -349,6 +436,11 @@ Each folder contains:
 - [ ] **7-String**: String manipulation
 - [ ] **8-TemplateString**: Template literals
 - [ ] **9-ArrayMethods**: Array manipulation
+  - [ ] 1-BasicMethods: push, pop, shift, unshift, slice, splice
+  - [ ] 2-AdvancedMethods: Higher-order methods
+    - [ ] 1-Map: Array transformation
+    - [ ] 2-Filter: Array filtering
+    - [ ] 3-Reduce: Array reduction
 - [ ] **10-Objects**: Object-oriented JavaScript
   - [ ] 0-Objects: Object basics
   - [ ] 1-Constructor-This: Constructor functions
@@ -360,6 +452,15 @@ Each folder contains:
 - [ ] **12-Switch**: Switch case logic
 - [ ] **13-Functions**: Function types and patterns
 - [ ] **14-DOM**: DOM manipulation and events
+  - [ ] domSingleElement.js: Single element selection
+  - [ ] domMultipleElement.js: Multiple element selection
+  - [ ] DOM-Practice-Using-Todo-App: Practical project
+    - [ ] createElement.js
+    - [ ] removeElement.js
+    - [ ] traversingDOM.js
+    - [ ] events.js
+    - [ ] mouseEvent.js
+    - [ ] keyboardEvent.js
 - [ ] **15-ModularPattern**: Code organization patterns
   - [ ] 1-ImportAndExport: ES6 modules
   - [ ] 2-ImmediatelyInvokeFunctionExpression: IIFE pattern
