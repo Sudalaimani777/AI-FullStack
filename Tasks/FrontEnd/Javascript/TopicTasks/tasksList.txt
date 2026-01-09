@@ -105,11 +105,49 @@ Status: [✅] Completed
 ================================================================================
 📂 9-ArrayMethods
 ================================================================================
+
+📁 Subfolder: 1-BasicMethods
 Task 1: Implement custom indexOf() method
 Task 2: Implement custom lastIndexOf() method
 Task 3: Create custom push() and pop() methods
 Task 4: Implement custom shift() and unshift() methods
 Task 5: Create custom includes() method
+
+Status: [✅] Completed
+
+📁 Subfolder: 2-AdvancedMethods (map)
+Task 1: Use map() to double all numbers in an array
+Task 2: Use map() to extract a specific property from an array of objects
+Task 3: Use map() with index parameter to create numbered list items
+Task 4: Use map() to transform an array of objects (add/modify properties)
+Task 5: Convert an array of strings to uppercase using map()
+
+Status: [✅] Completed
+
+📁 Subfolder: 2-AdvancedMethods (filter)
+Task 1: Use filter() to get all even numbers from an array
+Task 2: Use filter() to find objects that match a condition (e.g., adults)
+Task 3: Use filter() to get strings longer than a specific length
+Task 4: Use filter() with Boolean to remove falsy values from an array
+Task 5: Use filter() to search/find items that contain a specific text
+
+Status: [✅] Completed
+
+📁 Subfolder: 2-AdvancedMethods (forEach)
+Task 1: Use forEach() to log each element of an array
+Task 2: Use forEach() with index parameter to display numbered items
+Task 3: Use forEach() to iterate over an array of objects and display properties
+Task 4: Use forEach() to calculate the sum of all numbers in an array
+Task 5: Use forEach() to dynamically create HTML elements from array data
+
+Status: [✅] Completed
+
+📁 Subfolder: 2-AdvancedMethods (reduce)
+Task 1: Use reduce() to calculate the sum of all numbers in an array
+Task 2: Use reduce() to find the maximum or minimum value in an array
+Task 3: Use reduce() to count occurrences of items in an array
+Task 4: Use reduce() to flatten a nested array into a single array
+Task 5: Use reduce() to group objects by a specific property
 
 Status: [✅] Completed
 

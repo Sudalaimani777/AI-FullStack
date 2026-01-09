@@ -1,0 +1,472 @@
+========================================
+        map() in JavaScript
+========================================
+
+map() is an array method that creates a NEW ARRAY by calling a provided function on every element in the original array.
+
+----------------------------------------
+SYNTAX
+----------------------------------------
+
+const newArray = array.map(callback(element, index, array))
+
+----------------------------------------
+KEY CHARACTERISTICS
+----------------------------------------
+
+• Returns a new array — doesn't modify the original
+• Same length as the original array
+• Each element is the result of the callback function
+
+----------------------------------------
+EXAMPLES
+----------------------------------------
+
+1. BASIC EXAMPLE
+-----------------
+const numbers = [1, 2, 3, 4, 5];
+const doubled = numbers.map(num => num * 2);
+
+console.log(doubled); // [2, 4, 6, 8, 10]
+console.log(numbers); // [1, 2, 3, 4, 5] — original unchanged
+
+
+2. WITH OBJECTS
+----------------
+const users = [
+  { name: 'John', age: 25 },
+  { name: 'Jane', age: 30 }
+];
+
+const names = users.map(user => user.name);
+console.log(names); // ['John', 'Jane']
+
+
+3. USING INDEX PARAMETER
+-------------------------
+const letters = ['a', 'b', 'c'];
+const indexed = letters.map((letter, index) => `${index}: ${letter}`);
+
+console.log(indexed); // ['0: a', '1: b', '2: c']
+
+----------------------------------------
+map() vs forEach()
+----------------------------------------
+
+| map()                      | forEach()                |
+|----------------------------|--------------------------|
+| Returns a new array        | Returns undefined        |
+| Used for transformation    | Used for side effects    |
+| Chainable                  | Not chainable            |
+
+// map - returns transformed array
+const squared = [1, 2, 3].map(n => n * n); // [1, 4, 9]
+
+// forEach - just iterates, returns nothing
+[1, 2, 3].forEach(n => console.log(n));
+
+----------------------------------------
+WHEN TO USE map()
+----------------------------------------
+
+Use map() when you need to TRANSFORM array elements into a new array!
+
+========================================
+
+
+
+
+========================================
+        filter() in JavaScript
+========================================
+
+filter() is an array method that creates a NEW ARRAY with all elements that PASS a test (return true from the callback function).
+
+----------------------------------------
+SYNTAX
+----------------------------------------
+
+const newArray = array.filter(callback(element, index, array))
+
+----------------------------------------
+KEY CHARACTERISTICS
+----------------------------------------
+
+• Returns a new array — doesn't modify the original
+• New array contains only elements that pass the test
+• Can return an empty array if no elements pass
+• Callback must return true or false
+
+----------------------------------------
+EXAMPLES
+----------------------------------------
+
+1. BASIC EXAMPLE
+-----------------
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const evenNumbers = numbers.filter(num => num % 2 === 0);
+
+console.log(evenNumbers); // [2, 4, 6, 8, 10]
+console.log(numbers);     // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] — original unchanged
+
+
+2. WITH OBJECTS
+----------------
+const users = [
+  { name: 'John', age: 25 },
+  { name: 'Jane', age: 30 },
+  { name: 'Bob', age: 17 }
+];
+
+const adults = users.filter(user => user.age >= 18);
+console.log(adults); 
+// [{ name: 'John', age: 25 }, { name: 'Jane', age: 30 }]
+
+
+3. FILTERING STRINGS
+---------------------
+const words = ['apple', 'banana', 'cherry', 'date'];
+const longWords = words.filter(word => word.length > 5);
+
+console.log(longWords); // ['banana', 'cherry']
+
+
+4. REMOVING FALSY VALUES
+-------------------------
+const mixed = [0, 1, '', 'hello', null, undefined, false, true];
+const truthy = mixed.filter(Boolean);
+
+console.log(truthy); // [1, 'hello', true]
+
+----------------------------------------
+map() vs filter()
+----------------------------------------
+
+| map()                      | filter()                 |
+|----------------------------|--------------------------|
+| Transforms each element    | Tests each element       |
+| Same length as original    | Can be shorter/empty     |
+| Returns transformed values | Returns original values  |
+
+// map - transforms all elements
+const doubled = [1, 2, 3].map(n => n * 2); // [2, 4, 6]
+
+// filter - keeps only elements that pass test
+const big = [1, 2, 3].filter(n => n > 1); // [2, 3]
+
+----------------------------------------
+WHEN TO USE filter()
+----------------------------------------
+
+Use filter() when you need to SELECT specific elements from an array based on a condition!
+
+========================================
+
+
+
+
+========================================
+        forEach() in JavaScript
+========================================
+
+forEach() is an array method that executes a provided function ONCE for each array element. It is used for SIDE EFFECTS, not for returning values.
+
+----------------------------------------
+SYNTAX
+----------------------------------------
+
+array.forEach(callback(element, index, array))
+
+----------------------------------------
+KEY CHARACTERISTICS
+----------------------------------------
+
+• Returns undefined — doesn't return a new array
+• Cannot be stopped or broken (use for...of if you need break)
+• Used for side effects (logging, updating DOM, etc.)
+• Not chainable
+• Skips empty slots in sparse arrays
+
+----------------------------------------
+EXAMPLES
+----------------------------------------
+
+1. BASIC EXAMPLE
+-----------------
+const numbers = [1, 2, 3, 4, 5];
+numbers.forEach(num => console.log(num));
+
+// Output:
+// 1
+// 2
+// 3
+// 4
+// 5
+
+
+2. USING INDEX PARAMETER
+-------------------------
+const fruits = ['apple', 'banana', 'cherry'];
+fruits.forEach((fruit, index) => {
+  console.log(`${index + 1}. ${fruit}`);
+});
+
+// Output:
+// 1. apple
+// 2. banana
+// 3. cherry
+
+
+3. WITH OBJECTS
+----------------
+const users = [
+  { name: 'John', age: 25 },
+  { name: 'Jane', age: 30 }
+];
+
+users.forEach(user => {
+  console.log(`${user.name} is ${user.age} years old`);
+});
+
+// Output:
+// John is 25 years old
+// Jane is 30 years old
+
+
+4. CALCULATING SUM (Side Effect)
+---------------------------------
+const numbers = [10, 20, 30, 40];
+let sum = 0;
+
+numbers.forEach(num => {
+  sum += num;
+});
+
+console.log(sum); // 100
+
+
+5. UPDATING DOM ELEMENTS
+-------------------------
+const items = ['Item 1', 'Item 2', 'Item 3'];
+const ul = document.querySelector('ul');
+
+items.forEach(item => {
+  const li = document.createElement('li');
+  li.textContent = item;
+  ul.appendChild(li);
+});
+
+----------------------------------------
+forEach() vs map()
+----------------------------------------
+
+| forEach()                  | map()                    |
+|----------------------------|--------------------------|
+| Returns undefined          | Returns a new array      |
+| Used for side effects      | Used for transformation  |
+| Not chainable              | Chainable                |
+| Cannot break/continue      | Cannot break/continue    |
+
+// forEach - performs action, returns nothing
+[1, 2, 3].forEach(n => console.log(n));
+
+// map - transforms and returns new array
+const doubled = [1, 2, 3].map(n => n * 2); // [2, 4, 6]
+
+----------------------------------------
+forEach() vs for...of
+----------------------------------------
+
+| forEach()                  | for...of                 |
+|----------------------------|--------------------------|
+| Cannot use break/continue  | Can use break/continue   |
+| Cannot use await properly  | Works with async/await   |
+| Skips empty array slots    | Iterates empty slots     |
+
+// for...of - can break early
+for (const num of [1, 2, 3, 4, 5]) {
+  if (num === 3) break;
+  console.log(num); // 1, 2
+}
+
+----------------------------------------
+WHEN TO USE forEach()
+----------------------------------------
+
+Use forEach() when you need to perform SIDE EFFECTS for each element (logging, DOM updates, etc.) and don't need a return value!
+
+========================================
+
+
+
+
+========================================
+        reduce() in JavaScript
+========================================
+
+reduce() is an array method that executes a reducer function on each element of the array, resulting in a SINGLE OUTPUT VALUE. It "reduces" an array to a single value.
+
+----------------------------------------
+SYNTAX
+----------------------------------------
+
+const result = array.reduce(callback(accumulator, currentValue, index, array), initialValue)
+
+Parameters:
+• accumulator - The accumulated value (starts as initialValue or first element)
+• currentValue - The current element being processed
+• index (optional) - The index of the current element
+• array (optional) - The original array
+• initialValue (optional but recommended) - Starting value for accumulator
+
+----------------------------------------
+KEY CHARACTERISTICS
+----------------------------------------
+
+• Returns a single value (not an array)
+• Can return any type: number, string, object, array, etc.
+• Iterates through the entire array
+• Always provide initialValue to avoid bugs
+• Most powerful and flexible array method
+
+----------------------------------------
+EXAMPLES
+----------------------------------------
+
+1. BASIC EXAMPLE - SUM
+-----------------------
+const numbers = [1, 2, 3, 4, 5];
+const sum = numbers.reduce((acc, num) => acc + num, 0);
+
+console.log(sum); // 15
+
+// How it works:
+// acc = 0, num = 1  →  return 1
+// acc = 1, num = 2  →  return 3
+// acc = 3, num = 3  →  return 6
+// acc = 6, num = 4  →  return 10
+// acc = 10, num = 5 →  return 15
+
+
+2. FIND MAXIMUM VALUE
+----------------------
+const numbers = [5, 12, 8, 130, 44];
+const max = numbers.reduce((acc, num) => {
+  return num > acc ? num : acc;
+}, numbers[0]);
+
+console.log(max); // 130
+
+
+3. COUNT OCCURRENCES
+---------------------
+const fruits = ['apple', 'banana', 'apple', 'orange', 'banana', 'apple'];
+const count = fruits.reduce((acc, fruit) => {
+  acc[fruit] = (acc[fruit] || 0) + 1;
+  return acc;
+}, {});
+
+console.log(count); 
+// { apple: 3, banana: 2, orange: 1 }
+
+
+4. FLATTEN NESTED ARRAY
+-------------------------
+const nested = [[1, 2], [3, 4], [5, 6]];
+const flat = nested.reduce((acc, arr) => acc.concat(arr), []);
+
+console.log(flat); // [1, 2, 3, 4, 5, 6]
+
+
+5. GROUP OBJECTS BY PROPERTY
+------------------------------
+const users = [
+  { name: 'John', age: 25 },
+  { name: 'Jane', age: 30 },
+  { name: 'Bob', age: 25 }
+];
+
+const grouped = users.reduce((acc, user) => {
+  const key = user.age;
+  if (!acc[key]) {
+    acc[key] = [];
+  }
+  acc[key].push(user);
+  return acc;
+}, {});
+
+console.log(grouped);
+// {
+//   25: [{ name: 'John', age: 25 }, { name: 'Bob', age: 25 }],
+//   30: [{ name: 'Jane', age: 30 }]
+// }
+
+
+6. CALCULATE AVERAGE
+---------------------
+const numbers = [10, 20, 30, 40];
+const average = numbers.reduce((acc, num, index, array) => {
+  acc += num;
+  if (index === array.length - 1) {
+    return acc / array.length;
+  }
+  return acc;
+}, 0);
+
+console.log(average); // 25
+
+----------------------------------------
+reduce() vs other methods
+----------------------------------------
+
+| reduce()                   | map()                    | filter()                 |
+|----------------------------|--------------------------|--------------------------|
+| Returns single value       | Returns new array        | Returns new array        |
+| Most flexible              | Only transforms          | Only filters             |
+| Can do anything            | Same length as original  | Shorter or same length   |
+| More complex               | Simpler to read          | Simpler to read          |
+
+// reduce can do what map does:
+const doubled = [1, 2, 3].reduce((acc, n) => [...acc, n * 2], []); // [2, 4, 6]
+
+// But map is clearer:
+const doubled = [1, 2, 3].map(n => n * 2); // [2, 4, 6]
+
+----------------------------------------
+COMMON PITFALLS
+----------------------------------------
+
+❌ WRONG - No initial value:
+const sum = [1, 2, 3].reduce((acc, num) => acc + num);
+// Works for numbers, but fails with objects/empty arrays
+
+✅ CORRECT - Always provide initial value:
+const sum = [1, 2, 3].reduce((acc, num) => acc + num, 0);
+
+❌ WRONG - Forgetting to return accumulator:
+const result = [1, 2, 3].reduce((acc, num) => {
+  acc + num; // Missing return!
+}, 0);
+
+✅ CORRECT - Always return the accumulator:
+const result = [1, 2, 3].reduce((acc, num) => {
+  return acc + num;
+}, 0);
+
+----------------------------------------
+WHEN TO USE reduce()
+----------------------------------------
+
+Use reduce() when you need to:
+• Calculate a single value from an array (sum, product, average)
+• Transform an array into an object
+• Count occurrences or group items
+• Flatten nested arrays
+• Build complex data structures from arrays
+
+Use map/filter instead when:
+• You just need to transform elements → map()
+• You just need to filter elements → filter()
+• The logic is simpler with other methods
+
+========================================
