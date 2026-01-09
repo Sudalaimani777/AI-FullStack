@@ -97,9 +97,11 @@ JavaScript/
     ├── 9-ArrayMethods/                # Array Operations
     │   ├── 1-BasicMethods/            # push, pop, shift, unshift, slice, splice
     │   └── 2-AdvancedMethods/         # Higher-order array methods
+    │       ├── notes.txt              # Comprehensive documentation (map, filter, forEach, reduce)
     │       ├── 1-Map/                 # Array transformation
     │       ├── 2-Filter/              # Array filtering
-    │       └── 3-Reduce/              # Array reduction
+    │       ├── 3-ForEach/             # Array iteration
+    │       └── 4-Reduce/              # Array reduction
     │
     ├── 10-Objects/                    # Object-Oriented Programming
     │   ├── 0-Objects/                 # Basic object concepts
@@ -578,21 +580,10 @@ const html = `
 ```
 
 ### 9-ArrayMethods: Array Operations
+
+**Basic Methods (1-BasicMethods/):**
 ```javascript
 const arr = [1, 2, 3, 4, 5];
-
-// Transformation
-arr.map(x => x * 2);           // [2, 4, 6, 8, 10]
-arr.filter(x => x > 2);        // [3, 4, 5]
-arr.reduce((sum, x) => sum + x, 0); // 15
-
-// Iteration
-arr.forEach(x => console.log(x));
-
-// Search
-arr.find(x => x > 3);          // 4
-arr.findIndex(x => x > 3);     // 3
-arr.includes(3);               // true
 
 // Modification
 arr.push(6);                   // Add to end
@@ -600,7 +591,44 @@ arr.pop();                     // Remove from end
 arr.unshift(0);                // Add to start
 arr.shift();                   // Remove from start
 arr.splice(2, 1);              // Remove at index
+
+// Search
+arr.includes(3);               // true
+arr.indexOf(3);                // 2
+
+// Non-mutating
+arr.slice(1, 4);               // [2, 3, 4]
 ```
+
+**Advanced Methods (2-AdvancedMethods/):**
+
+For comprehensive documentation, see: `9-ArrayMethods/2-AdvancedMethods/notes.txt`
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+
+// map() - Transform each element
+numbers.map(x => x * 2);           // [2, 4, 6, 8, 10]
+
+// filter() - Select elements by condition
+numbers.filter(x => x > 2);        // [3, 4, 5]
+
+// forEach() - Execute function for each element (side effects)
+numbers.forEach(x => console.log(x));  // Logs: 1 2 3 4 5
+
+// reduce() - Accumulate to single value
+numbers.reduce((sum, x) => sum + x, 0); // 15
+
+// find() & findIndex()
+numbers.find(x => x > 3);          // 4
+numbers.findIndex(x => x > 3);     // 3
+```
+
+**Method Comparison:**
+- **map()**: Returns new array (transforms each element)
+- **filter()**: Returns new array (selects elements)
+- **forEach()**: Returns undefined (side effects only)
+- **reduce()**: Returns single value (accumulates)
 
 ### 10-Objects: OOP Concepts
 ```javascript

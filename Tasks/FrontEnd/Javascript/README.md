@@ -134,7 +134,7 @@ Practice challenges organized by difficulty level.
 
 ## 📖 TopicTasks Folder
 
-Structured learning path with 13 comprehensive topics and 80+ practice tasks.
+Structured learning path with 13 comprehensive topics and 100 practice tasks.
 
 ### Progress: ✅ 13/13 Topics Completed (100%)
 
@@ -219,8 +219,10 @@ Modern string templating.
 
 ---
 
-#### 9️⃣ **9-ArrayMethods** (5 tasks) ✅
-Implementing custom array methods.
+#### 9️⃣ **9-ArrayMethods** (25 tasks) ✅
+Comprehensive array method implementations and practice.
+
+**1-BasicMethods (5 tasks):**
 - Custom `indexOf()` implementation
 - Custom `lastIndexOf()` implementation
 - Custom `push()` and `pop()` methods
@@ -234,6 +236,36 @@ Array.prototype.customIndex = function(searchElement, fromIndex = 0) {
   // Handles negative indices, empty arrays, and boundary cases
 }
 ```
+
+**2-AdvancedMethods (20 tasks):**
+
+**map() - 5 tasks:**
+- Double all numbers in an array
+- Extract specific properties from objects
+- Use index parameter for numbered lists
+- Transform array of objects (add/modify properties)
+- Convert strings to uppercase
+
+**filter() - 5 tasks:**
+- Get all even numbers
+- Find objects matching conditions
+- Get strings longer than specific length
+- Remove falsy values using Boolean
+- Search/find items containing specific text
+
+**forEach() - 5 tasks:**
+- Log each element
+- Display numbered items with index
+- Iterate over objects and display properties
+- Calculate sum of numbers
+- Dynamically create HTML elements
+
+**reduce() - 5 tasks:**
+- Calculate sum of all numbers
+- Find maximum or minimum value
+- Count occurrences of items
+- Flatten nested arrays
+- Group objects by specific property
 
 ---
 
@@ -391,7 +423,7 @@ Function declarations and expressions.
 
 ### Overall Statistics
 - **Total Topics**: 13
-- **Total Tasks**: 80+
+- **Total Tasks**: 100
 - **Completion**: 100% ✅
 
 ### Current Status
@@ -448,7 +480,7 @@ Feel free to:
 
 ## 📅 Last Updated
 
-January 1, 2026
+January 9, 2026
 
 ---
 

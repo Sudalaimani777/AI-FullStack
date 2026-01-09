@@ -1,6 +1,6 @@
 ===============================================
     JAVASCRIPT LEARNING NOTES
-    Last Updated: December 10, 2025
+    Last Updated: January 9, 2026
 ===============================================
 
 What is Programming?
@@ -1275,6 +1275,29 @@ Arrays are list-like objects used to store multiple values in a single variable.
        const numbers = [1, 2, 5];
        numbers.splice(2, 0, 3, 4); // at index 2, delete 0, add 3 and 4
        console.log(numbers); // [1, 2, 3, 4, 5]
+
+┌─────────────────────────────────────────────┐
+│  ADVANCED ARRAY METHODS                     │
+└─────────────────────────────────────────────┘
+
+For comprehensive documentation on advanced array methods (map, filter, forEach, reduce),
+please refer to:
+
+    📄 9-ArrayMethods/2-AdvancedMethods/notes.txt
+
+This file contains detailed explanations, examples, and use cases for:
+    • map()     - Transform array elements
+    • filter()  - Select elements by condition
+    • forEach() - Iterate for side effects
+    • reduce()  - Accumulate to single value
+
+Each method includes:
+    ✓ Syntax and parameters
+    ✓ Key characteristics
+    ✓ Multiple practical examples
+    ✓ Comparison tables
+    ✓ Common pitfalls
+    ✓ When to use guidelines
 
 ===============================================
 CHAPTER 10: OBJECTS

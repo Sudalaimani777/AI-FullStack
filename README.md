@@ -20,7 +20,7 @@ This repository is my personal learning journey into Full-Stack Development, sta
 - **15 Comprehensive Learning Topics** with detailed notes and examples (2,293 lines)
 - **5 ES6 Advanced Modules** (Functions, Promises, Fetch, HTTP, Async/Await) with 820+ lines of notes
 - **3 AJAX Projects** (Text, JSON, External API) with 241 lines of notes
-- **80+ Topic-Specific Practice Tasks** aligned with each chapter (100% completed)
+- **100 Topic-Specific Practice Tasks** aligned with each chapter (100% completed)
 - **Structured coding exercises** (Basic, Advanced, Bonus)
 - **8 Real-world projects** showcasing different JavaScript concepts
 - **React Prerequisites Guide** (374 lines) for next learning phase
@@ -33,7 +33,7 @@ This repository is my personal learning journey into Full-Stack Development, sta
 **Recent Achievement:** Mastered Async/Await, Error Handling, and Modern Asynchronous Patterns  
 
 **Completion Status:** 
-- ✅ 80/80 TopicTasks completed
+- ✅ 100/100 TopicTasks completed
 - ✅ 8/8 Projects completed (including MoneyTracker)
 - ✅ 15/15 JavaScript Topics completed
 - ✅ 5/5 ES6 Advanced Modules completed (Functions, Promises, Fetch, HTTP, Async/Await)
@@ -65,7 +65,14 @@ AI-FullStackGitRepo/
 │   │   │   ├── README.md              # Topics documentation
 │   │   │   ├── notes.txt              # Comprehensive guide
 │   │   │   ├── 1-Start/ to 8-TemplateString/
-│   │   │   ├── 9-ArrayMethods/        # Basic + Advanced (Map, Filter, Reduce)
+│   │   │   ├── 9-ArrayMethods/        # Basic + Advanced (map, filter, forEach, reduce)
+│   │   │   │   ├── 1-BasicMethods/
+│   │   │   │   └── 2-AdvancedMethods/
+│   │   │   │       ├── notes.txt           # Comprehensive docs
+│   │   │   │       ├── 1-Map/
+│   │   │   │       ├── 2-Filter/
+│   │   │   │       ├── 3-ForEach/
+│   │   │   │       └── 4-Reduce/
 │   │   │   ├── 10-Objects/            # 6 sub-topics (OOP, Prototypes, Classes)
 │   │   │   ├── 11-IfElse/ to 13-Functions/
 │   │   │   ├── 14-DOM/                # DOM + Todo App practice (8 files)
@@ -102,7 +109,7 @@ AI-FullStackGitRepo/
 │   └── FrontEnd/
 │       └── Javascript/
 │           ├── README.md              # JavaScript tasks documentation
-│           ├── TopicTasks/            # 80 tasks across 13 topics
+│           ├── TopicTasks/            # 100 tasks across 13 topics
 │           │   ├── README.md
 │           │   ├── tasksList.txt      # Tasks list
 │           │   └── 1-Start/ to 13-Functions/
@@ -122,10 +129,10 @@ AI-FullStackGitRepo/
 | ES6 Modules | 5 | ✅ Complete |
 | AJAX Projects | 3 | ✅ Complete |
 | Applications | 8 | ✅ Complete |
-| Practice Tasks | 110+ | ✅ Complete |
+| Practice Tasks | 130+ | ✅ Complete |
 | JS-Tasks (Basic+Advanced+Bonus) | 30 | ✅ Complete |
 | Objects Sub-Topics | 6 | ✅ Complete |
-| Array Methods Sub-Topics | 5 | ✅ Complete |
+| Array Methods Sub-Topics | 9 | ✅ Complete |
 | DOM Practice Files | 8 | ✅ Complete |
 | Documentation Lines | 3,728+ | ✅ Complete |
 | Code Examples | 250+ | ✅ Complete |
@@ -454,17 +461,17 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 **Total JavaScript Topics:** 15 fundamental topics  
 **ES6 Modules:** 5 advanced modules  
 **AJAX Projects:** 3 progressive projects  
-**Total Practice Tasks:** 110+ across all categories  
+**Total Practice Tasks:** 130+ across all categories  
 **JS-Tasks:** 30 (Basic 10 + Advanced 10 + Bonus 10)  
-**Documentation Lines:** 3,728+ lines total
+**Documentation Lines:** 3,900+ lines total
   - Topics/notes.txt: 2,293 lines
   - ES6/notes.txt: 820 lines
   - Ajax/notes.txt: 241 lines
   - React Prerequisites: 374 lines  
 **Code Examples:** 250+ practical examples  
-**Completion Rate:** 100% (110/110 tasks completed)  
+**Completion Rate:** 100% (130/130 tasks completed)  
 **Objects Sub-Topics:** 6 (Constructors, Prototypes, Classes, etc.)  
-**Array Methods Sub-Topics:** 5 (Basic + Map, Filter, Reduce)  
+**Array Methods Sub-Topics:** 9 (Basic + map, filter, forEach, reduce)  
 **DOM Practice Files:** 8 comprehensive files  
 **Projects:** 8 production applications  
 **Total Code Lines:** 1,800+ across all projects
@@ -483,7 +490,7 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 ### 🎯 Practice
 | Resource | Description |
 |----------|-------------|
-| [Topic Tasks](Tasks/FrontEnd/Javascript/TopicTasks/README.md) | 80 tasks across 13 topics |
+| [Topic Tasks](Tasks/FrontEnd/Javascript/TopicTasks/README.md) | 100 tasks across 13 topics |
 | [Coding Challenges](Tasks/FrontEnd/Javascript/JS-Tasks/README.md) | Basic (10) + Advanced (10) + Bonus (10) |
 | [ES6 Practice](Tasks/FrontEnd/Javascript/ES6/) | Promise & Async/Await exercises |
 
@@ -498,5 +505,5 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 **Repository:** AI Full-Stack Development Learning Journey  
 **Author:** Sudalaimani  
 **Learning Period:** October 17, 2025 - Present  
-**Last Updated:** January 7, 2026  
+**Last Updated:** January 9, 2026  
 **Status:** 🔄 Frontend Inprogress | ⏳ React Upcoming | 🔄 Backend Upcoming

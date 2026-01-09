@@ -1,7 +1,7 @@
 ================================================================================
             TOPICS NEEDED TO LEARN BEFORE MOVING TO REACT
 ================================================================================
-                    Analysis Date: January 7, 2026
+                    Analysis Date: January 9, 2026
             Based on: Topics/ and ES6/ folder analysis
 ================================================================================
 
@@ -21,7 +21,8 @@ Topics/ Folder Completed:
 ✓ 7-String         → String methods & manipulation
 ✓ 8-TemplateString → Template literals (${}) ✓ VERIFIED
 ✓ 9-ArrayMethods   → Basic array methods (push, pop, shift, unshift, 
-                     slice, splice, indexOf, includes) ✓ VERIFIED
+                     slice, splice, indexOf, includes)
+                     Advanced methods (map, filter, forEach, reduce) ✓ VERIFIED
 ✓ 10-Objects       → Objects, Constructor, this, Prototypes, 
                      Prototype Inheritance, ES6 Classes ✓ VERIFIED
 ✓ 11-IfElse        → Conditional statements
@@ -45,7 +46,10 @@ ES6/ Folder Completed:
 
 Additional (from your code analysis):
 ─────────────────────────────────────
-✓ forEach()        → Used in domMultipleElement.js ✓ VERIFIED
+✓ map()            → Transform arrays ✓ VERIFIED
+✓ filter()        → Filter arrays by condition ✓ VERIFIED
+✓ forEach()       → Iterate arrays for side effects ✓ VERIFIED
+✓ reduce()        → Accumulate array to single value ✓ VERIFIED
 ✓ Array.from()     → Converting HTMLCollection to Array ✓ VERIFIED
 ✓ addEventListener → Basic click events ✓ VERIFIED
 
@@ -308,12 +312,24 @@ Week 2: Spread Operator & Event Handling
 ├── Day 6:   try-catch error handling
 └── Day 7:   localStorage basics
 
-Week 3: Practice & Final Project
+Week 2: Error Handling & Storage
 ────────────────────────────────
-├── Day 1-3: Build a project using ALL new concepts
-│            (Suggestion: Todo app with filtering, 
+├── Day 1-2: try-catch error handling
+├── Day 3:   localStorage basics
+├── Day 4-5: Build a project using ALL new concepts
+│            (Suggestion: Todo app with destructuring, spread,
 │             local storage, error handling)
-├── Day 4-5: Refactor existing projects with new knowledge
+├── Day 6:   Review everything
+└── Day 7:   🎉 START REACT!
+
+
+Week 2: Error Handling & Storage
+─────────────────────────────────
+├── Day 1-2: try-catch error handling
+├── Day 3:   localStorage basics
+├── Day 4-5: Build a project using ALL new concepts
+│            (Suggestion: Todo app with destructuring, spread,
+│             local storage, error handling)
 ├── Day 6:   Review everything
 └── Day 7:   🎉 START REACT!
 
@@ -325,9 +341,12 @@ Week 3: Practice & Final Project
 FrontEnd/JavaScript/
 ├── Topics/
 │   ├── 9-ArrayMethods/
-│   │   └── AdvancedMethods/          ← CREATE (map, filter, reduce)
-│   │       ├── index.html
-│   │       └── script.js
+│   │   └── 2-AdvancedMethods/          ✅ COMPLETED!
+│   │       ├── notes.txt              (Comprehensive docs)
+│   │       ├── 1-Map/
+│   │       ├── 2-Filter/
+│   │       ├── 3-ForEach/
+│   │       └── 4-Reduce/
 │   ├── 14-DOM/
 │   │   └── EventHandling/            ← CREATE (deep events)
 │   │       ├── index.html
@@ -368,6 +387,7 @@ Spread Operator:
 
 
 ================================================================================
-                    ESTIMATED TIME TO REACT: 2-3 WEEKS
+                    ESTIMATED TIME TO REACT: 1-2 WEEKS
+             🎉 You've already completed the array methods!
                          GOOD LUCK WITH YOUR LEARNING!
 ================================================================================

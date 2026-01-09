@@ -43,7 +43,12 @@ FrontEnd/
 │   │   ├── 8-TemplateString/           # Template literals
 │   │   ├── 9-ArrayMethods/             # Array operations
 │   │   │   ├── 1-BasicMethods/         # push, pop, shift, unshift, slice, splice
-│   │   │   └── 2-AdvancedMethods/      # Map, Filter, Reduce
+   │   │   └── 2-AdvancedMethods/      # map, filter, forEach, reduce
+   │   │       ├── notes.txt           # Comprehensive documentation
+   │   │       ├── 1-Map/
+   │   │       ├── 2-Filter/
+   │   │       ├── 3-ForEach/
+   │   │       └── 4-Reduce/
 │   │   ├── 10-Objects/                 # OOP concepts (6 sub-topics)
 │   │   ├── 11-IfElse/                  # Conditional statements
 │   │   ├── 12-Switch/                  # Switch statements
@@ -87,7 +92,7 @@ Core JavaScript fundamentals organized into 15 comprehensive topics.
 
 **Coverage:**
 - **Basics (1-6):** Start, Console, Variables, DataTypes, TypeConversion, Numbers
-- **Data Handling (7-9):** String, TemplateString, ArrayMethods (Basic & Advanced)
+- **Data Handling (7-9):** String, TemplateString, ArrayMethods (Basic + Advanced: map, filter, forEach, reduce)
 - **Objects (10):** 6 sub-topics - Objects, Constructor-This, Built-in-Constructor, Prototypes, Inheritance, ES6 Classes
 - **Control Flow (11-13):** IfElse, Switch, Functions
 - **Browser (14):** DOM manipulation with practical Todo App project (8 practice files)
@@ -171,9 +176,9 @@ Phase 4: React (Coming Soon)
 | **ES6 Modules** | 5 |
 | **Ajax Projects** | 3 |
 | **Objects Sub-Topics** | 6 |
-| **Array Methods Sub-Topics** | 5 |
+| **Array Methods Sub-Topics** | 9 |
 | **DOM Practice Files** | 8 |
-| **Total Documentation Lines** | 3,728+ |
+| **Total Documentation Lines** | 3,900+ |
 
 ## Total Documentation
 
@@ -185,4 +190,4 @@ Phase 4: React (Coming Soon)
 
 ---
 
-**Last Updated:** January 7, 2026
+**Last Updated:** January 9, 2026

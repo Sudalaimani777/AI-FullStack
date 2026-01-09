@@ -7,7 +7,7 @@ Practice exercises and assignments for mastering JavaScript and backend developm
 ```
 Tasks/
 ├── BackEnd/                 # Backend practice tasks (coming soon)
-└── FrontEnd/                # 80+ JavaScript exercises
+└── FrontEnd/                # 100 JavaScript exercises
     └── Javascript/
         ├── ES6/             # ES6-specific tasks
         │   ├── 2-Promise/
@@ -16,10 +16,14 @@ Tasks/
         │   ├── Basic/       # Beginner exercises
         │   ├── Advanced/    # Complex problems
         │   └── Bonus/       # Extra challenges
-        └── TopicTasks/      # Topic-specific practice
+        └── TopicTasks/      # Topic-specific practice (100 tasks)
+            ├── 9-ArrayMethods/
+            │   ├── 1-BasicMethods/          # Custom implementations
+            │   └── 2-AdvancedMethods/       # map, filter, forEach, reduce
+            └── ... (13 topics total)
 ```
 
-## FrontEnd Tasks (80+)
+## FrontEnd Tasks (100)
 
 ### ES6/
 ES6+ feature practice exercises.
@@ -49,6 +53,8 @@ Exercises aligned with JavaScript/Topics learning modules.
 
 ## Stats
 
-- **Total Tasks:** 80+
+- **Total Tasks:** 100
 - **Topics Covered:** 13
 - **Difficulty Levels:** 3 (Basic, Advanced, Bonus)
+- **Array Methods:** 25 tasks (Basic + Advanced)
+- **Completion:** 100% ✅

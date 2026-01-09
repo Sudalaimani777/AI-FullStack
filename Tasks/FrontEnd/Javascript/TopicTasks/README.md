@@ -6,7 +6,7 @@ Topic-specific JavaScript practice exercises aligned with FrontEnd/JavaScript/To
 
 ```
 TopicTasks/
-├── tasksList.txt            # 230 lines - Task descriptions & progress tracker
+├── tasksList.txt            # 250+ lines - Task descriptions & progress tracker
 ├── 1-Start/                 # HTML + JS setup (5 tasks)
 ├── 2-Console/               # Console methods (5 tasks)
 ├── 3-Variables/             # var, let, const (5 tasks)
@@ -15,7 +15,9 @@ TopicTasks/
 ├── 6-Numbers/               # Numeric operations (5 tasks)
 ├── 7-Strings/               # String manipulation (5 tasks)
 ├── 8-TemplateString/        # Template literals (5 tasks)
-├── 9-ArrayMethods/          # Array operations (5 tasks)
+├── 9-ArrayMethods/          # Array operations
+│   ├── 1-BasicMethods/      # Custom implementations (5 tasks)
+│   └── 2-AdvancedMethods/   # map, filter, forEach, reduce (20 tasks)
 ├── 10-Objects/              # Objects & OOP (15 tasks - includes subfolders)
 ├── 11-IfElse/               # Conditional logic (5 tasks)
 ├── 12-Switch/               # Switch statements (5 tasks)
@@ -24,7 +26,7 @@ TopicTasks/
 
 ## Task Overview
 
-**Total:** 80 tasks across 13 topics  
+**Total:** 100 tasks across 13 topics  
 **Status:** 100% completed ✅  
 **Format:** Each folder contains `index.html` + `script.js`
 
@@ -54,8 +56,13 @@ length, toUpperCase(), toLowerCase(), slice(), substring(), charAt(), indexOf(),
 ### 8-TemplateString (5 tasks)
 Multi-line strings, interpolation, calculations, HTML templates
 
-### 9-ArrayMethods (5 tasks)
-Custom implementations: indexOf(), lastIndexOf(), push(), pop(), shift(), unshift(), includes()
+### 9-ArrayMethods (25 tasks)
+**1-BasicMethods:** Custom implementations - indexOf(), lastIndexOf(), push(), pop(), shift(), unshift(), includes()  
+**2-AdvancedMethods:**  
+- **map()** (5 tasks): Transform arrays, extract properties, create new arrays
+- **filter()** (5 tasks): Select elements, filter objects, remove falsy values
+- **forEach()** (5 tasks): Iterate arrays, side effects, DOM manipulation
+- **reduce()** (5 tasks): Sum, max/min, count occurrences, flatten arrays, group objects
 
 ### 10-Objects (15 tasks)
 **Main:** Object creation, property access, nested objects, methods, 'this' keyword  
@@ -127,7 +134,7 @@ Track your progress in [tasksList.txt](tasksList.txt):
 | 6-Numbers | Math | 5 |
 | 7-Strings | Text | 5 |
 | 8-TemplateString | Literals | 5 |
-| 9-ArrayMethods | Arrays | 5 |
+| 9-ArrayMethods | Arrays | 25 |
 | 10-Objects | OOP | 15 |
 | 11-IfElse | Conditionals | 5 |
 | 12-Switch | Cases | 5 |
@@ -136,7 +143,7 @@ Track your progress in [tasksList.txt](tasksList.txt):
 ## Documentation
 
 **tasksList.txt** contains:
-- Task descriptions for all 80 exercises
+- Task descriptions for all 100 exercises
 - Completion status tracking
 - Learning path recommendations
 - Progress tracker (100% complete)

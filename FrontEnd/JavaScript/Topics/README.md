@@ -39,13 +39,17 @@ Topics/
 │   │   ├── index.html
 │   │   └── script.js
 │   └── 2-AdvancedMethods/       # Higher-order array methods
+│       ├── notes.txt            # Comprehensive notes on map, filter, forEach, reduce
 │       ├── 1-Map/               # Transforming arrays
 │       │   ├── index.html
 │       │   └── script.js
 │       ├── 2-Filter/            # Filtering arrays
 │       │   ├── index.html
 │       │   └── script.js
-│       └── 3-Reduce/            # Reducing arrays to single value
+│       ├── 3-ForEach/           # Iterating arrays
+│       │   ├── index.html
+│       │   └── script.js
+│       └── 4-Reduce/            # Reducing arrays to single value
 │           ├── index.html
 │           └── script.js
 ├── 10-Objects/                  # Object fundamentals
@@ -122,7 +126,8 @@ Master data handling and manipulation:
 - **8-TemplateString**: Modern string interpolation with backticks
 - **9-ArrayMethods**: Array operations organized into:
   - **1-BasicMethods**: push, pop, shift, unshift, slice, splice
-  - **2-AdvancedMethods**: Higher-order methods (Map, Filter, Reduce)
+  - **2-AdvancedMethods**: Higher-order methods (Map, Filter, ForEach, Reduce)
+    - Comprehensive `notes.txt` with detailed explanations for each method
 
 **Key Concepts:**
 ```javascript
@@ -144,9 +149,18 @@ fruits.slice(0, 3);       // Returns copy
 
 // Advanced Array Methods
 const numbers = [1, 2, 3, 4, 5];
+
+// map() - Transform each element
 numbers.map(n => n * 2);      // [2, 4, 6, 8, 10]
+
+// filter() - Select elements by condition
 numbers.filter(n => n > 2);   // [3, 4, 5]
-numbers.reduce((a, b) => a + b, 0);  // 15
+
+// forEach() - Iterate for side effects
+numbers.forEach(n => console.log(n));  // Logs each number
+
+// reduce() - Accumulate to single value
+numbers.reduce((acc, n) => acc + n, 0);  // 15
 ```
 
 ### Phase 3: Structured Data (Topic 10)
@@ -349,7 +363,10 @@ CHAPTER 15: Modular Patterns (Import/Export, IIFE)
 **Advanced Methods (2-AdvancedMethods/):**
 - **Map**: Transform each element → returns new array
 - **Filter**: Select elements by condition → returns new array
+- **ForEach**: Execute function for each element → returns undefined (side effects)
 - **Reduce**: Accumulate to single value → returns single value
+
+**Detailed notes available in:** `9-ArrayMethods/2-AdvancedMethods/notes.txt`
 
 ### Function Patterns
 1. **Function Declaration**: Hoisted, named functions
@@ -438,9 +455,11 @@ Each folder contains:
 - [ ] **9-ArrayMethods**: Array manipulation
   - [ ] 1-BasicMethods: push, pop, shift, unshift, slice, splice
   - [ ] 2-AdvancedMethods: Higher-order methods
+    - [ ] notes.txt: Comprehensive documentation
     - [ ] 1-Map: Array transformation
     - [ ] 2-Filter: Array filtering
-    - [ ] 3-Reduce: Array reduction
+    - [ ] 3-ForEach: Array iteration
+    - [ ] 4-Reduce: Array reduction
 - [ ] **10-Objects**: Object-oriented JavaScript
   - [ ] 0-Objects: Object basics
   - [ ] 1-Constructor-This: Constructor functions
