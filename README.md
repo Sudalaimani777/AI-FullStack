@@ -283,7 +283,7 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 | **ToDoUsingAPI** | ✅ **Complete** | **Dec 2025** |
 | **CRUD_Application_Using_API** | ✅ **Complete** | **Jan 2, 2026** |
 | **Future Goals** |
-| Bonus Challenges | 🔄 In Progress | - |
+| Bonus Challenges | ✅ **Complete** | **Dec 28 2025** |
 | Async/Await | ✅ Complete | Jan 1, 2026 |
 | Destructuring & Spread | ⏳ Upcoming | - |
 | Modules (Import/Export) | ✅ Complete | Jan 5, 2026 |
