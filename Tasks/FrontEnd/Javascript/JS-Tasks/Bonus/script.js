@@ -157,3 +157,12 @@ function celciusIntoFahrenheit(celcius){
     return fahrenheit;
 };
 celciusIntoFahrenheit(100);
+
+//Reverse the string without using loop :-
+function recursive(string){
+    if(string.length <= 1){
+        return string;
+    }
+    return recursive(string.slice(1)) + string[0]
+}
+console.log(recursive("abc"));
