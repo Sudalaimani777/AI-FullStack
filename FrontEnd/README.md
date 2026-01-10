@@ -59,12 +59,15 @@ FrontEnd/
 │   │
 │   └── ES6/                            # Modern JavaScript features
 │       ├── README.md                   # ES6 documentation
-│       ├── notes.txt                   # ES6 guide (820 lines)
-│       ├── 1-Function/                 # Arrow, Callback, Higher-Order functions
-│       ├── 2-Promise/                  # Promise creation & chaining
-│       ├── 3-Fetch/                    # Fetch API with sample data
-│       ├── 4-HTTP/                     # CRUD operations
-│       └── Async/                      # Async/Await patterns
+       ├── notes.txt                   # ES6 guide (1,400+ lines)
+       ├── 1-Function/                 # Arrow, Callback, Higher-Order functions
+       ├── 2-Promise/                  # Promise creation & chaining
+       ├── 3-Fetch/                    # Fetch API with sample data
+       ├── 4-HTTP/                     # CRUD operations
+       ├── 5-Async/                    # Async/Await patterns
+       ├── 6-Destructuring/            # Array & Object destructuring
+       ├── 7-SpreadRestOperator/       # Spread & Rest operators
+       └── 8-ErrorHandling/            # Try/Catch error handling
 │
 └── REACT/                              # React learning (Coming Soon)
 ```
@@ -110,9 +113,12 @@ Modern JavaScript features and async programming patterns.
 | 2-Promise | Async operations | Promise creation, resolve/reject, chaining |
 | 3-Fetch | HTTP requests | Fetch API, text(), json(), error handling |
 | 4-HTTP | CRUD operations | GET, POST, PUT, DELETE with EasyHttp class |
-| Async | Modern async | async/await, try-catch, real-world examples |
+| 5-Async | Modern async | async/await, try-catch, real-world examples |
+| 6-Destructuring | Data extraction | Array/Object destructuring, default values |
+| 7-SpreadRestOperator | Operators | Spread syntax, Rest parameters |
+| 8-ErrorHandling | Error management | try-catch, throw, custom errors |
 
-**Documentation:** 820 lines in notes.txt covering all ES6+ features
+**Documentation:** 1,400+ lines in notes.txt covering all ES6+ features
 
 ### REACT/
 React learning module (Coming Soon - placeholder folder).
@@ -126,7 +132,7 @@ Phase 1: JavaScript Fundamentals
 └── JavaScript/Topics/ (1-15)
 
 Phase 2: Modern JavaScript
-└── JavaScript/ES6/ (Functions → Promises → Fetch → HTTP → Async)
+└── JavaScript/ES6/ (1-Function → 2-Promise → 3-Fetch → 4-HTTP → 5-Async → 6-Destructuring → 7-SpreadRest → 8-ErrorHandling)
 
 Phase 3: HTTP & APIs
 └── Ajax/ (Text → JSON → External APIs)
@@ -159,7 +165,10 @@ Phase 4: React (Coming Soon)
 - Promises & Promise chaining
 - Fetch API for HTTP requests
 - async/await patterns
-- Template literals & destructuring
+- Destructuring (arrays & objects)
+- Spread & Rest operators
+- Template literals
+- Error handling (try-catch)
 
 ### HTTP & APIs
 - XMLHttpRequest (XHR)
@@ -173,21 +182,21 @@ Phase 4: React (Coming Soon)
 | Category | Count |
 |----------|-------|
 | **Total Topics** | 15 |
-| **ES6 Modules** | 5 |
+| **ES6 Modules** | 8 |
 | **Ajax Projects** | 3 |
 | **Objects Sub-Topics** | 6 |
 | **Array Methods Sub-Topics** | 9 |
 | **DOM Practice Files** | 8 |
-| **Total Documentation Lines** | 3,900+ |
+| **Total Documentation Lines** | 4,700+ |
 
 ## Total Documentation
 
 - **Topics/notes.txt:** 2,293 lines
-- **ES6/notes.txt:** 820 lines
+- **ES6/notes.txt:** 1,400+ lines
 - **Ajax/notes.txt:** 241 lines
 - **React Prerequisites:** 374 lines
-- **Total:** 3,728+ lines of comprehensive documentation
+- **Total:** 4,308+ lines of comprehensive documentation
 
 ---
 
-**Last Updated:** January 9, 2026
+**Last Updated:** January 10, 2026

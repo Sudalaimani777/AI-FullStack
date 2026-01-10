@@ -22,9 +22,9 @@ A comprehensive JavaScript learning resource covering fundamental concepts to ad
 This comprehensive JavaScript learning resource provides:
 
 - ✅ **15 Core Topics** - Complete JavaScript fundamentals
-- ✅ **5 ES6 Modules** - Modern JavaScript features
+- ✅ **8 ES6 Modules** - Modern JavaScript features
 - ✅ **2,293 Lines** of detailed documentation (Topics)
-- ✅ **820 Lines** of ES6 notes (kid-friendly!)
+- ✅ **1,400+ Lines** of ES6 notes (kid-friendly!)
 - ✅ **374 Lines** of React prerequisites guide
 - ✅ **Hands-on Examples** - Working code in every topic
 - ✅ **Progressive Learning** - From beginner to advanced
@@ -478,6 +478,157 @@ async function safeApiCall() {
 
 ---
 
+### 6. Destructuring (6-Destructuring/)
+
+**What:** Extract values from arrays or properties from objects into separate variables  
+**Why:** Cleaner code, less repetition, easier data extraction  
+**When:** API responses, function parameters, complex objects
+
+#### Array Destructuring
+
+```javascript
+// Old way
+const colors = ["red", "green", "blue"];
+const color1 = colors[0];
+const color2 = colors[1];
+const color3 = colors[2];
+
+// New way with destructuring
+const [color1, color2, color3] = colors;
+console.log(color1); // "red"
+```
+
+**Array Destructuring Features:**
+
+```javascript
+// Skip elements
+const [first, , third] = [1, 2, 3];
+console.log(first, third); // 1 3
+
+// Default values
+const [a, b = 10] = [1];
+console.log(a, b); // 1 10
+
+// Swap variables
+let x = 1, y = 2;
+[x, y] = [y, x];
+console.log(x, y); // 2 1
+
+// Rest operator
+const [first, second, ...rest] = [1, 2, 3, 4, 5];
+console.log(rest); // [3, 4, 5]
+```
+
+#### Object Destructuring
+
+```javascript
+// Old way
+const person = { name: "John", age: 30, city: "NYC" };
+const name = person.name;
+const age = person.age;
+const city = person.city;
+
+// New way with destructuring
+const { name, age, city } = person;
+console.log(name, age, city); // John 30 NYC
+```
+
+**Object Destructuring Features:**
+
+```javascript
+// Rename variables
+const { name: userName, age: userAge } = person;
+console.log(userName); // "John"
+
+// Default values
+const { name, age = 18 } = { name: "Alice" };
+console.log(age); // 18
+
+// Nested destructuring
+const user = {
+  name: "John",
+  address: { city: "NYC", zip: "10001" }
+};
+const { name, address: { city, zip } } = user;
+console.log(city, zip); // NYC 10001
+
+// Rest operator
+const { name, age, ...others } = person;
+console.log(others); // { city: "NYC" }
+```
+
+**Function Parameter Destructuring:**
+
+```javascript
+// Old way
+function greet(user) {
+  console.log(`Hello ${user.name}, age ${user.age}`);
+}
+
+// New way
+function greet({ name, age }) {
+  console.log(`Hello ${name}, age ${age}`);
+}
+
+greet({ name: "Alice", age: 25 });
+// Output: Hello Alice, age 25
+```
+
+**Real-World API Example:**
+
+```javascript
+// API response
+const apiResponse = {
+  status: 200,
+  data: {
+    user: {
+      id: 1,
+      name: "John Doe",
+      email: "john@example.com",
+      profile: {
+        avatar: "avatar.jpg",
+        bio: "Developer"
+      }
+    }
+  }
+};
+
+// Extract nested data easily
+const {
+  status,
+  data: {
+    user: {
+      name,
+      email,
+      profile: { avatar, bio }
+    }
+  }
+} = apiResponse;
+
+console.log(name);   // John Doe
+console.log(email);  // john@example.com
+console.log(avatar); // avatar.jpg
+```
+
+**Benefits:**
+- ✅ Less code, more readable
+- ✅ Extract multiple values at once
+- ✅ Set default values easily
+- ✅ Perfect for function parameters
+- ✅ Essential for React (props destructuring)
+- ✅ Cleaner API response handling
+
+**Common Mistakes:**
+```javascript
+// ❌ Wrong bracket type
+const [name, age] = { name: "John", age: 30 }; // Error!
+
+// ✅ Correct
+const { name, age } = { name: "John", age: 30 };
+```
+
+---
+
 ## 📖 Core Topics
 
 ### Complete JavaScript Fundamentals (15 Topics)
@@ -795,6 +946,9 @@ Phase 6: Modern JavaScript (ES6)
 8. Functions (Arrow, Callbacks, Higher-Order)
 9. Promises → Fetch → HTTP
 10. Async/Await
+11. Destructuring (Arrays & Objects)
+12. Spread/Rest Operators
+13. Error Handling (Try/Catch)
 ```
 
 ### Difficulty Progression
@@ -806,7 +960,7 @@ Phase 6: Modern JavaScript (ES6)
 | **Phase 3** | 11-13 | 🟡 Intermediate | 1-2 weeks |
 | **Phase 4** | 14 | 🔴 Advanced | 1-2 weeks |
 | **Phase 5** | 15 | 🟡 Intermediate | 1 week |
-| **Phase 6** | ES6 | 🔴 Advanced | 2-3 weeks |
+| **Phase 6** | ES6 (1-8) | 🔴 Advanced | 3-4 weeks |
 
 ---
 
@@ -908,12 +1062,15 @@ const show = () => {
 - Real-world examples
 - Best practices
 
-**ES6/notes.txt (820 lines)**
+**ES6/notes.txt (1,400+ lines)**
 - Kid-friendly explanations
 - Modern JavaScript features
-- Arrow functions
-- Promises and async
+- Arrow functions & callbacks
+- Promises and async/await
+- Destructuring patterns
 - Practical examples
+- Advantages & disadvantages
+- Real-world use cases
 
 **topicsNeedToLearnToMoveToReact.txt (374 lines)**
 - Prerequisites checklist for React
@@ -956,12 +1113,12 @@ function get_user_data() { }
 | Category | Count |
 |----------|-------|
 | **Total Topics** | 15 |
-| **ES6 Modules** | 5 |
+| **ES6 Modules** | 8 |
 | **Objects Sub-Topics** | 6 |
 | **Array Methods Sub-Topics** | 5 |
 | **DOM Practice Files** | 8 |
-| **Documentation Lines** | 3,487+ |
-| **Code Examples** | 100+ |
+| **Documentation Lines** | 4,067+ |
+| **Code Examples** | 150+ |
 
 ---
 
@@ -982,4 +1139,4 @@ After completing this course, you will:
 
 **Master JavaScript from Zero to Hero! 🚀**
 
-**Last Updated:** January 7, 2026
+**Last Updated:** January 10, 2026
