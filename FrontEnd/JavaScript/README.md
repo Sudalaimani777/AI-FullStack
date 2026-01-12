@@ -24,7 +24,7 @@ This comprehensive JavaScript learning resource provides:
 - ✅ **15 Core Topics** - Complete JavaScript fundamentals
 - ✅ **8 ES6 Modules** - Modern JavaScript features
 - ✅ **2,293 Lines** of detailed documentation (Topics)
-- ✅ **1,400+ Lines** of ES6 notes (kid-friendly!)
+- ✅ **1,539 Lines** of ES6 notes (kid-friendly!)
 - ✅ **374 Lines** of React prerequisites guide
 - ✅ **Hands-on Examples** - Working code in every topic
 - ✅ **Progressive Learning** - From beginner to advanced
@@ -48,8 +48,8 @@ JavaScript/
 ├── topicsNeedToLearnToMoveToReact.txt # Prerequisites for React (374 lines)
 │
 ├── ES6/                               # Modern JavaScript Features
-│   ├── README.md                      # ES6 module documentation
-│   ├── notes.txt                      # Complete ES6 guide (820 lines)
+│   ├── README.md                      # ES6 module documentation (1,251 lines)
+│   ├── notes.txt                      # Complete ES6 guide (1,539 lines)
 │   │
 │   ├── 1-Function/                    # ES6 Function Types
 │   │   ├── index.html
@@ -75,11 +75,27 @@ JavaScript/
 │   │   ├── script.js                  # HTTP examples
 │   │   └── apiResponse.js             # API response handling
 │   │
-│   └── Async/                         # Async/Await Patterns
+│   ├── 5-Async/                       # Async/Await Patterns
+│   │   ├── index.html
+│   │   ├── script.js                  # Async/await examples
+│   │   ├── realWorldExample.js        # Real-world API usage
+│   │   └── notes.txt                  # Async/await notes
+│   │
+│   ├── 6-Destructuring/               # Array and Object Destructuring
+│   │   ├── index.html
+│   │   └── script.js                  # Destructuring examples
+│   │
+│   ├── 7-SpreadRestOperator/          # Spread and Rest Operators
+│   │   ├── 7.1-SpreadOperator/        # Spread operator (...)
+│   │   │   ├── index.html
+│   │   │   └── script.js              # Array & object spreading
+│   │   └── 7.2-RestOperator/          # Rest operator (...)
+│   │       ├── index.html
+│   │       └── script.js              # Rest parameters & destructuring
+│   │
+│   └── 8-ErrorHandling/               # Try/Catch and Error Handling
 │       ├── index.html
-│       ├── script.js                  # Async/await examples
-│       ├── realWorldExample.js        # Real-world API usage
-│       └── notes.txt                  # Async/await notes
+│       └── script.js                  # Error handling patterns
 │
 └── Topics/                            # JavaScript Fundamentals (15 Topics)
     ├── README.md                      # Topics documentation
@@ -629,6 +645,217 @@ const { name, age } = { name: "John", age: 30 };
 
 ---
 
+### 7. Spread & Rest Operators (7-SpreadRestOperator/)
+
+**What:** Three dots (...) that either expand or collect elements  
+**Why:** Immutable operations, flexible function parameters, cleaner code  
+**When:** Copying arrays/objects, merging data, variable arguments
+
+#### Understanding the Difference
+
+Both use `...` but do **OPPOSITE** things!
+
+**🎯 SPREAD (...)** = **EXPANDS/UNPACKS** elements  
+**🎯 REST (...)** = **COLLECTS/GATHERS** elements
+
+**Position Matters:**
+```javascript
+// SPREAD - Right side of =, in function calls
+const arr = [1, 2, 3];
+const newArr = [...arr];        // SPREAD - unpacks array
+Math.max(...arr);               // SPREAD - unpacks for function
+
+// REST - Left side of =, in function parameters
+const [first, ...rest] = arr;   // REST - collects into array
+function sum(...nums) { }       // REST - collects arguments
+```
+
+#### Spread Operator - Expanding Elements
+
+**Arrays:**
+```javascript
+// Copy array (immutably)
+const original = [1, 2, 3];
+const copy = [...original];  // New array, not same reference
+
+// Combine arrays
+const fruits = ["apple", "banana"];
+const veggies = ["carrot", "broccoli"];
+const food = [...fruits, ...veggies];
+// ["apple", "banana", "carrot", "broccoli"]
+
+// Add elements
+const numbers = [2, 3, 4];
+const moreNumbers = [1, ...numbers, 5, 6];
+// [1, 2, 3, 4, 5, 6]
+
+// Math operations
+const nums = [5, 12, 8, 3, 20];
+console.log(Math.max(...nums));  // 20
+
+// Function arguments
+function sum(a, b, c) { return a + b + c; }
+const values = [1, 2, 3];
+sum(...values);  // Same as sum(1, 2, 3)
+
+// Remove duplicates
+const unique = [...new Set([1, 2, 2, 3, 3])];
+// [1, 2, 3]
+```
+
+**Objects:**
+```javascript
+// Copy object (immutably)
+const original = { name: "John", age: 30 };
+const copy = { ...original };  // New object
+
+// Merge objects
+const person = { name: "Alice", age: 25 };
+const job = { title: "Developer", company: "TechCo" };
+const employee = { ...person, ...job };
+// { name: "Alice", age: 25, title: "Developer", company: "TechCo" }
+
+// Update properties (immutably)
+const user = { name: "John", age: 30, city: "NYC" };
+const updatedUser = { ...user, age: 31 };
+// { name: "John", age: 31, city: "NYC" }
+
+// React state update pattern
+const state = { user: { name: "John", age: 30 }, count: 5 };
+const newState = {
+  ...state,
+  user: {
+    ...state.user,
+    age: 31  // Update age immutably
+  }
+};
+
+// Conditional properties
+const isAdmin = true;
+const user = {
+  name: "John",
+  email: "john@example.com",
+  ...(isAdmin && { role: 'admin', privileges: true })
+};
+```
+
+#### Rest Operator - Collecting Elements
+
+**Arrays:**
+```javascript
+// Collect remaining elements
+const numbers = [1, 2, 3, 4, 5];
+const [first, second, ...rest] = numbers;
+console.log(first);   // 1
+console.log(second);  // 2
+console.log(rest);    // [3, 4, 5]
+
+// Variable function arguments
+function sum(...numbers) {
+  return numbers.reduce((total, num) => total + num, 0);
+}
+sum(1, 2, 3);        // 6
+sum(1, 2, 3, 4, 5);  // 15
+
+// Combined with regular parameters
+function greet(greeting, ...names) {
+  return `${greeting} ${names.join(', ')}!`;
+}
+greet("Hello", "Alice", "Bob", "Charlie");
+// "Hello Alice, Bob, Charlie!"
+```
+
+**Objects:**
+```javascript
+// Collect remaining properties
+const person = {
+  name: "John",
+  age: 30,
+  city: "NYC",
+  job: "Developer"
+};
+
+const { name, age, ...otherInfo } = person;
+console.log(name);       // "John"
+console.log(age);        // 30
+console.log(otherInfo);  // { city: "NYC", job: "Developer" }
+
+// Remove properties (immutably)
+const user = {
+  id: 1,
+  name: "Alice",
+  password: "secret123",
+  email: "alice@example.com"
+};
+
+// Remove password before sending to client
+const { password, ...safeUser } = user;
+console.log(safeUser);
+// { id: 1, name: "Alice", email: "alice@example.com" }
+
+// Function parameters with objects
+function createUser({ name, email, ...additionalInfo }) {
+  return {
+    name,
+    email,
+    createdAt: new Date(),
+    ...additionalInfo  // Spread the rest back
+  };
+}
+
+const user = createUser({
+  name: "Bob",
+  email: "bob@example.com",
+  age: 28,
+  city: "LA"
+});
+// { name: "Bob", email: "bob@example.com", 
+//   createdAt: [Date], age: 28, city: "LA" }
+```
+
+#### Spread vs Rest - Quick Comparison
+
+| Feature | SPREAD (...) | REST (...) |
+|---------|-------------|------------|
+| **Purpose** | EXPAND/UNPACK | COLLECT/GATHER |
+| **Direction** | One → Many | Many → One |
+| **Position** | Right side of = | Left side of = |
+| **Used In** | Function calls, literals | Parameters, destructuring |
+| **Example** | `[...arr]` | `[a, ...rest] = arr` |
+
+**Benefits:**
+- ✅ Immutable operations (no mutations!)
+- ✅ Essential for React/Redux state management
+- ✅ Flexible function parameters
+- ✅ Easy array/object manipulation
+- ✅ Cleaner than `.concat()` or `Object.assign()`
+- ✅ Works with any iterable
+
+**Common Mistakes:**
+```javascript
+// ❌ Spread creates SHALLOW copy (nested objects share reference!)
+const obj = { nested: { value: 1 } };
+const copy = { ...obj };  // Shallow! nested is still shared!
+
+// ✅ For deep copy:
+const deepCopy = JSON.parse(JSON.stringify(obj));
+
+// ❌ Rest must be LAST in destructuring
+const [...rest, last] = [1, 2, 3];  // SyntaxError!
+
+// ✅ Correct
+const [first, ...rest] = [1, 2, 3];  // Rest at the end
+```
+
+**Kid-Friendly Analogy:**
+> **SPREAD:** Taking LEGO bricks from a box and dumping them on the floor 📦 → 🧱 🧱 🧱 🧱
+> 
+> **REST:** Taking scattered LEGO bricks and putting them in a box 🧱 🧱 🧱 🧱 → 📦
+>
+> Same action symbol (...), but opposite directions!
+
+---
+
 ## 📖 Core Topics
 
 ### Complete JavaScript Fundamentals (15 Topics)
@@ -1062,12 +1289,13 @@ const show = () => {
 - Real-world examples
 - Best practices
 
-**ES6/notes.txt (1,400+ lines)**
+**ES6/notes.txt (1,539 lines)**
 - Kid-friendly explanations
 - Modern JavaScript features
 - Arrow functions & callbacks
 - Promises and async/await
 - Destructuring patterns
+- Spread & Rest operators
 - Practical examples
 - Advantages & disadvantages
 - Real-world use cases
@@ -1117,8 +1345,8 @@ function get_user_data() { }
 | **Objects Sub-Topics** | 6 |
 | **Array Methods Sub-Topics** | 5 |
 | **DOM Practice Files** | 8 |
-| **Documentation Lines** | 4,067+ |
-| **Code Examples** | 150+ |
+| **Documentation Lines** | 5,163+ |
+| **Code Examples** | 200+ |
 
 ---
 
@@ -1131,6 +1359,7 @@ After completing this course, you will:
 ✅ Handle asynchronous operations  
 ✅ Manipulate the DOM effectively  
 ✅ Work with APIs and HTTP requests  
+✅ Use spread & rest operators for immutable operations  
 ✅ Write clean, maintainable code  
 ✅ Debug JavaScript applications  
 ✅ Build interactive web applications  
@@ -1139,4 +1368,4 @@ After completing this course, you will:
 
 **Master JavaScript from Zero to Hero! 🚀**
 
-**Last Updated:** January 10, 2026
+**Last Updated:** January 12, 2026

@@ -58,8 +58,8 @@ FrontEnd/
 │   │   └── 15-ModularPattern/          # Import/Export, IIFE
 │   │
 │   └── ES6/                            # Modern JavaScript features
-│       ├── README.md                   # ES6 documentation
-       ├── notes.txt                   # ES6 guide (1,400+ lines)
+       ├── README.md                   # ES6 documentation (1,251 lines)
+       ├── notes.txt                   # ES6 guide (1,539 lines)
        ├── 1-Function/                 # Arrow, Callback, Higher-Order functions
        ├── 2-Promise/                  # Promise creation & chaining
        ├── 3-Fetch/                    # Fetch API with sample data
@@ -67,6 +67,8 @@ FrontEnd/
        ├── 5-Async/                    # Async/Await patterns
        ├── 6-Destructuring/            # Array & Object destructuring
        ├── 7-SpreadRestOperator/       # Spread & Rest operators
+       │   ├── 7.1-SpreadOperator/     # Spread operator (...)
+       │   └── 7.2-RestOperator/       # Rest operator (...)
        └── 8-ErrorHandling/            # Try/Catch error handling
 │
 └── REACT/                              # React learning (Coming Soon)
@@ -115,10 +117,10 @@ Modern JavaScript features and async programming patterns.
 | 4-HTTP | CRUD operations | GET, POST, PUT, DELETE with EasyHttp class |
 | 5-Async | Modern async | async/await, try-catch, real-world examples |
 | 6-Destructuring | Data extraction | Array/Object destructuring, default values |
-| 7-SpreadRestOperator | Operators | Spread syntax, Rest parameters |
+| 7-SpreadRestOperator | Spread & Rest | Spread (...) expands, Rest (...) collects, immutable operations |
 | 8-ErrorHandling | Error management | try-catch, throw, custom errors |
 
-**Documentation:** 1,400+ lines in notes.txt covering all ES6+ features
+**Documentation:** 1,539 lines in notes.txt covering all ES6+ features with kid-friendly explanations
 
 ### REACT/
 React learning module (Coming Soon - placeholder folder).
@@ -166,7 +168,7 @@ Phase 4: React (Coming Soon)
 - Fetch API for HTTP requests
 - async/await patterns
 - Destructuring (arrays & objects)
-- Spread & Rest operators
+- Spread & Rest operators (immutable operations, flexible parameters)
 - Template literals
 - Error handling (try-catch)
 
@@ -187,16 +189,17 @@ Phase 4: React (Coming Soon)
 | **Objects Sub-Topics** | 6 |
 | **Array Methods Sub-Topics** | 9 |
 | **DOM Practice Files** | 8 |
-| **Total Documentation Lines** | 4,700+ |
+| **Total Documentation Lines** | 5,398+ |
 
 ## Total Documentation
 
 - **Topics/notes.txt:** 2,293 lines
-- **ES6/notes.txt:** 1,400+ lines
+- **ES6/notes.txt:** 1,539 lines
+- **ES6/README.md:** 1,251 lines
 - **Ajax/notes.txt:** 241 lines
 - **React Prerequisites:** 374 lines
-- **Total:** 4,308+ lines of comprehensive documentation
+- **Total:** 5,698+ lines of comprehensive documentation
 
 ---
 
-**Last Updated:** January 10, 2026
+**Last Updated:** January 12, 2026

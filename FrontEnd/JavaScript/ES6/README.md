@@ -38,8 +38,12 @@ ES6/
 │   ├── script.js               # Destructuring examples
 │   └── index.html              # Destructuring demos
 ├── 7-SpreadRestOperator/        # Spread and Rest operators
-│   ├── script.js               # Spread/Rest examples
-│   └── index.html              # Operator demos
+│   ├── 7.1-SpreadOperator/     # Spread operator (...)
+│   │   ├── script.js           # Array & object spreading examples
+│   │   └── index.html          # Spread demos
+│   └── 7.2-RestOperator/       # Rest operator (...)
+│       ├── script.js           # Rest parameter examples
+│       └── index.html          # Rest demos
 └── 8-ErrorHandling/             # Try/Catch and error handling
     ├── script.js               # Error handling patterns
     └── index.html              # Error handling demos
@@ -813,6 +817,331 @@ const { name, age } = { name: "John", age: 30 };
 **Kid-Friendly Analogy:**
 > Imagine a toy box 📦 with compartments. Instead of taking out toys one by one, destructuring is like having X-ray vision - you see exactly where each toy is and grab them all at once! Fast and efficient! 🦸
 
+### Module 7: Spread & Rest Operators (7-SpreadRestOperator/)
+**Master the three dots (...) - Same syntax, opposite purposes!**
+
+#### Understanding the Difference
+Both use `...` but do OPPOSITE things!
+
+**🎯 SPREAD (...)** = **EXPANDS/UNPACKS** elements
+- Think: Spreading butter on bread 🧈 → spreading it OUT
+
+**🎯 REST (...)** = **COLLECTS/GATHERS** elements  
+- Think: Resting items in a basket 🧺 → putting them TOGETHER
+
+#### How to Tell Them Apart?
+**POSITION MATTERS!** 🎯
+
+```javascript
+// SPREAD - Right side of =, in function calls
+const arr = [1, 2, 3];
+const newArr = [...arr];        // SPREAD - unpacks array
+console.log(...arr);            // SPREAD - unpacks for console
+
+// REST - Left side of =, in function parameters
+const [first, ...rest] = arr;   // REST - collects into array
+function sum(...nums) { }       // REST - collects arguments
+```
+
+#### 7.1 Spread Operator (...)
+
+**What is it?**
+Expands an array or object into individual elements. Like unpacking a suitcase! 🧳
+
+**Spread with Arrays:**
+
+1. **Copying Arrays (Immutable Way):**
+```javascript
+// ❌ OLD WAY - Danger! Same reference!
+const original = [1, 2, 3];
+const copy = original;
+copy.push(4);
+console.log(original); // Output: [1, 2, 3, 4] - Changed! 😱
+
+// ✅ NEW WAY - Safe copy with spread!
+const original = [1, 2, 3];
+const copy = [...original];
+copy.push(4);
+console.log(original); // Output: [1, 2, 3] - Unchanged! 🎉
+console.log(copy);     // Output: [1, 2, 3, 4]
+```
+
+2. **Combining Arrays:**
+```javascript
+const fruits = ["apple", "banana"];
+const veggies = ["carrot", "broccoli"];
+
+const food = [...fruits, ...veggies];
+console.log(food);
+// Output: ["apple", "banana", "carrot", "broccoli"]
+```
+
+3. **Adding Elements:**
+```javascript
+const numbers = [2, 3, 4];
+const moreNumbers = [1, ...numbers, 5, 6];
+console.log(moreNumbers); // Output: [1, 2, 3, 4, 5, 6]
+```
+
+4. **Math Operations:**
+```javascript
+const numbers = [5, 12, 8, 3, 20];
+console.log(Math.max(...numbers));  // Output: 20
+console.log(Math.min(...numbers));  // Output: 3
+```
+
+5. **Function Arguments:**
+```javascript
+function sum(a, b, c) {
+    return a + b + c;
+}
+
+const numbers = [1, 2, 3];
+console.log(sum(...numbers));  // Output: 6
+// Same as: sum(1, 2, 3)
+```
+
+**Spread with Objects:**
+
+1. **Copying Objects (Immutable Way):**
+```javascript
+// ❌ OLD WAY - Danger! Same reference!
+const original = { name: "John", age: 30 };
+const copy = original;
+copy.age = 31;
+console.log(original.age); // Output: 31 - Changed! 😱
+
+// ✅ NEW WAY - Safe copy with spread!
+const original = { name: "John", age: 30 };
+const copy = { ...original };
+copy.age = 31;
+console.log(original.age); // Output: 30 - Unchanged! 🎉
+console.log(copy.age);     // Output: 31
+```
+
+2. **Merging Objects:**
+```javascript
+const person = { name: "Alice", age: 25 };
+const job = { title: "Developer", company: "TechCo" };
+
+const employee = { ...person, ...job };
+console.log(employee);
+// Output: { name: "Alice", age: 25, title: "Developer", company: "TechCo" }
+```
+
+3. **Updating Properties (Immutably):**
+```javascript
+const user = { name: "John", age: 30, city: "NYC" };
+const updatedUser = { ...user, age: 31 };  // Update age
+console.log(updatedUser);
+// Output: { name: "John", age: 31, city: "NYC" }
+```
+
+4. **React State Updates (Very Important!):**
+```javascript
+// ❌ WRONG - Mutates state directly (BAD in React!)
+state.user.age = 31;  // React won't detect change!
+
+// ✅ CORRECT - Spread creates new object (GOOD!)
+const newState = {
+    ...state,
+    user: {
+        ...state.user,
+        age: 31  // Update age immutably
+    }
+};
+```
+
+**Advanced Spread Tricks:**
+
+1. **Remove Duplicates:**
+```javascript
+const numbers = [1, 2, 2, 3, 3, 3, 4, 5, 5];
+const unique = [...new Set(numbers)];
+console.log(unique); // Output: [1, 2, 3, 4, 5]
+```
+
+2. **Convert String to Array:**
+```javascript
+const word = "Hello";
+const letters = [...word];
+console.log(letters); // Output: ["H", "e", "l", "l", "o"]
+```
+
+3. **Conditional Properties:**
+```javascript
+const isAdmin = true;
+const user = {
+    name: "John",
+    email: "john@example.com",
+    ...(isAdmin && { role: 'admin', privileges: true })
+};
+// If isAdmin true: { name: "John", email: "...", role: 'admin', privileges: true }
+```
+
+#### 7.2 Rest Operator (...)
+
+**What is it?**
+Collects multiple elements into a single array/object. Like packing everything into a suitcase! 🧳
+
+**Rest with Arrays:**
+
+1. **Collecting Remaining Elements:**
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+const [first, second, ...rest] = numbers;
+
+console.log(first);   // Output: 1
+console.log(second);  // Output: 2
+console.log(rest);    // Output: [3, 4, 5]
+```
+
+2. **Variable Function Arguments:**
+```javascript
+function sum(...numbers) {
+    return numbers.reduce((total, num) => total + num, 0);
+}
+
+console.log(sum(1, 2, 3));        // Output: 6
+console.log(sum(1, 2, 3, 4, 5));  // Output: 15
+console.log(sum(10, 20, 30, 40)); // Output: 100
+```
+
+3. **Combining First Param with Rest:**
+```javascript
+function greet(greeting, ...names) {
+    return `${greeting} ${names.join(', ')}!`;
+}
+
+console.log(greet("Hello", "Alice", "Bob", "Charlie"));
+// Output: Hello Alice, Bob, Charlie!
+```
+
+**Rest with Objects:**
+
+1. **Collecting Remaining Properties:**
+```javascript
+const person = {
+    name: "John",
+    age: 30,
+    city: "NYC",
+    job: "Developer"
+};
+
+const { name, age, ...otherInfo } = person;
+console.log(name);       // Output: John
+console.log(age);        // Output: 30
+console.log(otherInfo);  // Output: { city: "NYC", job: "Developer" }
+```
+
+2. **Removing Properties (Immutable Way):**
+```javascript
+const user = {
+    id: 1,
+    name: "Alice",
+    password: "secret123",
+    email: "alice@example.com"
+};
+
+// Remove password before sending to client
+const { password, ...safeUser } = user;
+console.log(safeUser);
+// Output: { id: 1, name: "Alice", email: "alice@example.com" }
+```
+
+3. **Function Parameters with Objects:**
+```javascript
+function createUser({ name, email, ...additionalInfo }) {
+    return {
+        name,
+        email,
+        createdAt: new Date(),
+        ...additionalInfo  // Spread the rest back
+    };
+}
+
+const user = createUser({
+    name: "Bob",
+    email: "bob@example.com",
+    age: 28,
+    city: "LA"
+});
+// Output: { name: "Bob", email: "bob@example.com", 
+//           createdAt: [Date], age: 28, city: "LA" }
+```
+
+**Real-World React Example:**
+```javascript
+// Parent passes many props
+<Child name="John" age={30} email="john@example.com" city="NYC" />
+
+// Child uses some props, passes rest down
+function Child({ name, age, ...otherProps }) {
+    console.log(name, age);  // Uses these
+    return <GrandChild {...otherProps} />;  // Passes rest down
+}
+
+// GrandChild receives { email: "john@example.com", city: "NYC" }
+```
+
+#### Spread vs Rest - Quick Comparison
+
+| Feature | SPREAD (...) | REST (...) |
+|---------|-------------|-----------|
+| **Purpose** | EXPAND/UNPACK | COLLECT/GATHER |
+| **Direction** | One → Many | Many → One |
+| **Position** | Right side of = | Left side of = |
+| **Used In** | Function calls, Array/Object literals | Function parameters, Destructuring |
+| **Creates** | Individual items | Array or Object |
+| **Example** | `[...arr]` | `[a, ...rest] = arr` |
+
+**Side-by-Side Examples:**
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+
+// SPREAD - Takes array and spreads it out:
+console.log(...numbers);         // 1 2 3 4 5 (individual values)
+const copy = [...numbers];       // Creates new array
+Math.max(...numbers);            // 5 (spreads into arguments)
+
+// REST - Takes individual items and collects them:
+const [a, b, ...rest] = numbers; // rest = [3, 4, 5] (array)
+function sum(...args) { }        // args collects all arguments
+```
+
+**Why Use Spread & Rest?**
+- ✅ Immutable operations (no mutations!)
+- ✅ Essential for React development
+- ✅ Flexible function parameters
+- ✅ Easy array/object manipulation
+- ✅ Cleaner than `.concat()` or `Object.assign()`
+- ✅ Works with any iterable
+
+**Common Mistakes:**
+```javascript
+// ❌ Spread creates SHALLOW copy (nested objects share reference!)
+const obj = { nested: { value: 1 } };
+const copy = { ...obj };  // Shallow! nested is still shared!
+
+// ✅ For deep copy, use:
+const deepCopy = JSON.parse(JSON.stringify(obj));
+
+// ❌ Rest must be LAST in destructuring
+const [...rest, last] = [1, 2, 3];  // SyntaxError!
+
+// ✅ Correct
+const [first, ...rest] = [1, 2, 3];  // Rest must be last!
+```
+
+**Kid-Friendly Analogy:**
+> **SPREAD:** Taking LEGO bricks from a box and dumping them on the floor 📦 → 🧱 🧱 🧱 🧱 (one group becomes many pieces)
+> 
+> **REST:** Taking scattered LEGO bricks and putting them in a box 🧱 🧱 🧱 🧱 → 📦 (many pieces become one group)
+> 
+> Think of pizza slices 🍕:
+> - **SPREAD:** Taking a pizza and separating into individual slices
+> - **REST:** Gathering individual slices and putting them back in the box
+
 ## 📖 Documentation
 
 ### notes.txt (1400+ lines)
@@ -870,6 +1199,22 @@ Comprehensive kid-friendly ES6 documentation covering:
 - Real-world API response handling
 - React props destructuring
 - Common mistakes and solutions
+
+**Section 7: Spread & Rest Operators**
+- Understanding the difference (same syntax, opposite purpose)
+- Position matters (how to tell them apart)
+- Spread operator for arrays (copying, combining, expanding)
+- Spread operator for objects (merging, updating immutably)
+- Rest operator for arrays (collecting elements)
+- Rest operator for objects (gathering properties)
+- Variable function arguments
+- Removing properties immutably
+- React state updates (immutability patterns)
+- Advanced tricks (remove duplicates, conditional spreading)
+- Shallow vs deep copying
+- Real-world React props passing
+- Common mistakes and solutions
+- Side-by-side comparisons
 
 **Documentation Format:**
 - ✅ **What**: Clear definitions
@@ -1034,6 +1379,55 @@ const { b } = a;
 const { c } = b;
 ```
 
+### 7. Spread & Rest Operators
+```javascript
+// ✅ Use spread for immutable array operations
+const original = [1, 2, 3];
+const newArray = [...original, 4]; // Don't mutate original
+
+// ✅ Use spread for immutable object updates (React/Redux)
+const user = { name: "John", age: 30 };
+const updatedUser = { ...user, age: 31 }; // Create new object
+
+// ✅ Use rest for flexible function parameters
+function sum(...numbers) {
+    return numbers.reduce((a, b) => a + b, 0);
+}
+sum(1, 2, 3, 4, 5); // Works with any number of arguments
+
+// ✅ Remove properties immutably
+const user = { id: 1, name: "John", password: "secret" };
+const { password, ...safeUser } = user; // Remove password
+
+// ✅ Merge objects with priority
+const defaults = { theme: 'light', size: 'medium' };
+const userPrefs = { theme: 'dark' };
+const config = { ...defaults, ...userPrefs }; // userPrefs override defaults
+
+// ❌ Don't forget: Spread creates SHALLOW copies!
+const obj = { nested: { value: 1 } };
+const copy = { ...obj }; // nested is still shared reference!
+
+// ✅ For deep copy:
+const deepCopy = JSON.parse(JSON.stringify(obj));
+
+// ❌ Rest must be LAST in destructuring
+const [...rest, last] = arr; // SyntaxError!
+
+// ✅ Correct position
+const [first, ...rest] = arr; // Rest at the end
+
+// ✅ Use spread to remove array duplicates
+const unique = [...new Set([1, 2, 2, 3, 3])]; // [1, 2, 3]
+
+// ✅ Conditional spreading in objects
+const isAdmin = true;
+const user = {
+    name: "John",
+    ...(isAdmin && { role: 'admin', privileges: true })
+};
+```
+
 ## 🎓 Key Learning Outcomes
 
 ### Arrow Functions Mastery
@@ -1079,6 +1473,19 @@ const { c } = b;
 - ✅ Destructuring function parameters
 - ✅ Efficient API response handling
 - ✅ Variable swapping and renaming
+
+### Spread & Rest Operators Mastery
+- ✅ Understanding same syntax (...), opposite purposes
+- ✅ Identifying spread vs rest by position
+- ✅ Spread arrays for copying and combining (immutably)
+- ✅ Spread objects for merging and updating (immutably)
+- ✅ Rest parameters for flexible function arguments
+- ✅ Rest destructuring for collecting remaining properties
+- ✅ Removing properties immutably
+- ✅ React state updates without mutations
+- ✅ Shallow vs deep copying awareness
+- ✅ Advanced patterns (deduplication, conditional spreading)
+- ✅ Common pitfalls and how to avoid them
 
 ## 🚀 How to Use This Module
 
@@ -1155,6 +1562,22 @@ Each folder contains:
   - [ ] Destructure function parameters
   - [ ] Handle API responses with destructuring
   - [ ] Practice variable swapping
+- [ ] **7-SpreadRestOperator**: Spread and Rest operators
+  - [ ] Understand the difference between spread and rest
+  - [ ] Identify spread vs rest by position
+  - [ ] Use spread to copy arrays immutably
+  - [ ] Use spread to copy/merge objects immutably
+  - [ ] Use spread for function arguments
+  - [ ] Use rest for variable function parameters
+  - [ ] Collect remaining properties with rest
+  - [ ] Remove properties immutably with rest
+  - [ ] Practice React state updates
+  - [ ] Master shallow vs deep copying
+- [ ] **8-ErrorHandling**: Try/Catch and error handling
+  - [ ] Implement try/catch blocks
+  - [ ] Handle async errors
+  - [ ] Create custom errors
+  - [ ] Error propagation patterns
 
 ## 🎯 Next Steps
 
@@ -1241,6 +1664,60 @@ const { name = "Guest", age = 18 } = user;
 function greet({ name, age }) {
     console.log(`Hi ${name}, age ${age}`);
 }
+```
+
+### Spread Operator
+```javascript
+// Copy Array (Immutably)
+const copy = [...original];
+
+// Combine Arrays
+const combined = [...arr1, ...arr2];
+
+// Add Elements
+const newArr = [1, ...numbers, 5];
+
+// Copy Object (Immutably)
+const objCopy = { ...original };
+
+// Merge Objects
+const merged = { ...obj1, ...obj2 };
+
+// Update Object Property
+const updated = { ...user, age: 31 };
+
+// Function Arguments
+Math.max(...numbers);
+sum(...values);
+
+// Remove Duplicates
+const unique = [...new Set(array)];
+```
+
+### Rest Operator
+```javascript
+// Array Destructuring
+const [first, second, ...rest] = [1, 2, 3, 4, 5];
+// rest = [3, 4, 5]
+
+// Object Destructuring
+const { name, age, ...others } = person;
+// others = remaining properties
+
+// Function Parameters (Variable Arguments)
+function sum(...numbers) {
+    return numbers.reduce((a, b) => a + b, 0);
+}
+sum(1, 2, 3, 4); // Works with any number of args
+
+// Combined with Regular Parameters
+function greet(greeting, ...names) {
+    return `${greeting} ${names.join(', ')}`;
+}
+greet("Hello", "Alice", "Bob"); // "Hello Alice, Bob"
+
+// Remove Properties (Immutably)
+const { password, ...safeUser } = user;
 ```
 
 ---

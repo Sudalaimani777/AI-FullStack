@@ -18,7 +18,7 @@
 
 This repository is my personal learning journey into Full-Stack Development, starting with JavaScript fundamentals. It contains:
 - **15 Comprehensive Learning Topics** with detailed notes and examples (2,293 lines)
-- **8 ES6 Advanced Modules** (Functions, Promises, Fetch, HTTP, Async/Await, Destructuring, Spread/Rest, Error Handling) with 1,400+ lines of notes
+- **8 ES6 Advanced Modules** (Functions, Promises, Fetch, HTTP, Async/Await, Destructuring, Spread/Rest, Error Handling) with 1,539 lines of notes
 - **3 AJAX Projects** (Text, JSON, External API) with 241 lines of notes
 - **100 Topic-Specific Practice Tasks** aligned with each chapter (100% completed)
 - **Structured coding exercises** (Basic, Advanced, Bonus)
@@ -29,8 +29,8 @@ This repository is my personal learning journey into Full-Stack Development, sta
 
 **Learning Start Date:** October 17, 2025  
 **Current Focus:** ES6 Advanced Features & Modern JavaScript Patterns  
-**Latest Milestone:** Completed all 8 ES6 modules including Destructuring  
-**Recent Achievement:** Mastered Destructuring, Spread/Rest Operators, and Error Handling Patterns  
+**Latest Milestone:** Completed all 8 ES6 modules including Spread & Rest Operators  
+**Recent Achievement:** Mastered Destructuring, Spread/Rest Operators (Immutable Operations), and Error Handling Patterns  
 
 **Completion Status:** 
 - ✅ 100/100 TopicTasks completed
@@ -137,7 +137,7 @@ AI-FullStackGitRepo/
 | Objects Sub-Topics | 6 | ✅ Complete |
 | Array Methods Sub-Topics | 9 | ✅ Complete |
 | DOM Practice Files | 8 | ✅ Complete |
-| Documentation Lines | 4,308+ | ✅ Complete |
+| Documentation Lines | 5,698+ | ✅ Complete |
 | Code Examples | 300+ | ✅ Complete |
 
 ## 🚀 Projects
@@ -267,7 +267,7 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 | 4. HTTP Methods | ✅ Complete | Dec 22, 2025 |
 | 5. Async/Await | ✅ Complete | Jan 1, 2026 |
 | 6. Destructuring | ✅ Complete | Jan 10, 2026 |
-| 7. Spread/Rest Operators | ✅ Complete | Jan 10, 2026 |
+| 7. Spread/Rest Operators | ✅ Complete | Jan 12, 2026 |
 | 8. Error Handling | ✅ Complete | Jan 10, 2026 |
 | **Practice & Projects** |
 | Basic Tasks | ✅ Complete | Oct 2025 |
@@ -285,7 +285,7 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 | **Future Goals** |
 | Bonus Challenges | ✅ **Complete** | **Dec 28 2025** |
 | Async/Await | ✅ Complete | Jan 1, 2026 |
-| Destructuring & Spread | ⏳ Upcoming | - |
+| Destructuring & Spread | ✅ Complete | Jan 12, 2026 |
 | Modules (Import/Export) | ✅ Complete | Jan 5, 2026 |
 | Backend Development | ⏳ Upcoming | - |
 
@@ -327,7 +327,7 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 - [x] ~~Build CRUD_Application_Using_API with inline editing~~ ✅ Completed Jan 2, 2026
 - [x] ~~Master ES6 Modules (import/export) and IIFE pattern~~ ✅ Completed Jan 5, 2026
 - [x] ~~Learn Destructuring (arrays and objects)~~ ✅ Completed Jan 10, 2026
-- [x] ~~Master Spread and Rest operators~~ ✅ Completed Jan 10, 2026
+- [x] ~~Master Spread and Rest operators for immutable operations~~ ✅ Completed Jan 12, 2026
 - [x] ~~Study Error Handling patterns (try/catch)~~ ✅ Completed Jan 10, 2026
 
 ### Future Topics
@@ -399,7 +399,8 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 - ✅ Error handling in async operations
 - ✅ Sequential and parallel promise execution
 - ✅ Destructuring (arrays and objects)
-- ✅ Spread and Rest operators
+- ✅ Spread operator for immutable array/object operations
+- ✅ Rest operator for flexible function parameters
 - ✅ Advanced error handling patterns
 
 ### 🌐 AJAX & API Integration
@@ -477,9 +478,10 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 **AJAX Projects:** 3 progressive projects  
 **Total Practice Tasks:** 130+ across all categories  
 **JS-Tasks:** 30 (Basic 10 + Advanced 10 + Bonus 10)  
-**Documentation Lines:** 4,308+ lines total
+**Documentation Lines:** 5,698+ lines total
   - Topics/notes.txt: 2,293 lines
-  - ES6/notes.txt: 1,400+ lines
+  - ES6/notes.txt: 1,539 lines
+  - ES6/README.md: 1,251 lines
   - Ajax/notes.txt: 241 lines
   - React Prerequisites: 374 lines  
 **Code Examples:** 300+ practical examples  
@@ -496,7 +498,7 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 | Resource | Description |
 |----------|-------------|
 | [JavaScript Fundamentals](FrontEnd/JavaScript/Topics/README.md) | 15 topics, 2,293 lines of docs |
-| [ES6 Guide](FrontEnd/JavaScript/ES6/README.md) | 8 modules, 1,400+ lines of docs |
+| [ES6 Guide](FrontEnd/JavaScript/ES6/README.md) | 8 modules, 1,539 lines of docs |
 | [AJAX Tutorial](FrontEnd/Ajax/README.md) | 3 projects, 241 lines of docs |
 | [React Prerequisites](FrontEnd/JavaScript/topicsNeedToLearnToMoveToReact.txt) | 374 lines checklist |
 | [FrontEnd Hub](FrontEnd/README.md) | Complete frontend documentation |
@@ -519,5 +521,5 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 **Repository:** AI Full-Stack Development Learning Journey  
 **Author:** Sudalaimani  
 **Learning Period:** October 17, 2025 - Present  
-**Last Updated:** January 10, 2026  
+**Last Updated:** January 12, 2026  
 **Status:** 🔄 Frontend In Progress | ⏳ React Upcoming | 🔄 Backend Upcoming
