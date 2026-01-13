@@ -4,3 +4,5 @@ Just create the JS file with .js extension and then link with the HTML file then
 */
 
 // alert("Hello JS");
+
+console.log("Hello World");
