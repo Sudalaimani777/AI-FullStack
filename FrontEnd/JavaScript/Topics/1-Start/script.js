@@ -7,3 +7,4 @@ Just create the JS file with .js extension and then link with the HTML file then
 
 console.log("Hello World");
 console.log("Sudalaimani");
+console.log(1+1);
