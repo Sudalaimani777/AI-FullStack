@@ -65,3 +65,64 @@ console.log("This is the array which contains the maximum values in the all nums
 
 const minNums = Math.min(...allNums);
 console.log("This is the array which contains the minimum values in the all nums array -> ", minNums);
+
+//Spreading with Objects :-
+console.log("---------- Spreading With Objects ----------");
+
+//Old Methods :-
+console.log("---------- Old Method of Copying Object ----------");
+const originalObjectSpread = {name:"Luffy", age:19, occupation:"Priate"};
+console.log("This is the original object before destructured it -> ", originalObjectSpread);
+
+//Copied Object :-
+const copiedObject = originalObjectSpread;
+console.log("This is the copied object from the original object -> ", copiedObject);
+console.log("Now I change the age property in the copied object, but the original object also changed because it was shallow copied, not an deep copy");
+copiedObject.age = 20;
+console.log("Consoling the changed value in the console -> ", copiedObject);
+console.log("---------- After changing the age property in the copied object -----------");
+console.log("Now again loggin the original object -> ", originalObjectSpread);
+
+//New Method Of Spread :-
+console.log("---------- ES6 Spread With Objects ----------");
+const copiedObjectUsingSpread = {...originalObjectSpread};
+console.log("Now hanging the copied object using spread");
+copiedObjectUsingSpread.name = "Zoro";
+
+//Now Loggimg both the original spreaded object and the copied object :-
+
+console.log("---------- Now Loggimg both the original spreaded object and the copied object ----------");
+console.log("Original Spread Object -> ", originalObjectSpread);
+console.log("Copied Object Spread -> ", copiedObjectUsingSpread);
+
+//Merging Two Object :-
+console.log("---------- Merging Two Objects ----------");
+const userData = {name:"Sudalaimani", age:22};
+console.log("This is the Object one -> ", userData);
+const userStatus = {status:"Student", address:{streetNo:"19/4",street:"North Street", district:"Ettaiyapuram"}};
+console.log("This is the object two -> ", userStatus);
+
+console.log("Now we consoling the merged objects using spread");
+const userProfile={...userData,...userStatus};
+console.log("This is the combined of the userData and userStatus object -> ", userProfile);
+
+//Adding New Property :-
+console.log("------------- Adding new Properties --------------")
+const dataOne = {id:1};
+console.log("This is the data one -> ",dataOne);
+const addData = {...dataOne,name:"Surya"};
+console.log("Now we merged the dataOne object to the addData -> ", addData);
+
+//Real Time Example :-
+console.log("---------- Now we see the real time example for the spread ----------");
+
+//Wrong Method :-
+
+ const state = { user: { name: "John", age: 30 }, count: 5 };
+ state.user.age = 20;
+
+ //Changes the original objects
+
+ //Correct Method :-
+const newState = {...state,user:state.user,age:35};
+console.log(newState);
