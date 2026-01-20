@@ -1,0 +1,314 @@
+# HTML Practice Tasks
+
+Essential HTML5 tasks to master before moving to CSS.
+Total Tasks: 25 (5 modules × 5 tasks)
+
+---
+
+## Module 1: HTML Basics (5 Tasks)
+
+### Task 1.1: Basic HTML Document
+Create a basic HTML5 document with:
+- DOCTYPE declaration
+- html, head, and body tags
+- title tag with "My First HTML Page"
+- h1 heading with "Welcome to HTML"
+- At least 3 paragraphs with text
+
+### Task 1.2: Meta Tags
+Create an HTML page with essential meta tags:
+- charset UTF-8
+- viewport for responsive design
+- description meta tag
+- author meta tag
+
+### Task 1.3: Document Structure
+Build a complete HTML document structure:
+- Header section with site title
+- Navigation section with 5 placeholder links
+- Main content section with 2 articles
+- Footer with copyright info
+
+### Task 1.4: Headings Hierarchy
+Create a page demonstrating proper heading structure:
+- h1 for main page title
+- h2 for major sections (3 sections)
+- h3 for subsections within each h2
+- Paragraphs under each heading
+- Show proper nesting and hierarchy
+
+### Task 1.5: Text Formatting
+Create a page with essential text formatting:
+- <strong> for important text
+- <em> for emphasized text
+- <mark> for highlighted text
+- <code> for inline code
+- <pre> for code block
+- HTML comments
+
+---
+
+## Module 2: Links and Navigation (5 Tasks)
+
+### Task 2.1: Basic Links
+Create different types of links:
+- External link (absolute URL) opening in new tab
+- Internal link (relative URL) to another page
+- Link with title attribute
+- Email link (mailto:)
+- Phone link (tel:)
+
+### Task 2.2: Anchor Links
+Implement page navigation with anchors:
+- Create "Back to Top" link
+- Table of contents linking to 4 sections
+- Use id attributes as anchors
+- Each section with proper heading
+
+### Task 2.3: Navigation Menu
+Build a horizontal navigation bar:
+- Use <nav> element
+- Unordered list with 5 menu items
+- Links to different pages
+- One link marked as "active"
+
+### Task 2.4: Breadcrumb Navigation
+Create breadcrumb navigation:
+- Home > Category > Subcategory > Current Page
+- Each level clickable except current
+- Use proper semantic markup
+
+### Task 2.5: Image Links
+Create functional image links:
+- Logo image linking to homepage
+- 3 thumbnail images linking to full-size versions
+- All images with proper alt text
+- Social media icon links
+
+---
+
+## Module 3: Images and Media (5 Tasks)
+
+### Task 3.1: Basic Images
+Insert images with proper attributes:
+- Image with src and alt attributes
+- Image with width and height
+- Image with title for tooltip
+- Image from relative path
+- Image from external URL
+
+### Task 3.2: Figure and Figcaption
+Create semantic image structure:
+- 3 images using <figure> and <figcaption>
+- Descriptive captions for each
+- One figure with multiple related images
+- Proper alt text for accessibility
+
+### Task 3.3: Responsive Images
+Make images responsive:
+- Image with width: 100% and max-width
+- Use loading="lazy" for lazy loading
+- Create a hero section with background image
+- Ensure images scale on different screen sizes
+
+### Task 3.4: Image Gallery
+Build a simple image gallery:
+- 6 images in a grid layout
+- Each with figure and figcaption
+- Consistent sizing
+- Basic CSS for grid display
+
+### Task 3.5: Favicon and Optimization
+Add page icon and optimize images:
+- Add favicon using <link rel="icon">
+- Use appropriate image formats (JPEG for photos, PNG for graphics)
+- Write descriptive alt text for all images
+- Demonstrate proper image compression
+
+---
+
+## Module 4: Lists and Tables (5 Tasks)
+
+### Task 4.1: All List Types
+Create three types of lists:
+- Unordered list with 5 items
+- Ordered list with 5 steps
+- Description list with 5 term-definition pairs
+- One nested list (2 levels)
+
+### Task 4.2: Navigation Lists
+Build navigation using lists:
+- Header navigation (horizontal)
+- Sidebar navigation (vertical)
+- Footer links section
+- Style with basic CSS
+
+### Task 4.3: Basic Table
+Create a data table:
+- <table> with proper structure
+- <thead>, <tbody>, <tfoot>
+- Table headers (<th>)
+- At least 5 rows and 4 columns
+- <caption> for table title
+
+### Task 4.4: Styling Tables
+Create a styled table with:
+- Alternating row colors (using CSS classes)
+- Border styling
+- Header background color
+- Cell padding and alignment
+- Responsive table wrapper
+
+### Task 4.5: Practical Table
+Build a real-world table:
+- Product comparison table (3 products)
+- Or weekly schedule table
+- Or pricing table with features
+- Use colspan for merged headers
+- Proper semantic markup
+
+---
+
+## Module 5: Forms (5 Tasks)
+
+### Task 5.1: Basic Contact Form
+Create a simple contact form:
+- Form with action and method attributes
+- Name input (text)
+- Email input (email)
+- Message textarea
+- Submit button
+- Labels for all inputs
+
+### Task 5.2: Input Types
+Use essential HTML5 input types:
+- text, email, password
+- tel (phone), url (website)
+- number (with min/max)
+- date
+- Labels and placeholders for all
+
+### Task 5.3: Form Validation
+Implement HTML5 validation:
+- Required fields (*)
+- Email validation
+- Pattern validation (phone number regex)
+- Min/max length for text
+- Min/max values for numbers
+
+### Task 5.4: Selection Inputs
+Create a form with selection options:
+- Dropdown (<select>) with 5 options
+- Radio buttons (3 choices, single selection)
+- Checkboxes (4 options, multiple selection)
+- All with proper labels and names
+
+### Task 5.5: Complete Registration Form
+Build a comprehensive form with:
+- <fieldset> and <legend> for grouping
+- Personal info: name, email, password
+- Contact: phone, address
+- Preferences: country dropdown, gender radio, interests checkboxes
+- Date of birth input
+- Terms and conditions checkbox (required)
+- Submit and reset buttons
+- All validation applied
+
+---
+
+## Task Completion Checklist
+
+Module 1: HTML Basics               [ ] 0/5
+Module 2: Links and Navigation      [ ] 0/5
+Module 3: Images and Media          [ ] 0/5
+Module 4: Lists and Tables          [ ] 0/5
+Module 5: Forms                     [ ] 0/5
+
+**Total Progress: 0/25 Tasks**
+
+---
+
+## Learning Tips
+
+1. **Complete in Order**: Start with Module 1 and progress sequentially
+2. **Practice Daily**: Aim for 1-2 tasks per day
+3. **Validate HTML**: Use W3C HTML Validator (https://validator.w3.org/)
+4. **Test in Browser**: Always view your work in a browser
+5. **Focus on Semantics**: Use the right HTML element for the right purpose
+6. **Keep it Clean**: Proper indentation and formatting
+7. **Mobile-First**: Always think about responsive design
+8. **Accessibility**: Use alt text, labels, and semantic HTML
+
+---
+
+## Essential Resources
+
+- **MDN Web Docs**: https://developer.mozilla.org/en-US/docs/Web/HTML
+- **W3C Validator**: https://validator.w3.org/
+- **Can I Use**: https://caniuse.com/ (browser support)
+
+---
+
+## Folder Structure Recommendation
+
+```
+HTML-Tasks/
+├── Module-01-Basics/
+│   ├── task-1.1-basic-document.html
+│   ├── task-1.2-meta-tags.html
+│   ├── task-1.3-document-structure.html
+│   ├── task-1.4-headings-hierarchy.html
+│   └── task-1.5-text-formatting.html
+│
+├── Module-02-Links/
+│   ├── task-2.1-basic-links.html
+│   ├── task-2.2-anchor-links.html
+│   ├── task-2.3-navigation-menu.html
+│   ├── task-2.4-breadcrumb.html
+│   └── task-2.5-image-links.html
+│
+├── Module-03-Images/
+│   ├── task-3.1-basic-images.html
+│   ├── task-3.2-figure-figcaption.html
+│   ├── task-3.3-responsive-images.html
+│   ├── task-3.4-image-gallery.html
+│   ├── task-3.5-favicon-optimization.html
+│   └── assets/
+│       └── images/
+│
+├── Module-04-Lists-Tables/
+│   ├── task-4.1-all-lists.html
+│   ├── task-4.2-navigation-lists.html
+│   ├── task-4.3-basic-table.html
+│   ├── task-4.4-styling-tables.html
+│   └── task-4.5-practical-table.html
+│
+└── Module-05-Forms/
+    ├── task-5.1-contact-form.html
+    ├── task-5.2-input-types.html
+    ├── task-5.3-form-validation.html
+    ├── task-5.4-selection-inputs.html
+    └── task-5.5-registration-form.html
+```
+
+---
+
+## Why These Topics?
+
+These 25 tasks cover the **essential HTML knowledge** needed to:
+- ✅ Build complete web pages
+- ✅ Move forward to CSS styling
+- ✅ Understand JavaScript DOM manipulation
+- ✅ Create responsive layouts
+- ✅ Build functional forms
+- ✅ Follow web standards and best practices
+
+**What's excluded**: Advanced/rarely-used features like image maps, SVG manipulation, complex ARIA, advanced table features, and obscure elements that you'll rarely use in real projects.
+
+---
+
+**Start Date**: __________  
+**Target Completion**: __________ (Recommended: 2-3 weeks)  
+**Actual Completion**: __________
+
+**Good luck! Focus on quality over speed. Master these fundamentals before moving to CSS.** 🚀
