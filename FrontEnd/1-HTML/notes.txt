@@ -1,0 +1,650 @@
+================================================================================
+                            HTML LEARNING NOTES
+================================================================================
+
+HTML = HyperText Markup Language
+Purpose: Structure and content of web pages
+Not a programming language - it's a markup language
+
+================================================================================
+                        1. HTML DOCUMENT STRUCTURE
+================================================================================
+
+Basic HTML Template:
+--------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Title</title>
+</head>
+<body>
+    <!-- Content goes here -->
+</body>
+</html>
+
+Key Points:
+-----------
+- <!DOCTYPE html> - Tells browser this is HTML5
+- <html> - Root element, wraps entire document
+- <head> - Contains metadata, not visible on page
+- <body> - Contains visible page content
+- Always close tags properly
+
+
+================================================================================
+                        2. HTML TAGS CATEGORIES
+================================================================================
+
+STRUCTURE TAGS:
+---------------
+<html>      - Root container
+<head>      - Document metadata
+<body>      - Visible content
+<header>    - Page/section header
+<nav>       - Navigation links
+<main>      - Main content
+<section>   - Thematic grouping
+<article>   - Self-contained content
+<aside>     - Sidebar/related content
+<footer>    - Page/section footer
+<div>       - Generic container (block-level)
+<span>      - Generic container (inline)
+
+TEXT TAGS:
+----------
+<h1> to <h6>  - Headings (h1 is most important)
+<p>           - Paragraph
+<br>          - Line break (self-closing)
+<hr>          - Horizontal rule/divider
+<strong>      - Important text (bold, semantic)
+<em>          - Emphasized text (italic, semantic)
+<b>           - Bold (presentational)
+<i>           - Italic (presentational)
+<u>           - Underline
+<del>         - Deleted/strikethrough text
+<mark>        - Highlighted text
+<small>       - Smaller text
+<sub>         - Subscript (H₂O)
+<sup>         - Superscript (2³)
+<pre>         - Preformatted text
+<code>        - Code snippet
+<blockquote>  - Quoted text block
+<abbr>        - Abbreviation
+
+LIST TAGS:
+----------
+<ul>    - Unordered list (bullets)
+<ol>    - Ordered list (numbers)
+<li>    - List item
+<dl>    - Description list
+<dt>    - Description term
+<dd>    - Description definition
+
+LINK & MEDIA TAGS:
+------------------
+<a>         - Anchor/link
+<img>       - Image (self-closing)
+<video>     - Video player
+<audio>     - Audio player
+<source>    - Media source
+<iframe>    - Embed external content
+<embed>     - Embed plugin content
+
+TABLE TAGS:
+-----------
+<table>     - Table container
+<thead>     - Table header group
+<tbody>     - Table body group
+<tfoot>     - Table footer group
+<tr>        - Table row
+<th>        - Table header cell
+<td>        - Table data cell
+<caption>   - Table caption
+
+FORM TAGS:
+----------
+<form>      - Form container
+<input>     - Input field (self-closing)
+<textarea>  - Multi-line text input
+<button>    - Clickable button
+<select>    - Dropdown list
+<option>    - Dropdown option
+<label>     - Input label
+<fieldset>  - Group related fields
+<legend>    - Fieldset caption
+
+
+================================================================================
+                        3. IMPORTANT ATTRIBUTES
+================================================================================
+
+GLOBAL ATTRIBUTES (work on any element):
+----------------------------------------
+id          - Unique identifier
+class       - CSS class name(s)
+style       - Inline CSS styles
+title       - Tooltip text
+lang        - Language code
+hidden      - Hide element
+data-*      - Custom data attributes
+tabindex    - Tab order for keyboard navigation
+contenteditable  - Make element editable
+
+LINK ATTRIBUTES (<a>):
+----------------------
+href        - URL destination
+target      - Where to open (_blank, _self, _parent, _top)
+rel         - Relationship (noopener, nofollow)
+download    - Download file instead of navigating
+
+IMAGE ATTRIBUTES (<img>):
+-------------------------
+src         - Image source/path
+alt         - Alternative text (REQUIRED for accessibility)
+width       - Image width
+height      - Image height
+loading     - Lazy loading (lazy, eager)
+title       - Tooltip text
+
+FORM ATTRIBUTES:
+----------------
+action      - Where to submit form data
+method      - How to send (GET or POST)
+name        - Form name
+required    - Make field mandatory
+placeholder - Hint text
+value       - Default/current value
+disabled    - Disable field
+readonly    - Read-only field
+checked     - Pre-checked (for checkbox/radio)
+min/max     - Min/max values
+pattern     - Validation regex
+autocomplete - Enable/disable autocomplete
+
+
+================================================================================
+                        4. SEMANTIC HTML
+================================================================================
+
+Why Use Semantic HTML?
+----------------------
+✓ Better SEO (Search engines understand content)
+✓ Accessibility (Screen readers can navigate)
+✓ Maintainability (Cleaner, more readable code)
+✓ Future-proof (Standards-compliant)
+
+SEMANTIC vs NON-SEMANTIC:
+-------------------------
+Semantic:    <header>, <nav>, <main>, <article>, <section>, <footer>
+Non-Semantic: <div>, <span> (generic containers)
+
+Use semantic tags when possible!
+
+Example Page Structure:
+-----------------------
+<header>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+    </nav>
+</header>
+
+<main>
+    <article>
+        <h1>Article Title</h1>
+        <p>Content...</p>
+    </article>
+    
+    <aside>
+        <h2>Related Links</h2>
+    </aside>
+</main>
+
+<footer>
+    <p>&copy; 2026 Company Name</p>
+</footer>
+
+
+================================================================================
+                        5. HTML FORMS
+================================================================================
+
+Form Structure:
+---------------
+<form action="/submit" method="POST">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    
+    <button type="submit">Submit</button>
+</form>
+
+Input Types:
+------------
+text        - Single-line text
+email       - Email address (validates format)
+password    - Hidden password input
+number      - Numeric input
+tel         - Phone number
+url         - URL address
+date        - Date picker
+time        - Time picker
+datetime-local - Date and time
+color       - Color picker
+file        - File upload
+checkbox    - Multiple selections
+radio       - Single selection from group
+range       - Slider
+hidden      - Hidden field
+submit      - Submit button
+reset       - Reset form button
+button      - Generic button
+
+Form Best Practices:
+--------------------
+✓ Always use <label> tags with 'for' attribute
+✓ Group related fields with <fieldset>
+✓ Use appropriate input types for validation
+✓ Add 'required' attribute for mandatory fields
+✓ Use placeholder text as hints, not labels
+✓ Provide clear error messages
+
+
+================================================================================
+                        6. HTML TABLES
+================================================================================
+
+Basic Table:
+------------
+<table>
+    <thead>
+        <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Data 1</td>
+            <td>Data 2</td>
+        </tr>
+    </tbody>
+</table>
+
+Table Attributes:
+-----------------
+colspan     - Merge columns horizontally
+rowspan     - Merge rows vertically
+border      - Border size (use CSS instead)
+cellpadding - Cell padding (use CSS instead)
+cellspacing - Cell spacing (use CSS instead)
+
+Table Best Practices:
+---------------------
+✓ Use <thead>, <tbody>, <tfoot> for structure
+✓ Use <th> for headers (not <td>)
+✓ Add 'scope' attribute to headers (row/col)
+✓ Use <caption> for table title
+✓ Don't use tables for layout (use CSS Grid/Flexbox)
+
+
+================================================================================
+                        7. META TAGS & SEO
+================================================================================
+
+Essential Meta Tags:
+--------------------
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Page description (50-160 chars)">
+<meta name="keywords" content="keyword1, keyword2, keyword3">
+<meta name="author" content="Author Name">
+<meta name="robots" content="index, follow">
+
+Open Graph (Social Media):
+--------------------------
+<meta property="og:title" content="Page Title">
+<meta property="og:description" content="Description">
+<meta property="og:image" content="image-url.jpg">
+<meta property="og:url" content="https://example.com">
+<meta property="og:type" content="website">
+
+Twitter Cards:
+--------------
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Page Title">
+<meta name="twitter:description" content="Description">
+<meta name="twitter:image" content="image-url.jpg">
+
+Favicon:
+--------
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+
+================================================================================
+                        8. ACCESSIBILITY (A11Y)
+================================================================================
+
+Key Principles:
+---------------
+1. Use semantic HTML
+2. Provide alt text for images
+3. Ensure proper heading hierarchy
+4. Label all form inputs
+5. Ensure keyboard navigation
+6. Maintain color contrast
+7. Use ARIA when necessary
+
+Alt Text for Images:
+--------------------
+✓ Do: <img src="cat.jpg" alt="Orange cat sleeping on couch">
+✗ Don't: <img src="cat.jpg" alt="image">
+✗ Don't: <img src="cat.jpg"> (missing alt)
+
+For decorative images:
+<img src="decoration.jpg" alt="">
+
+ARIA Attributes:
+----------------
+aria-label          - Label for element
+aria-labelledby     - Reference to label element
+aria-describedby    - Additional description
+aria-hidden         - Hide from screen readers
+role                - Define element role
+aria-live           - Announce dynamic changes
+
+Heading Hierarchy:
+------------------
+✓ Correct:
+<h1>Main Title</h1>
+<h2>Section 1</h2>
+<h3>Subsection 1.1</h3>
+<h2>Section 2</h2>
+
+✗ Wrong:
+<h1>Main Title</h1>
+<h3>Skip h2!</h3> (Don't skip levels)
+
+Keyboard Navigation:
+--------------------
+- All interactive elements must be keyboard accessible
+- Use Tab to move forward, Shift+Tab to move back
+- Use Enter/Space to activate buttons/links
+- Provide visible focus indicators
+
+
+================================================================================
+                        9. BEST PRACTICES
+================================================================================
+
+Code Quality:
+-------------
+✓ Use lowercase for tags and attributes
+✓ Always quote attribute values
+✓ Close all tags properly
+✓ Indent nested elements (2 or 4 spaces)
+✓ Add comments for complex sections
+✓ Keep line length reasonable
+✓ One element per line for complex structures
+
+File Organization:
+------------------
+✓ Use meaningful file names (lowercase, hyphens)
+✓ Keep HTML, CSS, JS in separate files
+✓ Organize images in 'images' or 'assets' folder
+✓ Use relative paths when possible
+
+Performance:
+------------
+✓ Minimize file size
+✓ Optimize images before using
+✓ Use lazy loading for images below fold
+✓ Defer non-critical scripts
+✓ Minimize HTTP requests
+
+SEO:
+----
+✓ Use descriptive title tags (50-60 characters)
+✓ Write compelling meta descriptions
+✓ Use heading tags properly (one h1 per page)
+✓ Create descriptive URLs
+✓ Add alt text to all images
+✓ Use semantic HTML
+
+
+================================================================================
+                        10. COMMON MISTAKES TO AVOID
+================================================================================
+
+✗ Missing closing tags
+✗ Nesting tags incorrectly
+✗ Missing alt attributes on images
+✗ Using <br> for spacing (use CSS instead)
+✗ Using tables for layout
+✗ Using too many <div> tags (divitis)
+✗ Not using semantic HTML
+✗ Inline styles everywhere (use external CSS)
+✗ Missing DOCTYPE declaration
+✗ Not testing across browsers
+✗ Skipping heading levels (h1 to h3)
+✗ Using wrong input types for forms
+✗ Not labeling form inputs
+✗ Forgetting viewport meta tag
+✗ Not validating HTML code
+
+
+================================================================================
+                        11. HTML5 NEW FEATURES
+================================================================================
+
+Semantic Elements:
+------------------
+<header>, <nav>, <main>, <section>, <article>, <aside>, <footer>
+<figure>, <figcaption>, <time>, <mark>
+
+Multimedia:
+-----------
+<video>, <audio>, <source>, <track>
+- Native video/audio support without plugins
+
+Graphics:
+---------
+<canvas> - Draw graphics with JavaScript
+<svg> - Scalable Vector Graphics
+
+Form Enhancements:
+------------------
+New input types: email, url, number, date, time, color, range
+Attributes: placeholder, required, pattern, autofocus
+
+APIs (used with JavaScript):
+-----------------------------
+- Geolocation API
+- Drag and Drop API
+- Local Storage
+- Session Storage
+- Canvas API
+- Web Workers
+
+
+================================================================================
+                        12. VALIDATION & TOOLS
+================================================================================
+
+HTML Validators:
+----------------
+- W3C Markup Validation Service: https://validator.w3.org/
+- HTML5 Validator: https://html5.validator.nu/
+
+Browser DevTools:
+-----------------
+- Right-click → Inspect Element
+- View HTML structure
+- Debug layout issues
+- Check console errors
+
+Accessibility Tools:
+--------------------
+- axe DevTools (browser extension)
+- WAVE (Web Accessibility Evaluation Tool)
+- Lighthouse (built into Chrome DevTools)
+- Screen readers: NVDA, JAWS, VoiceOver
+
+Code Editors:
+-------------
+- VS Code (recommended)
+- Sublime Text
+- Atom
+- Notepad++
+
+
+================================================================================
+                        13. SPECIAL CHARACTERS
+================================================================================
+
+HTML Entities (use these instead of actual symbols):
+----------------------------------------------------
+&lt;        <    (less than)
+&gt;        >    (greater than)
+&amp;       &    (ampersand)
+&quot;      "    (quotation mark)
+&apos;      '    (apostrophe)
+&nbsp;           (non-breaking space)
+&copy;      ©    (copyright)
+&reg;       ®    (registered)
+&trade;     ™    (trademark)
+&euro;      €    (euro)
+&pound;     £    (pound)
+&yen;       ¥    (yen)
+&cent;      ¢    (cent)
+&deg;       °    (degree)
+
+
+================================================================================
+                        14. RESPONSIVE DESIGN
+================================================================================
+
+Viewport Meta Tag (ESSENTIAL):
+-------------------------------
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+This tag ensures your page scales properly on mobile devices.
+
+Responsive Images:
+------------------
+<img src="image.jpg" 
+     srcset="image-320w.jpg 320w,
+             image-480w.jpg 480w,
+             image-800w.jpg 800w"
+     sizes="(max-width: 320px) 280px,
+            (max-width: 480px) 440px,
+            800px"
+     alt="Responsive image">
+
+Picture Element:
+----------------
+<picture>
+    <source media="(min-width: 800px)" srcset="large.jpg">
+    <source media="(min-width: 400px)" srcset="medium.jpg">
+    <img src="small.jpg" alt="Responsive image">
+</picture>
+
+
+================================================================================
+                        15. QUICK REFERENCE
+================================================================================
+
+Self-Closing Tags:
+------------------
+<br>, <hr>, <img>, <input>, <meta>, <link>, <source>, <area>
+
+Block-Level Elements (take full width):
+---------------------------------------
+<div>, <p>, <h1>-<h6>, <ul>, <ol>, <li>, <table>, 
+<form>, <header>, <nav>, <main>, <section>, <article>, <footer>
+
+Inline Elements (only take needed width):
+-----------------------------------------
+<span>, <a>, <strong>, <em>, <b>, <i>, <img>, <input>, <button>
+
+Link Targets:
+-------------
+_blank      - New window/tab
+_self       - Same frame (default)
+_parent     - Parent frame
+_top        - Full window
+
+HTTP Methods:
+-------------
+GET         - Request data (visible in URL)
+POST        - Submit data (not visible in URL)
+
+
+================================================================================
+                        16. LEARNING TIPS
+================================================================================
+
+✓ Start with basics, progress gradually
+✓ Practice by building real projects
+✓ View source code of websites you like
+✓ Use browser DevTools to experiment
+✓ Validate your HTML regularly
+✓ Focus on semantic HTML and accessibility
+✓ Learn CSS alongside HTML
+✓ Don't memorize - understand concepts
+✓ Build a portfolio of projects
+✓ Stay updated with web standards
+
+
+================================================================================
+                        17. NEXT STEPS
+================================================================================
+
+After mastering HTML:
+---------------------
+1. CSS - Style your HTML
+2. CSS Flexbox & Grid - Modern layouts
+3. Responsive Design - Mobile-first approach
+4. JavaScript - Add interactivity
+5. Web APIs - Advanced features
+6. Frontend Frameworks - React, Vue, Angular
+7. Backend Development - Complete full-stack
+
+
+================================================================================
+                        USEFUL RESOURCES
+================================================================================
+
+Documentation:
+--------------
+- MDN Web Docs: https://developer.mozilla.org/en-US/docs/Web/HTML
+- W3Schools: https://www.w3schools.com/html/
+- HTML Standard: https://html.spec.whatwg.org/
+
+Practice Platforms:
+-------------------
+- CodePen: https://codepen.io/
+- JSFiddle: https://jsfiddle.net/
+- Replit: https://replit.com/
+
+Learn by Doing:
+---------------
+- freeCodeCamp: https://www.freecodecamp.org/
+- The Odin Project: https://www.theodinproject.com/
+- Codecademy: https://www.codecademy.com/
+
+YouTube Channels:
+-----------------
+- Traversy Media
+- Web Dev Simplified
+- Kevin Powell (CSS focus)
+- freeCodeCamp.org
+
+================================================================================
+                            END OF NOTES
+================================================================================
+
+Remember: HTML is the foundation of web development. Master it well!
+
+Good luck with your learning journey! 🚀

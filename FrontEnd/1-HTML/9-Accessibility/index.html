@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Accessibility</title>
+</head>
+<body>
+    <!-- TOPIC: Making HTML Accessible for All -->
+    
+    <h1>HTML Accessibility (A11y)</h1>
+    <p>Learn how to make your HTML accessible to everyone</p>
+    
+    <h2>Topics to Cover:</h2>
+    
+    <h3>1. Semantic HTML</h3>
+    <p>Use meaningful HTML tags instead of generic &lt;div&gt; and &lt;span&gt;</p>
+    <ul>
+        <li>&lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;footer&gt;</li>
+        <li>&lt;article&gt;, &lt;section&gt;, &lt;aside&gt;</li>
+    </ul>
+    
+    <h3>2. Headings Hierarchy</h3>
+    <ul>
+        <li>Use h1, h2, h3... in logical order</li>
+        <li>Only one h1 per page</li>
+        <li>Don't skip heading levels</li>
+    </ul>
+    
+    <h3>3. Alt Text for Images</h3>
+    <code>&lt;img src="photo.jpg" alt="A person sitting on a bench"&gt;</code>
+    <ul>
+        <li>Always include descriptive alt text</li>
+        <li>For decorative images, use empty alt=""</li>
+    </ul>
+    
+    <h3>4. Form Labels</h3>
+    <code>&lt;label for="username"&gt;Username:&lt;/label&gt;</code>
+    <code>&lt;input type="text" id="username" name="username"&gt;</code>
+    <p>Connect labels to inputs with 'for' attribute</p>
+    
+    <h3>5. Link Text</h3>
+    <ul>
+        <li>❌ Don't: &lt;a href="page.html"&gt;Click here&lt;/a&gt;</li>
+        <li>✓ Do: &lt;a href="page.html"&gt;View our services&lt;/a&gt;</li>
+    </ul>
+    
+    <h3>6. Color Contrast</h3>
+    <p>Ensure sufficient color contrast between text and background</p>
+    <p>WCAG AAA: Contrast ratio of at least 7:1</p>
+    
+    <h3>7. Keyboard Navigation</h3>
+    <ul>
+        <li>All interactive elements should be keyboard accessible</li>
+        <li>Use tabindex wisely</li>
+        <li>Visible focus indicators</li>
+    </ul>
+    
+    <h3>8. ARIA (Accessible Rich Internet Applications)</h3>
+    <code>&lt;button aria-label="Close menu"&gt;×&lt;/button&gt;</code>
+    <ul>
+        <li>aria-label - Labels for unlabeled elements</li>
+        <li>aria-describedby - Additional description</li>
+        <li>role - Defines element purpose</li>
+    </ul>
+    
+    <h3>9. Skip Links</h3>
+    <code>&lt;a href="#main-content"&gt;Skip to main content&lt;/a&gt;</code>
+    <p>Helps keyboard users bypass navigation</p>
+    
+    <h3>10. Testing Accessibility</h3>
+    <ul>
+        <li>Use screen readers (NVDA, JAWS)</li>
+        <li>Keyboard navigation testing</li>
+        <li>Color contrast checkers</li>
+        <li>Automated tools (axe, Lighthouse)</li>
+    </ul>
+    
+    <hr>
+    
+    <h3>Practice Here:</h3>
+    <!-- Add your practice code here -->
+    
+</body>
+</html>
