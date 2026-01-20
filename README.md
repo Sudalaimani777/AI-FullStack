@@ -16,13 +16,15 @@
 
 ## 🎯 About
 
-This repository is my personal learning journey into Full-Stack Development, starting with JavaScript fundamentals. It contains:
-- **15 Comprehensive Learning Topics** with detailed notes and examples (2,293 lines)
+This repository is my personal learning journey into Full-Stack Development, starting with HTML fundamentals and progressing to advanced JavaScript. It contains:
+- **HTML Learning Module** with 10 comprehensive topics covering basics to accessibility
+- **8 Complete HTML Projects** demonstrating real-world HTML5 applications
+- **15 Comprehensive JavaScript Topics** with detailed notes and examples (2,293 lines)
 - **8 ES6 Advanced Modules** (Functions, Promises, Fetch, HTTP, Async/Await, Destructuring, Spread/Rest, Error Handling) with 1,539 lines of notes
 - **3 AJAX Projects** (Text, JSON, External API) with 241 lines of notes
 - **100 Topic-Specific Practice Tasks** aligned with each chapter (100% completed)
 - **Structured coding exercises** (Basic, Advanced, Bonus)
-- **8 Real-world projects** showcasing different JavaScript concepts
+- **7 JavaScript Applications** showcasing modern JavaScript concepts
 - **React Prerequisites Guide** (374 lines) for next learning phase
 - **Professional documentation** with enhanced formatting and quick references
 - **Hands-on DOM manipulation, AJAX, and API integration** practice
@@ -49,6 +51,11 @@ AI-FullStackGitRepo/
 │
 ├── FrontEnd/                          # 🎨 Frontend Development
 │   ├── README.md                      # Frontend hub documentation
+│   │
+│   ├── HTML/                          # 📄 HTML5 Learning (10 modules + notes)
+│   │   ├── README.md                  # HTML learning guide
+│   │   ├── notes.txt                  # Comprehensive HTML reference
+│   │   ├── 1-Basics/ to 10-Projects/  # Progressive HTML modules
 │   │
 │   ├── Ajax/                          # 🌐 AJAX & API Learning (241 lines docs)
 │   │   ├── README.md
@@ -92,11 +99,21 @@ AI-FullStackGitRepo/
 │   │
 │   └── REACT/                         # ⚛️ React Learning (Coming Soon)
 │
-├── Projects/                          # 🚀 Real-World Applications
+├── Projects/                          # 🚀 Real-World Applications (15 total)
 │   ├── README.md                      # Projects overview
 │   └── FrontEnd/
 │       ├── README.md                  # Frontend projects documentation
-│       └── JavascriptProjects/        # 8 production applications
+│       ├── HTMLProjects/              # 8 complete HTML5 projects
+│       │   ├── README.md
+│       │   ├── 1-Personal-Portfolio/  # Portfolio with contact form
+│       │   ├── 2-Blog-Page/           # Multi-article blog
+│       │   ├── 3-Restaurant-Menu/     # Menu with reservation
+│       │   ├── 4-Product-Listing/     # E-commerce listing
+│       │   ├── 5-Landing-Page/        # SaaS landing page
+│       │   ├── 6-Event-Registration-Form/  # Comprehensive form
+│       │   ├── 7-Documentation-Page/  # Technical docs
+│       │   └── 8-Online-Resume/       # Professional CV
+│       └── JavascriptProjects/        # 7 production applications
 │           ├── README.md              # Detailed project docs
 │           ├── BookManagementApp/     # ES6 Classes, LocalStorage
 │           ├── To-do_App/             # Advanced DOM, LocalStorage
@@ -104,8 +121,7 @@ AI-FullStackGitRepo/
 │           ├── CRUD_Application_Using_API/  # Async/await, inline editing
 │           ├── ColorPicker/           # Browser APIs, Clipboard
 │           ├── CharacterValidator/    # Real-time validation
-│           ├── SimpleCounterApp/      # State management
-│           └── MoneyTracker/          # Financial tracking app
+│           └── SimpleCounterApp/      # State management
 │
 ├── Tasks/                             # 🎯 Practice Exercises
 │   ├── README.md                      # Tasks overview
@@ -128,10 +144,13 @@ AI-FullStackGitRepo/
 
 | Category | Count | Status |
 |----------|-------|--------|
-| Learning Topics | 15 | ✅ Complete |
+| HTML Modules | 10 | ✅ Complete |
+| HTML Projects | 8 | ✅ Complete |
+| JavaScript Topics | 15 | ✅ Complete |
 | ES6 Modules | 8 | ✅ Complete |
 | AJAX Projects | 3 | ✅ Complete |
-| Applications | 8 | ✅ Complete |
+| JavaScript Applications | 7 | ✅ Complete |
+| Total Projects | 15 | ✅ Complete |
 | Practice Tasks | 130+ | ✅ Complete |
 | JS-Tasks (Basic+Advanced+Bonus) | 30 | ✅ Complete |
 | Objects Sub-Topics | 6 | ✅ Complete |
@@ -142,7 +161,53 @@ AI-FullStackGitRepo/
 
 ## 🚀 Projects
 
-### [Projects/FrontEnd/JavascriptProjects/](Projects/FrontEnd/README.md)
+### [Projects/FrontEnd/](Projects/FrontEnd/README.md) - 15 Total Projects
+
+### HTML Projects (8)
+
+#### ✅ 1. Personal Portfolio
+**Focus:** Semantic HTML, Forms, Navigation  
+**Features:** About section, skills showcase, featured projects, contact form  
+**Skills:** Semantic elements, form validation, links (internal/external/email/phone)
+
+#### ✅ 2. Blog Page
+**Focus:** Article Structure, Metadata, Sidebar  
+**Features:** Multiple articles, publication dates, categories, newsletter signup  
+**Skills:** `<article>`, `<time>`, `<figure>`, `<aside>`, `<blockquote>`
+
+#### ✅ 3. Restaurant Menu
+**Focus:** Tables, Description Lists, Forms  
+**Features:** Menu by categories, hours table, reservation form  
+**Skills:** `<dl>`, `<dt>`, `<dd>`, tables, date/time inputs, `<address>`
+
+#### ✅ 4. Product Listing
+**Focus:** Forms, Tables, Product Cards  
+**Features:** 6 products with specs, ratings, pricing, testimonials  
+**Skills:** Radio buttons, checkboxes, specification tables
+
+#### ✅ 5. Landing Page
+**Focus:** Pricing Tables, Complex Forms, CTA  
+**Features:** Features section, pricing comparison, FAQ, signup form  
+**Skills:** Complex tables with colspan/rowspan, CTAs
+
+#### ✅ 6. Event Registration Form
+**Focus:** All Form Elements, Validation  
+**Features:** Multi-section registration with all HTML5 input types  
+**Skills:** All input types, fieldsets, pattern validation, accessibility
+
+#### ✅ 7. Documentation Page
+**Focus:** Navigation, Code Examples  
+**Features:** Sidebar TOC, code blocks, syntax tables  
+**Skills:** Nested navigation, anchor links, `<pre>`, `<code>`
+
+#### ✅ 8. Online Resume/CV
+**Focus:** Professional Structure  
+**Features:** Skills, experience, education, certifications, projects  
+**Skills:** Heading hierarchy, `<time>`, tables, proper structure
+
+---
+
+### JavaScript Projects (7)
 
 #### ✅ BookManagementApp (191 lines)
 **Tech:** ES6 Classes, LocalStorage, OOP  
@@ -174,39 +239,47 @@ AI-FullStackGitRepo/
 **Features:** Increment/decrement/reset, state management, responsive design  
 **Skills:** State handling, event listeners, modern CSS
 
-#### ✅ MoneyTracker
-**Tech:** Vanilla JS, LocalStorage, DOM manipulation  
-**Features:** Income/expense tracking, balance calculation, transaction history  
-**Skills:** Financial calculations, data persistence, CRUD operations
-
 ## 🎯 Getting Started
 
 ### 📚 Recommended Learning Path
 
-**Phase 1: JavaScript Fundamentals**
-1. 📖 Start with [FrontEnd/JavaScript/Topics/](FrontEnd/JavaScript/Topics/README.md)
+**Phase 1: HTML Fundamentals**
+1. 📄 Start with [FrontEnd/HTML/](FrontEnd/HTML/README.md)
+   - Complete all 10 HTML modules from basics to accessibility
+2. 🚀 Build [HTML Projects](Projects/FrontEnd/HTMLProjects/README.md)
+   - 8 complete projects demonstrating HTML5 mastery
+
+**Phase 2: JavaScript Fundamentals**
+3. 📖 Learn [FrontEnd/JavaScript/Topics/](FrontEnd/JavaScript/Topics/README.md)
    - Complete all 15 topics from basics to modular patterns
-2. 🎯 Practice with [Tasks/TopicTasks/](Tasks/FrontEnd/Javascript/TopicTasks/README.md)
+4. 🎯 Practice with [Tasks/TopicTasks/](Tasks/FrontEnd/Javascript/TopicTasks/README.md)
    - 80 exercises aligned with each topic
 
-**Phase 2: Modern JavaScript (ES6+)**
-3. 🚀 Learn [ES6 features](FrontEnd/JavaScript/ES6/README.md)
+**Phase 3: Modern JavaScript (ES6+)**
+5. 🚀 Learn [ES6 features](FrontEnd/JavaScript/ES6/README.md)
    - Arrow functions, Promises, Fetch API, HTTP methods
-4. 🎯 Complete [JS-Tasks](Tasks/FrontEnd/Javascript/JS-Tasks/README.md)
+6. 🎯 Complete [JS-Tasks](Tasks/FrontEnd/Javascript/JS-Tasks/README.md)
    - Basic (10) + Advanced (10) + Bonus (10) coding challenges
 
-**Phase 3: AJAX & APIs**
-5. 🌐 Master [AJAX](FrontEnd/Ajax/README.md)
+**Phase 4: AJAX & APIs**
+7. 🌐 Master [AJAX](FrontEnd/Ajax/README.md)
    - Text loading, JSON parsing, External API integration
 
-**Phase 4: Build Projects**
-6. 🚀 Build [Projects](Projects/README.md)
+**Phase 5: Build JavaScript Projects**
+8. 🚀 Build [JavaScript Projects](Projects/FrontEnd/JavascriptProjects/README.md)
    - Start with SimpleCounterApp
    - Progress to BookManagementApp and API projects
 
 ### 🔧 Tech Stack
 
-**Frontend:**
+**HTML:**
+- HTML5 with semantic elements
+- Forms with all input types & validation
+- Tables (simple & complex)
+- Accessibility best practices
+- SEO-friendly markup
+
+**JavaScript:**
 - Vanilla JavaScript (ES6+)
 - AJAX / Fetch API
 - LocalStorage API
@@ -243,6 +316,18 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 
 | Topic | Status | Completion Date |
 |-------|--------|-----------------|
+| **HTML Learning (HTML/)** |
+| 1-10 HTML Modules | ✅ Complete | Jan 20, 2026 |
+| HTML notes.txt | ✅ Complete | Jan 20, 2026 |
+| **HTML Projects (HTMLProjects/)** |
+| 1. Personal Portfolio | ✅ Complete | Jan 20, 2026 |
+| 2. Blog Page | ✅ Complete | Jan 20, 2026 |
+| 3. Restaurant Menu | ✅ Complete | Jan 20, 2026 |
+| 4. Product Listing | ✅ Complete | Jan 20, 2026 |
+| 5. Landing Page | ✅ Complete | Jan 20, 2026 |
+| 6. Event Registration Form | ✅ Complete | Jan 20, 2026 |
+| 7. Documentation Page | ✅ Complete | Jan 20, 2026 |
+| 8. Online Resume | ✅ Complete | Jan 20, 2026 |
 | **JavaScript Fundamentals (Topics/)** |
 | Getting Started | ✅ Complete | Oct 2025 |
 | Console Methods | ✅ Complete | Oct 2025 |
@@ -360,6 +445,22 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 
 ## 🎓 Learning Achievements
 
+### 📄 HTML5 Mastered
+- ✅ Semantic HTML5 elements (header, nav, main, article, aside, footer, section)
+- ✅ All form input types (text, email, tel, url, date, time, number, range, color, file, etc.)
+- ✅ Form validation (required, pattern, min, max, minlength, maxlength)
+- ✅ Table structures (simple & complex with colspan/rowspan)
+- ✅ Description lists (dl, dt, dd)
+- ✅ Text formatting and lists (ordered, unordered, definition)
+- ✅ Links (internal, external, email, phone, anchor)
+- ✅ Images and figures with captions
+- ✅ Meta tags for SEO
+- ✅ Accessibility best practices (ARIA attributes)
+- ✅ Proper document structure and heading hierarchy
+- ✅ Address and time elements
+- ✅ Code display (pre, code)
+- ✅ Fieldsets and legends for form grouping
+
 ### 🏆 JavaScript Fundamentals Mastered
 - ✅ Variables (var, let, const) and scope rules
 - ✅ Data types (primitive & reference)
@@ -413,6 +514,16 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 - ✅ REST API consumption
 
 ### 🛠️ Project Features Implemented
+
+**HTML Projects (8 Complete):**
+- ✅ Personal Portfolio with contact form
+- ✅ Blog Page with article structure and sidebar
+- ✅ Restaurant Menu with reservation system
+- ✅ Product Listing with specifications and pricing
+- ✅ Landing Page with pricing tables and FAQ
+- ✅ Event Registration Form with all input types
+- ✅ Documentation Page with navigation
+- ✅ Online Resume with professional structure
 
 **BookManagementApp:**
 - ✅ ES6 Class architecture (Books, UI, StoreBookToLS)
@@ -473,9 +584,12 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 ### 📊 Repository Statistics
 
 **Learning Journey Duration:** 3+ months (Oct 17, 2025 - Present)  
-**Total JavaScript Topics:** 15 fundamental topics  
+**HTML Modules:** 10 comprehensive learning modules  
+**HTML Projects:** 8 complete real-world projects  
+**JavaScript Topics:** 15 fundamental topics  
 **ES6 Modules:** 8 advanced modules  
 **AJAX Projects:** 3 progressive projects  
+**Total Projects:** 15 (8 HTML + 7 JavaScript)  
 **Total Practice Tasks:** 130+ across all categories  
 **JS-Tasks:** 30 (Basic 10 + Advanced 10 + Bonus 10)  
 **Documentation Lines:** 5,698+ lines total
@@ -489,14 +603,17 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 **Objects Sub-Topics:** 6 (Constructors, Prototypes, Classes, etc.)  
 **Array Methods Sub-Topics:** 9 (Basic + map, filter, forEach, reduce)  
 **DOM Practice Files:** 8 comprehensive files  
-**Projects:** 8 production applications  
-**Total Code Lines:** 1,800+ across all projects
+**HTML Projects:** 8 complete HTML5 applications  
+**JavaScript Projects:** 7 production applications  
+**Total Projects:** 15 frontend applications  
+**Total Code Lines:** 1,800+ across JavaScript projects
 
 ## 🔗 Quick Links
 
 ### 📚 Learning Resources
 | Resource | Description |
 |----------|-------------|
+| [HTML Learning](FrontEnd/HTML/README.md) | 10 modules with comprehensive notes |
 | [JavaScript Fundamentals](FrontEnd/JavaScript/Topics/README.md) | 15 topics, 2,293 lines of docs |
 | [ES6 Guide](FrontEnd/JavaScript/ES6/README.md) | 8 modules, 1,539 lines of docs |
 | [AJAX Tutorial](FrontEnd/Ajax/README.md) | 3 projects, 241 lines of docs |
@@ -513,13 +630,14 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 ### 🚀 Projects
 | Resource | Description |
 |----------|-------------|
-| [All Projects](Projects/FrontEnd/README.md) | 8 applications overview |
-| [JavaScript Projects](Projects/FrontEnd/JavascriptProjects/README.md) | Detailed project documentation |
+| [All Projects](Projects/FrontEnd/README.md) | 15 applications overview (8 HTML + 7 JS) |
+| [HTML Projects](Projects/FrontEnd/HTMLProjects/README.md) | 8 complete HTML5 projects |
+| [JavaScript Projects](Projects/FrontEnd/JavascriptProjects/README.md) | 7 production applications |
 
 ---
 
 **Repository:** AI Full-Stack Development Learning Journey  
 **Author:** Sudalaimani  
 **Learning Period:** October 17, 2025 - Present  
-**Last Updated:** January 12, 2026  
+**Last Updated:** January 20, 2026  
 **Status:** 🔄 Frontend In Progress | ⏳ React Upcoming | 🔄 Backend Upcoming

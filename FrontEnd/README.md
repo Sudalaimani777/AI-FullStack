@@ -1,6 +1,6 @@
 # FrontEnd
 
-JavaScript learning resources organized from fundamentals to advanced concepts, including AJAX and React preparation.
+Complete web development learning resources from HTML foundations to modern JavaScript and React.
 
 ## Structure
 
@@ -8,6 +8,20 @@ JavaScript learning resources organized from fundamentals to advanced concepts, 
 FrontEnd/
 │
 ├── README.md                           # This documentation file
+│
+├── HTML/                               # HTML fundamentals to advanced
+│   ├── README.md                       # Complete learning guide
+│   ├── notes.txt                       # Comprehensive HTML notes
+│   ├── 1-Basics/                       # Document structure & tags
+│   ├── 2-Text-Formatting/              # Bold, italic, emphasis, etc.
+│   ├── 3-Lists/                        # Ordered, unordered, nested lists
+│   ├── 4-Links-Images/                 # Hyperlinks & image handling
+│   ├── 5-Tables/                       # Data tables with advanced features
+│   ├── 6-Forms/                        # Input fields & form elements
+│   ├── 7-Semantic-HTML/                # Modern HTML5 semantic tags
+│   ├── 8-Meta-Tags/                    # SEO & metadata optimization
+│   ├── 9-Accessibility/                # A11y best practices
+│   └── 10-Projects/                    # 8 real-world projects
 │
 ├── Ajax/                               # AJAX & HTTP requests
 │   ├── README.md                       # Ajax documentation
@@ -76,6 +90,33 @@ FrontEnd/
 
 ## Modules
 
+### HTML/
+Complete HTML learning path from basics to accessibility and real-world projects.
+
+**Topics Covered:**
+| Folder | Description | Key Concepts |
+|--------|-------------|--------------|
+| 1-Basics | HTML Document Structure | DOCTYPE, tags, head, body, headings, paragraphs |
+| 2-Text-Formatting | Text styling tags | strong, em, bold, italic, mark, subscript, superscript |
+| 3-Lists | List types | Ordered lists, unordered lists, nested lists, description lists |
+| 4-Links-Images | Links & media | Anchor tags, image attributes, alt text, link targets |
+| 5-Tables | Data tables | Table structure, thead/tbody/tfoot, colspan, rowspan |
+| 6-Forms | Interactive forms | Input types, form validation, labels, fieldsets |
+| 7-Semantic-HTML | Modern HTML5 | header, nav, main, article, section, aside, footer |
+| 8-Meta-Tags | Head section | Charset, viewport, SEO tags, Open Graph |
+| 9-Accessibility | A11y best practices | Screen readers, ARIA, keyboard navigation, contrast |
+| 10-Projects | Real-world practice | Portfolio, blog, menu, landing page, forms, resume |
+
+**Key Learning Points:**
+- ✓ Complete HTML5 document structure
+- ✓ Semantic HTML for better SEO and accessibility
+- ✓ Form creation with all input types
+- ✓ Meta tags for social media sharing
+- ✓ WCAG accessibility standards
+- ✓ 8 practical projects to build
+
+**Documentation:** Comprehensive notes.txt covering all HTML concepts, attributes, best practices, and special characters
+
 ### Ajax/
 AJAX learning progression with XMLHttpRequest and JSON handling.
 
@@ -103,16 +144,19 @@ Core JavaScript fundamentals organized into 15 comprehensive topics.
 - **Browser (14):** DOM manipulation with practical Todo App project (8 practice files)
 - **Organization (15):** ModularPattern - Import/Export, IIFE
 
-**Documentation:** 2,293 lines in notes.txt
+**DocumenHTML Fundamentals
+└── HTML/ (1-Basics → 2-Text-Formatting → 3-Lists → 4-Links-Images → 5-Tables → 6-Forms → 7-Semantic-HTML → 8-Meta-Tags → 9-Accessibility → 10-Projects)
 
-### JavaScript/ES6/
-Modern JavaScript features and async programming patterns.
+Phase 2: JavaScript Fundamentals
+└── JavaScript/Topics/ (1-15)
 
-**Modules:**
-| Module | Description | Key Concepts |
-|--------|-------------|--------------|
-| 1-Function | Function patterns | Arrow, Callback, Higher-Order, Named functions |
-| 2-Promise | Async operations | Promise creation, resolve/reject, chaining |
+Phase 3: Modern JavaScript
+└── JavaScript/ES6/ (1-Function → 2-Promise → 3-Fetch → 4-HTTP → 5-Async → 6-Destructuring → 7-SpreadRest → 8-ErrorHandling)
+
+Phase 4: HTTP & APIs
+└── Ajax/ (Text → JSON → External APIs)
+
+Phase 5mise | Async operations | Promise creation, resolve/reject, chaining |
 | 3-Fetch | HTTP requests | Fetch API, text(), json(), error handling |
 | 4-HTTP | CRUD operations | GET, POST, PUT, DELETE with EasyHttp class |
 | 5-Async | Modern async | async/await, try-catch, real-world examples |
@@ -144,14 +188,25 @@ Phase 4: React (Coming Soon)
 ```
 
 ## Quick Access
-
+HTML Guide | [HTML README](HTML/README.md) |
+| 
 | Module | Documentation |
 |--------|---------------|
 | Ajax | [Ajax README](Ajax/README.md) |
 | JavaScript Hub | [JavaScript README](JavaScript/README.md) |
 | Topics Guide | [Topics README](JavaScript/Topics/README.md) |
 | ES6 Guide | [ES6 README](JavaScript/ES6/README.md) |
-| React Prerequisites | [topicsNeedToLearnToMoveToReact.txt](JavaScript/topicsNeedToLearnToMoveToReact.txt) |
+| ReHTML Fundamentals
+- HTML5 document structure & semantic tags
+- Text formatting & list organization
+- Links, images, and media elements
+- Tables for data representation
+- Forms with all input types & validation
+- Meta tags for SEO & social media
+- Accessibility (A11y) best practices
+- Real-world project building
+
+### act Prerequisites | [topicsNeedToLearnToMoveToReact.txt](JavaScript/topicsNeedToLearnToMoveToReact.txt) |
 
 ## Key Skills
 
@@ -183,23 +238,26 @@ Phase 4: React (Coming Soon)
 
 | Category | Count |
 |----------|-------|
-| **Total Topics** | 15 |
+| **HTML Modules** | 10 |
+| **JavaScript Topics** | 15 |
 | **ES6 Modules** | 8 |
 | **Ajax Projects** | 3 |
 | **Objects Sub-Topics** | 6 |
 | **Array Methods Sub-Topics** | 9 |
 | **DOM Practice Files** | 8 |
-| **Total Documentation Lines** | 5,398+ |
+| **HTML Projects** | 8 |
+| **Total Documentation Lines** | 6,000+ |
 
 ## Total Documentation
 
+- **HTML/notes.txt:** Comprehensive HTML reference guide
 - **Topics/notes.txt:** 2,293 lines
 - **ES6/notes.txt:** 1,539 lines
 - **ES6/README.md:** 1,251 lines
 - **Ajax/notes.txt:** 241 lines
 - **React Prerequisites:** 374 lines
-- **Total:** 5,698+ lines of comprehensive documentation
+- **Total:** 6,000+ lines of comprehensive documentation
 
 ---
 
-**Last Updated:** January 12, 2026
+**Last Updated:** January 20, 2026

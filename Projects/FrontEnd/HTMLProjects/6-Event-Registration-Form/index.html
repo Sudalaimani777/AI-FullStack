@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Register for TechConnect 2026 - The Ultimate Technology Conference">
+    <meta name="keywords" content="tech conference, technology event, registration, TechConnect">
+    <meta name="author" content="TechConnect">
+    <title>TechConnect 2026 - Event Registration</title>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>TechConnect 2026</h1>
+        <p>The Ultimate Technology Conference</p>
+        <p><time datetime="2026-06-15">June 15-17, 2026</time> | San Francisco, CA</p>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Event Overview -->
+        <section>
+            <h2>About TechConnect 2026</h2>
+            <article>
+                <p>Join us for three days of innovation, learning, and networking at the premier technology conference of the year. TechConnect brings together 5,000+ developers, entrepreneurs, and tech leaders from around the world.</p>
+                
+                <h3>Event Highlights</h3>
+                <ul>
+                    <li>100+ Expert speakers</li>
+                    <li>50+ Technical workshops</li>
+                    <li>Networking sessions</li>
+                    <li>Exhibition hall with 200+ booths</li>
+                    <li>Startup pitch competition</li>
+                    <li>Career fair</li>
+                </ul>
+
+                <h3>Topics Covered</h3>
+                <ul>
+                    <li>Artificial Intelligence & Machine Learning</li>
+                    <li>Web Development & Frontend Frameworks</li>
+                    <li>Cloud Computing & DevOps</li>
+                    <li>Cybersecurity</li>
+                    <li>Blockchain & Cryptocurrency</li>
+                    <li>IoT & Edge Computing</li>
+                    <li>Data Science & Analytics</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- Registration Form -->
+        <section>
+            <h2>Event Registration Form</h2>
+            <p><mark>Early Bird Discount: Register before March 31 to save 30%!</mark></p>
+            
+            <form action="/register" method="POST">
+                <!-- Personal Information -->
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    
+                    <label for="first-name">First Name <abbr title="required">*</abbr></label>
+                    <input type="text" id="first-name" name="first-name" required placeholder="John">
+                    <br><br>
+
+                    <label for="last-name">Last Name <abbr title="required">*</abbr></label>
+                    <input type="text" id="last-name" name="last-name" required placeholder="Doe">
+                    <br><br>
+
+                    <label for="email">Email Address <abbr title="required">*</abbr></label>
+                    <input type="email" id="email" name="email" required placeholder="john.doe@example.com">
+                    <br><br>
+
+                    <label for="phone">Phone Number <abbr title="required">*</abbr></label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+1 (555) 123-4567" pattern="[+]?[0-9\s\-\(\)]+">
+                    <br><br>
+
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name="dob">
+                    <br><br>
+
+                    <label for="country">Country <abbr title="required">*</abbr></label>
+                    <select id="country" name="country" required>
+                        <option value="">Select your country...</option>
+                        <option value="us">United States</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="ca">Canada</option>
+                        <option value="au">Australia</option>
+                        <option value="de">Germany</option>
+                        <option value="fr">France</option>
+                        <option value="in">India</option>
+                        <option value="jp">Japan</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <br><br>
+                </fieldset>
+
+                <!-- Professional Information -->
+                <fieldset>
+                    <legend>Professional Information</legend>
+                    
+                    <label for="company">Company/Organization <abbr title="required">*</abbr></label>
+                    <input type="text" id="company" name="company" required placeholder="Tech Company Inc.">
+                    <br><br>
+
+                    <label for="job-title">Job Title <abbr title="required">*</abbr></label>
+                    <input type="text" id="job-title" name="job-title" required placeholder="Software Engineer">
+                    <br><br>
+
+                    <label for="industry">Industry <abbr title="required">*</abbr></label>
+                    <select id="industry" name="industry" required>
+                        <option value="">Select industry...</option>
+                        <option value="software">Software Development</option>
+                        <option value="finance">Finance & Banking</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="education">Education</option>
+                        <option value="retail">Retail & E-commerce</option>
+                        <option value="manufacturing">Manufacturing</option>
+                        <option value="consulting">Consulting</option>
+                        <option value="startup">Startup</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <br><br>
+
+                    <label for="experience">Years of Experience <abbr title="required">*</abbr></label>
+                    <select id="experience" name="experience" required>
+                        <option value="">Select...</option>
+                        <option value="0-2">0-2 years</option>
+                        <option value="3-5">3-5 years</option>
+                        <option value="6-10">6-10 years</option>
+                        <option value="10+">10+ years</option>
+                    </select>
+                    <br><br>
+
+                    <label for="linkedin">LinkedIn Profile URL</label>
+                    <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+                    <br><br>
+
+                    <label for="website">Personal Website</label>
+                    <input type="url" id="website" name="website" placeholder="https://yourwebsite.com">
+                    <br><br>
+                </fieldset>
+
+                <!-- Registration Details -->
+                <fieldset>
+                    <legend>Registration Details</legend>
+                    
+                    <label>Ticket Type <abbr title="required">*</abbr></label><br>
+                    <label>
+                        <input type="radio" name="ticket-type" value="general" required>
+                        General Admission - $499 (All conference sessions)
+                    </label><br>
+                    <label>
+                        <input type="radio" name="ticket-type" value="workshop">
+                        General + Workshops - $799 (Conference + All workshops)
+                    </label><br>
+                    <label>
+                        <input type="radio" name="ticket-type" value="vip">
+                        VIP Pass - $1,299 (Conference + Workshops + VIP events + Lunch)
+                    </label><br>
+                    <label>
+                        <input type="radio" name="ticket-type" value="student">
+                        Student Pass - $199 (Valid student ID required)
+                    </label>
+                    <br><br>
+
+                    <label>Days Attending <abbr title="required">*</abbr></label><br>
+                    <label>
+                        <input type="checkbox" name="day1" value="june15" checked>
+                        Day 1 - June 15 (Keynotes & Sessions)
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="day2" value="june16" checked>
+                        Day 2 - June 16 (Workshops & Sessions)
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="day3" value="june17" checked>
+                        Day 3 - June 17 (Advanced Topics & Networking)
+                    </label>
+                    <br><br>
+
+                    <label for="t-shirt-size">T-Shirt Size <abbr title="required">*</abbr></label>
+                    <select id="t-shirt-size" name="t-shirt-size" required>
+                        <option value="">Select size...</option>
+                        <option value="xs">Extra Small (XS)</option>
+                        <option value="s">Small (S)</option>
+                        <option value="m">Medium (M)</option>
+                        <option value="l">Large (L)</option>
+                        <option value="xl">Extra Large (XL)</option>
+                        <option value="xxl">2XL</option>
+                        <option value="3xl">3XL</option>
+                    </select>
+                    <br><br>
+                </fieldset>
+
+                <!-- Workshop Selection -->
+                <fieldset>
+                    <legend>Workshop Preferences (Select up to 3)</legend>
+                    <p><em>Available for General + Workshops and VIP Pass holders only</em></p>
+                    
+                    <label>
+                        <input type="checkbox" name="workshop" value="react">
+                        Building Modern Web Apps with React
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="workshop" value="python">
+                        Python for Data Science & ML
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="workshop" value="devops">
+                        DevOps Best Practices with Docker & Kubernetes
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="workshop" value="security">
+                        Web Security & Ethical Hacking
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="workshop" value="cloud">
+                        AWS Cloud Architecture Fundamentals
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="workshop" value="ai">
+                        Introduction to Artificial Intelligence
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="workshop" value="mobile">
+                        Cross-Platform Mobile Development
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="workshop" value="blockchain">
+                        Blockchain & Smart Contracts
+                    </label>
+                    <br><br>
+                </fieldset>
+
+                <!-- Dietary Requirements -->
+                <fieldset>
+                    <legend>Dietary Requirements & Accessibility</legend>
+                    
+                    <label>Dietary Restrictions (Select all that apply)</label><br>
+                    <label>
+                        <input type="checkbox" name="diet" value="vegetarian">
+                        Vegetarian
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="diet" value="vegan">
+                        Vegan
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="diet" value="gluten-free">
+                        Gluten-Free
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="diet" value="dairy-free">
+                        Dairy-Free
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="diet" value="nut-allergy">
+                        Nut Allergy
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="diet" value="halal">
+                        Halal
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="diet" value="kosher">
+                        Kosher
+                    </label>
+                    <br><br>
+
+                    <label for="allergies">Other Allergies or Dietary Requirements</label>
+                    <textarea id="allergies" name="allergies" rows="3" placeholder="Please specify any other dietary needs or allergies..."></textarea>
+                    <br><br>
+
+                    <label>Accessibility Requirements</label><br>
+                    <label>
+                        <input type="checkbox" name="accessibility" value="wheelchair">
+                        Wheelchair Accessible Seating
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="accessibility" value="hearing">
+                        Hearing Assistance Devices
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="accessibility" value="visual">
+                        Visual Assistance
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="accessibility" value="service-animal">
+                        Service Animal Accommodation
+                    </label>
+                    <br><br>
+
+                    <label for="special-needs">Additional Accessibility Needs</label>
+                    <textarea id="special-needs" name="special-needs" rows="3" placeholder="Please describe any additional accessibility requirements..."></textarea>
+                    <br><br>
+                </fieldset>
+
+                <!-- Payment Information -->
+                <fieldset>
+                    <legend>Payment Information</legend>
+                    
+                    <label for="card-name">Cardholder Name <abbr title="required">*</abbr></label>
+                    <input type="text" id="card-name" name="card-name" required placeholder="John Doe">
+                    <br><br>
+
+                    <label for="card-number">Card Number <abbr title="required">*</abbr></label>
+                    <input type="text" id="card-number" name="card-number" required placeholder="1234 5678 9012 3456" pattern="[0-9\s]{13,19}">
+                    <br><br>
+
+                    <label for="expiry">Expiry Date <abbr title="required">*</abbr></label>
+                    <input type="month" id="expiry" name="expiry" required>
+                    <br><br>
+
+                    <label for="cvv">CVV <abbr title="required">*</abbr></label>
+                    <input type="text" id="cvv" name="cvv" required placeholder="123" pattern="[0-9]{3,4}" maxlength="4">
+                    <br><br>
+
+                    <label for="billing-zip">Billing ZIP/Postal Code <abbr title="required">*</abbr></label>
+                    <input type="text" id="billing-zip" name="billing-zip" required placeholder="12345">
+                    <br><br>
+                </fieldset>
+
+                <!-- Additional Information -->
+                <fieldset>
+                    <legend>Additional Information</legend>
+                    
+                    <label for="referral">How did you hear about TechConnect 2026? <abbr title="required">*</abbr></label>
+                    <select id="referral" name="referral" required>
+                        <option value="">Select...</option>
+                        <option value="social-media">Social Media</option>
+                        <option value="email">Email Newsletter</option>
+                        <option value="friend">Friend/Colleague</option>
+                        <option value="search-engine">Search Engine</option>
+                        <option value="advertisement">Advertisement</option>
+                        <option value="previous-attendee">Previous Attendee</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <br><br>
+
+                    <label for="promo-code">Promotional Code</label>
+                    <input type="text" id="promo-code" name="promo-code" placeholder="Enter code if applicable">
+                    <br><br>
+
+                    <label for="emergency-contact">Emergency Contact Name <abbr title="required">*</abbr></label>
+                    <input type="text" id="emergency-contact" name="emergency-contact" required placeholder="Jane Doe">
+                    <br><br>
+
+                    <label for="emergency-phone">Emergency Contact Phone <abbr title="required">*</abbr></label>
+                    <input type="tel" id="emergency-phone" name="emergency-phone" required placeholder="+1 (555) 987-6543">
+                    <br><br>
+
+                    <label for="comments">Comments or Special Requests</label>
+                    <textarea id="comments" name="comments" rows="5" placeholder="Any special requests or questions? Let us know here..."></textarea>
+                    <br><br>
+                </fieldset>
+
+                <!-- Marketing Preferences -->
+                <fieldset>
+                    <legend>Communication Preferences</legend>
+                    
+                    <label>
+                        <input type="checkbox" name="newsletter" value="yes" checked>
+                        Yes, I want to receive emails about future TechConnect events
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="partners" value="yes">
+                        I want to receive emails from TechConnect partners and sponsors
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="job-offers" value="yes">
+                        I'm interested in job opportunities from sponsors
+                    </label>
+                    <br><br>
+                </fieldset>
+
+                <!-- Terms and Conditions -->
+                <fieldset>
+                    <legend>Terms & Conditions</legend>
+                    
+                    <label>
+                        <input type="checkbox" name="terms" value="accepted" required>
+                        <abbr title="required">*</abbr> I have read and agree to the <a href="#terms" target="_blank">Terms & Conditions</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="code-of-conduct" value="accepted" required>
+                        <abbr title="required">*</abbr> I agree to follow the <a href="#code" target="_blank">Event Code of Conduct</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="cancellation-policy" value="accepted" required>
+                        <abbr title="required">*</abbr> I understand the <a href="#cancellation" target="_blank">Cancellation Policy</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="photo-consent" value="yes">
+                        I consent to being photographed/recorded during the event for promotional purposes
+                    </label>
+                    <br><br>
+                </fieldset>
+
+                <!-- Submit Buttons -->
+                <button type="submit">Complete Registration</button>
+                <button type="reset">Reset Form</button>
+                <button type="button">Save as Draft</button>
+            </form>
+        </section>
+
+        <!-- Event Details -->
+        <section>
+            <h2>Event Schedule</h2>
+            <table border="1">
+                <caption>TechConnect 2026 - Three Day Schedule</caption>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Day 1 (June 15)</th>
+                        <th>Day 2 (June 16)</th>
+                        <th>Day 3 (June 17)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>8:00 AM</td>
+                        <td>Registration & Breakfast</td>
+                        <td>Registration & Breakfast</td>
+                        <td>Breakfast</td>
+                    </tr>
+                    <tr>
+                        <td>9:00 AM</td>
+                        <td>Opening Keynote</td>
+                        <td>Workshop Sessions</td>
+                        <td>Advanced Sessions</td>
+                    </tr>
+                    <tr>
+                        <td>10:30 AM</td>
+                        <td>Break & Networking</td>
+                        <td>Coffee Break</td>
+                        <td>Coffee Break</td>
+                    </tr>
+                    <tr>
+                        <td>11:00 AM</td>
+                        <td>Tech Sessions Track A/B</td>
+                        <td>Workshop Sessions</td>
+                        <td>Panel Discussions</td>
+                    </tr>
+                    <tr>
+                        <td>12:30 PM</td>
+                        <td>Lunch & Exhibition</td>
+                        <td>Lunch & Exhibition</td>
+                        <td>Lunch & Networking</td>
+                    </tr>
+                    <tr>
+                        <td>2:00 PM</td>
+                        <td>Tech Sessions Track C/D</td>
+                        <td>Workshop Sessions</td>
+                        <td>Startup Pitch Competition</td>
+                    </tr>
+                    <tr>
+                        <td>3:30 PM</td>
+                        <td>Afternoon Break</td>
+                        <td>Afternoon Break</td>
+                        <td>Afternoon Break</td>
+                    </tr>
+                    <tr>
+                        <td>4:00 PM</td>
+                        <td>Lightning Talks</td>
+                        <td>Career Fair</td>
+                        <td>Closing Keynote</td>
+                    </tr>
+                    <tr>
+                        <td>5:30 PM</td>
+                        <td>Welcome Reception</td>
+                        <td>Networking Dinner (VIP)</td>
+                        <td>Closing Party</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Venue Information -->
+        <section>
+            <h2>Venue Information</h2>
+            <article>
+                <h3>Moscone Convention Center</h3>
+                <address>
+                    747 Howard Street<br>
+                    San Francisco, CA 94103<br>
+                    United States
+                </address>
+
+                <h3>Getting There</h3>
+                <dl>
+                    <dt>By Air</dt>
+                    <dd>San Francisco International Airport (SFO) - 14 miles from venue</dd>
+                    <dd>Oakland International Airport (OAK) - 18 miles from venue</dd>
+
+                    <dt>By Public Transit</dt>
+                    <dd>BART: Civic Center/UN Plaza or Powell Street stations</dd>
+                    <dd>Muni: Multiple lines stop nearby</dd>
+
+                    <dt>By Car</dt>
+                    <dd>Parking available at Moscone Center Garage</dd>
+                    <dd>Valet parking available for VIP pass holders</dd>
+                </dl>
+
+                <h3>Recommended Hotels</h3>
+                <p>Special rates available for TechConnect attendees:</p>
+                <ul>
+                    <li>Marriott Marquis (Connected to venue) - $249/night - Code: TECH26</li>
+                    <li>InterContinental San Francisco (0.5 miles) - $199/night - Code: TECH26</li>
+                    <li>Hilton Union Square (0.8 miles) - $179/night - Code: TECH26</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- Contact Section -->
+        <section>
+            <h2>Questions?</h2>
+            <article>
+                <h3>Contact Event Support</h3>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:registration@techconnect.com">registration@techconnect.com</a></li>
+                    <li><strong>Phone:</strong> <a href="tel:+18005551234">1-800-555-1234</a></li>
+                    <li><strong>Live Chat:</strong> Available 9 AM - 6 PM PST</li>
+                </ul>
+
+                <p><a href="#faq">View Frequently Asked Questions →</a></p>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 TechConnect. All rights reserved.</p>
+        <p>
+            <a href="#home">Home</a> | 
+            <a href="#about">About</a> | 
+            <a href="#speakers">Speakers</a> | 
+            <a href="#schedule">Schedule</a> | 
+            <a href="#sponsors">Sponsors</a> | 
+            <a href="#contact">Contact</a>
+        </p>
+        <p>
+            <a href="#privacy">Privacy Policy</a> | 
+            <a href="#terms">Terms of Service</a> | 
+            <a href="#cancellation">Cancellation Policy</a>
+        </p>
+        <p>Follow us: 
+            <a href="https://twitter.com/techconnect" target="_blank">Twitter</a> | 
+            <a href="https://linkedin.com/company/techconnect" target="_blank">LinkedIn</a> | 
+            <a href="https://instagram.com/techconnect" target="_blank">Instagram</a>
+        </p>
+    </footer>
+</body>
+</html>

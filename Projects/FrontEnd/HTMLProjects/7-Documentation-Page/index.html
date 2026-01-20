@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HTML Documentation - Complete reference guide for HTML elements, attributes, and best practices">
+    <meta name="keywords" content="HTML, documentation, reference, guide, web development">
+    <meta name="author" content="Web Docs Team">
+    <title>HTML Documentation - Complete Reference Guide</title>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>HTML Documentation</h1>
+        <p>Complete Reference Guide for HTML5</p>
+        <nav>
+            <a href="#introduction">Introduction</a> | 
+            <a href="#elements">Elements</a> | 
+            <a href="#attributes">Attributes</a> | 
+            <a href="#examples">Examples</a> | 
+            <a href="#best-practices">Best Practices</a>
+        </nav>
+    </header>
+
+    <!-- Main Content with Sidebar -->
+    <main>
+        <!-- Sidebar Navigation -->
+        <aside>
+            <nav>
+                <h2>Table of Contents</h2>
+                <ul>
+                    <li><a href="#introduction">Introduction</a></li>
+                    <li><a href="#getting-started">Getting Started</a></li>
+                    <li>
+                        <a href="#basic-elements">Basic Elements</a>
+                        <ul>
+                            <li><a href="#headings">Headings</a></li>
+                            <li><a href="#paragraphs">Paragraphs</a></li>
+                            <li><a href="#links">Links</a></li>
+                            <li><a href="#images">Images</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#text-formatting">Text Formatting</a>
+                        <ul>
+                            <li><a href="#semantic-tags">Semantic Tags</a></li>
+                            <li><a href="#presentational-tags">Presentational Tags</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#lists">Lists</a>
+                        <ul>
+                            <li><a href="#unordered-lists">Unordered Lists</a></li>
+                            <li><a href="#ordered-lists">Ordered Lists</a></li>
+                            <li><a href="#description-lists">Description Lists</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#tables">Tables</a></li>
+                    <li><a href="#forms">Forms</a></li>
+                    <li><a href="#semantic-html">Semantic HTML</a></li>
+                    <li><a href="#accessibility">Accessibility</a></li>
+                    <li><a href="#best-practices">Best Practices</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                </ul>
+            </nav>
+
+            <hr>
+
+            <section>
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#search">Search Docs</a></li>
+                    <li><a href="#changelog">Changelog</a></li>
+                    <li><a href="#contribute">Contribute</a></li>
+                    <li><a href="#feedback">Feedback</a></li>
+                </ul>
+            </section>
+        </aside>
+
+        <!-- Documentation Content -->
+        <article>
+            <!-- Introduction Section -->
+            <section id="introduction">
+                <h2>Introduction to HTML</h2>
+                <p>HTML (HyperText Markup Language) is the standard markup language for creating web pages. It describes the structure of a web page using a series of elements represented by tags.</p>
+                
+                <p>HTML5 is the latest evolution of the standard that defines HTML. It includes new elements, attributes, and behaviors, and a larger set of technologies that allow building more diverse and powerful websites and applications.</p>
+
+                <blockquote>
+                    <p>"HTML is the foundation of all web pages. Without HTML, you can't create a website."</p>
+                </blockquote>
+
+                <h3>What You'll Learn</h3>
+                <ul>
+                    <li>HTML document structure</li>
+                    <li>Essential HTML elements and their usage</li>
+                    <li>Attributes and their purposes</li>
+                    <li>Semantic HTML for better accessibility</li>
+                    <li>Best practices for modern web development</li>
+                </ul>
+            </section>
+
+            <hr>
+
+            <!-- Getting Started Section -->
+            <section id="getting-started">
+                <h2>Getting Started</h2>
+                
+                <h3>Basic HTML Document Structure</h3>
+                <p>Every HTML document follows this basic structure:</p>
+                
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Your content here --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+                <h3>Understanding the Structure</h3>
+                <dl>
+                    <dt><code>&lt;!DOCTYPE html&gt;</code></dt>
+                    <dd>Declares the document type and HTML version (HTML5)</dd>
+
+                    <dt><code>&lt;html&gt;</code></dt>
+                    <dd>Root element that wraps the entire HTML document</dd>
+
+                    <dt><code>&lt;head&gt;</code></dt>
+                    <dd>Contains metadata about the document (not visible on page)</dd>
+
+                    <dt><code>&lt;body&gt;</code></dt>
+                    <dd>Contains all visible page content</dd>
+                </dl>
+            </section>
+
+            <hr>
+
+            <!-- Basic Elements Section -->
+            <section id="basic-elements">
+                <h2>Basic HTML Elements</h2>
+
+                <!-- Headings -->
+                <section id="headings">
+                    <h3>Headings</h3>
+                    <p>HTML provides six levels of headings, from <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>.</p>
+                    
+                    <h4>Syntax</h4>
+                    <pre><code>&lt;h1&gt;Main Heading&lt;/h1&gt;
+&lt;h2&gt;Subheading&lt;/h2&gt;
+&lt;h3&gt;Sub-subheading&lt;/h3&gt;</code></pre>
+
+                    <h4>Best Practices</h4>
+                    <ul>
+                        <li>Use only one <code>&lt;h1&gt;</code> per page</li>
+                        <li>Don't skip heading levels (e.g., h1 → h3)</li>
+                        <li>Use headings for structure, not styling</li>
+                    </ul>
+
+                    <table border="1">
+                        <caption>Heading Hierarchy</caption>
+                        <thead>
+                            <tr>
+                                <th>Tag</th>
+                                <th>Purpose</th>
+                                <th>SEO Importance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>&lt;h1&gt;</code></td>
+                                <td>Main page title</td>
+                                <td>Highest</td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;h2&gt;</code></td>
+                                <td>Major sections</td>
+                                <td>High</td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;h3&gt;</code></td>
+                                <td>Sub-sections</td>
+                                <td>Medium</td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;h4-h6&gt;</code></td>
+                                <td>Further subdivisions</td>
+                                <td>Lower</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Paragraphs -->
+                <section id="paragraphs">
+                    <h3>Paragraphs</h3>
+                    <p>The <code>&lt;p&gt;</code> element represents a paragraph of text.</p>
+                    
+                    <h4>Syntax</h4>
+                    <pre><code>&lt;p&gt;This is a paragraph.&lt;/p&gt;</code></pre>
+
+                    <h4>Related Elements</h4>
+                    <ul>
+                        <li><code>&lt;br&gt;</code> - Line break (use sparingly)</li>
+                        <li><code>&lt;hr&gt;</code> - Horizontal rule (thematic break)</li>
+                    </ul>
+                </section>
+
+                <!-- Links -->
+                <section id="links">
+                    <h3>Links</h3>
+                    <p>The <code>&lt;a&gt;</code> (anchor) element creates hyperlinks.</p>
+                    
+                    <h4>Syntax</h4>
+                    <pre><code>&lt;a href="https://example.com"&gt;Link Text&lt;/a&gt;</code></pre>
+
+                    <h4>Link Types</h4>
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Example</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>External</td>
+                                <td><code>href="https://example.com"</code></td>
+                                <td>Links to another website</td>
+                            </tr>
+                            <tr>
+                                <td>Internal</td>
+                                <td><code>href="/about.html"</code></td>
+                                <td>Links within same site</td>
+                            </tr>
+                            <tr>
+                                <td>Anchor</td>
+                                <td><code>href="#section"</code></td>
+                                <td>Links to page section</td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td><code>href="mailto:email@example.com"</code></td>
+                                <td>Opens email client</td>
+                            </tr>
+                            <tr>
+                                <td>Phone</td>
+                                <td><code>href="tel:+1234567890"</code></td>
+                                <td>Initiates phone call</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4>Important Attributes</h4>
+                    <dl>
+                        <dt><code>href</code></dt>
+                        <dd>Specifies the URL destination</dd>
+
+                        <dt><code>target</code></dt>
+                        <dd>Where to open the link (_blank, _self, _parent, _top)</dd>
+
+                        <dt><code>rel</code></dt>
+                        <dd>Relationship between pages (noopener, nofollow, etc.)</dd>
+
+                        <dt><code>title</code></dt>
+                        <dd>Additional information (tooltip)</dd>
+                    </dl>
+                </section>
+
+                <!-- Images -->
+                <section id="images">
+                    <h3>Images</h3>
+                    <p>The <code>&lt;img&gt;</code> element embeds images in a document.</p>
+                    
+                    <h4>Syntax</h4>
+                    <pre><code>&lt;img src="image.jpg" alt="Description" width="300" height="200"&gt;</code></pre>
+
+                    <h4>Required Attributes</h4>
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>Attribute</th>
+                                <th>Purpose</th>
+                                <th>Required?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>src</code></td>
+                                <td>Image source/path</td>
+                                <td>✓ Yes</td>
+                            </tr>
+                            <tr>
+                                <td><code>alt</code></td>
+                                <td>Alternative text (accessibility)</td>
+                                <td>✓ Yes</td>
+                            </tr>
+                            <tr>
+                                <td><code>width</code></td>
+                                <td>Image width in pixels</td>
+                                <td>✗ Optional</td>
+                            </tr>
+                            <tr>
+                                <td><code>height</code></td>
+                                <td>Image height in pixels</td>
+                                <td>✗ Optional</td>
+                            </tr>
+                            <tr>
+                                <td><code>loading</code></td>
+                                <td>Lazy loading (lazy/eager)</td>
+                                <td>✗ Optional</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p><mark>Important:</mark> Always include descriptive alt text for accessibility!</p>
+                </section>
+            </section>
+
+            <hr>
+
+            <!-- Text Formatting Section -->
+            <section id="text-formatting">
+                <h2>Text Formatting</h2>
+
+                <section id="semantic-tags">
+                    <h3>Semantic Text Tags</h3>
+                    <p>These tags provide meaning, not just appearance:</p>
+                    
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>Tag</th>
+                                <th>Purpose</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>&lt;strong&gt;</code></td>
+                                <td>Important text</td>
+                                <td><strong>Important</strong></td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;em&gt;</code></td>
+                                <td>Emphasized text</td>
+                                <td><em>Emphasized</em></td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;mark&gt;</code></td>
+                                <td>Highlighted text</td>
+                                <td><mark>Highlighted</mark></td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;del&gt;</code></td>
+                                <td>Deleted text</td>
+                                <td><del>Deleted</del></td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;ins&gt;</code></td>
+                                <td>Inserted text</td>
+                                <td><ins>Inserted</ins></td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;code&gt;</code></td>
+                                <td>Code snippet</td>
+                                <td><code>console.log()</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;abbr&gt;</code></td>
+                                <td>Abbreviation</td>
+                                <td><abbr title="HyperText Markup Language">HTML</abbr></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="presentational-tags">
+                    <h3>Presentational Tags</h3>
+                    <p>These affect appearance but lack semantic meaning:</p>
+                    
+                    <ul>
+                        <li><code>&lt;b&gt;</code> - Bold text</li>
+                        <li><code>&lt;i&gt;</code> - Italic text</li>
+                        <li><code>&lt;u&gt;</code> - Underlined text</li>
+                        <li><code>&lt;sub&gt;</code> - Subscript (H<sub>2</sub>O)</li>
+                        <li><code>&lt;sup&gt;</code> - Superscript (2<sup>3</sup>)</li>
+                        <li><code>&lt;small&gt;</code> - Smaller text</li>
+                    </ul>
+
+                    <p><strong>Recommendation:</strong> Prefer semantic tags when possible!</p>
+                </section>
+            </section>
+
+            <hr>
+
+            <!-- Lists Section -->
+            <section id="lists">
+                <h2>Lists</h2>
+
+                <section id="unordered-lists">
+                    <h3>Unordered Lists</h3>
+                    <p>Create bullet-point lists with <code>&lt;ul&gt;</code> and <code>&lt;li&gt;</code>:</p>
+                    <pre><code>&lt;ul&gt;
+    &lt;li&gt;Item 1&lt;/li&gt;
+    &lt;li&gt;Item 2&lt;/li&gt;
+    &lt;li&gt;Item 3&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                </section>
+
+                <section id="ordered-lists">
+                    <h3>Ordered Lists</h3>
+                    <p>Create numbered lists with <code>&lt;ol&gt;</code> and <code>&lt;li&gt;</code>:</p>
+                    <pre><code>&lt;ol&gt;
+    &lt;li&gt;First step&lt;/li&gt;
+    &lt;li&gt;Second step&lt;/li&gt;
+    &lt;li&gt;Third step&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+                    <h4>Ordered List Attributes</h4>
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>Attribute</th>
+                                <th>Values</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>type</code></td>
+                                <td>1, A, a, I, i</td>
+                                <td>Numbering style</td>
+                            </tr>
+                            <tr>
+                                <td><code>start</code></td>
+                                <td>Number</td>
+                                <td>Starting number</td>
+                            </tr>
+                            <tr>
+                                <td><code>reversed</code></td>
+                                <td>Boolean</td>
+                                <td>Count backwards</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="description-lists">
+                    <h3>Description Lists</h3>
+                    <p>Create term-definition pairs with <code>&lt;dl&gt;</code>, <code>&lt;dt&gt;</code>, and <code>&lt;dd&gt;</code>:</p>
+                    <pre><code>&lt;dl&gt;
+    &lt;dt&gt;HTML&lt;/dt&gt;
+    &lt;dd&gt;HyperText Markup Language&lt;/dd&gt;
+    
+    &lt;dt&gt;CSS&lt;/dt&gt;
+    &lt;dd&gt;Cascading Style Sheets&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+                </section>
+            </section>
+
+            <hr>
+
+            <!-- Tables Section -->
+            <section id="tables">
+                <h2>Tables</h2>
+                <p>HTML tables display tabular data using rows and columns.</p>
+
+                <h3>Basic Table Structure</h3>
+                <pre><code>&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Header 1&lt;/th&gt;
+            &lt;th&gt;Header 2&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Data 1&lt;/td&gt;
+            &lt;td&gt;Data 2&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+
+                <h3>Table Elements</h3>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Element</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>&lt;table&gt;</code></td>
+                            <td>Container for the table</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;thead&gt;</code></td>
+                            <td>Groups header rows</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;tbody&gt;</code></td>
+                            <td>Groups body rows</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;tfoot&gt;</code></td>
+                            <td>Groups footer rows</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;tr&gt;</code></td>
+                            <td>Table row</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;th&gt;</code></td>
+                            <td>Table header cell</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;td&gt;</code></td>
+                            <td>Table data cell</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;caption&gt;</code></td>
+                            <td>Table title/caption</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><strong>Note:</strong> Don't use tables for layout! Use CSS Grid or Flexbox instead.</p>
+            </section>
+
+            <hr>
+
+            <!-- Forms Section -->
+            <section id="forms">
+                <h2>Forms</h2>
+                <p>Forms collect user input and submit data to a server.</p>
+
+                <h3>Basic Form Structure</h3>
+                <pre><code>&lt;form action="/submit" method="POST"&gt;
+    &lt;label for="name"&gt;Name:&lt;/label&gt;
+    &lt;input type="text" id="name" name="name" required&gt;
+    
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+                <h3>Common Input Types</h3>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Purpose</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>text</code></td>
+                            <td>Single-line text input</td>
+                            <td><code>&lt;input type="text"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>email</code></td>
+                            <td>Email address</td>
+                            <td><code>&lt;input type="email"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>password</code></td>
+                            <td>Hidden password</td>
+                            <td><code>&lt;input type="password"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>number</code></td>
+                            <td>Numeric input</td>
+                            <td><code>&lt;input type="number"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>date</code></td>
+                            <td>Date picker</td>
+                            <td><code>&lt;input type="date"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>checkbox</code></td>
+                            <td>Multiple selections</td>
+                            <td><code>&lt;input type="checkbox"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>radio</code></td>
+                            <td>Single selection</td>
+                            <td><code>&lt;input type="radio"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>file</code></td>
+                            <td>File upload</td>
+                            <td><code>&lt;input type="file"&gt;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <hr>
+
+            <!-- Semantic HTML Section -->
+            <section id="semantic-html">
+                <h2>Semantic HTML</h2>
+                <p>Semantic elements clearly describe their meaning to both the browser and the developer.</p>
+
+                <h3>Why Use Semantic HTML?</h3>
+                <ol>
+                    <li><strong>Accessibility:</strong> Screen readers can navigate better</li>
+                    <li><strong>SEO:</strong> Search engines understand content structure</li>
+                    <li><strong>Maintainability:</strong> Code is easier to read and maintain</li>
+                    <li><strong>Standards:</strong> Future-proof and standards-compliant</li>
+                </ol>
+
+                <h3>Semantic vs Non-Semantic</h3>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Semantic</th>
+                            <th>Non-Semantic</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>&lt;header&gt;</code></td>
+                            <td><code>&lt;div class="header"&gt;</code></td>
+                            <td>Page header</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;nav&gt;</code></td>
+                            <td><code>&lt;div class="nav"&gt;</code></td>
+                            <td>Navigation</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;main&gt;</code></td>
+                            <td><code>&lt;div class="main"&gt;</code></td>
+                            <td>Main content</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;article&gt;</code></td>
+                            <td><code>&lt;div class="article"&gt;</code></td>
+                            <td>Independent content</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;section&gt;</code></td>
+                            <td><code>&lt;div class="section"&gt;</code></td>
+                            <td>Thematic grouping</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;aside&gt;</code></td>
+                            <td><code>&lt;div class="sidebar"&gt;</code></td>
+                            <td>Sidebar content</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;footer&gt;</code></td>
+                            <td><code>&lt;div class="footer"&gt;</code></td>
+                            <td>Page footer</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <hr>
+
+            <!-- Accessibility Section -->
+            <section id="accessibility">
+                <h2>Accessibility (A11y)</h2>
+                <p>Making HTML accessible ensures everyone can use your website, including people with disabilities.</p>
+
+                <h3>Key Principles</h3>
+                <dl>
+                    <dt>Perceivable</dt>
+                    <dd>Information and UI must be presentable to users in ways they can perceive</dd>
+
+                    <dt>Operable</dt>
+                    <dd>UI components and navigation must be operable</dd>
+
+                    <dt>Understandable</dt>
+                    <dd>Information and operation of UI must be understandable</dd>
+
+                    <dt>Robust</dt>
+                    <dd>Content must be robust enough to work with assistive technologies</dd>
+                </dl>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Always include <code>alt</code> text for images</li>
+                    <li>Use proper heading hierarchy (h1 → h2 → h3)</li>
+                    <li>Label all form inputs</li>
+                    <li>Ensure sufficient color contrast</li>
+                    <li>Make all functionality keyboard-accessible</li>
+                    <li>Use ARIA attributes when necessary</li>
+                    <li>Provide skip navigation links</li>
+                </ul>
+            </section>
+
+            <hr>
+
+            <!-- Best Practices Section -->
+            <section id="best-practices">
+                <h2>HTML Best Practices</h2>
+
+                <h3>Document Structure</h3>
+                <ul>
+                    <li>✓ Always declare DOCTYPE</li>
+                    <li>✓ Include language attribute on <code>&lt;html&gt;</code></li>
+                    <li>✓ Set character encoding to UTF-8</li>
+                    <li>✓ Include viewport meta tag for responsive design</li>
+                </ul>
+
+                <h3>Code Quality</h3>
+                <ul>
+                    <li>✓ Use lowercase for tags and attributes</li>
+                    <li>✓ Always quote attribute values</li>
+                    <li>✓ Close all tags properly</li>
+                    <li>✓ Indent nested elements consistently</li>
+                    <li>✓ Add comments for complex sections</li>
+                    <li>✓ Validate HTML with W3C validator</li>
+                </ul>
+
+                <h3>Performance</h3>
+                <ul>
+                    <li>✓ Minimize file size</li>
+                    <li>✓ Optimize images before using</li>
+                    <li>✓ Use lazy loading for images</li>
+                    <li>✓ Minimize HTTP requests</li>
+                    <li>✓ Place scripts at bottom or use defer/async</li>
+                </ul>
+
+                <h3>Common Mistakes to Avoid</h3>
+                <ul>
+                    <li>✗ Missing closing tags</li>
+                    <li>✗ Skipping heading levels</li>
+                    <li>✗ Using tables for layout</li>
+                    <li>✗ Missing alt attributes on images</li>
+                    <li>✗ Not labeling form inputs</li>
+                    <li>✗ Using inline styles everywhere</li>
+                </ul>
+            </section>
+
+            <hr>
+
+            <!-- Resources Section -->
+            <section id="resources">
+                <h2>Additional Resources</h2>
+
+                <h3>Official Documentation</h3>
+                <ul>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">MDN Web Docs - HTML</a></li>
+                    <li><a href="https://html.spec.whatwg.org/" target="_blank">HTML Living Standard</a></li>
+                    <li><a href="https://www.w3schools.com/html/" target="_blank">W3Schools HTML Tutorial</a></li>
+                </ul>
+
+                <h3>Validation Tools</h3>
+                <ul>
+                    <li><a href="https://validator.w3.org/" target="_blank">W3C HTML Validator</a></li>
+                    <li><a href="https://www.webaccessibility.com/" target="_blank">Accessibility Checker</a></li>
+                </ul>
+
+                <h3>Learning Platforms</h3>
+                <ul>
+                    <li><a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a></li>
+                    <li><a href="https://www.codecademy.com/" target="_blank">Codecademy</a></li>
+                    <li><a href="https://www.theodinproject.com/" target="_blank">The Odin Project</a></li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <section>
+            <h3>About This Documentation</h3>
+            <p>This HTML documentation is maintained by the Web Docs Team and is freely available for anyone learning web development.</p>
+        </section>
+
+        <section>
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#changelog">Changelog</a></li>
+                <li><a href="#contribute">Contribute</a></li>
+                <li><a href="#license">License</a></li>
+            </ul>
+        </section>
+
+        <p>&copy; 2026 Web Docs Team. Licensed under MIT License.</p>
+        <p><a href="#top">Back to Top ↑</a></p>
+    </footer>
+</body>
+</html>

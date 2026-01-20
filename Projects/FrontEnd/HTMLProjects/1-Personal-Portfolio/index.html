@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="John Doe - Full Stack Web Developer Portfolio">
+    <meta name="keywords" content="web developer, portfolio, HTML, CSS, JavaScript">
+    <meta name="author" content="John Doe">
+    <title>John Doe - Web Developer Portfolio</title>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <h1>John Doe</h1>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <h2>Full Stack Web Developer</h2>
+        <p>Building modern and responsive web applications</p>
+        <a href="#contact">Get In Touch</a>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <article>
+                <p>Hello! I'm John Doe, a passionate full stack web developer with 5 years of experience in creating dynamic and user-friendly websites and applications.</p>
+                <p>I specialize in modern web technologies and love turning complex problems into simple, beautiful, and intuitive designs.</p>
+                <p>When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying a good book on software architecture.</p>
+            </article>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>Skills</h2>
+            <article>
+                <h3>Frontend Development</h3>
+                <ul>
+                    <li>HTML5 & CSS3</li>
+                    <li>JavaScript (ES6+)</li>
+                    <li>React.js</li>
+                    <li>Vue.js</li>
+                    <li>Responsive Design</li>
+                    <li>Bootstrap & Tailwind CSS</li>
+                </ul>
+
+                <h3>Backend Development</h3>
+                <ul>
+                    <li>Node.js & Express</li>
+                    <li>Python & Django</li>
+                    <li>RESTful APIs</li>
+                    <li>GraphQL</li>
+                    <li>Database Design (SQL & NoSQL)</li>
+                </ul>
+
+                <h3>Tools & Technologies</h3>
+                <ul>
+                    <li>Git & GitHub</li>
+                    <li>Docker</li>
+                    <li>VS Code</li>
+                    <li>Webpack & Vite</li>
+                    <li>Jest & Testing Library</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            
+            <article>
+                <h3>E-Commerce Platform</h3>
+                <p><strong>Technologies:</strong> React, Node.js, MongoDB, Stripe API</p>
+                <p>A fully functional e-commerce platform with shopping cart, payment integration, and admin dashboard. Features include product search, filtering, user authentication, and order management.</p>
+                <p>
+                    <a href="https://github.com/johndoe/ecommerce" target="_blank">View Code</a> | 
+                    <a href="https://demo-ecommerce.com" target="_blank">Live Demo</a>
+                </p>
+            </article>
+
+            <article>
+                <h3>Task Management App</h3>
+                <p><strong>Technologies:</strong> Vue.js, Firebase, Vuex</p>
+                <p>A collaborative task management application with real-time updates, user authentication, and team collaboration features. Includes drag-and-drop functionality and priority management.</p>
+                <p>
+                    <a href="https://github.com/johndoe/task-app" target="_blank">View Code</a> | 
+                    <a href="https://demo-taskapp.com" target="_blank">Live Demo</a>
+                </p>
+            </article>
+
+            <article>
+                <h3>Weather Dashboard</h3>
+                <p><strong>Technologies:</strong> JavaScript, Weather API, Chart.js</p>
+                <p>An interactive weather dashboard that displays current weather conditions and 7-day forecasts. Features location search, weather charts, and responsive design for mobile devices.</p>
+                <p>
+                    <a href="https://github.com/johndoe/weather-app" target="_blank">View Code</a> | 
+                    <a href="https://demo-weather.com" target="_blank">Live Demo</a>
+                </p>
+            </article>
+
+            <article>
+                <h3>Blog CMS</h3>
+                <p><strong>Technologies:</strong> Django, PostgreSQL, Bootstrap</p>
+                <p>A custom content management system for blogging with rich text editor, image uploads, categories, tags, and comment system. Includes SEO optimization and social media sharing.</p>
+                <p>
+                    <a href="https://github.com/johndoe/blog-cms" target="_blank">View Code</a> | 
+                    <a href="https://demo-blog.com" target="_blank">Live Demo</a>
+                </p>
+            </article>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <p>I'm always interested in hearing about new projects and opportunities. Feel free to reach out!</p>
+            
+            <form action="/submit-contact" method="POST">
+                <fieldset>
+                    <legend>Contact Information</legend>
+                    
+                    <label for="name">Name <abbr title="required">*</abbr></label>
+                    <input type="text" id="name" name="name" required placeholder="Your Name">
+
+                    <br><br>
+
+                    <label for="email">Email <abbr title="required">*</abbr></label>
+                    <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+
+                    <br><br>
+
+                    <label for="subject">Subject <abbr title="required">*</abbr></label>
+                    <input type="text" id="subject" name="subject" required placeholder="Project Inquiry">
+
+                    <br><br>
+
+                    <label for="message">Message <abbr title="required">*</abbr></label>
+                    <textarea id="message" name="message" rows="6" required placeholder="Tell me about your project..."></textarea>
+
+                    <br><br>
+
+                    <button type="submit">Send Message</button>
+                    <button type="reset">Clear Form</button>
+                </fieldset>
+            </form>
+
+            <article>
+                <h3>Other Ways to Connect</h3>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:john.doe@example.com">john.doe@example.com</a></li>
+                    <li><strong>Phone:</strong> <a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                    <li><strong>GitHub:</strong> <a href="https://github.com/johndoe" target="_blank">github.com/johndoe</a></li>
+                    <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/johndoe" target="_blank">linkedin.com/in/johndoe</a></li>
+                    <li><strong>Twitter:</strong> <a href="https://twitter.com/johndoe" target="_blank">@johndoe</a></li>
+                </ul>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 John Doe. All rights reserved.</p>
+        <p>
+            <a href="#hero">Back to Top</a> | 
+            <a href="privacy.html">Privacy Policy</a> | 
+            <a href="terms.html">Terms of Service</a>
+        </p>
+    </footer>
+</body>
+</html>
