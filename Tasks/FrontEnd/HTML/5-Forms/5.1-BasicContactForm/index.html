@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 5.1: Basic Contact Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background-color: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        /* Form Styles */
+        .contact-form {
+            width: 100%;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 1em;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background-color: #f8f9fa;
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            background-color: white;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        button[type="submit"] {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        button[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+        button[type="submit"]:active {
+            transform: translateY(0);
+        }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 40px;
+        }
+        .info-box h3 {
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        .info-box ul {
+            line-height: 2;
+            padding-left: 25px;
+        }
+
+        /* Code Block */
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+        .code-block .tag {
+            color: #569cd6;
+        }
+        .code-block .attr {
+            color: #9cdcfe;
+        }
+        .code-block .value {
+            color: #ce9178;
+        }
+        .code-block .comment {
+            color: #6a9955;
+        }
+
+        /* Feature List */
+        .feature-list {
+            margin-top: 40px;
+            padding: 30px;
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+        }
+        .feature-list h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        .feature-item {
+            display: flex;
+            align-items: start;
+            margin: 15px 0;
+            gap: 15px;
+        }
+        .feature-icon {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .feature-content h4 {
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+        .feature-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📧 Contact Us</h1>
+        <p class="subtitle">Fill out the form below and we'll get back to you soon!</p>
+
+        <!-- Contact Form -->
+        <form class="contact-form" action="/submit-form" method="POST">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    placeholder="Enter your full name"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    placeholder="your.email@example.com"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea 
+                    id="message" 
+                    name="message" 
+                    placeholder="Tell us what's on your mind..."
+                ></textarea>
+            </div>
+
+            <button type="submit">Send Message</button>
+        </form>
+
+        <!-- HTML Code Example -->
+        <div class="code-block"><span class="comment">&lt;!-- Basic Contact Form Structure --&gt;</span>
+<span class="tag">&lt;form</span> <span class="attr">action</span>=<span class="value">"/submit-form"</span> <span class="attr">method</span>=<span class="value">"POST"</span><span class="tag">&gt;</span>
+    <span class="comment">&lt;!-- Name Input --&gt;</span>
+    <span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"name"</span><span class="tag">&gt;</span>Your Name<span class="tag">&lt;/label&gt;</span>
+    <span class="tag">&lt;input</span> 
+        <span class="attr">type</span>=<span class="value">"text"</span> 
+        <span class="attr">id</span>=<span class="value">"name"</span> 
+        <span class="attr">name</span>=<span class="value">"name"</span>
+        <span class="attr">placeholder</span>=<span class="value">"Enter your full name"</span>
+    <span class="tag">&gt;</span>
+
+    <span class="comment">&lt;!-- Email Input --&gt;</span>
+    <span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"email"</span><span class="tag">&gt;</span>Email Address<span class="tag">&lt;/label&gt;</span>
+    <span class="tag">&lt;input</span> 
+        <span class="attr">type</span>=<span class="value">"email"</span> 
+        <span class="attr">id</span>=<span class="value">"email"</span> 
+        <span class="attr">name</span>=<span class="value">"email"</span>
+        <span class="attr">placeholder</span>=<span class="value">"your.email@example.com"</span>
+    <span class="tag">&gt;</span>
+
+    <span class="comment">&lt;!-- Message Textarea --&gt;</span>
+    <span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"message"</span><span class="tag">&gt;</span>Your Message<span class="tag">&lt;/label&gt;</span>
+    <span class="tag">&lt;textarea</span> 
+        <span class="attr">id</span>=<span class="value">"message"</span> 
+        <span class="attr">name</span>=<span class="value">"message"</span>
+        <span class="attr">placeholder</span>=<span class="value">"Tell us what's on your mind..."</span>
+    <span class="tag">&gt;&lt;/textarea&gt;</span>
+
+    <span class="comment">&lt;!-- Submit Button --&gt;</span>
+    <span class="tag">&lt;button</span> <span class="attr">type</span>=<span class="value">"submit"</span><span class="tag">&gt;</span>Send Message<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/form&gt;</span></div>
+
+        <!-- Key Components -->
+        <div class="feature-list">
+            <h3>🔑 Key Form Components</h3>
+            
+            <div class="feature-item">
+                <div class="feature-icon">1</div>
+                <div class="feature-content">
+                    <h4>&lt;form&gt; Element</h4>
+                    <p>Container for all form controls. The <strong>action</strong> attribute specifies where to send the data, and <strong>method</strong> defines how (GET or POST).</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">2</div>
+                <div class="feature-content">
+                    <h4>&lt;label&gt; Element</h4>
+                    <p>Describes what each input is for. The <strong>for</strong> attribute must match the input's <strong>id</strong> for accessibility.</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">3</div>
+                <div class="feature-content">
+                    <h4>&lt;input&gt; Elements</h4>
+                    <p>Text and email inputs collect single-line data. The <strong>type</strong> attribute determines the input behavior and validation.</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">4</div>
+                <div class="feature-content">
+                    <h4>&lt;textarea&gt; Element</h4>
+                    <p>Multi-line text input for longer messages. Can be resized by users and has rows/cols attributes for sizing.</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">5</div>
+                <div class="feature-content">
+                    <h4>&lt;button&gt; Element</h4>
+                    <p>Submits the form when clicked. Always specify <strong>type="submit"</strong> explicitly for clarity.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Best Practices -->
+        <div class="info-box">
+            <h3>✅ Form Best Practices</h3>
+            <ul>
+                <li><strong>Always use labels:</strong> Connect labels to inputs with for/id attributes</li>
+                <li><strong>Specify method:</strong> Use POST for forms that modify data, GET for searches</li>
+                <li><strong>Add placeholders:</strong> Provide examples of expected input format</li>
+                <li><strong>Use semantic names:</strong> Name attributes should be clear and descriptive</li>
+                <li><strong>Group related fields:</strong> Use fieldset and legend for complex forms</li>
+                <li><strong>Provide feedback:</strong> Show success/error messages after submission</li>
+                <li><strong>Make it accessible:</strong> Proper labels ensure screen reader compatibility</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

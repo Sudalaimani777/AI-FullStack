@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 5.2: HTML5 Input Types</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        /* Form Styles */
+        .input-form {
+            width: 100%;
+        }
+        .form-section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+        }
+        .form-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.6em;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 1em;
+        }
+        .label-description {
+            display: block;
+            color: #666;
+            font-size: 0.9em;
+            font-weight: normal;
+            margin-top: 4px;
+        }
+        input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background-color: white;
+        }
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+        input::placeholder {
+            color: #999;
+        }
+
+        /* Input Type Badge */
+        .input-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        /* Submit Button */
+        button[type="submit"] {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            margin-top: 20px;
+        }
+        button[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 40px;
+        }
+        .info-box h3 {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        .info-box ul {
+            line-height: 2.2;
+            padding-left: 25px;
+        }
+
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        .feature-card {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+        }
+        .feature-card h3 {
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 1.3em;
+        }
+        .feature-card .input-type {
+            background-color: #667eea;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        .feature-card p {
+            color: #666;
+            line-height: 1.8;
+            margin-top: 10px;
+        }
+        .feature-card ul {
+            margin-top: 10px;
+            padding-left: 20px;
+            color: #666;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📝 HTML5 Input Types</h1>
+        <p class="subtitle">Explore the power of modern HTML5 form inputs</p>
+
+        <form class="input-form" action="/submit-form" method="POST">
+            <!-- Basic Text Inputs -->
+            <div class="form-section">
+                <h2>Basic Text Inputs</h2>
+                
+                <div class="form-group">
+                    <label for="username">
+                        Username <span class="input-badge">type="text"</span>
+                        <span class="label-description">Standard text input for any text data</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        name="username" 
+                        placeholder="Enter your username"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">
+                        Email Address <span class="input-badge">type="email"</span>
+                        <span class="label-description">Validates email format and provides email keyboard on mobile</span>
+                    </label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="example@email.com"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">
+                        Password <span class="input-badge">type="password"</span>
+                        <span class="label-description">Hides input characters for security</span>
+                    </label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Enter a secure password"
+                    >
+                </div>
+            </div>
+
+            <!-- Contact Inputs -->
+            <div class="form-section">
+                <h2>Contact Inputs</h2>
+                
+                <div class="form-group">
+                    <label for="phone">
+                        Phone Number <span class="input-badge">type="tel"</span>
+                        <span class="label-description">Optimized keyboard for phone numbers on mobile devices</span>
+                    </label>
+                    <input 
+                        type="tel" 
+                        id="phone" 
+                        name="phone" 
+                        placeholder="+1 (555) 123-4567"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="website">
+                        Website URL <span class="input-badge">type="url"</span>
+                        <span class="label-description">Validates URL format (must include http:// or https://)</span>
+                    </label>
+                    <input 
+                        type="url" 
+                        id="website" 
+                        name="website" 
+                        placeholder="https://www.example.com"
+                    >
+                </div>
+            </div>
+
+            <!-- Numeric Input -->
+            <div class="form-section">
+                <h2>Numeric Input</h2>
+                
+                <div class="form-group">
+                    <label for="age">
+                        Age <span class="input-badge">type="number"</span>
+                        <span class="label-description">Number input with min/max constraints and step controls</span>
+                    </label>
+                    <input 
+                        type="number" 
+                        id="age" 
+                        name="age" 
+                        placeholder="Enter your age"
+                        min="18"
+                        max="120"
+                    >
+                </div>
+            </div>
+
+            <!-- Date Input -->
+            <div class="form-section">
+                <h2>Date Input</h2>
+                
+                <div class="form-group">
+                    <label for="birthdate">
+                        Date of Birth <span class="input-badge">type="date"</span>
+                        <span class="label-description">Provides a calendar date picker interface</span>
+                    </label>
+                    <input 
+                        type="date" 
+                        id="birthdate" 
+                        name="birthdate"
+                    >
+                </div>
+            </div>
+
+            <button type="submit">Submit Form</button>
+        </form>
+
+        <!-- Input Types Reference -->
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3><span class="input-type">type="text"</span></h3>
+                <p>Standard text input for any single-line text data.</p>
+                <ul>
+                    <li>Most common input type</li>
+                    <li>Default if type is not specified</li>
+                    <li>Accepts any text characters</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3><span class="input-type">type="email"</span></h3>
+                <p>Email address input with built-in validation.</p>
+                <ul>
+                    <li>Validates @ symbol and domain</li>
+                    <li>Shows email keyboard on mobile</li>
+                    <li>Prevents submission if invalid</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3><span class="input-type">type="password"</span></h3>
+                <p>Secure password input that masks characters.</p>
+                <ul>
+                    <li>Hides input as dots/asterisks</li>
+                    <li>Prevents shoulder surfing</li>
+                    <li>Use with autocomplete="off" for security</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3><span class="input-type">type="tel"</span></h3>
+                <p>Phone number input optimized for mobile.</p>
+                <ul>
+                    <li>Shows numeric keyboard on mobile</li>
+                    <li>No automatic validation</li>
+                    <li>Use pattern attribute for validation</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3><span class="input-type">type="url"</span></h3>
+                <p>URL input with protocol validation.</p>
+                <ul>
+                    <li>Validates http:// or https://</li>
+                    <li>Shows URL keyboard on mobile</li>
+                    <li>Includes .com button on iOS</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3><span class="input-type">type="number"</span></h3>
+                <p>Numeric input with increment controls.</p>
+                <ul>
+                    <li>Spinner controls (up/down arrows)</li>
+                    <li>min, max, step attributes</li>
+                    <li>Only accepts numeric values</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3><span class="input-type">type="date"</span></h3>
+                <p>Date picker with calendar interface.</p>
+                <ul>
+                    <li>Native calendar picker</li>
+                    <li>Format: YYYY-MM-DD</li>
+                    <li>min/max for date ranges</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Best Practices -->
+        <div class="info-box">
+            <h3>✅ Input Type Best Practices</h3>
+            <ul>
+                <li><strong>Use specific types:</strong> Always use the most appropriate input type for better UX</li>
+                <li><strong>Mobile optimization:</strong> Correct input types show proper keyboards on mobile devices</li>
+                <li><strong>Built-in validation:</strong> HTML5 types provide free validation (email, url, number)</li>
+                <li><strong>Accessibility:</strong> Proper input types help screen readers understand field purpose</li>
+                <li><strong>Placeholders as examples:</strong> Show expected format but don't replace labels</li>
+                <li><strong>Add constraints:</strong> Use min, max, step, pattern attributes for better validation</li>
+                <li><strong>Progressive enhancement:</strong> Forms still work if browser doesn't support new types</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

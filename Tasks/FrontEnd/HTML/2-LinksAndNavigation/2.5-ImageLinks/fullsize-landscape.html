@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Size - Mountain Landscape</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .fullsize-container {
+            max-width: 1000px;
+            width: 100%;
+        }
+        .fullsize-image {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        .image-info {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        p {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+        .back-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="fullsize-container">
+        <svg class="fullsize-image" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="skyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <rect width="1200" height="800" fill="url(#skyGrad)"/>
+            <circle cx="300" cy="200" r="100" fill="#FFD700"/>
+            <path d="M 0 650 L 200 400 L 400 450 L 600 350 L 800 500 L 1000 450 L 1200 600 L 1200 800 L 0 800 Z" fill="#8B4513" opacity="0.6"/>
+            <path d="M 0 700 Q 300 650 600 680 T 1200 700 L 1200 800 L 0 800 Z" fill="#43e97b"/>
+            <text x="600" y="750" font-family="Arial" font-size="48" font-weight="bold" fill="white" text-anchor="middle">MOUNTAIN LANDSCAPE</text>
+        </svg>
+        
+        <div class="image-info">
+            <h1>🏔️ Mountain Landscape</h1>
+            <p>This is the full-size version of the mountain landscape thumbnail. The image shows a beautiful mountain range with a bright sun and green valleys below.</p>
+            <a href="index.html" class="back-link">← Back to Gallery</a>
+        </div>
+    </div>
+</body>
+</html>

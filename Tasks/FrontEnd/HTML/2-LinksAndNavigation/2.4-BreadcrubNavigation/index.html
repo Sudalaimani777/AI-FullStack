@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Breadcrumb Navigation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        /* Breadcrumb Styles */
+        nav[aria-label="breadcrumb"] {
+            background-color: #f8f9fa;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .breadcrumb {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+        .breadcrumb li {
+            display: flex;
+            align-items: center;
+            font-size: 1em;
+        }
+        .breadcrumb li a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        .breadcrumb li a:hover {
+            background-color: #667eea;
+            color: white;
+        }
+        .breadcrumb li.active {
+            color: #6c757d;
+            font-weight: 600;
+        }
+        .breadcrumb-separator {
+            margin: 0 10px;
+            color: #6c757d;
+            font-size: 1.2em;
+        }
+
+        /* Page Content */
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        .content {
+            margin-top: 30px;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .info-box h2 {
+            margin-bottom: 15px;
+        }
+        .feature-list {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+        .feature-list h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        .feature-list ul {
+            line-height: 2;
+            padding-left: 20px;
+        }
+        .code-example {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        .code-example h3 {
+            color: #f8f8f2;
+            margin-bottom: 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .breadcrumb {
+                font-size: 0.9em;
+            }
+            .breadcrumb-separator {
+                margin: 0 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="home.html">🏠 Home</a>
+                </li>
+                <li class="breadcrumb-separator">›</li>
+                <li>
+                    <a href="electronics.html">📱 Electronics</a>
+                </li>
+                <li class="breadcrumb-separator">›</li>
+                <li>
+                    <a href="smartphones.html">📲 Smartphones</a>
+                </li>
+                <li class="breadcrumb-separator">›</li>
+                <li class="active" aria-current="page">iPhone 15 Pro</li>
+            </ol>
+        </nav>
+
+        <!-- Page Content -->
+        <h1>📱 iPhone 15 Pro - Product Details</h1>
+
+        <div class="info-box">
+            <h2>About Breadcrumb Navigation</h2>
+            <p>
+                Breadcrumb navigation shows the user's location within a website's hierarchy. 
+                It provides a trail of links from the homepage to the current page, making it 
+                easy to navigate back to previous levels.
+            </p>
+        </div>
+
+        <div class="content">
+            <div class="feature-list">
+                <h3>✨ Key Features of This Breadcrumb:</h3>
+                <ul>
+                    <li><strong>Home</strong> - Top level (clickable)</li>
+                    <li><strong>Electronics</strong> - Category level (clickable)</li>
+                    <li><strong>Smartphones</strong> - Subcategory level (clickable)</li>
+                    <li><strong>iPhone 15 Pro</strong> - Current page (not clickable)</li>
+                    <li>Uses proper semantic markup with <code>&lt;nav&gt;</code> and <code>&lt;ol&gt;</code></li>
+                    <li>Includes <code>aria-label="breadcrumb"</code> for accessibility</li>
+                    <li>Current page marked with <code>aria-current="page"</code></li>
+                    <li>Visual separators (›) between levels</li>
+                </ul>
+            </div>
+
+            <div class="code-example">
+                <h3>📝 HTML Structure:</h3>
+                <pre>&lt;nav aria-label="breadcrumb"&gt;
+    &lt;ol class="breadcrumb"&gt;
+        &lt;li&gt;&lt;a href="home.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="breadcrumb-separator"&gt;›&lt;/li&gt;
+        &lt;li&gt;&lt;a href="electronics.html"&gt;Electronics&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="breadcrumb-separator"&gt;›&lt;/li&gt;
+        &lt;li&gt;&lt;a href="smartphones.html"&gt;Smartphones&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="breadcrumb-separator"&gt;›&lt;/li&gt;
+        &lt;li class="active" aria-current="page"&gt;iPhone 15 Pro&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/nav&gt;</pre>
+            </div>
+
+            <div class="feature-list">
+                <h3>🎯 Why Use Breadcrumbs?</h3>
+                <ul>
+                    <li><strong>User Orientation:</strong> Shows where users are in the site structure</li>
+                    <li><strong>Easy Navigation:</strong> Quick access to parent categories</li>
+                    <li><strong>Reduced Clicks:</strong> Navigate back without using browser back button</li>
+                    <li><strong>SEO Benefits:</strong> Search engines understand site structure better</li>
+                    <li><strong>Improved UX:</strong> Especially helpful on e-commerce and documentation sites</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

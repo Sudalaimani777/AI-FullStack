@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3.1: Basic Images</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+        
+        /* Image Section Styles */
+        .image-section {
+            margin: 40px 0;
+            padding: 30px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+        .image-section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        .image-section p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .image-wrapper {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-top: 15px;
+            text-align: center;
+        }
+        .image-wrapper img {
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        .info-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        
+        /* Summary Box */
+        .summary-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+        .summary-box h3 {
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        .summary-box ul {
+            line-height: 2;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🖼️ Task 3.1: Basic Images</h1>
+        <p class="subtitle">Demonstrating proper image attributes and usage</p>
+
+        <!-- Image 1: Basic Image with src and alt -->
+        <div class="image-section">
+            <h2>1. Image with src and alt Attributes</h2>
+            <p>The most basic image implementation. The <strong>alt</strong> attribute is crucial for accessibility and SEO.</p>
+            <div class="image-wrapper">
+                <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="400" height="300" fill="url(#grad1)" rx="8"/>
+                    <text x="200" y="140" font-family="Arial" font-size="28" font-weight="bold" fill="white" text-anchor="middle">Beautiful</text>
+                    <text x="200" y="180" font-family="Arial" font-size="28" font-weight="bold" fill="white" text-anchor="middle">Landscape</text>
+                    <circle cx="100" cy="80" r="30" fill="#FFD700"/>
+                    <path d="M 0 220 Q 100 180 200 210 T 400 220 L 400 300 L 0 300 Z" fill="#43e97b"/>
+                </svg>
+            </div>
+            <div class="code-block">
+&lt;img src="landscape.jpg" alt="Beautiful mountain landscape at sunset"&gt;
+            </div>
+            <span class="info-badge">✅ Essential: Always include alt text</span>
+        </div>
+
+        <!-- Image 2: Image with width and height -->
+        <div class="image-section">
+            <h2>2. Image with Width and Height Attributes</h2>
+            <p>Specifying dimensions helps prevent layout shifts when the page loads. The browser reserves space for the image.</p>
+            <div class="image-wrapper">
+                <svg width="500" height="300" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#feca57;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="500" height="300" fill="url(#grad2)" rx="8"/>
+                    <text x="250" y="140" font-family="Arial" font-size="32" font-weight="bold" fill="white" text-anchor="middle">500px × 300px</text>
+                    <text x="250" y="180" font-family="Arial" font-size="20" fill="white" text-anchor="middle">Fixed Dimensions</text>
+                </svg>
+            </div>
+            <div class="code-block">
+&lt;img src="banner.jpg" alt="Company banner" width="500" height="300"&gt;
+            </div>
+            <span class="info-badge">⚡ Performance: Prevents layout shifts (CLS)</span>
+        </div>
+
+        <!-- Image 3: Image with title attribute -->
+        <div class="image-section">
+            <h2>3. Image with Title Attribute (Tooltip)</h2>
+            <p>The <strong>title</strong> attribute displays a tooltip when hovering over the image. Hover over the image below to see it!</p>
+            <div class="image-wrapper">
+                <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg" title="Hover over me to see the tooltip!">
+                    <defs>
+                        <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#00b4db;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#0083b0;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="400" height="300" fill="url(#grad3)" rx="8"/>
+                    <text x="200" y="130" font-family="Arial" font-size="24" font-weight="bold" fill="white" text-anchor="middle">🖱️ Hover Over Me!</text>
+                    <text x="200" y="170" font-family="Arial" font-size="16" fill="white" text-anchor="middle">Title Attribute Demo</text>
+                </svg>
+            </div>
+            <div class="code-block">
+&lt;img src="tooltip-demo.jpg" alt="Demo image" title="This is a helpful tooltip!"&gt;
+            </div>
+            <span class="info-badge">💡 UX: Provides additional context</span>
+        </div>
+
+        <!-- Image 4: Image from relative path -->
+        <div class="image-section">
+            <h2>4. Image from Relative Path</h2>
+            <p>Images stored locally in your project. Common folder structures: <code>./images/</code>, <code>../assets/</code>, <code>./img/</code></p>
+            <div class="image-wrapper">
+                <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad4" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#a8edea;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#fed6e3;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="400" height="300" fill="url(#grad4)" rx="8"/>
+                    <text x="200" y="130" font-family="Arial" font-size="20" font-weight="bold" fill="#555" text-anchor="middle">📁 Local File Path</text>
+                    <text x="200" y="160" font-family="Arial" font-size="16" fill="#555" text-anchor="middle">./images/photo.jpg</text>
+                    <text x="200" y="185" font-family="Arial" font-size="16" fill="#555" text-anchor="middle">../assets/logo.png</text>
+                </svg>
+            </div>
+            <div class="code-block">
+&lt;!-- Same directory --&gt;
+&lt;img src="photo.jpg" alt="Product photo"&gt;
+
+&lt;!-- Images subfolder --&gt;
+&lt;img src="images/photo.jpg" alt="Product photo"&gt;
+
+&lt;!-- Parent directory --&gt;
+&lt;img src="../assets/logo.png" alt="Company logo"&gt;
+            </div>
+            <span class="info-badge">📂 Best Practice: Organize images in folders</span>
+        </div>
+
+        <!-- Image 5: Image from external URL -->
+        <div class="image-section">
+            <h2>5. Image from External URL (Absolute Path)</h2>
+            <p>Loading images from external sources. Note: This requires an internet connection and depends on external server availability.</p>
+            <div class="image-wrapper">
+                <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#fa709a;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#fee140;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="400" height="300" fill="url(#grad5)" rx="8"/>
+                    <text x="200" y="130" font-family="Arial" font-size="20" font-weight="bold" fill="white" text-anchor="middle">🌐 External URL</text>
+                    <text x="200" y="160" font-family="Arial" font-size="14" fill="white" text-anchor="middle">https://example.com/</text>
+                    <text x="200" y="185" font-family="Arial" font-size="14" fill="white" text-anchor="middle">images/photo.jpg</text>
+                </svg>
+            </div>
+            <div class="code-block">
+&lt;img src="https://example.com/images/photo.jpg" 
+     alt="External image"&gt;
+
+&lt;!-- Using a CDN --&gt;
+&lt;img src="https://cdn.example.com/v1/banner.jpg" 
+     alt="Banner from CDN"&gt;
+            </div>
+            <span class="info-badge">⚠️ Consider: External dependency and loading time</span>
+        </div>
+
+        <!-- Summary -->
+        <div class="summary-box">
+            <h3>📋 Key Takeaways - Essential Image Attributes</h3>
+            <ul>
+                <li><strong>src:</strong> Specifies the path to the image file (required)</li>
+                <li><strong>alt:</strong> Alternative text for accessibility and SEO (required)</li>
+                <li><strong>width & height:</strong> Dimensions to prevent layout shifts</li>
+                <li><strong>title:</strong> Tooltip text shown on hover</li>
+                <li><strong>Relative paths:</strong> For local images (./images/photo.jpg)</li>
+                <li><strong>Absolute URLs:</strong> For external images (https://...)</li>
+                <li><strong>Best Practice:</strong> Always include meaningful alt text</li>
+                <li><strong>Performance:</strong> Specify dimensions when possible</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

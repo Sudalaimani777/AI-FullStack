@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4.4: Styling Tables</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .subtitle {
+            text-align: center;
+            color: #f0f0f0;
+            margin-bottom: 50px;
+            font-size: 1.2em;
+        }
+
+        /* Section Container */
+        .section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 2em;
+        }
+        .section-description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        /* Responsive Table Wrapper */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 25px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Style 1: Alternating Row Colors (Striped) */
+        .table-striped {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table-striped caption {
+            caption-side: top;
+            padding: 15px;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #667eea;
+            background-color: #f8f9fa;
+            text-align: left;
+        }
+        .table-striped thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .table-striped th {
+            padding: 18px 15px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+        }
+        .table-striped tbody tr {
+            transition: all 0.3s ease;
+        }
+        .table-striped tbody tr:nth-child(odd) {
+            background-color: #f8f9fa;
+        }
+        .table-striped tbody tr:nth-child(even) {
+            background-color: #ffffff;
+        }
+        .table-striped tbody tr:hover {
+            background-color: #e3f2fd;
+            transform: scale(1.01);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+        }
+        .table-striped td {
+            padding: 15px;
+            color: #333;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .table-striped tfoot {
+            background-color: #667eea;
+            color: white;
+            font-weight: bold;
+        }
+        .table-striped tfoot td {
+            padding: 15px;
+            border-bottom: none;
+        }
+
+        /* Style 2: Bordered Table */
+        .table-bordered {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid #667eea;
+        }
+        .table-bordered caption {
+            caption-side: top;
+            padding: 15px;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #667eea;
+            background-color: #f8f9fa;
+            text-align: left;
+            border: 2px solid #667eea;
+            border-bottom: none;
+        }
+        .table-bordered thead {
+            background-color: #667eea;
+            color: white;
+        }
+        .table-bordered th {
+            padding: 18px 15px;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid #764ba2;
+        }
+        .table-bordered td {
+            padding: 15px;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+        .table-bordered tbody tr:hover {
+            background-color: #f0f4ff;
+        }
+        .table-bordered tfoot {
+            background-color: #f8f9fa;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .table-bordered tfoot td {
+            padding: 15px;
+            border: 1px solid #667eea;
+        }
+
+        /* Style 3: Minimal Design */
+        .table-minimal {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table-minimal caption {
+            caption-side: top;
+            padding: 15px 0;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #667eea;
+            text-align: left;
+        }
+        .table-minimal thead {
+            border-bottom: 3px solid #667eea;
+        }
+        .table-minimal th {
+            padding: 18px 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #667eea;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 1px;
+        }
+        .table-minimal td {
+            padding: 15px;
+            color: #333;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .table-minimal tbody tr:hover {
+            background-color: #f5f5f5;
+        }
+        .table-minimal tfoot {
+            border-top: 3px solid #667eea;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .table-minimal tfoot td {
+            padding: 15px;
+        }
+
+        /* Style 4: Colorful Headers */
+        .table-colorful {
+            width: 100%;
+            border-collapse: collapse;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+        .table-colorful caption {
+            caption-side: top;
+            padding: 15px;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            text-align: left;
+        }
+        .table-colorful thead {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+        }
+        .table-colorful th {
+            padding: 18px 15px;
+            text-align: left;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        .table-colorful td {
+            padding: 15px;
+            color: #333;
+            background-color: white;
+        }
+        .table-colorful tbody tr:nth-child(odd) {
+            background-color: #fff5f8;
+        }
+        .table-colorful tbody tr:hover {
+            background: linear-gradient(90deg, #ffecd2 0%, #fcb69f 100%);
+            transform: translateX(5px);
+            transition: all 0.3s ease;
+        }
+        .table-colorful tfoot {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+            font-weight: bold;
+        }
+        .table-colorful tfoot td {
+            padding: 15px;
+        }
+
+        /* Code Block */
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.8;
+        }
+        .code-block .comment {
+            color: #6a9955;
+        }
+        .code-block .selector {
+            color: #d7ba7d;
+        }
+        .code-block .property {
+            color: #9cdcfe;
+        }
+        .code-block .value {
+            color: #ce9178;
+        }
+
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 35px 0;
+        }
+        .feature-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        }
+        .feature-card h3 {
+            margin-bottom: 12px;
+            font-size: 1.3em;
+        }
+        .feature-card p {
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+            padding: 35px;
+            border-radius: 12px;
+            margin: 35px 0;
+        }
+        .info-box h3 {
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        .info-box ul {
+            line-height: 2.3;
+            padding-left: 25px;
+        }
+        .info-box li {
+            margin: 10px 0;
+        }
+        .info-box strong {
+            font-weight: 700;
+        }
+
+        /* Comparison Grid */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .comparison-card {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+        .comparison-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        .comparison-card ul {
+            padding-left: 25px;
+            color: #666;
+            line-height: 2;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .section {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Task 4.4: Styling Tables</h1>
+        <p class="subtitle">Master the art of table styling with CSS</p>
+
+        <!-- Style 1: Striped Table -->
+        <div class="section">
+            <h2>1. Alternating Row Colors (Striped)</h2>
+            <p class="section-description">
+                Uses the <code>:nth-child(odd)</code> and <code>:nth-child(even)</code> pseudo-classes 
+                to create alternating background colors. This improves readability by making rows easier to distinguish.
+            </p>
+
+            <div class="table-wrapper">
+                <table class="table-striped">
+                    <caption>Product Inventory - Striped Style</caption>
+                    <thead>
+                        <tr>
+                            <th>Product ID</th>
+                            <th>Product Name</th>
+                            <th>Category</th>
+                            <th>Stock</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>PRD001</td>
+                            <td>Wireless Mouse</td>
+                            <td>Electronics</td>
+                            <td>125</td>
+                            <td>$29.99</td>
+                        </tr>
+                        <tr>
+                            <td>PRD002</td>
+                            <td>Mechanical Keyboard</td>
+                            <td>Electronics</td>
+                            <td>87</td>
+                            <td>$89.99</td>
+                        </tr>
+                        <tr>
+                            <td>PRD003</td>
+                            <td>USB-C Cable</td>
+                            <td>Accessories</td>
+                            <td>234</td>
+                            <td>$12.99</td>
+                        </tr>
+                        <tr>
+                            <td>PRD004</td>
+                            <td>Laptop Stand</td>
+                            <td>Furniture</td>
+                            <td>56</td>
+                            <td>$45.99</td>
+                        </tr>
+                        <tr>
+                            <td>PRD005</td>
+                            <td>Webcam HD</td>
+                            <td>Electronics</td>
+                            <td>92</td>
+                            <td>$69.99</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3">Total Items</td>
+                            <td>594</td>
+                            <td>$248.95</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <div class="code-block"><span class="comment">/* Alternating Row Colors */</span>
+<span class="selector">tbody tr:nth-child(odd)</span> {
+    <span class="property">background-color</span>: <span class="value">#f8f9fa</span>;
+}
+
+<span class="selector">tbody tr:nth-child(even)</span> {
+    <span class="property">background-color</span>: <span class="value">#ffffff</span>;
+}
+
+<span class="selector">tbody tr:hover</span> {
+    <span class="property">background-color</span>: <span class="value">#e3f2fd</span>;
+    <span class="property">transform</span>: <span class="value">scale(1.01)</span>;
+    <span class="property">box-shadow</span>: <span class="value">0 4px 12px rgba(102, 126, 234, 0.15)</span>;
+}</div>
+        </div>
+
+        <!-- Style 2: Bordered Table -->
+        <div class="section">
+            <h2>2. Fully Bordered Table</h2>
+            <p class="section-description">
+                Every cell has visible borders, creating a grid-like appearance. Uses <code>border-collapse: collapse</code> 
+                to merge adjacent borders and avoid double lines.
+            </p>
+
+            <div class="table-wrapper">
+                <table class="table-bordered">
+                    <caption>Monthly Sales Report - Bordered Style</caption>
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>Revenue</th>
+                            <th>Expenses</th>
+                            <th>Profit</th>
+                            <th>Growth</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>January</td>
+                            <td>$45,200</td>
+                            <td>$12,300</td>
+                            <td>$32,900</td>
+                            <td>+12%</td>
+                        </tr>
+                        <tr>
+                            <td>February</td>
+                            <td>$52,800</td>
+                            <td>$14,500</td>
+                            <td>$38,300</td>
+                            <td>+16%</td>
+                        </tr>
+                        <tr>
+                            <td>March</td>
+                            <td>$48,600</td>
+                            <td>$13,200</td>
+                            <td>$35,400</td>
+                            <td>+8%</td>
+                        </tr>
+                        <tr>
+                            <td>April</td>
+                            <td>$61,400</td>
+                            <td>$15,800</td>
+                            <td>$45,600</td>
+                            <td>+26%</td>
+                        </tr>
+                        <tr>
+                            <td>May</td>
+                            <td>$58,900</td>
+                            <td>$14,900</td>
+                            <td>$44,000</td>
+                            <td>+21%</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Total</td>
+                            <td>$266,900</td>
+                            <td>$70,700</td>
+                            <td>$196,200</td>
+                            <td>+17%</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <div class="code-block"><span class="comment">/* Bordered Table Style */</span>
+<span class="selector">.table-bordered</span> {
+    <span class="property">border-collapse</span>: <span class="value">collapse</span>;
+    <span class="property">border</span>: <span class="value">2px solid #667eea</span>;
+}
+
+<span class="selector">.table-bordered th,
+.table-bordered td</span> {
+    <span class="property">border</span>: <span class="value">1px solid #ddd</span>;
+    <span class="property">padding</span>: <span class="value">15px</span>;
+}
+
+<span class="selector">.table-bordered thead</span> {
+    <span class="property">background-color</span>: <span class="value">#667eea</span>;
+    <span class="property">color</span>: <span class="value">white</span>;
+}</div>
+        </div>
+
+        <!-- Style 3: Minimal Design -->
+        <div class="section">
+            <h2>3. Minimal Clean Design</h2>
+            <p class="section-description">
+                A minimalist approach with only horizontal borders. Clean and modern, 
+                perfect for displaying data without visual clutter.
+            </p>
+
+            <div class="table-wrapper">
+                <table class="table-minimal">
+                    <caption>Team Members - Minimal Style</caption>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Department</th>
+                            <th>Location</th>
+                            <th>Years</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Alex Thompson</td>
+                            <td>Senior Developer</td>
+                            <td>Engineering</td>
+                            <td>New York</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>Maria Garcia</td>
+                            <td>Product Manager</td>
+                            <td>Product</td>
+                            <td>San Francisco</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>James Wilson</td>
+                            <td>UX Designer</td>
+                            <td>Design</td>
+                            <td>Austin</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>Lisa Chen</td>
+                            <td>Marketing Lead</td>
+                            <td>Marketing</td>
+                            <td>Seattle</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>Robert Brown</td>
+                            <td>Data Analyst</td>
+                            <td>Analytics</td>
+                            <td>Boston</td>
+                            <td>2</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4">Total Team Members</td>
+                            <td>5</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <div class="code-block"><span class="comment">/* Minimal Design Style */</span>
+<span class="selector">.table-minimal thead</span> {
+    <span class="property">border-bottom</span>: <span class="value">3px solid #667eea</span>;
+}
+
+<span class="selector">.table-minimal td</span> {
+    <span class="property">border-bottom</span>: <span class="value">1px solid #e0e0e0</span>;
+    <span class="property">padding</span>: <span class="value">15px</span>;
+}
+
+<span class="selector">.table-minimal tfoot</span> {
+    <span class="property">border-top</span>: <span class="value">3px solid #667eea</span>;
+}</div>
+        </div>
+
+        <!-- Style 4: Colorful Headers -->
+        <div class="section">
+            <h2>4. Colorful Gradient Headers</h2>
+            <p class="section-description">
+                Uses vibrant gradient backgrounds for headers and alternating row colors. 
+                Perfect for dashboards and modern web applications.
+            </p>
+
+            <div class="table-wrapper">
+                <table class="table-colorful">
+                    <caption>Project Status Dashboard - Colorful Style</caption>
+                    <thead>
+                        <tr>
+                            <th>Project</th>
+                            <th>Client</th>
+                            <th>Status</th>
+                            <th>Progress</th>
+                            <th>Budget</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Website Redesign</td>
+                            <td>Tech Corp</td>
+                            <td>In Progress</td>
+                            <td>75%</td>
+                            <td>$35,000</td>
+                        </tr>
+                        <tr>
+                            <td>Mobile App</td>
+                            <td>Startup Inc</td>
+                            <td>Completed</td>
+                            <td>100%</td>
+                            <td>$50,000</td>
+                        </tr>
+                        <tr>
+                            <td>E-commerce Platform</td>
+                            <td>Retail Pro</td>
+                            <td>In Progress</td>
+                            <td>45%</td>
+                            <td>$75,000</td>
+                        </tr>
+                        <tr>
+                            <td>CRM System</td>
+                            <td>Business LLC</td>
+                            <td>Planning</td>
+                            <td>10%</td>
+                            <td>$60,000</td>
+                        </tr>
+                        <tr>
+                            <td>Marketing Site</td>
+                            <td>Agency XYZ</td>
+                            <td>In Progress</td>
+                            <td>60%</td>
+                            <td>$25,000</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4">Total Budget</td>
+                            <td>$245,000</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <div class="code-block"><span class="comment">/* Colorful Gradient Style */</span>
+<span class="selector">.table-colorful thead</span> {
+    <span class="property">background</span>: <span class="value">linear-gradient(135deg, #fa709a 0%, #fee140 100%)</span>;
+    <span class="property">color</span>: <span class="value">white</span>;
+}
+
+<span class="selector">.table-colorful tbody tr:nth-child(odd)</span> {
+    <span class="property">background-color</span>: <span class="value">#fff5f8</span>;
+}
+
+<span class="selector">.table-colorful tbody tr:hover</span> {
+    <span class="property">background</span>: <span class="value">linear-gradient(90deg, #ffecd2 0%, #fcb69f 100%)</span>;
+    <span class="property">transform</span>: <span class="value">translateX(5px)</span>;
+}</div>
+        </div>
+
+        <!-- Key Styling Features -->
+        <div class="section">
+            <h2>🎯 Key Styling Features Demonstrated</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>📊 Alternating Rows</h3>
+                    <p>Uses :nth-child() pseudo-classes to create zebra-striped patterns that improve readability</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🖼️ Borders</h3>
+                    <p>Shows various border styles from fully bordered to minimal horizontal-only designs</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎨 Header Backgrounds</h3>
+                    <p>Demonstrates solid colors and gradient backgrounds for table headers</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📏 Cell Padding</h3>
+                    <p>Generous padding (15-18px) ensures content doesn't feel cramped</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📱 Responsive Wrapper</h3>
+                    <p>overflow-x: auto enables horizontal scrolling on mobile devices</p>
+                </div>
+                <div class="feature-card">
+                    <h3>✨ Hover Effects</h3>
+                    <p>Interactive hover states with color changes and subtle animations</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison -->
+        <div class="section">
+            <h2>⚖️ When to Use Each Style</h2>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h3>Striped Tables</h3>
+                    <ul>
+                        <li>Best for large datasets</li>
+                        <li>Improves row tracking</li>
+                        <li>Professional appearance</li>
+                        <li>Great for financial data</li>
+                    </ul>
+                </div>
+                <div class="comparison-card">
+                    <h3>Bordered Tables</h3>
+                    <ul>
+                        <li>Clear cell separation</li>
+                        <li>Good for complex data</li>
+                        <li>Traditional/formal look</li>
+                        <li>Excel-like appearance</li>
+                    </ul>
+                </div>
+                <div class="comparison-card">
+                    <h3>Minimal Tables</h3>
+                    <ul>
+                        <li>Modern and clean</li>
+                        <li>Less visual noise</li>
+                        <li>Perfect for dashboards</li>
+                        <li>Emphasis on content</li>
+                    </ul>
+                </div>
+                <div class="comparison-card">
+                    <h3>Colorful Tables</h3>
+                    <ul>
+                        <li>Vibrant and eye-catching</li>
+                        <li>Great for presentations</li>
+                        <li>Brand-focused designs</li>
+                        <li>Creative projects</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Best Practices -->
+        <div class="info-box">
+            <h3>✅ Table Styling Best Practices</h3>
+            <ul>
+                <li><strong>Use border-collapse: collapse</strong> to avoid double borders between cells</li>
+                <li><strong>Provide adequate padding:</strong> At least 10-15px for comfortable reading</li>
+                <li><strong>Make headers stand out:</strong> Use background color, bold text, or both</li>
+                <li><strong>Add hover states:</strong> Helps users track rows across wide tables</li>
+                <li><strong>Alternating row colors:</strong> Use subtle colors (not too bright)</li>
+                <li><strong>Mobile responsiveness:</strong> Always wrap tables in overflow-x: auto container</li>
+                <li><strong>Consistent alignment:</strong> Text left, numbers right is conventional</li>
+                <li><strong>Use transitions:</strong> Smooth hover effects improve user experience</li>
+                <li><strong>Consider accessibility:</strong> Maintain sufficient color contrast ratios</li>
+                <li><strong>Don't overdo it:</strong> Simple and clean beats overly decorative</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

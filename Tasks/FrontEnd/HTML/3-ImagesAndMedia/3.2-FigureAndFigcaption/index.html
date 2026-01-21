@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3.2: Figure and Figcaption</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+        
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+        .info-box h2 {
+            margin-bottom: 15px;
+        }
+        .info-box p {
+            line-height: 1.8;
+        }
+
+        /* Section Styles */
+        .section {
+            margin: 40px 0;
+            padding: 30px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        .section-description {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        /* Figure Styles */
+        figure {
+            margin: 20px 0;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        figure:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        figure img, figure svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        figcaption {
+            padding: 15px 20px;
+            background-color: #f8f9fa;
+            color: #555;
+            font-style: italic;
+            text-align: center;
+            border-top: 3px solid #667eea;
+        }
+
+        /* Multi-image figure */
+        .multi-image-figure {
+            padding: 20px;
+        }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .image-grid svg {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+        }
+
+        /* Code Block */
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        /* Benefits Box */
+        .benefits-box {
+            background-color: #e8f5e9;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #4caf50;
+            margin-top: 30px;
+        }
+        .benefits-box h3 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+        .benefits-box ul {
+            line-height: 2;
+            padding-left: 20px;
+            color: #555;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🖼️ Task 3.2: Figure and Figcaption</h1>
+        <p class="subtitle">Semantic HTML5 elements for images with captions</p>
+
+        <div class="info-box">
+            <h2>📚 What are &lt;figure&gt; and &lt;figcaption&gt;?</h2>
+            <p>
+                The <strong>&lt;figure&gt;</strong> element represents self-contained content, like images, diagrams, 
+                or code snippets. The <strong>&lt;figcaption&gt;</strong> provides a caption or legend for that content. 
+                This semantic approach improves accessibility, SEO, and code readability.
+            </p>
+        </div>
+
+        <!-- Example 1: Basic Figure with Image -->
+        <div class="section">
+            <h2>1. Basic Figure with Single Image</h2>
+            <p class="section-description">
+                A simple example showing an image with a descriptive caption. This is the most common use case.
+            </p>
+            
+            <figure>
+                <svg width="100%" height="400" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="natureGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#56ccf2;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#2f80ed;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#1e3c72;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="100%" height="400" fill="url(#natureGrad)"/>
+                    <circle cx="150" cy="100" r="50" fill="#FFD700" opacity="0.9"/>
+                    <path d="M 0 300 Q 150 250 300 280 T 600 300 Q 750 280 900 300 L 900 400 L 0 400 Z" fill="#2d5016"/>
+                    <polygon points="200,200 250,300 150,300" fill="#1e4d2b"/>
+                    <polygon points="400,180 470,300 330,300" fill="#1e4d2b"/>
+                    <polygon points="650,220 710,300 590,300" fill="#1e4d2b"/>
+                    <text x="50%" y="370" font-family="Arial" font-size="24" font-weight="bold" fill="white" text-anchor="middle">Nature Landscape</text>
+                </svg>
+                <figcaption>Figure 1: A serene mountain landscape with clear blue sky and pine trees</figcaption>
+            </figure>
+
+            <div class="code-block">&lt;figure&gt;
+    &lt;img src="landscape.jpg" alt="Mountain landscape"&gt;
+    &lt;figcaption&gt;Figure 1: A serene mountain landscape&lt;/figcaption&gt;
+&lt;/figure&gt;</div>
+        </div>
+
+        <!-- Example 2: Figure with Detailed Caption -->
+        <div class="section">
+            <h2>2. Figure with Detailed Caption</h2>
+            <p class="section-description">
+                Captions can contain more detailed information, credits, or source information.
+            </p>
+            
+            <figure>
+                <svg width="100%" height="400" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="sunsetGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+                            <stop offset="40%" style="stop-color:#feca57;stop-opacity:1" />
+                            <stop offset="70%" style="stop-color:#ee5a6f;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#0984e3;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="100%" height="400" fill="url(#sunsetGrad)"/>
+                    <circle cx="50%" cy="180" r="80" fill="#ff6348" opacity="0.9"/>
+                    <ellipse cx="50%" cy="180" rx="100" ry="20" fill="#ff6348" opacity="0.3"/>
+                    <rect y="320" width="100%" height="80" fill="#0984e3" opacity="0.7"/>
+                    <path d="M 0 350 Q 200 340 400 355 T 800 350" stroke="white" stroke-width="2" fill="none" opacity="0.6"/>
+                    <text x="50%" y="380" font-family="Arial" font-size="20" font-weight="bold" fill="white" text-anchor="middle">Sunset Over Ocean</text>
+                </svg>
+                <figcaption>
+                    Figure 2: Spectacular sunset over the Pacific Ocean, captured at Big Sur, California. 
+                    The vibrant colors are created by light scattering through atmospheric particles. 
+                    Photo by Nature Photographer (2024)
+                </figcaption>
+            </figure>
+
+            <div class="code-block">&lt;figure&gt;
+    &lt;img src="sunset.jpg" alt="Sunset over ocean"&gt;
+    &lt;figcaption&gt;
+        Figure 2: Spectacular sunset over the Pacific Ocean...
+        Photo by Nature Photographer (2024)
+    &lt;/figcaption&gt;
+&lt;/figure&gt;</div>
+        </div>
+
+        <!-- Example 3: Figure with Code Snippet -->
+        <div class="section">
+            <h2>3. Figure with Technical Content</h2>
+            <p class="section-description">
+                Figures aren't just for images! They can contain diagrams, charts, or code snippets.
+            </p>
+            
+            <figure>
+                <svg width="100%" height="350" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="350" fill="#1e1e1e"/>
+                    
+                    <!-- Browser Chrome -->
+                    <rect width="100%" height="40" fill="#323232"/>
+                    <circle cx="20" cy="20" r="6" fill="#ff5f56"/>
+                    <circle cx="40" cy="20" r="6" fill="#ffbd2e"/>
+                    <circle cx="60" cy="20" r="6" fill="#27c93f"/>
+                    <text x="50%" y="27" font-family="Arial" font-size="14" fill="#fff" text-anchor="middle">Browser Window</text>
+                    
+                    <!-- Content Area -->
+                    <rect y="40" width="100%" height="310" fill="#252526"/>
+                    
+                    <!-- HTML Structure -->
+                    <text x="5%" y="80" font-family="Courier New" font-size="16" fill="#569cd6">&lt;div</text>
+                    <text x="10%" y="80" font-family="Courier New" font-size="16" fill="#9cdcfe">class</text>
+                    <text x="14%" y="80" font-family="Courier New" font-size="16" fill="#fff">=</text>
+                    <text x="15%" y="80" font-family="Courier New" font-size="16" fill="#ce9178">"container"</text>
+                    <text x="23%" y="80" font-family="Courier New" font-size="16" fill="#569cd6">&gt;</text>
+                    
+                    <text x="8%" y="110" font-family="Courier New" font-size="16" fill="#569cd6">&lt;h1&gt;</text>
+                    <text x="13%" y="110" font-family="Courier New" font-size="16" fill="#fff">Hello World</text>
+                    <text x="23%" y="110" font-family="Courier New" font-size="16" fill="#569cd6">&lt;/h1&gt;</text>
+                    
+                    <text x="8%" y="140" font-family="Courier New" font-size="16" fill="#569cd6">&lt;p&gt;</text>
+                    <text x="11%" y="140" font-family="Courier New" font-size="16" fill="#fff">This is a paragraph.</text>
+                    <text x="30%" y="140" font-family="Courier New" font-size="16" fill="#569cd6">&lt;/p&gt;</text>
+                    
+                    <text x="5%" y="170" font-family="Courier New" font-size="16" fill="#569cd6">&lt;/div&gt;</text>
+                    
+                    <!-- Visual Representation -->
+                    <rect x="50%" y="80" width="40%" height="200" fill="#fff" rx="5"/>
+                    <text x="70%" y="130" font-family="Arial" font-size="24" font-weight="bold" fill="#333" text-anchor="middle">Hello World</text>
+                    <text x="70%" y="160" font-family="Arial" font-size="14" fill="#666" text-anchor="middle">This is a paragraph.</text>
+                </svg>
+                <figcaption>
+                    Figure 3: HTML structure and its visual rendering in a browser. 
+                    This demonstrates how semantic HTML translates to visual output.
+                </figcaption>
+            </figure>
+
+            <div class="code-block">&lt;figure&gt;
+    &lt;pre&gt;&lt;code&gt;
+        &lt;div class="container"&gt;
+            &lt;h1&gt;Hello World&lt;/h1&gt;
+        &lt;/div&gt;
+    &lt;/code&gt;&lt;/pre&gt;
+    &lt;figcaption&gt;Figure 3: HTML structure example&lt;/figcaption&gt;
+&lt;/figure&gt;</div>
+        </div>
+
+        <!-- Example 4: Figure with Multiple Related Images -->
+        <div class="section">
+            <h2>4. Figure with Multiple Related Images</h2>
+            <p class="section-description">
+                A single figure can contain multiple related images that share a common caption.
+            </p>
+            
+            <figure class="multi-image-figure">
+                <div class="image-grid">
+                    <svg xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="spring" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#a8edea;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#fed6e3;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#spring)" rx="8"/>
+                        <circle cx="50%" cy="40%" r="30" fill="#FFD700"/>
+                        <path d="M 0 70% Q 25% 60% 50% 70% T 100% 70% L 100% 100% L 0 100% Z" fill="#90EE90"/>
+                        <text x="50%" y="90%" font-family="Arial" font-size="24" font-weight="bold" fill="#333" text-anchor="middle">Spring</text>
+                    </svg>
+                    
+                    <svg xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="summer" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ffd89b;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#19547b;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#summer)" rx="8"/>
+                        <circle cx="50%" cy="30%" r="35" fill="#FF4500"/>
+                        <rect y="70%" width="100%" height="30%" fill="#FFD700"/>
+                        <text x="50%" y="90%" font-family="Arial" font-size="24" font-weight="bold" fill="#333" text-anchor="middle">Summer</text>
+                    </svg>
+                    
+                    <svg xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="autumn" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#fa709a;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#fee140;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#autumn)" rx="8"/>
+                        <path d="M 0 70% Q 25% 65% 50% 70% T 100% 70% L 100% 100% L 0 100% Z" fill="#8B4513"/>
+                        <circle cx="30%" cy="50%" r="8" fill="#FF6347"/>
+                        <circle cx="60%" cy="45%" r="8" fill="#FF8C00"/>
+                        <circle cx="50%" cy="60%" r="8" fill="#FFD700"/>
+                        <text x="50%" y="90%" font-family="Arial" font-size="24" font-weight="bold" fill="#333" text-anchor="middle">Autumn</text>
+                    </svg>
+                    
+                    <svg xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="winter" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#e6e9f0;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#eef1f5;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#winter)" rx="8"/>
+                        <rect y="70%" width="100%" height="30%" fill="#f0f0f0"/>
+                        <circle cx="20%" cy="30%" r="3" fill="#fff" opacity="0.8"/>
+                        <circle cx="40%" cy="25%" r="4" fill="#fff" opacity="0.8"/>
+                        <circle cx="60%" cy="35%" r="3" fill="#fff" opacity="0.8"/>
+                        <circle cx="80%" cy="28%" r="4" fill="#fff" opacity="0.8"/>
+                        <text x="50%" y="90%" font-family="Arial" font-size="24" font-weight="bold" fill="#333" text-anchor="middle">Winter</text>
+                    </svg>
+                </div>
+                <figcaption>
+                    Figure 4: The four seasons - Spring, Summer, Autumn, and Winter. 
+                    Each image represents the distinctive characteristics and colors of the season.
+                </figcaption>
+            </figure>
+
+            <div class="code-block">&lt;figure&gt;
+    &lt;img src="spring.jpg" alt="Spring landscape"&gt;
+    &lt;img src="summer.jpg" alt="Summer landscape"&gt;
+    &lt;img src="autumn.jpg" alt="Autumn landscape"&gt;
+    &lt;img src="winter.jpg" alt="Winter landscape"&gt;
+    &lt;figcaption&gt;Figure 4: The four seasons&lt;/figcaption&gt;
+&lt;/figure&gt;</div>
+        </div>
+
+        <!-- Benefits Box -->
+        <div class="benefits-box">
+            <h3>✨ Benefits of Using &lt;figure&gt; and &lt;figcaption&gt;</h3>
+            <ul>
+                <li><strong>Semantic HTML:</strong> Clearly indicates the relationship between image and caption</li>
+                <li><strong>Accessibility:</strong> Screen readers understand the content structure better</li>
+                <li><strong>SEO:</strong> Search engines recognize and index captions, improving discoverability</li>
+                <li><strong>Styling:</strong> Easier to style images and captions together as a unit</li>
+                <li><strong>Flexibility:</strong> Can contain images, diagrams, code, quotes, or other content</li>
+                <li><strong>Professional:</strong> Standard practice in modern web development</li>
+                <li><strong>Maintenance:</strong> Easier to update and maintain related content</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h2>💡 Best Practices</h2>
+            <p>
+                ✅ Always use &lt;figcaption&gt; inside &lt;figure&gt;<br>
+                ✅ Keep captions concise and descriptive<br>
+                ✅ Include proper alt text on images even when using figcaption<br>
+                ✅ Use for self-contained content that could be moved without affecting the main flow<br>
+                ✅ Number figures for easy reference (Figure 1, Figure 2, etc.)<br>
+                ❌ Don't use figure for decorative images that don't need captions
+            </p>
+        </div>
+    </div>
+</body>
+</html>

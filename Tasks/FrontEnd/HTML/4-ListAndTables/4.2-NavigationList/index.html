@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4.2: Navigation Lists</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Header Navigation (Horizontal) */
+        .header-nav {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+        .header-nav li {
+            position: relative;
+        }
+        .header-nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 20px 30px;
+            font-size: 1.1em;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .header-nav a:hover {
+            background-color: rgba(255,255,255,0.15);
+        }
+        .header-nav a.active {
+            background-color: rgba(255,255,255,0.25);
+            border-bottom: 3px solid white;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 30px;
+        }
+
+        /* Sidebar Navigation (Vertical) */
+        .sidebar-nav {
+            background-color: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            height: fit-content;
+            position: sticky;
+            top: 90px;
+        }
+        .sidebar-nav h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+        .sidebar-nav ul {
+            list-style: none;
+        }
+        .sidebar-nav li {
+            margin: 8px 0;
+        }
+        .sidebar-nav a {
+            display: block;
+            color: #555;
+            text-decoration: none;
+            padding: 12px 15px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            border-left: 3px solid transparent;
+        }
+        .sidebar-nav a:hover {
+            background-color: #f0f0f0;
+            border-left-color: #667eea;
+            transform: translateX(5px);
+        }
+        .sidebar-nav a.active {
+            background-color: #e8f0fe;
+            border-left-color: #667eea;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        /* Main Content */
+        .main-content {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .main-content h1 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        /* Section Styles */
+        .section {
+            margin: 40px 0;
+            padding: 30px;
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+        }
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        .section-description {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        /* Code Block */
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        .code-block .tag {
+            color: #569cd6;
+        }
+        .code-block .attr {
+            color: #9cdcfe;
+        }
+        .code-block .string {
+            color: #ce9178;
+        }
+
+        /* Footer Navigation */
+        .footer-nav {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            margin-top: 40px;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            color: white;
+        }
+        .footer-section h4 {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            color: #3498db;
+        }
+        .footer-section ul {
+            list-style: none;
+        }
+        .footer-section li {
+            margin: 8px 0;
+        }
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .footer-section a:hover {
+            color: #3498db;
+            padding-left: 5px;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+        .info-box h3 {
+            margin-bottom: 15px;
+            font-size: 1.6em;
+        }
+        .info-box ul {
+            line-height: 2.2;
+            padding-left: 20px;
+        }
+
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .feature-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid #667eea;
+        }
+        .feature-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar-nav {
+                position: static;
+            }
+            .header-nav ul {
+                flex-direction: column;
+            }
+            .header-nav a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation (Horizontal) -->
+    <nav class="header-nav">
+        <ul>
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Sidebar Navigation (Vertical) -->
+        <aside class="sidebar-nav">
+            <h3>📚 Documentation</h3>
+            <ul>
+                <li><a href="#intro" class="active">Introduction</a></li>
+                <li><a href="#getting-started">Getting Started</a></li>
+                <li><a href="#installation">Installation</a></li>
+                <li><a href="#configuration">Configuration</a></li>
+                <li><a href="#examples">Examples</a></li>
+                <li><a href="#api-reference">API Reference</a></li>
+                <li><a href="#troubleshooting">Troubleshooting</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1>🧭 Task 4.2: Navigation Lists</h1>
+            <p class="subtitle">Building navigation menus using semantic HTML lists</p>
+
+            <!-- Section 1: Header Navigation -->
+            <div class="section">
+                <h2>1. Header Navigation (Horizontal)</h2>
+                <p class="section-description">
+                    The top navigation bar uses an unordered list styled horizontally with Flexbox. 
+                    This is the most common navigation pattern for website headers.
+                </p>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>✨ Semantic HTML</h3>
+                        <p>Uses &lt;nav&gt; and &lt;ul&gt; for proper structure</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>📱 Responsive</h3>
+                        <p>Adapts to mobile with vertical stacking</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🎯 Active State</h3>
+                        <p>Highlights current page location</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>⚡ Sticky Position</h3>
+                        <p>Stays at top when scrolling</p>
+                    </div>
+                </div>
+
+                <div class="code-block"><span class="comment">&lt;!-- Header Navigation (Horizontal) --&gt;</span>
+<span class="tag">&lt;nav</span> <span class="attr">class</span>=<span class="string">"header-nav"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;ul&gt;</span>
+        <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">href</span>=<span class="string">"#home"</span> <span class="attr">class</span>=<span class="string">"active"</span><span class="tag">&gt;</span>Home<span class="tag">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">href</span>=<span class="string">"#about"</span><span class="tag">&gt;</span>About<span class="tag">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">href</span>=<span class="string">"#services"</span><span class="tag">&gt;</span>Services<span class="tag">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">href</span>=<span class="string">"#portfolio"</span><span class="tag">&gt;</span>Portfolio<span class="tag">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">href</span>=<span class="string">"#contact"</span><span class="tag">&gt;</span>Contact<span class="tag">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="tag">&lt;/ul&gt;</span>
+<span class="tag">&lt;/nav&gt;</span>
+
+<span class="comment">/* CSS for Horizontal Layout */</span>
+.header-nav ul {
+    display: flex;              <span class="comment">/* Flexbox for horizontal layout */</span>
+    justify-content: center;    <span class="comment">/* Center alignment */</span>
+    list-style: none;           <span class="comment">/* Remove bullets */</span>
+}</div>
+            </div>
+
+            <!-- Section 2: Sidebar Navigation -->
+            <div class="section">
+                <h2>2. Sidebar Navigation (Vertical)</h2>
+                <p class="section-description">
+                    The sidebar navigation on the left uses a vertical list, perfect for documentation, 
+                    dashboards, or admin panels. Notice how it's sticky and follows you as you scroll!
+                </p>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>📍 Sticky Positioning</h3>
+                        <p>Remains visible while scrolling</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🎨 Hover Effects</h3>
+                        <p>Visual feedback on interaction</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🔍 Clear Hierarchy</h3>
+                        <p>Easy to scan and navigate</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>♿ Accessible</h3>
+                        <p>Keyboard and screen reader friendly</p>
+                    </div>
+                </div>
+
+                <div class="code-block"><span class="comment">&lt;!-- Sidebar Navigation (Vertical) --&gt;</span>
+<span class="tag">&lt;aside</span> <span class="attr">class</span>=<span class="string">"sidebar-nav"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;h3&gt;</span>Documentation<span class="tag">&lt;/h3&gt;</span>
+    <span class="tag">&lt;ul&gt;</span>
+        <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">href</span>=<span class="string">"#intro"</span> <span class="attr">class</span>=<span class="string">"active"</span><span class="tag">&gt;</span>Introduction<span class="tag">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">href</span>=<span class="string">"#getting-started"</span><span class="tag">&gt;</span>Getting Started<span class="tag">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">href</span>=<span class="string">"#installation"</span><span class="tag">&gt;</span>Installation<span class="tag">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">href</span>=<span class="string">"#configuration"</span><span class="tag">&gt;</span>Configuration<span class="tag">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">href</span>=<span class="string">"#examples"</span><span class="tag">&gt;</span>Examples<span class="tag">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="tag">&lt;/ul&gt;</span>
+<span class="tag">&lt;/aside&gt;</span>
+
+<span class="comment">/* CSS for Vertical Layout */</span>
+.sidebar-nav ul {
+    list-style: none;
+}
+.sidebar-nav li {
+    margin: 8px 0;
+}
+.sidebar-nav a {
+    display: block;            <span class="comment">/* Full-width clickable area */</span>
+    padding: 12px 15px;
+}</div>
+            </div>
+
+            <!-- Section 3: Footer Links -->
+            <div class="section">
+                <h2>3. Footer Links Section</h2>
+                <p class="section-description">
+                    The footer below demonstrates how to organize multiple navigation lists in a grid layout. 
+                    Each column contains a categorized list of links, common in website footers.
+                </p>
+
+                <div class="code-block"><span class="comment">&lt;!-- Footer Navigation --&gt;</span>
+<span class="tag">&lt;footer</span> <span class="attr">class</span>=<span class="string">"footer-nav"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="string">"footer-content"</span><span class="tag">&gt;</span>
+        <span class="comment">&lt;!-- Company Section --&gt;</span>
+        <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="string">"footer-section"</span><span class="tag">&gt;</span>
+            <span class="tag">&lt;h4&gt;</span>Company<span class="tag">&lt;/h4&gt;</span>
+            <span class="tag">&lt;ul&gt;</span>
+                <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">href</span>=<span class="string">"#"</span><span class="tag">&gt;</span>About Us<span class="tag">&lt;/a&gt;&lt;/li&gt;</span>
+                <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">href</span>=<span class="string">"#"</span><span class="tag">&gt;</span>Careers<span class="tag">&lt;/a&gt;&lt;/li&gt;</span>
+                <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">href</span>=<span class="string">"#"</span><span class="tag">&gt;</span>Press<span class="tag">&lt;/a&gt;&lt;/li&gt;</span>
+            <span class="tag">&lt;/ul&gt;</span>
+        <span class="tag">&lt;/div&gt;</span>
+        
+        <span class="comment">&lt;!-- Resources Section --&gt;</span>
+        <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="string">"footer-section"</span><span class="tag">&gt;</span>
+            <span class="tag">&lt;h4&gt;</span>Resources<span class="tag">&lt;/h4&gt;</span>
+            <span class="tag">&lt;ul&gt;</span>
+                <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">href</span>=<span class="string">"#"</span><span class="tag">&gt;</span>Documentation<span class="tag">&lt;/a&gt;&lt;/li&gt;</span>
+                <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">href</span>=<span class="string">"#"</span><span class="tag">&gt;</span>Blog<span class="tag">&lt;/a&gt;&lt;/li&gt;</span>
+                <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">href</span>=<span class="string">"#"</span><span class="tag">&gt;</span>Tutorials<span class="tag">&lt;/a&gt;&lt;/li&gt;</span>
+            <span class="tag">&lt;/ul&gt;</span>
+        <span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/footer&gt;</span></div>
+            </div>
+
+            <!-- Best Practices -->
+            <div class="info-box">
+                <h3>✅ Navigation Best Practices</h3>
+                <ul>
+                    <li><strong>Use semantic HTML:</strong> Always use &lt;nav&gt; for navigation sections</li>
+                    <li><strong>Lists for structure:</strong> Build navigation with &lt;ul&gt; and &lt;li&gt; elements</li>
+                    <li><strong>Indicate current page:</strong> Use "active" class or aria-current attribute</li>
+                    <li><strong>Keyboard accessible:</strong> Ensure tab navigation works properly</li>
+                    <li><strong>Responsive design:</strong> Adapt navigation for mobile (hamburger menu, vertical stack)</li>
+                    <li><strong>Clear labels:</strong> Use descriptive link text, avoid "Click here"</li>
+                    <li><strong>Visual feedback:</strong> Provide hover and focus states</li>
+                    <li><strong>Consistent placement:</strong> Keep navigation in expected locations</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer Navigation -->
+    <footer class="footer-nav">
+        <div class="footer-content">
+            <!-- Company Section -->
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#team">Our Team</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="#press">Press</a></li>
+                    <li><a href="#partners">Partners</a></li>
+                </ul>
+            </div>
+
+            <!-- Resources Section -->
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#docs">Documentation</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#tutorials">Tutorials</a></li>
+                    <li><a href="#guides">Guides</a></li>
+                    <li><a href="#api">API Reference</a></li>
+                </ul>
+            </div>
+
+            <!-- Support Section -->
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#help">Help Center</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#community">Community</a></li>
+                    <li><a href="#status">Status</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal Section -->
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#terms">Terms of Service</a></li>
+                    <li><a href="#cookies">Cookie Policy</a></li>
+                    <li><a href="#security">Security</a></li>
+                    <li><a href="#compliance">Compliance</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Section -->
+            <div class="footer-section">
+                <h4>Social</h4>
+                <ul>
+                    <li><a href="#twitter">Twitter</a></li>
+                    <li><a href="#facebook">Facebook</a></li>
+                    <li><a href="#linkedin">LinkedIn</a></li>
+                    <li><a href="#github">GitHub</a></li>
+                    <li><a href="#youtube">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

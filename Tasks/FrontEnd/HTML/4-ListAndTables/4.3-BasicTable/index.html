@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4.3: Basic Table</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        /* Basic Table Styles */
+        .table-wrapper {
+            margin: 30px 0;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        caption {
+            caption-side: top;
+            padding: 15px;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #667eea;
+            background-color: #f8f9fa;
+            border-radius: 8px 8px 0 0;
+        }
+        thead {
+            background-color: #667eea;
+            color: white;
+        }
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+        }
+        tbody tr {
+            border-bottom: 1px solid #e0e0e0;
+        }
+        tbody tr:last-child {
+            border-bottom: none;
+        }
+        td {
+            padding: 15px;
+            color: #333;
+        }
+        tfoot {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+        tfoot td {
+            padding: 15px;
+            color: #667eea;
+            border-top: 2px solid #667eea;
+        }
+
+        /* Section Styles */
+        .section {
+            margin: 50px 0;
+            padding: 30px;
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+        }
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        .section-description {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        /* Code Block */
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+        .code-block .tag {
+            color: #569cd6;
+        }
+        .code-block .attr {
+            color: #9cdcfe;
+        }
+        .code-block .string {
+            color: #ce9178;
+        }
+        .code-block .comment {
+            color: #6a9955;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+        .info-box h3 {
+            margin-bottom: 15px;
+            font-size: 1.6em;
+        }
+        .info-box ul {
+            line-height: 2.2;
+            padding-left: 20px;
+        }
+        .info-box li {
+            margin: 8px 0;
+        }
+
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .feature-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid #667eea;
+        }
+        .feature-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Highlight Box */
+        .highlight {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .highlight strong {
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Task 4.3: Basic Table</h1>
+        <p class="subtitle">Understanding HTML table structure with proper semantic elements</p>
+
+        <!-- Main Table Example -->
+        <div class="section">
+            <h2>Employee Database Table</h2>
+            <p class="section-description">
+                This table demonstrates proper HTML table structure with all essential elements: 
+                &lt;caption&gt;, &lt;thead&gt;, &lt;tbody&gt;, and &lt;tfoot&gt;.
+            </p>
+
+            <div class="table-wrapper">
+                <table>
+                    <caption>Company Employee Records - Q1 2026</caption>
+                    <thead>
+                        <tr>
+                            <th>Employee ID</th>
+                            <th>Full Name</th>
+                            <th>Department</th>
+                            <th>Salary</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>EMP001</td>
+                            <td>John Smith</td>
+                            <td>Engineering</td>
+                            <td>$85,000</td>
+                        </tr>
+                        <tr>
+                            <td>EMP002</td>
+                            <td>Sarah Johnson</td>
+                            <td>Marketing</td>
+                            <td>$72,000</td>
+                        </tr>
+                        <tr>
+                            <td>EMP003</td>
+                            <td>Michael Chen</td>
+                            <td>Design</td>
+                            <td>$78,000</td>
+                        </tr>
+                        <tr>
+                            <td>EMP004</td>
+                            <td>Emily Davis</td>
+                            <td>Sales</td>
+                            <td>$68,000</td>
+                        </tr>
+                        <tr>
+                            <td>EMP005</td>
+                            <td>David Martinez</td>
+                            <td>Engineering</td>
+                            <td>$92,000</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3">Total Employees: 5</td>
+                            <td>$395,000</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+
+        <!-- Table Structure Explanation -->
+        <div class="section">
+            <h2>📚 Table Structure Components</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>&lt;table&gt;</h3>
+                    <p>The main container element that holds all table content. Required for creating any HTML table.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>&lt;caption&gt;</h3>
+                    <p>Provides a title or description for the table. Improves accessibility and context for users.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>&lt;thead&gt;</h3>
+                    <p>Contains header rows with column titles. Groups header content semantically.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>&lt;tbody&gt;</h3>
+                    <p>Contains the main data rows of the table. Groups body content semantically.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>&lt;tfoot&gt;</h3>
+                    <p>Contains footer rows like totals or summary information. Groups footer content.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>&lt;tr&gt;</h3>
+                    <p>Table Row - defines a row of cells. Can contain &lt;th&gt; or &lt;td&gt; elements.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>&lt;th&gt;</h3>
+                    <p>Table Header cell - bold and centered by default. Used for column or row headers.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>&lt;td&gt;</h3>
+                    <p>Table Data cell - contains the actual data. Regular text alignment and weight.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- HTML Code Example -->
+        <div class="section">
+            <h2>💻 Complete HTML Structure</h2>
+            <p class="section-description">
+                Here's the complete HTML code for creating the employee table shown above:
+            </p>
+
+            <div class="code-block"><span class="tag">&lt;table&gt;</span>
+    <span class="comment">&lt;!-- Table caption provides context --&gt;</span>
+    <span class="tag">&lt;caption&gt;</span>Company Employee Records - Q1 2026<span class="tag">&lt;/caption&gt;</span>
+    
+    <span class="comment">&lt;!-- Table header section --&gt;</span>
+    <span class="tag">&lt;thead&gt;</span>
+        <span class="tag">&lt;tr&gt;</span>
+            <span class="tag">&lt;th&gt;</span>Employee ID<span class="tag">&lt;/th&gt;</span>
+            <span class="tag">&lt;th&gt;</span>Full Name<span class="tag">&lt;/th&gt;</span>
+            <span class="tag">&lt;th&gt;</span>Department<span class="tag">&lt;/th&gt;</span>
+            <span class="tag">&lt;th&gt;</span>Salary<span class="tag">&lt;/th&gt;</span>
+        <span class="tag">&lt;/tr&gt;</span>
+    <span class="tag">&lt;/thead&gt;</span>
+    
+    <span class="comment">&lt;!-- Table body with data rows --&gt;</span>
+    <span class="tag">&lt;tbody&gt;</span>
+        <span class="tag">&lt;tr&gt;</span>
+            <span class="tag">&lt;td&gt;</span>EMP001<span class="tag">&lt;/td&gt;</span>
+            <span class="tag">&lt;td&gt;</span>John Smith<span class="tag">&lt;/td&gt;</span>
+            <span class="tag">&lt;td&gt;</span>Engineering<span class="tag">&lt;/td&gt;</span>
+            <span class="tag">&lt;td&gt;</span>$85,000<span class="tag">&lt;/td&gt;</span>
+        <span class="tag">&lt;/tr&gt;</span>
+        <span class="tag">&lt;tr&gt;</span>
+            <span class="tag">&lt;td&gt;</span>EMP002<span class="tag">&lt;/td&gt;</span>
+            <span class="tag">&lt;td&gt;</span>Sarah Johnson<span class="tag">&lt;/td&gt;</span>
+            <span class="tag">&lt;td&gt;</span>Marketing<span class="tag">&lt;/td&gt;</span>
+            <span class="tag">&lt;td&gt;</span>$72,000<span class="tag">&lt;/td&gt;</span>
+        <span class="tag">&lt;/tr&gt;</span>
+        <span class="tag">&lt;tr&gt;</span>
+            <span class="tag">&lt;td&gt;</span>EMP003<span class="tag">&lt;/td&gt;</span>
+            <span class="tag">&lt;td&gt;</span>Michael Chen<span class="tag">&lt;/td&gt;</span>
+            <span class="tag">&lt;td&gt;</span>Design<span class="tag">&lt;/td&gt;</span>
+            <span class="tag">&lt;td&gt;</span>$78,000<span class="tag">&lt;/td&gt;</span>
+        <span class="tag">&lt;/tr&gt;</span>
+        <span class="tag">&lt;tr&gt;</span>
+            <span class="tag">&lt;td&gt;</span>EMP004<span class="tag">&lt;/td&gt;</span>
+            <span class="tag">&lt;td&gt;</span>Emily Davis<span class="tag">&lt;/td&gt;</span>
+            <span class="tag">&lt;td&gt;</span>Sales<span class="tag">&lt;/td&gt;</span>
+            <span class="tag">&lt;td&gt;</span>$68,000<span class="tag">&lt;/td&gt;</span>
+        <span class="tag">&lt;/tr&gt;</span>
+        <span class="tag">&lt;tr&gt;</span>
+            <span class="tag">&lt;td&gt;</span>EMP005<span class="tag">&lt;/td&gt;</span>
+            <span class="tag">&lt;td&gt;</span>David Martinez<span class="tag">&lt;/td&gt;</span>
+            <span class="tag">&lt;td&gt;</span>Engineering<span class="tag">&lt;/td&gt;</span>
+            <span class="tag">&lt;td&gt;</span>$92,000<span class="tag">&lt;/td&gt;</span>
+        <span class="tag">&lt;/tr&gt;</span>
+    <span class="tag">&lt;/tbody&gt;</span>
+    
+    <span class="comment">&lt;!-- Table footer with summary --&gt;</span>
+    <span class="tag">&lt;tfoot&gt;</span>
+        <span class="tag">&lt;tr&gt;</span>
+            <span class="tag">&lt;td</span> <span class="attr">colspan</span>=<span class="string">"3"</span><span class="tag">&gt;</span>Total Employees: 5<span class="tag">&lt;/td&gt;</span>
+            <span class="tag">&lt;td&gt;</span>$395,000<span class="tag">&lt;/td&gt;</span>
+        <span class="tag">&lt;/tr&gt;</span>
+    <span class="tag">&lt;/tfoot&gt;</span>
+<span class="tag">&lt;/table&gt;</span></div>
+
+            <div class="highlight">
+                <strong>Note:</strong> The <code>colspan="3"</code> attribute in the footer makes the first cell span across 3 columns, allowing us to merge cells horizontally.
+            </div>
+        </div>
+
+        <!-- Best Practices -->
+        <div class="info-box">
+            <h3>✅ Table Best Practices</h3>
+            <ul>
+                <li><strong>Always use &lt;caption&gt;:</strong> Provides context and improves accessibility</li>
+                <li><strong>Separate structure with &lt;thead&gt;, &lt;tbody&gt;, &lt;tfoot&gt;:</strong> Makes tables semantically clear</li>
+                <li><strong>Use &lt;th&gt; for headers:</strong> Screen readers use these to help users navigate</li>
+                <li><strong>Keep tables simple:</strong> Avoid using tables for layout purposes (use CSS Grid/Flexbox instead)</li>
+                <li><strong>Add scope attribute:</strong> Use scope="col" or scope="row" on &lt;th&gt; elements for better accessibility</li>
+                <li><strong>Use border-collapse:</strong> Set to "collapse" for cleaner borders</li>
+                <li><strong>Make responsive:</strong> Wrap tables in a container with overflow-x: auto</li>
+                <li><strong>Provide summary:</strong> Use &lt;tfoot&gt; for totals or summaries when appropriate</li>
+            </ul>
+        </div>
+
+        <!-- Additional Example -->
+        <div class="section">
+            <h2>📖 Second Example: Course Schedule</h2>
+            <p class="section-description">
+                Another practical example showing a course schedule with proper table structure:
+            </p>
+
+            <div class="table-wrapper">
+                <table>
+                    <caption>Web Development Course Schedule - Spring 2026</caption>
+                    <thead>
+                        <tr>
+                            <th>Week</th>
+                            <th>Topic</th>
+                            <th>Duration</th>
+                            <th>Instructor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Week 1</td>
+                            <td>HTML Fundamentals</td>
+                            <td>3 hours</td>
+                            <td>Dr. Smith</td>
+                        </tr>
+                        <tr>
+                            <td>Week 2</td>
+                            <td>CSS Styling</td>
+                            <td>4 hours</td>
+                            <td>Prof. Johnson</td>
+                        </tr>
+                        <tr>
+                            <td>Week 3</td>
+                            <td>JavaScript Basics</td>
+                            <td>5 hours</td>
+                            <td>Dr. Chen</td>
+                        </tr>
+                        <tr>
+                            <td>Week 4</td>
+                            <td>React Framework</td>
+                            <td>6 hours</td>
+                            <td>Prof. Davis</td>
+                        </tr>
+                        <tr>
+                            <td>Week 5</td>
+                            <td>Final Project</td>
+                            <td>8 hours</td>
+                            <td>All Instructors</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2">Total Course Duration</td>
+                            <td colspan="2">26 hours</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

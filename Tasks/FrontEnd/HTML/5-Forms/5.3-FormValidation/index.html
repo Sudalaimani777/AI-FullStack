@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 5.3: Form Validation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        /* Form Styles */
+        .validation-form {
+            width: 100%;
+        }
+        .form-section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+        }
+        .form-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.6em;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 1em;
+        }
+        .required {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .label-description {
+            display: block;
+            color: #666;
+            font-size: 0.9em;
+            font-weight: normal;
+            margin-top: 4px;
+        }
+        input,
+        textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background-color: white;
+        }
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+        input:invalid:not(:placeholder-shown),
+        textarea:invalid:not(:placeholder-shown) {
+            border-color: #dc3545;
+        }
+        input:valid:not(:placeholder-shown),
+        textarea:valid:not(:placeholder-shown) {
+            border-color: #28a745;
+        }
+        input::placeholder,
+        textarea::placeholder {
+            color: #999;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Validation Badge */
+        .validation-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        /* Submit Button */
+        button[type="submit"] {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            margin-top: 20px;
+        }
+        button[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+        button[type="submit"]:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 40px;
+        }
+        .info-box h3 {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        .info-box ul {
+            line-height: 2.2;
+            padding-left: 25px;
+        }
+
+        /* Code Block */
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.7;
+        }
+        .code-block .tag {
+            color: #569cd6;
+        }
+        .code-block .attr {
+            color: #9cdcfe;
+        }
+        .code-block .value {
+            color: #ce9178;
+        }
+        .code-block .comment {
+            color: #6a9955;
+        }
+
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        .feature-card {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+        }
+        .feature-card h3 {
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 1.3em;
+        }
+        .feature-card .attribute {
+            background-color: #667eea;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        .feature-card p {
+            color: #666;
+            line-height: 1.8;
+            margin-top: 10px;
+        }
+        .feature-card .example {
+            background-color: #e8f0fe;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✅ HTML5 Form Validation</h1>
+        <p class="subtitle">Built-in validation for better user experience</p>
+
+        <form class="validation-form" action="/submit-form" method="POST">
+            <!-- Required Fields -->
+            <div class="form-section">
+                <h2>Required Fields</h2>
+                
+                <div class="form-group">
+                    <label for="fullname">
+                        Full Name <span class="required">*</span> <span class="validation-badge">required</span>
+                        <span class="label-description">This field must be filled out before submission</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="fullname" 
+                        name="fullname" 
+                        placeholder="Enter your full name"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">
+                        Email Address <span class="required">*</span> <span class="validation-badge">required + email format</span>
+                        <span class="label-description">Must be a valid email address (e.g., user@example.com)</span>
+                    </label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="user@example.com"
+                        required
+                    >
+                </div>
+            </div>
+
+            <!-- Pattern Validation -->
+            <div class="form-section">
+                <h2>Pattern Validation</h2>
+                
+                <div class="form-group">
+                    <label for="phone">
+                        Phone Number <span class="required">*</span> <span class="validation-badge">pattern: (123) 456-7890</span>
+                        <span class="label-description">Must match format: (123) 456-7890</span>
+                    </label>
+                    <input 
+                        type="tel" 
+                        id="phone" 
+                        name="phone" 
+                        placeholder="(123) 456-7890"
+                        pattern="\([0-9]{3}\) [0-9]{3}-[0-9]{4}"
+                        title="Format: (123) 456-7890"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="zipcode">
+                        ZIP Code <span class="required">*</span> <span class="validation-badge">pattern: 5 digits</span>
+                        <span class="label-description">Must be exactly 5 digits</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="zipcode" 
+                        name="zipcode" 
+                        placeholder="12345"
+                        pattern="[0-9]{5}"
+                        title="Must be 5 digits"
+                        required
+                    >
+                </div>
+            </div>
+
+            <!-- Length Validation -->
+            <div class="form-section">
+                <h2>Length Validation</h2>
+                
+                <div class="form-group">
+                    <label for="username">
+                        Username <span class="required">*</span> <span class="validation-badge">minlength: 3, maxlength: 20</span>
+                        <span class="label-description">Must be between 3 and 20 characters</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        name="username" 
+                        placeholder="Choose a username"
+                        minlength="3"
+                        maxlength="20"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">
+                        Password <span class="required">*</span> <span class="validation-badge">minlength: 8</span>
+                        <span class="label-description">Must be at least 8 characters long</span>
+                    </label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Enter secure password"
+                        minlength="8"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="bio">
+                        Bio <span class="validation-badge">maxlength: 200</span>
+                        <span class="label-description">Optional, maximum 200 characters</span>
+                    </label>
+                    <textarea 
+                        id="bio" 
+                        name="bio" 
+                        placeholder="Tell us about yourself..."
+                        maxlength="200"
+                    ></textarea>
+                </div>
+            </div>
+
+            <!-- Numeric Validation -->
+            <div class="form-section">
+                <h2>Numeric Validation</h2>
+                
+                <div class="form-group">
+                    <label for="age">
+                        Age <span class="required">*</span> <span class="validation-badge">min: 18, max: 120</span>
+                        <span class="label-description">Must be between 18 and 120</span>
+                    </label>
+                    <input 
+                        type="number" 
+                        id="age" 
+                        name="age" 
+                        placeholder="Enter your age"
+                        min="18"
+                        max="120"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="quantity">
+                        Quantity <span class="required">*</span> <span class="validation-badge">min: 1, max: 10, step: 1</span>
+                        <span class="label-description">Select quantity between 1 and 10</span>
+                    </label>
+                    <input 
+                        type="number" 
+                        id="quantity" 
+                        name="quantity" 
+                        value="1"
+                        min="1"
+                        max="10"
+                        step="1"
+                        required
+                    >
+                </div>
+            </div>
+
+            <button type="submit">Validate & Submit Form</button>
+        </form>
+
+        <!-- Validation Attributes Reference -->
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3><span class="attribute">required</span></h3>
+                <p>Field must be filled out before form submission.</p>
+                <div class="example">&lt;input type="text" required&gt;</div>
+            </div>
+
+            <div class="feature-card">
+                <h3><span class="attribute">minlength</span></h3>
+                <p>Minimum number of characters required.</p>
+                <div class="example">&lt;input type="text" minlength="3"&gt;</div>
+            </div>
+
+            <div class="feature-card">
+                <h3><span class="attribute">maxlength</span></h3>
+                <p>Maximum number of characters allowed.</p>
+                <div class="example">&lt;input type="text" maxlength="20"&gt;</div>
+            </div>
+
+            <div class="feature-card">
+                <h3><span class="attribute">pattern</span></h3>
+                <p>Regular expression that the value must match.</p>
+                <div class="example">&lt;input pattern="[0-9]{5}"&gt;</div>
+            </div>
+
+            <div class="feature-card">
+                <h3><span class="attribute">min / max</span></h3>
+                <p>Minimum and maximum values for numbers and dates.</p>
+                <div class="example">&lt;input type="number" min="18" max="120"&gt;</div>
+            </div>
+
+            <div class="feature-card">
+                <h3><span class="attribute">step</span></h3>
+                <p>Incremental values for numeric inputs.</p>
+                <div class="example">&lt;input type="number" step="5"&gt;</div>
+            </div>
+        </div>
+
+        <!-- Code Examples -->
+        <div class="code-block"><span class="comment">&lt;!-- Required Field --&gt;</span>
+<span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="value">"text"</span> <span class="attr">required</span><span class="tag">&gt;</span>
+
+<span class="comment">&lt;!-- Email Validation --&gt;</span>
+<span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="value">"email"</span> <span class="attr">required</span><span class="tag">&gt;</span>
+
+<span class="comment">&lt;!-- Pattern Validation (Phone) --&gt;</span>
+<span class="tag">&lt;input</span> 
+    <span class="attr">type</span>=<span class="value">"tel"</span>
+    <span class="attr">pattern</span>=<span class="value">"\([0-9]{3}\) [0-9]{3}-[0-9]{4}"</span>
+    <span class="attr">title</span>=<span class="value">"Format: (123) 456-7890"</span>
+    <span class="attr">required</span>
+<span class="tag">&gt;</span>
+
+<span class="comment">&lt;!-- Length Validation --&gt;</span>
+<span class="tag">&lt;input</span> 
+    <span class="attr">type</span>=<span class="value">"text"</span>
+    <span class="attr">minlength</span>=<span class="value">"3"</span>
+    <span class="attr">maxlength</span>=<span class="value">"20"</span>
+    <span class="attr">required</span>
+<span class="tag">&gt;</span>
+
+<span class="comment">&lt;!-- Numeric Validation --&gt;</span>
+<span class="tag">&lt;input</span> 
+    <span class="attr">type</span>=<span class="value">"number"</span>
+    <span class="attr">min</span>=<span class="value">"18"</span>
+    <span class="attr">max</span>=<span class="value">"120"</span>
+    <span class="attr">required</span>
+<span class="tag">&gt;</span></div>
+
+        <!-- Best Practices -->
+        <div class="info-box">
+            <h3>✅ Form Validation Best Practices</h3>
+            <ul>
+                <li><strong>Mark required fields:</strong> Use asterisk (*) or "required" label for clarity</li>
+                <li><strong>Provide clear feedback:</strong> Use :invalid and :valid CSS pseudo-classes for visual cues</li>
+                <li><strong>Add helpful title attributes:</strong> Explain validation rules in tooltips</li>
+                <li><strong>Use appropriate patterns:</strong> Test regex patterns thoroughly before deployment</li>
+                <li><strong>Don't rely solely on HTML5:</strong> Always validate on the server side too</li>
+                <li><strong>Progressive enhancement:</strong> Provide helpful error messages even if browser doesn't support validation</li>
+                <li><strong>Keep it user-friendly:</strong> Show what's expected before they make mistakes</li>
+                <li><strong>Test thoroughly:</strong> Validate across different browsers and devices</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

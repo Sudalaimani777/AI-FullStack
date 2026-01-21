@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4.1: All List Types</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        /* Header */
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 2.8em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.2em;
+        }
+
+        /* Info Banner */
+        .info-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .info-banner h2 {
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        /* Section Styles */
+        .section {
+            margin: 40px 0;
+            padding: 35px;
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            border-left: 6px solid #667eea;
+        }
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        .section-description {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        /* List Container */
+        .list-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+
+        /* Unordered List Styling */
+        .unordered-list {
+            list-style-type: disc;
+            padding-left: 30px;
+            line-height: 2.2;
+        }
+        .unordered-list li {
+            color: #555;
+            font-size: 1.05em;
+            margin: 10px 0;
+        }
+
+        /* Ordered List Styling */
+        .ordered-list {
+            list-style-type: decimal;
+            padding-left: 30px;
+            line-height: 2.2;
+        }
+        .ordered-list li {
+            color: #555;
+            font-size: 1.05em;
+            margin: 10px 0;
+        }
+
+        /* Description List Styling */
+        .description-list {
+            line-height: 2;
+        }
+        .description-list dt {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-top: 15px;
+        }
+        .description-list dd {
+            color: #555;
+            margin-left: 30px;
+            margin-bottom: 10px;
+            padding: 8px 0;
+        }
+
+        /* Nested List Styling */
+        .nested-list {
+            list-style-type: disc;
+            padding-left: 30px;
+            line-height: 2;
+        }
+        .nested-list li {
+            color: #555;
+            font-size: 1.05em;
+            margin: 8px 0;
+        }
+        .nested-list ul {
+            list-style-type: circle;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+        .nested-list ul li {
+            color: #666;
+        }
+
+        /* Code Block */
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        .code-block .tag {
+            color: #569cd6;
+        }
+        .code-block .text {
+            color: #f8f8f2;
+        }
+
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        .feature-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+        }
+        .feature-card .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .feature-card h3 {
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+        .feature-card p {
+            line-height: 1.6;
+        }
+
+        /* Summary Box */
+        .summary-box {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+            padding: 35px;
+            border-radius: 12px;
+            margin-top: 40px;
+        }
+        .summary-box h3 {
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        .summary-box ul {
+            line-height: 2.3;
+            padding-left: 25px;
+            font-size: 1.05em;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            .container {
+                padding: 25px;
+            }
+            .section {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📋 Task 4.1: All List Types</h1>
+        <p class="subtitle">Mastering Unordered, Ordered, Description, and Nested Lists</p>
+
+        <div class="info-banner">
+            <h2>📚 Three Main List Types in HTML</h2>
+            <p>
+                HTML provides three fundamental list types: Unordered Lists (bullet points), 
+                Ordered Lists (numbered), and Description Lists (term-definition pairs). 
+                Plus, you can nest lists inside each other for hierarchical content!
+            </p>
+        </div>
+
+        <!-- Feature Grid -->
+        <div class="feature-grid">
+            <div class="feature-card">
+                <span class="icon">•</span>
+                <h3>Unordered Lists</h3>
+                <p>Bullet points for items without specific order</p>
+            </div>
+            <div class="feature-card">
+                <span class="icon">1.</span>
+                <h3>Ordered Lists</h3>
+                <p>Numbered lists for sequential items</p>
+            </div>
+            <div class="feature-card">
+                <span class="icon">📖</span>
+                <h3>Description Lists</h3>
+                <p>Term and definition pairs</p>
+            </div>
+            <div class="feature-card">
+                <span class="icon">🔗</span>
+                <h3>Nested Lists</h3>
+                <p>Lists within lists for hierarchy</p>
+            </div>
+        </div>
+
+        <!-- Section 1: Unordered List -->
+        <div class="section">
+            <h2>1. Unordered List (Bullet Points)</h2>
+            <p class="section-description">
+                Unordered lists use <code>&lt;ul&gt;</code> tags and display items with bullet points. 
+                Perfect for items that don't need to be in a specific order.
+            </p>
+            
+            <div class="list-container">
+                <h3 style="color: #667eea; margin-bottom: 15px;">My Favorite Programming Languages:</h3>
+                <ul class="unordered-list">
+                    <li>JavaScript - For web development</li>
+                    <li>Python - For data science and automation</li>
+                    <li>TypeScript - For type-safe JavaScript</li>
+                    <li>Go - For backend services</li>
+                    <li>Rust - For system programming</li>
+                </ul>
+            </div>
+
+            <div class="code-block"><span class="tag">&lt;ul&gt;</span>
+    <span class="tag">&lt;li&gt;</span><span class="text">JavaScript - For web development</span><span class="tag">&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;</span><span class="text">Python - For data science and automation</span><span class="tag">&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;</span><span class="text">TypeScript - For type-safe JavaScript</span><span class="tag">&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;</span><span class="text">Go - For backend services</span><span class="tag">&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;</span><span class="text">Rust - For system programming</span><span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ul&gt;</span></div>
+        </div>
+
+        <!-- Section 2: Ordered List -->
+        <div class="section">
+            <h2>2. Ordered List (Numbered)</h2>
+            <p class="section-description">
+                Ordered lists use <code>&lt;ol&gt;</code> tags and display items with numbers. 
+                Ideal for sequential steps, rankings, or procedures.
+            </p>
+            
+            <div class="list-container">
+                <h3 style="color: #667eea; margin-bottom: 15px;">Steps to Build a Website:</h3>
+                <ol class="ordered-list">
+                    <li>Plan your website structure and content</li>
+                    <li>Design wireframes and mockups</li>
+                    <li>Write HTML markup for structure</li>
+                    <li>Add CSS styling for appearance</li>
+                    <li>Implement JavaScript for interactivity</li>
+                </ol>
+            </div>
+
+            <div class="code-block"><span class="tag">&lt;ol&gt;</span>
+    <span class="tag">&lt;li&gt;</span><span class="text">Plan your website structure and content</span><span class="tag">&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;</span><span class="text">Design wireframes and mockups</span><span class="tag">&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;</span><span class="text">Write HTML markup for structure</span><span class="tag">&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;</span><span class="text">Add CSS styling for appearance</span><span class="tag">&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;</span><span class="text">Implement JavaScript for interactivity</span><span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ol&gt;</span></div>
+        </div>
+
+        <!-- Section 3: Description List -->
+        <div class="section">
+            <h2>3. Description List (Term-Definition Pairs)</h2>
+            <p class="section-description">
+                Description lists use <code>&lt;dl&gt;</code> for the list, <code>&lt;dt&gt;</code> for terms, 
+                and <code>&lt;dd&gt;</code> for definitions. Perfect for glossaries, metadata, or key-value pairs.
+            </p>
+            
+            <div class="list-container">
+                <h3 style="color: #667eea; margin-bottom: 15px;">Web Development Terms:</h3>
+                <dl class="description-list">
+                    <dt>HTML (HyperText Markup Language)</dt>
+                    <dd>The standard markup language for creating web pages. It structures content with elements like headings, paragraphs, and links.</dd>
+                    
+                    <dt>CSS (Cascading Style Sheets)</dt>
+                    <dd>A stylesheet language used to describe the presentation of HTML documents. Controls colors, layouts, fonts, and responsive design.</dd>
+                    
+                    <dt>JavaScript</dt>
+                    <dd>A programming language that enables interactive features on websites, from simple animations to complex web applications.</dd>
+                    
+                    <dt>DOM (Document Object Model)</dt>
+                    <dd>A programming interface for HTML documents. Represents the page structure as a tree of objects that can be manipulated with JavaScript.</dd>
+                    
+                    <dt>API (Application Programming Interface)</dt>
+                    <dd>A set of rules and protocols that allows different software applications to communicate and exchange data with each other.</dd>
+                </dl>
+            </div>
+
+            <div class="code-block"><span class="tag">&lt;dl&gt;</span>
+    <span class="tag">&lt;dt&gt;</span><span class="text">HTML (HyperText Markup Language)</span><span class="tag">&lt;/dt&gt;</span>
+    <span class="tag">&lt;dd&gt;</span><span class="text">The standard markup language for creating web pages...</span><span class="tag">&lt;/dd&gt;</span>
+    
+    <span class="tag">&lt;dt&gt;</span><span class="text">CSS (Cascading Style Sheets)</span><span class="tag">&lt;/dt&gt;</span>
+    <span class="tag">&lt;dd&gt;</span><span class="text">A stylesheet language used to describe the presentation...</span><span class="tag">&lt;/dd&gt;</span>
+    
+    <span class="tag">&lt;dt&gt;</span><span class="text">JavaScript</span><span class="tag">&lt;/dt&gt;</span>
+    <span class="tag">&lt;dd&gt;</span><span class="text">A programming language that enables interactive features...</span><span class="tag">&lt;/dd&gt;</span>
+<span class="tag">&lt;/dl&gt;</span></div>
+        </div>
+
+        <!-- Section 4: Nested List -->
+        <div class="section">
+            <h2>4. Nested List (2 Levels)</h2>
+            <p class="section-description">
+                You can nest lists inside other lists to create hierarchical structures. 
+                This is useful for showing relationships between items or creating sub-categories.
+            </p>
+            
+            <div class="list-container">
+                <h3 style="color: #667eea; margin-bottom: 15px;">Web Development Technologies:</h3>
+                <ul class="nested-list">
+                    <li>Frontend Development
+                        <ul>
+                            <li>HTML5 - Structure and content</li>
+                            <li>CSS3 - Styling and layout</li>
+                            <li>JavaScript - Interactivity and logic</li>
+                        </ul>
+                    </li>
+                    <li>Backend Development
+                        <ul>
+                            <li>Node.js - JavaScript runtime</li>
+                            <li>Python/Django - Full-stack framework</li>
+                            <li>PHP/Laravel - Web application framework</li>
+                        </ul>
+                    </li>
+                    <li>Database Management
+                        <ul>
+                            <li>MongoDB - NoSQL database</li>
+                            <li>PostgreSQL - Relational database</li>
+                            <li>Redis - In-memory data store</li>
+                        </ul>
+                    </li>
+                    <li>DevOps & Deployment
+                        <ul>
+                            <li>Git - Version control</li>
+                            <li>Docker - Containerization</li>
+                            <li>AWS/Azure - Cloud platforms</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="code-block"><span class="tag">&lt;ul&gt;</span>
+    <span class="tag">&lt;li&gt;</span><span class="text">Frontend Development</span>
+        <span class="tag">&lt;ul&gt;</span>
+            <span class="tag">&lt;li&gt;</span><span class="text">HTML5 - Structure and content</span><span class="tag">&lt;/li&gt;</span>
+            <span class="tag">&lt;li&gt;</span><span class="text">CSS3 - Styling and layout</span><span class="tag">&lt;/li&gt;</span>
+            <span class="tag">&lt;li&gt;</span><span class="text">JavaScript - Interactivity and logic</span><span class="tag">&lt;/li&gt;</span>
+        <span class="tag">&lt;/ul&gt;</span>
+    <span class="tag">&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;</span><span class="text">Backend Development</span>
+        <span class="tag">&lt;ul&gt;</span>
+            <span class="tag">&lt;li&gt;</span><span class="text">Node.js - JavaScript runtime</span><span class="tag">&lt;/li&gt;</span>
+            <span class="tag">&lt;li&gt;</span><span class="text">Python/Django - Full-stack framework</span><span class="tag">&lt;/li&gt;</span>
+        <span class="tag">&lt;/ul&gt;</span>
+    <span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ul&gt;</span></div>
+        </div>
+
+        <!-- Summary -->
+        <div class="summary-box">
+            <h3>📌 Summary: When to Use Each List Type</h3>
+            <ul>
+                <li><strong>Unordered Lists (&lt;ul&gt;):</strong> Items without specific order - features, benefits, ingredients</li>
+                <li><strong>Ordered Lists (&lt;ol&gt;):</strong> Sequential items - steps, rankings, instructions</li>
+                <li><strong>Description Lists (&lt;dl&gt;):</strong> Term-definition pairs - glossaries, metadata, FAQs</li>
+                <li><strong>Nested Lists:</strong> Hierarchical content - categories with subcategories, file structures</li>
+                <li><strong>Accessibility:</strong> Screen readers announce list types and item counts</li>
+                <li><strong>SEO Benefits:</strong> Search engines understand structured content better</li>
+                <li><strong>Best Practice:</strong> Choose the semantic list type that matches your content</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

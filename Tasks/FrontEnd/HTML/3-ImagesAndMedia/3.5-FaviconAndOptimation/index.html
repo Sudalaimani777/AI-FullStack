@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3.5: Favicon and Image Optimization</title>
+    
+    <!-- Favicon Links -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667eea;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23764ba2;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' fill='url(%23grad)' rx='20'/%3E%3Ctext x='50' y='70' font-family='Arial' font-size='60' font-weight='bold' fill='white' text-anchor='middle'%3EW%3C/text%3E%3C/svg%3E">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        /* Header */
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        /* Favicon Demo */
+        .favicon-demo {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .favicon-demo h2 {
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        .favicon-demo p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .favicon-display {
+            display: inline-block;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .favicon-display svg {
+            width: 64px;
+            height: 64px;
+        }
+
+        /* Section Styles */
+        .section {
+            margin: 40px 0;
+            padding: 30px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        .section p, .section li {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Code Block */
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        .code-block .comment {
+            color: #6a9955;
+        }
+        .code-block .tag {
+            color: #569cd6;
+        }
+        .code-block .attr {
+            color: #9cdcfe;
+        }
+        .code-block .string {
+            color: #ce9178;
+        }
+
+        /* Image Format Comparison */
+        .format-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        .format-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .format-card:hover {
+            transform: translateY(-5px);
+        }
+        .format-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        .format-card .format-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .format-card ul {
+            padding-left: 20px;
+            margin-top: 15px;
+        }
+        .format-card li {
+            margin: 8px 0;
+        }
+
+        /* Optimization Checklist */
+        .checklist {
+            background-color: #e8f5e9;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid #4caf50;
+            margin: 30px 0;
+        }
+        .checklist h3 {
+            color: #2e7d32;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #c8e6c9;
+        }
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+        .checkbox {
+            font-size: 1.5em;
+            margin-right: 15px;
+            color: #4caf50;
+        }
+        .checklist-item span {
+            color: #555;
+            font-size: 1.05em;
+        }
+
+        /* Tools Section */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .tool-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .tool-card:hover {
+            transform: scale(1.05);
+        }
+        .tool-card h4 {
+            margin: 15px 0 10px 0;
+            font-size: 1.3em;
+        }
+        .tool-card .icon {
+            font-size: 2.5em;
+        }
+
+        /* Alt Text Examples */
+        .alt-examples {
+            background-color: #fff3e0;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid #ff9800;
+            margin: 30px 0;
+        }
+        .alt-examples h3 {
+            color: #e65100;
+            margin-bottom: 20px;
+        }
+        .example-item {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+        }
+        .example-item .label {
+            font-weight: bold;
+            color: #e65100;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .good {
+            color: #4caf50;
+        }
+        .bad {
+            color: #f44336;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        .info-box h3 {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        .info-box ul {
+            line-height: 2.2;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚡ Task 3.5: Favicon & Image Optimization</h1>
+        <p class="subtitle">Professional favicon implementation and image optimization best practices</p>
+
+        <!-- Favicon Demo -->
+        <div class="favicon-demo">
+            <h2>🎨 Look at Your Browser Tab!</h2>
+            <p>This page has a custom favicon (the small icon in your browser tab). Check it out! 👀</p>
+            <div class="favicon-display">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="faviconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="100" height="100" fill="url(#faviconGrad)" rx="20"/>
+                    <text x="50" y="70" font-family="Arial" font-size="60" font-weight="bold" fill="white" text-anchor="middle">W</text>
+                </svg>
+            </div>
+            <p>This is what the favicon looks like (enlarged). It appears as 16x16 or 32x32 pixels in your browser.</p>
+        </div>
+
+        <!-- Favicon Implementation Section -->
+        <div class="section">
+            <h2>1️⃣ How to Add a Favicon</h2>
+            <p>
+                A favicon is the small icon displayed in browser tabs, bookmarks, and browser history. 
+                It helps users quickly identify your site among multiple open tabs.
+            </p>
+            
+            <h3 style="color: #667eea; margin: 25px 0 15px 0;">Using an Image File:</h3>
+            <div class="code-block"><span class="comment">&lt;!-- In the &lt;head&gt; section --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="string">"icon"</span> <span class="attr">type</span>=<span class="string">"image/png"</span> <span class="attr">href</span>=<span class="string">"favicon.png"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="string">"icon"</span> <span class="attr">type</span>=<span class="string">"image/x-icon"</span> <span class="attr">href</span>=<span class="string">"favicon.ico"</span><span class="tag">&gt;</span>
+
+<span class="comment">&lt;!-- Multiple sizes for different devices --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="string">"icon"</span> <span class="attr">type</span>=<span class="string">"image/png"</span> <span class="attr">sizes</span>=<span class="string">"32x32"</span> <span class="attr">href</span>=<span class="string">"favicon-32x32.png"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="string">"icon"</span> <span class="attr">type</span>=<span class="string">"image/png"</span> <span class="attr">sizes</span>=<span class="string">"16x16"</span> <span class="attr">href</span>=<span class="string">"favicon-16x16.png"</span><span class="tag">&gt;</span></div>
+
+            <h3 style="color: #667eea; margin: 25px 0 15px 0;">Using SVG (Modern Approach):</h3>
+            <div class="code-block"><span class="comment">&lt;!-- SVG favicon - scalable and modern --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="string">"icon"</span> <span class="attr">type</span>=<span class="string">"image/svg+xml"</span> <span class="attr">href</span>=<span class="string">"favicon.svg"</span><span class="tag">&gt;</span></div>
+        </div>
+
+        <!-- Image Format Guide -->
+        <div class="section">
+            <h2>2️⃣ Image Format Guide</h2>
+            <p style="margin-bottom: 25px;">
+                Choosing the right image format is crucial for website performance and quality. 
+                Each format has its strengths and ideal use cases.
+            </p>
+
+            <div class="format-grid">
+                <!-- JPEG -->
+                <div class="format-card">
+                    <span class="format-icon">📸</span>
+                    <h3>JPEG (.jpg, .jpeg)</h3>
+                    <p><strong>Best for:</strong> Photographs and complex images</p>
+                    <ul>
+                        <li>Excellent compression</li>
+                        <li>Small file sizes</li>
+                        <li>Lossy compression</li>
+                        <li>No transparency support</li>
+                        <li>Widely supported</li>
+                    </ul>
+                </div>
+
+                <!-- PNG -->
+                <div class="format-card">
+                    <span class="format-icon">🎨</span>
+                    <h3>PNG (.png)</h3>
+                    <p><strong>Best for:</strong> Graphics, logos, icons</p>
+                    <ul>
+                        <li>Lossless compression</li>
+                        <li>Transparency support</li>
+                        <li>Sharp edges and text</li>
+                        <li>Larger file sizes</li>
+                        <li>Perfect for UI elements</li>
+                    </ul>
+                </div>
+
+                <!-- WebP -->
+                <div class="format-card">
+                    <span class="format-icon">🚀</span>
+                    <h3>WebP (.webp)</h3>
+                    <p><strong>Best for:</strong> Modern websites</p>
+                    <ul>
+                        <li>Superior compression</li>
+                        <li>Smaller than JPEG/PNG</li>
+                        <li>Supports transparency</li>
+                        <li>Modern browsers only</li>
+                        <li>Best performance</li>
+                    </ul>
+                </div>
+
+                <!-- SVG -->
+                <div class="format-card">
+                    <span class="format-icon">📐</span>
+                    <h3>SVG (.svg)</h3>
+                    <p><strong>Best for:</strong> Logos, icons, simple graphics</p>
+                    <ul>
+                        <li>Vector format (scalable)</li>
+                        <li>Tiny file sizes</li>
+                        <li>Perfect at any size</li>
+                        <li>Not for photos</li>
+                        <li>CSS/JS manipulable</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alt Text Best Practices -->
+        <div class="alt-examples">
+            <h3>✍️ Writing Descriptive Alt Text</h3>
+            <p style="margin-bottom: 20px;">
+                Alt text is crucial for accessibility and SEO. It describes images to screen readers 
+                and appears when images fail to load.
+            </p>
+
+            <div class="example-item">
+                <span class="label bad">❌ Bad:</span>
+                <code>&lt;img src="photo.jpg" alt="image"&gt;</code>
+                <p style="margin-top: 8px; color: #666;">Too generic, not descriptive</p>
+            </div>
+
+            <div class="example-item">
+                <span class="label bad">❌ Bad:</span>
+                <code>&lt;img src="photo.jpg" alt="photo of a person"&gt;</code>
+                <p style="margin-top: 8px; color: #666;">Too vague, lacks details</p>
+            </div>
+
+            <div class="example-item">
+                <span class="label good">✅ Good:</span>
+                <code>&lt;img src="photo.jpg" alt="Sarah Johnson presenting at tech conference"&gt;</code>
+                <p style="margin-top: 8px; color: #666;">Descriptive and specific</p>
+            </div>
+
+            <div class="example-item">
+                <span class="label good">✅ Good:</span>
+                <code>&lt;img src="product.jpg" alt="Red leather messenger bag with brass buckles"&gt;</code>
+                <p style="margin-top: 8px; color: #666;">Describes key visual details</p>
+            </div>
+
+            <div class="example-item">
+                <span class="label">ℹ️ Decorative Images:</span>
+                <code>&lt;img src="divider.jpg" alt="" role="presentation"&gt;</code>
+                <p style="margin-top: 8px; color: #666;">Empty alt for purely decorative images</p>
+            </div>
+        </div>
+
+        <!-- Optimization Checklist -->
+        <div class="checklist">
+            <h3>✅ Image Optimization Checklist</h3>
+            
+            <div class="checklist-item">
+                <span class="checkbox">✓</span>
+                <span><strong>Compress images</strong> before uploading (use TinyPNG, ImageOptim, etc.)</span>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="checkbox">✓</span>
+                <span><strong>Use appropriate formats</strong> - JPEG for photos, PNG for graphics, SVG for logos</span>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="checkbox">✓</span>
+                <span><strong>Specify dimensions</strong> in HTML or CSS to prevent layout shifts</span>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="checkbox">✓</span>
+                <span><strong>Write descriptive alt text</strong> for all content images</span>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="checkbox">✓</span>
+                <span><strong>Use lazy loading</strong> for images below the fold</span>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="checkbox">✓</span>
+                <span><strong>Serve responsive images</strong> using srcset for different screen sizes</span>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="checkbox">✓</span>
+                <span><strong>Add favicon</strong> in multiple sizes for different devices</span>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="checkbox">✓</span>
+                <span><strong>Test on mobile</strong> to ensure images load quickly</span>
+            </div>
+        </div>
+
+        <!-- Optimization Tools -->
+        <div class="section">
+            <h2>🛠️ Image Optimization Tools</h2>
+            <p style="margin-bottom: 25px;">
+                Free tools to compress and optimize your images for the web:
+            </p>
+
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="icon">🔧</div>
+                    <h4>TinyPNG</h4>
+                    <p>Smart PNG and JPEG compression</p>
+                </div>
+
+                <div class="tool-card">
+                    <div class="icon">⚡</div>
+                    <h4>Squoosh</h4>
+                    <p>Google's image optimization tool</p>
+                </div>
+
+                <div class="tool-card">
+                    <div class="icon">🎯</div>
+                    <h4>ImageOptim</h4>
+                    <p>Mac app for batch optimization</p>
+                </div>
+
+                <div class="tool-card">
+                    <div class="icon">🖼️</div>
+                    <h4>GIMP</h4>
+                    <p>Free image editor with export options</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Impact -->
+        <div class="info-box">
+            <h3>⚡ Why Image Optimization Matters</h3>
+            <ul>
+                <li><strong>Page Load Speed:</strong> Optimized images load 50-80% faster</li>
+                <li><strong>Bandwidth Savings:</strong> Reduce data usage for mobile users</li>
+                <li><strong>SEO Benefits:</strong> Google ranks faster sites higher</li>
+                <li><strong>User Experience:</strong> Users abandon slow websites quickly</li>
+                <li><strong>Cost Savings:</strong> Lower hosting bandwidth costs</li>
+                <li><strong>Accessibility:</strong> Proper alt text helps visually impaired users</li>
+                <li><strong>Conversion Rates:</strong> Faster sites have better conversion rates</li>
+            </ul>
+        </div>
+
+        <!-- Final Tips -->
+        <div class="section">
+            <h2>💡 Pro Tips</h2>
+            <ul style="padding-left: 25px; line-height: 2;">
+                <li>Target image file sizes under 200KB for photos, under 50KB for graphics</li>
+                <li>Use WebP format with JPEG/PNG fallbacks for best performance</li>
+                <li>Resize images to actual display size before uploading</li>
+                <li>Consider using a CDN (Content Delivery Network) for faster loading</li>
+                <li>Run regular audits using Google PageSpeed Insights or Lighthouse</li>
+                <li>For favicons, create at minimum: 16x16, 32x32, and 180x180 sizes</li>
+                <li>Test your site on slow 3G connections to identify issues</li>
+                <li>Automate optimization in your build process if possible</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

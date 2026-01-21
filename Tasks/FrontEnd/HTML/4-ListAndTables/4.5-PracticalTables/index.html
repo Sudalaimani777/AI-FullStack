@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4.5: Practical Tables</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .subtitle {
+            text-align: center;
+            color: #f0f0f0;
+            margin-bottom: 50px;
+            font-size: 1.2em;
+        }
+
+        /* Section Container */
+        .section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 2.2em;
+        }
+        .section-description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        /* Responsive Table Wrapper */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Pricing Table */
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+        .pricing-table caption {
+            caption-side: top;
+            padding: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px 10px 0 0;
+        }
+        .pricing-table thead {
+            background-color: #f8f9fa;
+        }
+        .pricing-table th {
+            padding: 20px;
+            text-align: center;
+            font-weight: 600;
+            color: #667eea;
+            text-transform: uppercase;
+            font-size: 0.95em;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        .pricing-table .feature-col {
+            text-align: left;
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: #555;
+        }
+        .pricing-table tbody tr {
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .pricing-table tbody tr:last-child {
+            border-bottom: none;
+        }
+        .pricing-table td {
+            padding: 18px 20px;
+            text-align: center;
+            color: #333;
+        }
+        .pricing-table .feature-col {
+            background-color: #f8f9fa;
+        }
+        .pricing-table .yes {
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .pricing-table .no {
+            color: #dc3545;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .pricing-table .price {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .pricing-table .price-period {
+            font-size: 0.5em;
+            color: #999;
+            font-weight: normal;
+        }
+        .pricing-table tfoot td {
+            padding: 25px;
+            text-align: center;
+        }
+        .pricing-table .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        .pricing-table .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+        .pricing-table .popular {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            font-weight: bold;
+        }
+
+        /* Product Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+        .comparison-table caption {
+            caption-side: top;
+            padding: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 10px 10px 0 0;
+        }
+        .comparison-table thead {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+        }
+        .comparison-table th {
+            padding: 20px 15px;
+            text-align: center;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        .comparison-table th:first-child {
+            text-align: left;
+        }
+        .comparison-table tbody tr {
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .comparison-table tbody tr:nth-child(even) {
+            background-color: #fff5f8;
+        }
+        .comparison-table tbody tr:hover {
+            background-color: #ffe5ed;
+        }
+        .comparison-table td {
+            padding: 18px 15px;
+            text-align: center;
+            color: #333;
+        }
+        .comparison-table td:first-child {
+            text-align: left;
+            font-weight: 600;
+            color: #555;
+            background-color: #fff5f8;
+        }
+        .comparison-table .product-image {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            display: inline-block;
+            line-height: 60px;
+            color: white;
+            font-size: 1.5em;
+        }
+        .comparison-table .rating {
+            color: #ffc107;
+            font-size: 1.2em;
+        }
+        .comparison-table tfoot {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+            font-weight: bold;
+        }
+        .comparison-table tfoot td {
+            padding: 20px;
+        }
+
+        /* Schedule Table */
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+        .schedule-table caption {
+            caption-side: top;
+            padding: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            border-radius: 10px 10px 0 0;
+        }
+        .schedule-table thead {
+            background-color: #43e97b;
+            color: white;
+        }
+        .schedule-table th {
+            padding: 18px 12px;
+            text-align: center;
+            font-weight: 600;
+        }
+        .schedule-table th:first-child {
+            text-align: left;
+            background-color: #2dd370;
+        }
+        .schedule-table tbody tr {
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .schedule-table tbody tr:hover {
+            background-color: #f0fff4;
+        }
+        .schedule-table td {
+            padding: 15px 12px;
+            text-align: center;
+            color: #333;
+            border-right: 1px solid #e0e0e0;
+        }
+        .schedule-table td:first-child {
+            text-align: left;
+            font-weight: 600;
+            background-color: #f0fff4;
+            color: #28a745;
+            border-right: 2px solid #43e97b;
+        }
+        .schedule-table td:last-child {
+            border-right: none;
+        }
+        .schedule-table .event {
+            background-color: #e3f2fd;
+            border-left: 3px solid #2196f3;
+            font-weight: 500;
+            color: #1565c0;
+        }
+        .schedule-table .meeting {
+            background-color: #fff3e0;
+            border-left: 3px solid #ff9800;
+            font-weight: 500;
+            color: #e65100;
+        }
+        .schedule-table .break {
+            background-color: #f3e5f5;
+            border-left: 3px solid #9c27b0;
+            font-weight: 500;
+            color: #6a1b9a;
+        }
+        .schedule-table .work {
+            background-color: #e8f5e9;
+            border-left: 3px solid #4caf50;
+            font-weight: 500;
+            color: #2e7d32;
+        }
+        .schedule-table .empty {
+            background-color: #fafafa;
+            color: #999;
+            font-style: italic;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 35px;
+            border-radius: 12px;
+            margin: 35px 0;
+        }
+        .info-box h3 {
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        .info-box ul {
+            line-height: 2.3;
+            padding-left: 25px;
+        }
+        .info-box li {
+            margin: 10px 0;
+        }
+
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 35px 0;
+        }
+        .feature-card {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+        }
+        .feature-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        .feature-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+        .feature-card ul {
+            color: #666;
+            line-height: 2;
+            padding-left: 25px;
+            margin-top: 10px;
+        }
+
+        /* Code Block */
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.8;
+        }
+        .code-block .tag {
+            color: #569cd6;
+        }
+        .code-block .attr {
+            color: #9cdcfe;
+        }
+        .code-block .value {
+            color: #ce9178;
+        }
+        .code-block .comment {
+            color: #6a9955;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            h1 {
+                font-size: 2em;
+            }
+            .section {
+                padding: 25px;
+            }
+            .pricing-table .price {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💼 Task 4.5: Practical Tables</h1>
+        <p class="subtitle">Real-world table examples with colspan attributes</p>
+
+        <!-- Pricing Table -->
+        <div class="section">
+            <h2>1. Pricing Comparison Table</h2>
+            <p class="section-description">
+                A professional pricing table using <code>colspan</code> to merge cells. Perfect for SaaS products, 
+                subscription services, or any pricing comparison scenario.
+            </p>
+
+            <div class="table-wrapper">
+                <table class="pricing-table">
+                    <caption>Choose Your Perfect Plan</caption>
+                    <thead>
+                        <tr>
+                            <th class="feature-col">Features</th>
+                            <th>Basic</th>
+                            <th class="popular">Pro</th>
+                            <th>Enterprise</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="feature-col">Monthly Price</td>
+                            <td><span class="price">$9<span class="price-period">/mo</span></span></td>
+                            <td class="popular"><span class="price">$29<span class="price-period">/mo</span></span></td>
+                            <td><span class="price">$99<span class="price-period">/mo</span></span></td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col">Storage Space</td>
+                            <td>10 GB</td>
+                            <td class="popular">100 GB</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col">Users Included</td>
+                            <td>1 User</td>
+                            <td class="popular">5 Users</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col">24/7 Support</td>
+                            <td class="no">✗</td>
+                            <td class="popular yes">✓</td>
+                            <td class="yes">✓</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col">Advanced Analytics</td>
+                            <td class="no">✗</td>
+                            <td class="popular yes">✓</td>
+                            <td class="yes">✓</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col">API Access</td>
+                            <td class="no">✗</td>
+                            <td class="popular no">✗</td>
+                            <td class="yes">✓</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col">Custom Branding</td>
+                            <td class="no">✗</td>
+                            <td class="popular no">✗</td>
+                            <td class="yes">✓</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td class="feature-col">Get Started</td>
+                            <td><a href="#" class="cta-button">Choose Basic</a></td>
+                            <td class="popular"><a href="#" class="cta-button">Choose Pro</a></td>
+                            <td><a href="#" class="cta-button">Contact Sales</a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" style="text-align: center; padding: 20px; background-color: #f8f9fa; color: #666;">
+                                All plans include 30-day money-back guarantee • No credit card required for trial
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <div class="code-block"><span class="comment">&lt;!-- Pricing Table with colspan --&gt;</span>
+<span class="tag">&lt;table</span> <span class="attr">class</span>=<span class="value">"pricing-table"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;tfoot&gt;</span>
+        <span class="comment">&lt;!-- Using colspan to span across all columns --&gt;</span>
+        <span class="tag">&lt;tr&gt;</span>
+            <span class="tag">&lt;td</span> <span class="attr">colspan</span>=<span class="value">"4"</span><span class="tag">&gt;</span>
+                All plans include 30-day money-back guarantee
+            <span class="tag">&lt;/td&gt;</span>
+        <span class="tag">&lt;/tr&gt;</span>
+    <span class="tag">&lt;/tfoot&gt;</span>
+<span class="tag">&lt;/table&gt;</span></div>
+        </div>
+
+        <!-- Product Comparison -->
+        <div class="section">
+            <h2>2. Product Comparison Table</h2>
+            <p class="section-description">
+                Compare products side-by-side with detailed specifications. Useful for e-commerce sites, 
+                product catalogs, or any scenario where users need to compare multiple items.
+            </p>
+
+            <div class="table-wrapper">
+                <table class="comparison-table">
+                    <caption>Smartphone Comparison - Find Your Match</caption>
+                    <thead>
+                        <tr>
+                            <th>Specification</th>
+                            <th>Model A</th>
+                            <th>Model B</th>
+                            <th>Model C</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Product Image</td>
+                            <td><span class="product-image">📱</span></td>
+                            <td><span class="product-image">📱</span></td>
+                            <td><span class="product-image">📱</span></td>
+                        </tr>
+                        <tr>
+                            <td>Price</td>
+                            <td>$699</td>
+                            <td>$899</td>
+                            <td>$1,099</td>
+                        </tr>
+                        <tr>
+                            <td>Screen Size</td>
+                            <td>6.1"</td>
+                            <td>6.5"</td>
+                            <td>6.7"</td>
+                        </tr>
+                        <tr>
+                            <td>Storage</td>
+                            <td>128 GB</td>
+                            <td>256 GB</td>
+                            <td>512 GB</td>
+                        </tr>
+                        <tr>
+                            <td>RAM</td>
+                            <td>6 GB</td>
+                            <td>8 GB</td>
+                            <td>12 GB</td>
+                        </tr>
+                        <tr>
+                            <td>Camera</td>
+                            <td>12 MP</td>
+                            <td>48 MP</td>
+                            <td>108 MP</td>
+                        </tr>
+                        <tr>
+                            <td>Battery</td>
+                            <td>3,500 mAh</td>
+                            <td>4,000 mAh</td>
+                            <td>5,000 mAh</td>
+                        </tr>
+                        <tr>
+                            <td>5G Support</td>
+                            <td>❌</td>
+                            <td>✅</td>
+                            <td>✅</td>
+                        </tr>
+                        <tr>
+                            <td>Rating</td>
+                            <td><span class="rating">★★★★☆</span></td>
+                            <td><span class="rating">★★★★★</span></td>
+                            <td><span class="rating">★★★★★</span></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4">
+                                Compare features and choose the smartphone that best fits your needs
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+
+        <!-- Weekly Schedule -->
+        <div class="section">
+            <h2>3. Weekly Schedule Table</h2>
+            <p class="section-description">
+                A color-coded weekly schedule using <code>colspan</code> for events that span multiple time slots. 
+                Perfect for class schedules, work calendars, or event planning.
+            </p>
+
+            <div class="table-wrapper">
+                <table class="schedule-table">
+                    <caption>Weekly Work Schedule - January 2026</caption>
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Monday</th>
+                            <th>Tuesday</th>
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                            <th>Friday</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>9:00 AM</td>
+                            <td class="work">Code Review</td>
+                            <td class="event">Team Standup</td>
+                            <td class="work">Development</td>
+                            <td class="event">Team Standup</td>
+                            <td class="work">Sprint Planning</td>
+                        </tr>
+                        <tr>
+                            <td>10:00 AM</td>
+                            <td class="work">Development</td>
+                            <td class="work">Development</td>
+                            <td class="meeting">Client Call</td>
+                            <td class="work">Development</td>
+                            <td class="work">Development</td>
+                        </tr>
+                        <tr>
+                            <td>11:00 AM</td>
+                            <td class="work">Development</td>
+                            <td class="work">Development</td>
+                            <td class="work">Development</td>
+                            <td class="meeting">Design Review</td>
+                            <td class="work">Development</td>
+                        </tr>
+                        <tr>
+                            <td>12:00 PM</td>
+                            <td colspan="5" class="break">🍽️ Lunch Break</td>
+                        </tr>
+                        <tr>
+                            <td>1:00 PM</td>
+                            <td class="work">Development</td>
+                            <td class="meeting">1-on-1 Meeting</td>
+                            <td class="work">Development</td>
+                            <td class="work">Development</td>
+                            <td class="meeting">Sprint Retro</td>
+                        </tr>
+                        <tr>
+                            <td>2:00 PM</td>
+                            <td class="work">Testing</td>
+                            <td class="work">Development</td>
+                            <td class="event">Workshop</td>
+                            <td class="work">Testing</td>
+                            <td class="empty">Free Time</td>
+                        </tr>
+                        <tr>
+                            <td>3:00 PM</td>
+                            <td class="meeting">Team Meeting</td>
+                            <td class="work">Documentation</td>
+                            <td class="event">Workshop</td>
+                            <td class="work">Code Review</td>
+                            <td class="empty">Free Time</td>
+                        </tr>
+                        <tr>
+                            <td>4:00 PM</td>
+                            <td class="work">Development</td>
+                            <td class="work">Development</td>
+                            <td class="work">Development</td>
+                            <td class="meeting">Dept. Sync</td>
+                            <td class="empty">Free Time</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6" style="text-align: center;">
+                                Legend: 
+                                <span style="color: #2196f3;">■</span> Event • 
+                                <span style="color: #ff9800;">■</span> Meeting • 
+                                <span style="color: #9c27b0;">■</span> Break • 
+                                <span style="color: #4caf50;">■</span> Work
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <div class="code-block"><span class="comment">&lt;!-- Schedule Table with colspan for lunch break --&gt;</span>
+<span class="tag">&lt;tr&gt;</span>
+    <span class="tag">&lt;td&gt;</span>12:00 PM<span class="tag">&lt;/td&gt;</span>
+    <span class="comment">&lt;!-- Lunch spans all 5 weekdays --&gt;</span>
+    <span class="tag">&lt;td</span> <span class="attr">colspan</span>=<span class="value">"5"</span> <span class="attr">class</span>=<span class="value">"break"</span><span class="tag">&gt;</span>
+        🍽️ Lunch Break
+    <span class="tag">&lt;/td&gt;</span>
+<span class="tag">&lt;/tr&gt;</span></div>
+        </div>
+
+        <!-- Key Concepts -->
+        <div class="section">
+            <h2>🔑 Key Concepts in Practical Tables</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>colspan Attribute</h3>
+                    <p>Merges cells horizontally across multiple columns:</p>
+                    <ul>
+                        <li>colspan="2" spans 2 columns</li>
+                        <li>colspan="4" spans 4 columns</li>
+                        <li>Perfect for headers and footers</li>
+                        <li>Reduces redundant content</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h3>rowspan Attribute</h3>
+                    <p>Merges cells vertically across multiple rows:</p>
+                    <ul>
+                        <li>rowspan="2" spans 2 rows</li>
+                        <li>Useful for hierarchical data</li>
+                        <li>Great for category grouping</li>
+                        <li>Reduces visual clutter</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h3>Color Coding</h3>
+                    <p>Visual categorization improves usability:</p>
+                    <ul>
+                        <li>Use distinct colors for categories</li>
+                        <li>Maintain sufficient contrast</li>
+                        <li>Provide a legend for clarity</li>
+                        <li>Be consistent throughout</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h3>Call-to-Action</h3>
+                    <p>Guide users toward desired actions:</p>
+                    <ul>
+                        <li>Prominent buttons in pricing</li>
+                        <li>Clear action labels</li>
+                        <li>Visual hierarchy with color</li>
+                        <li>Highlight recommended options</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Best Practices -->
+        <div class="info-box">
+            <h3>✅ Practical Table Best Practices</h3>
+            <ul>
+                <li><strong>Use colspan wisely:</strong> Only merge cells when it improves clarity and reduces redundancy</li>
+                <li><strong>Maintain structure:</strong> Ensure the total columns in each row equals the table width</li>
+                <li><strong>Visual hierarchy:</strong> Use colors, borders, and spacing to guide the user's eye</li>
+                <li><strong>Responsive design:</strong> Always use overflow-x: auto for mobile compatibility</li>
+                <li><strong>Clear labels:</strong> Make column headers descriptive and easy to understand</li>
+                <li><strong>Highlight important data:</strong> Use bold, color, or larger font for key information</li>
+                <li><strong>Provide context:</strong> Use captions and footers to explain the table's purpose</li>
+                <li><strong>Make it scannable:</strong> Use alternating colors, borders, or spacing for readability</li>
+                <li><strong>Include legends:</strong> When using color coding, always provide a legend</li>
+                <li><strong>Test thoroughly:</strong> Verify the table works across different screen sizes</li>
+            </ul>
+        </div>
+
+        <!-- Summary -->
+        <div class="section">
+            <h2>🎯 Summary</h2>
+            <p class="section-description">
+                In this task, we explored three practical table implementations:
+            </p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>💰 Pricing Table</h3>
+                    <p>Demonstrated how to create an effective pricing comparison with:</p>
+                    <ul>
+                        <li>Multiple pricing tiers</li>
+                        <li>Feature comparisons</li>
+                        <li>Call-to-action buttons</li>
+                        <li>colspan for footer messages</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h3>📱 Product Comparison</h3>
+                    <p>Showed how to compare products effectively with:</p>
+                    <ul>
+                        <li>Side-by-side specifications</li>
+                        <li>Visual indicators (emojis)</li>
+                        <li>Rating systems</li>
+                        <li>Hover effects for interactivity</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h3>📅 Weekly Schedule</h3>
+                    <p>Created a color-coded schedule featuring:</p>
+                    <ul>
+                        <li>Time-based organization</li>
+                        <li>colspan for multi-hour events</li>
+                        <li>Color-coded categories</li>
+                        <li>Clear visual legend</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="section-description" style="margin-top: 30px;">
+                These practical examples demonstrate how HTML tables combined with CSS styling can create 
+                professional, functional, and visually appealing data presentations for real-world applications.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

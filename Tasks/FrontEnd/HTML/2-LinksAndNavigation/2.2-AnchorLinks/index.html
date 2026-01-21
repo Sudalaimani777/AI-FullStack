@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2.2: Anchor Links</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            margin-bottom: 10px;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #667eea;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            z-index: 200;
+        }
+        .back-to-top:hover {
+            background-color: #764ba2;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        .toc {
+            background-color: #f8f9fa;
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .toc h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .toc ul {
+            list-style: none;
+        }
+        .toc li {
+            margin: 15px 0;
+        }
+        .toc a {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 10px 15px;
+            display: block;
+            background-color: white;
+            border-radius: 5px;
+            transition: all 0.3s;
+            border-left: 4px solid #667eea;
+        }
+        .toc a:hover {
+            background-color: #667eea;
+            color: white;
+            transform: translateX(10px);
+        }
+        section {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 40px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        section p {
+            text-align: justify;
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+        .section-intro {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header id="top">
+        <h1>🔗 Task 2.2: Anchor Links</h1>
+        <p>Page Navigation with Internal Anchors</p>
+    </header>
+
+    <!-- Table of Contents -->
+    <div class="toc">
+        <h2>📚 Table of Contents</h2>
+        <ul>
+            <li><a href="#section1">Section 1: Introduction to Anchor Links</a></li>
+            <li><a href="#section2">Section 2: How Anchor Links Work</a></li>
+            <li><a href="#section3">Section 3: Best Practices</a></li>
+            <li><a href="#section4">Section 4: Use Cases</a></li>
+        </ul>
+    </div>
+
+    <!-- Section 1 -->
+    <section id="section1">
+        <h2>Section 1: Introduction to Anchor Links</h2>
+        <div class="section-intro">
+            <strong>What are Anchor Links?</strong>
+            <p>Anchor links allow users to jump to specific sections within the same page.</p>
+        </div>
+        <p>
+            Anchor links, also known as jump links or hash links, are a powerful feature in HTML that enables 
+            smooth navigation within long web pages. They work by linking to specific elements using ID attributes, 
+            making it easier for users to access different sections without scrolling.
+        </p>
+        <p>
+            These links are especially useful in documentation pages, long articles, FAQs, and single-page websites. 
+            They improve user experience by reducing the need for excessive scrolling and helping users find 
+            information quickly.
+        </p>
+        <p>
+            In this demonstration, we're using anchor links to create a table of contents that allows you to 
+            jump between different sections. Notice how clicking on the links in the table of contents smoothly 
+            scrolls to the corresponding section.
+        </p>
+    </section>
+
+    <!-- Section 2 -->
+    <section id="section2">
+        <h2>Section 2: How Anchor Links Work</h2>
+        <div class="section-intro">
+            <strong>Technical Implementation</strong>
+            <p>Understanding the mechanics behind anchor navigation.</p>
+        </div>
+        <p>
+            Anchor links work through a simple but elegant mechanism. When you create a link with an href attribute 
+            that starts with a hash symbol (#) followed by an ID, the browser looks for an element with that matching 
+            ID attribute on the page.
+        </p>
+        <p>
+            For example, a link like &lt;a href="#section2"&gt; will navigate to any element with id="section2". 
+            The browser automatically scrolls the page so that the target element comes into view. Modern browsers 
+            even provide smooth scrolling behavior for a better user experience.
+        </p>
+        <p>
+            The ID attribute must be unique on the page - each ID can only appear once. This ensures that the browser 
+            knows exactly which element to scroll to. IDs are case-sensitive, so "Section2" and "section2" would be 
+            treated as different anchors.
+        </p>
+    </section>
+
+    <!-- Section 3 -->
+    <section id="section3">
+        <h2>Section 3: Best Practices</h2>
+        <div class="section-intro">
+            <strong>Creating Effective Anchor Links</strong>
+            <p>Tips for implementing anchor navigation correctly.</p>
+        </div>
+        <p>
+            When implementing anchor links, it's important to follow several best practices. First, use descriptive 
+            and meaningful ID names that clearly indicate what the section contains. Avoid using generic names like 
+            "section1" in production code - instead, use semantic names like "about-us" or "pricing-details".
+        </p>
+        <p>
+            Always ensure that your anchor targets are properly spaced from the top of the viewport. If you have a 
+            fixed header, the anchored section might scroll behind it. You can solve this by adding padding or using 
+            CSS scroll-margin properties.
+        </p>
+        <p>
+            Consider providing a "Back to Top" link at the bottom of each section or as a floating button. This helps 
+            users quickly return to the table of contents or the beginning of the page, especially on mobile devices 
+            where scrolling long distances can be tedious.
+        </p>
+    </section>
+
+    <!-- Section 4 -->
+    <section id="section4">
+        <h2>Section 4: Use Cases</h2>
+        <div class="section-intro">
+            <strong>Where to Use Anchor Links</strong>
+            <p>Common scenarios where anchor links shine.</p>
+        </div>
+        <p>
+            <strong>1. Documentation Sites:</strong> Technical documentation often has lengthy content organized into 
+            multiple sections. Anchor links in the sidebar or header allow developers to quickly jump to specific 
+            topics like API references, configuration options, or troubleshooting guides.
+        </p>
+        <p>
+            <strong>2. Single-Page Websites:</strong> Modern single-page applications often use anchor links for 
+            navigation between different sections like Home, About, Services, and Contact. This creates a smooth 
+            user experience without page reloads.
+        </p>
+        <p>
+            <strong>3. FAQ Pages:</strong> Frequently Asked Questions pages benefit greatly from anchor links. 
+            Users can click on a question in the list and jump directly to the answer, rather than scanning through 
+            all content.
+        </p>
+        <p>
+            <strong>4. Blog Posts and Articles:</strong> Long-form content like tutorials, guides, and articles use 
+            anchor links in a table of contents to help readers navigate to sections they're most interested in.
+        </p>
+    </section>
+
+    <!-- Back to Top Link (Fixed Position) -->
+    <a href="#top" class="back-to-top">⬆️ Back to Top</a>
+
+</body>
+</html>

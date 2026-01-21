@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3.3: Responsive Images</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        /* Info Banner */
+        .info-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+        .info-banner h2 {
+            margin-bottom: 15px;
+        }
+
+        /* Section Styles */
+        .section {
+            margin: 40px 0;
+            padding: 30px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        .section-description {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        /* Responsive Image Demo 1 */
+        .responsive-demo {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .responsive-img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Lazy Loading Demo */
+        .lazy-demo {
+            margin: 20px 0;
+        }
+        .lazy-img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 400px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+        .hero-content h2 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .hero-content p {
+            font-size: 1.5em;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            z-index: 1;
+        }
+
+        /* Code Block */
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        /* Grid Demo */
+        .grid-demo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .grid-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .grid-item:hover {
+            transform: translateY(-5px);
+        }
+        .grid-item svg {
+            width: 100%;
+            height: 200px;
+            display: block;
+        }
+        .grid-item-content {
+            padding: 15px;
+        }
+        .grid-item-content h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background-color: #e3f2fd;
+            border-left: 5px solid #2196f3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .highlight-box h3 {
+            color: #1976d2;
+            margin-bottom: 10px;
+        }
+
+        /* Benefits List */
+        .benefits-list {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        .benefits-list h3 {
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        .benefits-list ul {
+            line-height: 2.2;
+            padding-left: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            .hero-content h2 {
+                font-size: 2em;
+            }
+            .hero-content p {
+                font-size: 1.2em;
+            }
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📱 Task 3.3: Responsive Images</h1>
+        <p class="subtitle">Making images adapt to different screen sizes and devices</p>
+
+        <div class="info-banner">
+            <h2>🎯 What Makes Images Responsive?</h2>
+            <p>
+                Responsive images automatically adapt to different screen sizes and resolutions. 
+                They use CSS properties like <code>width: 100%</code> and <code>max-width</code> to scale 
+                appropriately, ensuring optimal viewing experience on all devices from mobile phones to large desktop screens.
+            </p>
+        </div>
+
+        <!-- Example 1: Basic Responsive Image -->
+        <div class="section">
+            <h2>1. Basic Responsive Image (width: 100%, max-width)</h2>
+            <p class="section-description">
+                The most fundamental approach: set <code>width: 100%</code> to make the image fill its container, 
+                and <code>max-width</code> to prevent it from exceeding its natural size.
+            </p>
+            
+            <div class="responsive-demo">
+                <svg class="responsive-img" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="respGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="800" height="450" fill="url(#respGrad1)"/>
+                    <text x="400" y="200" font-family="Arial" font-size="48" font-weight="bold" fill="white" text-anchor="middle">RESPONSIVE IMAGE</text>
+                    <text x="400" y="250" font-family="Arial" font-size="24" fill="white" text-anchor="middle">Resize your browser to see it adapt!</text>
+                    <path d="M 100 350 L 200 300 L 300 320 L 400 280 L 500 310 L 600 290 L 700 330" stroke="white" stroke-width="4" fill="none"/>
+                    <circle cx="100" cy="350" r="8" fill="white"/>
+                    <circle cx="200" cy="300" r="8" fill="white"/>
+                    <circle cx="300" cy="320" r="8" fill="white"/>
+                    <circle cx="400" cy="280" r="8" fill="white"/>
+                    <circle cx="500" cy="310" r="8" fill="white"/>
+                    <circle cx="600" cy="290" r="8" fill="white"/>
+                    <circle cx="700" cy="330" r="8" fill="white"/>
+                </svg>
+            </div>
+
+            <div class="code-block">/* CSS */
+.responsive-img {
+    width: 100%;           /* Fills container width */
+    max-width: 800px;      /* Won't exceed natural size */
+    height: auto;          /* Maintains aspect ratio */
+}
+
+/* HTML */
+&lt;img src="image.jpg" alt="Description" class="responsive-img"&gt;</div>
+        </div>
+
+        <!-- Example 2: Lazy Loading -->
+        <div class="section">
+            <h2>2. Lazy Loading Images</h2>
+            <p class="section-description">
+                The <code>loading="lazy"</code> attribute defers loading of off-screen images until the user scrolls near them. 
+                This improves initial page load performance significantly.
+            </p>
+            
+            <div class="lazy-demo">
+                <svg class="lazy-img" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="lazyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#fa709a;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#fee140;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="600" height="400" fill="url(#lazyGrad)"/>
+                    <text x="300" y="180" font-family="Arial" font-size="36" font-weight="bold" fill="white" text-anchor="middle">⚡ LAZY LOADING</text>
+                    <text x="300" y="220" font-family="Arial" font-size="18" fill="white" text-anchor="middle">Loads only when needed</text>
+                    <circle cx="300" cy="280" r="40" fill="white" opacity="0.3"/>
+                    <path d="M 300 260 L 300 300 M 280 280 L 320 280" stroke="white" stroke-width="6" opacity="0.8"/>
+                </svg>
+            </div>
+
+            <div class="code-block">&lt;!-- Lazy loading with native HTML --&gt;
+&lt;img src="image.jpg" 
+     alt="Description" 
+     loading="lazy"
+     width="600" 
+     height="400"&gt;
+
+&lt;!-- Browser loads image only when it's near viewport --&gt;</div>
+
+            <div class="highlight-box">
+                <h3>⚡ Performance Benefits</h3>
+                <p>
+                    ✅ Faster initial page load<br>
+                    ✅ Reduced bandwidth usage<br>
+                    ✅ Better user experience<br>
+                    ✅ No JavaScript required (native HTML5 feature)
+                </p>
+            </div>
+        </div>
+
+        <!-- Example 3: Hero Section with Background -->
+        <div class="section">
+            <h2>3. Hero Section with Responsive Background</h2>
+            <p class="section-description">
+                A full-width hero section that scales beautifully on all screen sizes. Uses CSS gradients 
+                but the same principles apply to background images.
+            </p>
+            
+            <div class="hero-section">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h2>Welcome to Our Site</h2>
+                    <p>Beautiful, responsive, and engaging</p>
+                </div>
+            </div>
+
+            <div class="code-block">/* CSS */
+.hero-section {
+    background-image: url('hero-bg.jpg');
+    background-size: cover;         /* Covers entire area */
+    background-position: center;    /* Centers the image */
+    background-repeat: no-repeat;   /* No repeating */
+    height: 400px;                  /* Or use min-height */
+}
+
+/* HTML */
+&lt;div class="hero-section"&gt;
+    &lt;div class="hero-content"&gt;
+        &lt;h2&gt;Welcome&lt;/h2&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</div>
+        </div>
+
+        <!-- Example 4: Responsive Grid Gallery -->
+        <div class="section">
+            <h2>4. Responsive Grid Gallery</h2>
+            <p class="section-description">
+                Using CSS Grid with <code>auto-fit</code> and <code>minmax()</code> to create a responsive image gallery 
+                that adapts to different screen sizes automatically.
+            </p>
+            
+            <div class="grid-demo">
+                <div class="grid-item">
+                    <svg xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="grid1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#grid1)"/>
+                        <text x="50%" y="50%" font-family="Arial" font-size="32" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">Image 1</text>
+                    </svg>
+                    <div class="grid-item-content">
+                        <h3>Gallery Item 1</h3>
+                        <p>Responsive grid item</p>
+                    </div>
+                </div>
+
+                <div class="grid-item">
+                    <svg xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="grid2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#grid2)"/>
+                        <text x="50%" y="50%" font-family="Arial" font-size="32" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">Image 2</text>
+                    </svg>
+                    <div class="grid-item-content">
+                        <h3>Gallery Item 2</h3>
+                        <p>Responsive grid item</p>
+                    </div>
+                </div>
+
+                <div class="grid-item">
+                    <svg xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="grid3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#grid3)"/>
+                        <text x="50%" y="50%" font-family="Arial" font-size="32" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">Image 3</text>
+                    </svg>
+                    <div class="grid-item-content">
+                        <h3>Gallery Item 3</h3>
+                        <p>Responsive grid item</p>
+                    </div>
+                </div>
+
+                <div class="grid-item">
+                    <svg xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="grid4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#43e97b;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#38f9d7;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#grid4)"/>
+                        <text x="50%" y="50%" font-family="Arial" font-size="32" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">Image 4</text>
+                    </svg>
+                    <div class="grid-item-content">
+                        <h3>Gallery Item 4</h3>
+                        <p>Responsive grid item</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-block">/* CSS Grid - Auto-responsive */
+.grid-demo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.grid-item img {
+    width: 100%;
+    height: auto;
+}
+
+/* Automatically adjusts columns based on screen width! */</div>
+
+            <div class="highlight-box">
+                <h3>🎨 CSS Grid Magic</h3>
+                <p>
+                    <code>repeat(auto-fit, minmax(250px, 1fr))</code> creates a responsive grid that:<br>
+                    ✅ Fits as many columns as possible<br>
+                    ✅ Each column is minimum 250px wide<br>
+                    ✅ Columns expand to fill available space<br>
+                    ✅ No media queries needed!
+                </p>
+            </div>
+        </div>
+
+        <!-- Benefits -->
+        <div class="benefits-list">
+            <h3>🌟 Benefits of Responsive Images</h3>
+            <ul>
+                <li><strong>Mobile-Friendly:</strong> Perfect viewing on smartphones and tablets</li>
+                <li><strong>Performance:</strong> Lazy loading reduces initial page load time</li>
+                <li><strong>Bandwidth Savings:</strong> Loads appropriate image sizes for each device</li>
+                <li><strong>SEO:</strong> Better mobile performance improves search rankings</li>
+                <li><strong>User Experience:</strong> Images always look good, never cut off or distorted</li>
+                <li><strong>Future-Proof:</strong> Works on devices that don't exist yet</li>
+                <li><strong>Maintenance:</strong> One codebase works for all screen sizes</li>
+            </ul>
+        </div>
+
+        <div class="info-banner" style="margin-top: 30px;">
+            <h2>💡 Quick Tips</h2>
+            <p>
+                ✅ Always use <code>width: 100%</code> and <code>max-width</code> together<br>
+                ✅ Set <code>height: auto</code> to maintain aspect ratio<br>
+                ✅ Use <code>loading="lazy"</code> for images below the fold<br>
+                ✅ Test on real devices, not just browser resize<br>
+                ✅ Use <code>object-fit</code> for precise image cropping control<br>
+                ✅ Consider using CSS Grid or Flexbox for responsive layouts
+            </p>
+        </div>
+    </div>
+</body>
+</html>

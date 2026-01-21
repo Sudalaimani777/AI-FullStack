@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2.1: Basic Links</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 10px;
+        }
+        section {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        h2 {
+            color: #007bff;
+            margin-top: 0;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border: 1px solid #007bff;
+            border-radius: 3px;
+            display: inline-block;
+            margin: 5px 0;
+            transition: all 0.3s;
+        }
+        a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        .link-description {
+            color: #666;
+            font-size: 0.9em;
+            margin: 5px 0 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Task 2.1: Basic Links</h1>
+    <p>This page demonstrates different types of links in HTML5.</p>
+
+    <!-- External Link -->
+    <section>
+        <h2>1. External Link (Absolute URL)</h2>
+        <p class="link-description">Opens in a new tab using target="_blank" and rel="noopener noreferrer" for security.</p>
+        <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">Visit Google</a>
+    </section>
+
+    <!-- Internal Link -->
+    <section>
+        <h2>2. Internal Link (Relative URL)</h2>
+        <p class="link-description">Links to another page in the same website using relative path.</p>
+        <a href="page2.html">Go to Page 2</a>
+    </section>
+
+    <!-- Link with Title Attribute -->
+    <section>
+        <h2>3. Link with Title Attribute</h2>
+        <p class="link-description">Hover over the link to see the tooltip (title attribute).</p>
+        <a href="https://www.wikipedia.org" title="Free online encyclopedia" target="_blank" rel="noopener noreferrer">Wikipedia</a>
+    </section>
+
+    <!-- Email Link -->
+    <section>
+        <h2>4. Email Link (mailto:)</h2>
+        <p class="link-description">Opens the default email client with pre-filled address.</p>
+        <a href="mailto:contact@example.com">Send Email to contact@example.com</a>
+    </section>
+
+    <!-- Phone Link -->
+    <section>
+        <h2>5. Phone Link (tel:)</h2>
+        <p class="link-description">On mobile devices, this will prompt to make a call.</p>
+        <a href="tel:+1234567890">Call +1-234-567-890</a>
+    </section>
+
+    <!-- Additional Examples -->
+    <section>
+        <h2>Bonus: Combined Email Link</h2>
+        <p class="link-description">Email link with subject and body pre-filled.</p>
+        <a href="mailto:support@example.com?subject=Help Request&body=Hello, I need help with...">Email Support with Subject</a>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2.3: Navigation Menu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        
+        /* Navigation Styles */
+        nav {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            position: relative;
+        }
+        nav ul li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 20px 30px;
+            font-size: 1.1em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        nav ul li a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+        nav ul li a.active {
+            background-color: rgba(255,255,255,0.2);
+            border-bottom: 3px solid #fff;
+        }
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background-color: white;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        nav ul li a:hover::after {
+            width: 80%;
+        }
+        nav ul li a.active::after {
+            width: 80%;
+        }
+
+        /* Content Area */
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 40px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 2.5em;
+        }
+        .description {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        .description h2 {
+            margin-bottom: 15px;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .feature-card {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .feature-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        .code-example {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        .code-example h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        code {
+            background-color: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        pre {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-top: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+            nav ul li {
+                width: 100%;
+            }
+            nav ul li a {
+                text-align: center;
+                padding: 15px;
+            }
+            .container {
+                padding: 20px;
+                margin: 20px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Horizontal Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>🧭 Task 2.3: Navigation Menu</h1>
+        
+        <div class="description">
+            <h2>Horizontal Navigation Bar Demo</h2>
+            <p>
+                This page demonstrates a professional horizontal navigation menu using the HTML5 
+                <code>&lt;nav&gt;</code> element with an unordered list. The current page is marked 
+                as "active" with special styling.
+            </p>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <h3>✨ Semantic HTML</h3>
+                <p>Uses the proper <code>&lt;nav&gt;</code> element for better accessibility and SEO.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🎨 Modern Styling</h3>
+                <p>Gradient background with smooth hover effects and active state indication.</p>
+            </div>
+            <div class="feature-card">
+                <h3>📱 Responsive</h3>
+                <p>Adapts to mobile devices by stacking menu items vertically on small screens.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🎯 Active State</h3>
+                <p>Clearly shows which page the user is currently on with distinct styling.</p>
+            </div>
+        </div>
+
+        <div class="code-example">
+            <h3>📝 HTML Structure</h3>
+            <pre>&lt;nav&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="index.html" class="active"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="about.html"&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="services.html"&gt;Services&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="portfolio.html"&gt;Portfolio&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</pre>
+        </div>
+
+        <div class="code-example">
+            <h3>💡 Key Features Implemented</h3>
+            <ul style="line-height: 2; padding-left: 20px;">
+                <li>✅ Used semantic <code>&lt;nav&gt;</code> element</li>
+                <li>✅ Unordered list with 5 menu items</li>
+                <li>✅ Links to different pages</li>
+                <li>✅ Home link marked as "active"</li>
+                <li>✅ Horizontal layout using Flexbox</li>
+                <li>✅ Hover effects for better UX</li>
+                <li>✅ Sticky navigation (stays at top when scrolling)</li>
+                <li>✅ Responsive design for mobile devices</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

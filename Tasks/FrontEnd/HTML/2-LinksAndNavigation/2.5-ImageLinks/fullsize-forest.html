@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Size - Pine Forest</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .fullsize-container {
+            max-width: 1000px;
+            width: 100%;
+        }
+        .fullsize-image {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        .image-info {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        p {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+        .back-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="fullsize-container">
+        <svg class="fullsize-image" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="forestGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#134e5e;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#71b280;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <rect width="1200" height="800" fill="url(#forestGrad)"/>
+            <!-- Multiple pine trees -->
+            <polygon points="150,350 200,500 100,500" fill="#1e4d2b"/>
+            <rect x="140" y="500" width="30" height="80" fill="#5d4037"/>
+            
+            <polygon points="300,280 370,450 230,450" fill="#1e4d2b"/>
+            <rect x="285" y="450" width="35" height="100" fill="#5d4037"/>
+            
+            <polygon points="500,320 580,480 420,480" fill="#1e4d2b"/>
+            <rect x="485" y="480" width="35" height="90" fill="#5d4037"/>
+            
+            <polygon points="700,300 790,470 610,470" fill="#1e4d2b"/>
+            <rect x="685" y="470" width="35" height="95" fill="#5d4037"/>
+            
+            <polygon points="900,260 1000,440 800,440" fill="#1e4d2b"/>
+            <rect x="885" y="440" width="35" height="110" fill="#5d4037"/>
+            
+            <polygon points="1050,300 1130,460 970,460" fill="#1e4d2b"/>
+            <rect x="1035" y="460" width="35" height="100" fill="#5d4037"/>
+            
+            <!-- Ground -->
+            <ellipse cx="600" cy="700" rx="600" ry="80" fill="#2d5016" opacity="0.8"/>
+            
+            <text x="600" y="750" font-family="Arial" font-size="48" font-weight="bold" fill="white" text-anchor="middle">PINE FOREST</text>
+        </svg>
+        
+        <div class="image-info">
+            <h1>🌲 Pine Forest</h1>
+            <p>A serene pine forest landscape with tall evergreen trees. Experience the tranquility and fresh mountain air of a peaceful woodland setting.</p>
+            <a href="index.html" class="back-link">← Back to Gallery</a>
+        </div>
+    </div>
+</body>
+</html>

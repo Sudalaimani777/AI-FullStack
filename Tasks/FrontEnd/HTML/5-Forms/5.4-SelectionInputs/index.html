@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 5.4: Selection Inputs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        /* Form Styles */
+        .selection-form {
+            width: 100%;
+        }
+        .form-section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+        }
+        .form-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.6em;
+        }
+        .section-description {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 1em;
+        }
+        .label-description {
+            display: block;
+            color: #666;
+            font-size: 0.9em;
+            font-weight: normal;
+            margin-top: 4px;
+            margin-bottom: 12px;
+        }
+
+        /* Select Dropdown */
+        select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background-color: white;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23333' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 45px;
+        }
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+
+        /* Radio Buttons */
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .radio-option {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background-color: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .radio-option:hover {
+            border-color: #667eea;
+            background-color: #f8f9ff;
+        }
+        .radio-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+        .radio-option input[type="radio"]:checked + .radio-label {
+            color: #667eea;
+            font-weight: 600;
+        }
+        .radio-label {
+            flex: 1;
+            cursor: pointer;
+            font-size: 1em;
+            color: #333;
+        }
+        .radio-option:has(input:checked) {
+            border-color: #667eea;
+            background-color: #e8f0fe;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+        }
+
+        /* Checkboxes */
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background-color: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .checkbox-option:hover {
+            border-color: #667eea;
+            background-color: #f8f9ff;
+        }
+        .checkbox-option input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+        .checkbox-label {
+            flex: 1;
+            cursor: pointer;
+            font-size: 1em;
+            color: #333;
+        }
+        .checkbox-option:has(input:checked) {
+            border-color: #667eea;
+            background-color: #e8f0fe;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+        }
+        .checkbox-option input[type="checkbox"]:checked + .checkbox-label {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        /* Input Type Badge */
+        .input-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        /* Submit Button */
+        button[type="submit"] {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            margin-top: 20px;
+        }
+        button[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Code Block */
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.7;
+        }
+        .code-block .tag {
+            color: #569cd6;
+        }
+        .code-block .attr {
+            color: #9cdcfe;
+        }
+        .code-block .value {
+            color: #ce9178;
+        }
+        .code-block .comment {
+            color: #6a9955;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 40px;
+        }
+        .info-box h3 {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        .info-box ul {
+            line-height: 2.2;
+            padding-left: 25px;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            margin-top: 40px;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+        .comparison-table thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .comparison-table th {
+            padding: 18px;
+            text-align: left;
+            font-weight: 600;
+        }
+        .comparison-table td {
+            padding: 18px;
+            border-bottom: 1px solid #e0e0e0;
+            color: #333;
+        }
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        .comparison-table tr:hover {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Selection Inputs</h1>
+        <p class="subtitle">Dropdowns, radio buttons, and checkboxes</p>
+
+        <form class="selection-form" action="/submit-form" method="POST">
+            <!-- Dropdown Select -->
+            <div class="form-section">
+                <h2>Dropdown Selection</h2>
+                <p class="section-description">
+                    Use <code>&lt;select&gt;</code> for choosing one option from a list. 
+                    Perfect when you have many options and want to save space.
+                </p>
+                
+                <div class="form-group">
+                    <label for="country">
+                        Country <span class="input-badge">&lt;select&gt;</span>
+                        <span class="label-description">Choose your country from the dropdown</span>
+                    </label>
+                    <select id="country" name="country">
+                        <option value="">-- Select a country --</option>
+                        <option value="usa">United States</option>
+                        <option value="canada">Canada</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="australia">Australia</option>
+                        <option value="germany">Germany</option>
+                    </select>
+                </div>
+
+                <div class="code-block"><span class="comment">&lt;!-- Dropdown Select --&gt;</span>
+<span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"country"</span><span class="tag">&gt;</span>Country<span class="tag">&lt;/label&gt;</span>
+<span class="tag">&lt;select</span> <span class="attr">id</span>=<span class="value">"country"</span> <span class="attr">name</span>=<span class="value">"country"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;option</span> <span class="attr">value</span>=<span class="value">""</span><span class="tag">&gt;</span>-- Select a country --<span class="tag">&lt;/option&gt;</span>
+    <span class="tag">&lt;option</span> <span class="attr">value</span>=<span class="value">"usa"</span><span class="tag">&gt;</span>United States<span class="tag">&lt;/option&gt;</span>
+    <span class="tag">&lt;option</span> <span class="attr">value</span>=<span class="value">"canada"</span><span class="tag">&gt;</span>Canada<span class="tag">&lt;/option&gt;</span>
+    <span class="tag">&lt;option</span> <span class="attr">value</span>=<span class="value">"uk"</span><span class="tag">&gt;</span>United Kingdom<span class="tag">&lt;/option&gt;</span>
+<span class="tag">&lt;/select&gt;</span></div>
+            </div>
+
+            <!-- Radio Buttons -->
+            <div class="form-section">
+                <h2>Radio Buttons</h2>
+                <p class="section-description">
+                    Use radio buttons when users must select <strong>exactly one option</strong> from a small set of choices (2-5 options).
+                    All radio buttons in a group must share the same <code>name</code> attribute.
+                </p>
+                
+                <div class="form-group">
+                    <label>
+                        Shipping Method <span class="input-badge">type="radio"</span>
+                        <span class="label-description">Select your preferred shipping method (single choice)</span>
+                    </label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" id="shipping-standard" name="shipping" value="standard">
+                            <span class="radio-label">Standard Shipping (5-7 days) - Free</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" id="shipping-express" name="shipping" value="express">
+                            <span class="radio-label">Express Shipping (2-3 days) - $9.99</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" id="shipping-overnight" name="shipping" value="overnight">
+                            <span class="radio-label">Overnight Shipping (1 day) - $24.99</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="code-block"><span class="comment">&lt;!-- Radio Buttons (Single Selection) --&gt;</span>
+<span class="tag">&lt;input</span> 
+    <span class="attr">type</span>=<span class="value">"radio"</span> 
+    <span class="attr">id</span>=<span class="value">"shipping-standard"</span> 
+    <span class="attr">name</span>=<span class="value">"shipping"</span> 
+    <span class="attr">value</span>=<span class="value">"standard"</span>
+<span class="tag">&gt;</span>
+<span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"shipping-standard"</span><span class="tag">&gt;</span>Standard Shipping<span class="tag">&lt;/label&gt;</span>
+
+<span class="tag">&lt;input</span> 
+    <span class="attr">type</span>=<span class="value">"radio"</span> 
+    <span class="attr">id</span>=<span class="value">"shipping-express"</span> 
+    <span class="attr">name</span>=<span class="value">"shipping"</span> 
+    <span class="attr">value</span>=<span class="value">"express"</span>
+<span class="tag">&gt;</span>
+<span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"shipping-express"</span><span class="tag">&gt;</span>Express Shipping<span class="tag">&lt;/label&gt;</span>
+
+<span class="comment">&lt;!-- All radio buttons must have same 'name' --&gt;</span></div>
+            </div>
+
+            <!-- Checkboxes -->
+            <div class="form-section">
+                <h2>Checkboxes</h2>
+                <p class="section-description">
+                    Use checkboxes when users can select <strong>multiple options</strong> or toggle a single option on/off.
+                    Each checkbox can have a unique <code>name</code>, or use the same name with different values for arrays.
+                </p>
+                
+                <div class="form-group">
+                    <label>
+                        Interests <span class="input-badge">type="checkbox"</span>
+                        <span class="label-description">Select all topics that interest you (multiple selections allowed)</span>
+                    </label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-option">
+                            <input type="checkbox" id="interest-web" name="interests" value="web-development">
+                            <span class="checkbox-label">Web Development</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" id="interest-mobile" name="interests" value="mobile-apps">
+                            <span class="checkbox-label">Mobile App Development</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" id="interest-design" name="interests" value="ui-ux-design">
+                            <span class="checkbox-label">UI/UX Design</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" id="interest-data" name="interests" value="data-science">
+                            <span class="checkbox-label">Data Science & AI</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="code-block"><span class="comment">&lt;!-- Checkboxes (Multiple Selection) --&gt;</span>
+<span class="tag">&lt;input</span> 
+    <span class="attr">type</span>=<span class="value">"checkbox"</span> 
+    <span class="attr">id</span>=<span class="value">"interest-web"</span> 
+    <span class="attr">name</span>=<span class="value">"interests"</span> 
+    <span class="attr">value</span>=<span class="value">"web-development"</span>
+<span class="tag">&gt;</span>
+<span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"interest-web"</span><span class="tag">&gt;</span>Web Development<span class="tag">&lt;/label&gt;</span>
+
+<span class="tag">&lt;input</span> 
+    <span class="attr">type</span>=<span class="value">"checkbox"</span> 
+    <span class="attr">id</span>=<span class="value">"interest-mobile"</span> 
+    <span class="attr">name</span>=<span class="value">"interests"</span> 
+    <span class="attr">value</span>=<span class="value">"mobile-apps"</span>
+<span class="tag">&gt;</span>
+<span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"interest-mobile"</span><span class="tag">&gt;</span>Mobile App Development<span class="tag">&lt;/label&gt;</span>
+
+<span class="comment">&lt;!-- Same 'name' creates an array of values --&gt;</span></div>
+            </div>
+
+            <button type="submit">Submit Your Selections</button>
+        </form>
+
+        <!-- Comparison Table -->
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Select Dropdown</th>
+                    <th>Radio Buttons</th>
+                    <th>Checkboxes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Selection Type</strong></td>
+                    <td>Single choice</td>
+                    <td>Single choice</td>
+                    <td>Multiple choices</td>
+                </tr>
+                <tr>
+                    <td><strong>Best For</strong></td>
+                    <td>Many options (5+)</td>
+                    <td>Few options (2-5)</td>
+                    <td>Independent options</td>
+                </tr>
+                <tr>
+                    <td><strong>Space Efficient</strong></td>
+                    <td>Yes, collapses options</td>
+                    <td>No, shows all options</td>
+                    <td>No, shows all options</td>
+                </tr>
+                <tr>
+                    <td><strong>Name Attribute</strong></td>
+                    <td>Unique name</td>
+                    <td>Same name for group</td>
+                    <td>Same or different names</td>
+                </tr>
+                <tr>
+                    <td><strong>Default State</strong></td>
+                    <td>First or blank option</td>
+                    <td>One can be pre-selected</td>
+                    <td>All unchecked by default</td>
+                </tr>
+                <tr>
+                    <td><strong>Use Case Example</strong></td>
+                    <td>Country selection</td>
+                    <td>Shipping method</td>
+                    <td>Newsletter preferences</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Best Practices -->
+        <div class="info-box">
+            <h3>✅ Selection Input Best Practices</h3>
+            <ul>
+                <li><strong>Use dropdowns for many options:</strong> More than 5 options? Use a select dropdown</li>
+                <li><strong>Radio buttons for visibility:</strong> When all options should be visible (2-5 choices)</li>
+                <li><strong>Checkboxes for independence:</strong> Each option can be selected independently</li>
+                <li><strong>Always use labels:</strong> Connect labels to inputs with for/id attributes</li>
+                <li><strong>Group related items:</strong> Use same name attribute for radio button groups</li>
+                <li><strong>Provide clear descriptions:</strong> Explain what each option means</li>
+                <li><strong>Set logical defaults:</strong> Pre-select the most common choice when appropriate</li>
+                <li><strong>Make it accessible:</strong> Ensure keyboard navigation and screen reader compatibility</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
