@@ -34,7 +34,7 @@ const uiController = (() => {
 //APP Controller :-
 const appController = (() => {
     return{
-        appSatrt: function (){
+        appStart: function (){
             const items = dataController.getItem();
             if(items.length > 0){
                 uiController.showData(items)
@@ -43,4 +43,4 @@ const appController = (() => {
     }
 })();
 
-appController.appSatrt();
+appController.appStart();

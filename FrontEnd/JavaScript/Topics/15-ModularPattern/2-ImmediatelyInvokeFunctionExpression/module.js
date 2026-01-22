@@ -1,8 +1,8 @@
 //Normal Function :-
 const a = function(){
-    console.log("Normal Function");
+    console.log("This is an Normal Function");
 }
-
+a();
 
 //IIFE (Immediately Invoked Function Expression) :-
 const iife = (() => {
@@ -91,3 +91,13 @@ const appController = (() => {
 })();
 
 appController.appSatrt();
+
+const expression = (function a(){
+    //Private :-
+    const x = 1000;
+    //Retur the X to access in the object format :-
+    return {
+        vslueA: x
+    }
+})()
+console.log(expression.vslueA)

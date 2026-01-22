@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+</head>
+<body>
+
+    <!-- Navbar -->
+
+    <nav>
+        <div class="nav-wrapper blue darken-4">
+            <div class="container">
+                <a href="#" class="brand-logo center">
+                    Money Tracker
+                </a>
+
+                <ul class="right">
+                  <li><a href="#" class="clear-btn btn indigo darken-4">
+                    Clear All
+                  </a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="margin-top: 30px;">
+        <div class="card">
+            <div class="card-content">
+                <div class="card-title">
+                    Add Task and money
+                </div>
+
+                <form>
+                    <div class="row">
+                        <div class="input-filed col s6">
+                            <input id="name" type="text" placeholder="Add item">
+                        </div>
+                        <div class="input-filed col s6">
+                            <input id="money" type="number" placeholder="Add money">
+                        </div>
+                    </div>
+
+                    <div>
+                        <button class="add-btn btn teal darken" type="button">
+                            <i class="fa-solid fa-plus"></i>
+                            Add Task
+                        </button>
+                        <button class="update-btn btn orange darken">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                            Update Task
+                        </button>
+                        <button class="delete-btn btn red darken">
+                            <i class="fa-solid fa-trash"></i>
+                            Delete Task
+                        </button>
+                        <button class="back-btn btn grey darken">
+                            <i class="fa-solid fa-delete-left"></i>
+                            Back
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+         <!-- Money Count -->
+         <h3 class="center-align">Total Money : <span class="total">0</span></h3>
+
+         <ul id="item-list" class="collection">
+            <li class="collection-item">
+                <strong>Shopping</strong> :
+                <em>300 Rs</em>
+                <a href="#" class="secondary-content">
+                    <i class="fa-solid fa-pencil"></i>
+                </a>
+            </li>
+         </ul>
+    </div>  
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>

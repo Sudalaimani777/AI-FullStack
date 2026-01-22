@@ -1,0 +1,99 @@
+//Data Controller, UI Controller, Storage Controller :-
+
+//There are two data are avaliable in this project.Such as the task and the money data
+
+//1)Data Controller :-
+const dataController = (() => {
+    //Private Data :-
+    const data = {
+        items: [
+            { id: 0, task: "Complete this day 28 video", money: 2000 },
+            { id: 1, task: "Complete today's task", money: 10000 },
+        ]
+    }
+
+    //Access the "data" object by returning them :-
+    return {
+        getData: () => {
+            return data;
+        },
+        getItems: function(){
+            return this.getData().items
+        }
+    }
+})();
+// console.log(dataController.getItems())
+
+//3)UI Controller :-
+const uiController = (() => {
+    return {
+        //Show Data UI :-
+        populateData:(data) => {
+            data.forEach(data => {
+                showDataUI(data);
+            })
+        },
+        //Error UI :-
+        errorUI:(data)=>{
+            showErrorUI(data);
+        }
+    }
+})();
+
+//2)App COntroller :-
+const appController = (() => {
+
+    return {
+        appStart:() => {
+            console.log("App Started Successfully");
+
+            //Calling the Data from the Data Controller :-
+            const data = dataController.getItems();
+            
+            //Condition To check whether the data is present or not :-
+            if(data.length > 0){
+                //UI Controller :-
+                uiController.populateData(data);
+            }
+            else{
+                uiController.errorUI(data);
+            }
+        }
+    }
+
+})();
+
+appController.appStart();
+
+//Show Error UI Function :-
+function showDataUI(data){
+    const ul = document.querySelector("#item-list");
+                const li = document.createElement("li");
+                li.className = "collection-item";
+                const strongTag = document.createElement("strong");
+                strongTag.textContent = data.task + " : ";
+                const em = document.createElement("em");
+                em.textContent = data.money;
+                const a = document.createElement("a");
+                a.className = "secondary-content";
+                const i = document.createElement("i");
+                i.classList = "fa-solid fa-pencil";
+                
+                a.appendChild(i);
+                li.appendChild(strongTag);
+                li.appendChild(em);
+                li.appendChild(a);
+                console.log(li);    
+                ul.appendChild(li);
+}
+
+//Show Error UI Function :-
+function showErrorUI(data){
+    const ul = document.querySelector("#item-list");    
+    const li = document.createElement("li");
+    li.className = "collection-item";
+    li.style.color = "red";
+    li.style.fontWeight = "bold";
+    li.textContent = "No Data Available. Please Add Some Data.";
+    ul.appendChild(li);
+}
