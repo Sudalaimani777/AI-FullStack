@@ -4,7 +4,7 @@
 
 HTML = HyperText Markup Language
 Purpose: Structure and content of web pages
-Not a programming language - it's a markup language
+Not a programming language - it's a markup language.
 
 ================================================================================
                         1. HTML DOCUMENT STRUCTURE
