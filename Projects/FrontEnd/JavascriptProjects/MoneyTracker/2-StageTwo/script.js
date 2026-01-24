@@ -22,7 +22,7 @@ const dataController = (() => {
         ],
         //Total Money :-
         totalMoney: 0,
-        currentItem:null,
+        currentItem: null,
     };
 
     //Access these above data by returning them :-
@@ -88,24 +88,65 @@ const dataController = (() => {
             }
             return total;
         },
-        getItemById:(id) =>{
+        getItemById: (id) => {
             let found = null;
-            data.items.forEach(item =>{
-                if(item.id === id){
+            data.items.forEach(item => {
+                if (item.id === id) {
                     found = item;
                 }
             })
             return found;
         },
-        setCurrentItem:(item) =>{
+        setCurrentItem: (item) => {
             data.currentItem = item
         },
-        getCurrentItem:() =>{
+        getCurrentItem: () => {
             return data.currentItem;
+        },
+        //Delete Item :-
+        deleteItem: (id) => {
+            //Get the ids :-
+            const ids = data.items.map(items => {
+                return items.id;
+            });
+
+            //Get the index :-
+            const index = ids.indexOf(id);
+            console.log(index);
+
+            //Remove item :-
+            data.items.splice(index, 1);
+
+            //Delete from the UI :-
+            uiController.deleteListItem(id);
+        },
+        //Update Item :-
+        updateItem: (task, money) => {
+            money = parseInt(money);
+            console.log(task, money);
+
+            let found = null;
+            data.items.forEach(items => {
+                if (items.id === data.currentItem.id) {
+                    console.log(items)
+                    //Updating the values :-
+                    items.task = task;
+                    items.money = money;
+                    found = items;
+                    console.log(found);
+                }
+            })
+            return found;
+        },
+        //Clear All Items :-
+        clearAllItems:() => {
+            data.items = [];
         }
     }
 
 })();
+
+
 
 //UI Controller :-
 const uiController = (() => {
@@ -128,29 +169,69 @@ const uiController = (() => {
             totalMoneyElement.innerText = totalMoney;
         },
         //Clear Input Fields :-
-        clearInputFields:()=>{
+        clearInputFields: () => {
             document.querySelector("#name").value = "";
             document.querySelector("#money").value = "";
         },
         //Clear Btn State :-
-        clearBtnState:()=>{
+        clearBtnState: () => {
             document.querySelector(".update-btn").style.display = "none";
             document.querySelector(".delete-btn").style.display = "none";
             document.querySelector(".back-btn").style.display = "none";
             document.querySelector(".add-btn").style.display = "inline";
         },
         //Show Edit Btns :-
-        showEditBtns:()=>{
+        showEditBtns: () => {
             document.querySelector(".update-btn").style.display = "inline";
             document.querySelector(".delete-btn").style.display = "inline";
             document.querySelector(".back-btn").style.display = "inline";
             document.querySelector(".add-btn").style.display = "none";
         },
         //Add Item to the Form :-
-        addItemToForm:()=>{
+        addItemToForm: () => {
             const currentItem = dataController.getCurrentItem();
             document.querySelector("#name").value = currentItem.task;
             document.querySelector("#money").value = currentItem.money;
+        },
+        //Delete List Item :-
+        deleteListItem: (id) => {
+            console.log(id);
+            const itemID = `#item-${id}`;
+            const item = document.querySelector(itemID);
+            item.remove();
+        },
+        //UPdate List Item :-
+        updateListItem: (updatedItem) => {
+            console.log(updatedItem);
+            let listItems = document.querySelectorAll(".collection-item");
+            console.log(listItems);
+            //Convert Node list to array :-
+            listItems.forEach(item => {
+                console.log(item);
+                const itemID = item.getAttribute("id");
+                console.log(itemID);
+                if (itemID === `item-${updatedItem.id}`) {
+                    //Updating the UI :-
+                    console.log(itemID);
+                    document.querySelector(`#${itemID}`).innerHTML = `<strong>${updatedItem.task} : </strong> <em>${updatedItem.money}</em>
+                    <a href="#" class="secondary-content">
+                        <i class="fa-solid fa-pencil"></i>
+                    </a>`;
+
+                    //Get the total Money :-
+                    const getTotalMoney = dataController.getTotalMoney();
+
+                    //Displaying the Total Money :-
+                    uiController.showTotalMoney(getTotalMoney);
+
+                    //Clear the Input Fields :-
+                    uiController.clearInputFields();
+                }
+            })
+        },
+        //Clear All Items UI :-
+        clearAllItemsUI:() =>{
+            document.querySelector("#item-list").innerHTML = "";
         }
     }
 })();
@@ -163,6 +244,14 @@ const appController = (() => {
     const addBtn = document.querySelector(".add-btn");
     //UL :-
     const taskAndMoneyContainer = document.querySelector(".collection");
+    //Delete Btn :-
+    const deleteBtn = document.querySelector(".delete-btn");
+    //Edit Btn :-
+    const editBtn = document.querySelector(".update-btn");
+    //Back Btn :-
+    const backBtn = document.querySelector(".back-btn");
+    //Clear All :-
+    const clearAllBtn = document.querySelector(".clear-btn");
 
     //Events :-
     const loadAllEventListeners = () => {
@@ -170,7 +259,19 @@ const appController = (() => {
         addBtn.addEventListener("click", addMoneyAndTaskEvent);
 
         //Edit Icon Click :-
-        taskAndMoneyContainer.addEventListener("click",handleEdit);
+        taskAndMoneyContainer.addEventListener("click", handleEdit);
+
+        //Delete Btn Click :-
+        deleteBtn.addEventListener("click", itemDeleteSubmit);
+
+        //Edit Btn Click :-
+        editBtn.addEventListener("click", itemEditSubmit);
+
+        //Back Btn CLick :-
+        backBtn.addEventListener("click", itemBackSubmit);
+
+        //Clear All Btn Click :-
+        clearAllBtn.addEventListener("click", clearSubmit);
     }
 
     //Add Money and Task Function :-
@@ -204,11 +305,11 @@ const appController = (() => {
     //Handle Edit function :-
     const handleEdit = (e) => {
         // console.log(e.target.classList.contains("fa-pencil"));
-        if(e.target.classList.contains("fa-pencil")){
+        if (e.target.classList.contains("fa-pencil")) {
 
             //All Task ID :-
             const taskId = e.target.parentElement.parentElement.id;
-            
+
             //Breaking the ID :-
             const idArr = taskId.split("-");
 
@@ -228,6 +329,73 @@ const appController = (() => {
             //Show the Edit Buttons :-
             uiController.showEditBtns();
         }
+    }
+
+    //Item Delete Submit :-
+    const itemDeleteSubmit = (e) => {
+
+        e.preventDefault();
+
+        //Get the Current Item :-
+        const currentItem = dataController.getCurrentItem();
+        console.log(currentItem);
+
+        //Delete the item from the Data Structure :-
+        dataController.deleteItem(currentItem.id);
+
+        //Get the total Money :-
+        const getTotalMoney = dataController.getTotalMoney();
+
+        //Displaying the Total Money :-
+        uiController.showTotalMoney(getTotalMoney);
+
+        //Clear the Input Fields :-
+        uiController.clearInputFields();
+
+    }
+
+    //Item Edit (Update) Submit :-
+    const itemEditSubmit = (e) => {
+        e.preventDefault();
+        //Get the Current Item :-
+        const currentItem = dataController.getCurrentItem();
+        console.log(currentItem);
+
+        //Get the updated values from the form :-
+        const input = dataController.getTaskAndMoney();
+
+        //Update the Item :-
+        const updateItem = dataController.updateItem(input.task, input.money);
+
+        console.log(updateItem);
+
+        //Update the UI :-
+        uiController.updateListItem(updateItem);
+    }
+
+    //Back Btn Submit :-
+    const itemBackSubmit = (e) => {
+        e.preventDefault();
+        //Clear the Input Fields :-
+        uiController.clearInputFields();
+
+        //Clear the Inuput Fields :-
+        uiController.clearBtnState();
+    }
+
+    //Clear All Submit :-
+    const clearSubmit = () => {
+        //Clear all items from the data structure :-
+        dataController.clearAllItems();
+
+        //Clear all items from the UI :-
+        uiController.clearAllItemsUI();
+
+        //Get the total Money :-
+        const totalMoney = dataController.getTotalMoney();
+
+        //Show the total Money :-
+        uiController.showTotalMoney(totalMoney);
     }
 
     return {
