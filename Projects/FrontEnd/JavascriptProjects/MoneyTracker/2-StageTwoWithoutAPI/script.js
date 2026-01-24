@@ -483,5 +483,3 @@ function showErrorUI(data) {
     ul.appendChild(li);
     console.log(data);
 }
-
-//TIme 41.27
