@@ -21,7 +21,8 @@ const dataController = (() => {
             { id: 2, task: "Try", money: 10000 },
         ],
         //Total Money :-
-        totalMoney: 0
+        totalMoney: 0,
+        currentItem:null,
     };
 
     //Access these above data by returning them :-
@@ -85,6 +86,22 @@ const dataController = (() => {
             } else {
                 return data.totalMoney = 0;
             }
+            return total;
+        },
+        getItemById:(id) =>{
+            let found = null;
+            data.items.forEach(item =>{
+                if(item.id === id){
+                    found = item;
+                }
+            })
+            return found;
+        },
+        setCurrentItem:(item) =>{
+            data.currentItem = item
+        },
+        getCurrentItem:() =>{
+            return data.currentItem;
         }
     }
 
@@ -93,20 +110,24 @@ const dataController = (() => {
 //UI Controller :-
 const uiController = (() => {
     return {
+        //Populate Data :-
         populateData: (data) => {
             showDataUI(data);
         },
+        //Error Data :-
         errorData: (data) => {
             showErrorUI(data);
         },
+        //Alert UI :-
         alertUI: () => {
             alert("Invalid Datas")
         },
+        //Show Total Money :-
         showTotalMoney: (totalMoney) => {
             const totalMoneyElement = document.querySelector(".total");
             totalMoneyElement.innerText = totalMoney;
         },
-        //
+        //Clear Input Fields :-
         clearInputFields:()=>{
             document.querySelector("#name").value = "";
             document.querySelector("#money").value = "";
@@ -124,6 +145,12 @@ const uiController = (() => {
             document.querySelector(".delete-btn").style.display = "inline";
             document.querySelector(".back-btn").style.display = "inline";
             document.querySelector(".add-btn").style.display = "none";
+        },
+        //Add Item to the Form :-
+        addItemToForm:()=>{
+            const currentItem = dataController.getCurrentItem();
+            document.querySelector("#name").value = currentItem.task;
+            document.querySelector("#money").value = currentItem.money;
         }
     }
 })();
@@ -187,7 +214,16 @@ const appController = (() => {
 
             //Getting the ID :-
             const id = parseInt(idArr[1]);
-            console.log(id)
+            console.log(id);
+
+            //Get Item from the Data COntroller :-
+            const itemToEdit = dataController.getItemById(id);
+
+            //Set Current Item :-
+            dataController.setCurrentItem(itemToEdit);
+
+            //Add item to the form :-
+            uiController.addItemToForm();
 
             //Show the Edit Buttons :-
             uiController.showEditBtns();
