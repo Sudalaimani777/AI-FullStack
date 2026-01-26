@@ -247,8 +247,8 @@ const uiController = (() => {
                 if (itemID === `item-${updatedItem.id}`) {
                     //Updating the UI :-
                     console.log(itemID);
-                    document.querySelector(`#${itemID}`).innerHTML = `<strong>${updatedItem.task} : </strong> <em>${updatedItem.money}</em>
-                    <a href="#" class="secondary-content">
+                    document.querySelector(`#${itemID}`).innerHTML = `<strong class="text-gray-800 text-lg font-bold">${updatedItem.task} : </strong> <em class="text-indigo-600 text-xl font-semibold ml-2">₹${updatedItem.money}</em>
+                    <a href="#" class="secondary-content bg-indigo-600 hover:bg-indigo-700 text-white p-3 rounded-lg transition-all duration-300 transform hover:scale-110 cursor-pointer shadow-md hover:shadow-xl">
                         <i class="fa-solid fa-pencil"></i>
                     </a>`;
 
@@ -446,6 +446,8 @@ const appController = (() => {
 
                 //Show the total Money :-
                 uiController.showTotalMoney(totalMoney);
+                //Clear the Input Fields :-
+                uiController.clearInputFields();
             }
         } catch (err) {
             console.log(err);
@@ -506,24 +508,27 @@ function showDataUI(data) {
         //Creating the LI :-
         const li = document.createElement("li");
         //Adding ClassName to the LI :-
-        li.className = "collection-item";
+        li.className = "collection-item bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-4 flex justify-between items-center hover:from-indigo-100 hover:to-purple-100 transition-all duration-300 transform hover:scale-[1.02] shadow-md hover:shadow-lg animate-slide-down";
         //Add ID to the LI :-
         li.id = `item-${data.id}`;
 
         //Creating Strong Tag :-
         const strongTag = document.createElement("strong");
+        strongTag.className = "text-gray-800 text-lg font-bold";
         //Adding Value to the Storng tag form the Actual Data
         strongTag.textContent = data.task + " : ";
 
         //Creating EM tag
         const em = document.createElement("em");
+        em.className = "text-indigo-600 text-xl font-semibold ml-2";
         //Adding value to the em tag 
-        em.textContent = data.money;
+        em.textContent = "₹" + data.money;
 
         //Creating an "a" tag :-
         const a = document.createElement("a");
         //Adding class name to the a 
-        a.className = "secondary-content";
+        a.className = "secondary-content bg-indigo-600 hover:bg-indigo-700 text-white p-3 rounded-lg transition-all duration-300 transform hover:scale-110 cursor-pointer shadow-md hover:shadow-xl";
+        a.href = "#";
 
         //Creating i tag :-
         const i = document.createElement("i");
@@ -544,10 +549,11 @@ function showDataUI(data) {
 function showErrorUI(data) {
     const ul = document.querySelector("#item-list");
     const li = document.createElement("li");
-    li.className = "collection-item";
-    li.style.color = "red";
-    li.style.fontWeight = "bold";
-    li.textContent = "No Data Available. Please Add Some Data.";
+    li.className = "collection-item bg-red-50 border-2 border-red-200 rounded-xl p-6 text-center animate-fade-in";
+    const p = document.createElement("p");
+    p.className = "text-red-600 font-bold text-lg";
+    p.innerHTML = '<i class="fa-solid fa-circle-exclamation mr-2"></i>No Data Available. Please Add Some Transactions.';
+    li.appendChild(p);
     ul.appendChild(li);
     console.log(data);
 }

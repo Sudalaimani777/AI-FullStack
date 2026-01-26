@@ -25,7 +25,7 @@ This repository is my personal learning journey into Full-Stack Development, doc
 - **3 AJAX Projects** (Text, JSON, External API) with 241 lines of notes
 - **100 JavaScript Topic-Specific Practice Tasks** aligned with each chapter (100% completed)
 - **Structured coding exercises** (Basic, Advanced, Bonus)
-- **7 JavaScript Applications** showcasing modern JavaScript concepts
+- **8 JavaScript Applications** showcasing modern JavaScript concepts
 - **React Prerequisites Guide** (374 lines) for next learning phase
 - **Professional documentation** with enhanced formatting and quick references
 - **Hands-on DOM manipulation, AJAX, and API integration** practice
@@ -41,7 +41,7 @@ This repository is my personal learning journey into Full-Stack Development, doc
 - ✅ 100/100 JavaScript TopicTasks completed
 - ✅ 15/15 JavaScript Topics completed
 - ✅ 8/8 ES6 Advanced Modules completed (Functions, Promises, Fetch, HTTP, Async/Await, Destructuring, Spread/Rest, Error Handling)
-- ✅ 7/7 JavaScript Projects completed
+- ✅ 8/8 JavaScript Projects completed
 - ✅ 3/3 AJAX Projects completed
 - ✅ Basic, Advanced & Bonus Tasks completed (30 total)
 
@@ -116,12 +116,13 @@ AI-FullStackGitRepo/
 │       │   ├── 6-Event-Registration-Form/  # Comprehensive form
 │       │   ├── 7-Documentation-Page/  # Technical docs
 │       │   └── 8-Online-Resume/       # Professional CV
-│       └── JavascriptProjects/        # 7 production applications
-│           ├── README.md              # Detailed project docs
-│           ├── BookManagementApp/     # ES6 Classes, LocalStorage
-│           ├── To-do_App/             # Advanced DOM, LocalStorage
-│           ├── ToDoUsingAPI/          # REST API integration
-│           ├── CRUD_Application_Using_API/  # Async/await, inline editing
+      └── JavascriptProjects/        # 8 production applications
+          ├── README.md              # Detailed project docs
+          ├── BookManagementApp/     # ES6 Classes, LocalStorage
+          ├── To-do_App/             # Advanced DOM, LocalStorage
+          ├── ToDoUsingAPI/          # REST API integration
+          ├── CRUD_Application_Using_API/  # Async/await, inline editing
+          ├── MoneyTracker/          # MVC, IIFE, API, Progressive (3 stages)
 │           ├── ColorPicker/           # Browser APIs, Clipboard
 │           ├── CharacterValidator/    # Real-time validation
 │           └── SimpleCounterApp/      # State management
@@ -187,8 +188,8 @@ AI-FullStackGitRepo/
 | JavaScript TopicTasks | 100 | ✅ Complete |
 | ES6 Modules | 8 | ✅ Complete |
 | AJAX Projects | 3 | ✅ Complete |
-| JavaScript Applications | 7 | ✅ Complete |
-| Total Projects | 15 | ✅ Complete |
+| JavaScript Applications | 8 | ✅ Complete |
+| Total Projects | 16 | ✅ Complete |
 | Practice Tasks (HTML + JS) | 155+ | ✅ Complete |
 | JS-Tasks (Basic+Advanced+Bonus) | 30 | ✅ Complete |
 | Objects Sub-Topics | 6 | ✅ Complete |
@@ -199,7 +200,7 @@ AI-FullStackGitRepo/
 
 ## 🚀 Projects
 
-### [Projects/FrontEnd/](Projects/FrontEnd/README.md) - 15 Total Projects
+### [Projects/FrontEnd/](Projects/FrontEnd/README.md) - 16 Total Projects
 
 ### HTML Projects (8)
 
@@ -245,7 +246,7 @@ AI-FullStackGitRepo/
 
 ---
 
-### JavaScript Projects (7)
+### JavaScript Projects (8)
 
 #### ✅ BookManagementApp (191 lines)
 **Tech:** ES6 Classes, LocalStorage, OOP  
@@ -256,6 +257,16 @@ AI-FullStackGitRepo/
 **Tech:** LocalStorage, Event delegation, Advanced DOM  
 **Features:** CRUD operations, search/filter, real-time updates, event delegation  
 **Skills:** Advanced DOM manipulation, data filtering, persistence
+
+#### ✅ MoneyTracker (559 lines)
+**Tech:** MVC Architecture, IIFE Pattern, REST API, Tailwind CSS  
+**Features:** Progressive 3-stage learning, full CRUD with API, animated UI, responsive design  
+**Skills:** MVC pattern, IIFE modules, async/await, state management, modern CSS animations
+
+#### ✅ CRUD_Application_Using_API (270 lines)
+**Tech:** Async/Await, Fetch API, ES6 Modules  
+**Features:** Full CRUD with inline editing, event delegation, modern async patterns  
+**Skills:** Modern async patterns, RESTful operations, dynamic UI updates
 
 #### ✅ ToDoUsingAPI (98 lines)
 **Tech:** Fetch API, REST, ES6 Modules  
@@ -412,6 +423,7 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 | **Simple Counter App** | ✅ **Complete** | **Dec 5, 2025** |
 | **Book Management App** | ✅ **Complete** | **Dec 13, 2025** |
 | **ToDoUsingAPI** | ✅ **Complete** | **Dec 2025** |
+| **MoneyTracker** | ✅ **Complete** | **Jan 26, 2026** |
 | **CRUD_Application_Using_API** | ✅ **Complete** | **Jan 2, 2026** |
 | **Future Goals** |
 | Bonus Challenges | ✅ **Complete** | **Dec 28 2025** |
@@ -641,24 +653,26 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 **JavaScript TopicTasks:** 100 practice exercises  
 **ES6 Modules:** 8 advanced modules  
 **AJAX Projects:** 3 progressive projects  
-**Total Projects:** 15 (8 HTML + 7 JavaScript)  
+**Total Projects:** 16 (8 HTML + 8 JavaScript)  
 **Total Practice Tasks:** 155+ (25 HTML + 100 JS + 30 JS-Tasks)  
 **JS-Tasks:** 30 (Basic 10 + Advanced 10 + Bonus 10)  
-**Documentation Lines:** 5,698+ lines total
+**Documentation Lines:** 7,298+ lines total
   - Topics/notes.txt: 2,293 lines
   - ES6/notes.txt: 1,539 lines
   - ES6/README.md: 1,251 lines
   - Ajax/notes.txt: 241 lines
-  - React Prerequisites: 374 lines  
+  - React Prerequisites: 374 lines
+  - MoneyTracker/notes.txt: 900+ lines
+  - MoneyTracker/README.md: 700+ lines  
 **Code Examples:** 300+ practical examples  
 **Completion Rate:** 100% (155/155 tasks completed)  
 **Objects Sub-Topics:** 6 (Constructors, Prototypes, Classes, etc.)  
 **Array Methods Sub-Topics:** 9 (Basic + map, filter, forEach, reduce)  
 **DOM Practice Files:** 8 comprehensive files  
 **HTML Projects:** 8 complete HTML5 applications  
-**JavaScript Projects:** 7 production applications  
-**Total Projects:** 15 frontend applications  
-**Total Code Lines:** 1,800+ across JavaScript projects
+**JavaScript Projects:** 8 production applications  
+**Total Projects:** 16 frontend applications  
+**Total Code Lines:** 2,359+ across JavaScript projects
 
 ## 🔗 Quick Links
 
@@ -685,14 +699,14 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 ### 🚀 Projects
 | Resource | Description |
 |----------|-------------|
-| [All Projects](Projects/FrontEnd/README.md) | 15 applications overview (8 HTML + 7 JS) |
+| [All Projects](Projects/FrontEnd/README.md) | 16 applications overview (8 HTML + 8 JS) |
 | [HTML Projects](Projects/FrontEnd/HTMLProjects/README.md) | 8 complete HTML5 projects |
-| [JavaScript Projects](Projects/FrontEnd/JavascriptProjects/README.md) | 7 production applications |
+| [JavaScript Projects](Projects/FrontEnd/JavascriptProjects/README.md) | 8 production applications |
 
 ---
 
 **Repository:** AI Full-Stack Development Learning Journey  
 **Author:** Sudalaimani  
 **Learning Period:** October 17, 2025 - Present  
-**Last Updated:** January 21, 2026  
+**Last Updated:** January 26, 2026  
 **Status:** 🔄 Frontend In Progress | ⏳ React Upcoming | 🔄 Backend Upcoming

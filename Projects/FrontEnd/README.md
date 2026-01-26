@@ -16,11 +16,12 @@ FrontEnd/
 │   ├── 7-Documentation-Page/     # Technical documentation with sidebar
 │   └── 8-Online-Resume/          # Professional resume/CV
 │
-└── JavascriptProjects/           # 7 production-ready JavaScript applications
+└── JavascriptProjects/           # 8 production-ready JavaScript applications
     ├── BookManagementApp/        # OOP, LocalStorage CRUD, ES6 classes
     ├── CharacterValidator/       # Real-time input validation
     ├── ColorPicker/              # Random color generation, Clipboard API
     ├── CRUD_Application_Using_API/ # Modern CRUD, async/await, inline editing
+    ├── MoneyTracker/             # Progressive MVC, API integration, 3 learning stages
     ├── SimpleCounterApp/         # State management basics
     ├── To-do_App/                # Advanced LocalStorage, search/filter
     └── ToDoUsingAPI/             # REST API integration, ES6 modules
@@ -94,6 +95,11 @@ FrontEnd/
 **Features:** Full CRUD with inline editing, 270 lines, event delegation  
 **Skills:** Modern async patterns, RESTful operations, dynamic UI updates
 
+#### MoneyTracker
+**Tech:** MVC Architecture, IIFE Pattern, REST API, Tailwind CSS  
+**Features:** Progressive 3-stage learning, full CRUD, 559 lines, animated UI  
+**Skills:** MVC pattern, IIFE modules, async/await, Tailwind CSS, responsive design
+
 #### SimpleCounterApp
 **Tech:** DOM manipulation, state management  
 **Features:** Increment/decrement/reset  
@@ -121,9 +127,11 @@ FrontEnd/
 ### JavaScript Projects
 - **Vanilla JavaScript** (ES6+)
 - **LocalStorage API** (3 projects)
-- **Fetch API / REST** (2 projects)
-- **Tailwind CSS** (6 projects)
+- **Fetch API / REST** (3 projects)
+- **Tailwind CSS** (7 projects)
 - **Materialize CSS** (1 project)
+- **MVC Architecture** (1 project)
+- **IIFE Pattern** (1 project)
 
 ## Complexity Matrix
 
@@ -147,8 +155,7 @@ FrontEnd/
 | ColorPicker | Browser APIs | ⭐⭐ | Random generation, Clipboard API, Hex colors |
 | BookManagementApp | OOP & Storage | ⭐⭐⭐ | ES6 Classes, LocalStorage CRUD, Form handling |
 | To-do_App | Advanced Storage | ⭐⭐⭐⭐ | LocalStorage, Search/filter, Event delegation |
-| ToDoUsingAPI | API Integration | ⭐⭐⭐⭐ | REST API, Promises, GET/POST/PUT/DELETE |
-| CRUD_Application_Using_API | Modern Async | ⭐⭐⭐⭐⭐ | Async/await, Inline editing, Error handling, MockAPI |
+| ToDoUsingAPI | API Integration | ⭐⭐⭐⭐ | REST API, Promises, GET/POST/PUT/DELETE || MoneyTracker | MVC Architecture | ⭐⭐⭐⭐⭐ | MVC pattern, IIFE, API integration, Tailwind, Animations || CRUD_Application_Using_API | Modern Async | ⭐⭐⭐⭐⭐ | Async/await, Inline editing, Error handling, MockAPI |
 
 ## Learning Path
 
@@ -167,9 +174,11 @@ FrontEnd/
 2. **CharacterValidator** → Validation patterns
 3. **ColorPicker** → Browser APIs
 4. **BookManagementApp** → OOP & persistence
-5. **To-do_App** → Advanced features
-6. **CRUD_Application_Using_API** → Modern async/await & inline editing
-7. **ToDoUsingAPI** → API integration with Promises
+5. **MoneyTracker (Stage 1-2)** → MVC architecture & IIFE pattern
+6. **To-do_App** → Advanced features
+7. **CRUD_Application_Using_API** → Modern async/await & inline editing
+8. **MoneyTracker (Stage 3)** → Production-ready with API & modern UI
+9. **ToDoUsingAPI** → API integration with Promises
 
 ## Key Skills Demonstrated
 
@@ -219,6 +228,7 @@ FrontEnd/
 - [CharacterValidator](JavascriptProjects/CharacterValidator/README.md)
 - [ColorPicker](JavascriptProjects/ColorPicker/README.md)
 - [CRUD_Application_Using_API](JavascriptProjects/CRUD_Application_Using_API/README.md)
+- [MoneyTracker](JavascriptProjects/MoneyTracker/README.md)
 - [SimpleCounterApp](JavascriptProjects/SimpleCounterApp/README.md)
 - [To-do_App](JavascriptProjects/To-do_App/README.md)
 - [ToDoUsingAPI](JavascriptProjects/ToDoUsingAPI/README.md)
@@ -226,9 +236,9 @@ FrontEnd/
 ## Total Projects
 
 - **HTML Projects:** 8 complete projects demonstrating HTML5 mastery
-- **JavaScript Projects:** ~1,270+ lines of production JavaScript across 7 applications
-- **Total:** 15 production-ready frontend projects
+- **JavaScript Projects:** ~1,830+ lines of production JavaScript across 8 applications
+- **Total:** 16 production-ready frontend projects
 
 ---
 
-**Last Updated:** January 20, 2026
+**Last Updated:** January 26, 2026
