@@ -132,26 +132,49 @@ const dataController = (() => {
             }
         },
         //Update Item :-
-        updateItem: (task, money) => {
-            money = parseInt(money);
-            console.log(task, money);
+        updateItem: async (task, money) => {
+            try {
+                const id = await data.currentItem.id;
+                const response = await fetch(`${API_URL}/${id}`, {
+                    method: "PUT",
+                    headers: {
+                        "Content-type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        task: task,
+                        money: parseInt(money)
+                    })
+                })
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
-            let found = null;
-            data.items.forEach(items => {
-                if (items.id === data.currentItem.id) {
-                    console.log(items)
-                    //Updating the values :-
-                    items.task = task;
-                    items.money = money;
-                    found = items;
-                    console.log(found);
+                const updatedItem = await response.json();
+                const findIndex = data.items.findIndex(item => item.id === id);
+                console.log(findIndex)
+                if (findIndex > -1) {
+                    data.items[findIndex] = updatedItem;
                 }
-            })
-            return found;
+                return updatedItem;
+            } catch (err) {
+                console.log(err);
+            }
         },
         //Clear All Items :-
-        clearAllItems: () => {
-            data.items = [];
+        clearAllItems: async () => {
+            try {
+                for (let item of data.items) {
+                    const response = await fetch(`${API_URL}/${item.id}`, {
+                        method: "DELETE",
+                        headers: {
+                            "Content-type": "application/json"
+                        }
+                    })
+                }
+                data.items = [];
+                return true;
+            }
+            catch (err) {
+                console.log(err);
+            }
         }
     }
 
@@ -332,7 +355,7 @@ const appController = (() => {
 
             //Send the data to the edit :-
             const itemToEdit = dataController.getItemById(id);
-            if(itemToEdit){
+            if (itemToEdit) {
                 //Set the Current Item :-
                 dataController.setCurrentItem(itemToEdit);
                 uiController.addItemToForm();
@@ -368,7 +391,7 @@ const appController = (() => {
     }
 
     //Item Edit (Update) Submit :-
-    const itemEditSubmit = (e) => {
+    const itemEditSubmit = async (e) => {
         e.preventDefault();
         //Get the Current Item :-
         const currentItem = dataController.getCurrentItem();
@@ -378,12 +401,22 @@ const appController = (() => {
         const input = dataController.getTaskAndMoney();
 
         //Update the Item :-
-        const updateItem = dataController.updateItem(input.task, input.money);
+        const updateItem = await dataController.updateItem(input.task, input.money);
+
+        try {
+            if (updateItem) {
+                uiController.updateListItem(updateItem);
+                uiController.showTotalMoney(dataController.getTotalMoney());
+                uiController.clearInputFields();
+                uiController.clearBtnState();
+            }
+        } catch (err) {
+            console.log(err);
+        }
+
+
 
         console.log(updateItem);
-
-        //Update the UI :-
-        uiController.updateListItem(updateItem);
     }
 
     //Back Btn Submit :-
@@ -397,18 +430,26 @@ const appController = (() => {
     }
 
     //Clear All Submit :-
-    const clearSubmit = () => {
-        //Clear all items from the data structure :-
-        dataController.clearAllItems();
+    const clearSubmit = async () => {
+        try {
 
-        //Clear all items from the UI :-
-        uiController.clearAllItemsUI();
+            const cleared = await dataController.clearAllItems();
+            if (cleared) {
+                //Clear all items from the data structure :-
+                dataController.clearAllItems();
 
-        //Get the total Money :-
-        const totalMoney = dataController.getTotalMoney();
+                //Clear all items from the UI :-
+                uiController.clearAllItemsUI();
 
-        //Show the total Money :-
-        uiController.showTotalMoney(totalMoney);
+                //Get the total Money :-
+                const totalMoney = dataController.getTotalMoney();
+
+                //Show the total Money :-
+                uiController.showTotalMoney(totalMoney);
+            }
+        } catch (err) {
+            console.log(err);
+        }
     }
 
     return {
