@@ -1,0 +1,2159 @@
+EVENT OBJECT IN JAVASCRIPT
+==========================
+
+WHAT IS AN EVENT OBJECT?
+------------------------
+The event object is automatically created and passed to event handlers when an event occurs.
+It contains all information about the event (what happened, where, when, which element, etc.)
+
+Convention: Usually named 'e', 'evt', or 'event' as the parameter in event handlers.
+
+
+KEY PROPERTIES
+--------------
+
+1. e.target
+   - The element that TRIGGERED the event (the actual clicked element)
+   - Most commonly used property
+   - Example: If you click a <span> inside a <button>, e.target is the <span>
+
+2. e.currentTarget
+   - The element that the event listener is ATTACHED to
+   - Always the element with addEventListener()
+   - Example: Same scenario, e.currentTarget is the <button>
+
+3. e.type
+   - Type of event that occurred
+   - Returns: "click", "submit", "keydown", "mouseover", etc.
+
+4. e.timeStamp
+   - Time when event was created (milliseconds since page load)
+   - Useful for performance tracking or double-click prevention
+
+5. e.bubbles
+   - Boolean: Does this event bubble up the DOM tree?
+   - true for most events (click, keydown), false for focus/blur
+
+
+MOUSE EVENT PROPERTIES
+----------------------
+
+e.clientX, e.clientY
+   - Mouse position relative to the viewport (visible browser window)
+   
+e.pageX, e.pageY
+   - Mouse position relative to the entire document (including scroll)
+
+e.screenX, e.screenY
+   - Mouse position relative to the entire screen
+
+e.button
+   - Which mouse button was pressed
+   - 0 = left, 1 = middle, 2 = right
+
+e.altKey, e.ctrlKey, e.shiftKey, e.metaKey
+   - Boolean: Was Alt/Ctrl/Shift/Meta(Command) key pressed during click?
+
+
+KEYBOARD EVENT PROPERTIES
+--------------------------
+
+e.key
+   - The actual character/key pressed
+   - Examples: "a", "A", "Enter", "Escape", "ArrowUp"
+
+e.code
+   - Physical key on keyboard (independent of layout)
+   - Examples: "KeyA", "Enter", "ArrowUp", "Space"
+
+e.keyCode (DEPRECATED)
+   - Numeric code for key (old way, avoid using)
+
+e.altKey, e.ctrlKey, e.shiftKey, e.metaKey
+   - Boolean: Was modifier key pressed?
+
+
+FORM EVENT PROPERTIES
+----------------------
+
+For input/change events on form elements:
+e.target.value - Current value of input/textarea/select
+
+For submit events:
+e.target - The <form> element itself
+Can access form data: new FormData(e.target)
+
+
+CRITICAL METHODS
+----------------
+
+1. e.preventDefault()
+   - Prevents the default browser behavior
+   - Common uses:
+     * Stop form submission
+     * Prevent link navigation
+     * Block context menu
+     * Cancel drag-and-drop default
+   
+   Example:
+   form.addEventListener('submit', (e) => {
+     e.preventDefault(); // Don't submit, handle with JS
+     // custom validation/AJAX
+   });
+
+2. e.stopPropagation()
+   - Stops the event from bubbling up to parent elements
+   - Event won't trigger listeners on ancestor elements
+   
+   Example:
+   childBtn.addEventListener('click', (e) => {
+     e.stopPropagation(); // Parent won't receive this click
+   });
+
+3. e.stopImmediatePropagation()
+   - Like stopPropagation() BUT also prevents OTHER listeners on the SAME element
+   - Very rarely needed
+
+
+EVENT FLOW (IMPORTANT CONCEPT)
+-------------------------------
+
+Events occur in 3 phases:
+1. CAPTURE phase: Event goes DOWN from window → target
+2. TARGET phase: Event reaches the target element
+3. BUBBLE phase: Event goes UP from target → window
+
+By default, addEventListener uses BUBBLE phase.
+To use capture: addEventListener('click', handler, true)
+
+Example:
+<div class="parent">
+  <button class="child">Click</button>
+</div>
+
+When button clicked:
+1. Capture: window → document → body → div → button
+2. Target: button
+3. Bubble: button → div → body → document → window
+
+
+e.target vs e.currentTarget EXAMPLE
+------------------------------------
+
+<div id="parent">
+  <button id="child">Click Me</button>
+</div>
+
+document.getElementById('parent').addEventListener('click', (e) => {
+  console.log(e.target);        // <button> (what you clicked)
+  console.log(e.currentTarget); // <div id="parent"> (where listener is)
+  console.log(e.currentTarget === e.target); // false
+});
+
+If you click the button:
+- e.target = button (actual element clicked)
+- e.currentTarget = div (element with the listener)
+
+
+COMMON PATTERNS
+---------------
+
+1. Getting clicked element data:
+   button.addEventListener('click', (e) => {
+     const id = e.target.dataset.id;
+     const text = e.target.textContent;
+   });
+
+2. Keyboard shortcuts:
+   document.addEventListener('keydown', (e) => {
+     if (e.ctrlKey && e.key === 's') {
+       e.preventDefault();
+       saveDocument();
+     }
+   });
+
+3. Form validation:
+   input.addEventListener('blur', (e) => {
+     if (e.target.value.length < 3) {
+       e.target.classList.add('error');
+     }
+   });
+
+4. Mouse tracking:
+   document.addEventListener('mousemove', (e) => {
+     cursor.style.left = e.clientX + 'px';
+     cursor.style.top = e.clientY + 'px';
+   });
+
+5. Preventing multiple submissions:
+   form.addEventListener('submit', (e) => {
+     e.preventDefault();
+     e.target.querySelector('button').disabled = true;
+     // submit logic
+   });
+
+
+BEST PRACTICES
+--------------
+
+1. Always name it clearly: 'e', 'event', or 'evt'
+2. Use e.preventDefault() for forms, links, context menus
+3. Use e.target for event delegation (see separate notes)
+4. Use e.currentTarget when you need the listener's element
+5. For keyboard events, prefer e.key over deprecated e.keyCode
+6. Check e.target before acting (might not be the element you expect)
+7. Remember: e.currentTarget is null in async callbacks (save it first!)
+
+
+COMMON GOTCHAS
+--------------
+
+❌ e.currentTarget in setTimeout:
+button.addEventListener('click', (e) => {
+  setTimeout(() => {
+    console.log(e.currentTarget); // null! (event object is reused)
+  }, 1000);
+});
+
+✅ Save it first:
+button.addEventListener('click', (e) => {
+  const btn = e.currentTarget;
+  setTimeout(() => {
+    console.log(btn); // Works!
+  }, 1000);
+});
+
+❌ Forgetting preventDefault:
+<a href="#" onclick="doSomething()"> // Page will jump to top!
+
+✅ Use preventDefault:
+link.addEventListener('click', (e) => {
+  e.preventDefault();
+  doSomething();
+});
+
+
+INTERVIEW QUESTIONS
+-------------------
+
+Q: What's the difference between e.target and e.currentTarget?
+A: e.target is the element that triggered the event (actual clicked element).
+   e.currentTarget is the element the listener is attached to.
+
+Q: What does e.preventDefault() do?
+A: Cancels the default browser behavior for that event (form submit, link click, etc.)
+
+Q: What does e.stopPropagation() do?
+A: Stops the event from bubbling up to parent elements.
+
+Q: Can you access the event object in all event handlers?
+A: Yes, it's automatically passed as the first parameter to any event handler function.
+
+Q: What happens to the event object after the handler finishes?
+A: It's reused by the browser, so properties like e.currentTarget become null in async code.
+
+
+========================================
+========================================
+EVENT DELEGATION
+========================================
+========================================
+
+WHAT IS EVENT DELEGATION?
+--------------------------
+Event delegation is a smart technique where instead of adding event listeners to many individual 
+elements, you add ONE listener to a parent element and let it handle events from all its children.
+
+SIMPLE ANALOGY:
+Think of a classroom with 30 students. Instead of giving each student a walkie-talkie to call you,
+you just sit in the room and listen to anyone who raises their hand. Much more efficient!
+
+
+HOW DOES IT WORK?
+-----------------
+It relies on EVENT BUBBLING - when you click a child element, the click event "bubbles up" through 
+all its parent elements. The parent listener can catch this event and check which child was clicked.
+
+
+WHY USE EVENT DELEGATION?
+--------------------------
+
+1. PERFORMANCE & MEMORY
+   - One listener instead of hundreds = less memory usage
+   - Faster page initialization
+   - Example: 1000 list items = 1 listener, not 1000 listeners
+
+2. WORKS WITH DYNAMIC CONTENT
+   - Elements added AFTER page load automatically work
+   - No need to attach new listeners when adding elements
+   - Perfect for: todo lists, tables, shopping carts
+
+3. CLEANER CODE
+   - All related logic in one place
+   - Easier to maintain and debug
+   - Single source of truth for event handling
+
+4. AUTOMATIC CLEANUP
+   - When elements are removed, no need to remove their listeners
+   - Prevents memory leaks
+
+
+THE PROBLEM WITHOUT EVENT DELEGATION
+-------------------------------------
+
+Imagine a todo list with 100 items:
+- Need to add 100 event listeners
+- When adding new todo → must manually add listener
+- When deleting todo → should remove listener (or memory leak)
+- 100 functions in memory even if most are identical
+- Slow when manipulating many elements
+
+CODE EXAMPLE (BAD APPROACH):
+----------------------------
+// HTML:
+// <ul id="todo-list">
+//   <li><button class="delete-btn">Delete</button></li>
+//   <li><button class="delete-btn">Delete</button></li>
+//   <li><button class="delete-btn">Delete</button></li>
+// </ul>
+
+// ❌ WITHOUT DELEGATION (inefficient)
+const deleteButtons = document.querySelectorAll('.delete-btn');
+deleteButtons.forEach(button => {
+  button.addEventListener('click', (e) => {
+    e.target.closest('li').remove();
+  });
+});
+
+// Problems:
+// 1. If you have 1000 buttons = 1000 event listeners!
+// 2. New buttons added later won't work:
+const newLi = document.createElement('li');
+newLi.innerHTML = '<button class="delete-btn">Delete</button>';
+document.getElementById('todo-list').appendChild(newLi);
+// ⚠️ This new button won't have a listener! It won't work!
+
+
+THE SOLUTION WITH EVENT DELEGATION
+-----------------------------------
+
+With event delegation:
+- Only 1 listener on the parent <ul>
+- New todos automatically work (event bubbles up)
+- Deleted todos automatically cleanup
+- 1 function in memory
+- Fast even with 1000s of elements
+
+CODE EXAMPLE (GOOD APPROACH):
+-----------------------------
+// HTML: (same as above)
+
+// ✅ WITH DELEGATION (efficient)
+const todoList = document.getElementById('todo-list');
+
+todoList.addEventListener('click', (e) => {
+  // Check if the clicked element is a delete button
+  if (e.target.classList.contains('delete-btn')) {
+    e.target.closest('li').remove();
+  }
+});
+
+// Benefits:
+// 1. Only 1 listener, no matter how many buttons!
+// 2. New buttons automatically work:
+const newLi = document.createElement('li');
+newLi.innerHTML = '<button class="delete-btn">Delete</button>';
+todoList.appendChild(newLi);
+// ✅ This new button works automatically! No extra code needed!
+
+
+HOW TO IDENTIFY WHICH ELEMENT WAS CLICKED
+------------------------------------------
+
+The secret is using e.target - it tells you the actual element that was clicked.
+
+Then you check:
+1. Is it the type of element you care about?
+2. Does it have the right class?
+3. Does it match the selector you want?
+
+Common checking methods:
+- e.target.classList.contains('class-name') → checks if element has a class
+- e.target.matches('.selector') → checks if element matches CSS selector
+- e.target.closest('.selector') → finds nearest parent matching selector
+- e.target.tagName === 'BUTTON' → checks element type
+
+CODE EXAMPLES:
+--------------
+const container = document.getElementById('container');
+
+container.addEventListener('click', (e) => {
+  
+  // Method 1: Using classList.contains()
+  if (e.target.classList.contains('delete-btn')) {
+    console.log('Delete button clicked!');
+  }
+  
+  // Method 2: Using matches() - more flexible
+  if (e.target.matches('.btn-primary')) {
+    console.log('Primary button clicked!');
+  }
+  
+  // Method 3: Using matches() with complex selectors
+  if (e.target.matches('button[data-action="save"]')) {
+    console.log('Save button clicked!');
+  }
+  
+  // Method 4: Using tagName
+  if (e.target.tagName === 'BUTTON') {
+    console.log('Some button was clicked!');
+  }
+  
+  // Method 5: Using dataset
+  if (e.target.dataset.action === 'delete') {
+    const id = e.target.dataset.id;
+    console.log(`Delete item ${id}`);
+  }
+});
+
+
+UNDERSTANDING e.target vs e.currentTarget IN DELEGATION
+--------------------------------------------------------
+
+e.target = The ACTUAL element you clicked (child)
+e.currentTarget = The element WITH the listener (parent)
+
+Example: Parent <ul> with listener, you click a child <button>
+- e.target = <button> (what you clicked)
+- e.currentTarget = <ul> (where the listener is)
+
+This is why delegation works - you check e.target to see what was clicked!
+
+CODE EXAMPLE:
+-------------
+// HTML:
+// <ul id="menu">
+//   <li><button class="menu-btn">Home</button></li>
+//   <li><button class="menu-btn">About</button></li>
+//   <li><button class="menu-btn">Contact</button></li>
+// </ul>
+
+const menu = document.getElementById('menu');
+
+menu.addEventListener('click', (e) => {
+  console.log('e.target:', e.target);           // <button> (what you clicked)
+  console.log('e.currentTarget:', e.currentTarget); // <ul> (where listener is)
+  
+  // This is how delegation works:
+  if (e.target.classList.contains('menu-btn')) {
+    console.log('Button text:', e.target.textContent);
+  }
+});
+
+
+WHEN TO USE closest()
+----------------------
+
+Problem: Sometimes you click nested elements inside the target
+
+Example: Button with icon inside
+<button class="delete-btn">
+  <i class="icon"></i>
+  Delete
+</button>
+
+If you click the <i>, e.target is the icon, not the button!
+
+Solution: Use closest()
+- e.target.closest('.delete-btn') finds the button even if you clicked the icon
+- It searches UP the tree from e.target to find matching element
+- Returns null if no match found
+
+CODE EXAMPLE:
+-------------
+// HTML:
+// <div id="container">
+//   <button class="action-btn">
+//     <i class="icon-trash"></i>
+//     <span>Delete</span>
+//   </button>
+// </div>
+
+const container = document.getElementById('container');
+
+// ❌ PROBLEM: This doesn't work if you click icon or span
+container.addEventListener('click', (e) => {
+  if (e.target.classList.contains('action-btn')) {
+    console.log('Button clicked!');
+    // ⚠️ This only works if you click the button itself,
+    // not the icon or span inside!
+  }
+});
+
+// ✅ SOLUTION: Use closest() to handle nested elements
+container.addEventListener('click', (e) => {
+  const button = e.target.closest('.action-btn');
+  
+  if (button) {
+    console.log('Button clicked!'); // Works regardless of what you click!
+    console.log('Button text:', button.textContent);
+  }
+});
+
+// How closest() works:
+// 1. Starts at e.target (the icon or span)
+// 2. Checks if it matches '.action-btn' → No
+// 3. Moves up to parent → checks again
+// 4. Finds the <button> → Yes! Returns it
+// 5. If no match found up to container → returns null
+
+
+COMMON USE CASES
+----------------
+
+1. TODO LISTS
+   - Single listener handles: add, delete, complete, edit buttons
+   - New todos automatically work
+
+2. TABLES
+   - Handle: sort, edit, delete for all rows
+   - Dynamic rows just work
+
+3. NAVIGATION MENUS
+   - Single listener for all menu items
+   - Works with submenus
+
+4. IMAGE GALLERIES
+   - Click any thumbnail to open lightbox
+   - New images auto-work
+
+5. FORM DYNAMIC FIELDS
+   - Add/remove input fields
+   - No listener management needed
+
+6. SHOPPING CARTS
+   - Increase/decrease quantity, remove items
+   - Cart updates handled centrally
+
+CODE EXAMPLES:
+--------------
+
+// Example 1: TODO LIST
+// --------------------
+const todoList = document.getElementById('todo-list');
+
+todoList.addEventListener('click', (e) => {
+  // Handle complete button
+  if (e.target.classList.contains('complete-btn')) {
+    const li = e.target.closest('li');
+    li.classList.toggle('completed');
+  }
+  
+  // Handle delete button
+  if (e.target.classList.contains('delete-btn')) {
+    const li = e.target.closest('li');
+    li.remove();
+  }
+  
+  // Handle edit button
+  if (e.target.classList.contains('edit-btn')) {
+    const li = e.target.closest('li');
+    const text = li.querySelector('.todo-text');
+    text.contentEditable = true;
+    text.focus();
+  }
+});
+
+
+// Example 2: TABLE (Edit/Delete Rows)
+// ------------------------------------
+const table = document.getElementById('user-table');
+
+table.addEventListener('click', (e) => {
+  // Delete row
+  if (e.target.classList.contains('delete-row')) {
+    const row = e.target.closest('tr');
+    const userId = e.target.dataset.id;
+    
+    if (confirm(`Delete user ${userId}?`)) {
+      row.remove();
+    }
+  }
+  
+  // Edit row
+  if (e.target.classList.contains('edit-row')) {
+    const row = e.target.closest('tr');
+    const cells = row.querySelectorAll('td');
+    
+    cells.forEach(cell => {
+      cell.contentEditable = true;
+    });
+  }
+});
+
+
+// Example 3: IMAGE GALLERY
+// ------------------------
+const gallery = document.getElementById('gallery');
+
+gallery.addEventListener('click', (e) => {
+  if (e.target.matches('img.thumbnail')) {
+    const fullSrc = e.target.dataset.full;
+    const lightbox = document.getElementById('lightbox');
+    
+    lightbox.querySelector('img').src = fullSrc;
+    lightbox.style.display = 'block';
+  }
+});
+
+
+// Example 4: SHOPPING CART
+// ------------------------
+const cart = document.getElementById('cart');
+
+cart.addEventListener('click', (e) => {
+  const item = e.target.closest('[data-item-id]');
+  const itemId = item?.dataset.itemId;
+  
+  // Increase quantity
+  if (e.target.classList.contains('increase-qty')) {
+    updateQuantity(itemId, 1);
+  }
+  
+  // Decrease quantity
+  if (e.target.classList.contains('decrease-qty')) {
+    updateQuantity(itemId, -1);
+  }
+  
+  // Remove item
+  if (e.target.classList.contains('remove-item')) {
+    item.remove();
+    updateTotal();
+  }
+});
+
+CODE EXAMPLES:
+--------------
+
+// Example 1: TODO LIST
+// --------------------
+const todoList = document.getElementById('todo-list');
+
+todoList.addEventListener('click', (e) => {
+  // Handle complete button
+  if (e.target.classList.contains('complete-btn')) {
+    const li = e.target.closest('li');
+    li.classList.toggle('completed');
+  }
+  
+  // Handle delete button
+  if (e.target.classList.contains('delete-btn')) {
+    const li = e.target.closest('li');
+    li.remove();
+  }
+  
+  // Handle edit button
+  if (e.target.classList.contains('edit-btn')) {
+    const li = e.target.closest('li');
+    const text = li.querySelector('.todo-text');
+    text.contentEditable = true;
+    text.focus();
+  }
+});
+
+
+// Example 2: TABLE (Edit/Delete Rows)
+// ------------------------------------
+const table = document.getElementById('user-table');
+
+table.addEventListener('click', (e) => {
+  // Delete row
+  if (e.target.classList.contains('delete-row')) {
+    const row = e.target.closest('tr');
+    const userId = e.target.dataset.id;
+    
+    if (confirm(`Delete user ${userId}?`)) {
+      row.remove();
+    }
+  }
+  
+  // Edit row
+  if (e.target.classList.contains('edit-row')) {
+    const row = e.target.closest('tr');
+    const cells = row.querySelectorAll('td');
+    
+    cells.forEach(cell => {
+      cell.contentEditable = true;
+    });
+  }
+});
+
+
+// Example 3: IMAGE GALLERY
+// ------------------------
+const gallery = document.getElementById('gallery');
+
+gallery.addEventListener('click', (e) => {
+  if (e.target.matches('img.thumbnail')) {
+    const fullSrc = e.target.dataset.full;
+    const lightbox = document.getElementById('lightbox');
+    
+    lightbox.querySelector('img').src = fullSrc;
+    lightbox.style.display = 'block';
+  }
+});
+
+
+// Example 4: SHOPPING CART
+// ------------------------
+const cart = document.getElementById('cart');
+
+cart.addEventListener('click', (e) => {
+  const itemId = e.target.closest('[data-item-id]')?.dataset.itemId;
+  
+  // Increase quantity
+  if (e.target.classList.contains('increase-qty')) {
+    updateQuantity(itemId, 1);
+  }
+  
+  // Decrease quantity
+  if (e.target.classList.contains('decrease-qty')) {
+    updateQuantity(itemId, -1);
+  }
+  
+  // Remove item
+  if (e.target.classList.contains('remove-item')) {
+    e.target.closest('.cart-item').remove();
+    updateTotal();
+  }
+});
+
+
+MULTIPLE EVENT TYPES WITH DELEGATION
+-------------------------------------
+
+You can delegate different event types!
+
+For CLICK events:
+- parent.addEventListener('click', handler)
+- Check e.target for buttons, links, etc.
+
+For HOVER effects:
+- parent.addEventListener('mouseover', handler)
+- Check e.target for items you want to highlight
+
+For KEYBOARD events:
+- parent.addEventListener('keydown', handler)
+- Check e.target for specific inputs
+
+CODE EXAMPLE:
+-------------
+const container = document.getElementById('container');
+
+// Click events
+container.addEventListener('click', (e) => {
+  if (e.target.matches('.card')) {
+    console.log('Card clicked!');
+  }
+});
+
+// Hover effects (mouseover + mouseout)
+container.addEventListener('mouseover', (e) => {
+  if (e.target.matches('.card')) {
+    e.target.classList.add('hover');
+  }
+});
+
+container.addEventListener('mouseout', (e) => {
+  if (e.target.matches('.card')) {
+    e.target.classList.remove('hover');
+  }
+});
+
+// Keyboard events (for inputs in container)
+container.addEventListener('keydown', (e) => {
+  // Enter key on any input
+  if (e.target.matches('input') && e.key === 'Enter') {
+    console.log('Enter pressed in:', e.target.name);
+  }
+  
+  // Escape key on any textarea
+  if (e.target.matches('textarea') && e.key === 'Escape') {
+    e.target.blur(); // Remove focus
+  }
+});
+
+
+GETTING DATA FROM CLICKED ELEMENTS
+-----------------------------------
+
+Use data-* attributes to store information:
+<button data-id="123" data-action="delete">Delete</button>
+
+In your handler:
+- const id = e.target.dataset.id → "123"
+- const action = e.target.dataset.action → "delete"
+
+This makes it easy to know WHAT to do and WITH WHAT data!
+
+CODE EXAMPLE:
+-------------
+// HTML:
+// <ul id="product-list">
+//   <li data-id="101" data-category="electronics" data-price="299">
+//     <h3>Laptop</h3>
+//     <button class="add-to-cart">Add to Cart</button>
+//     <button class="view-details">View</button>
+//   </li>
+//   <li data-id="102" data-category="clothing" data-price="49">
+//     <h3>T-Shirt</h3>
+//     <button class="add-to-cart">Add to Cart</button>
+//     <button class="view-details">View</button>
+//   </li>
+// </ul>
+
+const productList = document.getElementById('product-list');
+
+productList.addEventListener('click', (e) => {
+  // Get the product element (li)
+  const product = e.target.closest('li');
+  
+  if (product) {
+    // Extract data from the product
+    const id = product.dataset.id;
+    const category = product.dataset.category;
+    const price = product.dataset.price;
+    
+    // Add to cart button
+    if (e.target.classList.contains('add-to-cart')) {
+      console.log(`Adding to cart:`);
+      console.log(`ID: ${id}, Category: ${category}, Price: $${price}`);
+      addToCart(id, price);
+    }
+    
+    // View details button
+    if (e.target.classList.contains('view-details')) {
+      console.log(`Viewing product ${id}`);
+      showProductDetails(id);
+    }
+  }
+});
+
+
+PREVENTING DEFAULT BEHAVIOR IN DELEGATION
+------------------------------------------
+
+You can still use e.preventDefault() with delegation!
+
+Example: Form submission or link clicks
+- Check if e.target is a link or form
+- Call e.preventDefault()
+- Handle with custom logic
+
+CODE EXAMPLE:
+-------------
+// Example 1: Smooth scroll for anchor links
+const nav = document.querySelector('nav');
+
+nav.addEventListener('click', (e) => {
+  // Check if clicked element is an anchor link starting with #
+  if (e.target.matches('a[href^="#"]')) {
+    e.preventDefault(); // Stop default jump
+    
+    const targetId = e.target.getAttribute('href').slice(1);
+    const targetElement = document.getElementById(targetId);
+    
+    targetElement.scrollIntoView({ behavior: 'smooth' });
+  }
+});
+
+
+// Example 2: Form validation with delegation
+const formContainer = document.getElementById('form-container');
+
+formContainer.addEventListener('submit', (e) => {
+  // Check if it's one of our forms
+  if (e.target.matches('form.validate')) {
+    e.preventDefault(); // Stop form submission
+    
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+    
+    // Validate
+    if (data.email && data.email.includes('@')) {
+      console.log('Valid! Submitting...', data);
+      // Submit via AJAX
+    } else {
+      console.log('Invalid email!');
+    }
+  }
+});
+
+
+// Example 3: Prevent context menu on images
+const gallery = document.getElementById('gallery');
+
+gallery.addEventListener('contextmenu', (e) => {
+  if (e.target.matches('img')) {
+    e.preventDefault(); // Block right-click menu on images
+    console.log('Right-click disabled on images');
+  }
+});
+- Handle with custom logic
+
+CODE EXAMPLE:
+-------------
+// Example 1: Smooth scroll for anchor links
+const nav = document.querySelector('nav');
+
+nav.addEventListener('click', (e) => {
+  // Check if clicked element is an anchor link starting with #
+  if (e.target.matches('a[href^="#"]')) {
+    e.preventDefault(); // Stop default jump
+    
+    const targetId = e.target.getAttribute('href').slice(1);
+    const targetElement = document.getElementById(targetId);
+    
+    targetElement.scrollIntoView({ behavior: 'smooth' });
+  }
+});
+
+
+// Example 2: Form validation with delegation
+const formContainer = document.getElementById('form-container');
+
+formContainer.addEventListener('submit', (e) => {
+  // Check if it's one of our forms
+  if (e.target.matches('form.validate')) {
+    e.preventDefault(); // Stop form submission
+    
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+    
+    // Validate
+    if (data.email && data.email.includes('@')) {
+      console.log('Valid! Submitting...', data);
+      // Submit via AJAX
+    } else {
+      console.log('Invalid email!');
+    }
+  }
+});
+
+
+// Example 3: Prevent context menu on images
+const gallery = document.getElementById('gallery');
+
+gallery.addEventListener('contextmenu', (e) => {
+  if (e.target.matches('img')) {
+    e.preventDefault(); // Block right-click menu on images
+    console.log('Right-click disabled on images');
+  }
+});
+
+
+WHEN NOT TO USE EVENT DELEGATION
+---------------------------------
+
+1. FOCUS/BLUR EVENTS
+   - These don't bubble by default
+   - Use 'focusin'/'focusout' instead (they DO bubble)
+
+2. SPECIFIC ELEMENT NEEDS UNIQUE BEHAVIOR
+   - If each element has completely different logic
+   - Delegation makes code more complex
+
+3. PERFORMANCE-CRITICAL ANIMATIONS
+   - Direct listeners might be faster for constant hover effects
+   - Delegation adds small overhead for checking e.target
+
+4. PARENT IS TOO FAR AWAY
+   - If parent is very high up (like <body> or <document>)
+   - Event has to bubble through many elements
+   - Can slow down response
+
+
+BEST PRACTICES
+--------------
+
+1. DELEGATE TO NEAREST COMMON PARENT
+   - Not too high (not document), not too low
+   - Find the container that holds all related elements
+
+2. ALWAYS CHECK IF ELEMENT EXISTS
+   - Use if statements before acting
+   - e.target might not be what you expect
+
+3. USE MEANINGFUL SELECTORS
+   - Classes for delegation: .action-btn, .delete-btn
+   - Data attributes: data-action="delete"
+
+4. COMBINE WITH data-* ATTRIBUTES
+   - Store IDs, actions, metadata
+   - Makes code cleaner and more maintainable
+
+5. USE closest() FOR NESTED ELEMENTS
+   - Handles clicks on child elements inside target
+   - More reliable than checking e.target directly
+
+6. GROUP RELATED ACTIONS
+   - One listener can handle multiple button types
+   - Use data-action or different classes to distinguish
+
+
+COMPARISON: WITH vs WITHOUT DELEGATION
+---------------------------------------
+
+WITHOUT DELEGATION:
+❌ 1000 buttons = 1000 listeners
+❌ ~50KB memory for all listeners
+❌ New buttons need manual listener attachment
+❌ Deleted buttons need manual listener removal
+❌ Slower DOM manipulation
+❌ More code to maintain
+
+WITH DELEGATION:
+✅ 1000 buttons = 1 listener
+✅ ~0.5KB memory
+✅ New buttons work automatically
+✅ Deleted buttons cleanup automatically
+✅ Fast DOM manipulation
+✅ Less code, easier maintenance
+
+
+MENTAL MODEL
+-------------
+
+Think of event delegation like a receptionist at a company:
+
+WITHOUT DELEGATION:
+Everyone in the company has their own phone line from outside.
+100 employees = 100 phone lines = expensive!
+
+WITH DELEGATION:
+One receptionist (parent listener) receives all calls.
+Asks "Who do you want to talk to?" (checks e.target).
+Connects you to the right person.
+1 phone line = cheap and efficient!
+
+
+DELEGATION WITH MULTIPLE ACTIONS
+---------------------------------
+
+You can handle many different actions with one listener:
+
+Use data-action attribute:
+- data-action="save" → save button
+- data-action="delete" → delete button
+- data-action="edit" → edit button
+
+In your listener:
+1. Check e.target
+2. Get data-action value
+3. Use switch/if to handle each action
+4. All centralized in one place!
+
+CODE EXAMPLE:
+-------------
+// HTML:
+// <div id="panel">
+//   <button data-action="save" data-id="123">Save</button>
+//   <button data-action="delete" data-id="123">Delete</button>
+//   <button data-action="edit" data-id="123">Edit</button>
+//   <button data-action="duplicate" data-id="123">Duplicate</button>
+//   <button data-action="share" data-id="123">Share</button>
+// </div>
+
+const panel = document.getElementById('panel');
+
+panel.addEventListener('click', (e) => {
+  const button = e.target.closest('[data-action]');
+  
+  if (button) {
+    const action = button.dataset.action;
+    const id = button.dataset.id;
+    
+    // Handle all actions in one place!
+    switch(action) {
+      case 'save':
+        console.log(`Saving item ${id}...`);
+        saveItem(id);
+        break;
+        
+      case 'delete':
+        console.log(`Deleting item ${id}...`);
+        if (confirm('Are you sure?')) {
+          deleteItem(id);
+        }
+        break;
+        
+      case 'edit':
+        console.log(`Editing item ${id}...`);
+        openEditModal(id);
+        break;
+        
+      case 'duplicate':
+        console.log(`Duplicating item ${id}...`);
+        duplicateItem(id);
+        break;
+        
+      case 'share':
+        console.log(`Sharing item ${id}...`);
+        shareItem(id);
+        break;
+        
+      default:
+        console.log('Unknown action:', action);
+    }
+  }
+});
+
+// Alternative using object mapping (cleaner):
+const actions = {
+  save: (id) => saveItem(id),
+  delete: (id) => confirm('Sure?') && deleteItem(id),
+  edit: (id) => openEditModal(id),
+  duplicate: (id) => duplicateItem(id),
+  share: (id) => shareItem(id)
+};
+
+panel.addEventListener('click', (e) => {
+  const button = e.target.closest('[data-action]');
+  
+  if (button) {
+    const action = button.dataset.action;
+    const id = button.dataset.id;
+    
+    // Execute the action if it exists
+    if (actions[action]) {
+      actions[action](id);
+    }
+  }
+});
+
+
+KEY DIFFERENCES FROM NORMAL EVENTS
+-----------------------------------
+
+NORMAL EVENT LISTENER:
+- Attached directly to the element you want to listen to
+- element.addEventListener('click', handler)
+- Only triggers when THAT specific element is clicked
+- Need one listener per element
+
+EVENT DELEGATION:
+- Attached to a PARENT element
+- parent.addEventListener('click', handler)
+- Triggers when ANY child is clicked (due to bubbling)
+- Check e.target to see which child was clicked
+- One listener handles all children
+
+
+IMPORTANT CONCEPTS TO REMEMBER
+-------------------------------
+
+1. EVENT BUBBLING IS THE KEY
+   - Without bubbling, delegation won't work
+   - Most events bubble (click, keydown, mouseover)
+   - Some don't (focus, blur, load)
+
+2. e.target IS YOUR FRIEND
+   - Always shows WHAT was clicked
+   - Use it to determine which child triggered the event
+
+3. closest() SAVES THE DAY
+   - Handles nested elements gracefully
+   - Searches up until it finds a match
+
+4. ONE LISTENER = MANY ELEMENTS
+   - This is the whole point
+   - Performance and convenience combined
+
+
+REAL-WORLD ANALOGY FOR UNDERSTANDING
+-------------------------------------
+
+DELEGATION = Security Guard at Building Entrance
+
+WITHOUT DELEGATION:
+- Every room has its own security guard
+- 100 rooms = 100 guards (expensive!)
+- New room added? Hire new guard
+- Room removed? Fire guard
+
+WITH DELEGATION:
+- ONE guard at main entrance
+- Checks everyone who enters
+- "Which room are you going to?" (like checking e.target)
+- Directs to appropriate room
+- New rooms? Guard handles them automatically
+- Removed rooms? Guard knows not to send people there
+
+
+COMPLETE REAL-WORLD EXAMPLE: TASK MANAGER APP
+----------------------------------------------
+
+// HTML:
+// <div id="task-manager">
+//   <input type="text" id="new-task-input" placeholder="New task...">
+//   <button id="add-task-btn">Add Task</button>
+//   
+//   <ul id="task-list">
+//     <li class="task" data-id="1">
+//       <span class="task-text">Complete project</span>
+//       <div class="task-actions">
+//         <button class="complete-btn" data-id="1">✓</button>
+//         <button class="edit-btn" data-id="1">✎</button>
+//         <button class="delete-btn" data-id="1">✗</button>
+//       </div>
+//     </li>
+//     <li class="task" data-id="2">
+//       <span class="task-text">Study JavaScript</span>
+//       <div class="task-actions">
+//         <button class="complete-btn" data-id="2">✓</button>
+//         <button class="edit-btn" data-id="2">✎</button>
+//         <button class="delete-btn" data-id="2">✗</button>
+//       </div>
+//     </li>
+//   </ul>
+// </div>
+
+// JavaScript with Event Delegation:
+const taskManager = document.getElementById('task-manager');
+const taskList = document.getElementById('task-list');
+const taskInput = document.getElementById('new-task-input');
+let taskId = 3; // Starting ID for new tasks
+
+// ONE event listener for ALL tasks and actions!
+taskManager.addEventListener('click', (e) => {
+  
+  // 1. Add new task
+  if (e.target.id === 'add-task-btn') {
+    const text = taskInput.value.trim();
+    
+    if (text) {
+      const li = document.createElement('li');
+      li.className = 'task';
+      li.dataset.id = taskId;
+      li.innerHTML = `
+        <span class="task-text">${text}</span>
+        <div class="task-actions">
+          <button class="complete-btn" data-id="${taskId}">✓</button>
+          <button class="edit-btn" data-id="${taskId}">✎</button>
+          <button class="delete-btn" data-id="${taskId}">✗</button>
+        </div>
+      `;
+      
+      taskList.appendChild(li);
+      taskInput.value = '';
+      taskId++;
+    }
+  }
+  
+  // 2. Complete task
+  if (e.target.classList.contains('complete-btn')) {
+    const taskId = e.target.dataset.id;
+    const task = document.querySelector(`li.task[data-id="${taskId}"]`);
+    task.classList.toggle('completed');
+    console.log(`Task ${taskId} toggled`);
+  }
+  
+  // 3. Edit task
+  if (e.target.classList.contains('edit-btn')) {
+    const taskId = e.target.dataset.id;
+    const task = document.querySelector(`li.task[data-id="${taskId}"]`);
+    const taskText = task.querySelector('.task-text');
+    
+    const newText = prompt('Edit task:', taskText.textContent);
+    if (newText !== null && newText.trim()) {
+      taskText.textContent = newText.trim();
+      console.log(`Task ${taskId} edited`);
+    }
+  }
+  
+  // 4. Delete task
+  if (e.target.classList.contains('delete-btn')) {
+    const taskId = e.target.dataset.id;
+    const task = document.querySelector(`li.task[data-id="${taskId}"]`);
+    
+    if (confirm('Delete this task?')) {
+      task.remove();
+      console.log(`Task ${taskId} deleted`);
+    }
+  }
+});
+
+// Bonus: Handle Enter key to add task
+taskManager.addEventListener('keypress', (e) => {
+  if (e.target.id === 'new-task-input' && e.key === 'Enter') {
+    document.getElementById('add-task-btn').click();
+  }
+});
+
+// Benefits of this approach:
+// ✅ ONE listener handles: add, complete, edit, delete
+// ✅ New tasks automatically work (no need to add listeners)
+// ✅ Deleted tasks automatically cleaned up
+// ✅ All logic in one place, easy to maintain
+// ✅ Memory efficient even with 1000s of tasks
+// ✅ Easy to add new actions (just add another if check)
+
+
+INTERVIEW QUESTIONS
+-------------------
+
+Q: What is event delegation?
+A: A technique where you attach ONE event listener to a parent element instead of multiple 
+   listeners to child elements, relying on event bubbling to catch events from children.
+
+Q: Why use event delegation?
+A: Better performance (less memory), works with dynamically added elements, easier maintenance,
+   and automatic cleanup when elements are removed.
+
+Q: How do you know which element was clicked in event delegation?
+A: Check e.target - it points to the actual element that triggered the event.
+
+Q: What's the difference between e.target and e.currentTarget in delegation?
+A: e.target is the child element that was clicked. e.currentTarget is the parent element 
+   where the listener is attached.
+
+Q: When should you NOT use event delegation?
+A: For focus/blur events (use focusin/focusout), when each element needs completely unique 
+   behavior, or when the parent is too far up the DOM tree.
+
+Q: What is closest() and why use it in delegation?
+A: closest() searches UP from e.target to find the nearest ancestor matching a selector.
+   It's useful when you click nested elements inside your target (like clicking an icon 
+   inside a button).
+
+Q: Does event delegation work for all events?
+A: No. It only works for events that BUBBLE. Most events bubble (click, keydown) but some 
+   don't (focus, blur). Use focusin/focusout as alternatives.
+
+Q: What's the performance benefit of event delegation?
+A: Instead of 1000 listeners (one per element), you have 1 listener. This saves memory and 
+   makes DOM manipulation much faster.
+
+
+========================================
+========================================
+FORM EVENTS
+========================================
+========================================
+
+WHAT ARE FORM EVENTS?
+----------------------
+Form events are special events that fire when users interact with form elements:
+- <input>, <textarea>, <select>, <form>, <button>
+
+These events help you:
+- Capture user input in real-time
+- Validate data before submission
+- Provide instant feedback
+- Control form behavior
+- Create interactive forms
+
+
+THE 5 ESSENTIAL FORM EVENTS
+----------------------------
+
+1. submit   - Form submission (prevent default, validate, send data)
+2. input    - Value changes (EVERY keystroke, paste, etc.)
+3. change   - Value changes AND loses focus (after editing done)
+4. focus    - Element receives focus (clicked/tabbed into)
+5. blur     - Element loses focus (clicked away/tabbed out)
+
+
+1. SUBMIT EVENT 📤
+------------------
+
+When it fires:
+- User clicks submit button
+- User presses Enter in a text input (inside form)
+- form.submit() is called programmatically
+
+Target: <form> element (NOT the button!)
+
+Common uses:
+- Validate all fields before submitting
+- Prevent default submission (handle with AJAX)
+- Show loading indicator
+- Disable submit button to prevent double submission
+
+CODE EXAMPLES:
+--------------
+// Basic form submission prevention
+const form = document.querySelector('form');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault(); // CRITICAL: Stop the form from submitting!
+  console.log('Form submitted!');
+});
+
+
+// Real-world example: Form validation
+const loginForm = document.getElementById('login-form');
+
+loginForm.addEventListener('submit', (e) => {
+  e.preventDefault(); // Stop default submission
+  
+  // Get form data
+  const formData = new FormData(e.target);
+  const email = formData.get('email');
+  const password = formData.get('password');
+  
+  // Validate
+  if (!email || !email.includes('@')) {
+    alert('Please enter a valid email');
+    return;
+  }
+  
+  if (password.length < 6) {
+    alert('Password must be at least 6 characters');
+    return;
+  }
+  
+  // Disable submit button
+  const submitBtn = e.target.querySelector('button[type="submit"]');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Submitting...';
+  
+  // Submit via AJAX
+  fetch('/api/login', {
+    method: 'POST',
+    body: JSON.stringify({ email, password }),
+    headers: { 'Content-Type': 'application/json' }
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Success:', data);
+    window.location.href = '/dashboard';
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Login';
+  });
+});
+
+
+// Getting all form values at once
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+  const formData = new FormData(e.target);
+  const data = Object.fromEntries(formData);
+  
+  console.log(data);
+  // { username: 'john', email: 'john@example.com', age: '25' }
+});
+
+
+2. INPUT EVENT ⌨️
+-----------------
+
+When it fires:
+- EVERY time the value changes
+- Every keystroke
+- Paste, cut, drag-and-drop
+- Any programmatic change
+
+Target: <input>, <textarea>, <select>
+
+Common uses:
+- Live search/filtering
+- Character counter
+- Live validation
+- Auto-formatting (phone numbers, credit cards)
+- Real-time preview
+
+CODE EXAMPLES:
+--------------
+// Basic input event
+const input = document.querySelector('input');
+
+input.addEventListener('input', (e) => {
+  console.log('Current value:', e.target.value);
+  // Fires on EVERY character: "H", "He", "Hel", "Hell", "Hello"
+});
+
+
+// Real-world: Character counter
+const textarea = document.getElementById('comment');
+const counter = document.getElementById('char-count');
+const maxLength = 200;
+
+textarea.addEventListener('input', (e) => {
+  const remaining = maxLength - e.target.value.length;
+  counter.textContent = `${remaining} characters remaining`;
+  
+  if (remaining < 0) {
+    counter.style.color = 'red';
+  } else {
+    counter.style.color = 'black';
+  }
+});
+
+
+// Real-world: Live search
+const searchInput = document.getElementById('search');
+const resultsDiv = document.getElementById('results');
+
+searchInput.addEventListener('input', (e) => {
+  const query = e.target.value.toLowerCase();
+  
+  if (query.length < 2) {
+    resultsDiv.innerHTML = '';
+    return;
+  }
+  
+  // Search and display results
+  const results = products.filter(p => 
+    p.name.toLowerCase().includes(query)
+  );
+  
+  resultsDiv.innerHTML = results
+    .map(p => `<div>${p.name}</div>`)
+    .join('');
+});
+
+
+// Real-world: Phone number formatting
+const phoneInput = document.getElementById('phone');
+
+phoneInput.addEventListener('input', (e) => {
+  let value = e.target.value.replace(/\D/g, ''); // Remove non-digits
+  
+  if (value.length > 10) value = value.slice(0, 10);
+  
+  // Format as (123) 456-7890
+  if (value.length > 6) {
+    value = `(${value.slice(0,3)}) ${value.slice(3,6)}-${value.slice(6)}`;
+  } else if (value.length > 3) {
+    value = `(${value.slice(0,3)}) ${value.slice(3)}`;
+  } else if (value.length > 0) {
+    value = `(${value}`;
+  }
+  
+  e.target.value = value;
+});
+
+
+// Real-world: Password strength indicator
+const passwordInput = document.getElementById('password');
+const strengthDiv = document.getElementById('strength');
+
+passwordInput.addEventListener('input', (e) => {
+  const password = e.target.value;
+  let strength = 0;
+  
+  if (password.length >= 8) strength++;
+  if (/[a-z]/.test(password) && /[A-Z]/.test(password)) strength++;
+  if (/\d/.test(password)) strength++;
+  if (/[@$!%*?&#]/.test(password)) strength++;
+  
+  const levels = ['Weak', 'Fair', 'Good', 'Strong'];
+  const colors = ['red', 'orange', 'blue', 'green'];
+  
+  strengthDiv.textContent = levels[strength - 1] || 'Too short';
+  strengthDiv.style.color = colors[strength - 1] || 'gray';
+});
+
+
+3. CHANGE EVENT 🔄
+------------------
+
+When it fires:
+- Value changes AND element loses focus
+- For <select>: immediately when option selected
+- For checkboxes/radio: immediately when checked/unchecked
+- For text inputs: only when you leave the field
+
+Target: <input>, <textarea>, <select>
+
+Common uses:
+- Validation after user finishes typing
+- Update dependent fields
+- Save draft automatically
+- Calculate totals
+
+KEY DIFFERENCE FROM INPUT:
+- input: Fires on EVERY keystroke → "H", "He", "Hel", "Hell", "Hello"
+- change: Fires ONCE when done → "Hello" (only when you leave field)
+
+CODE EXAMPLES:
+--------------
+// Basic change event
+const input = document.querySelector('input');
+
+input.addEventListener('change', (e) => {
+  console.log('Final value:', e.target.value);
+  // Only fires when you click away from the input
+});
+
+
+// Real-world: Email validation
+const emailInput = document.getElementById('email');
+const emailError = document.getElementById('email-error');
+
+emailInput.addEventListener('change', (e) => {
+  const email = e.target.value;
+  
+  if (!email.includes('@') || !email.includes('.')) {
+    emailError.textContent = '❌ Invalid email address';
+    emailError.style.display = 'block';
+    e.target.classList.add('error');
+  } else {
+    emailError.style.display = 'none';
+    e.target.classList.remove('error');
+  }
+});
+
+
+// Real-world: Select dropdown
+const countrySelect = document.getElementById('country');
+const stateSelect = document.getElementById('state');
+
+countrySelect.addEventListener('change', (e) => {
+  const country = e.target.value;
+  
+  // Load states for selected country
+  const states = getStatesForCountry(country);
+  
+  stateSelect.innerHTML = '<option>Select State</option>';
+  states.forEach(state => {
+    stateSelect.innerHTML += `<option value="${state}">${state}</option>`;
+  });
+  
+  stateSelect.disabled = false;
+});
+
+
+// Real-world: Checkbox agreement
+const agreeCheckbox = document.getElementById('agree');
+const submitBtn = document.getElementById('submit-btn');
+
+agreeCheckbox.addEventListener('change', (e) => {
+  submitBtn.disabled = !e.target.checked;
+});
+
+
+// Real-world: Calculate total
+const quantityInput = document.getElementById('quantity');
+const priceInput = document.getElementById('price');
+const totalSpan = document.getElementById('total');
+
+function updateTotal() {
+  const quantity = parseFloat(quantityInput.value) || 0;
+  const price = parseFloat(priceInput.value) || 0;
+  const total = quantity * price;
+  
+  totalSpan.textContent = `$${total.toFixed(2)}`;
+}
+
+quantityInput.addEventListener('change', updateTotal);
+priceInput.addEventListener('change', updateTotal);
+
+
+4. FOCUS EVENT 🎯
+-----------------
+
+When it fires:
+- User clicks on the element
+- User tabs into the element
+- element.focus() is called
+
+Target: Form elements, links, elements with tabindex
+
+Common uses:
+- Show helper text/hints
+- Highlight the field
+- Load suggestions
+- Show error messages
+
+NOTE: focus does NOT bubble! Use 'focusin' for event delegation.
+
+CODE EXAMPLES:
+--------------
+// Basic focus event
+const input = document.querySelector('input');
+
+input.addEventListener('focus', (e) => {
+  console.log('Field focused!');
+  e.target.style.backgroundColor = '#ffffcc'; // Highlight
+});
+
+
+// Real-world: Show helper text
+const passwordInput = document.getElementById('password');
+const passwordHint = document.getElementById('password-hint');
+
+passwordInput.addEventListener('focus', () => {
+  passwordHint.style.display = 'block';
+  passwordHint.textContent = '💡 Password must be at least 8 characters';
+});
+
+
+// Real-world: Load suggestions on focus
+const searchInput = document.getElementById('search');
+const suggestionsDiv = document.getElementById('suggestions');
+
+searchInput.addEventListener('focus', () => {
+  // Load recent searches or popular items
+  const recentSearches = ['JavaScript', 'React', 'Node.js'];
+  
+  suggestionsDiv.innerHTML = '<p>Recent searches:</p>';
+  recentSearches.forEach(term => {
+    suggestionsDiv.innerHTML += `<div class="suggestion">${term}</div>`;
+  });
+  
+  suggestionsDiv.style.display = 'block';
+});
+
+
+// Real-world: Clear error on focus
+const inputs = document.querySelectorAll('input');
+
+inputs.forEach(input => {
+  input.addEventListener('focus', (e) => {
+    // Clear error styling when user starts editing
+    e.target.classList.remove('error');
+    const errorMsg = e.target.nextElementSibling;
+    if (errorMsg && errorMsg.classList.contains('error-msg')) {
+      errorMsg.style.display = 'none';
+    }
+  });
+});
+
+
+5. BLUR EVENT 👋
+----------------
+
+When it fires:
+- User clicks away from the element
+- User tabs out of the element
+- element.blur() is called
+
+Target: Form elements
+
+Common uses:
+- Validate field after user finishes
+- Hide helper text
+- Save draft
+- Format value (add $ sign, etc.)
+
+NOTE: blur does NOT bubble! Use 'focusout' for event delegation.
+
+CODE EXAMPLES:
+--------------
+// Basic blur event
+const input = document.querySelector('input');
+
+input.addEventListener('blur', (e) => {
+  console.log('Field lost focus!');
+  e.target.style.backgroundColor = 'white'; // Remove highlight
+});
+
+
+// Real-world: Validate on blur
+const usernameInput = document.getElementById('username');
+const usernameError = document.getElementById('username-error');
+
+usernameInput.addEventListener('blur', (e) => {
+  const username = e.target.value.trim();
+  
+  if (username.length < 3) {
+    usernameError.textContent = '❌ Username must be at least 3 characters';
+    usernameError.style.display = 'block';
+    e.target.classList.add('error');
+  } else {
+    usernameError.style.display = 'none';
+    e.target.classList.remove('error');
+  }
+});
+
+
+// Real-world: Format currency on blur
+const priceInput = document.getElementById('price');
+
+priceInput.addEventListener('blur', (e) => {
+  let value = e.target.value.replace(/[^\d.]/g, ''); // Remove non-numeric
+  
+  if (value) {
+    value = parseFloat(value).toFixed(2);
+    e.target.value = `$${value}`;
+  }
+});
+
+priceInput.addEventListener('focus', (e) => {
+  // Remove $ when focusing (easier to edit)
+  e.target.value = e.target.value.replace('$', '');
+});
+
+
+// Real-world: Auto-save draft
+const contentTextarea = document.getElementById('content');
+let saveTimeout;
+
+contentTextarea.addEventListener('blur', (e) => {
+  const content = e.target.value;
+  
+  // Save after user stops editing (with debounce)
+  clearTimeout(saveTimeout);
+  saveTimeout = setTimeout(() => {
+    saveDraft(content);
+    console.log('✅ Draft saved');
+  }, 500);
+});
+
+
+COMPARISON: INPUT vs CHANGE
+----------------------------
+
+// HTML: <input type="text" id="name">
+
+const nameInput = document.getElementById('name');
+
+// INPUT: Fires on EVERY keystroke
+nameInput.addEventListener('input', (e) => {
+  console.log('input:', e.target.value);
+  // User types "John":
+  // "J"
+  // "Jo"
+  // "Joh"
+  // "John"
+  // (4 times - every keystroke!)
+});
+
+// CHANGE: Fires ONCE when done editing (on blur)
+nameInput.addEventListener('change', (e) => {
+  console.log('change:', e.target.value);
+  // User types "John" and clicks away:
+  // "John"
+  // (1 time - only when done!)
+});
+
+WHEN TO USE WHICH?
+- Use INPUT for: live search, character counter, real-time validation
+- Use CHANGE for: final validation, updating dependent fields, saving
+
+
+COMPARISON: FOCUS vs BLUR
+--------------------------
+
+const input = document.querySelector('input');
+
+// FOCUS: Entering the field
+input.addEventListener('focus', () => {
+  console.log('👉 User entered the field');
+  // Show hints, highlight, clear errors
+});
+
+// BLUR: Leaving the field
+input.addEventListener('blur', () => {
+  console.log('👋 User left the field');
+  // Validate, format, save, hide hints
+});
+
+
+FORM EVENT DELEGATION
+----------------------
+
+Problem: focus and blur don't bubble!
+Solution: Use 'focusin' and 'focusout' (they DO bubble)
+
+CODE EXAMPLE:
+-------------
+// ❌ This won't work (focus doesn't bubble)
+form.addEventListener('focus', (e) => {
+  // Won't catch focus on inputs inside form
+});
+
+// ✅ Use focusin instead (it bubbles!)
+const form = document.querySelector('form');
+
+form.addEventListener('focusin', (e) => {
+  if (e.target.matches('input, textarea')) {
+    console.log('Field focused:', e.target.name);
+    e.target.style.backgroundColor = '#ffffcc';
+  }
+});
+
+form.addEventListener('focusout', (e) => {
+  if (e.target.matches('input, textarea')) {
+    console.log('Field blurred:', e.target.name);
+    e.target.style.backgroundColor = 'white';
+  }
+});
+
+
+COMPLETE REAL-WORLD EXAMPLE: REGISTRATION FORM
+-----------------------------------------------
+
+// HTML:
+// <form id="registration-form">
+//   <input type="text" id="username" name="username" required>
+//   <span class="error" id="username-error"></span>
+//   
+//   <input type="email" id="email" name="email" required>
+//   <span class="error" id="email-error"></span>
+//   
+//   <input type="password" id="password" name="password" required>
+//   <span class="hint" id="password-hint"></span>
+//   <span class="error" id="password-error"></span>
+//   
+//   <input type="password" id="confirm-password" name="confirmPassword" required>
+//   <span class="error" id="confirm-error"></span>
+//   
+//   <button type="submit">Register</button>
+// </form>
+
+const form = document.getElementById('registration-form');
+const username = document.getElementById('username');
+const email = document.getElementById('email');
+const password = document.getElementById('password');
+const confirmPassword = document.getElementById('confirm-password');
+
+// 1. Show hints on FOCUS
+password.addEventListener('focus', () => {
+  document.getElementById('password-hint').textContent = 
+    '💡 Use 8+ characters with letters, numbers & symbols';
+  document.getElementById('password-hint').style.display = 'block';
+});
+
+// 2. Live validation on INPUT (password strength)
+password.addEventListener('input', (e) => {
+  const pwd = e.target.value;
+  const hint = document.getElementById('password-hint');
+  
+  if (pwd.length < 8) {
+    hint.textContent = '⚠️ Too short (need 8+ characters)';
+    hint.style.color = 'red';
+  } else if (!/\d/.test(pwd) || !/[a-zA-Z]/.test(pwd)) {
+    hint.textContent = '⚠️ Add numbers and letters';
+    hint.style.color = 'orange';
+  } else {
+    hint.textContent = '✅ Strong password!';
+    hint.style.color = 'green';
+  }
+});
+
+// 3. Validate on BLUR
+username.addEventListener('blur', (e) => {
+  const error = document.getElementById('username-error');
+  const value = e.target.value.trim();
+  
+  if (value.length < 3) {
+    error.textContent = 'Username must be at least 3 characters';
+    error.style.display = 'block';
+  } else {
+    error.style.display = 'none';
+  }
+});
+
+email.addEventListener('blur', (e) => {
+  const error = document.getElementById('email-error');
+  const value = e.target.value.trim();
+  
+  if (!value.includes('@') || !value.includes('.')) {
+    error.textContent = 'Please enter a valid email';
+    error.style.display = 'block';
+  } else {
+    error.style.display = 'none';
+  }
+});
+
+password.addEventListener('blur', (e) => {
+  const error = document.getElementById('password-error');
+  const hint = document.getElementById('password-hint');
+  const value = e.target.value;
+  
+  hint.style.display = 'none'; // Hide hint when done
+  
+  if (value.length < 8) {
+    error.textContent = 'Password must be at least 8 characters';
+    error.style.display = 'block';
+  } else {
+    error.style.display = 'none';
+  }
+});
+
+// 4. Match passwords on CHANGE
+confirmPassword.addEventListener('change', (e) => {
+  const error = document.getElementById('confirm-error');
+  
+  if (e.target.value !== password.value) {
+    error.textContent = 'Passwords do not match';
+    error.style.display = 'block';
+  } else {
+    error.style.display = 'none';
+  }
+});
+
+// 5. Final validation on SUBMIT
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+  // Get all error spans
+  const errors = form.querySelectorAll('.error');
+  let hasErrors = false;
+  
+  // Check if any errors are visible
+  errors.forEach(error => {
+    if (error.style.display === 'block') {
+      hasErrors = true;
+    }
+  });
+  
+  if (hasErrors) {
+    alert('Please fix all errors before submitting');
+    return;
+  }
+  
+  // Get form data
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData);
+  
+  console.log('✅ Form is valid! Submitting...', data);
+  
+  // Disable submit button
+  const submitBtn = form.querySelector('button[type="submit"]');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Registering...';
+  
+  // Submit via AJAX
+  fetch('/api/register', {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: { 'Content-Type': 'application/json' }
+  })
+  .then(response => response.json())
+  .then(result => {
+    console.log('Success!', result);
+    window.location.href = '/welcome';
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Register';
+    alert('Registration failed. Please try again.');
+  });
+});
+
+
+BEST PRACTICES
+--------------
+
+1. ALWAYS preventDefault() on submit
+   - Prevents page reload
+   - Allows custom handling
+
+2. Use INPUT for real-time feedback
+   - Search suggestions
+   - Character counters
+   - Live validation
+
+3. Use CHANGE for final validation
+   - After user finishes typing
+   - Saves unnecessary checks
+
+4. Use FOCUS to help users
+   - Show hints and examples
+   - Highlight active field
+
+5. Use BLUR for validation
+   - Validate after editing done
+   - Format values (add $ sign)
+
+6. Clear errors on focus
+   - Better UX
+   - Gives user a fresh start
+
+7. Disable submit during processing
+   - Prevents double submission
+   - Shows loading state
+
+8. Use focusin/focusout for delegation
+   - They bubble (focus/blur don't)
+   - Cleaner code
+
+
+COMMON PATTERNS
+---------------
+
+// Pattern 1: Live search with debounce
+let searchTimeout;
+searchInput.addEventListener('input', (e) => {
+  clearTimeout(searchTimeout);
+  searchTimeout = setTimeout(() => {
+    performSearch(e.target.value);
+  }, 300); // Wait 300ms after user stops typing
+});
+
+// Pattern 2: Show/hide password
+const toggleBtn = document.getElementById('toggle-password');
+toggleBtn.addEventListener('click', () => {
+  const type = passwordInput.type === 'password' ? 'text' : 'password';
+  passwordInput.type = type;
+  toggleBtn.textContent = type === 'password' ? '👁️' : '🙈';
+});
+
+// Pattern 3: Auto-advance to next field
+const codeInputs = document.querySelectorAll('.code-digit');
+codeInputs.forEach((input, index) => {
+  input.addEventListener('input', (e) => {
+    if (e.target.value.length === 1 && index < codeInputs.length - 1) {
+      codeInputs[index + 1].focus(); // Move to next field
+    }
+  });
+});
+
+// Pattern 4: Confirm before leaving with unsaved changes
+let formChanged = false;
+form.addEventListener('input', () => {
+  formChanged = true;
+});
+
+window.addEventListener('beforeunload', (e) => {
+  if (formChanged) {
+    e.preventDefault();
+    e.returnValue = 'You have unsaved changes. Are you sure you want to leave?';
+  }
+});
+
+
+INTERVIEW QUESTIONS
+-------------------
+
+Q: What's the difference between 'input' and 'change' events?
+A: 'input' fires on EVERY value change (every keystroke). 'change' fires only when the 
+   value changes AND the element loses focus. Use 'input' for real-time feedback, 'change' 
+   for final validation.
+
+Q: Why do we use e.preventDefault() in form submit handlers?
+A: To stop the form from submitting normally (which reloads the page). This allows us to 
+   handle validation and submission with JavaScript (often via AJAX).
+
+Q: What's the difference between 'focus' and 'focusin'?
+A: 'focus' fires when an element receives focus but does NOT bubble. 'focusin' fires when 
+   an element receives focus and DOES bubble, making it useful for event delegation.
+
+Q: When should you validate a form field?
+A: Use multiple strategies: 
+   - 'input' for live feedback (password strength, character count)
+   - 'blur' for validation after editing (email format, required fields)
+   - 'submit' for final validation before sending
+
+Q: How do you get all form values at once?
+A: Use FormData: 
+   const formData = new FormData(form);
+   const data = Object.fromEntries(formData);
+
+Q: How do you prevent double form submission?
+A: Disable the submit button after first click:
+   submitBtn.disabled = true;
+   submitBtn.textContent = 'Submitting...';
+
+Q: Why clear error messages on focus?
+A: Better UX - it gives users a fresh start when they begin editing, making the form 
+   feel more responsive and less punishing.
