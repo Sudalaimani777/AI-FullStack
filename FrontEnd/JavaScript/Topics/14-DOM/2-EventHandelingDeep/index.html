@@ -17,9 +17,27 @@
         <input type="password" name="password" id="password">
         <input type="submit" value="Click" id="submitBtn">
     </form>
+
+    <!-- Without Propagation Concept -->
+     <div class="parent">
+        <h2>This is the parent div</h2>
+        <div class="child">
+            <h2>This is the child div</h2>
+        </div>
+     </div>
+
+     <!-- With stopPropagation Concept -->
+      <div class="wParent">
+        <h2>With the use of stopPropagation</h2>
+        <div class="wChild">
+            <h2>This is the child div with the use of stopPropagation</h2>
+        </div>
+      </div>
+
     <!-- <script src="./eventObject.js"></script> -->
     <!-- <script src="./eventDelegation.js"></script> -->
-    <script src="./formEvents.js"></script>
+    <!-- <script src="./formEvents.js"></script> -->
+     <script src="./stopPropagation.js"></script>
 </body>
 
 </html>

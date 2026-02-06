@@ -1337,6 +1337,641 @@ A: Instead of 1000 listeners (one per element), you have 1 listener. This saves 
 
 ========================================
 ========================================
+STOP PROPAGATION
+========================================
+========================================
+
+WHAT IS stopPropagation()?
+---------------------------
+stopPropagation() is a method on the event object that stops an event from continuing 
+its journey through the DOM tree. It prevents the event from reaching parent elements 
+(in bubbling phase) or child elements (in capturing phase).
+
+
+WHY IS IT NEEDED?
+-----------------
+Without stopPropagation(), events BUBBLE UP through all parent elements. Sometimes you want 
+to handle an event at one specific level and prevent parent handlers from also triggering.
+
+Example problem:
+- You have a button inside a div
+- Both have click listeners
+- Click button → BOTH handlers fire (button's, then div's)
+- Sometimes you only want the button's handler to run
+
+Solution: Use e.stopPropagation() in the button's handler!
+
+
+HOW DOES IT WORK?
+------------------
+Remember the 3 phases of event flow:
+1. CAPTURING: window → target (going DOWN)
+2. TARGET: reached the target element
+3. BUBBLING: target → window (going UP)
+
+stopPropagation() stops the event from continuing to the next phase:
+- Called during bubbling → won't reach parent elements
+- Called during capturing → won't reach child elements
+- Called on target → still triggers all handlers on that element
+
+
+CODE EXAMPLE: THE PROBLEM
+--------------------------
+// HTML:
+// <div class="parent">
+//   <button class="child">Click Me</button>
+// </div>
+
+const parent = document.querySelector('.parent');
+const child = document.querySelector('.child');
+
+parent.addEventListener('click', () => {
+  console.log('Parent clicked!');
+});
+
+child.addEventListener('click', () => {
+  console.log('Child clicked!');
+});
+
+// When you click the button:
+// Output:
+// "Child clicked!"
+// "Parent clicked!"  ← Bubbled up to parent!
+
+// Problem: Sometimes you don't want the parent handler to fire
+
+
+CODE EXAMPLE: THE SOLUTION
+---------------------------
+// HTML: (same as above)
+
+const parent = document.querySelector('.parent');
+const child = document.querySelector('.child');
+
+parent.addEventListener('click', () => {
+  console.log('Parent clicked!');
+});
+
+child.addEventListener('click', (e) => {
+  e.stopPropagation(); // STOPS BUBBLING!
+  console.log('Child clicked!');
+});
+
+// When you click the button:
+// Output:
+// "Child clicked!"
+// (That's it! Parent handler never runs!)
+
+
+VISUAL REPRESENTATION
+----------------------
+WITHOUT stopPropagation():
+Click Button → Child handler runs → Event bubbles up → Parent handler runs
+
+WITH stopPropagation():
+Click Button → Child handler runs → stopPropagation() called → Event stops → Parent handler DOESN'T run
+
+
+WHEN TO USE stopPropagation()
+------------------------------
+
+1. NESTED CLICKABLE ELEMENTS
+   - Card with a delete button
+   - Card click → opens details
+   - Button click → deletes card
+   - Don't want card to open when deleting!
+
+2. DROPDOWN MENUS
+   - Click dropdown item → select it
+   - Don't want click to close dropdown AND trigger body click handler
+
+3. MODALS/OVERLAYS
+   - Click inside modal → interact with content
+   - Click overlay → close modal
+   - Don't want clicks inside modal to close it
+
+4. CUSTOM CONTEXT MENUS
+   - Prevent default right-click menu
+   - Show custom menu
+   - Don't want document click handler to interfere
+
+5. NESTED COMPONENTS
+   - Parent component has click handler
+   - Child component needs independent click handling
+   - Prevent parent from reacting to child clicks
+
+
+REAL-WORLD EXAMPLES
+-------------------
+
+// Example 1: Card with delete button
+// -----------------------------------
+// HTML:
+// <div class="card-container">
+//   <div class="card" data-id="1">
+//     <h3>Product Name</h3>
+//     <p>Product description...</p>
+//     <button class="delete-btn">Delete</button>
+//   </div>
+// </div>
+
+const container = document.querySelector('.card-container');
+
+container.addEventListener('click', (e) => {
+  // Delete button clicked
+  if (e.target.classList.contains('delete-btn')) {
+    e.stopPropagation(); // DON'T open card details!
+    
+    const card = e.target.closest('.card');
+    const id = card.dataset.id;
+    
+    if (confirm('Delete this card?')) {
+      card.remove();
+      console.log(`Card ${id} deleted`);
+    }
+  }
+  
+  // Card clicked (but NOT the delete button)
+  else if (e.target.closest('.card')) {
+    const card = e.target.closest('.card');
+    const id = card.dataset.id;
+    
+    console.log(`Opening details for card ${id}`);
+    openCardDetails(id);
+  }
+});
+
+
+// Example 2: Dropdown menu
+// -------------------------
+// HTML:
+// <div class="dropdown">
+//   <button class="dropdown-toggle">Menu ▼</button>
+//   <div class="dropdown-menu" style="display: none;">
+//     <a href="#" class="dropdown-item">Profile</a>
+//     <a href="#" class="dropdown-item">Settings</a>
+//     <a href="#" class="dropdown-item">Logout</a>
+//   </div>
+// </div>
+
+const dropdown = document.querySelector('.dropdown');
+const toggle = document.querySelector('.dropdown-toggle');
+const menu = document.querySelector('.dropdown-menu');
+
+// Toggle dropdown
+toggle.addEventListener('click', (e) => {
+  e.stopPropagation(); // Don't trigger document click!
+  menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+});
+
+// Click inside dropdown menu
+menu.addEventListener('click', (e) => {
+  if (e.target.classList.contains('dropdown-item')) {
+    e.preventDefault();
+    e.stopPropagation(); // Don't close dropdown AND trigger document click
+    
+    console.log('Selected:', e.target.textContent);
+    // Handle selection...
+    menu.style.display = 'none'; // Close after selection
+  }
+});
+
+// Click anywhere else → close dropdown
+document.addEventListener('click', () => {
+  menu.style.display = 'none';
+});
+
+
+// Example 3: Modal dialog
+// ------------------------
+// HTML:
+// <div class="modal-overlay">
+//   <div class="modal">
+//     <h2>Modal Title</h2>
+//     <p>Modal content...</p>
+//     <button class="close-btn">Close</button>
+//   </div>
+// </div>
+
+const overlay = document.querySelector('.modal-overlay');
+const modal = document.querySelector('.modal');
+
+// Click inside modal → do nothing (keep open)
+modal.addEventListener('click', (e) => {
+  e.stopPropagation(); // CRITICAL: Don't close modal!
+  // Handle clicks inside modal normally
+});
+
+// Click overlay (outside modal) → close
+overlay.addEventListener('click', () => {
+  console.log('Closing modal...');
+  overlay.style.display = 'none';
+});
+
+// Close button
+document.querySelector('.close-btn').addEventListener('click', () => {
+  overlay.style.display = 'none';
+});
+
+
+// Example 4: Nested buttons
+// --------------------------
+// HTML:
+// <div class="accordion-item">
+//   <div class="accordion-header">
+//     <span>Section Title</span>
+//     <button class="expand-btn">▼</button>
+//     <button class="delete-btn">✗</button>
+//   </div>
+//   <div class="accordion-content">Content here...</div>
+// </div>
+
+const header = document.querySelector('.accordion-header');
+const expandBtn = document.querySelector('.expand-btn');
+const deleteBtn = document.querySelector('.delete-btn');
+const content = document.querySelector('.accordion-content');
+
+// Click header → expand/collapse
+header.addEventListener('click', () => {
+  console.log('Toggling accordion...');
+  content.style.display = content.style.display === 'none' ? 'block' : 'none';
+});
+
+// Click expand button → just expand (same as header)
+expandBtn.addEventListener('click', (e) => {
+  // Let it bubble to header (no stopPropagation needed)
+  console.log('Expand button clicked');
+});
+
+// Click delete button → delete (DON'T expand!)
+deleteBtn.addEventListener('click', (e) => {
+  e.stopPropagation(); // CRITICAL: Don't trigger header click!
+  
+  if (confirm('Delete this section?')) {
+    header.closest('.accordion-item').remove();
+  }
+});
+
+
+stopPropagation() vs stopImmediatePropagation()
+------------------------------------------------
+
+TWO SIMILAR BUT DIFFERENT METHODS:
+
+1. e.stopPropagation()
+   - Stops event from bubbling to PARENT elements
+   - Other listeners on the SAME element still run
+   - Most commonly used
+
+2. e.stopImmediatePropagation()
+   - Stops event from bubbling to PARENT elements
+   - ALSO prevents other listeners on the SAME element from running
+   - Rarely needed
+
+CODE EXAMPLE:
+-------------
+const button = document.querySelector('button');
+
+// Three listeners on the SAME button
+button.addEventListener('click', (e) => {
+  console.log('Handler 1');
+  e.stopPropagation(); // Only stops bubbling to parents
+});
+
+button.addEventListener('click', (e) => {
+  console.log('Handler 2'); // This STILL runs!
+});
+
+button.addEventListener('click', (e) => {
+  console.log('Handler 3'); // This STILL runs!
+});
+
+// Output when button clicked:
+// "Handler 1"
+// "Handler 2"
+// "Handler 3"
+// (All three handlers on button run, but parent handlers don't)
+
+
+// Now with stopImmediatePropagation():
+button.addEventListener('click', (e) => {
+  console.log('Handler 1');
+  e.stopImmediatePropagation(); // Stops EVERYTHING!
+});
+
+button.addEventListener('click', (e) => {
+  console.log('Handler 2'); // This NEVER runs!
+});
+
+button.addEventListener('click', (e) => {
+  console.log('Handler 3'); // This NEVER runs!
+});
+
+// Output when button clicked:
+// "Handler 1"
+// (That's it! Other handlers on same button don't run, and neither do parent handlers)
+
+
+WHEN TO USE stopImmediatePropagation()
+---------------------------------------
+
+Very rare! Only when you have multiple handlers on the same element and need to prevent 
+later handlers from running.
+
+Example use case:
+- Plugin system where multiple plugins add handlers
+- First handler determines event should be completely stopped
+- Don't want any other handlers (even on same element) to run
+
+
+stopPropagation() vs preventDefault()
+--------------------------------------
+
+DIFFERENT PURPOSES - DON'T CONFUSE THEM!
+
+e.stopPropagation()
+- Controls EVENT FLOW through DOM tree
+- Stops bubbling/capturing to other elements
+- Doesn't affect the default browser action
+
+e.preventDefault()
+- Prevents DEFAULT BROWSER BEHAVIOR
+- Stops: form submission, link navigation, context menu, etc.
+- Doesn't affect event flow through DOM
+
+COMPARISON TABLE:
+-----------------
+| Method               | Stops Bubbling? | Prevents Default Action? |
+|---------------------|-----------------|-------------------------|
+| stopPropagation()    | YES            | NO                      |
+| preventDefault()     | NO             | YES                     |
+| Both can be used together!                                      |
+
+CODE EXAMPLE:
+-------------
+// Prevent link navigation AND stop bubbling
+document.querySelector('a').addEventListener('click', (e) => {
+  e.preventDefault();       // Don't navigate to href
+  e.stopPropagation();      // Don't bubble to parent
+  
+  console.log('Link clicked, but nothing happens!');
+});
+
+
+// Form inside a clickable div
+const form = document.querySelector('form');
+const container = document.querySelector('.container');
+
+// Container has a click handler
+container.addEventListener('click', () => {
+  console.log('Container clicked!');
+});
+
+// Form submit handler
+form.addEventListener('submit', (e) => {
+  e.preventDefault();      // Don't submit form (page reload)
+  e.stopPropagation();     // Don't trigger container click
+  
+  console.log('Form submitted via AJAX');
+  // Handle form submission...
+});
+
+
+WHEN NOT TO USE stopPropagation()
+----------------------------------
+
+1. DON'T USE BY DEFAULT
+   - Only use when you have a specific problem
+   - Event bubbling is usually helpful, not harmful
+   - Overusing it makes debugging harder
+
+2. EVENT DELEGATION NEEDS BUBBLING
+   - If parent uses delegation, stopPropagation() breaks it
+   - Parent won't receive events from children
+   - Be careful with delegation patterns
+
+3. ANALYTICS/TRACKING
+   - Document-level click tracking won't work
+   - Global event handlers won't receive events
+   - Can break third-party scripts
+
+4. TESTING/DEBUGGING
+   - Makes it harder to track event flow
+   - Can hide bugs in event handlers
+   - Use sparingly and document why
+
+
+DEBUGGING stopPropagation() ISSUES
+-----------------------------------
+
+Problem: "Why isn't my parent handler firing?"
+Answer: Check if child has stopPropagation()
+
+How to debug:
+1. Check all event listeners in browser DevTools
+2. Look for stopPropagation() calls in child handlers
+3. Temporarily comment out stopPropagation() to test
+4. Use console.log() to trace event flow
+
+CODE EXAMPLE:
+-------------
+// Add logging to see event flow
+parent.addEventListener('click', () => {
+  console.log('Parent handler');
+});
+
+child.addEventListener('click', (e) => {
+  console.log('Child handler - BEFORE stopPropagation');
+  e.stopPropagation();
+  console.log('Child handler - AFTER stopPropagation');
+  // If "Parent handler" doesn't log, stopPropagation worked
+});
+
+
+COMMON PATTERNS
+---------------
+
+// Pattern 1: Button inside a clickable card
+// Stop button clicks from triggering card click
+card.addEventListener('click', () => {
+  openCard();
+});
+
+button.addEventListener('click', (e) => {
+  e.stopPropagation(); // Don't open card
+  doButtonAction();
+});
+
+
+// Pattern 2: Close dropdown on outside click
+dropdown.addEventListener('click', (e) => {
+  e.stopPropagation(); // Stay open
+});
+
+document.addEventListener('click', () => {
+  closeDropdown(); // Close when clicking outside
+});
+
+
+// Pattern 3: Nested menus
+parentMenu.addEventListener('click', (e) => {
+  if (e.target.matches('.menu-item')) {
+    e.stopPropagation(); // Don't close parent menu
+    openSubmenu();
+  }
+});
+
+
+// Pattern 4: Modal overlay
+modal.addEventListener('click', (e) => {
+  e.stopPropagation(); // Don't close when clicking inside
+});
+
+overlay.addEventListener('click', () => {
+  closeModal(); // Close when clicking overlay
+});
+
+
+BEST PRACTICES
+--------------
+
+1. USE SPARINGLY
+   - Only when you have a specific need
+   - Don't use it "just in case"
+
+2. DOCUMENT WHY
+   - Add comment explaining why it's needed
+   - Makes code maintainable
+
+3. CONSIDER ALTERNATIVES
+   - Check e.target instead of stopping propagation
+   - Use more specific selectors
+   - Restructure DOM if possible
+
+4. TEST THOROUGHLY
+   - Ensure event delegation still works
+   - Check that analytics aren't broken
+   - Verify parent handlers work when needed
+
+5. COMBINE WITH OTHER METHODS
+   - Often used with preventDefault()
+   - Sometimes with closest() for better targeting
+
+
+COMPLETE EXAMPLE: E-COMMERCE CARD
+----------------------------------
+// HTML:
+// <div class="product-grid">
+//   <div class="product-card" data-id="101">
+//     <img src="product.jpg" alt="Product">
+//     <h3>Product Name</h3>
+//     <p>$99.99</p>
+//     <div class="card-actions">
+//       <button class="add-to-cart" data-id="101">Add to Cart</button>
+//       <button class="quick-view" data-id="101">Quick View</button>
+//       <button class="favorite" data-id="101">♡</button>
+//     </div>
+//   </div>
+// </div>
+
+const grid = document.querySelector('.product-grid');
+
+grid.addEventListener('click', (e) => {
+  const card = e.target.closest('.product-card');
+  
+  if (!card) return;
+  
+  const productId = card.dataset.id;
+  
+  // Add to Cart button
+  if (e.target.classList.contains('add-to-cart')) {
+    e.stopPropagation(); // DON'T navigate to product page!
+    
+    console.log(`Adding product ${productId} to cart...`);
+    addToCart(productId);
+    
+    // Show feedback
+    e.target.textContent = '✓ Added';
+    setTimeout(() => {
+      e.target.textContent = 'Add to Cart';
+    }, 2000);
+  }
+  
+  // Quick View button
+  else if (e.target.classList.contains('quick-view')) {
+    e.stopPropagation(); // DON'T navigate to product page!
+    
+    console.log(`Opening quick view for ${productId}...`);
+    openQuickView(productId);
+  }
+  
+  // Favorite button
+  else if (e.target.classList.contains('favorite')) {
+    e.stopPropagation(); // DON'T navigate to product page!
+    
+    console.log(`Toggling favorite for ${productId}...`);
+    e.target.textContent = e.target.textContent === '♡' ? '♥' : '♡';
+    toggleFavorite(productId);
+  }
+  
+  // Click anywhere else on card → navigate to product page
+  else {
+    console.log(`Navigating to product ${productId}...`);
+    window.location.href = `/products/${productId}`;
+  }
+});
+
+// Why stopPropagation() is CRITICAL here:
+// Without it, clicking any button would:
+// 1. Execute the button's action (add to cart, etc.)
+// 2. Bubble up to card
+// 3. Trigger card's click handler
+// 4. Navigate to product page (WRONG!)
+// 
+// With stopPropagation():
+// 1. Execute button's action
+// 2. Stop event (no bubbling)
+// 3. Card's handler doesn't run
+// 4. Stay on current page (CORRECT!)
+
+
+INTERVIEW QUESTIONS
+-------------------
+
+Q: What does stopPropagation() do?
+A: It stops an event from bubbling up to parent elements (or capturing down to children).
+   Prevents handlers on ancestor elements from being triggered.
+
+Q: What's the difference between stopPropagation() and preventDefault()?
+A: stopPropagation() stops event flow through the DOM (bubbling/capturing).
+   preventDefault() stops the browser's default action (form submit, link click, etc.).
+   They serve different purposes and can be used together.
+
+Q: What's the difference between stopPropagation() and stopImmediatePropagation()?
+A: stopPropagation() stops bubbling but allows other handlers on the same element to run.
+   stopImmediatePropagation() stops bubbling AND prevents other handlers on the same 
+   element from running. stopImmediatePropagation() is rarely needed.
+
+Q: When should you use stopPropagation()?
+A: When you have nested clickable elements and don't want the parent's handler to trigger
+   when clicking the child. Common cases: buttons inside cards, dropdown menus, modals,
+   nested components.
+
+Q: When should you NOT use stopPropagation()?
+A: Don't use it by default or "just in case". Only use when needed. Overuse can break
+   event delegation, analytics tracking, and make debugging harder.
+
+Q: Can you use both preventDefault() and stopPropagation()?
+A: Yes! They're independent. preventDefault() stops default browser behavior, while
+   stopPropagation() stops event flow. Often used together on links or forms.
+
+Q: Does stopPropagation() affect event delegation?
+A: Yes! If a child calls stopPropagation(), the parent's delegated handler won't receive
+   that event. Be careful when mixing delegation with stopPropagation().
+
+
+========================================
+========================================
 FORM EVENTS
 ========================================
 ========================================
