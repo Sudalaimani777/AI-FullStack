@@ -75,6 +75,17 @@ Topics/
 │   ├── script.js
 │   ├── domSingleElement.js      # Single element selection methods
 │   ├── domMultipleElement.js    # Multiple element selection methods
+│   ├── 1-EventHandeling/        # Basic event handling
+│   ├── 2-EventHandelingDeep/    # ✅ COMPLETED - Advanced event concepts
+│   │   ├── notes.txt            # Comprehensive event handling guide
+│   │   ├── stopPropagation.js   # stopPropagation examples
+│   │   ├── index.html           # Event demos
+│   │   └── Topics covered:
+│   │       • Event Object (e.target, e.currentTarget, e.type, etc.)
+│   │       • Event Delegation (efficient event handling)
+│   │       • Form Events (submit, input, change, focus, blur)
+│   │       • stopPropagation() vs preventDefault()
+│   │       • stopImmediatePropagation()
 │   └── DOM-Practice-Using-Todo-App/  # Practical DOM project
 │       ├── todo.html
 │       ├── createElement.js     # Creating DOM elements
@@ -254,6 +265,68 @@ console.log(val.body);
 - Create new events
 - Single element selection (`getElementById`, `querySelector`) - See `domSingleElement.js`
 - Multiple element selection (`querySelectorAll`, `getElementsByClassName`) - See `domMultipleElement.js`
+
+**Advanced Event Handling (2-EventHandelingDeep/) ✅ COMPLETED:**
+A comprehensive module covering deep event concepts:
+
+1. **Event Object (`notes.txt` - Event Object section)**:
+   - `e.target` - Element that triggered the event
+   - `e.currentTarget` - Element with the listener attached
+   - `e.type` - Type of event (click, submit, etc.)
+   - `e.preventDefault()` - Prevent default browser behavior
+   - `e.stopPropagation()` - Stop event bubbling
+   - Mouse properties: `clientX`, `clientY`, `button`
+   - Keyboard properties: `key`, `code`, `altKey`, `ctrlKey`
+
+2. **Event Delegation (`notes.txt` - Event Delegation section)**:
+   - Single listener handles multiple elements
+   - Works with dynamically added elements
+   - Better performance with many elements
+   - Using `e.target.matches()` and `closest()`
+   - Real-world examples: todo lists, tables, galleries
+
+3. **Form Events (`notes.txt` - Form Events section)**:
+   - `submit` - Form submission handling
+   - `input` - Real-time value changes (every keystroke)
+   - `change` - Value changes on blur
+   - `focus` - Element receives focus
+   - `blur` - Element loses focus
+   - Form validation patterns
+
+4. **Stop Propagation (`stopPropagation.js` & `notes.txt`)**:
+   - `stopPropagation()` - Stop event bubbling
+   - `stopImmediatePropagation()` - Stop all handlers
+   - vs `preventDefault()` comparison
+   - Use cases: nested clickables, modals, dropdowns
+   - Live examples in `stopPropagation.js`
+
+**Key Event Concepts:**
+```javascript
+// Event Object
+button.addEventListener('click', (e) => {
+  console.log(e.target);        // What was clicked
+  console.log(e.currentTarget); // Where listener is attached
+  e.preventDefault();           // Stop default behavior
+  e.stopPropagation();          // Stop bubbling
+});
+
+// Event Delegation
+parent.addEventListener('click', (e) => {
+  if (e.target.matches('.delete-btn')) {
+    e.stopPropagation();
+    e.target.closest('.card').remove();
+  }
+});
+
+// Form Events
+input.addEventListener('input', (e) => {
+  console.log('Every keystroke:', e.target.value);
+});
+
+input.addEventListener('change', (e) => {
+  console.log('After editing done:', e.target.value);
+});
+```
 
 **Practical Project - DOM-Practice-Using-Todo-App:**
 A comprehensive Todo application demonstrating:
@@ -473,6 +546,12 @@ Each folder contains:
 - [ ] **14-DOM**: DOM manipulation and events
   - [ ] domSingleElement.js: Single element selection
   - [ ] domMultipleElement.js: Multiple element selection
+  - [x] **2-EventHandelingDeep**: Advanced event handling ✅ COMPLETED
+    - [x] Event Object (e.target, e.currentTarget)
+    - [x] Event Delegation (efficient event handling)
+    - [x] Form Events (submit, input, change, focus, blur)
+    - [x] stopPropagation() vs preventDefault()
+    - [x] stopImmediatePropagation()
   - [ ] DOM-Practice-Using-Todo-App: Practical project
     - [ ] createElement.js
     - [ ] removeElement.js

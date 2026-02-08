@@ -136,6 +136,13 @@ JavaScript/
     │   ├── script.js
     │   ├── domSingleElement.js        # Single element selection
     │   ├── domMultipleElement.js      # Multiple element selection
+    │   ├── 1-EventHandeling/          # Basic event handling
+    │   ├── 2-EventHandelingDeep/      # ✅ COMPLETED - Advanced events
+    │   │   ├── notes.txt              # Comprehensive event guide
+    │   │   ├── stopPropagation.js     # stopPropagation examples
+    │   │   └── index.html             # Event demos
+    │   │   # Topics: Event Object, Event Delegation, Form Events,
+    │   │   #          stopPropagation vs preventDefault
     │   └── DOM-Practice-Using-Todo-App/  # Practical DOM project
     │       ├── todo.html
     │       ├── createElement.js       # Creating DOM elements
@@ -1110,6 +1117,54 @@ element.addEventListener("click", function() {
   console.log("Clicked!");
 });
 ```
+
+**✅ Advanced Event Handling (2-EventHandelingDeep/) - COMPLETED:**
+
+```javascript
+// Event Object Properties
+button.addEventListener('click', (e) => {
+  console.log(e.target);        // Element that triggered event
+  console.log(e.currentTarget); // Element with listener attached
+  console.log(e.type);          // "click"
+  e.preventDefault();           // Stop default behavior
+  e.stopPropagation();          // Stop event bubbling
+});
+
+// Event Delegation (efficient for dynamic elements)
+parent.addEventListener('click', (e) => {
+  if (e.target.matches('.delete-btn')) {
+    e.stopPropagation();
+    e.target.closest('.card').remove();
+  }
+});
+
+// Form Events
+input.addEventListener('input', (e) => {
+  console.log('Every keystroke:', e.target.value);
+});
+
+input.addEventListener('change', (e) => {
+  console.log('After done editing:', e.target.value);
+});
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault(); // Prevent page reload
+  const formData = new FormData(e.target);
+  console.log(Object.fromEntries(formData));
+});
+
+// stopPropagation vs preventDefault
+// stopPropagation() - Stops event bubbling to parents
+// preventDefault() - Stops default browser behavior
+```
+
+**Key Event Concepts Covered:**
+- Event Object (e.target, e.currentTarget, e.type, mouse/keyboard properties)
+- Event Delegation (single listener for multiple elements)
+- Form Events (submit, input, change, focus, blur)
+- stopPropagation() vs stopImmediatePropagation()
+- preventDefault() for form submission, link clicks
+- Real-world patterns: nested clickables, dropdowns, modals
 
 ### 15-ModularPattern: Code Organization
 ```javascript

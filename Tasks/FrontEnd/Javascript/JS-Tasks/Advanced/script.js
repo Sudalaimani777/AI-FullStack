@@ -149,3 +149,15 @@ const arrayOne = [1, 2, 3, 4, 5];
 const arrayTwo = [6, 7, 8, 9, 10];
 arrayOne.push(...arrayTwo);
 console.log(arrayOne);
+
+// Largest num in the Array :-
+const findLargestNum = (arr) => {
+    let mavValue = 0;
+    for(let i = 1; i < arr.length; i++){
+        if(arr[i] > mavValue){
+            mavValue = arr[i];
+        }
+    }
+    return mavValue;
+}
+console.log("The largest number in the array is ->", findLargestNum([1,3,4,6,7,8,9,34,21]));

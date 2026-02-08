@@ -1,10 +1,10 @@
 TOPICS TO COVER BEFORE REACT (SHORT LIST)
 =========================================
-1) Event handling (deep):
-   - event object (e.target, e.currentTarget)
-   - form events (submit, change, input, focus, blur)
-   - preventDefault(), stopPropagation()
-   - event delegation
+1) Event handling (deep): ✅ COMPLETED
+   - event object (e.target, e.currentTarget) ✅
+   - form events (submit, change, input, focus, blur) ✅
+   - preventDefault(), stopPropagation() ✅
+   - event delegation ✅
 
 2) Web storage:
    - localStorage + sessionStorage
@@ -26,13 +26,13 @@ FrontEnd/
   JavaScript/
     Topics/
       14-DOM/
-        2-EventHandling-Deep/
-          notes.txt
-          1-EventObject/
-          2-EventDelegation/
-          3-FormEvents/
-          4-StopPropagation/
-      16-WebStorage/
+        2-EventHandling-Deep/ ✅ COMPLETED
+          notes.txt ✅
+          1-EventObject/ ✅
+          2-EventDelegation/ ✅
+          3-FormEvents/ ✅
+          4-StopPropagation/ ✅
+      16-WebStorage/ ⬅️ NEXT
         notes.txt
         1-localStorage/
         2-sessionStorage/

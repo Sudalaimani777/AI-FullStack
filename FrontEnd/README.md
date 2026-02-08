@@ -67,8 +67,11 @@ FrontEnd/
 │   │   ├── 11-IfElse/                  # Conditional statements
 │   │   ├── 12-Switch/                  # Switch statements
 │   │   ├── 13-Functions/               # Function types
-│   │   ├── 14-DOM/                     # DOM manipulation & events
-│   │   │   └── DOM-Practice-Using-Todo-App/  # Practical project (8 files)
+│   │   ├── 14-DOM/                     # DOM manipulation & events   │   │   ├── 1-EventHandeling/       # Basic event handling
+   │   │   ├── 2-EventHandelingDeep/   # ✅ COMPLETED - Advanced events
+   │   │   │   ├── notes.txt       # Event Object, Delegation, Form Events
+   │   │   │   ├── stopPropagation.js  # stopPropagation examples
+   │   │   │   └── index.html      # Event demos│   │   │   └── DOM-Practice-Using-Todo-App/  # Practical project (8 files)
 │   │   └── 15-ModularPattern/          # Import/Export, IIFE
 │   │
 │   └── ES6/                            # Modern JavaScript features
@@ -215,6 +218,12 @@ HTML Guide | [HTML README](HTML/README.md) |
 - Arrays & Objects (including prototypes & classes)
 - Functions (declaration, expression, arrow)
 - DOM manipulation & event handling
+- **✅ Advanced Event Handling (COMPLETED):**
+  - Event Object (e.target, e.currentTarget, mouse/keyboard properties)
+  - Event Delegation (efficient handling for dynamic elements)
+  - Form Events (submit, input, change, focus, blur)
+  - stopPropagation() vs preventDefault() vs stopImmediatePropagation()
+  - Real-world patterns: nested clickables, dropdowns, modals
 - Modular patterns (Import/Export, IIFE)
 
 ### Modern JavaScript (ES6+)
@@ -260,4 +269,4 @@ HTML Guide | [HTML README](HTML/README.md) |
 
 ---
 
-**Last Updated:** January 20, 2026
+**Last Updated:** February 6, 2026
