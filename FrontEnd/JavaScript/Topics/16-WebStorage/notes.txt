@@ -1,0 +1,41 @@
+WEB STORAGE IN JAVASCRIPT
+=========================
+
+What is Web Storage?
+--------------------
+Web Storage is a browser feature that allows you to store data locally in the user's browser.
+It's like saving information on the user's computer that the website can access later.
+
+
+Two Types:
+----------
+
+1. localStorage
+   - Saves data permanently (stays even after closing browser)
+   - Example: Saving user theme preference
+
+2. sessionStorage  
+   - Saves data temporarily (deleted when tab is closed)
+   - Example: Storing form data while filling it out
+
+
+Basic Usage:
+------------
+
+// Save data
+localStorage.setItem('username', 'John');
+
+// Get data
+let name = localStorage.getItem('username');
+
+// Remove data
+localStorage.removeItem('username');
+
+// Clear all
+localStorage.clear();
+
+
+Note: 
+- Only stores text/strings
+- For objects, use JSON.stringify() to save and JSON.parse() to retrieve
+- Storage limit: around 5-10MB
