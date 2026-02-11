@@ -1,0 +1,6 @@
+.users div{
+    padding: 10px;
+    margin: 6px 0px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
