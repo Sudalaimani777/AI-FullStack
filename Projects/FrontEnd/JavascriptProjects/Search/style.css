@@ -1,6 +1,335 @@
-.users div{
-    padding: 10px;
-    margin: 6px 0px;
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+    animation: gradientShift 10s ease infinite;
+    background-size: 200% 200%;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Header */
+h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: fadeInDown 0.8s ease;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Search Input */
+input[type="text"] {
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin: 0 auto 30px;
+    padding: 15px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    outline: none;
+    transition: all 0.3s ease;
+    animation: fadeIn 1s ease 0.2s backwards;
+}
+
+input[type="text"]:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+input[type="text"]::placeholder {
+    color: #999;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stats Section */
+.stats {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    animation: fadeIn 1s ease 0.4s backwards;
+}
+
+.stats p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #667eea;
+    text-align: center;
+    flex: 1;
+}
+
+.stats p strong {
+    display: block;
+    font-size: 1.5rem;
+    color: #764ba2;
+    margin-top: 5px;
+}
+
+/* Main Container */
+.users,
+.details {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    animation: fadeIn 1s ease 0.6s backwards;
+}
+
+/* Users Section */
+.users {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.users div {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.95);
     cursor: pointer;
-    border: 1px solid #ccc;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    font-weight: 500;
+    color: #333;
+    position: relative;
+    overflow: hidden;
+    animation: slideIn 0.5s ease backwards;
+}
+
+.users div::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.users div:hover::before {
+    left: 100%;
+}
+
+.users div:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    border-color: #667eea;
+}
+
+.users div:active {
+    transform: translateY(-2px) scale(0.98);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Details Section */
+.details {
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    min-height: 200px;
+    animation: fadeInUp 0.6s ease;
+}
+
+.details h2 {
+    color: #667eea;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    border-bottom: 3px solid #764ba2;
+    padding-bottom: 10px;
+    animation: slideInRight 0.5s ease;
+}
+
+.details p {
+    margin: 15px 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    animation: fadeIn 0.5s ease;
+}
+
+.details p strong {
+    color: #764ba2;
+    font-weight: 600;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Empty State */
+.users:empty::after {
+    content: 'No users found';
+    display: block;
+    text-align: center;
+    padding: 40px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+        font-size: 0.9rem;
+        padding: 12px 18px;
+    }
+
+    .stats {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .stats p {
+        font-size: 1rem;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+    }
+
+    .stats p:last-child {
+        border-bottom: none;
+    }
+
+    .users {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 10px;
+    }
+
+    .users div {
+        padding: 15px;
+        font-size: 0.95rem;
+    }
+
+    .details {
+        padding: 20px;
+    }
+
+    .details h2 {
+        font-size: 1.5rem;
+    }
+
+    .details p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    input[type="text"] {
+        padding: 10px 15px;
+        font-size: 0.85rem;
+    }
+
+    .users {
+        grid-template-columns: 1fr;
+    }
+
+    .details {
+        padding: 15px;
+    }
+
+    .details h2 {
+        font-size: 1.3rem;
+    }
+
+    .details p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Loading Animation */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
 }
