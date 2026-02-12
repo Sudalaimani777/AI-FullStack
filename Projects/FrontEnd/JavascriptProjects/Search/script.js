@@ -22,10 +22,10 @@ async function loadAllUsers() {
         allUsers = result;
         // Call the renderUser function to display the users
         renderUser(allUsers);
+        renderStats(allUsers);
     }
     catch (err) {
         console.log(err);
-
     }
 }
 
