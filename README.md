@@ -8,6 +8,7 @@
 
 ## 📋 Table of Contents
 - [About](#-about)
+- [Repository Overview](#-repository-overview)
 - [Repository Structure](#-repository-structure)
 - [Projects](#-projects)
 - [Getting Started](#-getting-started)
@@ -44,6 +45,15 @@ This repository is my personal learning journey into Full-Stack Development, doc
 - ✅ 8/8 JavaScript Projects completed
 - ✅ 3/3 AJAX Projects completed
 - ✅ Basic, Advanced & Bonus Tasks completed (30 total)
+
+## 🧭 Repository Overview
+
+This repo is organized to make learning, practice, and project work easy to find:
+
+- **FrontEnd/**: Learning modules and notes for HTML, JavaScript, ES6, and AJAX.
+- **Tasks/**: Guided practice exercises that align with each learning module.
+- **Projects/**: Completed HTML and JavaScript applications that apply the concepts.
+- **README.md**: The main progress tracker, learning path, and high-level summary.
 
 ## 📁 Repository Structure
 
