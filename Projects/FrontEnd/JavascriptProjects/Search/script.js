@@ -13,6 +13,7 @@ function loadAllEvents() {
 loadAllEvents();
 
 
+
 // Load all users
 async function loadAllUsers() {
     try {
