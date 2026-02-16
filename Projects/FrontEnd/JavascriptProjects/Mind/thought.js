@@ -6,12 +6,16 @@ export function Thought (content, type) {
 }
 
 // Adding the prototype
-Thought.prototype.summary = function(){
+// Thought.prototype.summary = function(){
+//     return `${this.type.toUpperCase()} : ${this.content}`
+// }
+
+
+
+Thought.prototype.summary = function ()  {
     return `${this.type.toUpperCase()} : ${this.content}`
 }
 
 
-
-
-
-
+const data = new Thought("Learn JavaScript", "task");
+console.log(data.summary());
