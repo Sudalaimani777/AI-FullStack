@@ -8,6 +8,7 @@ class Vault{
         this.thoughts.push(thought);
     }
 
+    // Get all thoughts from the vault method
     allThoughts(){
         return this.thoughts;
     }
@@ -19,10 +20,13 @@ console.log(v.thoughts);
 
 // Adding a thought to the vault
 v.addThought("This is the thought 1");
-console.log(v.thoughts);
+v.addThought("This is the thought 2");
+v.addThought("This is the thought 3");
+
+console.log(v.allThoughts());
 
 
-class AdimnVault extends Vault {
+class AdminVault extends Vault {
     constructor(){
         super();
         this.role = "admin";

@@ -9,9 +9,7 @@ async function syncThought (thought) {
             },
             body: JSON.stringify(thought)
         });
-
-        return response.json();
-            
+        return response.json(); 
     }
     catch(err){
         console.log(err);
