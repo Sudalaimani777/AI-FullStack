@@ -1,19 +1,45 @@
-import { Vault } from "./vault.js";
+import { Vault, AdminVault } from "./vault.js";
 import { Thought } from "./thought.js";
 import { syncThought } from "./api.js";
 import { saveThoughts, loadThoughts } from "./storage.js";
 import { renderThought } from "./ui.js";
 
-const vault = new Vault();
+// Getting the Elements form the HTML
+const thoughtForm = document.querySelector("#thoughtForm");
+const thoughtInput = document.querySelector("#thoughtInput");
+const typeSelect = document.querySelector("#typeSelect");
 
-const saveThought = loadThoughts();
+// Load All Events :-
+function loadAllEvents (){
+    thoughtForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        
+        // Validation :-
+        if(thoughtInput.value.trim() === ""){
+            alert("Please enter a thought");
+            return;
+        }else{
+           handleAddThought(thoughtInput.value, typeSelect.value); 
+        }
+        
+    })
+}
+loadAllEvents();
 
-const newThought = new Thought("This is a new thought", "idea");
+const vault = new AdminVault();
+console.log(vault.thoughts);
 
-vault.addThought(newThought);
+//Setting the empty array to the local storage :-
+vault.thoughts = loadThoughts();
+console.log(vault.thoughts);
+
+
+async function handleAddThought(content, type){
+    const newThought = new Thought(content, type);
+    console.log(newThought);
+
+    vault.addThought(newThought);
+
+    await syncThought(newThought);
     
-renderThought(vault.allThoughts());
-
-saveThoughts(vault.allThoughts());
-
-syncThought(newThought);
+}

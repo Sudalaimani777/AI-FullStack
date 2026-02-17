@@ -14,7 +14,7 @@ export function renderThought(thought, onDlete) {
             </div>
                 <button class="text-red-500">x</button>
         `
-        console.log(card); 
+        // console.log(card); 
         container.appendChild(card);
 
         card.querySelector("button").addEventListener("click", (e) => {

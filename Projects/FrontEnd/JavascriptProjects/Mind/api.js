@@ -1,4 +1,4 @@
-const API = "https://jsonplaceholder.typicode.com/users";
+const API = "https://69948a24fade7a9ec0f5aecc.mockapi.io/api/v1/mind";
 
 export async function syncThought (thought) {
     try{
@@ -16,7 +16,5 @@ export async function syncThought (thought) {
         console.log(err);
     }
 }
-
-console.log(syncThought({title:"This is a thought to be synced with the API", body:"This is the body of the thought"}));
 
 

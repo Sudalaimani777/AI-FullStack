@@ -26,7 +26,7 @@ v.addThought("This is the thought 3");
 console.log(v.allThoughts());
 
 
-class AdminVault extends Vault {
+export class AdminVault extends Vault {
     constructor(){
         super();
         this.role = "admin";
