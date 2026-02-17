@@ -1,6 +1,6 @@
 const API = "https://jsonplaceholder.typicode.com/users";
 
-async function syncThought (thought) {
+export async function syncThought (thought) {
     try{
         const response = await fetch(API,{
             method:"POST",
@@ -9,11 +9,14 @@ async function syncThought (thought) {
             },
             body: JSON.stringify(thought)
         });
-        return response.json(); 
+        const data = await response.json();
+        return data;
     }
     catch(err){
         console.log(err);
     }
 }
 
-syncThought({title:"This is a thought to be synced with the API", body:"This is the body of the thought"}); 
+console.log(syncThought({title:"This is a thought to be synced with the API", body:"This is the body of the thought"}));
+
+

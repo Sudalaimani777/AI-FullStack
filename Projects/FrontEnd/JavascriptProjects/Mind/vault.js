@@ -1,4 +1,4 @@
-class Vault{
+export class Vault{
     constructor(){
         this.thoughts = [];
     }
