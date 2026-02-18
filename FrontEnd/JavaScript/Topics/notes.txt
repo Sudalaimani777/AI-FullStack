@@ -1,6 +1,6 @@
 ===============================================
     JAVASCRIPT LEARNING NOTES
-    Last Updated: January 9, 2026
+    Last Updated: February 18, 2026
 ===============================================
 
 What is Programming?
@@ -2310,6 +2310,658 @@ Next Steps:
     • Modify element content and styles
     • Create and remove elements dynamically
     • Handle user events (clicks, inputs, etc.)
+
+===============================================
+CHAPTER 15: MODULAR PATTERN
+===============================================
+
+┌─────────────────────────────────────────────┐
+│  WHAT IS MODULAR PATTERN?                  │
+└─────────────────────────────────────────────┘
+
+Modular pattern is a design approach that organizes code into separate, reusable modules. It includes techniques like ES6 Modules (Import/Export) and IIFE (Immediately Invoked Function Expressions) for code encapsulation and organization.
+
+┌─────────────────────────────────────────────┐
+│  WHY USE MODULAR PATTERN?                  │
+└─────────────────────────────────────────────┘
+
+• Code organization - Split large codebases into smaller files
+• Reusability - Use the same code in multiple places
+• Maintainability - Easier to find and fix bugs
+• Encapsulation - Keep variables private, expose only what's needed
+• Dependency management - Clear relationships between files
+• Avoid naming conflicts - Prevent global scope pollution
+• Better collaboration - Team members can work on separate modules
+
+┌─────────────────────────────────────────────┐
+│  WHEN TO USE MODULAR PATTERN?              │
+└─────────────────────────────────────────────┘
+
+• Building large applications
+• Working in teams
+• Creating reusable components
+• Organizing utility functions
+• Separating concerns (data, UI, logic)
+• Third-party library integration
+• Maintaining clean global scope
+
+┌─────────────────────────────────────────────┐
+│  ADVANTAGES                                 │
+└─────────────────────────────────────────────┘
+
+✓ Organized code structure
+✓ Namespace management - avoid variable conflicts
+✓ Code reusability across files
+✓ Better testing - isolated units
+✓ Lazy loading - load modules when needed
+✓ Clear dependencies - explicit imports
+✓ Private variables - encapsulation
+✓ Easier debugging - isolated modules
+
+┌─────────────────────────────────────────────┐
+│  DISADVANTAGES                              │
+└─────────────────────────────────────────────┘
+
+✗ Learning curve for beginners
+✗ Build tools may be required (for older browsers)
+✗ File management overhead
+✗ Potential circular dependencies
+✗ Bundler configuration needed for production
+✗ Module syntax not supported in very old browsers
+
+┌─────────────────────────────────────────────┐
+│  1. ES6 MODULES (IMPORT/EXPORT)            │
+└─────────────────────────────────────────────┘
+
+ES6 introduced native module support in JavaScript using `import` and `export` keywords.
+
+A. NAMED EXPORTS
+   Export multiple items from a file. Must import with exact same name.
+
+   Syntax:
+       // Export while declaring
+       export const name = "John";
+       export function greet() { return "Hello"; }
+       export class User { }
+
+       // Export after declaring
+       const age = 25;
+       function calculate() { }
+       export { age, calculate };
+
+       // Export with rename
+       const secret = "123";
+       export { secret as password };
+
+B. DEFAULT EXPORT
+   Export ONE main thing from a file. Can import with any name.
+
+   Syntax:
+       // Export function
+       export default function() { 
+           console.log("Main function"); 
+       }
+
+       // Export class
+       export default class User {
+           constructor(name) {
+               this.name = name;
+           }
+       }
+
+       // Export value
+       const config = { theme: "dark" };
+       export default config;
+
+   IMPORTANT: Only ONE default export per file!
+
+C. IMPORTING MODULES
+
+   Import Named Exports:
+       // Import specific items
+       import { name, greet } from './module.js';
+
+       // Import with rename
+       import { password as secret } from './module.js';
+
+       // Import everything as object
+       import * as myModule from './module.js';
+
+   Import Default Export:
+       // Can use any name
+       import myFunction from './module.js';
+       import MyClass from './module.js';
+
+   Mixed Import:
+       // Both default and named
+       import multiply, { PI, add } from './math.js';
+
+D. PRACTICAL EXAMPLE
+
+   File: calculation.js
+       export const add = (a, b) => a + b;
+       export const subtract = (a, b) => a - b;
+       export default function multiply(a, b) {
+           return a * b;
+       }
+
+   File: main.js
+       import multiply, { add, subtract } from './calculation.js';
+       
+       console.log(add(5, 3));       // 8
+       console.log(subtract(10, 4)); // 6
+       console.log(multiply(2, 5));  // 10
+
+E. HTML USAGE
+   Must use type="module" in script tag:
+       <script type="module" src="main.js"></script>
+
+┌─────────────────────────────────────────────┐
+│  2. IIFE (IMMEDIATELY INVOKED FUNCTION)    │
+└─────────────────────────────────────────────┘
+
+IIFE (Immediately Invoked Function Expression) is a function that runs as soon as it's defined. Used for encapsulation and avoiding global scope pollution.
+
+A. BASIC SYNTAX
+
+   Traditional Function:
+       (function() {
+           // Code here runs immediately
+           console.log("I run right away!");
+       })();
+
+   Arrow Function (ES6):
+       (() => {
+           console.log("Modern IIFE!");
+       })();
+
+B. BREAKING DOWN THE SYNTAX
+
+   Step 1: (function() { ... })   ← Wrap in parentheses (makes it an expression)
+   Step 2: ()                     ← Call it immediately
+
+   Two Valid Styles:
+       // Style 1: Parentheses wrap everything (more common)
+       (function() {
+           console.log("Style 1");
+       })();
+
+       // Style 2: Parentheses wrap only function
+       (function() {
+           console.log("Style 2");
+       }());
+
+C. WHY USE IIFE?
+
+   1. Create Private Variables:
+       (function() {
+           const secret = "hidden";  // Not accessible outside
+           console.log(secret);      // Works here
+       })();
+       // console.log(secret);       // Error: secret is not defined
+
+   2. Avoid Global Scope Pollution:
+       (function() {
+           const tempVar = "temporary";
+           // Use tempVar here without affecting global scope
+       })();
+
+   3. Module Pattern:
+       const myModule = (function() {
+           // Private variables
+           const privateVar = "secret";
+           
+           // Private function
+           function privateFunction() {
+               return "private";
+           }
+           
+           // Public API
+           return {
+               publicMethod: function() {
+                   return privateFunction() + " " + privateVar;
+               }
+           };
+       })();
+       
+       console.log(myModule.publicMethod()); // "private secret"
+       // console.log(privateVar);            // Error: not accessible
+
+D. IIFE WITH PARAMETERS
+
+   Pass arguments to IIFE:
+       (function(name, age) {
+           console.log(`${name} is ${age} years old`);
+       })("John", 25);  // "John is 25 years old"
+
+   Using Global Objects:
+       (function(window, document) {
+           // Now window and document are local parameters
+           // Faster access and safe to use
+           console.log(window.innerWidth);
+       })(window, document);
+
+E. PRACTICAL EXAMPLE - COUNTER
+
+   const counter = (function() {
+       let count = 0;  // Private variable
+       
+       return {
+           increment: function() {
+               count++;
+               return count;
+           },
+           decrement: function() {
+               count--;
+               return count;
+           },
+           getValue: function() {
+               return count;
+           }
+       };
+   })();
+
+   console.log(counter.increment()); // 1
+   console.log(counter.increment()); // 2
+   console.log(counter.getValue());  // 2
+   console.log(counter.decrement()); // 1
+   // console.log(count);            // Error: count is private
+
+F. MODERN ALTERNATIVES
+
+   In modern JavaScript, ES6 modules often replace IIFE:
+   
+   Instead of IIFE:
+       (function() {
+           const private = "data";
+           // code
+       })();
+   
+   Use modules:
+       // Private by default
+       const private = "data";
+       
+       // Only export what's needed
+       export function publicFunction() { }
+
+   Block scoping with let/const:
+       {
+           const private = "data";  // Block-scoped
+           // code
+       }
+       // private not accessible here
+
+┌─────────────────────────────────────────────┐
+│  BEST PRACTICES                             │
+└─────────────────────────────────────────────┘
+
+ES6 Modules:
+    1. ✓ One module per file for clarity
+    2. ✓ Use named exports for multiple utilities
+    3. ✓ Use default export for main component/class
+    4. ✓ Keep imports at the top of files
+    5. ✓ Use absolute paths or module aliases
+    6. ✓ Avoid circular dependencies
+
+IIFE:
+    1. ✓ Use for immediate execution and encapsulation
+    2. ✓ Create module pattern for public/private API
+    3. ✓ Pass global objects as parameters
+    4. ✓ Use arrow functions for modern code
+    5. ✓ Consider ES6 modules for new projects
+
+===============================================
+CHAPTER 16: WEB STORAGE
+===============================================
+
+┌─────────────────────────────────────────────┐
+│  WHAT IS WEB STORAGE?                      │
+└─────────────────────────────────────────────┘
+
+Web Storage is a browser feature that allows you to store data locally in the user's browser. It provides a simple key-value pair storage mechanism that persists data between page loads and browser sessions.
+
+┌─────────────────────────────────────────────┐
+│  WHY USE WEB STORAGE?                      │
+└─────────────────────────────────────────────┘
+
+• Store user preferences (theme, language)
+• Save form data temporarily
+• Cache data to reduce server requests
+• Maintain shopping cart items
+• Store authentication tokens
+• Save application state
+• Offline data storage
+• Better user experience with persistent data
+
+┌─────────────────────────────────────────────┐
+│  WHEN TO USE WEB STORAGE?                  │
+└─────────────────────────────────────────────┘
+
+localStorage:
+• User settings (theme, preferences)
+• Shopping cart contents
+• Recently viewed items
+• Form auto-save
+• Offline application data
+• User authentication tokens (with caution)
+
+sessionStorage:
+• Temporary form data during multi-step forms
+• Single-session application state
+• Wizard/stepper progress
+• Temporary filters and search criteria
+• One-time user inputs
+
+┌─────────────────────────────────────────────┐
+│  ADVANTAGES                                 │
+└─────────────────────────────────────────────┘
+
+✓ Simple API - easy to use (setItem, getItem)
+✓ No server needed - stored client-side
+✓ Persistent - survives page reloads (localStorage)
+✓ Larger storage - ~5-10MB (vs 4KB cookies)
+✓ No automatic server transmission (unlike cookies)
+✓ Synchronous - immediate access
+✓ Per-origin storage - isolated by domain
+✓ No expiration date (localStorage)
+
+┌─────────────────────────────────────────────┐
+│  DISADVANTAGES                              │
+└─────────────────────────────────────────────┘
+
+✗ String-only storage - must convert objects
+✗ Security risk - accessible via JavaScript
+✗ No encryption - data stored in plain text
+✗ Size limit - typically 5-10MB
+✗ Synchronous - can block main thread
+✗ Same-origin policy - not cross-domain
+✗ No server-side access
+✗ Can be cleared by user
+
+There are TWO types of Web Storage:
+
+┌─────────────────────────────────────────────┐
+│  1. LOCALSTORAGE (PERMANENT STORAGE)       │
+└─────────────────────────────────────────────┘
+
+localStorage saves data permanently (stays even after closing browser).
+
+A. BASIC OPERATIONS
+
+   Save Data:
+       localStorage.setItem('username', 'John');
+       localStorage.setItem('age', '25');
+       localStorage.setItem('theme', 'dark');
+
+   Get Data:
+       const username = localStorage.getItem('username');
+       console.log(username); // "John"
+       
+       const age = localStorage.getItem('age');
+       console.log(age); // "25"
+
+   Remove Specific Item:
+       localStorage.removeItem('username');
+
+   Clear All Data:
+       localStorage.clear();
+
+   Check Item Existence:
+       if (localStorage.getItem('theme')) {
+           console.log('Theme exists');
+       }
+
+B. STORING OBJECTS (JSON)
+
+   Since localStorage only stores strings, use JSON methods:
+
+   Save Object:
+       const user = {
+           name: 'John Doe',
+           age: 30,
+           email: 'john@example.com'
+       };
+       localStorage.setItem('user', JSON.stringify(user));
+
+   Retrieve Object:
+       const storedUser = localStorage.getItem('user');
+       const userObject = JSON.parse(storedUser);
+       console.log(userObject.name); // "John Doe"
+
+   Save Array:
+       const fruits = ['Apple', 'Banana', 'Orange'];
+       localStorage.setItem('fruits', JSON.stringify(fruits));
+
+   Retrieve Array:
+       const storedFruits = localStorage.getItem('fruits');
+       const fruitsArray = JSON.parse(storedFruits);
+       console.log(fruitsArray[0]); // "Apple"
+
+C. PRACTICAL EXAMPLE - THEME TOGGLE
+
+   // Save theme preference
+   function setTheme(theme) {
+       localStorage.setItem('theme', theme);
+       document.body.className = theme;
+   }
+
+   // Load theme on page load
+   window.addEventListener('DOMContentLoaded', () => {
+       const savedTheme = localStorage.getItem('theme') || 'light';
+       document.body.className = savedTheme;
+   });
+
+   // Toggle button
+   document.getElementById('themeToggle').addEventListener('click', () => {
+       const currentTheme = localStorage.getItem('theme') || 'light';
+       const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+       setTheme(newTheme);
+   });
+
+┌─────────────────────────────────────────────┐
+│  2. SESSIONSTORAGE (TEMPORARY STORAGE)     │
+└─────────────────────────────────────────────┘
+
+sessionStorage saves data temporarily (deleted when tab/window is closed).
+
+A. BASIC OPERATIONS
+
+   Same API as localStorage:
+
+   Save Data:
+       sessionStorage.setItem('formData', 'temporary');
+
+   Get Data:
+       const data = sessionStorage.getItem('formData');
+
+   Remove Data:
+       sessionStorage.removeItem('formData');
+
+   Clear All:
+       sessionStorage.clear();
+
+B. PRACTICAL EXAMPLE - FORM AUTO-SAVE
+
+   // Save form data as user types
+   document.getElementById('nameInput').addEventListener('input', (e) => {
+       sessionStorage.setItem('tempName', e.target.value);
+   });
+
+   // Restore form data on page load
+   window.addEventListener('DOMContentLoaded', () => {
+       const savedName = sessionStorage.getItem('tempName');
+       if (savedName) {
+           document.getElementById('nameInput').value = savedName;
+       }
+   });
+
+   // Clear on form submit
+   document.getElementById('myForm').addEventListener('submit', () => {
+       sessionStorage.removeItem('tempName');
+   });
+
+┌─────────────────────────────────────────────┐
+│  3. JSON METHODS (for storage)             │
+└─────────────────────────────────────────────┘
+
+A. JSON.stringify()
+   Converts JavaScript objects/arrays to JSON string for storage.
+
+   Syntax:
+       JSON.stringify(value, replacer, space)
+
+   Examples:
+       // Simple object
+       const obj = { name: "John", age: 30 };
+       const jsonString = JSON.stringify(obj);
+       console.log(jsonString); // '{"name":"John","age":30}'
+
+       // Array
+       const arr = [1, 2, 3];
+       const arrString = JSON.stringify(arr);
+       console.log(arrString); // '[1,2,3]'
+
+       // Formatted (with spacing)
+       const formatted = JSON.stringify(obj, null, 2);
+       console.log(formatted);
+       // {
+       //   "name": "John",
+       //   "age": 30
+       // }
+
+B. JSON.parse()
+   Converts JSON string back to JavaScript object/array.
+
+   Syntax:
+       JSON.parse(string)
+
+   Examples:
+       // Parse object
+       const jsonStr = '{"name":"John","age":30}';
+       const obj = JSON.parse(jsonStr);
+       console.log(obj.name); // "John"
+
+       // Parse array
+       const arrStr = '[1,2,3]';
+       const arr = JSON.parse(arrStr);
+       console.log(arr[0]); // 1
+
+   Error Handling:
+       try {
+           const data = JSON.parse(invalidJSON);
+       } catch (error) {
+           console.error('Invalid JSON:', error);
+       }
+
+┌─────────────────────────────────────────────┐
+│  LOCALSTORAGE VS SESSIONSTORAGE            │
+└─────────────────────────────────────────────┘
+
+Feature              | localStorage      | sessionStorage
+---------------------|-------------------|-------------------
+Duration             | Permanent         | Until tab close
+Scope                | All tabs/windows  | Single tab/window
+Survives closing     | YES               | NO
+Use case             | Preferences       | Temporary data
+Expiration           | Never (manual)    | Tab close
+Storage limit        | ~5-10MB           | ~5-10MB
+API                  | Same as sessionStorage | Same as localStorage
+
+┌─────────────────────────────────────────────┐
+│  PRACTICAL EXAMPLE - SHOPPING CART         │
+└─────────────────────────────────────────────┘
+
+// Shopping Cart using localStorage
+const cart = {
+    // Add item
+    addItem: function(product) {
+        let items = this.getItems();
+        items.push(product);
+        localStorage.setItem('cart', JSON.stringify(items));
+    },
+    
+    // Get all items
+    getItems: function() {
+        const items = localStorage.getItem('cart');
+        return items ? JSON.parse(items) : [];
+    },
+    
+    // Remove item
+    removeItem: function(index) {
+        let items = this.getItems();
+        items.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(items));
+    },
+    
+    // Clear cart
+    clear: function() {
+        localStorage.removeItem('cart');
+    },
+    
+    // Get total items
+    getCount: function() {
+        return this.getItems().length;
+    }
+};
+
+// Usage
+cart.addItem({ id: 1, name: 'Laptop', price: 999 });
+cart.addItem({ id: 2, name: 'Mouse', price: 25 });
+console.log(cart.getItems());    // Array of items
+console.log(cart.getCount());    // 2
+cart.removeItem(0);              // Remove first item
+cart.clear();                     // Empty cart
+
+┌─────────────────────────────────────────────┐
+│  BEST PRACTICES                             │
+└─────────────────────────────────────────────┘
+
+Security:
+    1. ✗ Never store sensitive data (passwords, credit cards)
+    2. ✗ Don't store unencrypted authentication tokens
+    3. ✓ Validate and sanitize data before storing
+    4. ✓ Be aware data is readable by anyone with access
+
+Performance:
+    1. ✓ Check storage availability before use
+    2. ✓ Use try-catch for JSON operations
+    3. ✓ Don't store huge amounts of data
+    4. ✓ Clear unused data periodically
+
+Code Quality:
+    1. ✓ Create wrapper functions for storage operations
+    2. ✓ Handle null/undefined values
+    3. ✓ Provide fallback for browsers without support
+    4. ✓ Use meaningful key names
+
+Storage Availability Check:
+    function storageAvailable(type) {
+        try {
+            const storage = window[type];
+            const test = '__storage_test__';
+            storage.setItem(test, test);
+            storage.removeItem(test);
+            return true;
+        } catch(e) {
+            return false;
+        }
+    }
+
+    if (storageAvailable('localStorage')) {
+        // Use localStorage
+    } else {
+        // Use alternative storage or warn user
+    }
+
+Common Use Cases:
+    ✓ Dark/light theme preference
+    ✓ User language selection
+    ✓ Shopping cart persistence
+    ✓ Form auto-save
+    ✓ Recently viewed items
+    ✓ Application settings
+    ✓ Caching API responses (with expiry)
+    ✓ User session data (sessionStorage)
 
 ===============================================
 END OF NOTES
