@@ -40,3 +40,20 @@ export async function deleteThought(id){
         console.log(err);
     }
 }
+
+// Update Thought :-
+export async function updateThought (id, updatedThought){
+    try{
+        const response = await fetch(API + `/${id}`,{
+            method:"PUT",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify(updatedThought)
+        })
+        const data = await response.json();
+        return data;
+    }catch(err){
+        console.log(err);
+    }
+}
