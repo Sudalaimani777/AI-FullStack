@@ -25,15 +25,15 @@ This repository is my personal learning journey into Full-Stack Development, doc
 - **3 AJAX Projects** (Text, JSON, External API) with 241 lines of notes
 - **100 JavaScript Topic-Specific Practice Tasks** aligned with each chapter (100% completed)
 - **Structured coding exercises** (Basic, Advanced, Bonus)
-- **8 JavaScript Applications** showcasing modern JavaScript concepts
+- **10 JavaScript Applications** showcasing modern JavaScript concepts
 - **React Prerequisites Guide** (374 lines) for next learning phase
 - **Professional documentation** with enhanced formatting and quick references
 - **Hands-on DOM manipulation, AJAX, and API integration** practice
 
 **Learning Start Date:** October 17, 2025  
 **Current Focus:** Full-Stack Development Mastery (Frontend Complete)  
-**Latest Milestone:** Completed all 25 HTML Tasks (100% Frontend HTML Mastery)  
-**Recent Achievement:** Finished HTML Module 5 (Forms) - All 25 HTML structured tasks complete with comprehensive documentation  
+**Latest Milestone:** Completed all JavaScript projects including Mind and Search (100% Frontend Mastery)  
+**Recent Achievement:** Built MindVault and User Search applications with modular ES6 architecture
 
 **Completion Status:** 
 - ✅ **25/25 HTML Tasks completed** (Modules 1-5: 100%)
@@ -41,7 +41,7 @@ This repository is my personal learning journey into Full-Stack Development, doc
 - ✅ 100/100 JavaScript TopicTasks completed
 - ✅ 15/15 JavaScript Topics completed
 - ✅ 8/8 ES6 Advanced Modules completed (Functions, Promises, Fetch, HTTP, Async/Await, Destructuring, Spread/Rest, Error Handling)
-- ✅ 8/8 JavaScript Projects completed
+- ✅ 10/10 JavaScript Projects completed
 - ✅ 3/3 AJAX Projects completed
 - ✅ Basic, Advanced & Bonus Tasks completed (30 total)
 
@@ -116,13 +116,15 @@ AI-FullStackGitRepo/
 │       │   ├── 6-Event-Registration-Form/  # Comprehensive form
 │       │   ├── 7-Documentation-Page/  # Technical docs
 │       │   └── 8-Online-Resume/       # Professional CV
-      └── JavascriptProjects/        # 8 production applications
+      └── JavascriptProjects/        # 10 production applications
           ├── README.md              # Detailed project docs
           ├── BookManagementApp/     # ES6 Classes, LocalStorage
           ├── To-do_App/             # Advanced DOM, LocalStorage
           ├── ToDoUsingAPI/          # REST API integration
           ├── CRUD_Application_Using_API/  # Async/await, inline editing
           ├── MoneyTracker/          # MVC, IIFE, API, Progressive (3 stages)
+          ├── Mind/                  # MindVault - Thought capturing with CRUD
+          ├── Search/                # User search with API filtering
 │           ├── ColorPicker/           # Browser APIs, Clipboard
 │           ├── CharacterValidator/    # Real-time validation
 │           └── SimpleCounterApp/      # State management
@@ -188,8 +190,8 @@ AI-FullStackGitRepo/
 | JavaScript TopicTasks | 100 | ✅ Complete |
 | ES6 Modules | 8 | ✅ Complete |
 | AJAX Projects | 3 | ✅ Complete |
-| JavaScript Applications | 8 | ✅ Complete |
-| Total Projects | 16 | ✅ Complete |
+| JavaScript Applications | 10 | ✅ Complete |
+| Total Projects | 18 | ✅ Complete |
 | Practice Tasks (HTML + JS) | 155+ | ✅ Complete |
 | JS-Tasks (Basic+Advanced+Bonus) | 30 | ✅ Complete |
 | Objects Sub-Topics | 6 | ✅ Complete |
@@ -200,7 +202,7 @@ AI-FullStackGitRepo/
 
 ## 🚀 Projects
 
-### [Projects/FrontEnd/](Projects/FrontEnd/README.md) - 16 Total Projects
+### [Projects/FrontEnd/](Projects/FrontEnd/README.md) - 18 Total Projects
 
 ### HTML Projects (8)
 
@@ -246,7 +248,7 @@ AI-FullStackGitRepo/
 
 ---
 
-### JavaScript Projects (8)
+### JavaScript Projects (10)
 
 #### ✅ BookManagementApp (191 lines)
 **Tech:** ES6 Classes, LocalStorage, OOP  
@@ -287,6 +289,16 @@ AI-FullStackGitRepo/
 **Tech:** DOM manipulation, Tailwind CSS  
 **Features:** Increment/decrement/reset, state management, responsive design  
 **Skills:** State handling, event listeners, modern CSS
+
+#### ✅ Mind (MindVault) (242 lines)
+**Tech:** ES6 Modules, Async/Await, REST API, Tailwind CSS  
+**Features:** Thought capturing with type categorization, full CRUD, edit mode toggle, loading states, dark UI  
+**Skills:** Modular architecture, constructor patterns, form state management (create/edit modes)
+
+#### ✅ Search (User Search Application) (77 lines)
+**Tech:** Fetch API, Array Methods, CSS Animations  
+**Features:** Real-time user filtering, detailed user views, dynamic statistics, JSONPlaceholder API integration  
+**Skills:** API consumption, filter/map/Set operations, responsive design, gradient animations
 
 ## 🎯 Getting Started
 
@@ -425,6 +437,8 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 | **ToDoUsingAPI** | ✅ **Complete** | **Dec 2025** |
 | **MoneyTracker** | ✅ **Complete** | **Jan 26, 2026** |
 | **CRUD_Application_Using_API** | ✅ **Complete** | **Jan 2, 2026** |
+| **Mind (MindVault)** | ✅ **Complete** | **Feb 19, 2026** |
+| **Search (User Search)** | ✅ **Complete** | **Feb 19, 2026** |
 | **Future Goals** |
 | Bonus Challenges | ✅ **Complete** | **Dec 28 2025** |
 | Async/Await | ✅ Complete | Jan 1, 2026 |
@@ -643,9 +657,29 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 - ✅ Modern Tailwind CSS styling
 - ✅ Responsive design
 
+**Mind (MindVault):**
+- ✅ ES6 Modules (thought.js, api.js, ui.js, script.js)
+- ✅ Full CRUD with REST API
+- ✅ Edit mode toggle (create vs update)
+- ✅ Loading states with spinner overlay
+- ✅ Constructor patterns & prototypes
+- ✅ Form state management
+- ✅ Dark-themed Tailwind UI
+- ✅ Type categorization (Idea, Learning, Bug)
+
+**Search (User Search Application):**
+- ✅ JSONPlaceholder API integration
+- ✅ Real-time search filtering
+- ✅ Dynamic statistics (total users, unique cities)
+- ✅ User detail views on click
+- ✅ CSS animations and gradient backgrounds
+- ✅ Filter, map, and Set operations
+- ✅ Responsive grid layout
+- ✅ Event-driven architecture
+
 ### 📊 Repository Statistics
 
-**Learning Journey Duration:** 3+ months (Oct 17, 2025 - Present)  
+**Learning Journey Duration:** 4+ months (Oct 17, 2025 - Present)  
 **HTML Modules:** 10 comprehensive learning modules  
 **HTML Tasks:** 25 structured practice tasks (5 modules)  
 **HTML Projects:** 8 complete real-world projects  
@@ -653,10 +687,10 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 **JavaScript TopicTasks:** 100 practice exercises  
 **ES6 Modules:** 8 advanced modules  
 **AJAX Projects:** 3 progressive projects  
-**Total Projects:** 16 (8 HTML + 8 JavaScript)  
+**Total Projects:** 18 (8 HTML + 10 JavaScript)  
 **Total Practice Tasks:** 155+ (25 HTML + 100 JS + 30 JS-Tasks)  
 **JS-Tasks:** 30 (Basic 10 + Advanced 10 + Bonus 10)  
-**Documentation Lines:** 7,298+ lines total
+**Documentation Lines:** 7,500+ lines total
   - Topics/notes.txt: 2,293 lines
   - ES6/notes.txt: 1,539 lines
   - ES6/README.md: 1,251 lines
@@ -670,9 +704,9 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 **Array Methods Sub-Topics:** 9 (Basic + map, filter, forEach, reduce)  
 **DOM Practice Files:** 8 comprehensive files  
 **HTML Projects:** 8 complete HTML5 applications  
-**JavaScript Projects:** 8 production applications  
-**Total Projects:** 16 frontend applications  
-**Total Code Lines:** 2,359+ across JavaScript projects
+**JavaScript Projects:** 10 production applications  
+**Total Projects:** 18 frontend applications  
+**Total Code Lines:** 2,678+ across JavaScript projects
 
 ## 🔗 Quick Links
 
@@ -699,14 +733,14 @@ cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
 ### 🚀 Projects
 | Resource | Description |
 |----------|-------------|
-| [All Projects](Projects/FrontEnd/README.md) | 16 applications overview (8 HTML + 8 JS) |
+| [All Projects](Projects/FrontEnd/README.md) | 18 applications overview (8 HTML + 10 JS) |
 | [HTML Projects](Projects/FrontEnd/HTMLProjects/README.md) | 8 complete HTML5 projects |
-| [JavaScript Projects](Projects/FrontEnd/JavascriptProjects/README.md) | 8 production applications |
+| [JavaScript Projects](Projects/FrontEnd/JavascriptProjects/README.md) | 10 production applications |
 
 ---
 
 **Repository:** AI Full-Stack Development Learning Journey  
 **Author:** Sudalaimani  
 **Learning Period:** October 17, 2025 - Present  
-**Last Updated:** January 26, 2026  
-**Status:** 🔄 Frontend In Progress | ⏳ React Upcoming | 🔄 Backend Upcoming
+**Last Updated:** February 19, 2026  
+**Status:** 💚 Frontend Complete | ⏳ React Upcoming | 🔄 Backend Upcoming

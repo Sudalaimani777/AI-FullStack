@@ -10,7 +10,9 @@ JavascriptProjects/
 ├── CharacterValidator/          # Real-time input validation
 ├── ColorPicker/                # Random color palette generator
 ├── CRUD_Application_Using_API/ # Modern CRUD with inline editing & API
+├── Mind/                       # MindVault - Thought capturing app with API
 ├── MoneyTracker/               # Progressive expense tracker (3 learning stages)
+├── Search/                     # User search with API and real-time filtering
 ├── SimpleCounterApp/           # Interactive counter application
 ├── To-do_App/                  # Complete task manager with search
 └── ToDoUsingAPI/               # API-integrated todo with MockAPI
@@ -633,7 +635,155 @@ MoneyTracker/
 
 ---
 
-### 6. Simple Counter App
+### 6. Mind (MindVault)
+**Complexity:** 🔴 Advanced | **Status:** ✅ Complete
+
+A modern thought-capturing application with full CRUD functionality, modular ES6 architecture, and RESTful API integration.
+
+#### ✨ Features
+- **Create Thoughts** - Capture ideas, learnings, and bugs quickly
+- **Read Thoughts** - View all thoughts in organized list with type categorization
+- **Update Thoughts** - Inline editing that populates form for seamless updates
+- **Delete Thoughts** - Remove thoughts with single click
+- **Type Categorization** - Organize by type (💡 Idea, 📘 Learning, 🐞 Bug)
+- **Edit Mode Toggle** - Form switches between create/update modes with visual feedback
+- **Loading States** - Spinner overlay during API operations
+- **Persistent Storage** - All data stored via MockAPI
+- **Dark Mode UI** - Modern slate-themed interface
+- **Fully Responsive** - Tailwind CSS responsive design
+
+#### 🛠️ Technical Implementation
+
+**Modular ES6 Architecture:**
+```javascript
+// thought.js - Constructor Pattern
+export function Thought(content, type) {
+  this.id = Date.now();
+  this.content = content;
+  this.type = type;
+  this.createdAt = new Date();
+}
+
+Thought.prototype.summary = function() {
+  return `${this.type.toUpperCase()} : ${this.content}`;
+}
+
+// api.js - REST API Service
+export async function createThought(thought) { ... }
+export async function getThoughts() { ... }
+export async function updateThought(id, updatedThought) { ... }
+export async function deleteThought(id) { ... }
+
+// ui.js - UI Rendering
+export function renderThought(thoughts, onDelete, onEdit) { ... }
+
+// script.js - Main Controller
+import { Thought } from "./thought.js";
+import { renderThought } from "./ui.js";
+import { createThought, getThoughts, deleteThought, updateThought } from "./api.js";
+```
+
+**API Endpoints:**
+- **Base URL:** `https://69948a24fade7a9ec0f5aecc.mockapi.io/api/v1/mind`
+- **GET** `/api/v1/mind` - Fetch all thoughts
+- **POST** `/api/v1/mind` - Create new thought
+- **PUT** `/api/v1/mind/:id` - Update thought
+- **DELETE** `/api/v1/mind/:id` - Delete thought
+
+**Edit Mode Implementation:**
+```javascript
+// Populate form with thought data
+function handleUpdateThought(id, currentContent, currentType) {
+  thoughtInput.value = currentContent;
+  typeSelect.value = currentType;
+  editingId = id;
+  submitBtn.textContent = "Update";
+  submitBtn.classList.add("bg-green-600");
+  cancelBtn.classList.remove("hidden");
+}
+
+// Form handles both create and update
+thoughtForm.addEventListener("submit", async (e) => {
+  if (editingId) {
+    await updateThought(editingId, updatedThought);
+    cancelEdit();
+  } else {
+    await createThought(thought);
+  }
+});
+```
+
+**Loading State Management:**
+```javascript
+function showLoader() {
+  loaderContainer.classList.remove("hidden");
+}
+
+function hideLoader() {
+  loaderContainer.classList.add("hidden");
+}
+
+// Used with try-finally
+try {
+  showLoader();
+  thoughts = await getThoughts();
+  renderThought(thoughts, handleDeleteThoughts, handleUpdateThought);
+} finally {
+  hideLoader();
+}
+```
+
+**UI Components:**
+- **Full-screen Loader** - Fixed overlay with spinner animation
+- **Thought Form** - Input, select dropdown, and action buttons
+- **Thought Cards** - Individual cards with edit/delete buttons
+- **Cancel Button** - Appears only in edit mode
+- **Dynamic Button States** - "Save" (create) vs "Update" (edit)
+
+**Mixed Data Format Handling:**
+```javascript
+// Handles both API response formats
+const displayContent = thought.content || thought.title || 'No content';
+const displayType = thought.type || 'note';
+const displayDate = thought.createdAt 
+  ? new Date(thought.createdAt).toLocaleString() 
+  : (thought.body || '');
+```
+
+**Key Concepts Demonstrated:**
+- ✅ **ES6 Modules** - Separate files for concerns (api, ui, thought, script)
+- ✅ **Constructor Functions** - Thought prototype with methods
+- ✅ **Async/Await** - Modern promise handling throughout
+- ✅ **RESTful CRUD** - Complete API integration
+- ✅ **Edit Mode Toggle** - State management for create vs update
+- ✅ **Event Callbacks** - onDelete and onEdit passed to UI
+- ✅ **Dynamic Styling** - Tailwind utility classes
+- ✅ **Loading States** - UX feedback during async operations
+- ✅ **Form Validation** - Input checking before submission
+- ✅ **Error Handling** - Try-catch blocks with logging
+
+**UX Enhancements:**
+- Form auto-populates on edit click
+- Submit button changes color and text ("Save" → "Update")
+- Cancel button appears only when editing
+- Cancel returns to create mode and clears form
+- Loader prevents interaction during API calls
+- Thoughts display with formatted timestamps
+
+#### 📂 Files
+- [index.html](Mind/index.html) - Dark-themed Tailwind UI with loader
+- [script.js](Mind/script.js) - Main controller (134 lines)
+- [api.js](Mind/api.js) - REST API service (59 lines)
+- [ui.js](Mind/ui.js) - UI rendering (38 lines)
+- [thought.js](Mind/thought.js) - Constructor and prototype (11 lines)
+- [storage.js](Mind/storage.js) - Local storage utilities
+- [vault.js](Mind/vault.js) - Additional functionality
+- [style.css](Mind/style.css) - Custom styles
+- [README.md](Mind/README.md) - Comprehensive documentation
+
+---
+
+### 7. Simple Counter App
 **Complexity:** 🟢 Beginner | **Status:** ✅ Complete
 
 Clean and simple counter application demonstrating basic JavaScript concepts.
@@ -674,7 +824,7 @@ function resetCount() { count = 0; }
 
 ---
 
-### 6. To-do App
+### 8. To-do App
 **Complexity:** 🔴 Advanced | **Status:** ✅ Complete
 
 Feature-rich task management application with full CRUD operations and search functionality.
@@ -765,7 +915,7 @@ localStorage.clear();
 
 ---
 
-### 8. ToDo Using API
+### 9. ToDo Using API
 **Complexity:** 🔴 Advanced | **Status:** ✅ Complete
 
 Modern task manager with RESTful API integration using MockAPI and ES6 modules.
@@ -860,6 +1010,199 @@ The project includes [errorToPrevent.txt](ToDoUsingAPI/errorToPrevent.txt) cover
 - [script.js](ToDoUsingAPI/script.js) - Main application (63 lines)
 - [library.js](ToDoUsingAPI/library.js) - API utility class (35 lines)
 - [errorToPrevent.txt](ToDoUsingAPI/errorToPrevent.txt) - Common mistakes guide
+
+---
+
+### 10. Search (User Search Application)
+**Complexity:** 🔴 Advanced | **Status:** ✅ Complete
+
+Modern user search application with real-time filtering, detailed user views, and dynamic statistics using JSONPlaceholder API.
+
+#### ✨ Features
+- **API Integration** - Fetch users from JSONPlaceholder REST API
+- **Real-time Search** - Filter users as you type with instant results
+- **User Details** - Click any user to view detailed information (email, phone, company)
+- **Dynamic Statistics** - Live stats showing total users and unique cities count
+- **Smooth Animations** - Fade-in, slide-in, and hover effects
+- **Responsive Design** - Mobile-first approach with CSS Grid
+- **Animated Background** - Gradient background with shimmer effects
+- **Interactive Cards** - Hover effects with lift and scale transformations
+
+#### 🛠️ Technical Implementation
+
+**Data Fetching:**
+```javascript
+let allUsers = [];
+
+async function loadAllUsers() {
+  const response = await fetch("https://jsonplaceholder.typicode.com/users");
+  const result = await response.json();
+  allUsers = result;
+  renderUser(allUsers);
+  renderStats(allUsers);
+}
+```
+
+**Real-time Search Implementation:**
+```javascript
+function searchUser(e) {
+  const searchValue = e.target.value.toLowerCase();
+  const filteredUsers = allUsers.filter(user => 
+    user.name.toLowerCase().includes(searchValue)
+  );
+  renderUser(filteredUsers);
+}
+```
+
+**User Details Display:**
+```javascript
+function showUserData(user) {
+  detailsSection.innerHTML = `
+    <h2>${user.name}</h2>
+    <p><strong>Email:</strong> ${user.email}</p>
+    <p><strong>Phone:</strong> ${user.phone}</p>
+    <p><strong>Company:</strong> ${user.company.name}</p>
+    <p><strong>City:</strong> ${user.address.city}</p>
+    <p><strong>Website:</strong> ${user.website}</p>
+  `;
+}
+```
+
+**Dynamic Statistics:**
+```javascript
+function renderStats(users) {
+  const totalUsers = users.length;
+  const uniqueCities = [...new Set(users.map(user => user.address.city))];
+  
+  statsSection.innerHTML = `
+    <div class="stat-card">
+      <h3>Total Users</h3>
+      <p>${totalUsers}</p>
+    </div>
+    <div class="stat-card">
+      <h3>Cities</h3>
+      <p>${uniqueCities.length}</p>
+    </div>
+  `;
+}
+```
+
+**User Rendering with Event Delegation:**
+```javascript
+function renderUser(users) {
+  userSection.innerHTML = "";
+  users.forEach(user => {
+    const div = document.createElement("div");
+    div.className = "user-card";
+    div.textContent = user.name;
+    
+    // Click to show details
+    div.addEventListener("click", () => {
+      showUserData(user);
+    });
+    
+    userSection.appendChild(div);
+  });
+}
+```
+
+**CSS Animations:**
+```css
+/* Gradient background animation */
+body {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Card hover effects */
+.user-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Shimmer animation */
+.user-card:hover::after {
+  animation: shimmer 1.5s infinite;
+}
+```
+
+**Advanced JavaScript Features:**
+- **Array Methods:**
+  - `filter()` - Real-time search filtering
+  - `map()` - Extract city names
+  - `forEach()` - Render user cards
+- **Set Object** - Get unique cities with `new Set()`
+- **Spread Operator** - Convert Set to Array `[...new Set()]`
+- **Arrow Functions** - Concise callbacks
+- **Template Literals** - Dynamic HTML generation
+- **Async/Await** - Clean promise handling
+- **Event Handling** - Input events and click events
+
+**Responsive Design Features:**
+```css
+/* Mobile-first grid layout */
+.users {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* Tablet and above */
+@media (min-width: 768px) {
+  .users {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .users {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+```
+
+**Key Concepts Demonstrated:**
+- ✅ **Fetch API** - RESTful API consumption
+- ✅ **Async/Await** - Modern asynchronous JavaScript
+- ✅ **Array Methods** - filter, map, forEach
+- ✅ **Set Data Structure** - Unique value extraction
+- ✅ **Spread Operator** - Array conversion
+- ✅ **Event Listeners** - Input and click events
+- ✅ **Dynamic DOM** - Creating and updating elements
+- ✅ **CSS Grid** - Responsive layouts
+- ✅ **CSS Animations** - Keyframes and transitions
+- ✅ **Template Literals** - HTML string generation
+- ✅ **Object Destructuring** - Clean data access
+- ✅ **Case-insensitive Search** - toLowerCase() matching
+
+**User Experience Features:**
+- Instant search feedback (no submit button needed)
+- Visual loading states
+- Hover effects for interactivity
+- Click to reveal detailed information
+- Clean, modern card-based design
+- Smooth animations throughout
+- Empty state handling
+- Accessibility-friendly structure
+
+**JSONPlaceholder API:**
+- **Endpoint:** `https://jsonplaceholder.typicode.com/users`
+- **Response:** Array of 10 user objects
+- **Data Fields:** name, email, phone, company, address, website
+- **Free to Use:** No authentication required
+- **CORS Enabled:** Works from any origin
+
+#### 📂 Files
+- [index.html](Search/index.html) - Semantic HTML structure
+- [script.js](Search/script.js) - Search logic and API integration (77 lines)
+- [style.css](Search/style.css) - Modern animations and responsive design
+- [README.md](Search/README.md) - Comprehensive documentation (265 lines)
 
 ---
 
@@ -1212,6 +1555,6 @@ Built with modern JavaScrip6t best practices, focusing on:
 
 ---
 
-**Last Updated:** January 2, 2026
+**Last Updated:** February 19, 2026
 
 **Happy Coding! 💻✨**
