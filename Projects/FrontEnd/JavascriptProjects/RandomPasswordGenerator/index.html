@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Password Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <main class="min-h-screen flex items-center justify-center bg-gray-200 flex-col gap-4">
+        <h1 class="text-3xl font-bold text-blue-600">Random Password Generator</h1>
+        <section class="bg-blue-200 rounded-sm p-[35px] w-full max-w-sm">
+            <form action="" class="flex flex-col gap-4">
+                <div class="relative">
+                    <input 
+                        type="text" 
+                        name="pwGenerator" 
+                        id="passwordInput" 
+                        class="border rounded-sm p-2 pr-10 w-full tracking-[4px]" 
+                        placeholder="Your password will appear here..." 
+                        readonly
+                        value="SUmma"
+                    >
+                    <i 
+                        class="fa-regular fa-copy cursor-pointer text-blue-600 hover:text-blue-800 absolute right-3 top-1/2 -translate-y-1/2" id="copyIcon">
+                    </i>
+                    <div id="alertContainer"></div>
+                </div>
+                <input 
+                    type="submit" 
+                    value="Generate" 
+                    class="border rounded-sm hover:bg-blue-300 cursor-pointer p-2 bg-blue-500 text-white"
+                >
+            </form>
+        </section>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>
