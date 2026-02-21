@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900 min-h-screen flex items-center justify-center p-4">
+    
+    <div class="w-full max-w-md">
+        <!-- Calculator Container -->
+        <div class="bg-gray-800 rounded-3xl shadow-2xl p-6 sm:p-8">
+            
+            <!-- Display -->
+            <div class="bg-gray-900 rounded-2xl p-4 sm:p-6 mb-6 border-2 border-gray-700">
+                <div id="previous-operand" class="text-purple-400 text-right text-sm sm:text-base h-6 sm:h-8 overflow-hidden"></div>
+                <div id="current-operand" class="text-white text-right text-3xl sm:text-4xl lg:text-5xl font-bold h-12 sm:h-16 flex items-center justify-end overflow-hidden">0</div>
+            </div>
+            
+            <!-- Calculator Buttons -->
+            <div class="grid grid-cols-4 gap-3 sm:gap-4">
+                
+                <!-- Row 1 -->
+                <button data-action="clear" class="col-span-2 bg-red-600 hover:bg-red-700 text-white font-bold py-4 sm:py-6 px-4 rounded-xl sm:rounded-2xl text-lg sm:text-xl transition-all duration-200 active:scale-95 shadow-lg">
+                    AC
+                </button>
+                <button data-action="delete" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 sm:py-6 px-4 rounded-xl sm:rounded-2xl text-lg sm:text-xl transition-all duration-200 active:scale-95 shadow-lg">
+                    DEL
+                </button>
+                <button data-operator="÷" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 sm:py-6 px-4 rounded-xl sm:rounded-2xl text-lg sm:text-xl transition-all duration-200 active:scale-95 shadow-lg">
+                    ÷
+                </button>
+                
+                <!-- Row 2 -->
+                <button data-number="7" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-4 sm:py-6 px-4 rounded-xl sm:rounded-2xl text-lg sm:text-xl transition-all duration-200 active:scale-95 shadow-lg">
+                    7
+                </button>
+                <button data-number="8" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-4 sm:py-6 px-4 rounded-xl sm:rounded-2xl text-lg sm:text-xl transition-all duration-200 active:scale-95 shadow-lg">
+                    8
+                </button>
+                <button data-number="9" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-4 sm:py-6 px-4 rounded-xl sm:rounded-2xl text-lg sm:text-xl transition-all duration-200 active:scale-95 shadow-lg">
+                    9
+                </button>
+                <button data-operator="×" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 sm:py-6 px-4 rounded-xl sm:rounded-2xl text-lg sm:text-xl transition-all duration-200 active:scale-95 shadow-lg">
+                    ×
+                </button>
+                
+                <!-- Row 3 -->
+                <button data-number="4" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-4 sm:py-6 px-4 rounded-xl sm:rounded-2xl text-lg sm:text-xl transition-all duration-200 active:scale-95 shadow-lg">
+                    4
+                </button>
+                <button data-number="5" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-4 sm:py-6 px-4 rounded-xl sm:rounded-2xl text-lg sm:text-xl transition-all duration-200 active:scale-95 shadow-lg">
+                    5
+                </button>
+                <button data-number="6" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-4 sm:py-6 px-4 rounded-xl sm:rounded-2xl text-lg sm:text-xl transition-all duration-200 active:scale-95 shadow-lg">
+                    6
+                </button>
+                <button data-operator="-" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 sm:py-6 px-4 rounded-xl sm:rounded-2xl text-lg sm:text-xl transition-all duration-200 active:scale-95 shadow-lg">
+                    -
+                </button>
+                
+                <!-- Row 4 -->
+                <button data-number="1" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-4 sm:py-6 px-4 rounded-xl sm:rounded-2xl text-lg sm:text-xl transition-all duration-200 active:scale-95 shadow-lg">
+                    1
+                </button>
+                <button data-number="2" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-4 sm:py-6 px-4 rounded-xl sm:rounded-2xl text-lg sm:text-xl transition-all duration-200 active:scale-95 shadow-lg">
+                    2
+                </button>
+                <button data-number="3" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-4 sm:py-6 px-4 rounded-xl sm:rounded-2xl text-lg sm:text-xl transition-all duration-200 active:scale-95 shadow-lg">
+                    3
+                </button>
+                <button data-operator="+" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 sm:py-6 px-4 rounded-xl sm:rounded-2xl text-lg sm:text-xl transition-all duration-200 active:scale-95 shadow-lg">
+                    +
+                </button>
+                
+                <!-- Row 5 -->
+                <button data-number="0" class="col-span-2 bg-gray-700 hover:bg-gray-600 text-white font-bold py-4 sm:py-6 px-4 rounded-xl sm:rounded-2xl text-lg sm:text-xl transition-all duration-200 active:scale-95 shadow-lg">
+                    0
+                </button>
+                <button data-number="." class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-4 sm:py-6 px-4 rounded-xl sm:rounded-2xl text-lg sm:text-xl transition-all duration-200 active:scale-95 shadow-lg">
+                    .
+                </button>
+                <button data-action="equals" class="bg-green-600 hover:bg-green-700 text-white font-bold py-4 sm:py-6 px-4 rounded-xl sm:rounded-2xl text-lg sm:text-xl transition-all duration-200 active:scale-95 shadow-lg">
+                    =
+                </button>
+                
+            </div>
+        </div>
+        
+        <!-- Made with love text -->
+        <p class="text-center text-purple-300 mt-6 text-sm sm:text-base">Made with ❤️</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
