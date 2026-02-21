@@ -18,7 +18,10 @@ function makeCalculate(e){
         clearDisplay();
     }else if(buttonValue === "="){ //Foe Evaluation
         calculateResult();
-    }else{
+    }else if(buttonValue === "Del"){ //Remove Last Value in the in the display
+        removeLastValue();
+    }
+    else{
         appendValue(buttonValue); //Adding numbers and symbols in the display
     }
 }
@@ -37,4 +40,9 @@ function clearDisplay(){
 //Calculate the data :-
 function calculateResult(){
     resultDisplay.value = eval(resultDisplay.value);
+}
+
+//Remove Last Value in the display :-
+function removeLastValue(){
+    resultDisplay.value =  resultDisplay.value.slice(0, -1);    
 }
