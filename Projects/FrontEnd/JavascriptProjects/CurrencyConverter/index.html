@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 flex items-center justify-center p-4 sm:p-6 md:p-8">
+    <div class="container max-w-md w-full bg-white rounded-2xl shadow-2xl p-6 sm:p-8 md:p-10 space-y-6">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-gray-800 mb-6">Currency Converter</h1>
+        <div class="currency-container flex flex-col sm:flex-row items-center gap-3 sm:gap-4 p-4 bg-gray-50 rounded-xl shadow-sm">
+            <select id="currency-first" class="w-full sm:w-32 px-4 py-3 text-lg font-semibold text-gray-700 bg-white border-2 border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 cursor-pointer hover:border-blue-400">
+                <option value="AUD">AUD</option>
+                <option value="CAD">CAD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="INR">INR</option>
+                <option value="JPY">JPY</option>
+                <option value="USD" selected>USD</option>
+            </select>
+            <input type="number" id="worth-first" value="1" min="0" class="flex-1 w-full px-4 py-3 text-lg font-medium text-gray-800 bg-white border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200">
+        </div>
+        <div class="currency-container flex flex-col sm:flex-row items-center gap-3 sm:gap-4 p-4 bg-gray-50 rounded-xl shadow-sm">
+            <select id="currency-second" class="w-full sm:w-32 px-4 py-3 text-lg font-semibold text-gray-700 bg-white border-2 border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 cursor-pointer hover:border-blue-400">
+                <option value="AUD">AUD</option>
+                <option value="CAD">CAD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="INR" selected>INR</option>
+                <option value="JPY">JPY</option>
+                <option value="USD">USD</option>
+            </select>
+            <input type="number" id="worth-second"  disabled class="flex-1 w-full px-4 py-3 text-lg font-medium text-gray-800 bg-gray-100 border-2 border-gray-300 rounded-lg focus:outline-none cursor-not-allowed opacity-75">
+        </div>
+        <p class="exchange-rate text-center text-lg sm:text-xl font-semibold text-gray-700 bg-gradient-to-r from-blue-100 to-purple-100 py-3 px-4 rounded-lg shadow-sm" id="exchange-rate">1 USD = 138.5802 JPY</p>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
