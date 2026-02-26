@@ -24,5 +24,4 @@ function updateUI(){
     }
 
     setTimeout(updateUI,400)
-
 }
