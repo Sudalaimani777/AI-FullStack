@@ -1,0 +1,4 @@
+What is React ?
+    React is an external library, that helps to create websites easier
+        i) React is an external library
+        ii)Used to create an website easier
