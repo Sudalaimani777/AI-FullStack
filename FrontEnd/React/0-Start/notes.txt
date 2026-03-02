@@ -1,4 +1,10 @@
 What is React ?
     React is an external library, that helps to create websites easier
         i) React is an external library
-        ii)Used to create an website easier
+                It is bunch of code that is outside our computer.
+                We can load this on our website, and use it.
+
+                There are two external libraries in the react such as,
+                    i)react (Contains the shared features for both websites and mobile apps)
+                    ii)react-dom (Contains features that are specific to the websites)
+        ii) Used to create an website easier
