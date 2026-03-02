@@ -8,3 +8,5 @@ What is React ?
                     i)react (Contains the shared features for both websites and mobile apps)
                     ii)react-dom (Contains features that are specific to the websites)
         ii) Used to create an website easier
+
+        
