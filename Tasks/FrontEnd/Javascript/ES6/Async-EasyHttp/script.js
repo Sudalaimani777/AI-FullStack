@@ -12,3 +12,6 @@ data.post("https://jsonplaceholder.typicode.com/users", userData).then(user => c
 data.put("https://jsonplaceholder.typicode.com/users/5", userData).then(user => console.log(user)).catch(err => console.log(err));
 
 data.delete("https://jsonplaceholder.typicode.com/users/5").then(user => console.log(user)).catch(err => console.log(err));
+
+
+
