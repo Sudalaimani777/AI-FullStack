@@ -50,3 +50,118 @@ What is React ?
     └── main.jsx
     
     That's it! Start simple. You'll learn the rest as you go.
+
+
+3)JSX :-
+    
+    JSX = JavaScript XML
+    It's a way to write HTML-like code inside JavaScript.
+    
+    SIMPLE EXAMPLE:
+    
+        // Without JSX (hard way)
+        const element = React.createElement('h1', null, 'Hello World');
+        
+        // With JSX (easy way)
+        const element = <h1>Hello World</h1>;
+    
+    
+    WHY JSX?
+        - Looks like HTML (easier to read and write)
+        - But it's actually JavaScript
+        - Makes creating UI much simpler
+    
+    
+    KEY RULES:
+    
+    1) Mix HTML + JavaScript using {}
+       
+       const name = "John";
+       const element = <h1>Hello {name}!</h1>;
+       // Output: Hello John!
+       
+       const age = 25;
+       const greeting = <p>You are {age} years old</p>;
+    
+    
+    2) Must return ONE parent element
+       
+       // ❌ WRONG - Two elements at top level
+       return (
+         <h1>Title</h1>
+         <p>Text</p>
+       );
+       
+       // ✅ CORRECT - Wrapped in one div
+       return (
+         <div>
+           <h1>Title</h1>
+           <p>Text</p>
+         </div>
+       );
+       
+       // ✅ ALSO CORRECT - Using empty tag (Fragment)
+       return (
+         <>
+           <h1>Title</h1>
+           <p>Text</p>
+         </>
+       );
+    
+    
+    3) Use className instead of class
+       
+       // ❌ WRONG
+       <div class="container">Content</div>
+       
+       // ✅ CORRECT
+       <div className="container">Content</div>
+       
+       Why? Because "class" is a reserved word in JavaScript
+    
+    
+    4) Self-closing tags need /
+       
+       <img src="pic.jpg" />
+       <input type="text" />
+       <br />
+    
+    
+    5) JavaScript expressions inside {}
+       
+       <h1>{2 + 2}</h1>                    // Output: 4
+       <p>{name.toUpperCase()}</p>         // Output: JOHN
+       <div>{isLoggedIn ? "Hi" : "Login"}</div>
+    
+    
+    EXAMPLES:
+    
+    Example 1: Simple JSX
+        const element = <h1>Hello React!</h1>;
+    
+    Example 2: With Variables
+        const name = "Sara";
+        const element = <h1>Hello {name}!</h1>;
+    
+    Example 3: With Expression
+        const user = {
+            firstName: "John",
+            lastName: "Doe"
+        };
+        const element = <h1>Hello {user.firstName} {user.lastName}!</h1>;
+    
+    Example 4: Multiple Lines
+        const element = (
+            <div>
+                <h1>Welcome!</h1>
+                <p>This is a paragraph</p>
+            </div>
+        );
+    
+    
+    REMEMBER:
+        - JSX makes React code easier to write
+        - It looks like HTML but it's JavaScript
+        - You can put any JavaScript expression inside {}
+        - Always wrap multiple elements in one parent
+    
