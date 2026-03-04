@@ -9,4 +9,44 @@ What is React ?
                     ii)react-dom (Contains features that are specific to the websites)
         ii) Used to create an website easier
 
-        
+2)Folder Structure :-
+    
+    When you create a React project, you get these folders:
+    
+    my-app/
+    ├── public/          # Static files (favicon, images)
+    ├── src/             # Your React code goes here
+    │   ├── App.jsx      # Main component
+    │   └── main.jsx     # Starting point
+    ├── package.json     # Project dependencies
+    └── index.html       # Main HTML file
+    
+    
+    THE IMPORTANT ONES TO KNOW:
+    
+    1. src/ folder
+       - This is where you write ALL your React code
+       - Put your components here
+       - Put your CSS here
+    
+    2. public/ folder
+       - Static files like images, favicons
+       - These files don't get processed by React
+    
+    3. App.jsx
+       - The main component of your app
+       - Everything starts here
+    
+    4. main.jsx (or index.js)
+       - The entry point
+       - Connects React to your HTML
+    
+    
+    AS YOU GROW, YOU CAN ADD:
+    
+    src/
+    ├── components/      # Your reusable components (Button, Card, etc.)
+    ├── App.jsx
+    └── main.jsx
+    
+    That's it! Start simple. You'll learn the rest as you go.
