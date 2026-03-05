@@ -1,0 +1,43 @@
+What is Components in React ?
+    Components are the reusable block of code which is written in a separate file and that file are exported and those imported file is reusable in other files by importing those files
+
+Example 1: Simple Functional Component
+    // Greeting.jsx
+    function Greeting() {
+        return <h1>Hello, Welcome to React!</h1>;
+    }
+    export default Greeting;
+
+    // App.jsx
+    import Greeting from './Greeting';
+    function App() {
+        return (
+            <div>
+                <Greeting />
+            </div>
+        );
+    }
+
+Example 2: Component with Props
+    // UserCard.jsx
+    function UserCard(props) {
+        return (
+            <div className="card">
+                <h2>{props.name}</h2>
+                <p>Age: {props.age}</p>
+                <p>Email: {props.email}</p>
+            </div>
+        );
+    }
+    export default UserCard;
+
+    // App.jsx
+    import UserCard from './UserCard';
+    function App() {
+        return (
+            <div>
+                <UserCard name="John Doe" age={25} email="john@example.com" />
+                <UserCard name="Jane Smith" age={30} email="jane@example.com" />
+            </div>
+        );
+    }
