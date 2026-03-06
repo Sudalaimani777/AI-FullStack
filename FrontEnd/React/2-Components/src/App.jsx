@@ -1,4 +1,5 @@
 import Card from "./Components/Card"
+import Footer from "./Components/Footer"
 import Header from "./Components/Header"
 
 const navData = {
@@ -13,6 +14,7 @@ const App = () => {
       <section>
         <Header navData={navData} />
         <Card />
+        <Footer/>
       </section>
     </>
   )
