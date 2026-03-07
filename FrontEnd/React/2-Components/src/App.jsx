@@ -13,8 +13,8 @@ const App = () => {
     <>
       <section>
         <Header navData={navData} />
-        <Card />
-        <Footer navData ={navData}/>
+        <Card navData={navData} />
+        <Footer navData={navData} />
       </section>
     </>
   )
