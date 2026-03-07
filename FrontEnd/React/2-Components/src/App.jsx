@@ -14,7 +14,7 @@ const App = () => {
       <section>
         <Header navData={navData} />
         <Card />
-        <Footer/>
+        <Footer navData ={navData}/>
       </section>
     </>
   )
