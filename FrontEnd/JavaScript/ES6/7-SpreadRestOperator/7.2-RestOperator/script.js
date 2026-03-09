@@ -28,3 +28,15 @@ function greet(greet, ...user){
 console.log(greet("Hello!", "Gruu", "Kavi", "Arun", "Mari"));
 
 //Rest With Objects :-
+
+console.log("---------- Rest With Objects ----------");
+
+const person = {
+    name : "Gruu",
+    age : 25,
+    city : "Chennai",
+    profession : "Software Engineer"
+};
+const {name, ...otherDetails} = person;
+console.log("Name of the person -> ", name);
+console.log("Other details of the person are stored in the otherDetails object -> ", otherDetails);
