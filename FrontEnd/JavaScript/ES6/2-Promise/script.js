@@ -122,3 +122,17 @@ const myCoffeeStatus = new Promise((resolve, reject) => {
     }, 1000);
 })
 myCoffeeStatus.then(message => console.log(message)).catch(err => console.log(err)).finally(message => console.log(`Thankyou For Visiting....`))
+
+//3) Example -3 :-
+const myMobileStatus = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        let mobileStatus = true;
+        if (mobileStatus) {
+            let mobileData = { orderPersonName: "Sudalaimani", name: "One Plus 11R", price: 45000, color: "Black" };
+            resolve(`The person ${mobileData.orderPersonName} was received the ${mobileData.name} it has the price of ${mobileData.price} and the color is ${mobileData.color}`);
+        } else {
+            reject("Sorry the Mobile was out of stock....");
+        }
+    }, 2000);
+})
+myMobileStatus.then(message => console.log(message)).catch(err => console.log(err)).finally(message => console.log(`Thankyou For Visiting....`))
