@@ -12,6 +12,7 @@ loadAllEvent();
 function getTextRespose() {
     const textFetch = fetch("./Datas/text.txt");
     textFetch.then(respose => respose.text()).then(data => {
+        console.log(data)
         const h3 = document.querySelector("#getTextResp");
         h3.textContent = data;
     }).catch(err => { console.log(err) });
@@ -20,6 +21,7 @@ function getTextRespose() {
 function getJsonResponse() {
     const JsonFetch = fetch("./Datas/userData.json");
     JsonFetch.then(respose => respose.json()).then(data => {
+        console.log(data)
         const section = document.querySelector("#getJsonResp");
         let output = ""
         data.forEach(userData => {
@@ -39,6 +41,7 @@ function getJsonResponse() {
 function getApiResponse() {
     const apiFetch = fetch("https://jsonplaceholder.typicode.com/users");
     apiFetch.then(response => response.json()).then(data => {
+        console.log(data)
         const section = document.querySelector("#getApiResp");
         let output = "";
         data.forEach(users => {
