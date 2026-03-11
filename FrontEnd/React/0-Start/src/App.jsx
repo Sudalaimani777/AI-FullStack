@@ -1,31 +1,35 @@
 const App = () => {
-  //Above the return we can write any JavaScript code, such as variable declarations, functions, or any other logic that we want to use within our component. This allows us to prepare data or perform calculations before rendering the JSX in the return statement.
-  const userName = "Sudalaiamani"
+  const aboutPage = {
+    pageTitle: "Welcome To React Learning",
+    userName: "Sudalaimani",
+    userAge: 22,
+    userAddress: {
+      streetNo: "1st",
+      doorNo : "19/4",
+      city: "Ettaiyapuram",
+      state: "TamilNadu"
+    }
+  }
 
-  const users = [
-    { id: 1, userName: "Arun" },
-    { id: 2, userName: "Ram" },
-    { id: 3, userName: "Bala" },
-    { id: 4, userName: "Kumar" },
+  const multipleUsers = [
+    {userId : 1, userName: "Sudalaimani"},
+    {userId : 2, userName: "Giffy"},
+    {userId : 3, userName: "Bala"},
   ]
-
   return (
-    // The return statement is where we define the JSX that will be rendered to the DOM. JSX is a syntax extension for JavaScript that allows us to write HTML-like code within our JavaScript files. In this case, we are returning a fragment (<>...</>) that contains a section with an h1 element displaying the userName in uppercase and another section that maps through the users array to display each user's userName in a paragraph element. The key prop is used to help React identify which items have changed, are added, or are removed, which improves the performance of the rendering process.
     <>
       <section>
-        {/* With the help od {} we can inject JavaScript expressions into JSX and also we can add the javascript methods */}
-        <h1>{userName.toUpperCase()}</h1>
+        <h1>{aboutPage.pageTitle}</h1>
+        <p>{`The user name is ${aboutPage.userName} with an age of ${aboutPage.userAge}. The user address is ${aboutPage.userAddress.doorNo}, ${aboutPage.userAddress.city}, ${aboutPage.userAddress.state}`}</p>
+      </section>
 
-        <section>
-          {
-            users.map(user => (
-              <p key={user.id}>{user.userName}</p>
-            ))
-          }
-        </section>
-
-          {/* We can also perform the js stuffs like add  */}
-        <h3>{5 + 10}</h3>
+      {/* Access the JS using Map */}
+      <section>
+        {
+          multipleUsers.map(users => (
+            <h2 key={users.userId}>{users.userName}</h2>
+          ))
+        }
       </section>
     </>
   )
