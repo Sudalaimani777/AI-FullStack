@@ -1,0 +1,81 @@
+REACT COMPONENTS & PROPS - PRACTICE TASKS
+==========================================
+
+Task 1: User Profile Card Component
+------------------------------------
+Create a component called "UserCard" that displays user information using props.
+
+Requirements:
+- Create a UserCard component that accepts the following props:
+  * name (string)
+  * age (number)
+  * email (string)
+  * avatarUrl (string)
+- Display all the information in a card format
+- Use the component 3 times in App.js with different user data
+- Style the card to make it visually appealing
+
+Example Usage:
+<UserCard 
+  name="John Doe" 
+  age={25} 
+  email="john@example.com" 
+  avatarUrl="https://via.placeholder.com/150" 
+/>
+
+
+Task 2: Product List with Multiple Components
+----------------------------------------------
+Create a product listing page using multiple components and props.
+
+Requirements:
+- Create a "Product" component that accepts props:
+  * productName (string)
+  * price (number)
+  * description (string)
+  * inStock (boolean)
+- Create a "ProductList" component that renders multiple Product components
+- Pass at least 5 different products as props from App.js to ProductList
+- Display "In Stock" or "Out of Stock" based on the inStock prop
+- Show the price with a currency symbol (e.g., $)
+
+Component Structure:
+App.js -> ProductList -> Product (multiple instances)
+
+
+Task 3: Nested Comments System
+-------------------------------
+Build a simple comment section with nested components demonstrating props flow.
+
+Requirements:
+- Create a "Comment" component that accepts props:
+  * author (string)
+  * text (string)
+  * timestamp (string)
+  * likes (number)
+- Create a "CommentList" component that accepts props:
+  * comments (array of comment objects)
+  * postTitle (string)
+- In App.js, pass an array of at least 4 comment objects to CommentList
+- Display the post title at the top of CommentList
+- Each Comment should display all its information
+- Add basic styling to differentiate comments
+
+Component Structure:
+App.js -> CommentList -> Comment (multiple instances)
+
+Sample comment object structure:
+{
+  author: "Alice Smith",
+  text: "Great post!",
+  timestamp: "2 hours ago",
+  likes: 12
+}
+
+
+NOTES:
+------
+- Focus on proper component structure and props passing
+- Remember: Props are read-only (cannot be modified by child components)
+- Use destructuring in component parameters for cleaner code
+- Test each task before moving to the next one
