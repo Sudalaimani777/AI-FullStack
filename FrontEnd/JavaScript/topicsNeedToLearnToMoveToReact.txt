@@ -6,11 +6,11 @@ TOPICS TO COVER BEFORE REACT (SHORT LIST)
    - preventDefault(), stopPropagation() ✅
    - event delegation ✅
 
-2) Web storage:
-   - localStorage + sessionStorage
-   - JSON.stringify / JSON.parse
+2) Web storage: ✅ COMPLETED
+   - localStorage + sessionStorage ✅
+   - JSON.stringify / JSON.parse ✅
 
-3) Modern JS patterns:
+3) Modern JS patterns: ⬅️ NEXT
    - optional chaining (?.)
    - nullish coalescing (??)
    - ternary + short-circuit (&&, ||)
@@ -32,11 +32,13 @@ FrontEnd/
           2-EventDelegation/ ✅
           3-FormEvents/ ✅
           4-StopPropagation/ ✅
-      16-WebStorage/ ⬅️ NEXT
-        notes.txt
-        1-localStorage/
-        2-sessionStorage/
-        3-JSON-stringify-parse/
+      16-WebStorage/ ✅ COMPLETED
+        notes.txt ✅
+        1-localstorage.js ✅
+        2-sessionStorage.js ✅
+        3-JSON-stringify-parse.js ✅
+    ES6/
+      9-ModernPatterns/ ⬅️ NEXT
     ES6/
       9-ModernPatterns/
         notes.txt
