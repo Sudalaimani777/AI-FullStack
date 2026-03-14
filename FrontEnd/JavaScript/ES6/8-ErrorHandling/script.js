@@ -12,11 +12,11 @@ const fetchData = async () =>  {
         throw new Error(e)
     }
 }
-// fetchData();
+fetchData();
 
 //Using Fetch :-
 const usingFetch = fetch("./data.txt");
-// usingFetch.then(res => res.text()).then(result => console.log(result)).catch(e => console.log(e))
+usingFetch.then(res => res.text()).then(result => console.log(result)).catch(e => console.log(e))
 
 //Promise .all :-
 //The Promise.all() method takes an iterable of promises as input and returns a single Promise that resolves when all of the promises in the iterable have resolved, or rejects if any of the promises in the iterable reject. The returned promise will resolve with an array of the resolved values from the input promises, in the same order as the input promises. If any of the input promises reject, the returned promise will reject with the reason of the first promise that rejects.
