@@ -12,6 +12,88 @@ powerful and easier to write.
 ═══════════════════════════════════════════════════════════════════════════
 
 ───────────────────────────────────────────────────────────────────────────
+🎯 1.0 FUNCTION TYPES & HOISTING
+───────────────────────────────────────────────────────────────────────────
+
+WHAT ARE THE DIFFERENT FUNCTION TYPES?
+
+    1) FUNCTION DECLARATION (Named Functions):
+       function greet(name) {
+           console.log(`Hello, ${name}!`);
+       }
+       greet("John");
+
+    2) FUNCTION EXPRESSION (Anonymous or Named):
+       const greet = function(name) {
+           console.log(`Hello, ${name}!`);
+       };
+       greet("John");
+
+    3) ARROW FUNCTION (Modern & Short):
+       const greet = (name) => {
+           console.log(`Hello, ${name}!`);
+       };
+       greet("John");
+
+    4) NAMED FUNCTION EXPRESSION:
+       const greet = function myFunc(name) {
+           console.log(`Hello, ${name}!`);
+       };
+       myFunc("John");  // Can call as myFunc
+       greet("John");   // Or as greet
+
+UNDERSTANDING HOISTING:
+
+    What is Hoisting?
+    - JavaScript moves function declarations to the TOP of their scope
+    - This is called "hoisting"
+    - Allows you to call functions BEFORE declaring them!
+
+    FUNCTION DECLARATIONS ARE HOISTED:
+    ✅ sayHello();  // Works! Even though it's called BEFORE declaration!
+
+    function sayHello() {
+        console.log("Hello!");
+    }
+
+    WHY? The interpreter sees it as:
+    function sayHello() { ... }  // Moved to top!
+    sayHello();
+
+    FUNCTION EXPRESSIONS ARE NOT HOISTED:
+    ❌ greet("John");  // Error! Called too early!
+
+    const greet = function(name) {
+        console.log(`Hello, ${name}!`);
+    };
+
+    WHY? It's treated as a variable assignment, not a function declaration.
+
+    ARROW FUNCTIONS ARE NOT HOISTED:
+    ❌ greet("John");  // Error! Same as function expressions
+
+    const greet = (name) => {
+        console.log(`Hello, ${name}!`);
+    };
+
+KEY DIFFERENCES:
+
+    ┌────────────────────┬───────────┬──────────────┬────────────────┐
+    │  Type              │ Hoisted   │ Can access   │ 'this' binding │
+    ├────────────────────┼───────────┼──────────────┼────────────────┤
+    │ Function Decl.     │ ✅ Yes    │ Before decl. │ Own context    │
+    │ Function Expr.     │ ❌ No     │ After decl.  │ Own context    │
+    │ Arrow Function     │ ❌ No     │ After decl.  │ Lexical        │
+    └────────────────────┴───────────┴──────────────┴────────────────┘
+
+BEST PRACTICES:
+    ✅ Use function declarations for main functions
+    ✅ Use arrow functions for callbacks and simple operations
+    ✅ Use function expressions when you need flexibility
+    ✅ Avoid relying on hoisting - declare before using
+    ✅ Use const for function expressions (safer than let)
+
+───────────────────────────────────────────────────────────────────────────
 🎯 1.1 ARROW FUNCTIONS (=>)
 ───────────────────────────────────────────────────────────────────────────
 
@@ -263,6 +345,482 @@ KID-FRIENDLY ANALOGY:
     Imagine a toy factory machine (higher order function) that can change 
     what it makes based on which mold (regular function) you put into it. 
     Same machine, different toys! 🏭🧸
+
+═══════════════════════════════════════════════════════════════════════════
+                    📂 SECTION 1.5: ES6 CLASSES
+═══════════════════════════════════════════════════════════════════════════
+
+WHAT IS IT?
+    Classes are a modern way to create reusable objects with properties 
+    and methods. They're like blueprints for creating similar items!
+    
+    Think of a class like a recipe 📖 - the recipe tells you HOW to make 
+    cookies. Every time you follow it, you get the same type of cookies!
+
+WHY USE IT?
+    ✅ Cleaner, more organized code
+    ✅ Better than constructor functions
+    ✅ Easier to understand (OOP style)
+    ✅ Fixes 'this' binding issues automatically
+    ✅ Supports inheritance (creating sub-classes)
+    ✅ Industry standard for modern JavaScript
+
+WHEN TO USE?
+    - When you need to create multiple similar objects
+    - Building complex applications
+    - Organizing code into logical groups
+    - Creating reusable components
+    - When inheritance is needed
+
+WHERE TO USE?
+    - React components (class components)
+    - Game development
+    - Web applications
+    - Any project needing organization
+
+───────────────────────────────────────────────────────────────────────────
+🎯 1.5.1 BASIC CLASS STRUCTURE
+───────────────────────────────────────────────────────────────────────────
+
+WHAT IS IT?
+    A class has:
+    1) constructor() - Runs when you create a new object
+    2) methods - Functions that belong to the class
+    3) properties - Data that belongs to the class
+
+BASIC SYNTAX:
+    class ClassName {
+        constructor(parameters) {
+            // Initialization code
+            this.property = parameter;
+        }
+
+        methodName() {
+            // Method code
+            return something;
+        }
+    }
+
+    // Create an instance (object from class)
+    const object = new ClassName(arguments);
+    object.methodName();
+
+REAL EXAMPLE - Create a User Class:
+
+    class User {
+        // Constructor - Runs when you create new User
+        constructor(name, email, age) {
+            this.name = name;
+            this.email = email;
+            this.age = age;
+        }
+
+        // Method 1 - Display info
+        displayInfo() {
+            console.log(`Name: ${this.name}, Email: ${this.email}`);
+        }
+
+        // Method 2 - Check if adult
+        isAdult() {
+            return this.age >= 18;
+        }
+
+        // Method 3 - Have a birthday
+        birthday() {
+            this.age++;
+            console.log(`Happy birthday! Now ${this.age} years old!`);
+        }
+    }
+
+    // Create instances
+    const user1 = new User("Alice", "alice@example.com", 25);
+    const user2 = new User("Bob", "bob@example.com", 17);
+
+    user1.displayInfo();        // Output: Name: Alice, Email: alice@example.com
+    user1.isAdult();            // Output: true
+    user2.isAdult();            // Output: false
+
+    user1.birthday();           // Output: Happy birthday! Now 26 years old!
+
+KEY POINTS:
+✓ Constructor runs ONCE when you create object with 'new'
+✓ 'this' always refers to the current object (automatically!)
+✓ Methods are functions that live inside the class
+✓ Call methods with dot notation: object.method()
+
+───────────────────────────────────────────────────────────────────────────
+🎯 1.5.2 'THIS' BINDING FIXED BY CLASSES
+───────────────────────────────────────────────────────────────────────────
+
+WHAT IS THE PROBLEM?
+    In regular functions, 'this' can get confused. But classes FIX this!
+
+❌ BROKEN - Regular Function Constructor:
+
+    function Counter() {
+        this.count = 0;
+        // Problem: 'this' inside setTimeout is lost!
+        setInterval(function() {
+            console.log(this.count++);  // undefined! ❌
+        }, 1000);
+    }
+
+    new Counter();  // Doesn't work correctly
+
+✅ FIXED - Using Arrow Function in Regular Constructor:
+
+    function CounterFixed() {
+        this.count = 0;
+        // Arrow function preserves 'this'
+        setInterval(() => {
+            console.log(this.count++);  // Works! ✅
+        }, 1000);
+    }
+
+    new CounterFixed();
+
+✅✅ BEST - Using ES6 Class:
+
+    class Counter {
+        constructor() {
+            this.count = 0;
+        }
+
+        startCounting() {
+            setInterval(() => {
+                console.log(this.count++);  // Always works! ✅✅
+            }, 1000);
+        }
+    }
+
+    new Counter().startCounting();
+    // Output: 0, 1, 2, 3, 4...
+
+WHY CLASSES ARE BETTER:
+✓ 'this' is handled correctly automatically
+✓ No confusion or binding issues
+✓ Much cleaner syntax
+✓ More intuitive for beginners
+
+───────────────────────────────────────────────────────────────────────────
+🎯 1.5.3 CLASS INHERITANCE (Advanced)
+───────────────────────────────────────────────────────────────────────────
+
+WHAT IS IT?
+    Inheritance lets you create a new class based on an existing class.
+    The new class inherits properties and methods from the parent class!
+
+    Think of it like DNA 🧬:
+    - Parent class = your parents' DNA
+    - Child class = inherits traits from parents
+
+SYNTAX:
+    class ParentClass {
+        method1() { }
+    }
+
+    class ChildClass extends ParentClass {
+        method2() { }
+    }
+
+EXAMPLE - Animal Classes:
+
+    // Parent class
+    class Animal {
+        constructor(name) {
+            this.name = name;
+        }
+
+        speak() {
+            console.log(`${this.name} makes a sound`);
+        }
+    }
+
+    // Child class that inherits from Animal
+    class Dog extends Animal {
+        constructor(name, breed) {
+            super(name);  // Call parent constructor
+            this.breed = breed;
+        }
+
+        // Override parent method
+        speak() {
+            console.log(`${this.name} barks! Woof woof!`);
+        }
+    }
+
+    // Create instances
+    const dog = new Dog("Buddy", "Golden Retriever");
+    dog.speak();  // Output: Buddy barks! Woof woof!
+    console.log(dog.breed);  // Output: Golden Retriever
+
+KEY WORDS:
+    extends - Creates a child class from parent class
+    super() - Calls parent class constructor
+    super.method() - Calls parent method
+
+───────────────────────────────────────────────────────────────────────────
+🎯 1.5.4 STATIC METHODS (Class-Level Methods)
+───────────────────────────────────────────────────────────────────────────
+
+WHAT IS IT?
+    Static methods belong to the CLASS itself, not to individual objects.
+    You call them on the class name, not on instances.
+
+EXAMPLE:
+
+    class MathHelper {
+        // Static method
+        static add(a, b) {
+            return a + b;
+        }
+
+        // Regular method
+        multiply(a, b) {
+            return a * b;
+        }
+    }
+
+    // Call static method ON the class
+    console.log(MathHelper.add(5, 3));  // Output: 8
+
+    // Regular methods need an instance
+    const helper = new MathHelper();
+    console.log(helper.multiply(5, 3));  // Output: 15
+
+    // This WON'T work:
+    console.log(MathHelper.multiply(5, 3));  // Error!
+
+WHEN TO USE:
+    - Utility functions (Math.max(), etc.)
+    - Factory methods
+    - Constants
+
+EXAMPLE - User Factory:
+
+    class UserFactory {
+        static createAdmin(name) {
+            return { name, role: 'admin', permissions: ['read', 'write', 'delete'] };
+        }
+
+        static createGuest(name) {
+            return { name, role: 'guest', permissions: ['read'] };
+        }
+    }
+
+    const admin = UserFactory.createAdmin("John");
+    const guest = UserFactory.createGuest("Alice");
+
+    console.log(admin);   // { name: 'John', role: 'admin', ... }
+    console.log(guest);   // { name: 'Alice', role: 'guest', ... }
+
+───────────────────────────────────────────────────────────────────────────
+🎯 1.5.5 GETTERS AND SETTERS
+───────────────────────────────────────────────────────────────────────────
+
+WHAT ARE THEY?
+    Getters and setters allow you to control how properties are accessed 
+    and modified. It's like having gates 🚪 for your data!
+
+GETTERS - Get property values (looks like accessing property):
+    get propertyName() {
+        return this._property;
+    }
+
+SETTERS - Set property values (looks like normal assignment):
+    set propertyName(value) {
+        this._property = value;
+    }
+
+EXAMPLE:
+
+    class Person {
+        constructor(firstName, lastName) {
+            this._firstName = firstName;
+            this._lastName = lastName;
+        }
+
+        // Getter - Notice: NO parentheses when calling!
+        get fullName() {
+            return `${this._firstName} ${this._lastName}`;
+        }
+
+        // Setter - Notice: NO parentheses when setting!
+        set fullName(name) {
+            const [first, last] = name.split(' ');
+            this._firstName = first;
+            this._lastName = last;
+        }
+    }
+
+    const person = new Person("John", "Doe");
+    
+    console.log(person.fullName);      // Output: John Doe (uses getter)
+    person.fullName = "Jane Smith";    // Uses setter
+    console.log(person.fullName);      // Output: Jane Smith
+
+KEY POINTS:
+✓ Getters look like accessing a property (no parentheses!)
+✓ Setters look like assigning a value (no parentheses!)
+✓ Validation can be added in setters
+✓ Encapsulation - hide internal logic
+
+EXAMPLE WITH VALIDATION:
+
+    class BankAccount {
+        constructor(balance) {
+            this._balance = balance;
+        }
+
+        get balance() {
+            return this._balance;
+        }
+
+        set balance(amount) {
+            if (amount < 0) {
+                console.log("Balance cannot be negative!");
+                return;
+            }
+            this._balance = amount;
+        }
+
+        deposit(amount) {
+            this.balance += amount;  // Uses setter
+        }
+    }
+
+    const account = new BankAccount(1000);
+    console.log(account.balance);  // Output: 1000 (uses getter)
+    account.balance = 500;         // Uses setter
+    account.balance = -100;        // Output: Balance cannot be negative!
+
+───────────────────────────────────────────────────────────────────────────
+🎯 1.5.6 CLASS BEST PRACTICES & TIPS
+───────────────────────────────────────────────────────────────────────────
+
+NAMING CONVENTIONS:
+    ✅ Class names: PascalCase (start with capital letter)
+       class UserAccount { }
+       class ShoppingCart { }
+
+    ✅ Property names: camelCase (start with lowercase)
+       this.firstName = name;
+       this.emailAddress = email;
+
+    ✅ Private properties: underscore prefix
+       this._password = password;  // Hint: "don't touch me from outside!"
+
+COMMON MISTAKES:
+
+    1) Forgetting 'new' keyword:
+       ❌ const user = User("John");    // Error!
+       ✅ const user = new User("John"); // Correct!
+
+    2) Not calling super() in child class:
+       ❌ class Dog extends Animal {
+              constructor(name, breed) {
+                  this.breed = breed;
+              }
+          }
+       
+       ✅ class Dog extends Animal {
+              constructor(name, breed) {
+                  super(name);
+                  this.breed = breed;
+              }
+          }
+
+    3) Confusing methods and getters:
+       // These are different!
+       this.getName()      // Method - needs parentheses
+       this.name           // Getter - looks like property
+
+    4) Too much inheritance:
+       ❌ Don't create deep chains: 
+          Animal -> Mammal -> Dog -> Daschund -> GoldenRetriever
+       
+       ✅ Keep it simple: Usually 1-2 levels max
+
+ADVANCED TIP - Composition Over Inheritance:
+    Instead of deep inheritance chains, combine multiple classes:
+
+    // Bad: Deep inheritance
+    class Animal { }
+    class Mammal extends Animal { }
+    class Dog extends Mammal { }
+
+    // Good: Mix and match features
+    class Swimmer {
+        swim() { console.log("Swimming"); }
+    }
+
+    class Runner {
+        run() { console.log("Running"); }
+    }
+
+    class Dog {
+        constructor() {
+            this.swimmer = new Swimmer();
+            this.runner = new Runner();
+        }
+    }
+
+ADVANTAGES OF CLASSES:
+    ✅ Organized and clean code
+    ✅ Reusable templates for objects
+    ✅ Easy inheritance
+    ✅ 'this' binding works correctly
+    ✅ Industry standard
+    ✅ Similar to other languages (Python, Java, C++)
+    ✅ Great for large projects
+    ✅ Encapsulation and data hiding
+
+DISADVANTAGES:
+    ❌ Can be overkill for simple scripts
+    ❌ Might be confusing for beginners
+    ❌ JavaScript isn't truly classical OOP
+    ❌ Not needed for functional programming
+
+REAL-WORLD COMPARISON:
+
+    ❌ OLD WAY (Constructor Functions):
+    function User(name, email) {
+        this.name = name;
+        this.email = email;
+    }
+
+    User.prototype.displayInfo = function() {
+        console.log(this.name);
+    };
+
+    new User("John", "john@example.com");
+
+    ✅ NEW WAY (ES6 Classes):
+    class User {
+        constructor(name, email) {
+            this.name = name;
+            this.email = email;
+        }
+
+        displayInfo() {
+            console.log(this.name);
+        }
+    }
+
+    new User("John", "john@example.com");
+
+MUCH CLEANER! 🎉
+
+KID-FRIENDLY ANALOGY:
+    Classes are like toy molds 🏭:
+    
+    - Class = Mold (the design)
+    - Instance = Toy (what comes out of mold)
+    - Constructor = What happens first when toy is made
+    - Method = Something the toy can DO
+    - Inheritance = Making a similar toy based on another mold
+    
+    You can use the SAME mold to make MANY toys quickly!
 
 ═══════════════════════════════════════════════════════════════════════════
                     📂 SECTION 2: PROMISES
@@ -2041,7 +2599,179 @@ KID-FRIENDLY ANALOGIES:
    - Dashboard with Multiple APIs (Promise.all with destructuring)
 
 ═══════════════════════════════════════════════════════════════════════════
-                    📚 RESOURCES TO LEARN MORE
+                    � SECTION 8: TEMPLATE LITERALS & STRING INTERPOLATION
+═══════════════════════════════════════════════════════════════════════════
+
+WHAT IS IT?
+    Template literals are a modern way to create strings with variables 
+    inside them! They use backticks (`) instead of quotes!
+    
+    Think of it like filling in blanks in a template:
+    "Hello, ___!" becomes "Hello, John!"
+
+WHY USE IT?
+    ✅ Much cleaner than string concatenation
+    ✅ Can include variables easily
+    ✅ Can span multiple lines
+    ✅ More readable code
+    ✅ No more + + + ... mess!
+
+WHEN TO USE?
+    - Building dynamic strings with variables
+    - Creating HTML templates
+    - Building dynamic URLs
+    - Any string with multiple variables
+
+WHERE TO USE?
+    - Web development
+    - Creating dynamic DOM content
+    - API requests
+    - Error messages with data
+    - HTML templates
+
+───────────────────────────────────────────────────────────────────────────
+🎯 8.1 BASIC TEMPLATE LITERALS
+───────────────────────────────────────────────────────────────────────────
+
+SYNTAX:
+    const message = `Hello, ${variableName}!`;
+    
+    Notice: Backticks `, not quotes ' or "
+    Variables go inside: ${variable}
+
+COMPARISON:
+
+    ❌ OLD WAY (String Concatenation):
+    const name = "Alice";
+    const age = 25;
+    const message = "Hello, " + name + "! You are " + age + " years old.";
+    console.log(message);  // Hello, Alice! You are 25 years old.
+
+    ✅ NEW WAY (Template Literals):
+    const name = "Alice";
+    const age = 25;
+    const message = `Hello, ${name}! You are ${age} years old.`;
+    console.log(message);  // Hello, Alice! You are 25 years old.
+
+MUCH CLEANER! 🎉
+
+MORE EXAMPLES:
+
+    1) Simple Variable:
+       const user = "John";
+       console.log(`Welcome, ${user}!`);
+       // Output: Welcome, John!
+
+    2) Math Operations:
+       const a = 10;
+       const b = 20;
+       console.log(`${a} + ${b} = ${a + b}`);
+       // Output: 10 + 20 = 30
+
+    3) Function Calls:
+       function getName() { return "Bob"; }
+       console.log(`Hello, ${getName()}!`);
+       // Output: Hello, Bob!
+
+    4) Object Properties:
+       const user = { name: "Alice", age: 25 };
+       console.log(`User: ${user.name}, Age: ${user.age}`);
+       // Output: User: Alice, Age: 25
+
+    5) Conditional Logic:
+       const age = 20;
+       console.log(`You are ${age >= 18 ? "an adult" : "a minor"}`);
+       // Output: You are an adult
+
+───────────────────────────────────────────────────────────────────────────
+🎯 8.2 MULTI-LINE STRINGS
+───────────────────────────────────────────────────────────────────────────
+
+WHAT IS IT?
+    Template literals can span multiple lines without any special syntax!
+
+❌ OLD WAY (Messy):
+    const text = "Line 1\n" +
+                 "Line 2\n" +
+                 "Line 3";
+
+✅ NEW WAY (Clean):
+    const text = `Line 1
+Line 2
+Line 3`;
+
+REAL EXAMPLE - HTML Template:
+
+    const user = { name: "John", email: "john@example.com" };
+
+    const htmlTemplate = `
+        <div class="card">
+            <h2>${user.name}</h2>
+            <p>Email: ${user.email}</p>
+        </div>
+    `;
+
+    console.log(htmlTemplate);
+    // Output: Clean HTML with proper formatting!
+
+KID-FRIENDLY ANALOGY:
+    Template literals are like Mad Libs 📝 game:
+    
+    OLD WAY: "Hello" + " " + name + "! Welcome to " + place + "!"
+    
+    NEW WAY: `Hello ${name}! Welcome to ${place}!`
+    
+    Instead of cutting up words and gluing them together, you fill in 
+    blanks in a pre-made sentence! Much easier! ✨
+
+═══════════════════════════════════════════════════════════════════════════
+                    📂 SECTION 9: MODERN ES6+ PATTERNS
+═══════════════════════════════════════════════════════════════════════════
+
+WHAT ARE MODERN PATTERNS?
+    These are newer ES6+ operators and techniques that make code cleaner!
+
+OPTIONAL CHAINING (?.)
+    - Safely access nested properties
+    - Returns undefined if property missing
+    - Example: user?.address?.city
+    - Never throws error if property doesn't exist!
+
+NULLISH COALESCING (??)
+    - Provides default values
+    - Only cares about null/undefined (not 0 or false!)
+    - Example: value ?? "default"
+    - Better than || operator for defaults
+
+SHORT CIRCUIT OPERATORS
+    - && for conditional execution
+    - Returns first falsy or last value
+    - || for default values
+    - Example: isAdmin && performAction()
+
+REAL WORLD EXAMPLE:
+
+    const user = {
+        name: "John",
+        address: { city: "NYC" }
+    };
+
+    // Optional chaining + Nullish coalescing
+    const city = user?.address?.city ?? "Unknown";
+    // Result: "NYC"
+
+    const user2 = { name: "Jane" };
+    const city2 = user2?.address?.city ?? "Unknown";
+    // Result: "Unknown"
+
+    // Short circuit
+    const isAdmin = false;
+    isAdmin && performAdminAction();  // Doesn't run
+
+    const theme = userTheme || systemTheme || "light";
+
+═══════════════════════════════════════════════════════════════════════════
+                    �📚 RESOURCES TO LEARN MORE
 ═══════════════════════════════════════════════════════════════════════════
 
 📖 MDN Web Docs (developer.mozilla.org)

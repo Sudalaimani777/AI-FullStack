@@ -1,0 +1,375 @@
+=== ERROR HANDLING IN JAVASCRIPT ===
+
+This folder covers essential error handling techniques in JavaScript, including try-catch-finally blocks and various Promise handling methods.
+
+
+1. TRY-CATCH-FINALLY BLOCKS
+============================
+
+What is it?
+- A structure to handle errors that occur during code execution
+- Prevents your program from crashing when an error happens
+- Allows you to respond to errors gracefully
+
+Syntax:
+  try {
+    // Code that might throw an error
+  }
+  catch(error) {
+    // Handle the error
+  }
+  finally {
+    // Code that ALWAYS runs (optional)
+  }
+
+How it works:
+
+  TRY Block:
+  - Contains code that might throw an error
+  - If an error occurs, execution immediately jumps to the catch block
+  - If no error, the catch block is skipped
+
+  CATCH Block:
+  - Only runs if an error is thrown in the try block
+  - Receives the error object containing details about what went wrong
+  - Can log, handle, or re-throw the error
+
+  FINALLY Block:
+  - ALWAYS runs, whether error occurred or not
+  - Used for cleanup (closing files, stopping timers, etc.)
+  - Optional - you don't have to use it
+
+Example:
+
+  try {
+    const result = JSON.parse("invalid json");  // This will throw an error
+    console.log(result);
+  }
+  catch(error) {
+    console.log("Error caught:", error.message);  // "Unexpected token i..."
+  }
+  finally {
+    console.log("Cleanup code runs here");
+  }
+
+
+2. TRY-CATCH WITH ASYNC/AWAIT
+===============================
+
+What is it?
+- Using try-catch to handle errors in asynchronous code
+- Makes async code look and behave like synchronous code
+- Cleaner than .catch() chains
+
+Syntax:
+  const fetchData = async () => {
+    try {
+      const response = await fetchAPI();
+      return response;
+    }
+    catch(error) {
+      console.log("Error:", error);
+      throw new Error(error);  // Re-throw if needed
+    }
+    finally {
+      // Cleanup code
+    }
+  }
+
+Example:
+
+  async function getUserData(userId) {
+    try {
+      const response = await fetch(`/api/users/${userId}`);
+      const data = await response.json();
+      console.log(data);
+      return data;
+    }
+    catch(error) {
+      console.error("Failed to fetch user:", error.message);
+    }
+    finally {
+      console.log("Request completed");
+    }
+  }
+
+Key Points:
+✓ Cleaner and easier to read than Promise .catch()
+✓ Can handle multiple awaits in one try block
+✓ Error handling looks synchronous even though code is async
+
+
+3. FETCH WITH .THEN() AND .CATCH()
+====================================
+
+What is it?
+- Promise-based method to handle errors with fetch API
+- Alternative to try-catch with async/await
+- Chaining approach for handling success and errors
+
+Syntax:
+  fetch(url)
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log("Error:", error))
+
+How it works:
+
+  .then() runs when promise RESOLVES (succeeds)
+  .catch() runs when promise REJECTS (fails)
+  Each .then() receives the result from the previous one
+
+Example:
+
+  fetch("./data.txt")
+    .then(response => response.text())
+    .then(data => console.log(data))
+    .catch(error => console.log("Fetch error:", error))
+    .finally(() => console.log("Request complete"));
+
+Comparison: Fetch vs Try-Catch
+
+  Using .then().catch():
+  fetch(url)
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(e => console.log(e))
+
+  Using async/await + try-catch:
+  async function getData() {
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      console.log(data);
+    }
+    catch(e) {
+      console.log(e);
+    }
+  }
+
+
+4. PROMISE.ALL()
+================
+
+What is it?
+- Takes multiple promises and waits for ALL of them to resolve
+- Returns a single promise that resolves with array of results
+- REJECTS immediately if ANY promise rejects
+
+Use when: You need ALL operations to succeed before proceeding
+
+Syntax:
+  Promise.all([promise1, promise2, promise3])
+    .then(results => console.log(results))
+    .catch(error => console.log(error))
+
+Example:
+
+  const p1 = Promise.resolve("A");
+  const p2 = Promise.resolve("B");
+  const p3 = Promise.resolve("C");
+
+  Promise.all([p1, p2, p3])
+    .then(results => console.log(results))  // ["A", "B", "C"]
+    .catch(error => console.log(error));
+
+  // If ANY promise rejects:
+  const p1 = Promise.resolve("A");
+  const p2 = Promise.reject("Error!");
+  const p3 = Promise.resolve("C");
+
+  Promise.all([p1, p2, p3])
+    .catch(error => console.log(error));  // "Error!" (stops here)
+
+Real-World Example:
+
+  async function loadUserData(userId) {
+    try {
+      const [user, posts, comments] = await Promise.all([
+        fetch(`/api/users/${userId}`).then(r => r.json()),
+        fetch(`/api/users/${userId}/posts`).then(r => r.json()),
+        fetch(`/api/users/${userId}/comments`).then(r => r.json())
+      ]);
+      console.log(user, posts, comments);
+    }
+    catch(error) {
+      console.log("Failed to load data:", error);
+    }
+  }
+
+Key Points:
+✓ All promises must resolve for .then() to run
+✓ Order of results matches order of promises
+✓ Fails fast - first rejection is caught
+
+
+5. PROMISE.RACE()
+=================
+
+What is it?
+- Takes multiple promises and returns the FIRST one that finishes
+- Whether it succeeds (resolves) or fails (rejects)
+- Useful for timeouts and competitive operations
+
+Use when: You only care about the fastest result
+
+Syntax:
+  Promise.race([promise1, promise2, promise3])
+    .then(result => console.log(result))
+    .catch(error => console.log(error))
+
+Example:
+
+  const timeout = new Promise((resolve, reject) => {
+    setTimeout(() => reject("Request timed out"), 3000);
+  });
+
+  const apiCall = fetch("https://api.example.com/data")
+    .then(r => r.json());
+
+  // Returns whichever finishes first
+  Promise.race([apiCall, timeout])
+    .then(data => console.log("Got data:", data))
+    .catch(error => console.log(error));
+
+  // If API responds in 2 seconds: shows data
+  // If API takes >3 seconds: shows "Request timed out"
+
+Real-World Example:
+
+  function fetchWithTimeout(url, timeoutMs = 5000) {
+    const timeout = new Promise((_, reject) =>
+      setTimeout(() => reject("Timeout"), timeoutMs)
+    );
+
+    const fetch$ = fetch(url).then(r => r.json());
+
+    return Promise.race([fetch$, timeout]);
+  }
+
+Key Points:
+✓ Returns as soon as ANY promise settles
+✓ Can be used to implement timeouts
+✓ Works with both resolve and reject
+
+
+6. PROMISE.ALLSETTLED()
+=======================
+
+What is it?
+- Takes multiple promises and waits for ALL to settle (resolve OR reject)
+- Returns array of outcome objects: { status: "fulfilled"|"rejected", value|reason }
+- NEVER rejects - all results included regardless of success/failure
+
+Use when: You need results from ALL operations, even if some fail
+
+Syntax:
+  Promise.allSettled([promise1, promise2, promise3])
+    .then(results => console.log(results))
+
+Example:
+
+  const p1 = Promise.resolve("Success!");
+  const p2 = Promise.reject("Error!");
+  const p3 = Promise.resolve("Also success");
+
+  Promise.allSettled([p1, p2, p3])
+    .then(results => console.log(results));
+
+  Output:
+  [
+    { status: "fulfilled", value: "Success!" },
+    { status: "rejected", reason: "Error!" },
+    { status: "fulfilled", value: "Also success" }
+  ]
+
+Real-World Example:
+
+  async function sendEmails(recipients) {
+    const promises = recipients.map(email =>
+      sendEmail(email).catch(error => error)
+    );
+
+    const results = await Promise.allSettled(promises);
+
+    const successful = results.filter(r => r.status === "fulfilled");
+    const failed = results.filter(r => r.status === "rejected");
+
+    console.log(`Sent to ${successful.length}, failed for ${failed.length}`);
+  }
+
+Key Points:
+✓ Never rejects - always returns all results
+✓ Better when you want partial success
+✓ Use when some failures are acceptable
+
+
+=== QUICK COMPARISON ===
+
+Method          | Waits For    | Returns When          | Rejects If
+----------------|--------------|----------------------|------------------
+Promise.all()   | ALL promises | All resolve           | ANY promise rejects
+Promise.race()  | First finish | First settles (any)   | First rejects
+Promise.allSettled() | ALL promises | All settle         | NEVER rejects
+try-catch       | Code block   | No error thrown       | Error thrown
+
+=== ERROR TYPES ===
+
+Common JavaScript Errors:
+
+  SyntaxError: Invalid code syntax
+  ReferenceError: Variable doesn't exist
+  TypeError: Wrong data type (e.g., calling method on null)
+  RangeError: Value is out of acceptable range
+  NetworkError: Network request failed
+
+Example:
+
+  try {
+    functoin myFunc() {}  // SyntaxError
+  }
+  catch(e) {
+    console.log(e.name);     // "SyntaxError"
+    console.log(e.message);  // "Unexpected identifier"
+  }
+
+=== BEST PRACTICES ===
+
+1. Always use try-catch or .catch() with async code
+2. Use .finally() for cleanup operations
+3. Use Promise.all() when ALL operations must succeed
+4. Use Promise.allSettled() when partial success is okay
+5. Re-throw errors if you can't handle them
+6. Log errors with context for debugging
+7. Never ignore errors silently
+8. Use meaningful error messages
+
+Example - Good Error Handling:
+
+  async function processData(data) {
+    try {
+      const validated = validateData(data);
+      const processed = await processData(validated);
+      return processed;
+    }
+    catch(error) {
+      console.error("Data processing failed:", {
+        input: data,
+        error: error.message,
+        timestamp: new Date()
+      });
+      throw error;  // Let caller handle it
+    }
+    finally {
+      // Cleanup
+      closeConnections();
+    }
+  }
+
+=== KEY TAKEAWAYS ===
+
+1. try-catch-finally handles synchronous and async errors
+2. Promise methods (all, race, allSettled) handle multiple async operations
+3. Choose the right Promise method based on your needs
+4. Always provide error handling - don't let errors crash your app
+5. Log errors with context for better debugging
