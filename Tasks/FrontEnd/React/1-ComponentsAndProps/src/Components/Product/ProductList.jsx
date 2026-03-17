@@ -26,7 +26,6 @@ const ProductList = ({ productList = [] }) => {
                 </article>
             ))}
         </section>
-        
     );
 };
 
