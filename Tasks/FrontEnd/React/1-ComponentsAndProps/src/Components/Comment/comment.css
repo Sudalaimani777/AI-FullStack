@@ -1,0 +1,42 @@
+.comment-list {
+  max-width: 720px;
+  margin: 1.5rem auto;
+  padding: 1rem;
+  border-radius: 14px;
+  background: #f6f8fb;
+  border: 1px solid #dbe1ea;
+}
+
+.comment-list__title {
+  margin: 0 0 1rem;
+  color: #1a2a44;
+}
+
+.comment-card {
+  background: #ffffff;
+  border: 1px solid #e1e7f0;
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+}
+
+.comment-card + .comment-card {
+  margin-top: 0.75rem;
+}
+
+.comment-card__author {
+  margin: 0;
+  font-weight: 700;
+  color: #182033;
+}
+
+.comment-card__text {
+  margin: 0.45rem 0 0.5rem;
+  color: #2a3550;
+}
+
+.comment-card__meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: #56617a;
+}

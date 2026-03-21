@@ -1,8 +1,7 @@
 import "./App.css";
-import ProductList from "./Components/Product/ProductList";
-// import { userOne, userThree, userTwo } from "./Components/UserCard"
-import UserCard from "./Components/UserCard/UserCard"
-import { product } from "./data/product";
+import { comments } from "./Components/Comment";
+import CommentList from "./Components/Comment/CommentList";
+// import { product } from "./data/product";
 
 function App() {
 
@@ -16,9 +15,13 @@ function App() {
         <UserCard userData={userThree} />
       </section> */}
 
-      <section>
+      {/* <section>
         <h2>Product List</h2>
         <ProductList productList = {product}/>
+      </section> */}
+
+      <section>
+        <CommentList comments={comments} postTitle="Props Flow Practice Post" />
       </section>
     </main>
   )
