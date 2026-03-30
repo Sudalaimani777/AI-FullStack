@@ -136,3 +136,4 @@ const myMobileStatus = new Promise((resolve, reject) => {
     }, 2000);
 })
 myMobileStatus.then(message => console.log(message)).catch(err => console.log(err)).finally(message => console.log(`Thankyou For Visiting....`))
+
