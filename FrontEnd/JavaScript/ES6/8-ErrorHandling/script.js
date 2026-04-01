@@ -58,3 +58,20 @@ const p7 = new Promise((resolve, reject) => {
 });
 
 Promise.allSettled([p6, p7]).then(res => console.log(res)).catch(err => console.log(err));
+
+//Promise.any :-
+//Returns a promise that fulfills as soon as any of the promises in the iterable fulfills, with the value of the fulfilled promise. If no promises in the iterable fulfill (if all of the given promises are rejected), then the returned promise is rejected with an AggregateError, a new subclass of Error that groups together individual errors.   
+const p8 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("A");
+    }, 1000);
+});
+const p9 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        reject("500 ms");
+    }, 500);
+});
+Promise.any([p8, p9]).then(res => console.log(res)).catch(err => console.log(err)); //AggregateError: All promises were rejected
+
+//
+
