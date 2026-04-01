@@ -73,5 +73,33 @@ const p9 = new Promise((resolve, reject) => {
 });
 Promise.any([p8, p9]).then(res => console.log(res)).catch(err => console.log(err)); //AggregateError: All promises were rejected
 
-//
+//Async Await :-
+//Async functions are a combination of promises and generators, and basically, they are a higher level abstraction over promises. Async functions are non-blocking, and they allow us to write asynchronous code in a synchronous manner. The async function returns a promise, and the await keyword is used to wait for the promise to resolve or reject.
+const asyncFunc = async () => {
+    try{
+        const resp = await fetch("./data.txt"); 
+        const result = await resp.text();
+        console.log(result);
+    }
+    catch(e){
+        console.log(e);
+    }
+}
+asyncFunc(); //The asyncFunc function is an async function that fetches the data from the data.txt file and logs it to the console. If there is an error, it catches the error and logs it to the console.
+
+//Async in ES6 :-
+//Async functions are a combination of promises and generators, and basically, they are a higher level abstraction over promises. Async functions are non-blocking, and they allow us to write asynchronous code in a synchronous manner. The async function returns a promise, and the await keyword is used to wait for the promise to resolve or reject.
+
+const asyncFunc2 = async () => {
+    try{
+        const resp = await fetch("./data.txt");
+        const result = await resp.text();
+        console.log(result);
+    }
+    catch(e){
+        console.log(e);
+    }
+}
+asyncFunc2(); //The asyncFunc2 function is an async function that fetches the data from the data.txt file and logs it to the console. If there is an error, it catches the error and logs it to the console.
+
 
