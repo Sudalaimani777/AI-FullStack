@@ -19,5 +19,13 @@ const root = createRoot(document.querySelector("#root"))
 root.render(
   <main>
     <img src="./react-logo.png" width={"40px"} alt="React Logo"/>
+    <h1>Fun Facts About React</h1>
+    <ul>
+      <li>It was first released in 2013</li>
+      <li>It is maintained by Facebook</li>
+      <li>It is used to build user interfaces</li>
+      <li>It follows a component-based approach</li>
+      <li>It has a virtual DOM for efficient updates</li>
+    </ul>
   </main>
 )
