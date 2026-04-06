@@ -1,0 +1,18 @@
+{
+  "name": "Scrim-s06iomu",
+  "description": "https://scrimba.com/learn-react-c0e/~0yma",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "19.0.0-rc-b57d2823-20240822",
+    "react-dom": "19.0.0-rc-b57d2823-20240822",
+    "vite": "latest"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "*"
+  }
+}
