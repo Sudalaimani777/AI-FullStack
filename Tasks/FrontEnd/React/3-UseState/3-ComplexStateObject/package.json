@@ -1,6 +1,6 @@
 {
-  "name": "Scrim-s06ipc4",
-  "description": "https://scrimba.com/learn-react-c0e/~0xm2",
+  "name": "Scrim-s06ir12",
+  "description": "https://scrimba.com/learn-react-c0e/~02vt",
   "scripts": {
     "start": "vite",
     "dev": "vite",
@@ -8,8 +8,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "19.0.0-rc-8b08e99e-20240713",
-    "react-dom": "19.0.0-rc-8b08e99e-20240713",
+    "react": "19.0.0-rc-b57d2823-20240822",
+    "react-dom": "19.0.0-rc-b57d2823-20240822",
     "vite": "latest"
   },
   "devDependencies": {

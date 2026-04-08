@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0C4A6E;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background-color: white;
+    width: 200px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    height: 350px;
+}
+
+.card .avatar {
+    width: 100%;
+    padding: 10%;
+    padding-bottom: 0;
+}
+
+.card .name {
+    margin-block: 13px;
+    color: #333333;
+}
+
+.card .info {
+    padding: 10px;
+}
+
+.card .favorite {
+    width: 25px;
+    cursor: pointer;
+}
+
+.card .contact {
+    font-size: 0.75rem;
+    color: gray;
+    margin-block: 7px;
+}
+
+.card .favorite-button {
+    border: none;
+    background: transparent;
+}
+
+.card .favorite-button:active {
+    transform: none;
+    box-shadow: none;
+}
