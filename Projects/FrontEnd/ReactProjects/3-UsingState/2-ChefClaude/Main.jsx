@@ -8,9 +8,9 @@ export default function Main() {
         <li key={ingredient}>{ingredient}</li>
     ))
 
-    function addIngredient(formData) {
-        const newIngredient = formData.get("ingredient")
-        setIngredients(prevIngredients => [...prevIngredients, newIngredient])
+    const addIngredient = formData => {
+        const newIngredient = formData.get("ingredient");
+        setIngredients(previousIngredients => [...previousIngredients, newIngredient])
     }
 
     return (
