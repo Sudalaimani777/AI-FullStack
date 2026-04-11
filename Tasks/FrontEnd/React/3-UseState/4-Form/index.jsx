@@ -5,14 +5,23 @@ function App() {
 
 
   const signUp = formData => {
-    const email = formData.get("email");
-    const password = formData.get("password");
-    const description = formData.get("description");
-    const employmentStatus = formData.get("employmentStatus");
+    //Taking All the form data and converting it into an object using Object.fromEntries() method :-
+    // const email = formData.get("email");
+    // const password = formData.get("password");
+    // const description = formData.get("description");
+    // const employmentStatus = formData.get("employmentStatus");
+    // const dietaryRestrictions = formData.getAll("dietaryRestrictions");
+    // const favouriteColor = formData.get("chooseColor")
+    // console.log(favouriteColor);
+    // console.log(email);
+
+    //Object.formEntries() is a method that transforms an array of key-value pairs into an object. It takes an iterable (like an array) of key-value pairs and returns a new object where the keys are the first elements of the pairs and the values are the second elements.
+
+    const allFormData = Object.fromEntries(formData);
     const dietaryRestrictions = formData.getAll("dietaryRestrictions");
-    const favouriteColor = formData.get("chooseColor")
-    console.log(favouriteColor);
-    console.log(email);
+    const finalData = {...allFormData, dietaryRestrictions};
+    console.log(finalData);
+
   }
 
   return (
