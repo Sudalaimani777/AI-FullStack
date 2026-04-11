@@ -2,12 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 function App() {
-  /**
-   * Challenge: grab the employment status from the form and log it
-   * to the console. (Remember to select one of the radios before submitting)
-   * 
-   * Note: This won't work the way you might expect quite yet!
-   */
+
 
   const signUp = formData => {
     const email = formData.get("email");
@@ -15,6 +10,8 @@ function App() {
     const description = formData.get("description");
     const employmentStatus = formData.get("employmentStatus");
     const dietaryRestrictions = formData.getAll("dietaryRestrictions");
+    const favouriteColor = formData.get("chooseColor")
+    console.log(favouriteColor);
     console.log(email);
   }
 
@@ -63,6 +60,14 @@ function App() {
             Gluten-free
         </label>
         </fieldset>
+
+        <label htmlFor="chooseColor">What is your favorite color?</label>
+        <select name="chooseColor" id="chooseColor" required defaultValue="">
+          <option value="" disabled>-- Choose Your Favourite Color --</option>
+          <option value="red">Red</option>
+          <option value="blue">Blue</option>
+          <option value="green">Green</option>
+        </select>
 
         <button>Submit</button>
 
