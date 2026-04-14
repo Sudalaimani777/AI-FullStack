@@ -1,4 +1,5 @@
 import React from "react"
+import Counter from "./Counter";
 
 export default function App() {
     const [count, setCount] = React.useState(0)
@@ -47,7 +48,7 @@ export default function App() {
             <h1>How many times will Bob say "state" in this section?</h1>
             <div className="counter">
                 <button className="minus" onClick={subtract} aria-label="Decrease count">–</button>
-                <h2 className="count">{count}</h2>
+                <Counter number={count}/>
                 <button className="plus" onClick={add} aria-label="Increase count">+</button>
             </div>
         </main>
