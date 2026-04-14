@@ -9,6 +9,10 @@ export default function App({ darkMode }) {
         setColorPads(prevPads => prevPads.map(items => items.id === id ? { ...items, on: !items.on } : items))
     }
 
+    const resetAll = () => {
+        setColorPads(prevPads => prevPads.map(items => ({...items, on: false})))
+    }
+
     return (
         <main>
             <div className="pad-container">
@@ -25,6 +29,9 @@ export default function App({ darkMode }) {
                         />
                     ))
                 }
+                <button onClick={resetAll} className="reset">
+                    Reset All
+                </button>
             </div>
         </main>
     )

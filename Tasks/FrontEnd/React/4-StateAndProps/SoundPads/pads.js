@@ -7,7 +7,7 @@ export default [
     {
         id: 2,
         color: "#F5C280",
-        on: false
+        on: true
     },   
     {
         id: 3,
@@ -22,17 +22,17 @@ export default [
     {
         id: 5,
         color: "#63DEED",
-        on: false
+        on: true
     },   
     {
         id: 6,
         color: "#877FED",
-        on: false
+        on: true
     },   
     {
         id: 7,
         color: "#A57FE9",
-        on: false
+        on: true
     },   
     {
         id: 8,

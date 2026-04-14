@@ -10,6 +10,8 @@ const Pad = ({ color, darkMode, handleClassOn, toggle, id }) => {
                 className={handleClassOn ? "on" : ""}
             >
             </button>
+
+            
         </>
     )
 }
