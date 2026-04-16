@@ -7,20 +7,11 @@ export default function Main() {
         imageUrl: "http://i.imgflip.com/1bij.jpg"
     })
     
-    // function handleChange(event) {
-    //     const {value} = event.currentTarget
-    //     /**
-    //      * Challenge: update the topText value in the meme state
-    //      * object every time the topText input box is changed
-    //      * 
-    //      * Note: don't worry about bottomText at this point.
-    //      */
-    // }
     const handleChange = e => {
-        const {value} = e.currentTarget;
+        const {name,value} = e.currentTarget; //The name attribute of the input element is used to identify which property of the meme state object should be updated. The value attribute contains the new value that the user has entered in the input field.
         setMeme(prevMeme => ({
             ...prevMeme,
-            topText: value
+            [name]: value
         }))
     }
 
@@ -41,6 +32,7 @@ export default function Main() {
                         type="text"
                         placeholder="Walk into Mordor"
                         name="bottomText"
+                        onChange={handleChange}
                     />
                 </label>
                 <button>Get a new meme image 🖼</button>
