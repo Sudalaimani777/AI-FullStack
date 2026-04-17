@@ -8,10 +8,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "19.0.0-rc-8b08e99e-20240713",
-    "react-dom": "19.0.0-rc-8b08e99e-20240713",
     "@anthropic-ai/sdk": "0.27.3",
     "@huggingface/inference": "2.8.1",
+    "openai": "^6.34.0",
+    "react": "19.0.0-rc-8b08e99e-20240713",
+    "react-dom": "19.0.0-rc-8b08e99e-20240713",
+    "react-markdown": "^10.1.0",
     "vite": "latest"
   },
   "devDependencies": {
