@@ -3,7 +3,7 @@
 }
 
 body {
-    font-family: Inter, sans-serif;
+    font-family: Karla, sans-serif;
     margin: 0;
     background-color: #0B2434;
     padding: 20px;
@@ -27,7 +27,7 @@ main {
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -37,6 +37,11 @@ main {
     gap: 20px;
 }
 
+button {
+    font-family: Karla, sans-serif;
+    cursor: pointer;
+}
+
 .dice-container button {
     height: 50px;
     width: 50px;
@@ -44,8 +49,16 @@ main {
     border-radius: 10px;
     border: none;
     background-color: white;
-    font-family: Inter, sans-serif;
     font-size: 1.75rem;
     font-weight: bold;
-    cursor: pointer;
+}
+
+button.roll-dice {
+    height: 50px;
+    width: 100px;
+    border: none;
+    border-radius: 6px;
+    background-color: #5035FF;
+    color: white;
+    font-size: 1.2rem;
 }
