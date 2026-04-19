@@ -1,5 +1,5 @@
-export default function Die({number}) {
+export default function Die({number, backgroundColor, hold, id}) {
     return (
-        <button>{number}</button>
+        <button style={{backgroundColor: backgroundColor}} onClick={() => hold(id)}>{number}</button>
     )
 }
