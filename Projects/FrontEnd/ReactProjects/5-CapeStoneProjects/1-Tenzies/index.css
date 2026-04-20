@@ -70,10 +70,22 @@ button.roll-dice {
     height: 50px;
     white-space: nowrap;
     width: auto;
-    padding: 6px 15px;
+    padding: 6px 21px;
     border: none;
     border-radius: 6px;
     background-color: #5035FF;
     color: white;
     font-size: 1.2rem;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
