@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container {
+    width: 80%;
+    margin: 10px auto;
+}
+
+header {
+    text-align: center;
+    background: blue;
+    color: #ffffff;
+    padding: 10px 0px;
+    /* color: #333;
+    margin-bottom: 30px;
+    background-color: #1a73e8;
+    color: #fff;
+    border-radius: 10px 10px 0 0; */
+}
+
+header > div > div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h4,
+header a{
+    color: #ffffff;
+}
+
+header > div > div > div{
+    display: flex;
+    gap:30px;
+}
+
+
+
+.card {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    color: #333333;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icon-box {
+    display: flex;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    gap: 20px;
+}
+
+.input-group input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #1a73e8;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #1a73e8;
+}
+
+.btn-primary:hover {
+    background-color: #155bb5;
+}
+
+.btn-secondary {
+    background-color: #ff4d4f;
+}
+
+.btn-secondary:hover {
+    background-color: #d43d3f;
+}
+
+button:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+}
+
+.message {
+    color: #b73939;
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Spacing adjustments for overall layout */
+.container>*:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+body.light{
+    background-color: #ffffff;
+    color: #333333;
+}
+
+body.dark{
+    background-color: #333333;
+    color: #ffffff;
+}
+

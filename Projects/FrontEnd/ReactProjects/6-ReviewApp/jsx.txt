@@ -1,0 +1,57 @@
+
+
+const App = () => {
+
+  const name = "Javid";
+  const age = 100;
+
+  const users = [
+    {id:1, text:"User 1"},
+    {id:2, text:"User 2"},
+    {id:3, text:"User 3"},
+  ];
+
+  const showUser = true;
+
+  const userBlock = <ul>
+    {
+      users.map((user) => (
+        <li key={user.id}>{user.text}</li>
+      ))
+    }
+  </ul>
+
+  const loading =  false;
+
+  if(loading){
+      return (
+        <h2>Loading...</h2>
+      )
+  }
+
+
+  return (
+   <>
+      <h1>Name: {name}</h1>
+      <p>Age:{age}</p>
+
+      <span>{`${5+5} and is add`}</span>
+
+      <h3>{name.toUpperCase()}</h3>
+
+      {/* {showUser ? <ul>
+        {
+          users.map((user) => (
+            <li key={user.id}>{user.text}</li>
+          ))
+        }
+      </ul> : null} */}
+
+      {showUser && userBlock}
+      
+   </>
+  )
+}
+
+export default App
+
