@@ -1,7 +1,22 @@
+import FeedbackItem from "./component/FeedbackItem";
+import Header from "./component/Header";
+import FeedbackList from "./component/FeedbackList.jsx";
+
+import { feedbackData } from "../Data/feedbackData.js";
+import { useState } from "react";
+import FeedbackForm from "./component/FeedbackForm.jsx";
+
 function App() {
-  return(
+
+  const [feedback, setFeedback] = useState(feedbackData);
+
+  return (
     <>
-    <h1>Review App</h1>
+      <Header />
+      <section className="container">
+        <FeedbackForm />
+        <FeedbackList feedback={feedback} />
+      </section>
     </>
   )
 }
