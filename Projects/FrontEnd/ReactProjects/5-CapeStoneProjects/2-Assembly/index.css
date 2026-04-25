@@ -28,3 +28,35 @@ header > p {
     max-width: 350px;
     color: #8E8E8E;
 }
+
+section.game-status {
+    background-color: #10A95B;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #F9F4DA;
+    border-radius: 4px;
+    margin-block: 30px;
+}
+
+section.game-status > p { 
+    margin: 5px;
+}
+
+section.game-status > h2 {
+    font-size: 1.25rem;
+    margin: 5px
+}
+
+section.language-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+    max-width: 350px;
+}
+
+span.chip {
+    border-radius: 3px;
+    padding: 4.5px;
+}

@@ -1,11 +1,6 @@
 import React from "react"
+import languages from "./Data/languages.js";
 
-/**
- * Goal: Build out the main parts of our app
- * 
- * Challenge: Add a header with the game title
- * and description. Startin' out easy 🙂🚶‍➡️
- */
 
 export default function AssemblyEndgame() {
     return (
@@ -15,6 +10,19 @@ export default function AssemblyEndgame() {
                 <p>Guess the word within 8 attempts to keep the 
                 programming world safe from Assembly!</p>
             </header>
+             <section className="game-status">
+                <h2>You win!</h2>
+                <p>Well done! 🎉</p>
+            </section>
+            <section className="language-chips">
+                {
+                    languages && languages.map(lang => (
+                        <span key={lang.name} className="chip" style={{ backgroundColor: lang.backgroundColor, color: lang.color }}>
+                            {lang.name}
+                        </span>
+                    ))
+                }
+            </section>
         </main>
     )
 }
