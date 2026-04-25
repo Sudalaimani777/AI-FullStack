@@ -11,8 +11,8 @@ const FeedbackItem = ({feedback}) => {
                 <h4>{feedback.text}</h4>
 
                 <div className='icon-box'>
-                    <div className="edit"><FaEdit size="15px"/></div>
-                    <div className="delete"><FaTrash size="15px"/></div>
+                    <div className="edit"><FaEdit size="18px"/></div>
+                    <div className="delete"><FaTrash size="18px"/></div>
                 </div>
             </div>
        </Card>

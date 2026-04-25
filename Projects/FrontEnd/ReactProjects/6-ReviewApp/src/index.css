@@ -76,6 +76,11 @@ header > div > div > div{
     gap: 20px;
 }
 
+.icon-box div:nth-child(1), .icon-box div:nth-child(2) {
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
 .input-group {
     display: flex;
     justify-content: space-between;
