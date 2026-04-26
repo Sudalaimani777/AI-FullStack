@@ -39,7 +39,7 @@ section.game-status {
     margin-block: 30px;
 }
 
-section.game-status > p { 
+section.game-status > p {
     margin: 5px;
 }
 
@@ -54,9 +54,58 @@ section.language-chips {
     gap: 5px;
     justify-content: center;
     max-width: 350px;
+    margin-bottom: 36px;
 }
 
 span.chip {
     border-radius: 3px;
     padding: 4.5px;
+}
+
+section.word {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+}
+
+section.word > span {
+    height: 40px;
+    width: 40px;
+    background-color: #323232;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #F9F4DA;
+    font-size: 1.125rem;
+    margin-bottom: 36px;
+}
+
+section.keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    max-width: 450px;
+    margin-bottom: 36px;
+}
+
+section.keyboard > button {
+    height: 35px;
+    width: 35px;
+    background-color: #FCBA29;
+    border: 1px solid #D7D7D7;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button.new-game {
+    background-color: #11B5E5;
+    border: 1px solid #D7D7D7;
+    border-radius: 4px;
+    width: 225px;
+    height: 40px;
+    padding: 6px 12px;
+    display: block;
+    margin-inline: auto;
+    cursor: pointer;
 }
