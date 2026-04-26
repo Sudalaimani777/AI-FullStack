@@ -25,7 +25,7 @@ header > h1 {
 
 header > p {
     font-size: 0.875rem;
-    max-width: 350px;
+    max-width: 450px;
     color: #8E8E8E;
 }
 
@@ -53,7 +53,7 @@ section.language-chips {
     flex-wrap: wrap;
     gap: 5px;
     justify-content: center;
-    max-width: 350px;
+    max-width: 450px;
     margin-bottom: 36px;
 }
 
