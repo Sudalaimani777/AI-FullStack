@@ -98,6 +98,22 @@ section.keyboard > button {
     cursor: pointer;
 }
 
+section.keyboard > button.correct {
+    background-color: #10A95B;
+    border-color: #10A95B;
+    color: #F9F4DA;
+}
+
+section.keyboard > button.wrong {
+    background-color: #EC5D49;
+    border-color: #EC5D49;
+    color: #F9F4DA;
+}
+
+section.keyboard > button:disabled {
+    cursor: not-allowed;
+}
+
 button.new-game {
     background-color: #11B5E5;
     border: 1px solid #D7D7D7;
