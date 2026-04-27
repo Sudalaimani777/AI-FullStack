@@ -58,9 +58,19 @@ export default function AssemblyEndgame() {
                     programming world safe from Assembly!</p>
             </header>
             {/* Game Status */}
-            <section className="game-status">
-                <h2>You win!</h2>
-                <p>Well done! 🎉</p>
+            <section className={clsx("game-status", { won: isGameWon, lost: isGameLost })}>
+                {isGameWon && (
+                    <>
+                        <h2>You win!</h2>
+                        <p>Well done! 🎉</p>
+                    </>
+                )}
+                {isGameLost && (
+                    <>
+                        <h2>Game over!</h2>
+                        <p>You lose! Better luck next time!</p>
+                    </>
+                )}
             </section>
             {/* Word display */}
             <section className="language-chips">
