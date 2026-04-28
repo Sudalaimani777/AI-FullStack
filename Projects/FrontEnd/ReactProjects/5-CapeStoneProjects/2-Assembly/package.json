@@ -1,5 +1,5 @@
 {
-  "name": "Scrim-s06j0bb",
+  "name": "Scrim-s06j047",
   "description": "https://scrimba.com/learn-react-c0e/~0xts",
   "scripts": {
     "start": "vite",
@@ -10,6 +10,7 @@
   "dependencies": {
     "clsx": "^2.1.1",
     "react": "19.0.0-rc-a99d8e8d-20240916",
+    "react-confetti": "^6.4.0",
     "react-dom": "19.0.0-rc-a99d8e8d-20240916",
     "vite": "latest"
   },

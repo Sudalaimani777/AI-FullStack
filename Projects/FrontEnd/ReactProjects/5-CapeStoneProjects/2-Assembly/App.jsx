@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 import languages from "./Data/languages.js";
-import { getFarewellText } from "./Data/utils.js";
+import { getFarewellText, generateRandomWord } from "./Data/utils.js";
+import Confetti from "react-confetti";
 
 export default function AssemblyEndgame() {
-    const [currentWord, setCurrentWord] = useState("react");
+    const [currentWord, setCurrentWord] = useState(() => generateRandomWord());
     const [guesses, setGuesses] = useState([]);
     const [farewellText, setFarewellText] = useState("");
     const alphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -69,7 +70,12 @@ export default function AssemblyEndgame() {
         ));
     }
 
-    const newGameBtn = isGameOver ? <button className="new-game">New Game</button> : null;
+    function handleResetGame(){
+        setGuesses([]);
+        setCurrentWord(generateRandomWord());
+    }
+
+    const newGameBtn = isGameOver ? <button className="new-game" onClick={handleResetGame}>New Game</button> : null;
 
     return (
         <main aria-labelledby="game-title">
@@ -91,6 +97,14 @@ export default function AssemblyEndgame() {
                     <>
                         <h2>You win!</h2>
                         <p>Well done!</p>
+                        <div aria-hidden="true">
+                            <Confetti
+                                width={window.innerWidth}
+                                height={window.innerHeight}
+                                recycle={false}
+                                numberOfPieces={500}
+                            />
+                        </div>
                     </>
                 )}
                 {isGameLost && (
