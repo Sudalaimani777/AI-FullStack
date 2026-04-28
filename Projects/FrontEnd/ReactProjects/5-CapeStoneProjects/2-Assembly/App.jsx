@@ -1,29 +1,42 @@
 import React, { useEffect, useState } from "react";
 import clsx from "clsx";
-import languages from "./Data/languages.js";
-import { getFarewellText, generateRandomWord } from "./Data/utils.js";
 import Confetti from "react-confetti";
+import { getFarewellText, generateRandomWord } from "./Data/utils.js";
+import { words } from "./Data/words.js";
+
+const MAX_WRONG_GUESSES = 8;
+const WORD_CHIP_COUNT = MAX_WRONG_GUESSES + 1;
+
+function getWordChoices(answer) {
+    const distractors = words
+        .filter(word => word !== answer)
+        .sort(() => Math.random() - 0.5)
+        .slice(0, WORD_CHIP_COUNT - 1);
+
+    return [answer, ...distractors];
+}
 
 export default function AssemblyEndgame() {
     const [currentWord, setCurrentWord] = useState(() => generateRandomWord());
+    const [wordChoices, setWordChoices] = useState(() => getWordChoices(currentWord));
     const [guesses, setGuesses] = useState([]);
     const [farewellText, setFarewellText] = useState("");
     const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
     const wrongGuessCount = guesses.filter(letter => !currentWord.includes(letter)).length;
-    const isGameLost = wrongGuessCount >= languages.length - 1;
+    const isGameLost = wrongGuessCount >= MAX_WRONG_GUESSES;
     const isGameWon = currentWord.split("").every(letter => guesses.includes(letter));
     const isGameOver = isGameLost || isGameWon;
-    const lastLostLanguage = wrongGuessCount > 0 ? languages[wrongGuessCount - 1].name : null;
-    const attemptsRemaining = languages.length - 1 - wrongGuessCount;
+    const lastLostChoice = wrongGuessCount > 0 ? wordChoices[wrongGuessCount] : null;
+    const attemptsRemaining = MAX_WRONG_GUESSES - wrongGuessCount;
 
     useEffect(() => {
-        if (lastLostLanguage && !isGameOver) {
-            setFarewellText(getFarewellText(lastLostLanguage));
+        if (lastLostChoice && !isGameOver) {
+            setFarewellText(getFarewellText(lastLostChoice));
         } else {
             setFarewellText("");
         }
-    }, [lastLostLanguage, isGameOver]);
+    }, [lastLostChoice, isGameOver]);
 
     const statusMessage = isGameWon
         ? "You win! Well done!"
@@ -38,7 +51,7 @@ export default function AssemblyEndgame() {
         .map(letter => (guesses.includes(letter) || isGameLost ? letter.toUpperCase() : "blank"))
         .join(", ");
 
-    const languageElements = currentWord.split("").map((letter, index) => (
+    const letterElements = currentWord.split("").map((letter, index) => (
         <span key={index} className="letter" aria-hidden="true">
             {guesses.includes(letter) || isGameLost ? letter.toUpperCase() : ""}
         </span>
@@ -70,12 +83,38 @@ export default function AssemblyEndgame() {
         ));
     }
 
-    function handleResetGame(){
+    function handleResetGame() {
+        const nextWord = generateRandomWord();
+        setCurrentWord(nextWord);
+        setWordChoices(getWordChoices(nextWord));
         setGuesses([]);
-        setCurrentWord(generateRandomWord());
+        setFarewellText("");
     }
 
-    const newGameBtn = isGameOver ? <button className="new-game" onClick={handleResetGame}>New Game</button> : null;
+    const wordChoiceElements = wordChoices.map((word, index) => {
+        const isAnswer = index === 0;
+        const isEliminated = !isAnswer && index <= wrongGuessCount;
+        const showAnswer = isAnswer && isGameOver;
+
+        return (
+            <span
+                key={`${word}-${index}`}
+                className={clsx("chip", {
+                    answer: showAnswer,
+                    lost: isEliminated,
+                })}
+                aria-label={`${word}${showAnswer ? " correct answer" : isEliminated ? " eliminated option" : " remaining option"}`}
+            >
+                {word}
+            </span>
+        );
+    });
+
+    const newGameBtn = isGameOver ? (
+        <button className="new-game" onClick={handleResetGame}>
+            New Game
+        </button>
+    ) : null;
 
     return (
         <main aria-labelledby="game-title">
@@ -120,17 +159,8 @@ export default function AssemblyEndgame() {
                 {statusMessage}
             </p>
 
-            <section className="language-chips" aria-label="Programming languages remaining">
-                {languages.map((lang, index) => (
-                    <span
-                        key={lang.name}
-                        className={clsx("chip", { lost: index < wrongGuessCount })}
-                        style={{ backgroundColor: lang.backgroundColor, color: lang.color }}
-                        aria-label={`${lang.name}${index < wrongGuessCount ? " eliminated" : " remaining"}`}
-                    >
-                        {lang.name}
-                    </span>
-                ))}
+            <section className="language-chips" aria-label="Answer and remaining random words">
+                {wordChoiceElements}
             </section>
 
             <section
@@ -139,7 +169,7 @@ export default function AssemblyEndgame() {
                 role="group"
                 aria-describedby="word-status"
             >
-                {languageElements}
+                {letterElements}
             </section>
 
             <p id="word-status" className="sr-only">
