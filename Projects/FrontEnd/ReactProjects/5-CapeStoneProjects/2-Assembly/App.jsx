@@ -1,28 +1,48 @@
-import React from "react"
-import languages from "./Data/languages.js";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import clsx from "clsx";
-
+import languages from "./Data/languages.js";
+import { getFarewellText } from "./Data/utils.js";
 
 export default function AssemblyEndgame() {
-    // State to track the current word to guess and the letters guessed by the player
     const [currentWord, setCurrentWord] = useState("react");
     const [guesses, setGuesses] = useState([]);
+    const [farewellText, setFarewellText] = useState("");
     const alphabet = "abcdefghijklmnopqrstuvwxyz";
-    
-    const wrongGuessCount = guesses.filter(letter => !currentWord.includes(letter)).length;
-    console.log(wrongGuessCount);
 
+    const wrongGuessCount = guesses.filter(letter => !currentWord.includes(letter)).length;
     const isGameLost = wrongGuessCount >= languages.length - 1;
     const isGameWon = currentWord.split("").every(letter => guesses.includes(letter));
     const isGameOver = isGameLost || isGameWon;
+    const lastLostLanguage = wrongGuessCount > 0 ? languages[wrongGuessCount - 1].name : null;
+    const attemptsRemaining = languages.length - 1 - wrongGuessCount;
+
+    useEffect(() => {
+        if (lastLostLanguage && !isGameOver) {
+            setFarewellText(getFarewellText(lastLostLanguage));
+        } else {
+            setFarewellText("");
+        }
+    }, [lastLostLanguage, isGameOver]);
+
+    const statusMessage = isGameWon
+        ? "You win! Well done!"
+        : isGameLost
+            ? `Game over! The word was ${currentWord.toUpperCase()}.`
+            : farewellText
+                ? `${farewellText}. ${attemptsRemaining} attempts remaining.`
+                : `${attemptsRemaining} attempts remaining.`;
+
+    const wordStatusText = currentWord
+        .split("")
+        .map(letter => (guesses.includes(letter) || isGameLost ? letter.toUpperCase() : "blank"))
+        .join(", ");
 
     const languageElements = currentWord.split("").map((letter, index) => (
-        <span key={index} className="letter">
-            {guesses.includes(letter) ? letter.toUpperCase() : ""}
+        <span key={index} className="letter" aria-hidden="true">
+            {guesses.includes(letter) || isGameLost ? letter.toUpperCase() : ""}
         </span>
-    ))
-    // Generate keyboard buttons for each letter, applying styles based on whether the letter has been guessed and if it's correct or wrong
+    ));
+
     const keyboardElements = alphabet.split("").map(letter => {
         const isGuessed = guesses.includes(letter);
         const isCorrect = isGuessed && currentWord.includes(letter);
@@ -35,34 +55,42 @@ export default function AssemblyEndgame() {
                     correct: isCorrect,
                     wrong: isGuessed && !isCorrect,
                 })}
-                disabled={isGuessed}
+                disabled={isGuessed || isGameOver}
+                aria-label={`Letter ${letter.toUpperCase()}${isGuessed ? (isCorrect ? ", already guessed correctly" : ", already guessed and not in the word") : ""}`}
             >
                 {letter.toUpperCase()}
             </button>
-        )
-    })
-    // Add the guessed letter to the guesses state, ensuring no duplicates
-    function handleGuesses(letter){
+        );
+    });
+
+    function handleGuesses(letter) {
         setGuesses(prevLetter => (
             prevLetter.includes(letter) ? prevLetter : [...prevLetter, letter]
-        ))
+        ));
     }
-    // If the game is over, show the "New Game" button
+
     const newGameBtn = isGameOver ? <button className="new-game">New Game</button> : null;
 
     return (
-        <main>
+        <main aria-labelledby="game-title">
             <header>
-                <h1>Assembly: Endgame</h1>
-                <p>Guess the word within 8 attempts to keep the
-                    programming world safe from Assembly!</p>
+                <h1 id="game-title">Assembly: Endgame</h1>
+                <p id="game-instructions">
+                    Guess the word within 8 attempts to keep the programming world safe from
+                    Assembly!
+                </p>
             </header>
-            {/* Game Status */}
-            <section className={clsx("game-status", { won: isGameWon, lost: isGameLost })}>
+
+            <section
+                className={clsx("game-status", { won: isGameWon, lost: isGameLost })}
+                aria-live="polite"
+                aria-atomic="true"
+                role="status"
+            >
                 {isGameWon && (
                     <>
                         <h2>You win!</h2>
-                        <p>Well done! 🎉</p>
+                        <p>Well done!</p>
                     </>
                 )}
                 {isGameLost && (
@@ -71,31 +99,49 @@ export default function AssemblyEndgame() {
                         <p>You lose! Better luck next time!</p>
                     </>
                 )}
+                {!isGameOver && farewellText && <p className="farewell-message">{farewellText}</p>}
             </section>
-            {/* Word display */}
-            <section className="language-chips">
-                {
-                    languages && languages.map((lang, index) => (
-                        <span
-                            key={lang.name}
-                            className={clsx("chip", { lost: index < wrongGuessCount })}
-                            style={{ backgroundColor: lang.backgroundColor, color: lang.color }}
-                        >
-                            {lang.name}
-                        </span>
-                    ))
-                }
+
+            <p className="sr-only" aria-live="polite" aria-atomic="true">
+                {statusMessage}
+            </p>
+
+            <section className="language-chips" aria-label="Programming languages remaining">
+                {languages.map((lang, index) => (
+                    <span
+                        key={lang.name}
+                        className={clsx("chip", { lost: index < wrongGuessCount })}
+                        style={{ backgroundColor: lang.backgroundColor, color: lang.color }}
+                        aria-label={`${lang.name}${index < wrongGuessCount ? " eliminated" : " remaining"}`}
+                    >
+                        {lang.name}
+                    </span>
+                ))}
             </section>
-            {/* Word */}
-            <section className="word">
+
+            <section
+                className="word"
+                aria-label="Word to guess"
+                role="group"
+                aria-describedby="word-status"
+            >
                 {languageElements}
             </section>
-            {/* Keyboard */}
-            <section className="keyboard">
+
+            <p id="word-status" className="sr-only">
+                Current word: {wordStatusText}
+            </p>
+
+            <section
+                className="keyboard"
+                aria-label="Letter keyboard"
+                role="group"
+                aria-describedby="game-instructions"
+            >
                 {keyboardElements}
             </section>
-            {/* New Game Button */}
+
             {newGameBtn}
         </main>
-    )
+    );
 }
