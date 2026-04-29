@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Satoshi", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Clash Display", "Satoshi", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #16110f;
+  --color-paper: #f7efe4;
+  --color-sand: #ead9c3;
+  --color-clay: #b9653f;
+  --color-wine: #6f2f2b;
+  --color-gold: #d9a441;
+  --color-mist: #fff9f2;
+}
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply min-h-screen bg-[#120d0b] text-ink antialiased;
+    background-image:
+      radial-gradient(circle at top left, rgba(217, 164, 65, 0.18), transparent 28%),
+      radial-gradient(circle at 80% 20%, rgba(185, 101, 63, 0.22), transparent 24%),
+      linear-gradient(135deg, #120d0b 0%, #241714 45%, #120d0b 100%);
+  }
+
+  button,
+  input {
+    @apply font-sans;
+  }
+
+  #root {
+    @apply min-h-screen;
+  }
+}
