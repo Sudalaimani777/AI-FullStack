@@ -36,13 +36,11 @@ function App() {
 
   const completedCount = allTask.filter(item => item.isCompleted).length;
   const activeCount = allTask.length - completedCount;
-  const completionRate = allTask.length
-    ? Math.round((completedCount / allTask.length) * 100)
-    : 0;
+
 
   return (
     <main className="relative overflow-hidden px-4 py-5 sm:px-6 lg:px-10">
-      <div className="mx-auto grid min-h-[calc(100vh-2.5rem)] max-w-7xl gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+      <div className="mx-auto grid min-h-[calc(100vh-2.5rem)] max-w-7xl gap-6 lg:grid-cols-[1fr_380px]">
         <section className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(155deg,rgba(247,239,228,0.97),rgba(234,217,195,0.9))] p-6 shadow-[0_28px_90px_rgba(0,0,0,0.28)] sm:p-8 lg:p-10">
           <div className="absolute -right-12 top-8 h-40 w-40 rounded-full bg-wine/10 blur-3xl" />
           <div className="absolute bottom-0 left-0 h-52 w-52 translate-y-1/3 rounded-full bg-gold/20 blur-3xl" />
@@ -187,52 +185,6 @@ function App() {
             </section>
           </div>
         </section>
-
-        <aside className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#1a1210]/85 p-6 text-paper shadow-[0_25px_80px_rgba(0,0,0,0.35)] backdrop-blur sm:p-8">
-          <div className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
-          <div className="absolute right-0 top-0 h-48 w-48 rounded-full bg-gold/10 blur-3xl" />
-          <div className="absolute bottom-10 left-0 h-40 w-40 rounded-full bg-clay/10 blur-3xl" />
-
-          <div className="relative flex h-full flex-col justify-between gap-10">
-            <div>
-              <p className="text-xs uppercase tracking-[0.35em] text-paper/45">
-                Overview
-              </p>
-              <h2 className="mt-4 max-w-sm font-display text-4xl leading-tight tracking-[-0.05em] sm:text-5xl">
-                Stay on top of today.
-              </h2>
-              <p className="mt-5 max-w-sm text-sm leading-7 text-paper/65">
-                This side panel is now task-focused: track progress, scan your status, and keep the interface useful on both desktop and mobile.
-              </p>
-            </div>
-
-            <div className="grid gap-4">
-              <div className="rounded-[1.6rem] border border-white/10 bg-white/5 p-5">
-                <p className="text-[10px] uppercase tracking-[0.35em] text-paper/45">Progress</p>
-                <p className="mt-3 text-4xl font-semibold text-gold">{completionRate}%</p>
-                <p className="mt-2 text-sm leading-6 text-paper/60">
-                  {allTask.length === 0
-                    ? "Start with one task and build momentum."
-                    : `${completedCount} of ${allTask.length} task${allTask.length > 1 ? "s" : ""} completed.`}
-                </p>
-              </div>
-              <div className="rounded-[1.6rem] border border-white/10 bg-gradient-to-br from-white/10 to-transparent p-5">
-                <p className="text-[10px] uppercase tracking-[0.35em] text-paper/45">Next move</p>
-                <p className="mt-3 text-sm leading-7 text-paper/70">
-                  {activeCount === 0
-                    ? "Everything is done. Clear completed tasks or add a new goal."
-                    : "Mark tasks as completed to keep the list current and easy to scan."}
-                </p>
-              </div>
-              <div className="rounded-[1.6rem] border border-white/10 bg-gradient-to-br from-white/8 to-transparent p-5">
-                <p className="text-[10px] uppercase tracking-[0.35em] text-paper/45">Build path</p>
-                <p className="mt-3 text-sm leading-7 text-paper/70">
-                  Styled with Tailwind CLI and tuned to stack cleanly on mobile, tablet, and desktop screens.
-                </p>
-              </div>
-            </div>
-          </div>
-        </aside>
       </div>
     </main>
   );
