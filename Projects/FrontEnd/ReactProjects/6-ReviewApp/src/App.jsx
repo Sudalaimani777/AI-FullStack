@@ -10,12 +10,23 @@ function App() {
 
   const [feedback, setFeedback] = useState(feedbackData);
 
+  const handleDelete = id => {
+    const remainingData = feedback.filter(item => item.id !== id);
+    setFeedback(remainingData);
+  }
+
+  console.log(feedback)
+
+  const handleEdit = id => {
+    console.log("Edit", id);
+  }
+
   return (
     <>
       <Header />
       <section className="container">
         <FeedbackForm setFeedback={setFeedback} feedback={feedback} />
-        <FeedbackList feedback={feedback} setFeedback={setFeedback}/>
+        <FeedbackList feedback={feedback} handleDelete={handleDelete} handleEdit={handleEdit}/>
       </section>
     </>
   )

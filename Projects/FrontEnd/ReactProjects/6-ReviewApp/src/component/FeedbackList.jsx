@@ -1,7 +1,7 @@
 import React from 'react'
 import FeedbackItem from './FeedbackItem.jsx';
 
-const FeedbackList = ({feedback = [], setFeedback}) => {
+const FeedbackList = ({feedback = [], handleDelete, handleEdit}) => {
     
     if(!feedback || feedback.length == 0) return <h2 style={{textAlign: "center"}}>No feedback available</h2>
 
@@ -9,7 +9,7 @@ const FeedbackList = ({feedback = [], setFeedback}) => {
     <>
         <section>
             {
-                feedback && feedback.map(item => <FeedbackItem key={item.id} feedback={item} setFeedback={setFeedback}/>)
+                feedback && feedback.map(item => <FeedbackItem key={item.id} feedback={item} handleDelete={handleDelete} handleEdit={handleEdit}/>)
             }
         </section>
     </>
