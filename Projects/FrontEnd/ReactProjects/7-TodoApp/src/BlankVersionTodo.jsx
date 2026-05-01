@@ -10,7 +10,7 @@ function BlankVersionTodo() {
 
   const handleAddTask = e => {
     e.preventDefault();
-    setAllTask([...allTask, { id: uuid(), task: task, isCompleted:false }]);
+    setAllTask([...allTask, { id: uuid(), task: task, isCompleted: false }]);
     setTask("");
   }
 
@@ -24,7 +24,7 @@ function BlankVersionTodo() {
   }
 
   const handleTaskStatus = id => {
-    const ramainingTasks = allTask.map(item => item.id === id ? {...item, isCompleted: !item.isCompleted} : item);
+    const ramainingTasks = allTask.map(item => item.id === id ? { ...item, isCompleted: !item.isCompleted } : item);
     setAllTask(ramainingTasks);
     console.log(allTask);
   }
@@ -45,7 +45,7 @@ function BlankVersionTodo() {
         {
           allTask?.length > 0 ? allTask.map(item => (
             <div key={item.id}>
-              <input type="checkbox" checked={item.isCompleted} name="cb" id="cb" onChange={() => handleTaskStatus(item.id)}  />
+              <input type="checkbox" checked={item.isCompleted} name="cb" id="cb" onChange={() => handleTaskStatus(item.id)} />
               <p className={item.isCompleted ? "completed" : ""}>{item.task}</p>
               <span><button onClick={() => handleRemoveTask(item.id)}>X</button></span>
             </div>

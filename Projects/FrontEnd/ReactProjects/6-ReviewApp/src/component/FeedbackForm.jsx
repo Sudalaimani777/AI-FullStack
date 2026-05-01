@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import Card from './SharedComponent/Card'
 import Button from './SharedComponent/Button'
-import { feedbackData } from '../../Data/feedbackData'
+import {v4 as uuidv4} from "uuid";
 
-const FeedbackForm = () => {
+const FeedbackForm = ({setFeedback}) => {
 
     const [text, setText] = useState("");
     const [btnDisabled, setBtnDisabled] = useState(true);
@@ -24,10 +24,10 @@ const FeedbackForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(text);
-        setText(feedbackData.push({id: feedbackData.length + 1, text: text, rating: 10}));
-        console.log(feedbackData)
+        setFeedback(prevFeed => [...prevFeed, {id: uuidv4(), rating: Math.floor(Math.random() * 10) + 1, text}]);
         setText("");
+        setBtnDisabled(true);
+        setMessage("");
     }
 
     return (

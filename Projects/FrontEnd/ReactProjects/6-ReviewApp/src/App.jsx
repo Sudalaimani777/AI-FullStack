@@ -14,8 +14,8 @@ function App() {
     <>
       <Header />
       <section className="container">
-        <FeedbackForm />
-        <FeedbackList feedback={feedback} />
+        <FeedbackForm setFeedback={setFeedback} feedback={feedback} />
+        <FeedbackList feedback={feedback} setFeedback={setFeedback}/>
       </section>
     </>
   )
