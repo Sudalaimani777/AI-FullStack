@@ -1,5 +1,5 @@
 {
-  "name": "1-useeffectintroduction",
+  "name": "2-cleanupfunction",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "axios": "^1.15.2",
     "react": "^19.2.5",
     "react-dom": "^19.2.5"
   },
