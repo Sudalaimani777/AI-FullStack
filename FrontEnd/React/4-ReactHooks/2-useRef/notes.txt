@@ -1,0 +1,16 @@
+useRef :-
+    useRef is an react hook, which is used to reference the value thats not needed to rerendering.
+    The useRef returns the object with a single property.
+    Changing ref doesn't cause the re-renders in the component.
+
+Uses of ref :-
+    We can store the information between the re-renders
+    Changing state doesn't cause re-renders
+    The stored onfo is local to each copy of the component
+
+
+Syntax :-
+    const refVariable = useRef(initialValue);
+    refVariable.current = value;
+
+Example
