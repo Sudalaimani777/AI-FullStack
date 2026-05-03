@@ -21,12 +21,17 @@ function App() {
     console.log("Edit", id);
   }
 
+  const handleAddFeedback = (feedback) => {
+    setFeedback(prevFeedback => [...prevFeedback, feedback]);
+    // console.log(feedback);
+  }
+
   return (
     <>
       <Header />
       <section className="container">
-        <FeedbackForm setFeedback={setFeedback} feedback={feedback} />
-        <FeedbackList feedback={feedback} handleDelete={handleDelete} handleEdit={handleEdit}/>
+        <FeedbackForm handleAddFeedback={handleAddFeedback} handleEdit={handleEdit} />
+        <FeedbackList feedback={feedback} handleDelete={handleDelete} />
       </section>
     </>
   )
