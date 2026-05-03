@@ -3,7 +3,7 @@ import Card from './SharedComponent/Card'
 import Button from './SharedComponent/Button'
 import { v4 as uuidv4 } from "uuid";
 
-const FeedbackForm = ({ setFeedback }) => {
+const FeedbackForm = ({ handleAddFeedback, handleEdit }) => {
 
     const [text, setText] = useState("");
     const [btnDisabled, setBtnDisabled] = useState(true);
@@ -24,10 +24,21 @@ const FeedbackForm = ({ setFeedback }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setFeedback(prevFeed => [...prevFeed, { id: uuidv4(), rating: Math.floor(Math.random() * 10) + 1, text: text }]);
+
+        const feedbackData = {
+            id: uuidv4(),
+            rating: Math.floor(Math.random() * 10) + 1,
+            text: text
+        }
+
+        handleAddFeedback(feedbackData);
         setText("");
         setBtnDisabled(true);
         setMessage("");
+    }
+
+    const handleEditFeedback = () => {
+        handleEdit()
     }
 
     return (
