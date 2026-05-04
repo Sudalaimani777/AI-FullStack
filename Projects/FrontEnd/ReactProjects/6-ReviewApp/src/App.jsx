@@ -1,10 +1,11 @@
-import FeedbackItem from "./component/FeedbackItem";
-import Header from "./component/Header";
-import FeedbackList from "./component/FeedbackList.jsx";
+import FeedbackItem from "./Components/FeedbackItem";
+import Header from "./Components/Header";
+import FeedbackList from "./Components/FeedbackList.jsx";
+import FeedbackContext from "./Context/FeedbackContext.jsx";
 
 import { feedbackData } from "../Data/feedbackData.js";
 import { useState } from "react";
-import FeedbackForm from "./component/FeedbackForm.jsx";
+import FeedbackForm from "./Components/FeedbackForm.jsx";
 
 function App() {
 
