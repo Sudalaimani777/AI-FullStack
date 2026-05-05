@@ -1,0 +1,47 @@
+useReducer :-
+    useReducer is a built-in React Hook that provides a more structured way to manage complex state logic in functional components. It is often preferred over useState when the state depends on previous values or involves multiple sub-values that need to be updated together.
+
+
+🧠 Think Like This
+
+    👉 useReducer = State + Rules (Reducer) + Actions
+
+    Like a machine:
+
+        You send an action
+        The reducer decides how state changes
+
+Syntax :-
+
+    const [state, dispatch] = useReducer(reducerFunc, initialstate);
+
+        reducerFunc: A function that defines how the state should be updated based on the action. It takes two parameters: the current state and the action.
+        initialState: The initial value of the state.
+        State The current state returned from the useReducer hook.
+        dispatch: A function used to send an action to the reducer to update the state.
+
+💡 When You SHOULD Use It
+
+    Use useReducer when:
+
+        Multiple state values depend on each other
+        Complex forms
+        State transitions (login/logout, cart, etc.)
+        You’re writing real apps, not toy counters
+        You need to manage state transitions in a predictable manner (such as when working with forms or handling multiple actions).
+        You have multiple state variables that depend on each other and need to be updated together.
+        The logic for updating the state is not just a simple assignment but involves computations, conditions, or complex updates.
+
+
+🧠 Mental Model (Best Way to Remember)
+    useState → “set the value”
+    useReducer → “describe what happened”
+
+🔥 One-Line Summary
+    👉 useReducer = structured state management with clear rules
+
+🧠 The Cleanest Mental Model
+    useState → I set values
+    useReducer → I define rules for state changes
+
+
