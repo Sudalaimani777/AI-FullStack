@@ -1,4 +1,4 @@
-import Button from "../../Shared/Button"
+import Button from "../Shared/Button"
 
 
 const IncButton = ({handleInc}) => {

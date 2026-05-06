@@ -3,9 +3,7 @@
 const Button = ({ children, onClick }) => {
   return (
     <>
-      <button onClick={onClick}>
-        {children}
-      </button>
+        <button onClick={onClick}>{children}</button>
     </>
   )
 }
