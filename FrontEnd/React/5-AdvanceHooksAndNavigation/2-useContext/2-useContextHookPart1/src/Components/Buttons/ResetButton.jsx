@@ -1,9 +1,15 @@
+import { useContext } from "react"
+import CounterContext from "../../Context/CounterContext"
 import Button from "../Shared/Button"
 
+
 const ResetButton = () => {
+   
+    const {handleReset} = useContext(CounterContext);
+
   return (
     <>
-        <Button>Reset</Button>
+        <Button onClick={handleReset}>Reset</Button>
     </>
   )
 }

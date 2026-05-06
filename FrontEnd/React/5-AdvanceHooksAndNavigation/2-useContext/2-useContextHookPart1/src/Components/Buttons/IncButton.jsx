@@ -1,10 +1,15 @@
+import { useContext } from "react"
+import CounterContext from "../../Context/CounterContext"
 import Button from "../Shared/Button"
 
 
 const IncButton = () => {
+
+  const {handleInc} = useContext(CounterContext);
+
   return (
     <>
-        <Button>+</Button>
+        <Button onClick={handleInc}>+</Button>
     </>
   )
 }
