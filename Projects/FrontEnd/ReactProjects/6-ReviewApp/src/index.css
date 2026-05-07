@@ -21,8 +21,23 @@ a{
     margin: 10px auto;
 }
 
+.app {
+    min-height: 100vh;
+    background-color: #f0f4f8;
+    color: #333;
+}
+
+.app.light {
+    background-color: #ffffff;
+    color: #333333;
+}
+
+.app.dark {
+    background-color: #333333;
+    color: #ffffff;
+}
+
 header {
-    text-align: center;
     background: blue;
     color: #ffffff;
     padding: 10px 0px;
@@ -33,10 +48,23 @@ header {
     border-radius: 10px 10px 0 0; */
 }
 
-header > div > div{
+.header-inner {
+    width: 80%;
+    margin: 0 auto;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.header-title {
+    margin: 0;
+    text-align: center;
+}
+
+.toggle-btn {
+    position: absolute;
+    right: 0;
 }
 
 header h4,
@@ -146,13 +174,12 @@ button:disabled {
     margin-bottom: 20px;
 }
 
-body.light{
-    background-color: #ffffff;
-    color: #333333;
-}
 
-body.dark{
-    background-color: #333333;
-    color: #ffffff;
+.toggle-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
-

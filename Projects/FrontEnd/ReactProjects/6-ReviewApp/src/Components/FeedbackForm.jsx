@@ -1,14 +1,17 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Card from './SharedComponent/Card'
 import Button from './SharedComponent/Button'
 import { v4 as uuidv4 } from "uuid";
+import FeedbackContext from '../Context/FeedbackContext';
 
-const FeedbackForm = ({ handleAddFeedback, handleEdit }) => {
+const FeedbackForm = () => {
 
     const [text, setText] = useState("");
     const [btnDisabled, setBtnDisabled] = useState(true);
     const [message, setMessage] = useState("");
+    const { handleAddFeedback } = useContext(FeedbackContext);
 
+    //Handle text change :-
     const handleText = (e) => {
         let trimmedText = e.target.value.trimStart();
 
@@ -22,6 +25,7 @@ const FeedbackForm = ({ handleAddFeedback, handleEdit }) => {
         setText(trimmedText);
     }
 
+    //Handle form submit :-
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -37,9 +41,6 @@ const FeedbackForm = ({ handleAddFeedback, handleEdit }) => {
         setMessage("");
     }
 
-    const handleEditFeedback = () => {
-        handleEdit()
-    }
 
     return (
         <>
