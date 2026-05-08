@@ -1,10 +1,10 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 
 
 const ThemeContext = createContext();
 
 
-export const ThemeProvider = ({children}) => {
+export const ThemeProvider = ({ children }) => {
 
     const [toggle, setToggle] = useState(true);
 
@@ -13,12 +13,8 @@ export const ThemeProvider = ({children}) => {
         setToggle(prevToggle => !prevToggle);
     }
 
-    useEffect(() => {
-
-    }, [toggle])
-
-    return(
-        <ThemeContext.Provider value={{toggle,handleToggle}}>
+    return (
+        <ThemeContext.Provider value={{ toggle, handleToggle }}>
             {children}
         </ThemeContext.Provider>
     )
