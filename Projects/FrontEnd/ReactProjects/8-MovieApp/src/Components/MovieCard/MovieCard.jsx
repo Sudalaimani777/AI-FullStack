@@ -23,23 +23,32 @@ export default function MovieCard({ movies }) {
 
     return (
         <Grid item xs={3} sm={6} md={4} lg={3}>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ maxWidth: 345, height: "100%", display: "flex", flexDirection: "column" }}>
                 <CardMedia
                     sx={{ height: 200 }}
                     image={backdrop_path}
                 />
-                <CardContent>
+                <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="div">
                         {original_title}
                     </Typography>
-                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                    <Typography
+                        variant="body2"
+                        sx={{
+                            color: "text.secondary",
+                            overflow: "hidden",
+                            display: "-webkit-box",
+                            WebkitBoxOrient: "vertical",
+                            WebkitLineClamp: 4
+                        }}
+                    >
                         {overview}
                     </Typography>
                     <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                         Release Date -{release_date}
                     </Typography>
                 </CardContent>
-                <CardActions>
+                <CardActions sx={{ mt: "auto", flexWrap: "wrap" }}>
                     <IconButton aria-label="add to favorites">
                         <FavoriteIcon />
                     </IconButton>
