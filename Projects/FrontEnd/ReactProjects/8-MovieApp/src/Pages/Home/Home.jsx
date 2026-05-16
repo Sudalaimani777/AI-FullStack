@@ -5,12 +5,15 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import MovieCard from "../../Components/MovieCard/MovieCard";
 import { Grid, Box } from "@mui/material";
+import { getMoviesBySearch } from "../../utils/getMoviesBySearch";
 
 const Home = () => {
 
     const dispatch = useDispatch();
-    const { movies } = useSelector(state => state.movies);
+    const { movies, searchedMovie } = useSelector(state => state.movies);
     console.log(movies)
+
+    const filterdMovies = getMoviesBySearch(movies, searchedMovie);
 
     useEffect(() => {
         dispatch(getMovies());
@@ -26,8 +29,8 @@ const Home = () => {
                 <Box sx={{ flexGrow: 1, marginTop: 2 }}>
                     <Grid container spacing={2}>
                         {
-                            movies?.length > 0 ? (
-                                movies.map(movies => <MovieCard key={movies.id} movies={movies} />)
+                            filterdMovies?.length > 0 ? (
+                                filterdMovies.map(movies => <MovieCard key={movies.id} movies={movies} />)
                             ) :
                                 (
                                     <p>No movies found.</p>

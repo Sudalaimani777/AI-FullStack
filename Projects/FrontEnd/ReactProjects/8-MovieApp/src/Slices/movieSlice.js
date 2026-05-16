@@ -1,20 +1,24 @@
-import {createSlice} from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit"
 
 
 const initialState = {
-    movies: []
+    movies: [],
+    searchedMovie: ""
 }
 
 const movieSlice = createSlice({
-    name:"movies",
+    name: "movies",
     initialState,
-    reducers:{
+    reducers: {
         setMovies: (state, action) => {
             state.movies = action.payload
+        },
+        setSearchedMovies: (state, action) => {
+            state.searchedMovie = action.payload
         }
     }
 })
 
-export const {setMovies} = movieSlice.actions;
+export const { setMovies, setSearchedMovies } = movieSlice.actions;
 
 export default movieSlice.reducer;
