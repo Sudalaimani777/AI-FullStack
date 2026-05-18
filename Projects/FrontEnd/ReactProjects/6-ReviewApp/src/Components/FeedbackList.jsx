@@ -12,7 +12,7 @@ const FeedbackList = () => {
     <>
         <section>
             {
-                feedback?.map(item => <FeedbackItem key={item.id}/>)
+                feedback?.map(item => <FeedbackItem key={item.id} item={item} />)
             }
         </section>
     </>

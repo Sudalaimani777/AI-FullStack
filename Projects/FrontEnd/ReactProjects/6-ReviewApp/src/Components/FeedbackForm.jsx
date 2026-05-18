@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Card from './SharedComponent/Card'
 import Button from './SharedComponent/Button'
 import { v4 as uuidv4 } from "uuid";
@@ -9,7 +9,7 @@ const FeedbackForm = () => {
     const [text, setText] = useState("");
     const [btnDisabled, setBtnDisabled] = useState(true);
     const [message, setMessage] = useState("");
-    const { handleAddFeedback } = useContext(FeedbackContext);
+    const { handleAddFeedback, feedbackEdit, handleUpdateFeedback, handleClearEdit } = useContext(FeedbackContext);
 
     //Handle text change :-
     const handleText = (e) => {
@@ -29,17 +29,35 @@ const FeedbackForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const feedbackData = {
-            id: uuidv4(),
-            rating: Math.floor(Math.random() * 10) + 1,
-            text: text
+        if (feedbackEdit.edit === true) {
+            handleUpdateFeedback(feedbackEdit.item.id, {
+                ...feedbackEdit.item,
+                text,
+            });
+            handleClearEdit();
+            setText("");
+            setBtnDisabled(true);
+            setMessage("");
+        } else {
+            const feedbackData = {
+                id: uuidv4(),
+                rating: Math.floor(Math.random() * 10) + 1,
+                text,
+            };
+            handleAddFeedback(feedbackData);
+            setText("");
+            setBtnDisabled(true);
+            setMessage("");
         }
-
-        handleAddFeedback(feedbackData);
-        setText("");
-        setBtnDisabled(true);
-        setMessage("");
     }
+
+    useEffect(() => {
+        if (feedbackEdit.edit === true) {
+            setText(feedbackEdit.item.text);
+            setBtnDisabled(false);
+            setMessage("");
+        }
+    }, [feedbackEdit])
 
 
     return (

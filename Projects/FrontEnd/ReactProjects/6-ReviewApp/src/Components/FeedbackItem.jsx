@@ -4,11 +4,9 @@ import Card from './SharedComponent/Card';
 import FeedbackContext from '../Context/FeedbackContext';
 
 
-const FeedbackItem = () => {
+const FeedbackItem = ({ item }) => {
 
-  const { feedback, handleDeleteFeedback, handleEditFeedback } = useContext(FeedbackContext);
-
-  const [feedbackItem] = feedback;
+  const { handleDeleteFeedback, handleEditFeedback } = useContext(FeedbackContext);
 
 
 
@@ -16,11 +14,11 @@ const FeedbackItem = () => {
     <>
       <Card>
         <div className="card-wrapper">
-          <h4>{feedbackItem.text}</h4>
+          <h4>{item.text}</h4>
 
           <div className='icon-box'>
-            <div className="edit" onClick={() => handleEditFeedback(feedbackItem.id)}><FaEdit size="18px" /></div>
-            <div className="delete" onClick={() => handleDeleteFeedback(feedbackItem.id)}><FaTrash size="18px" /></div>
+            <div className="edit" onClick={() => handleEditFeedback(item)}><FaEdit size="18px" /></div>
+            <div className="delete" onClick={() => handleDeleteFeedback(item.id)}><FaTrash size="18px" /></div>
           </div>
         </div>
       </Card>

@@ -5,7 +5,7 @@ import ThemeContext from '../Context/ThemeContext'
 const Header = ({ title = "Review App" }) => {
 
   const { toggle, handleToggle } = useContext(ThemeContext);
-  console.log(toggle, handleToggle);
+  // console.log(toggle, handleToggle);
 
   return (
     <header>
