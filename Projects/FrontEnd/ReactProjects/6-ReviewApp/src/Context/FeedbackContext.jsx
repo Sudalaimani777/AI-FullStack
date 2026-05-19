@@ -12,21 +12,20 @@ export const FeedbackProvider = ({ children }) => {
         edit: false
     });
 
-
-
-    const fetchFeedback = async () => {
-        try {
-            const response = await fetch("https://6a0c38235aa893e1015b396b.mockapi.io/api/v1/review");
-            const data = await response.json();
-            setFeedback(data);
-        } catch (err) {
-            console.log(err)
+    useEffect(() => {
+        const fetchFeedback = async () => {
+            try {
+                const response = await fetch("https://6a0c38235aa893e1015b396b.mockapi.io/api/v1/review");
+                const data = await response.json();
+                const sortedData = data.reverse();
+                setFeedback(sortedData);
+            } catch (err) {
+                console.log(err)
+            }
         }
-    }
 
-    // useEffect(() => {
-    //     fetchFeedback();
-    // });
+        fetchFeedback();
+    }, []);
 
     const handleAddFeedback = async (newFeedback) => {
         // setFeedback(prevFeedback => [...prevFeedback, newFeedback]);
@@ -54,6 +53,7 @@ export const FeedbackProvider = ({ children }) => {
                 }
             })
             const data = await response.json();
+            console.log(data);
             setFeedback(prevFeedback => prevFeedback.filter(item => item.id !== id));
         } catch (err) {
             console.log(err)
