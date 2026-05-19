@@ -38,14 +38,10 @@ a{
 }
 
 header {
-    background: blue;
+    background: linear-gradient(135deg, #123c69 0%, #1d70a2 55%, #2a9d8f 100%);
     color: #ffffff;
-    padding: 10px 0px;
-    /* color: #333;
-    margin-bottom: 30px;
-    background-color: #1a73e8;
-    color: #fff;
-    border-radius: 10px 10px 0 0; */
+    padding: 18px 0;
+    box-shadow: 0 12px 30px rgba(18, 60, 105, 0.2);
 }
 
 .header-inner {
@@ -53,28 +49,45 @@ header {
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: center;
-    position: relative;
+    justify-content: space-between;
+    gap: 24px;
 }
 
 .header-title {
     margin: 0;
-    text-align: center;
+    font-size: 1.9rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
 }
 
-.toggle-btn {
-    position: absolute;
-    right: 0;
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 header h4,
-header a{
+header a {
     color: #ffffff;
 }
 
-header > div > div > div{
-    display: flex;
-    gap:30px;
+.header-nav a {
+    padding: 10px 14px;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.header-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.16);
+    transform: translateY(-1px);
 }
 
 
@@ -176,10 +189,51 @@ button:disabled {
 
 
 .toggle-btn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    color: black;
+    padding: 10px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    color: #123c69;
+    background-color: #ffffff;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.toggle-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.toggle-btn.dark {
+    background-color: #f4d35e;
+    color: #1f2937;
+}
+
+.toggle-btn.light {
+    background-color: #ffffff;
+    color: #123c69;
+}
+
+@media (max-width: 768px) {
+    .header-inner {
+        width: 92%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-actions {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .header-nav {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .header-nav a,
+    .toggle-btn {
+        text-align: center;
+    }
 }
