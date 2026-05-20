@@ -1,5 +1,5 @@
 {
-  "name": "day1",
+  "name": "server",
   "version": "1.0.0",
   "description": "",
   "license": "ISC",
@@ -13,3 +13,5 @@
     "express": "^5.2.1"
   }
 }
+
+
