@@ -1,0 +1,92 @@
+                                                        ReactJS Higher-Order Components
+
+
+Higher-order components (HOC) are an advanced technique in React that is used for reusing component logic. It is the function that takes the original component and returns the new enhanced component.
+
+It doesn’t modify the input component directly. Instead, they return a new component with enhanced behavior.
+They allow you to reuse component logic across multiple components without duplicating it.
+They are pure functions that accept a component and return a new component.
+Syntax:
+
+    const EnhancedComponent = higherOrderComponent(OriginalComponent);
+
+A Higher-Order Component takes a component as input.
+It returns a new component with added functionality.
+The new component behaves like the original but with extra features.
+
+Implementation of the Higher-Order Components
+    Step 1: Create a React application
+        Create a React application by using the following command.
+
+            npm create vite@latest foldername
+
+    Step 2: Move in the Folder
+        After creating your project folder i.e. foldername, move to it using the following command.
+
+            cd foldername
+        
+    Example 1 :
+
+        Name.jsx
+            import React from 'react';
+            // Higher-Order Component (HOC) as a functional component
+            const withName = (OriginalComponent) => {
+            const NewComponent = (props) => {
+                return <OriginalComponent {...props} name="GeeksforGeeks" />;
+            };
+            return NewComponent;
+            };
+            export default withName;
+        
+        App.jsx :-
+
+            import React from "react";
+            import "./App.css";
+            import withName from './Components/Name'; // Import the HOC
+            // Functional component
+            const App = (props) => {
+                return <h1>{props.name}</h1>;
+            };
+            // Wrap the App component with the HOC to create the enhanced version
+            const EnhancedComponent = withName(App);
+            // Export the enhanced component
+            export default EnhancedComponent;
+
+Advantages of Higher-Order Components :-
+    Code Reusability: Allows sharing common logic across multiple components.
+    Separation of Concerns: Keeps business logic separate from UI code.
+    Readability: Makes components cleaner and easier to understand.
+    Maintainability: Reduces duplication and simplifies updates.
+
+HOC Usage Tips
+    Avoid Overuse: Use HOCs only when necessary.
+    Reusable Logic: Apply HOCs for common features like auth or loaders.
+    Pass Props: Forward all required props to wrapped components
+    Clear Naming: Use meaningful names for easier debugging.
+
+Implementation of React.memo() and useMemo() :-
+
+    React.memo and useMemo help improve performance by avoiding unnecessary re-computations. They allow React to reuse previously calculated results when inputs have not changed.
+
+        React.memo prevents re-rendering of functional components when props are unchanged
+        useMemo memoizes the result of a function call inside a componen
+        Both help optimize performance in React applications
+
+    memo()
+        React.memo() is a higher-order component (HOC) provided by React that memoizes functional components. It means that it caches the result of the component’s rendering based on its props, and re-renders only when the props have changed.
+
+        Syntax of React.memo():
+            const MemoizedComponent = memo(FunctionalComponent)
+
+    useMemo()
+        useMemo() is a React Hook used to memoize the result of expensive computations within functional components. It memorizes the value returned by a provided function and re-calculates it only when the dependencies change.
+
+        Syntax of useMemo():
+            const memoizedValue = useMemo(() => computeExpensiveValue(dep1, dep2), [dep1, dep2]);
+
+    Features:
+        Efficient Rendering: Use React.memo() to avoid unnecessary re-renders, improving performance, especially for complex components.
+        Memoized Data: Use useMemo() to save the results of filtered data so the app doesn’t recalculate it every time, making it faster.
+        Dynamic Filtering: Allows users to search and filter through lists easily without slowing down the app.
+        Real-time Updates: The list updates instantly as the user types in the filter, providing a smooth experience.
+        Scalability: Designed to handle large datasets efficiently, keeping performance stable even as data grows.
