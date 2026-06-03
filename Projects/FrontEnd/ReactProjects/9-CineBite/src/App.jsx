@@ -1,13 +1,17 @@
-
 import './App.css'
+import Footer from './Components/Footer'
+import Header from './Components/Header'
+import AllRoutes from './Routes/AllRoutes'
 
 function App() {
-  
+
 
   return (
-      <>
-        <h1 className='text-3xl font-bold underline text-center text-red-500'>CineBite</h1>
-      </>
+    <>
+      <Header />
+      <AllRoutes />
+      <Footer />
+    </>
   )
 }
 
