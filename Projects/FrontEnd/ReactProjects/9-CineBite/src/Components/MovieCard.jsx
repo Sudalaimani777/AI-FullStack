@@ -1,6 +1,7 @@
-
+import {useNavigate} from "react-router-dom"
 const MovieCard = ({ movieData }) => {
     const {
+        id,
         title,
         poster_path,
         overview,
@@ -10,6 +11,13 @@ const MovieCard = ({ movieData }) => {
         adult,
         popularity,
     } = movieData;
+
+    
+    const navigate = useNavigate()
+
+    const handleNavigate = () => {
+        navigate(`movie/${id}`)
+    }
 
     const posterUrl = poster_path
         ? `https://image.tmdb.org/t/p/w500${poster_path}`
@@ -65,12 +73,15 @@ const MovieCard = ({ movieData }) => {
                     </span>
                 </div>
 
-                <p className="line-clamp-4 text-sm leading-6 text-slate-600">
+                <p className="line-clamp-3 text-sm leading-6 text-slate-600">
                     {overview || "Overview is not available for this movie yet."}
                 </p>
 
                 <div className="mt-auto pt-5">
-                    <button className="w-full rounded-xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 cursor-pointer">
+                    <button 
+                        className="w-full rounded-xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 cursor-pointer"
+                        onClick={handleNavigate}
+                    >
                         View Details
                     </button>
                 </div>
