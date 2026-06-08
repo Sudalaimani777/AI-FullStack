@@ -9,8 +9,8 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="mt-12 border-t border-slate-200 bg-slate-950 text-slate-200">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-10 sm:px-6 md:grid-cols-[1.4fr_1fr] lg:px-8">
+    <footer className="border-t border-slate-800 bg-slate-950 pt-12 text-slate-200">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 pb-10 sm:px-6 md:grid-cols-[1.4fr_1fr] lg:px-8">
         <div className="space-y-4">
           <Link to="/" className="inline-flex items-center gap-3">
             <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-red-500 text-lg font-bold text-white shadow-lg shadow-red-500/20">
