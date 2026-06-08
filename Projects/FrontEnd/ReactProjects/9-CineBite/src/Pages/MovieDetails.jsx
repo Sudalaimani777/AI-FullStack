@@ -83,7 +83,7 @@ const MovieDetails = () => {
             alt={movieDetails.title}
             className="h-full w-full object-cover opacity-20 blur-0"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-slate-950/80 to-slate-950" />
+          <div className="absolute inset-0 bg-linear-to-b from-slate-950/40 via-slate-950/80 to-slate-950" />
         </div>
 
         <div className="relative mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
@@ -93,7 +93,7 @@ const MovieDetails = () => {
                 <img
                   src={posterUrl}
                   alt={movieDetails.title}
-                  className="aspect-[2/3] w-full object-cover"
+                  className="aspect-2/3 w-full object-cover"
                 />
               </div>
 

@@ -12,11 +12,11 @@ const MovieCard = ({ movieData }) => {
         popularity,
     } = movieData;
 
-    
+
     const navigate = useNavigate()
 
     const handleNavigate = () => {
-        navigate(`movie/${id}`)
+        navigate(`/movie/${id}`)
     }
 
     const posterUrl = poster_path
