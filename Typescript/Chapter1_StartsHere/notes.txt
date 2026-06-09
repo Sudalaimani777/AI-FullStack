@@ -1,14 +1,68 @@
 What is TypeScript? (Professional Explanation)
 
-TypeScript is a statically typed superset of JavaScript developed by Microsoft.
+    TypeScript is a statically typed superset of JavaScript developed by Microsoft.
+    TypeScript was created by Anders Hejlsberg, who created the c#
 
-It adds features such as:
+    It adds features such as:
 
-Static typing (checking data types before code runs)
-Interfaces
-Enums
-Generics
-Type inference
-Better tooling and IntelliSense support
+        Static typing (checking data types before code runs)
+        Interfaces
+        Enums
+        Generics
+        Type inference
+        Better tooling and IntelliSense support
 
-TypeScript code is compiled (transpiled) into regular JavaScript, which browsers and Node.js can execute.
+    TypeScript code is compiled (transpiled) into regular JavaScript, which browsers and Node.js can execute.
+
+Commands and Steps :-
+
+    1) Install TS Globally 
+        -> tsc i typescript -g
+
+    2) To compile the TS file to the js file we have a command called as 
+        -> tsc "fileName.ts" "compilName.js" 
+        (The compile name is not necessary because, when we compile the TS file it automatically creates the similar name as the ts file for the js file) 
+
+    3)We need to re-compile the TS file each and every time to render the js created js file, to solve this we need to watch the ts file, so the command for is 
+        -> tsc "fileName" -w
+
+    4)We need to structure the files, in seperate folders for the TS and the JS files, we create two folders, the "src" and the "build" folders to organize the files. The "src" folder contain the TS file and the "build" folder contains the JS, html and the css files
+
+    5) We need to make the ts file understand the folder to create the js file. So we need to initialize the config file for the TS. To create that the command is 
+        -> tsc --init
+
+        Once we initialize the "tsconfig.json" file will be created, now we need to change some things to know the TS file to create the "JS" file in the specific folder. For that, in the config file, it has the root directory and the out directory.
+
+        Root Directory -> TS file lives
+        Out Directory -> JS file lives
+
+        To change that we need to specify the path for these two keys
+
+            "rootDir": "./src",
+            "outDir": "./build/js",
+
+    6)Watch All the "TS" file changes
+        -> tsc -w
+
+    7)If we created the new TS file it will automatically created the "JS" file and the other js file like "sourcemap.js" and other files. To stop creating these files, we need to modify the config file and chaange the values into false
+
+        // Other Outputs
+        "sourceMap": false,
+        "declaration": false,
+        "declarationMap": false,
+    
+    8)Also we need to stop when the developer unintentionally creates the "TS" file which is outside the src folder, To stop this kinda mistake we need to modify the config file
+
+        "include": ["src"]
+
+        Add the above key and the value in the config file to prevent this kinda issue
+
+    9)noEmitOnError :-
+        The noEmitOnError option in tsconfig.json tells the TypeScript compiler not to generate output files (like JavaScript code, source maps, or declaration files) if any type-checking or compilation errors are found
+
+        We need to change the config file   
+            {
+                "compilerOptions": {
+                    "noEmitOnError": true
+                }
+            }
