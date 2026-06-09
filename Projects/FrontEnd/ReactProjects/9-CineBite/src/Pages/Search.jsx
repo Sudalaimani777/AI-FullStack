@@ -2,7 +2,11 @@
 
 const Search = () => {
   return (
-    <div>Search</div>
+    <>
+      <section>
+        <h1>Search</h1>
+      </section>
+    </>
   )
 }
 
