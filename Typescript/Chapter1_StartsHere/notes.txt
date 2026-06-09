@@ -1,0 +1,14 @@
+What is TypeScript? (Professional Explanation)
+
+TypeScript is a statically typed superset of JavaScript developed by Microsoft.
+
+It adds features such as:
+
+Static typing (checking data types before code runs)
+Interfaces
+Enums
+Generics
+Type inference
+Better tooling and IntelliSense support
+
+TypeScript code is compiled (transpiled) into regular JavaScript, which browsers and Node.js can execute.
