@@ -1,0 +1,196 @@
+TypeScript Basic Types 
+
+    TypeScript is a strongly typed programming lanuage, which specify the type of the data that we are using and that helps us to self document and enforce our code.
+    TypeScript are statically typed lanuage which means the types are checked at the "compile" time.
+
+    The TS implicitely detects the value that we assigned to the variable. But we can also explicitly declare the type of the value that the variable holds.
+
+    TS -> Checks at Complie time
+    JS -> Check at runtime.
+
+    Benifits of TS :-
+        Self-documentating
+        Error Handeling
+        Great for teams
+        
+
+Basic Types
+
+-   string: Stores text.
+-   number: Stores integers and floating-point values.
+-   boolean: Stores true or false.
+-   null: Intentionally empty value.
+-   undefined: Value not assigned.
+-   any: Disables type checking.
+-   unknown: Safer version of any.
+-   void: Function returns nothing.
+-   never: Function never returns.
+-   object: Non-primitive values.
+-   Array: Collection of elements.
+-   Tuple: Fixed-length array with fixed types.
+-   Enum: Group of named constants.
+-   Literal Type: Restricts to specific values.
+-   Union Type: Allows multiple specified types.
+
+Examples
+
+string
+
+    let name: string = "Sudalai";
+
+number
+
+    let age: number = 21;
+
+boolean
+
+    let isStudent: boolean = true;
+
+null
+
+    let data: null = null;
+
+undefined
+
+    let value: undefined = undefined;
+
+any
+
+    let x: any = 10;
+    x = "Hello";
+
+unknown
+
+    let y: unknown = "Hello";
+    if (typeof y === "string") {
+      console.log(y.toUpperCase());
+    }
+
+void
+
+    function greet(): void {
+      console.log("Hi");
+    }
+
+never
+
+    function fail(): never {
+      throw new Error("Error");
+    }
+
+Array
+
+    let nums: number[] = [1, 2, 3];
+
+Tuple
+
+    let user: [string, number] = ["John", 20];
+
+Enum
+
+    enum Role {
+      Admin,
+      User
+    }
+
+Union
+
+    let id: string | number;
+
+Literal
+
+    let direction: "left" | "right";
+
+Interview Questions with Answers
+
+Q1. What is TypeScript? Answer: TypeScript is a statically typed
+superset of JavaScript that adds type checking, better tooling, and
+compile-time error detection while compiling to plain JavaScript.
+
+Q2. What are basic types in TypeScript? Answer: Basic types include
+string, number, boolean, null, undefined, any, unknown, void, never,
+object, arrays, tuples, enums, literal types, and union types.
+
+Q3. What is the difference between any and unknown? Answer: - any
+disables type checking and allows any operation. - unknown requires type
+checking before use, making it safer.
+
+Q4. What is the difference between null and undefined? Answer: - null
+means an intentional absence of a value. - undefined means a variable
+has not been assigned a value.
+
+Q5. What is the difference between void and never? Answer: - void
+indicates a function does not return a value. - never indicates a
+function never completes normally, such as always throwing an error or
+running forever.
+
+Q6. What is a tuple? Answer: A tuple is an array with a fixed number of
+elements where each position has a predefined type.
+
+Example:
+
+    let person: [string, number] = ["Alice", 25];
+
+Q7. What is a union type? Answer: A union type allows a variable to
+store one of several specified types.
+
+Example:
+
+    let id: string | number;
+
+Q8. What is type inference? Answer: TypeScript automatically determines
+the type based on the assigned value.
+
+Example:
+
+    let age = 21;
+
+Q9. What is type annotation? Answer: Type annotation explicitly
+specifies the type.
+
+Example:
+
+    let age: number = 21;
+
+Q10. Why should you avoid any? Answer: Because it removes type safety
+and can cause runtime errors that TypeScript cannot detect.
+
+Q11. What is an enum? Answer: An enum is a collection of named constants
+that improves readability and maintainability.
+
+Q12. What is the difference between Array and Tuple? Answer: An Array
+can contain any number of elements of the same type. A Tuple has a fixed
+length and fixed types for each position.
+
+Q13. Can JavaScript files be used in TypeScript? Answer: Yes. JavaScript
+is valid TypeScript, and types can be added gradually.
+
+Quick Revision
+
+string → text
+
+number → numbers
+
+boolean → true/false
+
+null → intentional empty value
+
+undefined → unassigned value
+
+any → disables type checking
+
+unknown → safer flexible type
+
+void → no return value
+
+never → never returns
+
+Array → collection
+
+Tuple → fixed structure
+
+Enum → named constants
+
+Literal → fixed values only
+
+Union → multiple allowed types
