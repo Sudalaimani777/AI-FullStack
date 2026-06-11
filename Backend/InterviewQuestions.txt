@@ -1,0 +1,60 @@
+1. What is Express.js?
+
+Answer:
+    Express.js is a lightweight and minimal web framework built on top of Node.js that simplifies building web servers and REST APIs by providing routing, middleware support, and utility methods.
+
+2. Why use Express instead of Node's http module?
+
+Answer:
+
+Easier routing
+Middleware support
+Cleaner code
+Better scalability
+Faster development
+Built-in request and response helpers
+3. What does express() return?
+
+Answer:
+It returns an Express application instance (app) that provides methods to define routes, configure middleware, and start the server.
+
+4. What is app.listen()?
+
+Answer:
+app.listen() starts the server and binds it to a specific port, allowing it to listen for incoming client requests.
+
+5. Difference between res.send() and res.json()?
+res.send()	res.json()
+Can send strings, HTML, objects, or buffers	Specifically sends JSON and sets the Content-Type to application/json
+Automatically detects content type	Always serializes the response as JSON
+
+6. What are req and res?
+
+Answer:
+
+req (Request): Contains data sent by the client, such as URL, headers, query parameters, and body.
+res (Response): Used by the server to send data, status codes, or files back to the client.
+
+7. What is routing in Express?
+
+Answer:
+Routing is the process of defining how an application responds to different HTTP requests for specific URLs and methods (such as GET, POST, PUT, and DELETE).
+
+8. What happens if no route matches?
+
+Answer:
+Express will continue searching for matching middleware or routes. If none are found, you can define a final middleware to return a 404 Not Found response.
+
+9. What is Nodemon?
+
+Answer:
+Nodemon is a development tool that automatically restarts the Node.js application whenever source files change, improving development productivity.
+
+10. How do you start an Express server?
+const express = require("express");
+
+const app = express();
+
+app.listen(3000, () => {
+    console.log("Server running on port 3000");
+});
