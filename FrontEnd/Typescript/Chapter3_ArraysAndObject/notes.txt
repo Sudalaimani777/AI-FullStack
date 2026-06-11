@@ -1,0 +1,329 @@
+TypeScript Day 3 Notes
+
+Arrays, Tuples, Objects, Type Aliases, Interfaces & Enums
+
+==================================================
+
+1. ARRAYS
+
+What: An array is a collection of multiple values stored in one
+variable. TypeScript infers the element type automatically.
+
+Why: - Store related data together. - Provide type safety. - Easy
+iteration and manipulation.
+
+When: - Lists of users, products, messages, scores, etc.
+
+Common Mistakes: - Using [] without an explicit type. - Mixing unrelated
+types unnecessarily.
+
+Effective Code: - Prefer explicit types for empty arrays. - Keep arrays
+homogeneous whenever possible.
+
+Advantages: - Easy to iterate. - Strong type checking. - Good IDE
+support.
+
+Disadvantages: - Mixed arrays become hard to maintain. - Untyped empty
+arrays may become any[].
+
+------------------------------------------------------------------------
+
+2. TUPLES
+
+What: A tuple is a fixed-length array where each position has a
+predefined type.
+
+Why: - Enforces both order and type.
+
+When: - Coordinates, RGB values, API responses.
+
+Common Mistakes: - Putting values in the wrong order.
+
+Effective Code: - Use tuples only when position has meaning.
+
+Advantages: - Strict type safety. - Predictable structure.
+
+Disadvantages: - Less readable for many fields.
+
+------------------------------------------------------------------------
+
+3. OBJECTS
+
+What: Objects store data as key-value pairs.
+
+Why: - Model real-world entities.
+
+When: - Users, products, employees, orders.
+
+Common Mistakes: - Using generic object instead of a defined type.
+
+Effective Code: - Use interfaces or type aliases.
+
+Advantages: - Readable. - Flexible.
+
+Disadvantages: - Deep nesting can reduce readability.
+
+------------------------------------------------------------------------
+
+4. TYPE ALIAS
+
+What: Creates reusable custom types.
+
+Why: - Avoid duplication. - Supports unions and complex types.
+
+When: - Reusing object shapes or union types.
+
+Common Mistakes: - Forgetting required properties.
+
+Effective Code: - Use meaningful names. - Make properties optional only
+when needed.
+
+Advantages: - Reusable. - Supports unions.
+
+Disadvantages: - No declaration merging.
+
+------------------------------------------------------------------------
+
+5. INTERFACES
+
+What: Defines the structure of an object.
+
+Why: - Standardizes object contracts.
+
+When: - API models, classes, reusable object definitions.
+
+Common Mistakes: - Thinking interfaces create objects.
+
+Effective Code: - Prefer interfaces for object models.
+
+Advantages: - Extendable. - Declaration merging.
+
+Disadvantages: - Less suitable for primitive unions.
+
+------------------------------------------------------------------------
+
+6. ENUMS
+
+What: Enums define named constants.
+
+Why: - Replace magic numbers or strings.
+
+When: - Status values, grades, roles.
+
+Common Mistakes: - Using enums where string literal unions are simpler.
+
+Effective Code: - Prefer string enums for API-facing values.
+
+Advantages: - Improves readability. - Prevents magic values.
+
+Disadvantages: - Generates extra JavaScript.
+
+==================================================
+
+GENERAL BEST PRACTICES
+
+-   Avoid any whenever possible.
+-   Explicitly type empty arrays.
+-   Use interfaces for object structures.
+-   Use type aliases for unions.
+-   Keep arrays consistent.
+-   Use optional chaining (?).
+-   Choose descriptive variable names.
+
+==================================================
+
+TypeScript Day 3 - Interview Questions and Answers
+
+1. What is TypeScript’s type inference for arrays?
+
+Answer: TypeScript automatically determines the type of an array based
+on its initial values. For example:
+
+const names = [“Dhoni”, “Kohli”];
+
+TypeScript infers it as string[], meaning only strings can be added
+later.
+
+------------------------------------------------------------------------
+
+2. Why should empty arrays be explicitly typed?
+
+Answer: Empty arrays may become any[] (or an undesirable inferred type),
+which removes type safety. Explicit typing ensures only the intended
+data type can be stored.
+
+Example: const numbers: number[] = [];
+
+------------------------------------------------------------------------
+
+3. What is the difference between an Array and a Tuple?
+
+Answer:
+
+Array: - Stores multiple values of the same type. - Length can change.
+
+Tuple: - Stores fixed values with fixed positions and types. - Length is
+fixed.
+
+Example: string[] -> [“A”, “B”] [string, number] -> [“John”, 25]
+
+------------------------------------------------------------------------
+
+4. When should Tuples be used?
+
+Answer: Use tuples when both the order and type of elements matter.
+
+Examples: - Coordinates [x, y] - RGB values [255, 255, 255] - API
+responses [“Success”, 200]
+
+------------------------------------------------------------------------
+
+5. What is the difference between object and Object?
+
+Answer: object: - Represents any non-primitive value.
+
+Object: - JavaScript wrapper type for all objects.
+
+For defining data structures, interfaces or type aliases are preferred.
+
+------------------------------------------------------------------------
+
+6. What is a Type Alias?
+
+Answer: A Type Alias creates a custom reusable type.
+
+Example:
+
+type User = { name: string; age: number; }
+
+It helps avoid code duplication and improves readability.
+
+------------------------------------------------------------------------
+
+7. Can Type Aliases represent union types?
+
+Answer: Yes.
+
+Example:
+
+type ID = string | number;
+
+A variable of type ID can store either a string or a number.
+
+------------------------------------------------------------------------
+
+8. What is the difference between Interface and Type?
+
+Answer:
+
+Interface: - Mainly used for object shapes. - Supports declaration
+merging. - Can be extended.
+
+Type: - Can represent objects, unions, primitives, intersections, and
+functions. - Does not support declaration merging.
+
+------------------------------------------------------------------------
+
+9. Can interfaces extend other interfaces?
+
+Answer: Yes.
+
+Example:
+
+interface Animal { name: string; }
+
+interface Dog extends Animal { breed: string; }
+
+Dog inherits all properties from Animal.
+
+------------------------------------------------------------------------
+
+10. What are Enums?
+
+Answer: Enums are named constants that improve readability and eliminate
+magic values.
+
+Example:
+
+enum Status { Pending, Success, Failed }
+
+------------------------------------------------------------------------
+
+11. Difference between Numeric and String Enums?
+
+Answer:
+
+Numeric Enum: enum Grade { A = 1, B, C }
+
+Produces: A = 1 B = 2 C = 3
+
+String Enum:
+
+enum Role { Admin = “ADMIN”, User = “USER” }
+
+String enums are generally easier to debug and use with APIs.
+
+------------------------------------------------------------------------
+
+12. Why should any be avoided?
+
+Answer: The any type disables TypeScript’s type checking.
+
+It allows any operation, increasing the chance of runtime bugs.
+
+Prefer unknown when the type is uncertain.
+
+------------------------------------------------------------------------
+
+13. What is Optional Chaining?
+
+Answer: Optional chaining (?.) safely accesses properties that might be
+undefined or null.
+
+Example:
+
+user.name?.toUpperCase();
+
+If name is undefined, the expression returns undefined instead of
+throwing an error.
+
+------------------------------------------------------------------------
+
+14. When should Interfaces be preferred over Type Aliases?
+
+Answer: Interfaces are preferred when defining object structures,
+especially in large projects or when classes need to implement them.
+
+Type aliases are better suited for unions, intersections, and advanced
+type compositions.
+
+------------------------------------------------------------------------
+
+15. What are the advantages of using TypeScript for object modeling?
+
+Answer: - Strong compile-time type checking. - Better IDE
+autocompletion. - Easier refactoring. - Self-documenting code. - Reduced
+runtime errors. - Improved maintainability.
+
+=================================================
+
+BONUS INTERVIEW QUESTIONS
+
+1.  What is type inference in TypeScript?
+2.  What is the difference between implicit and explicit typing?
+3.  What are optional properties?
+4.  How do union types work?
+5.  Why are interfaces preferred in large applications?
+6.  Can a tuple contain optional elements?
+7.  What happens if you push a wrong type into a typed array?
+8.  What is the purpose of optional chaining?
+9.  When should string enums be preferred over numeric enums?
+10. What are the drawbacks of using any?
+
+
+QUICK REVISION
+
+Arrays -> Ordered collection of values. Tuples -> Fixed order + fixed
+types. Objects -> Key-value data structure. Type Alias -> Custom
+reusable type definition. Interface -> Defines object contracts. Enum ->
+Named constants.
