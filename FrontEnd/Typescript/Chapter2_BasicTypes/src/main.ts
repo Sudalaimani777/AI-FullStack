@@ -11,12 +11,12 @@ let favouriteNumber: number = 7;
 console.log(favouriteNumber);
 
 // We can specify the data type that is present in the function paramenter :-
-const greetUser = (user:string) => `Welcome ${user}`
+const greetUser = (user: string) => `Welcome ${user}`
 // console.log(greetUser(4)) //Return error
 console.log(greetUser("Sudalaimani Kannan"));
 
-const sum = (a:number,b:number) => a + b;
-console.log(sum(5,2));
+const sum = (a: number, b: number) => a + b;
+console.log(sum(5, 2));
 
 //Boolean :-
 let isLogin: boolean = true;
@@ -34,7 +34,7 @@ console.log(userFavoirite);
 
 //unknown: Safer version of any.
 let isActive: unknown = "Yes";
-if(typeof isActive === "string") console.log(isActive);
+if (typeof isActive === "string") console.log(isActive);
 
 // Union :- Allows multipe data type which is specified
 let id: string | number = "1";

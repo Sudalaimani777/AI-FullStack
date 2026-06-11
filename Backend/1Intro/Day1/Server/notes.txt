@@ -9,3 +9,5 @@
 5 - The npm i nodemon --save-dev command is used to install the nodemon package as a development dependency in a Node.js project. Nodemon is a utility that automatically restarts the server whenever it detects changes in the source code, making it easier for developers to see the effects of their changes without manually restarting the server each time.
 
 6 - In the package.json, in the scripts object we need to change the key as "dev" and the value as the nodemon and the js file -> dev: nodemon server.js
+
+    The command is npm i nodemon --save-dev
