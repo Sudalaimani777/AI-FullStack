@@ -1,4 +1,68 @@
 Express.JS :-
 
 What is Express js ?
+    It is a fast, minimalist web application framework for Node.js
+    Designed for building web applications and Fast API
+    It simplifies Routing -  makes it easier to handle URL routes and HTTP methods
+    Middleware support — augments core features through Express middleware modules for tasks like authentication, body parsing, and error handling
+
+Difference Between Node and Express js ?
+    Node js is the Run time enviroment , it is the foundation, Runs JS outside the browser on server, CLI 
+    Express Js is the Framework which is built on top of the Node.js
+
+    Node.js = plain slice of bread (the base)
+    Express.js = full sandwich (bread + filling + sauces — ready to serve)
+
+    Node JS -> Read/Write, Handels network request, build web server
+    Express JS -> Organized way to build API and web server with Routing and middleware
+
+    Node provides the foundation, Express makes building web apps faster and more maintainable.
+
+Advantages of Express :-
+    Powerful Routing -> GET, PUT, POST, DELETE
+    Lightweight -> Fast and efficient with no unnecessary features
+    Flexible -> customizable, we can tailor the framework to our specific requirements
+    Middleware Support -> Middleware functions execute for every HTTP request — handles logging, authentication, error handling, and automation
+    Time-Efficient -> Saves ~50% coding time compared to plain Node.js; less time writing solid, tested code
+
+
+const express = require("express");
+
+    require("express") -> imports the express module from the package
+    express is now a function (the main Express function) that you can call to create an application
+    This gives you access to all of Express's features
+
+const app = express();
     
+    Now we create the new instance of the express() in the app
+    Now the app has all the methods of express
+
+    Link -> Express is the blueprint, app is the actual building created from it
+
+app.listen(3000);
+    listen starts the web server that accepts the HTTPS request
+    3000 is the port number where the server listens (like an "address" for your app)
+
+    | Step | Code               | What it does               |
+| ---- | ------------------ | -------------------------- |
+| 1    | require("express") | Loads Express library      |
+| 2    | express()          | Creates app instance       |
+| 3    | app.listen(3000)   | Starts server on port 3000 |
+
+HTTP METHODS :-
+    GET -> Fetch data from the specific resources. (Eg: Fetch all products)
+    POST -> Create new data on the server (Eg : Add new user account)
+    PATCH -> Modifies the or partially updates the resource (Eg:  Update only user's email (keep name, age unchanged))
+    PUT -> Replace the entire data with the new one (Eg: Update entire user profile, replace full product data)
+    DELETE -> Delete the specific resources from the server (Eg: Remove user, Delete Profile)
+
+Routes Methods :-
+    In Express.js, routes defines how the server responds to different http request at specific endpoints
+
+    Syntax :-
+        app.METHOD(PATH, HANDLER)
+    
+            app -> Express application instance
+            METHOD -> http methods (get, put, patch, delete, post)
+            PATH -> URL path on the server
+            HANDLER -> Callback function executed when the route matches
