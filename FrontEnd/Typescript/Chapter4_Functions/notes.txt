@@ -1,0 +1,270 @@
+TypeScript Day 4 Notes
+
+TOPICS
+
+1.  Type Aliases
+2.  Literal Types
+3.  Functions
+4.  Return Types
+5.  Void Functions
+6.  Anonymous Functions
+7.  Function Type Aliases
+8.  Function Interfaces
+9.  Optional Parameters
+10. Default Parameters
+11. Rest Parameters
+
+====================================================================== 1.
+TYPE ALIASES
+======================================================================
+
+What? A Type Alias is a custom name for any TypeScript type. It allows
+you to reuse complex types instead of rewriting them repeatedly.
+
+Example: type ID = string | number;
+
+Why? - Reduces duplication. - Makes code readable. - Improves
+maintainability.
+
+When? - Union types - Arrays - Function signatures - Complex objects
+
+Common Mistakes: - Creating unnecessary aliases. - Using cryptic
+names. - Confusing with interfaces.
+
+Effective Code Writing: - Use PascalCase. - Reuse aliases. - Keep names
+descriptive.
+
+Advantages: - Reusable - Supports unions - Cleaner code
+
+Disadvantages: - No declaration merging - Can become confusing if
+overused
+
+Interview: Q: What is a Type Alias? A: A reusable custom name for a
+type.
+
+Q: Can Type Aliases define functions? A: Yes.
+
+======================================================================
+2. LITERAL TYPES
+======================================================================
+
+What? Literal types restrict values to exact constants.
+
+Example: let dir: “East” | “West”;
+
+Why? Prevents invalid values.
+
+When? Roles, themes, directions, API states.
+
+Common Mistakes: Using string instead of literal unions.
+
+Effective Code: Prefer literal unions for small fixed values.
+
+Advantages: - Type safety - Better autocomplete
+
+Disadvantages: Need updating when adding values.
+
+Interview: Q: What is a literal type? A: A type allowing only specific
+values.
+
+======================================================================
+3. FUNCTIONS
+======================================================================
+
+What? Reusable blocks of code.
+
+Why? Reduce duplication.
+
+When? Repeated logic.
+
+Common Mistakes: Missing return types. Returning wrong data.
+
+Effective Code: Always specify return types in exported APIs.
+
+Advantages: Reusable and modular.
+
+Disadvantages: Poor naming hurts readability.
+
+Interview: Q: Why specify return types? A: Better readability and
+compile-time safety.
+
+======================================================================
+4. VOID FUNCTIONS
+======================================================================
+
+What? Functions that intentionally return nothing.
+
+Example: function log(): void {}
+
+Why? Logging, DOM updates, side effects.
+
+Common Mistake: Returning data from void functions.
+
+Interview: Q: What does void represent? A: No returned value.
+
+======================================================================
+5. ANONYMOUS FUNCTIONS
+======================================================================
+
+What? Functions without names.
+
+Why? Useful for callbacks.
+
+When? map(), filter(), reduce(), event handlers.
+
+Common Mistakes: Overusing them making stack traces difficult.
+
+Advantages: Concise.
+
+Disadvantages: Harder debugging.
+
+======================================================================
+6. FUNCTION TYPE ALIASES
+======================================================================
+
+What? Alias describing function signature.
+
+Example: type Calc=(a:number,b:number)=>number
+
+Why? Reuse identical signatures.
+
+Interview: Q: Why use function type aliases? A: Prevent duplication and
+enforce consistency.
+
+======================================================================
+7. FUNCTION INTERFACES
+======================================================================
+
+What? Interfaces can define callable signatures.
+
+Example: interface Calc{ (a:number,b:number):number; }
+
+Why? Standardize functions.
+
+Advantage: Extendable.
+
+Disadvantage: Less flexible than type for unions.
+
+======================================================================
+8. OPTIONAL PARAMETERS
+======================================================================
+
+What? Parameters marked with ?.
+
+Why? Allow omission.
+
+Rule: Always place after required parameters.
+
+Common Mistake: Optional before required.
+
+Interview: Q: What happens if omitted? A: Value becomes undefined.
+
+======================================================================
+9. DEFAULT PARAMETERS
+======================================================================
+
+What? Parameters with fallback values.
+
+Why? Reduce boilerplate.
+
+Example: function sum(a,b,c=0){}
+
+Common Mistake: Forgetting undefined to skip previous defaults.
+
+======================================================================
+10. REST PARAMETERS
+======================================================================
+
+What? Collect variable arguments.
+
+Example: (…nums:number[])
+
+Why? Unlimited inputs.
+
+Rule: Only one and it must be last.
+
+Common Mistake: Multiple rest parameters.
+
+======================================================================
+GENERAL BEST PRACTICES
+======================================================================
+
+-   Avoid any.
+-   Prefer unknown when unsure.
+-   Use explicit return types.
+-   Keep functions small.
+-   Reuse type aliases.
+-   Prefer interfaces for object contracts.
+-   Use descriptive names.
+-   Validate optional values.
+-   Keep rest parameters typed.
+
+======================================================================
+COMMON MISTAKES IN YOUR CODE
+======================================================================
+
+1.  subtract() returns c + d instead of c - d.
+2.  Avoid unnecessary aliases for primitive types.
+3.  Prefer meaningful names like NumberArray over onlyNumber.
+
+======================================================================
+INTERVIEW QUESTIONS & ANSWERS
+======================================================================
+
+1.  What is a Type Alias? Custom reusable name for any type.
+
+2.  Difference between Interface and Type? Interfaces mainly define
+    object contracts and support declaration merging. Types support
+    unions, intersections and primitives.
+
+3.  What are Literal Types? Types allowing only predefined values.
+
+4.  Why use Literal Types? To prevent invalid assignments.
+
+5.  What is a function return type? The datatype returned by a function.
+
+6.  What does void mean? Function returns nothing.
+
+7.  What is an anonymous function? Function without its own name.
+
+8.  Why create function type aliases? To reuse signatures.
+
+9.  Can interfaces define functions? Yes.
+
+10. Why should optional parameters be last? Avoid ambiguous argument
+    mapping.
+
+11. Difference between optional and default parameters? Optional may be
+    undefined; default provides fallback.
+
+12. What are rest parameters? Collect multiple arguments into an array.
+
+13. Can there be two rest parameters? No.
+
+14. Why avoid any? Removes type safety.
+
+15. When should unknown be used? When type is uncertain but needs
+    checking.
+
+16. Why specify return types? Improves maintainability.
+
+17. What happens if a literal type gets wrong value? Compile-time error.
+
+18. Why are function interfaces useful? They enforce consistent callable
+    structures.
+
+19. Are type aliases extendable? Through intersections, not declaration
+    merging.
+
+20. Which is better for object models? Interfaces.
+
+======================================================================
+QUICK REVISION
+======================================================================
+
+Type Alias -> Reusable custom type Literal Type -> Exact allowed values
+Function -> Reusable logic Return Type -> Returned datatype Void -> No
+return Anonymous -> Unnamed function Function Alias -> Reusable
+signature Function Interface -> Callable contract Optional Param -> Can
+be omitted Default Param -> Has fallback value Rest Param -> Unlimited
+arguments
