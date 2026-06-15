@@ -62,11 +62,11 @@ interface cal {
     (a: onlyNumber, b: onlyNumber): onlyNumber
 }
 
-const addition: cal = (a, b): number => a + b;
+const addition: cal = (a, b) => a + b;
 console.log(addition(4, 5));
 
 // Anonymous Func :-
-const additionFunc: cal = function (a, b): number {
+const additionFunc: cal = function (a, b) {
     return a + b;
 }
 console.log(additionFunc(30, 24));
