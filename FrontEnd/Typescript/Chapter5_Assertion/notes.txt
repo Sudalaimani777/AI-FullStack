@@ -1,0 +1,89 @@
+TypeScript Day 5 Notes – Type Assertions & Non-Null Assertions
+
+1.  What is Type Assertion?
+
+-   Kid Friendly: Imagine you have a closed toy box. Your friend doesn’t
+    know what’s inside, but you do. You say, “Trust me, it’s a toy car!”
+    Type Assertion is telling TypeScript that you know the real type
+    better than it does.
+
+-   Professional: Type Assertion lets developers manually specify the
+    type of a value when they have more information than the compiler.
+    It only affects compile-time checking and performs no runtime
+    conversion.
+
+2.  Why Use Type Assertions?
+
+-   TypeScript cannot always infer the exact type.
+-   Commonly used with DOM elements and third-party libraries.
+
+3.  Syntax Recommended: value as Type
+
+Alternative: value Avoid the angle bracket syntax in React because it
+conflicts with JSX.
+
+4.  Type Assertion vs Type Conversion Type Assertion:
+
+-   Only changes TypeScript’s understanding.
+-   Does not change the actual value.
+
+Type Conversion: - Converts the value at runtime. - Example:
+Number(“10”) -> 10
+
+5.  Advantages
+
+-   Helps when inference is insufficient.
+-   Makes DOM manipulation easier.
+-   Reduces unnecessary compiler errors.
+-   Improves developer experience.
+
+6.  Disadvantages
+
+-   Can hide bugs.
+-   No runtime validation.
+-   Wrong assertions may cause runtime failures.
+-   Overuse defeats TypeScript safety.
+
+7.  Non-Null Assertion (!) The ! operator tells TypeScript that a value
+    will never be null or undefined.
+
+Example: const img = document.querySelector(“img”)!
+
+Use only when you are certain the value exists.
+
+8.  Double Assertion Example: 10 as unknown as string
+
+This bypasses many safety checks and should be avoided unless absolutely
+necessary.
+
+9.  Common Mistakes
+
+-   Thinking ‘as’ converts data.
+-   Using ! on values that may be null.
+-   Blindly forcing incorrect types.
+-   Overusing unknown as Type.
+
+Interview Questions
+
+Q1. What is Type Assertion? A: It tells TypeScript to treat a value as a
+specific type without changing the runtime value.
+
+Q2. Does ‘as’ convert data? A: No. It only affects compile-time type
+checking.
+
+Q3. Difference between Type Assertion and Type Conversion? A: Assertion
+changes compiler understanding; conversion changes the actual value.
+
+Q4. Which syntax is recommended? A: The ‘as’ syntax.
+
+Q5. What does the ! operator do? A: It removes null and undefined from
+the type by asserting the value exists.
+
+Q6. Why use assertions with getElementById()? A: Because it returns
+HTMLElement | null, and assertions allow specifying a more precise type.
+
+Q7. Can wrong assertions cause runtime errors? A: Yes. They bypass
+compiler safety but do not validate data.
+
+Q8. When should assertions be avoided? A: When proper type guards or
+type narrowing can solve the problem.
