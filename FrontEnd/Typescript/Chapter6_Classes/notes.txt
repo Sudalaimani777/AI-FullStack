@@ -1,0 +1,67 @@
+TypeScript Day 6 Notes – Classes, Access Modifiers & Inheritance
+
+1.  What is a Class?
+
+-   Kid Friendly: A blueprint used to build many similar objects.
+-   Professional: A blueprint for creating objects containing properties
+    and methods.
+
+2.  Object An instance of a class.
+
+3.  Constructor Automatically runs when creating an object and
+    initializes data.
+
+4.  Access Modifiers public:
+
+-   Accessible everywhere.
+
+private: - Accessible only inside the class. - Used to hide sensitive
+data.
+
+protected: - Accessible in the class and subclasses.
+
+readonly: - Assigned once and cannot be changed later.
+
+5.  Definite Assignment Assertion (!) Tells TypeScript that a property
+    will definitely be assigned before use.
+
+6.  Methods Functions inside classes that define behavior.
+
+7.  Inheritance Allows a child class to reuse features from a parent
+    class.
+
+Syntax: class Child extends Parent {}
+
+8.  super() Calls the parent constructor.
+
+9.  Encapsulation Combining data and methods while hiding implementation
+    details.
+
+Advantages - Reusable - Organized - Supports inheritance - Better
+maintenance
+
+Disadvantages - Can become complex - Deep inheritance is hard to
+maintain
+
+Interview Questions
+
+1.  What is a class? A blueprint for creating objects.
+
+2.  What is an object? An instance of a class.
+
+3.  Difference between public and private? Public is accessible
+    everywhere; private only inside the class.
+
+4.  What is protected? Accessible in the class and subclasses.
+
+5.  What is readonly? Cannot be reassigned after initialization.
+
+6.  What does ! mean? Definite Assignment Assertion.
+
+7.  What is inheritance? Child classes reuse parent functionality.
+
+8.  Why use super()? To call the parent constructor.
+
+Best Practices - Keep sensitive fields private. - Use readonly when
+values should not change. - Use getters instead of exposing private
+data. - Use inheritance only when appropriate.
