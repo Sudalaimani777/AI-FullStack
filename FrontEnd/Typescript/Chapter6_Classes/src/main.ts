@@ -55,10 +55,65 @@ class StudentData extends StudentInfo {
         super(name, age, email)
         this.standard = standard
     }
-    public getName(){
+    public getName() {
         return `Welcome ${this.name}`
     }
 }
 
 const Surya = new StudentData("Varun", 23, "varun@example.com", "12th");
 console.log(Surya.getName());
+
+class WebDev {
+    constructor(public name: string, public age: number, public department: string, public standard: string) {
+        this.name = name
+        this.age = age
+        this.standard = standard
+        this.department = department
+    }
+}
+
+const devOne = new WebDev("Sudalaimani", 23, "Software Developer", "Colleg");
+console.log(devOne);
+
+// Implement the Interface in the class :-]
+interface Musician {
+    name: string,
+    instrument: string,
+    play(action: string): string
+}
+
+class Guitarist implements Musician {
+    name: string
+    instrument: string
+    constructor(name: string, instrument: string) {
+        this.name = name
+        this.instrument = instrument
+    }
+    play(action: string): string {
+        return `${this.name} ${action} the ${this.instrument}`
+    }
+}
+
+const MusicianOne = new Guitarist("Sudalaimani", "Trumpet");
+console.log(MusicianOne.play("plays"))
+
+
+// Static :-
+class Peeps {
+    static count: number = 0;
+    public id: number
+    static getCount(): number {
+        return Peeps.count
+    }
+    constructor(public name: string) {
+        this.name = name
+        this.id = ++Peeps.count
+    }
+}
+
+const Varun = new Peeps("Varun");
+console.log(Varun)
+const Arun = new Peeps("Arun");
+const Bala = new Peeps("Bals");
+
+console.log(Peeps.count)

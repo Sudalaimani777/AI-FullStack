@@ -51,4 +51,46 @@ class StudentData extends StudentInfo {
 }
 const Surya = new StudentData("Varun", 23, "varun@example.com", "12th");
 console.log(Surya.getName());
+class WebDev {
+    constructor(name, age, department, standard) {
+        this.name = name;
+        this.age = age;
+        this.department = department;
+        this.standard = standard;
+        this.name = name;
+        this.age = age;
+        this.standard = standard;
+        this.department = department;
+    }
+}
+const devOne = new WebDev("Sudalaimani", 23, "Software Developer", "Colleg");
+console.log(devOne);
+class Guitarist {
+    constructor(name, instrument) {
+        this.name = name;
+        this.instrument = instrument;
+    }
+    play(action) {
+        return `${this.name} ${action} the ${this.instrument}`;
+    }
+}
+const MusicianOne = new Guitarist("Sudalaimani", "Trumpet");
+console.log(MusicianOne.play("plays"));
+// Static :-
+class Peeps {
+    static getCount() {
+        return Peeps.count;
+    }
+    constructor(name) {
+        this.name = name;
+        this.name = name;
+        this.id = ++Peeps.count;
+    }
+}
+Peeps.count = 0;
+const Varun = new Peeps("Varun");
+console.log(Varun);
+const Arun = new Peeps("Arun");
+const Bala = new Peeps("Bals");
+console.log(Peeps.count);
 export {};
