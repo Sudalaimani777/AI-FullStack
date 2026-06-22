@@ -1,0 +1,118 @@
+
+TypeScript Day 7 Notes – Index Signatures
+
+1. What is an Index Signature?
+
+Kid Friendly:
+Imagine a teacher has a mark book. She doesn't know all student names beforehand, but she knows every student's mark will be a number. Index Signatures allow us to create such dynamic objects safely.
+
+Professional:
+An Index Signature allows us to define the type of object properties when the exact property names are unknown, but the key and value types are known.
+
+2. Why Do We Need Index Signatures?
+
+Without Index Signatures, we must define every property manually.
+
+Example:
+interface Transactions {
+    Pizza: number;
+    Books: number;
+    Job: number;
+}
+
+When property names are dynamic, Index Signatures provide flexibility while maintaining type safety.
+
+3. Syntax
+
+interface Subjects {
+    [subject: string]: number;
+}
+
+Explanation:
+- subject -> variable name
+- string -> key type
+- number -> value type
+
+4. Dynamic Properties
+
+Index Signatures allow adding properties later.
+
+Example:
+classTenthStudentOne.sports = 79;
+
+TypeScript still ensures the value is a number.
+
+5. Readonly Index Signatures
+
+interface Users {
+    readonly [userName: string]: string;
+}
+
+Benefits:
+- Prevents modification after assignment.
+- Useful for constant data.
+
+6. Combining Normal Properties and Index Signatures
+
+interface UserInfo {
+    [userName: string]: string;
+    Bob: string;
+    Kim: string;
+    Joe: string;
+}
+
+All explicit properties must follow the same value type.
+
+7. Union Types with Index Signatures
+
+interface Student {
+    [data: string]: number | string | number[] | undefined;
+    name: string;
+    GPA: number;
+    classes?: number[];
+}
+
+8. Biggest Limitation
+
+Accessing a missing key returns undefined.
+TypeScript will not throw an error.
+
+9. Advantages
+
+- Supports dynamic keys.
+- Provides type safety.
+- Useful for API responses.
+- Reduces repetitive interfaces.
+- Easy to maintain.
+
+10. Disadvantages
+
+- Missing keys return undefined.
+- Less strict than fixed interfaces.
+- Can hide mistakes in property names.
+
+Interview Questions
+
+Q1. What is an Index Signature?
+A: A feature that allows dynamic property names while enforcing key and value types.
+
+Q2. Why use Index Signatures?
+A: To handle objects where property names are unknown beforehand.
+
+Q3. What is the syntax?
+A: [key: string]: ValueType
+
+Q4. Can Index Signatures be readonly?
+A: Yes.
+
+Q5. What happens when a missing key is accessed?
+A: It returns undefined.
+
+Q6. Can Index Signatures be combined with normal properties?
+A: Yes.
+
+Q7. Can Index Signatures use union types?
+A: Yes.
+
+Q8. Give some real-world use cases.
+A: API responses, inventories, marks systems, dictionaries, and configuration objects.
