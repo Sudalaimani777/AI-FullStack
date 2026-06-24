@@ -1,0 +1,405 @@
+=========================================
+TypeScript Generics - Notes
+=========================================
+
+What?
+------
+Generics in TypeScript allow us to create reusable functions, interfaces, classes, and types that can work with different data types while maintaining type safety.
+
+Instead of writing separate functions for strings, numbers, arrays, etc., we can write one generic function that adapts to any type.
+
+Examples learned:
+
+1. Generic Function
+
+const echo = <T>(args: T): T => args;
+
+2. Generic Interface
+
+interface BoolCheck<T> {
+    value: T;
+    is: boolean;
+}
+
+3. Generic Constraint
+
+interface HasId {
+    id: number;
+}
+
+const checkUser = <T extends HasId>(user: T): T => user;
+
+4. keyof with Generics
+
+const getUserData = <T extends HasId, K extends keyof T>(
+    user: T[],
+    key: K
+): T[K][] => {
+    return user.map(user => user[key]);
+}
+
+
+Why?
+-----
+1. Avoid code duplication.
+2. Increase code reusability.
+3. Improve type safety.
+4. Catch errors during development.
+5. Provide better IntelliSense support.
+6. Make applications scalable and maintainable.
+
+Without Generics:
+
+const echoString = (value: string) => value;
+const echoNumber = (value: number) => value;
+
+With Generics:
+
+const echo = <T>(value: T): T => value;
+
+One function works for all data types.
+
+
+Syntax
+-------
+
+Basic Generic Function
+
+const functionName = <T>(arg: T): T => {
+    return arg;
+};
+
+Multiple Generic Types
+
+const combine = <T, U>(a: T, b: U) => {
+    return { a, b };
+};
+
+Generic Interface
+
+interface Response<T> {
+    data: T;
+}
+
+Generic Constraint
+
+interface HasId {
+    id: number;
+}
+
+const getData = <T extends HasId>(value: T) => value;
+
+keyof with Generics
+
+const getProperty = <T, K extends keyof T>(
+    obj: T,
+    key: K
+) => obj[key];
+
+
+Real-world Examples
+--------------------
+
+1. API Responses
+
+interface ApiResponse<T> {
+    data: T;
+    success: boolean;
+}
+
+2. React useState
+
+const [user, setUser] = useState<User | null>(null);
+
+3. Database Records
+
+interface HasId {
+    id: number;
+}
+
+const checkUser = <T extends HasId>(user: T) => user;
+
+4. Dynamic User Data Access
+
+const getUserData = <T extends HasId, K extends keyof T>(
+    users: T[],
+    key: K
+): T[K][] => {
+    return users.map(user => user[key]);
+}
+
+Usage:
+
+getUserData(users, "name");
+getUserData(users, "email");
+
+5. Form Validation Systems
+
+interface ValidationResult<T> {
+    value: T;
+    isValid: boolean;
+}
+
+
+Advantages
+-----------
+✔ Reusable code
+
+✔ Strong type safety
+
+✔ Better IntelliSense support
+
+✔ Less code duplication
+
+✔ Easier maintenance
+
+✔ Scalable architecture
+
+✔ Compile-time error checking
+
+✔ Works perfectly with React and APIs
+
+
+Disadvantages
+--------------
+✘ Can be difficult for beginners
+
+✘ Syntax may look complex initially
+
+✘ Overusing Generics can reduce readability
+
+✘ Nested Generics can become hard to understand
+
+✘ Requires understanding of TypeScript type system
+
+
+Common Mistakes
+----------------
+
+1. Using any instead of Generics
+
+Wrong:
+
+const echo = (value: any) => value;
+
+Correct:
+
+const echo = <T>(value: T): T => value;
+
+--------------------------------------------------
+
+2. Forgetting Constraints
+
+Wrong:
+
+const getId = <T>(obj: T) => obj.id;
+
+Correct:
+
+const getId = <T extends HasId>(obj: T) => obj.id;
+
+--------------------------------------------------
+
+3. Ignoring keyof
+
+Wrong:
+
+getUserData(users, "randomField");
+
+Correct:
+
+getUserData(users, "name");
+
+--------------------------------------------------
+
+4. Overusing Generics
+
+Wrong:
+
+const print = <T>(msg: T) => console.log(msg);
+
+Simple functions often don't need Generics.
+
+--------------------------------------------------
+
+5. Not Understanding T[K]
+
+T[K] represents the type of a property inside an object.
+
+
+Best Practices
+---------------
+✔ Use Generics when code needs to support multiple data types.
+
+✔ Prefer Generics over any.
+
+✔ Use meaningful generic names:
+   T = Type
+   K = Key
+   V = Value
+   U = Another Type
+
+✔ Apply Constraints using extends whenever required.
+
+✔ Use keyof for type-safe property access.
+
+✔ Keep Generic logic simple and readable.
+
+✔ Avoid unnecessary Generics.
+
+✔ Use Generic Interfaces for reusable structures.
+
+
+Interview Questions
+--------------------
+
+1. What are Generics in TypeScript?
+
+Answer:
+Generics allow reusable code to work with multiple data types while maintaining type safety.
+
+--------------------------------------------------
+
+2. Why use Generics instead of any?
+
+Answer:
+'any' removes type checking while Generics preserve type information and provide compile-time safety.
+
+--------------------------------------------------
+
+3. What is a Generic Constraint?
+
+Answer:
+A restriction placed on generic types using 'extends'.
+
+Example:
+
+<T extends HasId>
+
+--------------------------------------------------
+
+4. What does keyof do?
+
+Answer:
+keyof returns all keys of an object type.
+
+Example:
+
+keyof User
+
+Result:
+
+"id" | "name" | "email"
+
+--------------------------------------------------
+
+5. Explain this syntax:
+
+<K extends keyof T>
+
+Answer:
+K can only be a valid property name of T.
+
+--------------------------------------------------
+
+6. What is T[K]?
+
+Answer:
+It represents the type of a specific property in an object.
+
+Example:
+
+User["name"]
+
+Result:
+
+string
+
+--------------------------------------------------
+
+7. What is the difference between Generic Function and Generic Interface?
+
+Generic Function:
+
+const echo = <T>(value:T) => value;
+
+Generic Interface:
+
+interface Response<T> {
+    data:T;
+}
+
+--------------------------------------------------
+
+8. Why use extends in Generics?
+
+Answer:
+To restrict accepted types and ensure required properties exist.
+
+
+Quick Revision Sheet
+---------------------
+
+Generic Placeholder
+
+<T>
+
+--------------------------------
+
+Generic Function
+
+const echo = <T>(value:T):T => value;
+
+--------------------------------
+
+Generic Interface
+
+interface Data<T> {
+    value:T;
+}
+
+--------------------------------
+
+Generic Constraint
+
+<T extends HasId>
+
+--------------------------------
+
+keyof
+
+<K extends keyof T>
+
+--------------------------------
+
+Property Type Access
+
+T[K]
+
+--------------------------------
+
+Avoid
+
+any
+
+Prefer
+
+<T>
+
+--------------------------------
+
+Common Uses
+
+• React Hooks
+• API Responses
+• Form Validation
+• Database Models
+• Utility Functions
+• Reusable Components
+
+--------------------------------
+
+Today's Key Takeaway
+---------------------
+
+Generics help write reusable, scalable, and type-safe TypeScript code by allowing functions, interfaces, and classes to work with multiple data types without sacrificing type checking.
