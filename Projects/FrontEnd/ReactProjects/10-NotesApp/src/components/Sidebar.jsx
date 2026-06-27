@@ -18,14 +18,7 @@ const Sidebar = () => {
     }`
 
   return (
-    <aside className="w-full border-b border-amber-100 bg-white/70 px-4 py-4 backdrop-blur md:sticky md:top-[89px] md:h-[calc(100vh-89px)] md:w-72 md:flex-shrink-0 md:border-b-0 md:border-r md:px-5 md:py-6">
-      <div className="mb-4 hidden md:block">
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-700">
-          Navigation
-        </p>
-        <h2 className="mt-2 text-lg font-semibold text-slate-900">Your Notes</h2>
-      </div>
-
+    <aside className="w-full border-b border-amber-100 bg-white/70 px-4 py-4 backdrop-blur md:sticky md:top-22.25 md:h-[calc(100vh-89px)] md:w-72 md:shrink-0 md:border-b-0 md:border-r md:px-5 md:py-6">
       <nav className="flex gap-3 overflow-x-auto pb-1 md:flex-col md:overflow-visible">
         {links.map((link) => (
           <NavLink to={link.to} key={link.id} className={getStyles}>

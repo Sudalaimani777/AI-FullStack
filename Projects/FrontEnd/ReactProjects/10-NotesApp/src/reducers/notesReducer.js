@@ -15,7 +15,9 @@ export const notesReducer = (state, { type, payload }) => {
         case "ADD_NOTE":
             return {
                 ...state,
-                notes: [...state.notes, { text: state.text, title: state.title, id: uuid()}]
+                notes: [...state.notes, { text: state.text, title: state.title, id: uuid()}],
+                title:"",
+                text:""
             }
         default:
             return state
