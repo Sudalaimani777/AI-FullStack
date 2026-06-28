@@ -1,4 +1,4 @@
-1 - Initialize the server using -> npm init
+1 - Initialize the server using -> npm init or npm init -y
 
 2 - node is the runtime environment, so we use the express.js which is the framework of node to reduce the time -> npm i express
 
