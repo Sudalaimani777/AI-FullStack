@@ -14,10 +14,18 @@ app.get("/", (request, response) => {
 })
 
 // The app.listen() method is used to start the server and listen for incoming requests on the specified port. The callback function is executed once the server starts successfully, and it logs a message to the console indicating that the server is running and on which port it is listening.
-app.listen(PORT, () =>{
+app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 })
 
 app.get("/api", (request, response) => {
     response.send("This is the API endpoint...");
+})
+
+app.get("/api/users", (request, response) => {
+    const users = [
+        { id: 1, name: "John Doe" },
+        { id: 2, name: "Jane Doe" },
+        { id: 3, name: "Jim Doe" },
+    ]
 })
