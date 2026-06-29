@@ -11,3 +11,5 @@
 6 - In the package.json, in the scripts object we need to change the key as "dev" and the value as the nodemon and the js file -> dev: nodemon server.js
 
     The command is npm i nodemon --save-dev
+
+
