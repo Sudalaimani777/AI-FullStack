@@ -1,0 +1,36 @@
+Command Purpose  -> 
+    python -m venv venv (
+        python -> For run the python
+        -m -> Run the module
+        venv -> create the virtual DOM
+        venv -> Folder name (We can use any name to create the folder)
+) 
+
+    pip install fastapi ->
+        pip -> python install manager
+
+        fastapi -> It is not an AI, it's a framework for the python to handle the request and the response
+
+    uvicorn app:app --reload ->
+        uvicorn → Starts the ASGI server.
+        app:app →
+            First app = the Python file (app.py).
+            Second app = the FastAPI application object inside that file.
+        --reload → Automatically restarts the server whenever you save changes (useful during development).
+
+    pip show uvicorn -> Show if the uvicorn is installed or not 
+
+    pip install uvicorn fastapi -> Install the uvicorn
+
+    pip list -> Check all the installed list
+
+    uvicorn app:app --reload -> To start the server
+
+     pip install pypdf2 -> 
+        PyPDF2 is a Python library for reading, manipulating, and extracting data from PDF files. It lets you work with PDFs programmatically without needing Adobe Acrobat or other PDF software.
+    
+     pip install python-multipart -> 
+        When you upload a file (such as a PDF) through a FastAPI endpoint, the request uses the multipart/form-data content type.
+
+    shutil -> 
+        Take the copy of the temporary files that you uploaded in the browser and upload the copy in the uploads folder
