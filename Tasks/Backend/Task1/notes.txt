@@ -1,0 +1,4 @@
+Commands to initialize the Node :-
+    1) npm init -y
+    2)npm i dotenv
+    3)npm i -D nodemon

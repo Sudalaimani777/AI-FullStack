@@ -1,8 +1,10 @@
 {
     "cSpell.words": [
         "ASGI",
+        "dotenv",
         "fastapi",
         "njsproj",
+        "nodemon",
         "ntvs",
         "pypdf",
         "shutil",
