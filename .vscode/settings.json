@@ -8,6 +8,7 @@
         "ntvs",
         "pypdf",
         "shutil",
+        "Sudhan",
         "uvicorn",
         "venv"
     ]
