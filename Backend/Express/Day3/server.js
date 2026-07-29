@@ -17,4 +17,4 @@ app.listen(PORT, () => {
 })
 
 // With API -> https://localhost:5000/api/auth/user
-app.use("/api/auth", routes)
+app.use("/api/auth", routes);
