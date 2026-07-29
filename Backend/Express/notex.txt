@@ -1,0 +1,58 @@
+Plaintextmy-backend/
+├── node_modules/
+├── src/
+│   └── server.ts
+├── dist/             (generated on build)
+├── package.json
+└── tsconfig.json
+Step-by-Step Setup Guide
+
+1.Create directory & initialize Node project:Sets up the folder and package tracking.Open your terminal and run:Bashmkdir my-backend
+
+    cd my-backend
+    npm init -y
+
+2.Install dependencies:Install Express and utility libraries as regular dependencies, and TypeScript tools as development dependencies:Bash# Production dependencies
+npm install express dotenv cors zod
+
+    # Development dependencies (TypeScript, types, and tsx watcher)
+    npm install -D typescript tsx @types/node @types/express @types/cors
+
+3.Configure package.json:Enables ES Modules and dev scripts.Open your package.json file. Set "type": "module" and configure your development and production build scripts:JSON{
+  "name": "my-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
+  }
+}
+
+4.Create tsconfig.json:Defines compilation rules.Initialize your TypeScript configuration file:Bashnpx 
+    
+    tsc --init
+
+Replace the contents of tsconfig.json with this configuration designed for Node.js ES Modules:JSON{
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "target": "esnext",
+    "types": ["node"],
+    "sourceMap": true,
+    "strict": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "skipLibCheck": true
+  },
+  "include": ["src"]
+}
+
+5.Create the source directory and server file:Create the src directory and your main entry file:
+    Bash
+        mkdir src
+
+Create src/server.ts and add your Express code

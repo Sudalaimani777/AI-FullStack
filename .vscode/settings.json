@@ -3,6 +3,7 @@
         "ASGI",
         "dotenv",
         "fastapi",
+        "MERN",
         "njsproj",
         "nodemon",
         "ntvs",
