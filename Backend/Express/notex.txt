@@ -17,6 +17,7 @@ npm install express dotenv cors zod
 
     # Development dependencies (TypeScript, types, and tsx watcher)
     npm install -D typescript tsx @types/node @types/express @types/cors
+    npm install --save-dev @types/bcrypt
 
 3.Configure package.json:Enables ES Modules and dev scripts.Open your package.json file. Set "type": "module" and configure your development and production build scripts:JSON{
   "name": "my-backend",
