@@ -29,7 +29,7 @@ const userSignInController = async (request: Request, response: Response): Promi
 
         if (!validatePassword) {
             response.status(401).json({
-                "message": "Password doesn't match, enter correct password to sign in"
+                "message": "Invalid Email or Password"
             })
             return;
         }
