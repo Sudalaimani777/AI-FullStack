@@ -14,5 +14,3 @@ export const UserSchema = new Schema({
         required:true
     }
 });
-
-
