@@ -1,6 +1,7 @@
 import type { Request, Response } from "express";
 import UserInfoModel from "../model/user-info.model.js";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 const signInController = async (request: Request, response: Response): Promise<void> => {
     try {
@@ -31,8 +32,24 @@ const signInController = async (request: Request, response: Response): Promise<v
             return;
         }
 
+        const jwtSecret = process.env.JWT_SECRET_TOKEN;
+
+        if (!jwtSecret) {
+            throw new Error("JWT Token is not defined")
+            return;
+        }
+
+        const token = jwt.sign(
+            { userId: validateEmail._id },
+            jwtSecret,
+            { expiresIn: "7d" }
+        )
+
+        // console.log(token);
+
         response.status(200).json({
             message: "User Sign In Successfully",
+            token,
             userInfo: {
                 userId: validateEmail.id,
                 userName: validateEmail.user_name,
