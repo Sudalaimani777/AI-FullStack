@@ -1,6 +1,9 @@
 import type { Request, Response } from "express";
-import UserInfoModel from "../model/user-info.model.js"
+import { UserInfoModel } from "../../model/index.js"
 import bcrypt from "bcrypt";
+
+// @desc : SignUn Controller POST
+// @route : /api/auth/sign-up
 
 
 const signUpController = async (request: Request, response: Response): Promise<void> => {
@@ -32,12 +35,13 @@ const signUpController = async (request: Request, response: Response): Promise<v
         response.status(201).json({
             message: "User Signed Up Successfully",
             user_Info: {
-                user_name,
-                user_email,
+                user_id: signedUpUser._id,
+                user_email: signedUpUser.user_email,
+                user_name: signedUpUser.user_name
             }
         })
 
-    } catch (err:any) {
+    } catch (err: any) {
         response.status(500).json({
             "message": "Unable to sign up the user",
             "error_message": err.message

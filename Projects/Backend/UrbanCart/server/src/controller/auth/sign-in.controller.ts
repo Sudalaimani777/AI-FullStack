@@ -1,7 +1,10 @@
 import type { Request, Response } from "express";
-import UserInfoModel from "../model/user-info.model.js";
+import { UserInfoModel } from "../../model/index.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+
+// @desc : SignIn Controller POST
+// @route : /api/auth/sign-in
 
 const signInController = async (request: Request, response: Response): Promise<void> => {
     try {
@@ -53,7 +56,9 @@ const signInController = async (request: Request, response: Response): Promise<v
             userInfo: {
                 userId: validateEmail.id,
                 userName: validateEmail.user_name,
-                userEmail: validateEmail.user_email
+                userEmail: validateEmail.user_email,
+                isAdmin: validateEmail.is_admin,
+                token
             }
         })
     } catch (err: any) {

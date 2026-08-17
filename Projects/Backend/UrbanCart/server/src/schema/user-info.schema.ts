@@ -19,6 +19,10 @@ const UserSchema = new Schema<UserInfo>({
         type: String,
         required: true,
         minLength: 8
+    },
+    is_admin:{
+        type:Boolean,
+        default:false
     }
 }, { timestamps: true });
 

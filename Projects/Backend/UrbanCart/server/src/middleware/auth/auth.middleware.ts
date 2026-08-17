@@ -1,11 +1,13 @@
 import type { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 
+// @desc : Auth Middleware
+// @route : /profile
 
 const authMiddleWare = async (request: Request, response: Response, next: NextFunction): Promise<void> => {
     try {
 
-
+        // Extract the token from the Authorization header
         const token = request.headers.authorization;
 
         if (!token) {
@@ -15,6 +17,7 @@ const authMiddleWare = async (request: Request, response: Response, next: NextFu
             return
         }
 
+        // Check if the token is in the correct format (Bearer <token>)
         const splitToken = token.split(" ")[1];
 
         if (!splitToken) {
@@ -26,6 +29,7 @@ const authMiddleWare = async (request: Request, response: Response, next: NextFu
 
         console.log("Split Token ->", splitToken);
 
+        // Verify the token using the JWT secret
         const jwtSecret = process.env.JWT_SECRET_TOKEN;
 
         if (!jwtSecret) {
@@ -35,6 +39,7 @@ const authMiddleWare = async (request: Request, response: Response, next: NextFu
 
         console.log("JWT TOKEN -> ", jwtSecret);
 
+        // Verify the token and decode it
         const decoded = jwt.verify(splitToken, jwtSecret);
 
         console.log("Decoded ->", decoded);
