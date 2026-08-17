@@ -45,14 +45,13 @@ const signInController = async (request: Request, response: Response): Promise<v
         const token = jwt.sign(
             { userId: validateEmail._id },
             jwtSecret,
-            { expiresIn: "7d" }
+            { expiresIn: "30d" }
         )
 
         // console.log(token);
 
         response.status(200).json({
             message: "User Sign In Successfully",
-            token,
             userInfo: {
                 userId: validateEmail.id,
                 userName: validateEmail.user_name,

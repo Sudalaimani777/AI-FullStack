@@ -1,6 +1,7 @@
 import type { Request, Response } from "express";
 import { UserInfoModel } from "../../model/index.js"
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 // @desc : SignUn Controller POST
 // @route : /api/auth/sign-up
@@ -32,8 +33,23 @@ const signUpController = async (request: Request, response: Response): Promise<v
 
         const signedUpUser = await UserInfoModel.create({ user_name, user_email, user_password: hashedPassword });
 
+        // JWT Token :-
+        const jwtSecret = process.env.JWT_SECRET_TOKEN;
+
+        if (!jwtSecret) {
+            throw new Error("No JWT Found");
+            return;
+        }
+
+        const token = jwt.sign(
+            { userId: signedUpUser._id },
+            jwtSecret,
+            { expiresIn: "30d" }
+        )
+
         response.status(201).json({
             message: "User Signed Up Successfully",
+            token,
             user_Info: {
                 user_id: signedUpUser._id,
                 user_email: signedUpUser.user_email,
