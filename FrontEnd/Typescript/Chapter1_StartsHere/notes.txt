@@ -20,7 +20,7 @@ Commands and Steps :-
         -> tsc i typescript -g
 
     2) To compile the TS file to the js file we have a command called as 
-        -> tsc "fileName.ts" "compilName.js" 
+        -> tsc "fileName.ts" "compileName.js" 
         (The compile name is not necessary because, when we compile the TS file it automatically creates the similar name as the ts file for the js file) 
 
     3)We need to re-compile the TS file each and every time to render the js created js file, to solve this we need to watch the ts file, so the command for is 
