@@ -55,7 +55,7 @@ import { UserInfoModel } from "../../model/index.js"
 // }
 // export default authMiddleWare;
 
-const profileMiddleWare = async (request: Request, response: Response, next: NextFunction): Promise<void> => {
+const protectMiddleWare = async (request: Request, response: Response, next: NextFunction): Promise<void> => {
     try {
 
         const token = request.headers.authorization;
@@ -123,4 +123,4 @@ const profileMiddleWare = async (request: Request, response: Response, next: Nex
     }
 }
 
-export default profileMiddleWare;
+export default protectMiddleWare;

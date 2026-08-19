@@ -16,14 +16,14 @@ app.use(cors());
 connectDB();
 
 //@API Login API :- http://localhost:5000/api/auth
-app.use("/api/auth", signInRouter);
 app.use("/api/auth", signUpRouter);
+app.use("/api/auth", signInRouter);
 
 //@API Profile API :- http://localhost:5000/api
 app.use("/api/auth", profileRouter);
 
 // @API Product :- http://localhost:5000/api/products
-app.use("/api", productRouter);
+app.use("/api/auth", productRouter);
 
 app.listen(PORT, () => {
     console.log(`The BE runs on LH ${PORT}`)
