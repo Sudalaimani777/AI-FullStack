@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { connectDB } from "./config/index.js"
-import { signInRouter, signUpRouter, authRouter } from "./routes/auth/index.js"
+import { signInRouter, signUpRouter, profileRouter } from "./routes/auth/index.js"
 import productRouter from "./routes/products/product.routes.js"
 
 dotenv.config();
@@ -20,7 +20,7 @@ app.use("/api/auth", signInRouter);
 app.use("/api/auth", signUpRouter);
 
 //@API Profile API :- http://localhost:5000/api
-app.use("/api", authRouter);
+app.use("/api/auth", profileRouter);
 
 // @API Product :- http://localhost:5000/api/products
 app.use("/api", productRouter);
