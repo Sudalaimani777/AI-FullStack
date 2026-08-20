@@ -1,3 +1,6 @@
+
+CHAPTER 1 :- INSTALLATION
+
 1) Installation :-
     There are two ways to install the next js
         i)  npx create-next-app@latest .  //Install directly in the root folder
@@ -103,6 +106,7 @@
                      - Path aliases
                      - Which files TypeScript should include/exclude
 
+CHAPTER 2 :- ROUTING 
 
 3)Routing :-
 
