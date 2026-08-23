@@ -145,3 +145,66 @@ CHAPTER 2 :- ROUTING
         http://localhost:3000/login
         http://localhost:3000/dashboard
         http://localhost:3000/profile
+
+Lesson 3 :- CLIENT AND SERVER COMPONENTS 
+
+    Client Components :-
+        1) There is a browser and the server
+
+        2)The client sends the request to the server
+
+        3)The server sends the static JS bundle, it has only the static data and it rendered and it takes some time.
+
+            This is the First Contentful Paint for the client Components
+
+        4)Again it send the API call to the server to fetch the actual data from the DB it takes some time to grab data and send it back to the browser
+
+        5)Once all the data from the DB and collected by the browser it again re-rendered
+
+        Overall in the Client Components the SEO is bad and also the UX is poor
+
+    Server Components :-
+        1)When the browser sends the request to the backend, instead of sending the static JS bundle it interact with the DB call happens first and sends the actual JS Business Logic bundle
+
+        2)Then it does a thing called hydration, it is the process of making the DOM elements interactive by adding respective event 
+
+            Like : Server sends UI -> Browser Displays it -> React connects JS and events to it
+
+            Rendering = Creating the UI.
+
+            Hydration = Making the already-rendered UI interactive.
+
+            This is the First Contentful paint for the Server Components
+
+            The First Contentful Paint is the time taken from the browser to load the content
+
+            FCP = Time from page navigation until the first visible content appears.
+        
+        Overall in the Server Components, the SEO is great and the UX is good
+
+    use client :-
+
+        It is a directive, that tells the Next js "Treat this component as a client component"
+
+        By default, components inside the app directory are Server Components.
+
+            useState
+            useEffect
+            useContext
+            onClick
+            onChange
+            window
+            document
+            localStorage
+
+        If you need these, add:
+
+            "use client";
+
+        Important: "use client" does NOT mean "this only runs in the browser"
+
+            This is a common misunderstanding.
+
+            A Client Component can still be rendered on the server initially. "use client" mainly defines a client boundary—the component needs to be included in the client-side JavaScript so React can hydrate it and handle interactions.
+
+        If the server component with the events, we can either use the "use client" in that component or we can use the "use client" in the parent component that we imported
