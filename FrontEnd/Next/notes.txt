@@ -1,12 +1,12 @@
 
 CHAPTER 1 :- INSTALLATION
 
-1) Installation :-
+    1) Installation :-
     There are two ways to install the next js
         i)  npx create-next-app@latest .  //Install directly in the root folder
         ii) npx create-next-app@latest    //Create a new folder as a root folder and install next js
 
-2) Folder Structure :-
+    2) Folder Structure :-
 
     node modules -> Have all the packages and the source code of the dependencies that we installed
     src -> Holds all the logic and UI files
@@ -108,7 +108,7 @@ CHAPTER 1 :- INSTALLATION
 
 CHAPTER 2 :- ROUTING 
 
-3)Routing :-
+    3)Routing :-
 
     app 
         /dashboard
@@ -122,7 +122,7 @@ CHAPTER 2 :- ROUTING
     This is known as file based routing
     The layout.jsx is used to handle the custom features for that particular folder like it show all the folder like navbar for the entire UI
 
-4)Route Grouping :-
+    4)Route Grouping :-
     It is a technique which helps to organize the routes into a folder without affecting  the URL path.
     Mainly used to keep the app folder clean and for applying different layouts to different sections of the application
 
@@ -146,7 +146,7 @@ CHAPTER 2 :- ROUTING
         http://localhost:3000/dashboard
         http://localhost:3000/profile
 
-Lesson 3 :- CLIENT AND SERVER COMPONENTS 
+CHAPTER 3 :- CLIENT AND SERVER COMPONENTS 
 
     Client Components :-
         1) There is a browser and the server
@@ -208,3 +208,50 @@ Lesson 3 :- CLIENT AND SERVER COMPONENTS
             A Client Component can still be rendered on the server initially. "use client" mainly defines a client boundary—the component needs to be included in the client-side JavaScript so React can hydrate it and handle interactions.
 
         If the server component with the events, we can either use the "use client" in that component or we can use the "use client" in the parent component that we imported
+
+CHAPTER 4 :- DATA FETCHING METHODS: SSR and SSG, getStaticPro
+
+    Both are forms of server rendering.The fundamental difference is when the HTML is generated.
+
+    SSG — Static Site Generation :-
+        HTML is generated ahead of the user's request, traditionally at build time, and reused for requests. Modern Next.js can also statically render/revalidate content.
+
+        Build / prerender
+              ↓
+          Generate HTML
+              ↓
+         Cache / CDN
+              ↓
+        User requests page
+              ↓
+        Existing result served
+
+    SSR — Server-Side Rendering
+
+        HTML is generated when the request happens.
+
+            User requests page
+                  ↓
+           Server receives request
+                  ↓
+            Fetch current data
+                  ↓
+             Render HTML
+                  ↓
+             Send response
+
+        SSG = prepare before the request.
+        SSR = prepare during the request.
+
+    |                         | SSG                     | SSR                        |
+    | ----------------------- | ----------------------- | -------------------------- |
+    | Rendering               | Ahead of request        | At request time            |
+    | Data                    | Can be known ahead      | Needed at request time     |
+    | Speed                   | Usually faster          | Usually slower             |
+    | CDN caching             | Excellent               | More complicated           |
+    | Freshness               | Depends on revalidation | Can be request-fresh       |
+    | Server work per request | Lower                   | Higher                     |
+    | SEO                     | Excellent               | Excellent                  |
+    | Good for                | Blogs, docs, marketing  | Personalized/dynamic pages |
+
+    
