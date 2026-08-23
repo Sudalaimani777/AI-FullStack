@@ -1,0 +1,524 @@
+CHAPTER 5 :- CSS & STYLING IN NEXT.JS
+
+1) Global CSS in Next.js
+------------------------
+
+What is Global CSS?
+    Global CSS means CSS styles that can be applied throughout the entire application.
+
+Example:
+
+/* app/globals.css */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: blue;
+}
+
+Import it in the root layout:
+
+// app/layout.tsx
+
+import "./globals.css";
+
+export default function RootLayout({
+    children,
+}: {
+    children: React.ReactNode;
+}) {
+    return (
+        <html lang="en">
+            <body>{children}</body>
+        </html>
+    );
+}
+
+Why use Global CSS?
+    - Body styles
+    - Font-family
+    - CSS variables
+    - Reset styles
+    - Common styles used throughout the application
+
+Important:
+    In the App Router, global CSS is normally imported in:
+
+    app/layout.tsx
+
+
+2) Add Stylesheet in Next.js
+----------------------------
+
+There are mainly 2 ways to add CSS:
+
+A) Global CSS
+B) CSS Modules
+
+
+A) Global CSS
+-------------
+
+File structure:
+
+app/
+├── globals.css
+├── layout.tsx
+└── page.tsx
+
+CSS:
+
+/* globals.css */
+
+.title {
+    color: red;
+}
+
+Use:
+
+<h1 className="title">Hello Next.js</h1>
+
+Import:
+
+import "./globals.css";
+
+Use Global CSS when:
+    The style needs to be available throughout the application.
+
+
+B) CSS Modules
+--------------
+
+CSS Modules are CSS files scoped to a particular component.
+
+Create:
+
+app/
+├── page.tsx
+├── page.module.css
+
+CSS:
+
+/* page.module.css */
+
+.title {
+    color: blue;
+    font-size: 40px;
+}
+
+Component:
+
+import styles from "./page.module.css";
+
+export default function Home() {
+    return (
+        <h1 className={styles.title}>
+            Hello Next.js
+        </h1>
+    );
+}
+
+Why CSS Modules?
+    They prevent class-name conflicts.
+
+Example:
+
+Component A → .title
+Component B → .title
+
+CSS Modules automatically make the class names unique internally.
+
+Global CSS vs CSS Modules:
+
+Global CSS
+    ↓
+Used across the application
+
+CSS Modules
+    ↓
+Used mainly by a specific component
+
+
+3) Controlling the Specificity of CSS
+-------------------------------------
+
+What is CSS Specificity?
+
+CSS specificity determines which CSS rule wins when multiple rules target the same element.
+
+Example:
+
+p {
+    color: blue;
+}
+
+.text {
+    color: red;
+}
+
+<p className="text">Hello</p>
+
+Result:
+    red
+
+Because .text has higher specificity than p.
+
+Specificity order from LOW → HIGH:
+
+Universal selector
+    ↓
+Element selector
+    ↓
+Class / Attribute / Pseudo-class
+    ↓
+ID selector
+    ↓
+Inline style
+    ↓
+!important
+
+Example:
+
+* {
+    color: black;
+}
+
+p {
+    color: blue;
+}
+
+.text {
+    color: green;
+}
+
+#heading {
+    color: red;
+}
+
+<p id="heading" className="text">
+    Hello
+</p>
+
+Result:
+    red
+
+Because the ID selector has higher specificity.
+
+Another example:
+
+p {
+    color: blue;
+}
+
+.text {
+    color: green;
+}
+
+#title {
+    color: red;
+}
+
+<p id="title" className="text">
+    Hello
+</p>
+
+Final color:
+    red
+
+
+!important
+----------
+
+Example:
+
+p {
+    color: blue !important;
+}
+
+!important forces the declaration to take priority over normal declarations.
+
+Avoid excessive !important because it makes CSS difficult to maintain and override.
+
+Bad:
+
+.title {
+    color: red !important;
+}
+
+
+4) Install & Setup Tailwind CSS with Next.js
+--------------------------------------------
+
+What is Tailwind CSS?
+
+Tailwind CSS is a utility-first CSS framework.
+
+Instead of writing:
+
+.button {
+    background-color: blue;
+    color: white;
+    padding: 10px;
+}
+
+We can write:
+
+<button className="bg-blue-500 text-white p-2">
+    Click Me
+</button>
+
+Why Tailwind CSS?
+
+    - Faster UI development
+    - Utility classes
+    - Responsive design
+    - Easy customization
+    - Less custom CSS
+    - No need to create many CSS class names
+
+Example:
+
+<div className="bg-black text-white p-5 rounded-lg">
+    Hello World
+</div>
+
+Meaning:
+
+bg-black
+    → Black background
+
+text-white
+    → White text
+
+p-5
+    → Padding
+
+rounded-lg
+    → Rounded corners
+
+
+Tailwind in Next.js
+-------------------
+
+In a modern Next.js project, Tailwind can be imported through the global CSS file.
+
+Example:
+
+/* app/globals.css */
+
+@import "tailwindcss";
+
+Then use Tailwind classes:
+
+export default function Home() {
+    return (
+        <h1 className="text-4xl font-bold text-blue-500">
+            Hello Next.js
+        </h1>
+    );
+}
+
+
+Common Tailwind Classes
+-----------------------
+
+Text:
+    text-sm
+    text-lg
+    text-xl
+    text-2xl
+    text-4xl
+    font-bold
+    font-medium
+
+Colors:
+    text-red-500
+    text-blue-500
+    text-white
+    text-black
+    bg-blue-500
+    bg-gray-100
+
+Spacing:
+    p-2       → padding
+    p-4
+    px-4      → horizontal padding
+    py-2      → vertical padding
+    m-4       → margin
+    mt-4      → margin-top
+    mb-4      → margin-bottom
+
+Layout:
+    flex
+    grid
+    block
+    hidden
+    items-center
+    justify-center
+    gap-4
+
+Border:
+    border
+    rounded
+    rounded-lg
+    rounded-full
+
+Size:
+    w-full
+    w-1/2
+    h-screen
+    min-h-screen
+
+
+5) Responsive Web Design
+------------------------
+
+What is Responsive Web Design?
+
+Responsive Web Design means creating a website that automatically adapts to different screen sizes.
+
+Desktop
+    ↓
+Tablet
+    ↓
+Mobile
+
+Example:
+
+Desktop → 3 columns
+Tablet  → 2 columns
+Mobile  → 1 column
+
+Why Responsive Design?
+
+Users access websites from:
+
+    - Mobile
+    - Tablet
+    - Laptop
+    - Desktop
+
+A responsive website provides a good UI on all screen sizes.
+
+
+Responsive Design with Tailwind
+--------------------------------
+
+Tailwind uses breakpoints.
+
+Common breakpoints:
+
+sm  → 640px
+md  → 768px
+lg  → 1024px
+xl  → 1280px
+2xl → 1536px
+
+Example:
+
+<div className="text-sm md:text-lg lg:text-2xl">
+    Responsive Text
+</div>
+
+Meaning:
+
+Mobile
+    → text-sm
+
+Tablet
+    → md:text-lg
+
+Desktop
+    → lg:text-2xl
+
+
+Responsive Grid Example
+------------------------
+
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div>Card 1</div>
+    <div>Card 2</div>
+    <div>Card 3</div>
+</div>
+
+Meaning:
+
+Mobile
+    → 1 column
+
+Tablet
+    → 2 columns
+
+Desktop
+    → 3 columns
+
+
+Responsive Flex Example
+------------------------
+
+<div className="flex flex-col md:flex-row gap-4">
+    <div>Left</div>
+    <div>Right</div>
+</div>
+
+Meaning:
+
+Mobile
+    → Vertical layout
+
+Tablet/Desktop
+    → Horizontal layout
+
+
+QUICK REVISION
+--------------
+
+Global CSS
+    → Styles available throughout the application.
+
+CSS Module
+    → CSS scoped to a specific component.
+
+CSS Specificity
+    → Determines which CSS rule is applied when multiple rules target the same element.
+
+Tailwind CSS
+    → Utility-first CSS framework.
+
+Responsive Web Design
+    → Website adapts to different screen sizes.
+
+Tailwind Breakpoints
+    → sm, md, lg, xl, 2xl
+
+Mobile-first
+    → Write the default/mobile style first,
+      then add larger-screen styles.
+
+Example:
+    text-sm md:text-lg lg:text-2xl
+
+
+MOST IMPORTANT NEXT.JS PATTERN
+------------------------------
+
+Global styles
+    ↓
+app/globals.css
+    ↓
+import in app/layout.tsx
+
+Component-specific styles
+    ↓
+component.module.css
+    ↓
+import styles from "./component.module.css"
+
+Utility styling
+    ↓
+Tailwind CSS
+    ↓
+className="..."
