@@ -170,4 +170,88 @@ CHAPTER 2 :- Rate Limiting
             Managed Solutions: Services like Upstash or AWS ElastiCache.
 
         Installing Required Packages
-            Install the Redis and rate-limiting packages: npm install @upstash/redis @upstash/rate-limit
+            Install the Redis and rate-limiting packages: npm i @upstash/redis @upstash/ratelimit
+
+CHAPTER 3 :- Best practices while creating APIs in Next
+
+    Best practices help build reliable, secure, and scalable APIs in Next.js while improving performance and maintainability.
+
+        Use proper HTTP status codes and clear responses.
+        Secure APIs with authentication and authorization.
+
+    Managing Environment Variables
+        Keep environment variables secure: Store sensitive data in .env.local and add it to .gitignore to prevent exposure in version control.
+        Avoid NEXT_PUBLIC_ for secrets: This prefix makes variables accessible on the client, so use it only for safe, public configuration.
+        Use dotenv: Load and manage environment variables securely.
+
+    Authentication
+        Authentication in Next.js APIs ensures that only authorized users can access protected endpoints.
+
+        1. Cookie-Based Authentication:
+            Store user sessions or tokens in cookies instead of localStorage for better security.
+            Use HTTP-only cookies to block client-side access.
+            Enable Secure flag so cookies are sent only over HTTPS.
+
+        2. JSON Web Tokens (JWT):
+            Enables stateless authentication without storing session data on the server.
+            Tokens are validated on the server to authorize API requests.
+
+        3. Validating Request Data
+            Validate incoming request data against the expected structure.
+            Use schema validation libraries like Zod or Joi.
+            Reject invalid requests with clear and meaningful error messages.
+
+        4. Injection Prevention
+            Protect APIs from SQL injection and malicious inputs.
+            Sanitize user input using libraries like validator.js.
+            Use ORMs such as Prisma to avoid unsafe direct SQL queries.
+
+    Encryption and Hashing
+        Ensures sensitive data such as passwords and messages are securely stored and transmitted.
+
+        1. Encryption
+            Encrypt sensitive data before storing it in the database.
+            Use libraries like crypto for encryption and controlled decryption.
+        2. Hashing
+            Hash passwords before storing them using libraries like bcrypt.
+            Verify passwords during login by comparing hashes with the same algorithm.
+
+    Rate Limiting
+        Limit the number of requests per IP to prevent API abuse.
+        Apply rate limiting using libraries like express-rate-limit at the middleware level.
+
+    API Versioning
+        Manage API versions to support evolving business logic.
+        Structure endpoints using paths like /api/v1/ and /api/v2/ to avoid breaking existing clients.
+
+    Isolating Business Logic
+        Keep APIs clean and organized by separating reusable logic.
+        Place common utilities in lib or utils and import them into API handlers.
+
+    Middleware
+        Use middleware as an intermediary between client and server.
+        Validate authentication tokens and request headers or cookies.
+        Reject unauthorized requests early to save server resources.
+    
+    Logging and Error Handling
+        Helps track application behavior and handle failures gracefully for easier debugging and maintenance.
+
+        1. Logging
+            Use structured logging tools like Winston or Pino.
+            For advanced monitoring and metrics, use Prometheus with Grafana.
+        2. Error Handling
+            Wrap complex logic in try-catch blocks.
+            Return user-friendly error messages without exposing sensitive information.
+            Avoid crashing the server during unexpected errors.
+
+    Testing and Documentation
+        API testing: Use tools like Postman to test and manage API collections.
+        API documentation: Use Swagger or Redoc for centralized and interactive API documentation.
+
+    Security Enhancements
+        HTTPS Only: Ensure your APIs are accessible only over HTTPS to protect data during transit.
+        CORS Policies: Configure Cross-Origin Resource Sharing (CORS) to restrict which domains can access your API.
+        
+    Performance Optimization
+        Caching: Implement caching at the API level for frequently requested data using tools like Redis.
+        Pagination: For endpoints that return large datasets, implement pagination to reduce server load.
