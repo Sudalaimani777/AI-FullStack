@@ -1,0 +1,79 @@
+CHAPTER 1 :- Next.js Image Optimization
+    
+    Next.js provides built-in image optimization using the next/image component to deliver responsive, efficient images and improve performance and Core Web Vitals.
+
+    Supports lazy and eager loading for faster page loads.
+    Uses caching and custom loaders for efficient delivery.
+    Prevents layout shift by reserving image space.
+    Enables priority loading and responsive layouts.
+
+    Note: <Image/> in Next.js is similar to the HTML <img> element as both accept src and alt, but <Image/> adds automatic optimization, lazy loading, and performance benefits.
+
+    Core Web Vitals
+        Core Web Vitals are performance metrics that measure the loading speed, responsiveness, and visual stability of a web page. Next.js Image Optimization helps improve these metrics by optimizing how images are loaded and displayed.
+
+        Largest Contentful Paint (LCP): Measures how quickly the largest visible content loads.
+        Interaction to Next Paint (INP): Measures how quickly the page responds to user interactions.
+        Cumulative Layout Shift (CLS): Measures the visual stability of a page by tracking unexpected layout shifts.
+
+    Image Optimization
+        The Image component in Next.js automatically optimizes images added to the application. It also provides various properties to further optimize and control image loading and rendering.
+
+          Property	         Type	  Required	            Description
+            src	            string	    Yes	       The path or URL to the image.
+
+            alt	            string	    Yes	       Descriptive text for the image, used for accessibility.
+
+            width	        number	    Yes	       The width of the image in pixels.
+
+            height	        number	    Yes	       The height of the image in pixels.
+
+            quality	        number 
+                    (1-100, default: 75) No	       The quality of the optimized image.
+
+            priority	    boolean 
+                        (default: false) No	       If true, the image will be considered high priority and preloaded.
+
+            placeholder	    blur,empty	 No	       Specifies a placeholder while the image is loading.
+
+            blurDataURL	    string	     No	       A base64-encoded image used as a placeholder if placeholder="blur".
+
+            unoptimized	    boolean 
+                        (default: false) No	       If true, the image will not be optimized.
+
+            loader	        function	 No	       A custom function for loading the image, allowing integration with a third-party image provider.
+
+            onLoadingComplete function	 No	       A callback function that is called when the image has finished loading.
+
+    1. Image loading
+        You can control how an image is loaded using the loading prop. The Image component supports two loading strategies:
+
+        eager: Loads image immediately.
+        lazy: By default in the image component. Loading until an image is visible. 
+
+        Note: eager is not good for optimization use priority prop instead.
+    
+    2. Priority Prop
+        Use the priority prop to preload above-the-fold images. This helps improve Largest Contentful Paint (LCP).
+
+    3. Image Sizing
+        Specifying the width and height props helps prevent Cumulative Layout Shift (CLS) by reserving space for the image before it loads. This improves page stability and user experience.
+
+        If you want the image to automatically fill its parent container instead of specifying fixed dimensions, use the fill prop. The parent element must have position: relative and a defined width and height.
+    
+    4. ObjectFit Prop
+        When using the fill prop, you can use the CSS object-fit property to control how the image is resized within its parent container.
+
+        Common values of object-fit include:
+
+        contain: Scales the image to fit inside the container while maintaining its aspect ratio.
+        cover: Fills the container while maintaining the aspect ratio. Parts of the image may be cropped.
+        fill: Stretches the image to fill the container, which may distort its aspect ratio.
+        none: Displays the image at its original size without resizing.
+
+    5. Placeholder Prop
+        It is used as a fallback image when an image is loading. It is also called a temporary alternative or loading indicator. The placeholder indicates that the image is being loaded.
+
+        Placeholder provides two values:
+            blur
+            empty
