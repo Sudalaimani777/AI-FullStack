@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
-import { AppSidebar } from "@/components/app-sidebar"
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
+import Navbar from "@/components/navbar";
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight:"400"
+  weight: "400"
 })
 
 // const geistSans = Geist({
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <AppSidebar />
           <main className="w-full">
             <SidebarTrigger />
+            <Navbar />
             {children}
           </main>
         </SidebarProvider>

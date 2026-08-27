@@ -17,7 +17,7 @@ interface Nav {
 
 const navLinks: Nav[] = [
   { id: 1, title: "Dashboard", icon: File, url: "/" },
-  { id: 2, title: "Blogs", icon: File, url: "/blog" },
+  { id: 2, title: "Blogs", icon: File, url: "/blogs" },
   { id: 3, title: "Draft", icon: PenTool, url: "/draft" },
 ]
 
