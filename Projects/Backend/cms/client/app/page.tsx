@@ -23,7 +23,7 @@ export default function LandingPage() {
             {/* CTA Buttons */}
             <div className="flex gap-3 p">
               <Link
-                href="/blog"
+                href="/sign-in"
                 className="bg-gray-200 hover:bg-gray-300 transition-all duration-200 delay-100 text-black px-3 py-1 rounded-sm text-center"
               >
                 Try it out!

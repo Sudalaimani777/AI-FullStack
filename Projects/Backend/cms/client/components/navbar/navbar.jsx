@@ -1,9 +1,12 @@
 import { Anvil } from "lucide-react"
 import Link from "next/link";
+import UserModal from "./UserModal";
+import { tempUser } from "@/data/tempData";
+
 
 const Navbar = () => {
 
-    const auth = false;
+    const auth = true;
 
     return (
         <>
@@ -20,7 +23,7 @@ const Navbar = () => {
                 {/* Right Side */}
                 {
                     auth ?
-                        <div>User</div>
+                        <UserModal name={tempUser.name} userName={tempUser.userName} />
                         :
                         <Link href={"/sign-in"} className="">
                             Sign in

@@ -19,6 +19,7 @@
         "prerender",
         "pypdf",
         "shutil",
+        "sudalai",
         "Sudhan",
         "uvicorn",
         "venv"

@@ -5,7 +5,7 @@ import Image from "next/image";
 const SingleBlog = () => {
 
     const temporaryTags = ["spaceX", "NASA", "Google"];
-    const tempHTMl = `<p>Demo Content</p>`
+    // const tempHTMl = `<p>Demo Content</p>`
 
     return (
         <>
@@ -24,7 +24,7 @@ const SingleBlog = () => {
                         <div className="flex gap-2 items-center">
                             <Calendar className="text-gray-400 size-4" />
                             <p className="text-gray-400 text-xs">
-                                Created on :{dateFormat(new Date())}
+                                Created on : {dateFormat(new Date())}
                             </p>
                         </div>
                         {/* Category Wrapper */}
@@ -42,10 +42,10 @@ const SingleBlog = () => {
                     </div>
 
                     {/* Content Wrapper */}
-                        {/* <div className="content" dangerouslySetInnerHTML={{__html:tempHTMl}}></div> */}
-                        <p className="text-sm w-[90%] md:w-2/3 text-gray-300">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. In, eum nemo consectetur soluta, voluptas ut ad architecto aut praesentium saepe neque optio quo fugiat explicabo? Optio est magnam tenetur nemo nihil rem aliquam facere iure adipisci aliquid repellat voluptatum minima voluptas, aut omnis distinctio. Corrupti consequuntur fugiat iste eveniet laborum.
-                        </p>
+                    {/* <div className="content" dangerouslySetInnerHTML={{__html:tempHTMl}}></div> */}
+                    <p className="text-sm w-[90%] md:w-2/3 text-gray-300">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. In, eum nemo consectetur soluta, voluptas ut ad architecto aut praesentium saepe neque optio quo fugiat explicabo? Optio est magnam tenetur nemo nihil rem aliquam facere iure adipisci aliquid repellat voluptatum minima voluptas, aut omnis distinctio. Corrupti consequuntur fugiat iste eveniet laborum.
+                    </p>
                 </div>
             </section>
         </>

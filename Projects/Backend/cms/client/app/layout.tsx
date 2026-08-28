@@ -3,7 +3,7 @@ import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/navbar/navbar";
 
 const poppins = Poppins({
   subsets: ["latin"],
