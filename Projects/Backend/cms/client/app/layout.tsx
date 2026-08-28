@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Poppins } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import Navbar from "@/components/navbar/navbar";
+import AuthProvider from "@/provider/AuthProvider";
+import { Toaster } from "@/components/ui/toast";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -32,14 +34,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${poppins.className} h-full antialiased dark`}
     >
       <body className="min-h-full flex flex-col">
-        <SidebarProvider>
-          <AppSidebar />
-          <main className="w-full">
-            <SidebarTrigger />
-            <Navbar />
-            {children}
-          </main>
-        </SidebarProvider>
+        <AuthProvider>
+          <SidebarProvider>
+            <AppSidebar />
+            <main className="w-full">
+              <SidebarTrigger />
+              <Navbar />
+              {children}
+              <Toaster />
+            </main>
+          </SidebarProvider>
+        </AuthProvider>
       </body>
     </html>
   );

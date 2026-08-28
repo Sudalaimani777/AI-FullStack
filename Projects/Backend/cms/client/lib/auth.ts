@@ -1,8 +1,10 @@
-import { PrismaAdapter } from "@auth/prisma-adapter";
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import GoogleProvider from "next-auth/providers/google";
+import type { NextAuthOptions, Session, User } from "next-auth";
+import type { JWT } from "next-auth/jwt";
 import { prisma } from "@/lib/prisma";
 
-const authOptions = {
+const authOptions: NextAuthOptions = {
     adapter: PrismaAdapter(prisma),
     session: {
         strategy: "jwt"
@@ -18,10 +20,14 @@ const authOptions = {
     ],
     callbacks: {
         // For jwt create and update, this callback runs
-        async jwt({ token, user }) {
+        async jwt({ token, user }: { token: JWT; user: User }) {
             // Check User exist in the DB :-
 
             if (user) {
+                if (!user.email) {
+                    return token;
+                }
+
                 const dbUser = await prisma.user.findUnique({
                     where: { email: user.email },
                     select: { id: true, name: true, email: true, username: true, role: true, image: true }
@@ -39,8 +45,8 @@ const authOptions = {
                         data: {
                             email: user.email,
                             role: "user",
-                            name:user.name,
-                            image:user.image
+                            name: user.name,
+                            image: user.image
                         }
                     });
                     token.id = newUser.id
@@ -49,22 +55,22 @@ const authOptions = {
             return token;
         },
         // For Session :-
-        async session({ session, token }) {
+        async session({ session, token }: { session: Session; token: JWT }) {
             // If token exist :-
-            if(token){
+            if (token) {
                 session.user.id = token.id;
                 session.user.name = token.name;
-                session.user.username = token.username;
-                session.user.email = token.email;
-                session.user.image = token.image;
-                session.user.role = token.role;
+                session.user.username = token.username ?? null;
+                session.user.email = token.email ?? null;
+                session.user.image = token.image ?? null;
+                session.user.role = token.role ?? "user";
             }
             return session;
         },
-        redirect(){
+        async redirect() {
             return "/dashboard";
         }
     }
-}
+} 
 
 export default authOptions;
