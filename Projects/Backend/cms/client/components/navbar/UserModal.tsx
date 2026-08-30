@@ -10,13 +10,11 @@ import {
 import { Button } from "@/components/ui/button"
 import Link from "next/link";
 import Image from "next/image";
+import { User } from "@/types/types";
+import SignOut from "@/components/navbar/SignOut";
 
 
-interface User {
-    name: string,
-    userName: string,
-    userImage: string
-}
+
 
 const UserModal = ({ name, userName, userImage }: User) => {
     return (
@@ -28,6 +26,7 @@ const UserModal = ({ name, userName, userImage }: User) => {
                         width={40}
                         height={40}
                         alt={name}
+                        className="rounded-full border-2 border-[greenyellow]"
                     />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
@@ -40,12 +39,9 @@ const UserModal = ({ name, userName, userImage }: User) => {
                                 Go to profile
                             </Link>
                         </DropdownMenuItem>
-                        <DropdownMenuItem>Billing</DropdownMenuItem>
-                    </DropdownMenuGroup>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuGroup>
-                        <DropdownMenuItem>Team</DropdownMenuItem>
-                        <DropdownMenuItem>Subscription</DropdownMenuItem>
+                        <DropdownMenuItem>
+                            <SignOut />
+                        </DropdownMenuItem>
                     </DropdownMenuGroup>
                 </DropdownMenuContent>
             </DropdownMenu>

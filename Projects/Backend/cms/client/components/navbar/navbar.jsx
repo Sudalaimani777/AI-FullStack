@@ -8,12 +8,7 @@ import { getAuthSession } from "@/lib/auth";
 const Navbar = async () => {
 
     const session = await getAuthSession();
-
-    console.log("session ->", session);
-
-    console.log("User ->", session.user)
-
-    const user = await session.user;
+    // console.log("session ->", session);
 
     return (
         <>
@@ -31,9 +26,9 @@ const Navbar = async () => {
                 {
                     session ?
                         <UserModal
-                            name={user?.name}
-                            userName={user?.username}
-                            userImage={user?.image}
+                            name={session?.user?.name}
+                            userName={session?.user?.username}
+                            userImage={session?.user?.image}
                         />
                         :
                         <Link href={"/sign-in"} className="">

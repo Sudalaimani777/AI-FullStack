@@ -5,7 +5,7 @@ import {
   SidebarGroup,
   SidebarHeader,
 } from "@/components/ui/sidebar"
-import { File, LucideIcon, PenTool } from "lucide-react"
+import { File, Inbox, LucideIcon, Pencil, Search } from "lucide-react"
 import Link from "next/link"
 
 interface Nav {
@@ -17,8 +17,9 @@ interface Nav {
 
 const navLinks: Nav[] = [
   { id: 1, title: "Dashboard", icon: File, url: "/" },
-  { id: 2, title: "Blogs", icon: File, url: "/blogs" },
-  { id: 3, title: "Draft", icon: PenTool, url: "/draft" },
+  { id: 2, title: "Blogs", icon: Inbox, url: "/blogs" },
+  { id: 3, title: "Draft", icon: Pencil, url: "/draft" },
+  { id: 4, title: "Search", icon: Search, url: "/search" },
 ]
 
 export function AppSidebar() {
