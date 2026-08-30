@@ -8,24 +8,36 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Button } from "@/components/ui/button"
-import { User } from "@/data/tempData";
 import Link from "next/link";
+import Image from "next/image";
 
-const UserModal = ({name, userName}:User) => {
+
+interface User {
+    name: string,
+    userName: string,
+    userImage: string
+}
+
+const UserModal = ({ name, userName, userImage }: User) => {
     return (
         <>
             <DropdownMenu>
                 <DropdownMenuTrigger render={<Button variant="outline" />}>
-                    {userName}
+                    <Image
+                        src={userImage || "/default-profile.avif"}
+                        width={40}
+                        height={40}
+                        alt={name}
+                    />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                     <DropdownMenuGroup>
                         <DropdownMenuLabel>
-                            Hi, {name}
+                            Welcome, {name}
                         </DropdownMenuLabel>
                         <DropdownMenuItem>
                             <Link href={`/profile/${userName}`}>
-                                Go to profile   
+                                Go to profile
                             </Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem>Billing</DropdownMenuItem>

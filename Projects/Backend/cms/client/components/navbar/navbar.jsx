@@ -1,12 +1,19 @@
 import { Anvil } from "lucide-react"
 import Link from "next/link";
 import UserModal from "./UserModal";
-import { tempUser } from "@/data/tempData";
+import { getAuthSession } from "@/lib/auth";
 
 
-const Navbar = () => {
 
-    const auth = true;
+const Navbar = async () => {
+
+    const session = await getAuthSession();
+
+    console.log("session ->", session);
+
+    console.log("User ->", session.user)
+
+    const user = await session.user;
 
     return (
         <>
@@ -22,8 +29,12 @@ const Navbar = () => {
 
                 {/* Right Side */}
                 {
-                    auth ?
-                        <UserModal name={tempUser.name} userName={tempUser.userName} />
+                    session ?
+                        <UserModal
+                            name={user?.name}
+                            userName={user?.username}
+                            userImage={user?.image}
+                        />
                         :
                         <Link href={"/sign-in"} className="">
                             Sign in

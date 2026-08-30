@@ -11,6 +11,7 @@
         "dotenv",
         "fastapi",
         "Googlebot",
+        "googleusercontent",
         "MERN",
         "njsproj",
         "nodemon",
@@ -18,10 +19,12 @@
         "Plaintextmy",
         "prerender",
         "pypdf",
+        "qvtmofw",
         "shutil",
         "sudalai",
         "Sudhan",
         "uvicorn",
-        "venv"
+        "venv",
+        "wuaosna"
     ]
 }
