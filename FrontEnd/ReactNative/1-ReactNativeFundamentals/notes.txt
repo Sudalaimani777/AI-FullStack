@@ -1,0 +1,13 @@
+CHAPTER 1 : React Native :-
+
+    i)  It is a open source framework, with is build on top of the React
+    ii) It is developed by facebook.
+    iii)We can build the mobile application with the help of React Eco-System
+    iv) With the help of React Native we can build the Cross platform application for both IOS and Android
+
+    Problems faced before React Native :-
+
+        i)   Cross Platform development for both IOS and Android.
+        ii)  Code Reusability.
+        iii) Development speed and setup for both IOS and Android.
+
