@@ -11,3 +11,23 @@ CHAPTER 1 : React Native :-
         ii)  Code Reusability.
         iii) Development speed and setup for both IOS and Android.
 
+CHAPTER 2 : Installation & Environment Setup :-
+
+    Setting up a React Native development environment can be done in two ways. For this guide, we are focusing on Expo Go, which is the fastest and most efficient framework to build cross-platform mobile applications on a Windows host machine.
+    
+    Using Expo allows Windows developers to write code and instantly preview it on both Android and iOS physical devices without requiring a Mac or heavy native SDKs.
+
+    Initializing Your First Project :-
+
+        With the ecosystem tools installed, you can generate a fresh React Native project boilerplate using the terminal.
+
+        # 1. Generate a new Expo project template
+            npx create-expo-app@latest MyFirstApp
+
+        # 2. Navigate into the newly created project directory
+            cd MyFirstApp
+
+        # 3. Spin up the Expo local development server
+            npx expo start
+
+    Connecting Your Physical Device :-
