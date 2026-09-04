@@ -30,4 +30,155 @@ CHAPTER 2 : Installation & Environment Setup :-
         # 3. Spin up the Expo local development server
             npx expo start
 
+        # 4. Reset the project
+            npm run reset-project
+
     Connecting Your Physical Device :-
+
+        The Expo development server compiles your code locally and serves it over your network. To view and test your application in real-time, configure your mobile device.
+        
+        For Android Users
+            Download the Expo Go application from the Google Play Store.
+            Open the app and select "Scan QR Code".
+            Point your camera at the QR code generated in your Windows terminal.
+        
+        For iOS Users
+            Download the Expo Go application from the iOS App Store.
+            Open your iPhone's native Camera app.
+            Scan the QR code in your terminal, then tap the prompt to open the link inside the Expo Go app.
+
+CHAPTER 3 : Core Components :-
+
+    View :-
+        It is a container to warp any element. It's kinda like act as a div to warp multiple elements
+        By default the View uses the flex box module
+
+        what it does internal:-
+            When the code is compiled in any OS like a android and IOS, it uses the native UI elements
+            When it compiled the JS injects the Native UI element in the devices
+
+        Props for View Component
+            The View component provides a wide range of props to control layout, touch handling, accessibility, focus, and platform-specific behavior.
+
+            1. Touch & Responder System
+                These props control how a View reacts to touch events and how it becomes the active responder.
+
+                    onStartShouldSetResponder: Runs when the user touches the view
+                    onMoveShouldSetResponder: Runs when the user moves their finger on the view
+                    onResponderGrant: Called when the view starts responding to touch
+                    onResponderMove: Runs while the finger is moving on the view
+                    onResponderRelease: Runs when the user lifts the finger
+                    onResponderReject: Called when another view gets the touch instead
+                    onResponderTerminate: Runs when touch control is taken away
+                    onResponderTerminationRequest: Asks the view to give up touch control
+                    onStartShouldSetResponderCapture: Parent view can stop child from handling touch start
+                    onMoveShouldSetResponderCapture: Parent view can stop child from handling touch move
+                    pointerEvents: Controls whether the view can receive touches
+                    hitSlop: Makes the touch area larger around the view
+
+            2. Accessibility Props
+                These props make the View usable with screen readers and assistive technologies.
+
+                    accessible: Marks the view as usable by screen readers
+                    accessibilityLabel: Text read by the screen reader
+                    accessibilityHint: Explains what happens when the user taps
+                    accessibilityRole: Tells what the element is (button, image, etc.)
+                    accessibilityState: Shows state like disabled, selected, checked
+                    accessibilityValue: Shows the current value (for sliders, progress, etc.)
+                    accessibilityActions: Lists actions that can be done
+                    onAccessibilityAction: Runs when an accessibility action happens
+                    onAccessibilityTap: Runs when screen-reader tap is used
+                    onMagicTap: Runs when special two-finger tap is used
+                    onAccessibilityEscape: Runs when the escape gesture is used
+                    accessibilityViewIsModal: Blocks other elements for screen readers
+                    accessibilityElementsHidden: Hides child elements from screen readers
+                    accessibilityIgnoresInvertColors: Stops color inversion
+                    accessibilityLiveRegion: Notifies screen reader when content changes
+                    importantForAccessibility (Android): Controls how the view is announced
+
+            3. Layout & Styling
+                These props control how the View looks and how it is arranged on the screen.
+
+                    style: Used to design the view (color, size, margin, etc.)
+                    onLayout: Runs when the view appears or changes size
+                    removeClippedSubviews: Removes off-screen views to improve performance
+                    collapsible: Removes empty layout views to optimize performance
+
+            4. Focus & Navigation
+                These props control keyboard, TV remote, and non-touch navigation.
+
+                    focusable: Makes the view focusable using keyboard or remote
+                    nextFocusUp: Sets the next view when moving up
+                    nextFocusDown: Sets the next view when moving down
+                    nextFocusLeft: Sets the next view when moving left
+                    nextFocusRight: Sets the next view when moving right
+                    nextFocusForward: Sets the next view when moving forward
+
+            5. Performance & Platform
+                These props help optimize rendering on Android and iOS.
+
+                    needsOffscreenAlphaCompositing: Helps show correct transparency
+                    shouldRasterizeIOS: Improves performance on iOS by drawing as an image
+                    renderToHardwareTextureAndroid: Improves rendering on Android
+                    
+            6. Testing & Native Linking
+                These props help link the View with testing tools and native code.
+
+                    testID: Used to find the view in testing
+                    nativeID: Used to find the view from native code
+    
+    Text :-
+        In the React Native application, the Text tag is used to display the text in the device
+        It's kinda like a p, h1 to h6, span and other text wrapping tags in the html
+
+        We cannot write the text without the help of the Text tag. This is necessary
+
+        Rendering the string in the JSX is not allowed in React Native, when compared to the React JSX
+
+        Props for Text Component :-
+            Text props control how text is displayed, styled, and interacted with in a React Native application.
+
+            style: Applies styles like color, font size, and alignment.
+            numberOfLines: Limits how many lines of text are shown.
+            ellipsizeMode: Controls how overflow text is trimmed (head, middle, tail, clip).
+            onPress: Executes a function when the text is tapped.
+            selectable: Allows the user to select and copy the text.
+            allowFontScaling: Enables or disables font scaling based on device settings.
+            adjustsFontSizeToFit: Automatically adjusts text size to fit inside the container.
+            minimumFontScale: Sets the smallest font size allowed when auto-scaling.
+            suppressHighlighting: Prevents text from highlighting when pressed.
+            textBreakStrategy: Controls how words break across lines (Android).
+
+            Styling the Text Component
+                The Text component provides several styling properties that control how text looks and appears in a React Native app. These properties help customize size, color, alignment, and spacing.
+
+                fontSize: Sets the size of the text.
+                fontWeight: Defines the thickness of the text (bold, normal, etc.).
+                color: Changes the text color.
+                textAlign: Aligns the text horizontally.
+                lineHeight: Controls the vertical spacing between lines.
+
+    TextInput :-
+        It is used for taking the user input
+        The main advantage of the TextInput is it automatically uses the device keyboard
+
+        We can use the normal react attributes in the React Native as well. But for the change event we can use the "onChangeText" attribute
+        
+        The main difference between onChangeText and onChange in React Native is what gets passed to your function arguments.
+
+        React (Web)
+            Component Context: Applies to standard <input type="text" /> elements or web-based text fields.
+            Event Type: Uses the explicit React.ChangeEvent<HTMLInputElement> type definition.
+            Value Retrieval: Accesses the underlying string value directly through event.target.value.
+
+        React Native: onChangeText (Recommended)
+            Argument Extracted: Provides the raw text string immediately as the sole argument.
+            Typing Complexity: Requires a basic (text: string) => void function definition without complex wrapper types.
+            Primary Use Case: Serves as the standard choice for simple state updates and standard form handling.
+        
+        React Native: onChange 
+            Argument Extracted: Emits a full native event wrapper containing nested layout and target properties.Event Type: Requires the structured NativeSyntheticEvent<TextInputChangeEventData> generic type.Value Retrieval: Extracts the text payload via the deeply nested e.nativeEvent.text path.
+            Primary Use Case: Useful when your logic demands deep, low-level data like target element tags or platform-specific event metadata.
+
+        Why does onChangeText exist?
+            React Native introduced onChangeText as a convenience feature specifically because 95% of the time, developers only care about the actual text string when a user types. It saves you from writing repetitive .nativeEvent.text boilerplate in every single input handler.
