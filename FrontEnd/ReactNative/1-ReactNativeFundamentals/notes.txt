@@ -47,6 +47,8 @@ CHAPTER 2 : Installation & Environment Setup :-
             Open your iPhone's native Camera app.
             Scan the QR code in your terminal, then tap the prompt to open the link inside the Expo Go app.
 
+            
+
 CHAPTER 3 : Core Components :-
 
     View :-
