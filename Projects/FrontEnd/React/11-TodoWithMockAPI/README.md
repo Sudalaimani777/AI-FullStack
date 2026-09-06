@@ -1,16 +1,95 @@
-# React + Vite
+# 📋 TodoWithMockAPI — Asynchronous Task Management with Zustand & Axios
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**TodoWithMockAPI** is a modern task management application built with **React 19**, **Vite**, **Zustand (v5)** state management, and **Axios**. It connects to an external RESTful **Mock API** service to demonstrate full asynchronous CRUD operations (Create, Read, Update, Delete) with global error handling, loading states, and live search filtering.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🏗️ Architecture & Folder Structure
 
-## React Compiler
+```
+11-TodoWithMockAPI/
+├── src/
+│   ├── api/                 # API service layer
+│   │   ├── axios.js         # Custom Axios instance with baseURL configuration
+│   │   └── todoApi.js       # RESTful API helper functions (getTask, createTask, updateTask, deleteTask)
+│   ├── store/               # Global state store
+│   │   └── todoStore.js     # Zustand store powering task list, loading, error, search & edit states
+│   ├── App.css              # Custom styling definitions
+│   ├── App.jsx              # Main React application component
+│   ├── index.css            # Global CSS styles & base resets
+│   └── main.jsx             # React entry point rendering root App component
+├── .gitignore               # Git untracked files configuration
+├── index.html               # Vite HTML entry template
+├── package.json             # App dependencies & script declarations
+└── vite.config.js           # Vite configuration file
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ⚡ Tech Stack & Tools
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Technology | Purpose |
+| :--- | :--- |
+| **React 19** | Modern UI library powering component lifecycle and view layer |
+| **Vite 8** | Next-generation frontend build tool and hot-reloading dev server |
+| **Zustand 5** | Lightweight, boilerplate-free state management solution |
+| **Axios** | Promise-based HTTP client for API request orchestration |
+| **Mock API** | Remote REST API endpoint providing task persistence |
+
+---
+
+## ✨ Key Features & Architecture Patterns
+
+1. **Zustand State Store (`todoStore.js`)**:
+   - Centralized task storage (`allTasks`), global loading spinner state (`loading`), error tracking (`error`), task search query (`searchTaskData`), and draft edit state (`editTaskData`).
+
+2. **Decoupled API Layer (`todoApi.js`)**:
+   - Clean abstraction of asynchronous HTTP endpoints using Axios:
+     - `getTask()`: Fetches full list of tasks.
+     - `getTaskById(id)`: Retrieves single task metadata.
+     - `createTask(task)`: Appends new task record to server.
+     - `updateTask(id, updatedTask)`: Replaces task content.
+     - `deleteTask(id)`: Removes task from server.
+
+3. **Custom Axios Client (`axios.js`)**:
+   - Configures central `MOCK_API_URL` environment endpoint with default JSON headers.
+
+---
+
+## 🚀 Quickstart Guide
+
+### Prerequisites
+- Node.js (v18 or higher)
+- Mock API service endpoint URL
+
+### Environment Setup
+Create a `.env` file in the root directory:
+```env
+MOCK_API_URL = https://your-mock-api-endpoint.mockapi.io/tasks
+```
+
+### Installation & Execution
+
+1. **Navigate to project directory**:
+   ```bash
+   cd Projects/FrontEnd/React/11-TodoWithMockAPI
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Start Development Server**:
+   ```bash
+   npm run dev
+   ```
+
+4. **Build for Production**:
+   ```bash
+   npm run build
+   ```
+
+---
+
+[← Back to React Projects Hub](../README.md)

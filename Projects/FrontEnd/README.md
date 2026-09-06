@@ -1,12 +1,12 @@
 # FrontEnd Projects
 
-Complete collection of HTML and JavaScript applications demonstrating practical development skills from fundamentals to advanced concepts.
+Complete collection of HTML, JavaScript, React, TypeScript, and Next.js applications demonstrating practical development skills from fundamentals to production-ready full-stack frontend solutions.
 
 ## Structure
 
 ```
 FrontEnd/
-├── HTMLProjects/                 # 8 complete HTML projects
+├── HTML/                         # 8 complete HTML projects
 │   ├── 1-Personal-Portfolio/     # Professional portfolio website
 │   ├── 2-Blog-Page/              # Multi-article blog with sidebar
 │   ├── 3-Restaurant-Menu/        # Restaurant website with menu & reservation
@@ -16,17 +16,41 @@ FrontEnd/
 │   ├── 7-Documentation-Page/     # Technical documentation with sidebar
 │   └── 8-Online-Resume/          # Professional resume/CV
 │
-└── JavascriptProjects/           # 10 production-ready JavaScript applications
-    ├── BookManagementApp/        # OOP, LocalStorage CRUD, ES6 classes
-    ├── CharacterValidator/       # Real-time input validation
-    ├── ColorPicker/              # Random color generation, Clipboard API
-    ├── CRUD_Application_Using_API/ # Modern CRUD, async/await, inline editing
-    ├── Mind/                     # MindVault - Thought capturing with API
-    ├── MoneyTracker/             # Progressive MVC, API integration, 3 learning stages
-    ├── Search/                   # User search with API and real-time filtering
-    ├── SimpleCounterApp/         # State management basics
-    ├── To-do_App/                # Advanced LocalStorage, search/filter
-    └── ToDoUsingAPI/             # REST API integration, ES6 modules
+├── Javascript/                   # 15 production-ready JavaScript applications
+│   ├── AutoTextEffectAnimation/  # Dynamic typing effect animation
+│   ├── BookManagementApp/        # OOP, LocalStorage CRUD, ES6 classes
+│   ├── Calculator/               # Interactive utility calculator
+│   ├── CharacterValidator/       # Real-time input validation
+│   ├── ColorPicker/              # Random color generation, Clipboard API
+│   ├── CRUD_Application_Using_API/ # Modern CRUD, async/await, inline editing
+│   ├── CurrencyConverter/        # Live currency converter with exchange rate API
+│   ├── Mind/                     # MindVault - Thought capturing with API
+│   ├── MoneyTracker/             # Progressive MVC, API integration, 3 learning stages
+│   ├── RandomPasswordGenerator/  # Configurable password generator
+│   ├── RockPaperSissor/          # Interactive browser game
+│   ├── Search/                   # User search with API and real-time filtering
+│   ├── SimpleCounterApp/         # State management basics
+│   ├── To-do_App/                # Advanced LocalStorage, search/filter
+│   └── ToDoUsingAPI/             # REST API integration, ES6 modules
+│
+├── React/                        # 11 React 19 web applications & modules
+│   ├── 1-StaticPages/            # Static layout & component foundations
+│   ├── 2-DataDrivenReact/        # Dynamic props & list rendering
+│   ├── 3-UsingState/             # Interactive UI event handlers & state
+│   ├── 4-SideEffects/            # Data fetching & cleanup hooks
+│   ├── 5-CapeStoneProjects/      # Multi-component state integration
+│   ├── 6-ReviewApp/              # User feedback rating system
+│   ├── 7-TodoApp/                # CRUD task manager with local persistence
+│   ├── 8-MovieApp/               # Movie catalogue & search interface
+│   ├── 9-CineBite/               # TMDB API live movie discovery app
+│   ├── 10-NotesApp/              # Redux Toolkit note-taking workspace
+│   └── 11-TodoWithMockAPI/       # Asynchronous task app with Zustand & Axios
+│
+├── TypeScript/                   # Typed & OOP application models
+│   └── 1-TodoApp/                # Object-oriented TypeScript task manager
+│
+└── NextJS/                       # Full-stack SSR & App Router solutions
+    └── cms/                      # Modern Content Management System
 ```
 
 ## Projects Overview
@@ -127,6 +151,45 @@ FrontEnd/
 **Features:** Real-time filtering, user details, dynamic stats, JSONPlaceholder API  
 **Skills:** API consumption, filter/map/Set, responsive design, gradient animations
 
+---
+
+### React Projects
+
+#### CineBite (9-CineBite)
+**Tech:** React 19, Vite, Tailwind CSS v4, React Router DOM 7, TMDB API  
+**Features:** Live movie catalog, categories (Now Playing, Popular, Top Rated, Upcoming), detail views, search bar  
+**Skills:** API consumption, URL parameter routing, dynamic state management
+
+#### NotesApp (10-NotesApp)
+**Tech:** React 19, Redux Toolkit, React Router DOM 7, Tailwind CSS v4  
+**Features:** Workspace note management, custom reducer state, sidebar navigation, archiving & bin views  
+**Skills:** Centralized state management, Redux Toolkit slices/reducers, layout routes
+
+#### TodoWithMockAPI (11-TodoWithMockAPI)
+**Tech:** React 19, Zustand 5, Axios, MockAPI  
+**Features:** Async task management, global error/loading states, live search filter  
+**Skills:** Zustand store architecture, decoupled API layer, async request handling
+
+---
+
+### TypeScript Projects
+
+#### TodoApp (1-TodoApp)
+**Tech:** TypeScript 6, Vite, HTML5/CSS3, LocalStorage  
+**Features:** Object-oriented item models, singleton manager & renderer classes, DOM list rendering  
+**Skills:** Strict interface typing, class inheritance, singleton design pattern, DOM element casting
+
+---
+
+### Next.js Projects
+
+#### CMS (cms)
+**Tech:** Next.js, App Router, React 19, Prisma, Tailwind CSS  
+**Features:** Full-stack content management dashboard with database persistence and modern UI components  
+**Skills:** Server Components, API routes, database modeling, SSR/SSG rendering
+
+---
+
 ## Tech Stack
 
 ### HTML Projects
@@ -138,12 +201,26 @@ FrontEnd/
 
 ### JavaScript Projects
 - **Vanilla JavaScript** (ES6+)
-- **LocalStorage API** (3 projects)
-- **Fetch API / REST** (3 projects)
-- **Tailwind CSS** (7 projects)
-- **Materialize CSS** (1 project)
-- **MVC Architecture** (1 project)
-- **IIFE Pattern** (1 project)
+- **LocalStorage API**
+- **Fetch API / REST**
+- **Tailwind CSS**
+- **Materialize CSS**
+- **MVC Architecture**
+- **IIFE Pattern**
+
+### React & Modern Frontend Projects
+- **React 19** & **Vite 8**
+- **Redux Toolkit** & **Zustand 5**
+- **React Router DOM 7**
+- **Axios Client** & **Fetch API**
+- **Tailwind CSS v4**
+
+### TypeScript & Next.js Projects
+- **TypeScript 6** (Interfaces, Singletons, OOP)
+- **Next.js** (App Router, Server Components)
+- **Prisma ORM** & Database integration
+
+---
 
 ## Complexity Matrix
 
@@ -173,6 +250,17 @@ FrontEnd/
 | MoneyTracker | MVC Architecture | ⭐⭐⭐⭐⭐ | MVC pattern, IIFE, API integration, Tailwind, Animations |
 | CRUD_Application_Using_API | Modern Async | ⭐⭐⭐⭐⭐ | Async/await, Inline editing, Error handling, MockAPI |
 
+### React, TypeScript & Next.js Projects
+| Project | Focus Area | Complexity | Key Concepts |
+|---------|-----------|------------|--------------|
+| 1-TodoApp (TS) | OOP & Singletons | ⭐⭐⭐ | Interfaces, Singleton Classes, DOM rendering, LocalStorage |
+| CineBite (React) | REST API & Routing | ⭐⭐⭐⭐ | TMDB API, React Router 7, Async Custom Hooks |
+| NotesApp (React) | Redux & Routing | ⭐⭐⭐⭐⭐ | Redux Toolkit, Context Reducer, AppLayout Routing |
+| TodoWithMockAPI (React) | Zustand & Axios | ⭐⭐⭐⭐⭐ | Zustand Store, Decoupled Axios Client, MockAPI |
+| CMS (Next.js) | Full-Stack SSR | ⭐⭐⭐⭐⭐ | Next.js App Router, Prisma ORM, Server Components |
+
+---
+
 ## Learning Path
 
 ### Phase 1: HTML Fundamentals
@@ -197,6 +285,16 @@ FrontEnd/
 9. **ToDoUsingAPI** → API integration with Promises
 10. **Search** → Real-time filtering & API consumption
 11. **Mind** → Modular ES6 architecture & edit mode states
+
+### Phase 3: React, TypeScript & Full-Stack Next.js
+1. **TypeScript 1-TodoApp** → Strongly-typed OOP design & singleton patterns
+2. **React Projects (1-8)** → Component foundations, hooks, state & capstone apps
+3. **React CineBite** → Dynamic client-side routing & TMDB API integration
+4. **React NotesApp** → Centralized Redux Toolkit state & nested route layouts
+5. **React TodoWithMockAPI** → Asynchronous state management with Zustand & Axios
+6. **Next.js CMS** → Server-side rendering, App Router & full-stack data modeling
+
+---
 
 ## Key Skills Demonstrated
 
@@ -227,38 +325,57 @@ FrontEnd/
 - Error handling
 - Browser APIs (Clipboard)
 
+### React, TypeScript & Next.js Skills
+- React 19 Component Architecture & Custom Hooks
+- Redux Toolkit & Zustand State Management
+- React Router DOM v7 Layout & Parameter Routing
+- Strict TypeScript Typing, Interfaces & Singleton Design Patterns
+- Next.js App Router, Server Components & Database Integration
+
+---
+
 ## Quick Access
 
 ### HTML Projects
-- [HTMLProjects Hub](HTMLProjects/README.md)
-- [1. Personal Portfolio](HTMLProjects/1-Personal-Portfolio/index.html)
-- [2. Blog Page](HTMLProjects/2-Blog-Page/index.html)
-- [3. Restaurant Menu](HTMLProjects/3-Restaurant-Menu/index.html)
-- [4. Product Listing](HTMLProjects/4-Product-Listing/index.html)
-- [5. Landing Page](HTMLProjects/5-Landing-Page/index.html)
-- [6. Event Registration Form](HTMLProjects/6-Event-Registration-Form/index.html)
-- [7. Documentation Page](HTMLProjects/7-Documentation-Page/index.html)
-- [8. Online Resume](HTMLProjects/8-Online-Resume/index.html)
+- [HTML Hub](HTML/README.md)
+- [1. Personal Portfolio](HTML/1-Personal-Portfolio/index.html)
+- [2. Blog Page](HTML/2-Blog-Page/index.html)
+- [3. Restaurant Menu](HTML/3-Restaurant-Menu/index.html)
+- [4. Product Listing](HTML/4-Product-Listing/index.html)
+- [5. Landing Page](HTML/5-Landing-Page/index.html)
+- [6. Event Registration Form](HTML/6-Event-Registration-Form/index.html)
+- [7. Documentation Page](HTML/7-Documentation-Page/index.html)
+- [8. Online Resume](HTML/8-Online-Resume/index.html)
 
 ### JavaScript Projects
-- [JavascriptProjects Hub](JavascriptProjects/README.md)
-- [BookManagementApp](JavascriptProjects/BookManagementApp/README.md)
-- [CharacterValidator](JavascriptProjects/CharacterValidator/README.md)
-- [ColorPicker](JavascriptProjects/ColorPicker/README.md)
-- [CRUD_Application_Using_API](JavascriptProjects/CRUD_Application_Using_API/README.md)
-- [Mind](JavascriptProjects/Mind/README.md)
-- [MoneyTracker](JavascriptProjects/MoneyTracker/README.md)
-- [Search](JavascriptProjects/Search/README.md)
-- [SimpleCounterApp](JavascriptProjects/SimpleCounterApp/README.md)
-- [To-do_App](JavascriptProjects/To-do_App/README.md)
-- [ToDoUsingAPI](JavascriptProjects/ToDoUsingAPI/README.md)
+- [Javascript Hub](Javascript/README.md)
+- [BookManagementApp](Javascript/BookManagementApp/README.md)
+- [CharacterValidator](Javascript/CharacterValidator/README.md)
+- [ColorPicker](Javascript/ColorPicker/README.md)
+- [CRUD_Application_Using_API](Javascript/CRUD_Application_Using_API/README.md)
+- [Mind](Javascript/Mind/README.md)
+- [MoneyTracker](Javascript/MoneyTracker/README.md)
+- [Search](Javascript/Search/README.md)
+- [SimpleCounterApp](Javascript/SimpleCounterApp/README.md)
+- [To-do_App](Javascript/To-do_App/README.md)
+- [ToDoUsingAPI](Javascript/ToDoUsingAPI/README.md)
+
+### React, TypeScript & Next.js Hubs
+- [React Projects Hub](React/README.md)
+- [TypeScript Projects Hub](TypeScript/README.md)
+- [Next.js Projects Hub](NextJS/cms/README.md)
+
+---
 
 ## Total Projects
 
 - **HTML Projects:** 8 complete projects demonstrating HTML5 mastery
-- **JavaScript Projects:** 10 production-ready applications (~2,100+ lines of code)
-- **Total:** 18 production-ready frontend projects
+- **JavaScript Projects:** 15 applications demonstrating core JS & async concepts
+- **React Projects:** 11 modern React 19 web applications & modules
+- **TypeScript Projects:** 1 object-oriented TypeScript application
+- **Next.js Projects:** 1 full-stack CMS solution
+- **Total:** 36 production-ready frontend projects
 
 ---
 
-**Last Updated:** February 19, 2026
+**Last Updated:** September 6, 2026
