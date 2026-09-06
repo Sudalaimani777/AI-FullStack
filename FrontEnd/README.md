@@ -1,6 +1,6 @@
 # FrontEnd
 
-Complete web development learning resources from HTML foundations to modern JavaScript and React.
+Complete web development learning resources from HTML foundations to modern JavaScript, TypeScript, React, Next.js, and React Native.
 
 ## Structure
 
@@ -84,75 +84,86 @@ FrontEnd/
 │   │       └── 3-JSON-stringify-parse.js # JSON serialization
 │   │
 │   └── ES6/                            # Modern JavaScript features
-       ├── README.md                   # ES6 documentation (1,251 lines)
-       ├── notes.txt                   # ES6 guide (2,300+ lines) - COMPREHENSIVE!
-       ├── 1-Function/                 # Arrow, Callback, Higher-Order functions & Classes
-       │   ├── notes.txt               # 'this' binding & function types
-       │   ├── arrowFunction.js        # Arrow function examples
-       │   ├── callBackFunction.js     # Callback patterns
-       │   ├── higherOrderFunction.js  # Higher-order function examples
-       │   ├── namedFunction.js        # Named function declarations
-       │   └── index.html              # Function demos
-       ├── 2-Promise/                  # Promise creation & chaining
-       │   ├── script.js               # Promise examples
-       │   └── index.html              # Promise demos
-       ├── 3-Fetch/                    # Fetch API with sample data
-       │   ├── script.js               # Fetch examples
-       │   ├── index.html              # Fetch UI
-       │   └── Datas/                  # Sample JSON data
-       ├── 4-HTTP/                     # CRUD operations
-       │   ├── apiResponse.js          # EasyHttp class (GET, POST, PUT, DELETE)
-       │   ├── script.js               # HTTP method implementations
-       │   └── index.html              # HTTP demos
-       ├── 5-Async/                    # Async/Await patterns
-       │   ├── notes.txt               # Async/await fundamentals
-       │   ├── script.js               # Async examples
-       │   ├── realWorldExample.js     # Real-world API fetching with error handling
-       │   └── index.html              # Async demos
-       ├── 6-Destructuring/            # Array & Object destructuring
-       │   ├── script.js               # Destructuring examples
-       │   └── index.html              # Destructuring demos
-       ├── 7-SpreadRestOperator/       # Spread & Rest operators
-       │   ├── 7.1-SpreadOperator/     # Spread operator (...)
-       │   │   ├── script.js           # Array & object spreading
-       │   │   └── index.html          # Spread demos
-       │   └── 7.2-RestOperator/       # Rest operator (...)
-       │       ├── script.js           # Rest parameter examples
-       │       └── index.html          # Rest demos
-       ├── 8-ErrorHandling/            # Try/Catch error handling
-       │   ├── notes.txt               # Error handling patterns (400+ lines)
-       │   ├── script.js               # Error handling examples
-       │   ├── data.txt                # Sample data
-       │   └── index.html              # Error handling demos
-       └── 9-ModernPattrens/           # ✅ COMPLETED - Modern ES6+ patterns
-           ├── notes.txt               # Optional chaining, nullish coalescing (300+ lines)
-           ├── optionalChaining.js     # Optional chaining (?.) examples
-           ├── nulishCoalescing.js     # Nullish coalescing (??) examples
-           ├── ternaryShortCircuit.js  # Short circuit operators (&&, ||)
-           └── index.html              # Modern patterns demos
+│       ├── README.md                   # ES6 documentation (1,251 lines)
+│       ├── notes.txt                   # ES6 guide (2,300+ lines) - COMPREHENSIVE!
+│       ├── 1-Function/                 # Arrow, Callback, Higher-Order functions & Classes
+│       │   ├── notes.txt               # 'this' binding & function types
+│       │   ├── arrowFunction.js        # Arrow function examples
+│       │   ├── callBackFunction.js     # Callback patterns
+│       │   ├── higherOrderFunction.js  # Higher-order function examples
+│       │   ├── namedFunction.js        # Named function declarations
+│       │   └── index.html              # Function demos
+│       ├── 2-Promise/                  # Promise creation & chaining
+│       │   ├── script.js               # Promise examples
+│       │   └── index.html              # Promise demos
+│       ├── 3-Fetch/                    # Fetch API with sample data
+│       │   ├── script.js               # Fetch examples
+│       │   └── index.html              # Fetch UI
+│       │   └── Datas/                  # Sample JSON data
+│       ├── 4-HTTP/                     # CRUD operations
+│       │   ├── apiResponse.js          # EasyHttp class (GET, POST, PUT, DELETE)
+│       │   ├── script.js               # HTTP method implementations
+│       │   └── index.html              # HTTP demos
+│       ├── 5-Async/                    # Async/Await patterns
+│       │   ├── notes.txt               # Async/await fundamentals
+│       │   ├── script.js               # Async examples
+│       │   ├── realWorldExample.js     # Real-world API fetching with error handling
+│       │   └── index.html              # Async demos
+│       ├── 6-Destructuring/            # Array & Object destructuring
+│       │   ├── script.js               # Destructuring examples
+│       │   └── index.html              # Destructuring demos
+│       ├── 7-SpreadRestOperator/       # Spread & Rest operators
+│       │   ├── 7.1-SpreadOperator/     # Spread operator (...)
+│       │   │   ├── script.js           # Array & object spreading
+│       │   │   └── index.html          # Spread demos
+│       │   └── 7.2-RestOperator/       # Rest operator (...)
+│       │       ├── script.js           # Rest parameter examples
+│       │       └── index.html          # Rest demos
+│       ├── 8-ErrorHandling/            # Try/Catch error handling
+│       │   ├── notes.txt               # Error handling patterns (400+ lines)
+│       │   ├── script.js               # Error handling examples
+│       │   ├── data.txt                # Sample data
+│       │   └── index.html              # Error handling demos
+│       └── 9-ModernPattrens/           # ✅ COMPLETED - Modern ES6+ patterns
+│           ├── notes.txt               # Optional chaining, nullish coalescing (300+ lines)
+│           ├── optionalChaining.js     # Optional chaining (?.) examples
+│           ├── nulishCoalescing.js     # Nullish coalescing (??) examples
+│           ├── ternaryShortCircuit.js  # Short circuit operators (&&, ||)
+│           └── index.html              # Modern patterns demos
 │
-└── React/                              # ✅ React learning & projects (ACTIVE)
-    ├── README.md                       # React documentation
-    ├── 0-Start/                        # React setup with Vite
-    │   ├── package.json                # Dependencies (Vite, ESLint)
-    │   ├── vite.config.js              # Vite configuration
-    │   ├── eslint.config.js            # ESLint rules
-    │   ├── index.html                  # React entry point
-    │   ├── notes.txt                   # React setup & fundamentals guide
-    │   ├── public/                     # Static assets
-    │   └── src/                        # React source code
-    ├── 1-AboutReact/                   # React fundamentals
-    │   ├── index.html                  # HTML template
-    │   └── script.js                   # React basics examples
-    └── 2-Components/                   # React components & features
-        ├── package.json                # Project dependencies
-        ├── vite.config.js              # Vite configuration
-        ├── eslint.config.js            # ESLint rules
-        ├── index.html                  # React entry point
-        ├── notex.txt                   # Components learning notes
-        ├── README.md                   # Components guide
-        ├── public/                     # Static assets
-        └── src/                        # React component source code
+├── Typescript/                         # ✅ TypeScript static typing (ACTIVE)
+│   ├── README.md                       # TypeScript masterclass documentation
+│   ├── Chapter1_StartsHere/            # Environment setup & tsc watch mode
+│   ├── Chapter2_BasicTypes/            # Primitive types, inference & unions
+│   ├── Chapter3_ArraysAndObject/       # Arrays, tuples, interfaces & types
+│   ├── Chapter4_Functions/             # Function signatures & type guards
+│   ├── Chapter5_Assertion/             # Type assertions & DOM element casting
+│   ├── Chapter6_Classes/               # Access modifiers & getters/setters
+│   ├── Chapter7_IndexSignature/        # Index signatures & keyof operator
+│   ├── Chapter8_Generics/              # Generic functions & constraints
+│   └── Chapter9/                       # Built-in Utility Types
+│
+├── React/                              # ✅ React learning & projects (ACTIVE)
+│   ├── README.md                       # React masterclass documentation
+│   ├── 0-Start/                        # React 19 setup with Vite
+│   ├── 1-AboutReact/                   # Virtual DOM & core concepts
+│   ├── 2-JSXAndComponents/             # JSX syntax, components & props
+│   ├── 3-FundamentalsOfReact/          # Lists, keys & conditional rendering
+│   ├── 4-ReactHooks/                   # useState, useRef, useEffect
+│   ├── 5-AdvanceHooksAndNavigation/    # useReducer, useContext & React Router
+│   ├── 6-MasteringRedux/               # Redux Toolkit, slices & async thunks
+│   └── 7-ClassComponentsAndOptimization/ # Class lifecycles, HOC & memoization
+│
+├── Next/                               # ✅ Next.js 15 App Router (ACTIVE)
+│   ├── README.md                       # Next.js masterclass documentation
+│   ├── 1-nextjs-essentials/            # App Router, RSC, SSR/SSG/ISR & React Query
+│   └── 2-building-and-enhancing/       # Styling, Route Handlers, Rate Limiting & SEO
+│
+└── ReactNative/                        # ✅ Mobile cross-platform dev (ACTIVE)
+    ├── README.md                       # React Native documentation
+    ├── 1-ReactNativeFundamentals/      # Expo Go setup, View, Text, TextInput
+    ├── 2-AdvancedReactNativeAndStateManagement/ # Navigation, FlatList & Gestures
+    └── 3-ServerCommunicationandDeployment/   # API fetching & EAS deployment
 ```
 
 ## Modules
@@ -245,27 +256,55 @@ Modern JavaScript (ES6+) features with comprehensive documentation.
 - Error handling patterns & best practices
 - Modern ES6+ patterns (optional chaining, nullish coalescing)
 
-### React/
-React learning module with active projects and examples.
+### Typescript/
+Comprehensive 9-chapter TypeScript masterclass covering static typing to utility types.
 
 **Modules:**
 | Folder | Description | Contents |
 |--------|-------------|----------|
-| 0-Start | React setup with Vite | Vite project setup, ESLint config, React fundamentals notes |
-| 1-AboutReact | React fundamentals | React concepts, JSX, components basics |
-| 2-Components | Component patterns | Advanced component features, props, state management |
+| Chapter1_StartsHere | Setup & Compiler | Compiler configuration (`tsconfig.json`), `tsc -w` |
+| Chapter2_BasicTypes | Type Systems | Primitives, type inference, union types, RegExp |
+| Chapter3_ArraysAndObject | Data Structures | Arrays, Tuples, interfaces, optional properties |
+| Chapter4_Functions | Function Typing | Signatures, rest parameters, custom type guards, `never` |
+| Chapter5_Assertion | Type Coercion | Type assertions (`as`), DOM element casting, `unknown` |
+| Chapter6_Classes | Object-Oriented | Access modifiers (`public`/`private`/`protected`), `implements` |
+| Chapter7_IndexSignature | Dynamic Keys | Index signatures, `keyof` operator, `Record<K, V>` |
+| Chapter8_Generics | Generic Patterns | Generic functions, constraints (`<T extends HasId>`) |
+| Chapter9 | Utility Types | Built-in utility types (`Partial`, `Required`, `Readonly`, `Pick`, `Omit`) |
 
-**Key Features:**
-- ✅ **Vite Setup:** Modern build tool with hot module replacement
-- ✅ **ESLint Configuration:** Code quality and best practices
-- ✅ **Modular Structure:** Progressive learning path
-- ✅ **Ready for Development:** Full project setup with src/ and public/ directories
+### React/
+React 19 masterclass covering components, state, hooks, navigation, Redux Toolkit, and performance optimizations.
 
-**Prerequisites Completed:**
-- ✅ Event Handling (Deep) - COMPLETED
-- ✅ Web Storage - COMPLETED
-- ✅ Modern JS Patterns (ES6+) - COMPLETED
-- ✅ Ready for React!
+**Modules:**
+| Folder | Description | Contents |
+|--------|-------------|----------|
+| 0-Start | React 19 Setup | Vite 7, ESLint config, React entry points |
+| 1-AboutReact | Core Principles | Declarative UI, Virtual DOM, reconciliation |
+| 2-JSXAndComponents | Components & Props | JSX syntax, component composition, props |
+| 3-FundamentalsOfReact | Core Patterns | List mapping, `key` props, conditional rendering |
+| 4-ReactHooks | Essential Hooks | `useState`, `useRef`, `useEffect`, dependency cleanup |
+| 5-AdvanceHooksAndNavigation | State & Routing | `useReducer`, `useContext`, `react-router-dom` |
+| 6-MasteringRedux | Global State | Redux Toolkit (`configureStore`, `createSlice`), `createAsyncThunk` |
+| 7-ClassComponentsAndOptimization | Optimization | Class lifecycles, HOCs, `useCallback`, `useMemo` |
+
+### Next/
+Next.js 15+ App Router masterclass covering rendering, data fetching, API routes, rate limiting, and SEO.
+
+**Modules:**
+| Folder | Description | Contents |
+|--------|-------------|----------|
+| 1-nextjs-essentials | Core App Router | App structure, RSC vs. Client Components, SSR/SSG/ISR, React Query |
+| 2-building-and-enhancing | Full-Stack & Performance | CSS Modules/Tailwind, Route Handlers, Rate Limiting, Metadata & SEO |
+
+### ReactNative/
+Cross-platform mobile application development for iOS and Android using React Native and Expo Go.
+
+**Modules:**
+| Folder | Description | Contents |
+|--------|-------------|----------|
+| 1-ReactNativeFundamentals | Core Components | Expo Go workflow, `<View>`, `<Text>`, `<TextInput>`, Flexbox layout |
+| 2-AdvancedReactNativeAndStateManagement | Advanced Mobile | `FlatList`, `SectionList`, mobile navigation, gestures & touchables |
+| 3-ServerCommunicationandDeployment | APIs & Production | REST fetching, `AsyncStorage`, EAS build & Store deployment |
 
 ## Learning Path
 
@@ -282,8 +321,17 @@ Phase 3: Modern JavaScript (ES6+)
 Phase 4: AJAX & HTTP Integration
 └── Ajax/ (Text → JSON → External APIs)
 
-Phase 5: React (ACTIVE! 🚀)
-└── React/ (0-Start → 1-AboutReact → 2-Components)
+Phase 5: TypeScript Static Typing (ACTIVE! 🚀)
+└── Typescript/ (Chapter1 → Chapter2 → ... → Chapter9)
+
+Phase 6: React Masterclass (ACTIVE! 🚀)
+└── React/ (0-Start → 1-AboutReact → ... → 7-ClassComponentsAndOptimization)
+
+Phase 7: Next.js App Router (ACTIVE! 🚀)
+└── Next/ (1-nextjs-essentials → 2-building-and-enhancing)
+
+Phase 8: React Native Mobile Dev (ACTIVE! 🚀)
+└── ReactNative/ (1-ReactNativeFundamentals → ... → 3-ServerCommunicationandDeployment)
 ```
 
 ## Quick Access
@@ -295,8 +343,11 @@ Phase 5: React (ACTIVE! 🚀)
 | JavaScript Hub | [JavaScript README](JavaScript/README.md) |
 | Topics Guide | [Topics README](JavaScript/Topics/README.md) |
 | ES6 Guide | [ES6 README](JavaScript/ES6/README.md) |
+| TypeScript | [TypeScript README](Typescript/README.md) |
 | React Prerequisites | [topicsNeedToLearnToMoveToReact.txt](JavaScript/topicsNeedToLearnToMoveToReact.txt) |
 | React | [React README](React/README.md) |
+| Next.js | [Next.js README](Next/README.md) |
+| React Native | [React Native README](ReactNative/README.md) |
 
 ## Key Skills
 
@@ -330,18 +381,37 @@ Phase 5: React (ACTIVE! 🚀)
 - Short-circuit operators (&&, ||)
 - Error handling (try-catch, throw)
 
-### ✅ HTTP & APIs (COMPLETED)
-- XMLHttpRequest (XHR)
-- Fetch API with text(), json(), error handling
-- REST methods (GET, POST, PUT, DELETE)
-- JSON data handling
-- Promise and async/await error handling
+### ✅ TypeScript Static Typing (ACTIVE)
+- Primitive types, inference, union types
+- Tuples, interfaces, object types, optional keys
+- Function signatures, rest parameters, custom type guards
+- Type assertions (`as`), DOM element casting
+- Object-oriented classes, parameter property shorthand, access modifiers
+- Dynamic index signatures, `keyof` operator
+- Generics (`<T>`) & generic constraints
+- Built-in utility types (`Partial`, `Required`, `Readonly`, `Record`, `Pick`, `Omit`)
 
-### 🚀 React (ACTIVE)
+### 🚀 React 19 (ACTIVE)
 - Component-based architecture
-- Props and state management
-- Vite build tooling
-- ESLint best practices
+- Props and state management (`useState`, `useRef`, `useEffect`)
+- Advanced state & navigation (`useReducer`, `useContext`, `react-router-dom`)
+- Global state management with Redux Toolkit (`configureStore`, `createSlice`, `createAsyncThunk`)
+- Class components & performance optimizations (`React.memo`, `useCallback`, `useMemo`)
+- Vite build tooling & ESLint best practices
+
+### 🚀 Next.js 15 App Router (ACTIVE)
+- React Server Components (RSC) vs. Client Components
+- File-based routing, nested layouts, and route groups
+- Data fetching strategies (SSR, SSG, ISR, Tag-based revalidation)
+- Full-stack API Route Handlers (`route.ts`) & Rate Limiting (`middleware.ts`)
+- Image optimization, Web Vitals, Metadata API & SEO
+
+### 🚀 React Native Mobile Development (ACTIVE)
+- Expo Go cross-platform setup for iOS & Android
+- Core Native Components (`<View>`, `<Text>`, `<TextInput>`)
+- Flexbox mobile layout & native styling
+- Performance lists (`FlatList`, `SectionList`) & Mobile Navigation
+- EAS Build & App Store / Google Play deployment
 
 ## Statistics
 
@@ -351,13 +421,16 @@ Phase 5: React (ACTIVE! 🚀)
 | **JavaScript Topics** | 16 | ✅ |
 | **ES6 Modules** | 9 | ✅ |
 | **Ajax Projects** | 3 | ✅ |
-| **React Modules** | 3 | 🚀 ACTIVE |
+| **TypeScript Chapters** | 9 | 🚀 ACTIVE |
+| **React Modules** | 8 | 🚀 ACTIVE |
+| **Next.js Modules** | 2 | 🚀 ACTIVE |
+| **React Native Modules** | 3 | 🚀 ACTIVE |
 | **Objects Sub-Topics** | 6 | ✅ |
 | **Array Methods Sub-Topics** | 9 | ✅ |
 | **DOM Practice Files** | 8 | ✅ |
 | **HTML Projects** | 8 | ✅ |
-| **Total Code Examples** | 50+ | ✅ |
-| **Total Documentation Lines** | 7,000+ | ✅ |
+| **Total Code Examples** | 100+ | ✅ |
+| **Total Documentation Lines** | 12,000+ | ✅ |
 
 ## Total Documentation
 
@@ -366,17 +439,21 @@ Phase 5: React (ACTIVE! 🚀)
 | **ES6/notes.txt** | 2,300+ | ✅ COMPREHENSIVE |
 | **Topics/notes.txt** | 2,293 | ✅ |
 | **ES6/README.md** | 1,251 | ✅ |
+| **TypeScript/README.md** | 160+ | ✅ ACTIVE |
+| **React/README.md** | 150+ | ✅ ACTIVE |
+| **Next/README.md** | 70+ | ✅ ACTIVE |
+| **ReactNative/README.md** | 140+ | ✅ ACTIVE |
 | **Ajax/notes.txt** | 241 | ✅ |
 | **React Prerequisites** | 374 | ✅ |
 | **HTML/notes.txt** | Variable | ✅ |
 | **16-WebStorage/notes.txt** | Variable | ✅ NEW |
 | **9-ModernPattrens/notes.txt** | 300+ | ✅ NEW |
 | **8-ErrorHandling/notes.txt** | 400+ | ✅ NEW |
-| **Total** | **7,000+** | ✅ COMPLETE |
+| **Total** | **12,000+** | ✅ COMPLETE |
 
 ## Progress Summary
 
-### Phase Completion: 5/5 ✅
+### Phase Completion: 8/8 🚀
 
 #### Phase 1: HTML Fundamentals
 - Status: ✅ COMPLETED
@@ -405,14 +482,27 @@ Phase 5: React (ACTIVE! 🚀)
 - XMLHttpRequest & Fetch covered
 - 241 lines of documentation
 
-#### Phase 5: React
+#### Phase 5: TypeScript
 - Status: 🚀 ACTIVE
-- 3 modules with real project setup
+- 9 chapters covering static types to utility types
+- Full compiler watch mode setup
+- Generics & Class access modifiers
+
+#### Phase 6: React
+- Status: 🚀 ACTIVE
+- 8 modules covering React 19, Hooks, Router, Redux Toolkit, and performance optimizations
 - Vite + ESLint configured
-- Ready for modern React development
+
+#### Phase 7: Next.js 15
+- Status: 🚀 ACTIVE
+- 2 comprehensive modules covering App Router, RSC, SSR/SSG/ISR, API routes & SEO
+
+#### Phase 8: React Native
+- Status: 🚀 ACTIVE
+- 3 modules covering Expo Go, native components, Flexbox, and EAS deployment
 
 ---
 
 **Last Updated:** March 15, 2026
 **Status:** ✅ Complete & Ready for Production
-**Next Step:** Continue with React learning and build projects! 🚀
+**Next Step:** Continue with Full-Stack Web and Mobile development! 🚀

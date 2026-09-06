@@ -1,93 +1,137 @@
-# Class Components And Optimization
+# ⚡ Class Components & Performance Optimization
 
-This folder contains three small React + Vite projects that explain class components, state, and lifecycle-based optimization.
+Welcome to **Class Components & Performance Optimization**, a specialized module covering legacy Class Component lifecycles, Higher-Order Components (HOC), and React performance optimization techniques using `useCallback`, `useMemo`, and `React.memo`.
 
-## Projects
-- [FrontEnd/React/7-ClassComponentsAndOptimization/1-ClassComponents](FrontEnd/React/7-ClassComponentsAndOptimization/1-ClassComponents)
-  - Class component basics and props usage.
-- [FrontEnd/React/7-ClassComponentsAndOptimization/2-HigherOrderComponent](FrontEnd/React/7-ClassComponentsAndOptimization/2-HigherOrderComponent)
-  - Class state, handlers, and controlled inputs.
-- [FrontEnd/React/7-ClassComponentsAndOptimization/3-PerformanceOptimizationHooks](FrontEnd/React/7-ClassComponentsAndOptimization/3-PerformanceOptimizationHooks)
-  - Lifecycle methods and update control.
+---
 
-## Notes
-- See [FrontEnd/React/7-ClassComponentsAndOptimization/NOTES.md](FrontEnd/React/7-ClassComponentsAndOptimization/NOTES.md) for concepts, hints, and interview Q&A.
+## 📂 Module Architecture
 
-## Learning checklist
-- [ ] Explain what a class component is and where `render()` fits.
-- [ ] Pass props into a class component and read them with `this.props`.
-- [ ] Initialize local state and update it with `this.setState`.
-- [ ] Handle events with class methods (arrow functions or binding).
-- [ ] Build a controlled input with `value` and `onChange`.
-- [ ] Describe the mount and update lifecycles.
-- [ ] Use `shouldComponentUpdate` to prevent unnecessary renders.
-- [ ] Identify cleanup work for `componentWillUnmount`.
-- [ ] Explain how `componentDidCatch` enables error boundaries.
-
-## Project structure (tree)
-```
+```text
 7-ClassComponentsAndOptimization/
-  NOTES.md
-  README.md
-  1-ClassComponents/
-    .gitignore
-    bun.lock
-    eslint.config.js
-    index.html
-    package.json
-    README.md
-    vite.config.js
-    src/
-      App.css
-      App.jsx
-      index.css
-      main.jsx
-      Components/
-        Greet.jsx
-  2-HigherOrderComponent/
-    .gitignore
-    bun.lock
-    eslint.config.js
-    index.html
-    package.json
-    README.md
-    vite.config.js
-    src/
-      App.css
-      App.jsx
-      index.css
-      main.jsx
-      Components/
-        Counter.jsx
-        Header.jsx
-        Input.jsx
-  3-PerformanceOptimizationHooks/
-    .gitignore
-    bun.lock
-    eslint.config.js
-    index.html
-    node_modules/
-    package.json
-    README.md
-    vite.config.js
-    src/
-      App.css
-      App.jsx
-      index.css
-      main.jsx
+├── 📁 1-ClassComponents/                        # ES6 Class components, state & lifecycle methods
+├── 📁 2-HigherOrderComponent/                   # Higher-Order Component (HOC) design pattern
+└── 📁 3-PerformanceOptimizationHooks/           # Performance optimization with useCallback & useMemo
+    └── 📁 1-useCallbackHook/                    # Preserving function reference equality across renders
 ```
 
-## How to run a project
-1) Open a subfolder (one of the projects above).
-2) Install dependencies:
-   - npm: `npm install`
-   - bun (if you prefer): `bun install`
-3) Start the dev server:
-   - npm: `npm run dev`
-   - bun: `bun run dev`
+---
 
-## What to look for
-- Props in class components via `this.props`.
-- Local state with `this.state` and updates with `this.setState`.
-- Controlled inputs that mirror state.
-- Lifecycle hooks like `componentDidMount` and `shouldComponentUpdate`.
+## 📚 Section Breakdown & Key Concepts
+
+### 🟢 1. Legacy Class Components (`1-ClassComponents`)
+Before React 16.8 Hooks, state and lifecycle methods were only available inside ES6 Class components.
+
+```jsx
+import React, { Component } from 'react';
+
+class UserCounter extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { count: 0 };
+    }
+
+    componentDidMount() {
+        console.log('Component mounted on DOM');
+    }
+
+    componentWillUnmount() {
+        console.log('Cleaning up resources before unmount');
+    }
+
+    increment = () => {
+        this.setState(prevState => ({ count: prevState.count + 1 }));
+    };
+
+    render() {
+        return (
+            <div>
+                <h2>{this.props.title}</h2>
+                <p>Count: {this.state.count}</p>
+                <button onClick={this.increment}>Increment</button>
+            </div>
+        );
+    }
+}
+
+export default UserCounter;
+```
+
+---
+
+### 🔵 2. Higher-Order Components (HOC) (`2-HigherOrderComponent`)
+An HOC is an advanced pattern in React for reusing component logic. It is a pure function that takes a component as an argument and returns a new enhanced component.
+
+```jsx
+// Higher-Order Component pattern
+function withLogger(WrappedComponent) {
+    return function LoggingComponent(props) {
+        console.log('Props passed to component:', props);
+        return <WrappedComponent {...props} />;
+    };
+}
+
+export default withLogger;
+```
+
+---
+
+### 🟣 3. Performance Optimization Hooks (`3-PerformanceOptimizationHooks`)
+Optimizing rendering efficiency and preventing unnecessary component re-renders.
+
+#### The `useCallback` Hook (`1-useCallbackHook`)
+`useCallback` returns a memoized version of a callback function that only changes if one of the dependencies has changed.
+
+##### Problem: Function Re-creation Without `useCallback`
+On every re-render of a component, inline functions are recreated with new memory references, causing child components wrapped in `React.memo` to re-render unnecessarily:
+
+```jsx
+import { useState, useCallback } from 'react';
+
+function ParentComponent() {
+    const [count, setCount] = useState(0);
+    const [num, setNum] = useState(0);
+
+    // Memoized callback function preserving reference equality
+    const incrementCount = useCallback(() => {
+        setCount(prev => prev + 1);
+    }, []); // Empty dependency array = Stable reference across renders
+
+    return (
+        <div>
+            <ChildComponent onClick={incrementCount} />
+            <button onClick={() => setNum(n => n + 1)}>Update Number: {num}</button>
+        </div>
+    );
+}
+```
+
+#### Comparison: `useCallback` vs. `useMemo`
+
+| Feature | `useCallback` | `useMemo` |
+| :--- | :--- | :--- |
+| **Returns** | A memoized **function reference** | A memoized **calculated value** |
+| **Syntax** | `useCallback(() => fn, [deps])` | `useMemo(() => compute(), [deps])` |
+| **Primary Use Case** | Preventing child re-renders due to new function instances | Caching expensive, resource-heavy calculations |
+
+---
+
+## 🛠️ Quickstart Guide
+
+To run any sub-project:
+
+```bash
+# Navigate to the target project directory (e.g. 3-PerformanceOptimizationHooks/1-useCallbackHook)
+cd 3-PerformanceOptimizationHooks/1-useCallbackHook
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+---
+
+*Part of the React 19 Full-Stack Masterclass.*
