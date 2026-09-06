@@ -1,6 +1,6 @@
-# ⚙️ Full-Stack Backend & Application Projects Hub
+# ⚙️ Backend Engineering Projects Hub
 
-Welcome to the **Full-Stack Backend & Application Projects Hub**, a production-grade collection of complex web systems, publishing platforms, content management systems (CMS), and e-commerce APIs.
+Welcome to the **Backend Engineering Projects Hub**, a dedicated collection of real-world backend API services, server architectures, microservices, and e-commerce platforms.
 
 ---
 
@@ -8,68 +8,65 @@ Welcome to the **Full-Stack Backend & Application Projects Hub**, a production-g
 
 ```text
 Projects/Backend/
-├── 📁 cms/                                          # Content Management System (CMS) & Publishing Suite
-│   └── 📁 client/                                   # Next.js 16 App Router + Prisma ORM + NextAuth + MongoDB
-│
-└── 📁 UrbanCart/                                    # Full-Stack E-Commerce Platform & REST API
-    ├── 📁 server/                                   # Express 5 + TypeScript + Mongoose + Zod + JWT
+└── 📁 UrbanCart/                                    # Full-Stack E-Commerce Platform
+    ├── 📁 server/                                   # Express 5 + TypeScript + Mongoose + Zod + JWT REST API
     └── 📁 client/                                   # E-Commerce Frontend Client
 ```
 
 ---
 
-## 🚀 Projects Overview
+## 🚀 Featured Backend Projects
 
-### 1. 📰 Content Management System Suite (`/cms`)
-A production-grade CMS and blogging platform built for digital publishing and content creation.
+### 🛒 UrbanCart E-Commerce Platform (`/UrbanCart`)
+A production-grade, highly scalable E-Commerce backend API built with modern Node.js, Express 5, and TypeScript.
 
-#### 🛠️ Technology Stack & Key Highlights
-- **Frontend & App Router**: Next.js 16 (App Router), React 19, TypeScript.
-- **Database & ORM**: MongoDB database powered by **Prisma ORM (v6)** with `@prisma/extension-accelerate`.
-- **Authentication**: NextAuth.js (v4) with `@next-auth/prisma-adapter` supporting OAuth, email verification, and session management.
-- **Styling**: Tailwind CSS v4, Lucide Icons, Base UI, Shadcn UI components.
-- **Core Capabilities**:
-  - Admin CMS Dashboard (`/dashboard`) for article publishing, category tagging, and user role management.
-  - Post Publishing Lifecycle (`PostStatus`: `DRAFT`, `PUBLISHED`, `DELETED`, `ARCHIVE`).
-  - Search engine (`/search`) and real-world drafting workspace (`/draft`).
+#### 🛠️ Technology Stack & Architecture
+- **API Framework**: Express.js (v5.2) running on Node.js ES Modules (`"type": "module"`).
+- **TypeScript**: TypeScript (v7.0) with hot-reloading development via `tsx watch`.
+- **Database & ODM**: MongoDB Atlas / Local with Mongoose ODM (v9.9).
+- **Security & Authentication**: Stateless JSON Web Tokens (`jsonwebtoken`), `bcrypt` password hashing, and `cors`.
+- **Request Validation**: Strict payload schema validation using **Zod** (`zod` v4.4).
 
----
+#### 🗄️ Core Data Models (`/server/src/model`)
+- **`User` (`user-info.model.ts`)**: User account profiles, authentication data, hashed passwords, and role permissions (`user` vs `admin`).
+- **`Product` (`product.model.ts`)**: E-Commerce product catalog items, prices, inventory counts, categories, and product metadata.
 
-### 2. 🛒 UrbanCart E-Commerce Platform (`/UrbanCart`)
-A scalable e-commerce application featuring a high-performance RESTful API backend.
+#### 🔗 API Endpoints (`/server/src/routes`)
 
-#### 🛠️ Technology Stack & Key Highlights
-- **API Framework**: Express.js (v5.2) running on Node.js ES Modules with TypeScript (`tsx watch`).
-- **Database & Modeling**: MongoDB + Mongoose ODM (v9.9).
-- **Security & Auth**: JSON Web Tokens (`jsonwebtoken`), `bcrypt` password hashing, CORS.
-- **Payload Validation**: Schema validation using **Zod** (`zod` v4.4).
-- **Core Capabilities**:
-  - Auth endpoints (`/api/auth/register`, `/api/auth/login`).
-  - Product catalog CRUD operations (`/api/products`) with admin-restricted authorization policies.
+| Method | Endpoint | Description | Auth Policy |
+| :--- | :--- | :--- | :---: |
+| `POST` | `/api/auth/register` | Register a new user account | Public |
+| `POST` | `/api/auth/login` | Authenticate user & issue JWT token | Public |
+| `GET` | `/api/products` | Retrieve all product catalog listings | Public |
+| `GET` | `/api/products/:id` | Retrieve product details by ID | Public |
+| `POST` | `/api/products` | Create a new product listing | 🔒 Admin |
+| `PUT` | `/api/products/:id` | Update product details | 🔒 Admin |
+| `DELETE` | `/api/products/:id` | Delete product listing from inventory | 🔒 Admin |
 
 ---
 
 ## 🛠️ Quickstart Guide
 
-To run any backend project:
+To run the **UrbanCart** backend REST API:
 
-### Running the CMS Platform
 ```bash
-cd cms/client
-npm install
-npx prisma generate
-npm run dev
-```
-Open [http://localhost:3000](http://localhost:3000) to view the CMS App Router platform.
-
-### Running the UrbanCart API Server
-```bash
+# 1. Navigate to the server directory
 cd UrbanCart/server
+
+# 2. Install dependencies
 npm install
+
+# 3. Configure environment variables (.env)
+# PORT=5000
+# MONGO_URI=mongodb://localhost:27017/urbancart
+# JWT_SECRET=your_secret_key
+
+# 4. Start development server with tsx watch
 npm run dev
 ```
-Open [http://localhost:5000](http://localhost:5000) to interact with the UrbanCart Express REST API.
+
+The Express REST API server will run on [http://localhost:5000](http://localhost:5000).
 
 ---
 
-*Part of the Full-Stack Engineering Projects Suite.*
+*Part of the Full-Stack Engineering Workspace.*
