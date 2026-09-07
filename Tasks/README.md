@@ -6,9 +6,9 @@ Practice exercises and assignments for mastering full-stack web development.
 
 ## 📋 Overview
 
-Comprehensive learning path covering frontend (HTML, JavaScript, AJAX, React) and backend development. This repository contains structured tasks, examples, and projects for progressive skill building.
+Comprehensive learning path covering frontend (HTML, JavaScript, AJAX, React) and backend development (Node.js, Express.js, TypeScript, Mongoose, JWT). This repository contains structured tasks, examples, and projects for progressive skill building.
 
-**Total Progress:** HTML Complete (25/25 tasks) ✅
+**Total Progress:** Full-Stack Learning Path Complete ✅
 
 ---
 
@@ -16,8 +16,9 @@ Comprehensive learning path covering frontend (HTML, JavaScript, AJAX, React) an
 
 ```
 Tasks/
-├── BackEnd/                 # Backend practice tasks (coming soon)
-│   └── TBD
+├── BackEnd/                 # Backend practice tasks (Node.js & Express.js)
+│   ├── Node/                # ✅ Core Node.js Fundamentals & Modules (Task 1 & Task 2)
+│   └── Express/             # ✅ Express 5 & TypeScript REST API Labs (Day 1 - Day 7)
 │
 └── FrontEnd/                # Frontend learning path
     ├── HTML/                # ✅ 25 tasks (5 modules) - COMPLETE
@@ -28,28 +29,19 @@ Tasks/
     │   ├── 5-Forms/
     │   └── README.md
     │
-    ├── Javascript/          # 🔄 In Progress
+    ├── Javascript/          # ✅ Core & ES6 Features - COMPLETE
     │   ├── ES6/             # ES6+ features
-    │   │   ├── 1-Function/
-    │   │   ├── 2-Promise/
-    │   │   ├── 3-Fetch/
-    │   │   ├── 4-HTTP/
-    │   │   ├── 5-Async/
-    │   │   └── ...
-    │   ├── Topics/          # Core JavaScript
-    │   │   ├── 1-Start/
-    │   │   ├── 2-Console/
-    │   │   ├── 9-ArrayMethods/
-    │   │   ├── 10-Objects/
-    │   │   ├── 14-DOM/
-    │   │   └── ...
-    │   └── README.md
+    │   └── Topics/          # Core JavaScript
     │
-    ├── Ajax/                # 📚 Upcoming
-    │   └── API integration
-    │
-    └── React/               # 📚 Upcoming
-        └── Component-based development
+    └── React/               # ✅ 8 Task Modules - COMPLETE
+        ├── 0-TryLoLearn/
+        ├── 1-ComponentsAndProps/
+        ├── 2-PassignProps/
+        ├── 3-UseState/
+        ├── 4-StateAndProps/
+        ├── 5-UseEffect/
+        ├── 6-useReducerAnduseContext/
+        └── 7-UserLoginAndRegistration/
 ```
 
 ---
@@ -60,7 +52,7 @@ Follow this progression for optimal learning:
 
 ```
 HTML → JavaScript → AJAX → React → Backend
- ✅       🔄           📚      📚        📚
+ ✅       ✅           ✅      ✅        ✅
 ```
 
 ### 1. HTML ✅ (Complete)
@@ -97,11 +89,11 @@ HTML → JavaScript → AJAX → React → Backend
 
 ---
 
-### 2. JavaScript 🔄 (In Progress)
-**Status:** Learning Phase  
-**Documentation:** Coming soon
+### 2. JavaScript ✅ (Complete)
+**Status:** Complete  
+**Documentation:** [FrontEnd/Javascript/README.md](FrontEnd/Javascript/README.md)
 
-#### Topics to Cover:
+#### Topics Covered:
 
 **ES6+ Modern JavaScript:**
 - Arrow functions, callbacks, higher-order functions
@@ -119,18 +111,12 @@ HTML → JavaScript → AJAX → React → Backend
 - Functions and scope
 - Template strings
 
-**Practice Structure:**
-- 100 JavaScript exercises
-- 13 topic-specific modules
-- ES6 feature tasks
-- Basic, Advanced, and Bonus challenges
-
 ---
 
-### 3. AJAX 📚 (Upcoming)
-**Status:** Not Started
+### 3. AJAX ✅ (Complete)
+**Status:** Complete
 
-**Topics Planned:**
+**Topics Covered:**
 - XMLHttpRequest and Fetch API
 - JSON data handling
 - RESTful API consumption
@@ -139,24 +125,34 @@ HTML → JavaScript → AJAX → React → Backend
 
 ---
 
-### 4. React ⚛️ (Upcoming)
-**Status:** Not Started
+### 4. React ⚛️ ✅ (Complete)
+**Status:** Complete (8 Task Modules)  
+**Documentation:** [FrontEnd/React/README.md](FrontEnd/React/README.md)
 
-**Topics Planned:**
-- Components and JSX
-- Props and state
-- React Hooks (useState, useEffect, etc.)
-- Event handling
-- Routing with React Router
-- State management
-- API integration
+#### Task Modules Completed:
+- ✅ **Task 0: TryToLearn** - Environment setup & JSX syntax
+- ✅ **Task 1: ComponentsAndProps** - Reusable components & list mapping
+- ✅ **Task 2: PassignProps** - Card destructuring & props passing
+- ✅ **Task 3: UseState** - State lab suite (6 specialized sub-apps)
+- ✅ **Task 4: StateAndProps** - SoundPads interactive app
+- ✅ **Task 5: UseEffect** - WindowTracker side-effects & resize listeners
+- ✅ **Task 6: useReducerAnduseContext** - Global reducer & context state
+- ✅ **Task 7: UserLoginAndRegistration** - Full Authentication UI flow
 
 ---
 
-### 5. Backend 📚 (Coming Soon)
-**Status:** Not Started
+### 5. Backend ⚡ ✅ (Complete)
+**Status:** Complete (9 Task Modules)  
+**Documentation:** [BackEnd/README.md](BackEnd/README.md)
 
-Backend development tasks will be added after completing frontend fundamentals.
+#### Modules Completed:
+- ✅ **Node.js Core Modules** (`BackEnd/Node/`):
+  - Native HTTP server, OS metrics, process CLI, path resolution
+  - Async FS Promises, automated folder generator & file manager
+- ✅ **Express.js & TypeScript Labs** (`BackEnd/Express/`):
+  - Express 5 setup, Zod schema validation, modular routers
+  - Mongoose MongoDB database integration & full RESTful CRUD
+  - Password salting/hashing with Bcrypt & JWT token authentication API
 
 ---
 
@@ -165,11 +161,11 @@ Backend development tasks will be added after completing frontend fundamentals.
 | Module | Tasks | Status | Completion |
 |--------|-------|--------|------------|
 | **HTML** | 25 | ✅ Complete | 100% |
-| **JavaScript** | ~100 | 🔄 In Progress | - |
-| **AJAX** | TBD | 📚 Upcoming | 0% |
-| **React** | TBD | 📚 Upcoming | 0% |
-| **Backend** | TBD | 📚 Upcoming | 0% |
-| **Overall** | - | 🔄 Learning | ~20% |
+| **JavaScript** | ~100 | ✅ Complete | 100% |
+| **AJAX** | Fetch & Async Data | ✅ Complete | 100% |
+| **React** | 8 Task Modules | ✅ Complete | 100% |
+| **Backend** | 9 Task Labs | ✅ Complete | 100% |
+| **Overall** | Full-Stack | ✅ Complete | 100% |
 
 ---
 
@@ -180,10 +176,14 @@ Backend development tasks will be added after completing frontend fundamentals.
 2. Complete all 25 HTML tasks in order
 3. Review [HTML README](FrontEnd/HTML/README.md) for guidance
 
-### For Current Learners
+### For Frontend & React Learners
 - **Completed HTML?** → Move to [JavaScript](FrontEnd/Javascript/)
-- **Working on JavaScript?** → Check topic modules and ES6 features
+- **Working on React?** → Explore [React Tasks Hub](FrontEnd/React/)
 - **Need reference?** → Use README files in each folder
+
+### For Backend Learners
+- **Node.js Tasks** → Explore [Node.js Core Tasks](BackEnd/Node/)
+- **Express & TypeScript** → Explore [Express.js REST Labs](BackEnd/Express/)
 
 ### Opening Tasks
 ```bash
@@ -207,7 +207,8 @@ Each module has detailed documentation:
 - **[FrontEnd README](FrontEnd/README.md)** - Complete frontend learning path
 - **[HTML README](FrontEnd/HTML/README.md)** - All 25 HTML tasks detailed
 - **[JavaScript README](FrontEnd/Javascript/README.md)** - JavaScript topics and tasks
-- **[Tasks List](FrontEnd/HTML/tasks.txt)** - Original task requirements
+- **[React README](FrontEnd/React/README.md)** - 8 React task modules detailed
+- **[BackEnd README](BackEnd/README.md)** - Node.js and Express backend tasks
 
 ---
 
@@ -234,7 +235,7 @@ Each module has detailed documentation:
 - Navigation patterns (menu, breadcrumb, anchor)
 - Image optimization and lazy loading
 
-### JavaScript Module (Coming)
+### JavaScript Module ✅
 - ES6+ modern syntax
 - DOM manipulation
 - Async programming
@@ -242,30 +243,37 @@ Each module has detailed documentation:
 - Array methods mastery
 - Object-oriented concepts
 
-### AJAX Module (Coming)
+### AJAX Module ✅
 - API communication
 - JSON parsing
 - Error handling
 - Loading states
 - HTTP methods (GET, POST, PUT, DELETE)
 
-### React Module (Coming)
+### React Module ✅
 - Component architecture
-- State management
-- React Hooks
-- Routing
-- Form handling
+- State management (`useState`)
+- React Hooks (`useEffect`, `useReducer`, `useContext`)
+- Client routing
+- Authentication forms & Context API
 - API integration
+
+### Backend Module ✅
+- Node.js core modules (`http`, `fs`, `os`, `process`, `path`)
+- Express 5 application architecture & TypeScript
+- Zod request payload schema validation
+- MongoDB & Mongoose ODM CRUD operations
+- Bcrypt password encryption & stateless JWT authentication
 
 ---
 
 ## 📈 Milestones
 
 - ✅ **Jan 2026** - HTML Module Complete (25 tasks)
-- 🔄 **Current** - JavaScript Learning Phase
-- 📚 **Upcoming** - AJAX Integration
-- 📚 **Future** - React Framework
-- 📚 **Future** - Backend Development
+- ✅ **Feb 2026** - JavaScript Module Complete
+- ✅ **Feb 2026** - AJAX Integration Complete
+- ✅ **Sep 2026** - React Framework Complete (8 task modules)
+- ✅ **Sep 2026** - Backend Engineering Complete (9 Node/Express labs)
 
 ---
 
@@ -273,15 +281,17 @@ Each module has detailed documentation:
 
 ### Completed Modules
 - [HTML Tasks](FrontEnd/HTML/) - 25 completed examples
-
-### Current Work
 - [JavaScript Topics](FrontEnd/Javascript/Topics/) - Core concepts
 - [JavaScript ES6](FrontEnd/Javascript/ES6/) - Modern features
+- [React Tasks](FrontEnd/React/) - 8 React task modules
+- [Node.js Tasks](BackEnd/Node/) - Core Node.js tasks
+- [Express Tasks](BackEnd/Express/) - Express & TypeScript REST labs
 
 ### Resources
 - [MDN Web Docs](https://developer.mozilla.org)
 - [JavaScript.info](https://javascript.info)
 - [React Documentation](https://react.dev)
+- [Express.js Guide](https://expressjs.com)
 
 ---
 
@@ -294,11 +304,21 @@ Each module has detailed documentation:
 - **Lines of Code:** ~15,000+
 - **Completion:** 100% ✅
 
-### JavaScript Module (In Progress)
+### JavaScript & AJAX Module (Complete)
 - **Total Exercises:** ~100
 - **Topics:** 13+
 - **ES6 Modules:** 6+
-- **Difficulty Levels:** 3 (Basic, Advanced, Bonus)
+- **Completion:** 100% ✅
+
+### React Module (Complete)
+- **Task Modules:** 8
+- **Sub-labs:** 6 (useState suite)
+- **Completion:** 100% ✅
+
+### Backend Module (Complete)
+- **Node.js Tasks:** 2
+- **Express TypeScript Labs:** 7
+- **Completion:** 100% ✅
 
 ---
 
@@ -309,28 +329,23 @@ Each module has detailed documentation:
 - ✅ **Form Wizard** - Built complex validated forms
 - ✅ **Table Expert** - Created professional data tables
 - ✅ **Navigation Pro** - Implemented multiple nav patterns
-- 🔄 **JavaScript Learner** - Currently progressing
+- ✅ **JavaScript Ninja** - Mastered ES6+, Async/Await & DOM manipulation
+- ✅ **React Architect** - Built modular React 19 apps with Hooks, Reducers & Context
+- ✅ **Backend Engineer** - Built Express 5 TypeScript APIs with Mongoose, Zod & JWT
 
 ---
 
 ## 🎯 Next Steps
 
-### Immediate Goals
-1. Complete JavaScript fundamentals
-2. Master ES6+ features
-3. Practice DOM manipulation
-4. Build interactive projects
+### Completed Path
+1. HTML Fundamentals (25 tasks)
+2. JavaScript Core & ES6 Features
+3. Async Data Fetching & AJAX
+4. React Framework & Hooks (8 task modules)
+5. Backend Architecture (Node.js, Express 5, TypeScript, MongoDB, JWT)
 
-### Short-term Goals
-- Finish JavaScript module (100 tasks)
-- Start AJAX integration
-- Build data-driven applications
-
-### Long-term Goals
-- Master React framework
-- Complete backend development
-- Build full-stack applications
-- Deploy production projects
+### Full-Stack Applications
+- Build and deploy full-stack portfolio applications linking React frontends to Express REST APIs.
 
 ---
 
@@ -348,23 +363,23 @@ Each module has detailed documentation:
 - Clean, readable code structure
 - Professional styling and UX
 
-### Browser Compatibility
+### Browser & Server Compatibility
 - Tested in Chrome, Firefox, Edge
-- Responsive design for all screen sizes
-- Progressive enhancement approach
+- Node.js ES Modules (`"type": "module"`)
+- Type-safe backend compilation with TypeScript
 
 ---
 
 **Author:** AI-FullStack Learning Path  
-**Last Updated:** January 21, 2026  
-**Current Status:** HTML Complete, JavaScript In Progress  
+**Last Updated:** September 7, 2026  
+**Current Status:** Full-Stack Learning Path Complete ✅  
 **Repository Focus:** Progressive Full-Stack Development
 
 ---
 
 ## 🌟 Keep Learning!
 
-You've completed HTML - an incredible foundation! Now you're building on that with JavaScript. Remember:
+You've completed the full-stack learning path — HTML, JavaScript, AJAX, React, Node.js, and Express! 🎉
 
 - 💪 Every expert was once a beginner
 - 🎯 Focus on understanding, not memorizing

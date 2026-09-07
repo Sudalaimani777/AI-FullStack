@@ -4,205 +4,119 @@
 
 [![GitHub](https://img.shields.io/badge/GitHub-AI--FullStack-blue)](https://github.com/Sudalaimani777/AI-FullStack)
 [![JavaScript](https://img.shields.io/badge/Language-JavaScript-yellow)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![TypeScript](https://img.shields.io/badge/Language-TypeScript-blue)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/Framework-React%2019-61dafb)](https://react.dev/)
+[![Node.js](https://img.shields.io/badge/Runtime-Node.js-green)](https://nodejs.org/)
 [![Learning](https://img.shields.io/badge/Status-Active%20Learning-brightgreen)]()
 
 ## 📋 Table of Contents
 - [About](#-about)
 - [Repository Structure](#-repository-structure)
+- [Quick Stats](#-quick-stats)
 - [Projects](#-projects)
 - [Getting Started](#-getting-started)
 - [Progress Tracker](#-progress-tracker)
 - [Learning Achievements](#-learning-achievements)
+- [Quick Links](#-quick-links)
 
 ## 🎯 About
 
-This repository is my personal learning journey into Full-Stack Development, documenting comprehensive progress from HTML fundamentals through advanced JavaScript. It contains:
+This repository is my personal learning journey into Full-Stack Development, documenting comprehensive progress from HTML fundamentals through advanced JavaScript, React 19, TypeScript, Next.js App Router, and Node.js/Express backend APIs. It contains:
 - **25 HTML Structured Tasks** across 5 modules (Basics, Links/Navigation, Images/Media, Lists/Tables, Forms) - 100% Complete
 - **HTML Learning Module** with 10 comprehensive topics covering basics to accessibility
 - **8 Complete HTML Projects** demonstrating real-world HTML5 applications
-- **16 Comprehensive JavaScript Topics** with detailed notes and examples (2,293+ lines, Updated with 16-WebStorage)
-- **9 ES6 Advanced Modules** (Functions, Promises, Fetch, HTTP, Async/Await, Destructuring, Spread/Rest, Error Handling, Modern Patterns) with 1,539+ lines of notes (Updated with 9-ModernPattrens)
-- **3 AJAX Projects** (Text, JSON, External API) with 241 lines of notes
-- **3 Active React Modules** (0-Start, 1-AboutReact, 2-Components) with comprehensive documentation
+- **16 Comprehensive JavaScript Topics** with detailed notes and examples (including WebStorage)
+- **9 ES6 Advanced Modules** (Functions, Promises, Fetch, HTTP, Async/Await, Destructuring, Spread/Rest, Error Handling, Modern Patterns)
+- **3 AJAX Projects** (Text, JSON, External API) with comprehensive notes
+- **7 Core React Learning Modules** (`2-JSXAndComponents`, `3-FundamentalsOfReact`, `4-ReactHooks`, `5-AdvanceHooksAndNavigation`, `6-MasteringRedux`, `7-ClassComponentsAndOptimization`)
+- **8 React Task Modules** (`0-TryLoLearn` to `7-UserLoginAndRegistration` auth routing)
+- **11 Production-Ready React 19 Projects** (`1-StaticPages` through `11-TodoWithMockAPI` using Redux Toolkit, Zustand, React Router 7, and TMDB API)
+- **TypeScript Hub** featuring OOP singletons, interface contracts, and 1-TodoApp
+- **Next.js Hub** featuring App Router architecture, Server Components, and full-stack CMS
+- **Backend Engineering Hub** featuring 10 Express Masterclass Days, Node & Express Task Labs, and UrbanCart (Express 5, TypeScript, MongoDB, Mongoose, Zod, JWT)
 - **100 JavaScript Topic-Specific Practice Tasks** aligned with each chapter (100% completed)
-- **Structured coding exercises** (Basic, Advanced, Bonus)
-- **10 JavaScript Applications** showcasing modern JavaScript concepts
-- **React Prerequisites Guide** (374 lines) for next learning phase
+- **37 Production-Ready Applications** across HTML, JavaScript, React, TypeScript, Next.js, and Node/Express Backend
 - **Professional documentation** with enhanced formatting and quick references
-- **Hands-on DOM manipulation, AJAX, and API integration** practice
 
 **Learning Start Date:** October 17, 2025  
-**Current Focus:** Full-Stack Development Mastery (React Fundamentals Complete)  
-**Latest Milestone:** React Learning Hub established with 3 active modules (0-Start, 1-AboutReact, 2-Components)  
-**Recent Achievement:** Comprehensive React documentation with JSX, Components, Props, State, and Event Handling
+**Current Focus:** Full-Stack Development Mastery (Frontend, React, TypeScript, Next.js & Backend Complete)  
+**Latest Milestone:** Full-Stack Engineering Workspace established across AI, FrontEnd, Projects, Tasks, and BackEnd  
+**Recent Achievement:** Complete end-to-end documentation coverage across all 37 portfolio projects and task modules
 
 **Completion Status:** 
 - ✅ **25/25 HTML Tasks completed** (Modules 1-5: 100%)
 - ✅ 8/8 HTML Projects completed
-- ✅ 16/16 JavaScript Topics completed (includes 16-WebStorage)
+- ✅ 16/16 JavaScript Topics completed (includes WebStorage)
 - ✅ 100/100 JavaScript TopicTasks completed
-- ✅ 9/9 ES6 Advanced Modules completed (includes 9-ModernPattrens)
-- ✅ 10/10 JavaScript Projects completed
+- ✅ 9/9 ES6 Advanced Modules completed
+- ✅ 15/15 JavaScript Projects completed
 - ✅ 3/3 AJAX Projects completed
-- ✅ 3/3 React Modules (0-Start, 1-AboutReact, 2-Components)
-- ✅ Basic, Advanced & Bonus Tasks completed (30 total)
+- ✅ 7/7 React Learning Modules completed
+- ✅ 8/8 React Task Modules completed
+- ✅ 11/11 React 19 Projects completed
+- ✅ 1/1 TypeScript Projects completed (`1-TodoApp`)
+- ✅ 1/1 Next.js Projects completed (`cms`)
+- ✅ 1/1 Backend E-Commerce API completed (`UrbanCart` Express 5 + TypeScript)
+- ✅ 7/7 Express Task Labs completed (`Day1` - `Day7`)
+- ✅ 2/2 Node Task Labs completed (`Task1` & `Task2`)
 
 ## 📁 Repository Structure
 
 ```
 AI-FullStackGitRepo/
 │
-├── README.md                          # This documentation file
+├── README.md                          # Root repository documentation
 │
-├── FrontEnd/                          # 🎨 Frontend Development
+├── AI/                                # 🤖 AI Learning & Prompt Engineering
+│   └── README.md                      # AI module documentation
+│
+├── Backend/                           # ⚙️ Backend Engineering Masterclass
+│   ├── README.md                      # Backend hub guide
+│   └── Express/                       # 10 Express.js & Node.js Masterclass Days
+│       ├── Day1/ to Day10/            # Route controllers, Mongoose ODM, JWT Auth
+│       └── notex.txt                  # Express + TypeScript production guide
+│
+├── FrontEnd/                          # 🎨 Frontend Development Hub
 │   ├── README.md                      # Frontend hub documentation
-│   │
 │   ├── HTML/                          # 📄 HTML5 Learning (10 modules + notes)
-│   │   ├── README.md                  # HTML learning guide
-│   │   ├── notes.txt                  # Comprehensive HTML reference
-│   │   ├── 1-Basics/ to 10-Projects/  # Progressive HTML modules
-│   │
-│   ├── Ajax/                          # 🌐 AJAX & API Learning (241 lines docs)
-│   │   ├── README.md
-│   │   ├── notes.txt                  # AJAX comprehensive notes
-│   │   ├── 1-Ajax-Text/               # Text file loading with XHR
-│   │   ├── 2-Ajax-Json/               # JSON data parsing & rendering
-│   │   └── 3-External-API/            # External API integration
-│   │
-│   ├── JavaScript/                    # 📚 JavaScript Learning Hub
-│   │   ├── README.md                  # JavaScript hub documentation
-│   │   ├── topicsNeedToLearnToMoveToReact.txt  # React prerequisites (374 lines)
-│   │   │
-│   │   ├── Topics/                    # 15 fundamental topics (2,293 lines docs)
-│   │   │   ├── README.md              # Topics documentation
-│   │   │   ├── notes.txt              # Comprehensive guide
-│   │   │   ├── 1-Start/ to 8-TemplateString/
-│   │   │   ├── 9-ArrayMethods/        # Basic + Advanced (map, filter, forEach, reduce)
-│   │   │   │   ├── 1-BasicMethods/
-│   │   │   │   └── 2-AdvancedMethods/
-│   │   │   │       ├── notes.txt           # Comprehensive docs
-│   │   │   │       ├── 1-Map/
-│   │   │   │       ├── 2-Filter/
-│   │   │   │       ├── 3-ForEach/
-│   │   │   │       └── 4-Reduce/
-│   │   │   ├── 10-Objects/            # 6 sub-topics (OOP, Prototypes, Classes)
-│   │   │   ├── 11-IfElse/ to 13-Functions/
-│   │   │   ├── 14-DOM/                # DOM + Todo App practice (8 files)
-│   │   │   └── 15-ModularPattern/     # Import/Export + IIFE
-│   │   │
-   │   └── ES6/                       # 🚀 ES6+ Features (1,400+ lines docs)
-   │       ├── README.md              # ES6 documentation
-   │       ├── notes.txt              # ES6 comprehensive guide
-   │       ├── 1-Function/            # Arrow, Callback, Higher-Order
-   │       ├── 2-Promise/             # Promise creation & chaining
-   │       ├── 3-Fetch/               # Fetch API with sample data
-   │       ├── 4-HTTP/                # HTTP methods (CRUD)
-   │       ├── 5-Async/               # Async/Await patterns
-   │       ├── 6-Destructuring/       # Array & Object destructuring
-   │       ├── 7-SpreadRestOperator/  # Spread & Rest operators
-   │       └── 8-ErrorHandling/       # Try/Catch error handling
-│   │
-│   └── React/                         # ⚛️ React Learning Hub (3 Modules)
-│       ├── README.md                  # React comprehensive documentation
-│       ├── 0-Start/                   # React Fundamentals with Vite
-│       │   ├── package.json           # Dependencies (React 19.2, Vite 7.3)
-│       │   ├── vite.config.js         # Vite configuration
-│       │   ├── eslint.config.js       # Code quality rules
-│       │   ├── index.html             # HTML entry point
-│       │   ├── notes.txt              # React & Vite basics
-│       │   ├── public/                # Static assets
-│       │   └── src/                   # React source code
-│       │       ├── main.jsx           # Entry point
-│       │       └── App.jsx            # Main component
-│       ├── 1-AboutReact/              # React Concepts (Static Examples)
-│       │   ├── index.html
-│       │   └── script.js
-│       └── 2-Components/              # Component Patterns (Full Project)
-│           ├── package.json           # Dependencies (React 19.2, Vite 7.3)
-│           ├── vite.config.js
-│           ├── eslint.config.js
-│           ├── notex.txt              # Component patterns guide
-│           ├── public/
-│           └── src/
-│               ├── main.jsx
-│               ├── App.jsx
-│               └── Components/        # Reusable components
+│   ├── Ajax/                          # 🌐 AJAX & API Learning
+│   ├── JavaScript/                    # 📚 JavaScript Learning Hub (16 Topics + ES6)
+│   ├── Next/                          # ⚡ Next.js App Router (Essentials & Enhancing)
+│   ├── React/                         # ⚛️ React Learning Hub (7 Modules)
+│   ├── ReactNative/                   # 📱 React Native Mobile Learning
+│   └── Typescript/                    # 📘 TypeScript Fundamentals
 │
-├── Projects/                          # 🚀 Real-World Applications (15 total)
-│   ├── README.md                      # Projects overview
-│   └── FrontEnd/
-│       ├── README.md                  # Frontend projects documentation
-│       ├── HTMLProjects/              # 8 complete HTML5 projects
-│       │   ├── README.md
-│       │   ├── 1-Personal-Portfolio/  # Portfolio with contact form
-│       │   ├── 2-Blog-Page/           # Multi-article blog
-│       │   ├── 3-Restaurant-Menu/     # Menu with reservation
-│       │   ├── 4-Product-Listing/     # E-commerce listing
-│       │   ├── 5-Landing-Page/        # SaaS landing page
-│       │   ├── 6-Event-Registration-Form/  # Comprehensive form
-│       │   ├── 7-Documentation-Page/  # Technical docs
-│       │   └── 8-Online-Resume/       # Professional CV
-      └── JavascriptProjects/        # 10 production applications
-          ├── README.md              # Detailed project docs
-          ├── BookManagementApp/     # ES6 Classes, LocalStorage
-          ├── To-do_App/             # Advanced DOM, LocalStorage
-          ├── ToDoUsingAPI/          # REST API integration
-          ├── CRUD_Application_Using_API/  # Async/await, inline editing
-          ├── MoneyTracker/          # MVC, IIFE, API, Progressive (3 stages)
-          ├── Mind/                  # MindVault - Thought capturing with CRUD
-          ├── Search/                # User search with API filtering
-│           ├── ColorPicker/           # Browser APIs, Clipboard
-│           ├── CharacterValidator/    # Real-time validation
-│           └── SimpleCounterApp/      # State management
+├── MCP/                               # 🔌 Model Context Protocol Tools
+│   └── README.md                      # MCP server integrations & tools
 │
-├── Tasks/                             # 🎯 Practice Exercises
-│   ├── README.md                      # Tasks overview
-│   └── FrontEnd/
-│       ├── HTML/                      # 25 HTML structured tasks (NEW!)
-│       │   ├── README.md              # HTML tasks documentation
-│       │   ├── tasks.txt              # Tasks reference guide
-│       │   ├── 1-Basics/              # Module 1: Basic HTML structure
-│       │   │   ├── 1.1-SimpleWebpage/
-│       │   │   ├── 1.2-HeadingsAndParagraphs/
-│       │   │   ├── 1.3-FormattingTags/
-│       │   │   ├── 1.4-CommentsPractice/
-│       │   │   └── 1.5-CompleteDocumentStructure/
-│       │   ├── 2-LinksAndNavigation/  # Module 2: Navigation & Links
-│       │   │   ├── 2.1-BasicLinks/
-│       │   │   ├── 2.2-NavigationMenu/
-│       │   │   ├── 2.3-AnchorLinks/
-│       │   │   ├── 2.4-ButtonLinks/
-│       │   │   └── 2.5-BreadcrumbNavigation/
-│       │   ├── 3-ImagesAndMedia/      # Module 3: Media elements
-│       │   │   ├── 3.1-BasicImages/
-│       │   │   ├── 3.2-ImageGallery/
-│       │   │   ├── 3.3-VideoAndAudio/
-│       │   │   ├── 3.4-ResponsiveImages/
-│       │   │   └── 3.5-ImageMap/
-│       │   ├── 4-ListAndTables/       # Module 4: Lists & Tables
-│       │   │   ├── 4.1-AllListTypes/
-│       │   │   ├── 4.2-NavigationList/
-│       │   │   ├── 4.3-BasicTable/
-│       │   │   ├── 4.4-StylingTables/
-│       │   │   └── 4.5-PracticalTables/
-│       │   └── 5-Forms/               # Module 5: Forms & Validation
-│       │       ├── 5.1-BasicContactForm/
-│       │       ├── 5.2-InputTypes/
-│       │       ├── 5.3-FormValidation/
-│       │       ├── 5.4-SelectionInputs/
-│       │       └── 5.5-RegistrationForm/
-│       └── Javascript/
-│           ├── README.md              # JavaScript tasks documentation
-│           ├── TopicTasks/            # 100 tasks across 13 topics
-│           │   ├── README.md
-│           │   ├── tasksList.txt      # Tasks list
-│           │   └── 1-Start/ to 13-Functions/
-│           ├── JS-Tasks/              # Basic (10) + Advanced (10) + Bonus (10)
-│           └── ES6/                   # ES6 practice exercises
-│               ├── 2-Promise/         # Promise patterns
-│               └── Async-EasyHttp/    # Async/Await HTTP library
+├── Practice/                          # 🧪 Full-Stack Practice Labs
+│   ├── README.md
+│   └── fullstack/                     # Full-stack integration practice
 │
-└── BackEnd/                           # 🔧 Backend Development (Coming Soon)
+├── Projects/                          # 🚀 Real-World Production Applications (37 Total)
+│   ├── README.md                      # Projects root overview
+│   ├── Backend/                       # 🛒 BackEnd E-Commerce Platform
+│   │   ├── README.md                  # Backend projects guide
+│   │   └── UrbanCart/                 # Express 5 + TypeScript + Mongoose + Zod + JWT
+│   └── FrontEnd/                      # 🎨 FrontEnd Projects (36 Total)
+│       ├── README.md                  # FrontEnd projects guide
+│       ├── HTML/                      # 8 complete HTML5 projects
+│       ├── Javascript/                # 15 production JavaScript applications
+│       ├── React/                     # 11 React 19 web applications
+│       ├── TypeScript/                # 1 Object-oriented TypeScript app (1-TodoApp)
+│       └── NextJS/                    # 1 Full-stack Next.js app (cms)
+│
+└── Tasks/                             # 🎯 Practice Exercises & Labs
+    ├── README.md                      # Tasks root overview
+    ├── Backend/                       # ⚙️ BackEnd Tasks (Node & Express)
+    │   ├── README.md
+    │   ├── Node/                      # Task 1 & Task 2 (HTTP, OS, Process, FS Promises)
+    │   └── Express/                   # Day 1 - Day 7 (Zod, Mongoose, Bcrypt, JWT)
+    └── FrontEnd/                      # 🎨 FrontEnd Tasks (HTML, JS, React)
+        ├── README.md
+        ├── HTML/                      # 25 structured HTML tasks (Modules 1-5)
+        ├── Javascript/                # 100 topic tasks + ES6 exercises
+        └── React/                     # 8 React task modules (0-TryLoLearn to 7-Auth)
 ```
 
 ## 📊 Quick Stats
@@ -210,123 +124,84 @@ AI-FullStackGitRepo/
 | Category | Count | Status |
 |----------|-------|--------|
 | HTML Modules (Learning) | 10 | ✅ Complete |
-| **HTML Tasks (Structured Practice)** | **25** | **✅ Complete** |
+| HTML Tasks (Structured Practice) | 25 | ✅ Complete |
 | HTML Projects | 8 | ✅ Complete |
 | JavaScript Topics | 16 (includes WebStorage) | ✅ Complete |
 | JavaScript TopicTasks | 100 | ✅ Complete |
 | ES6 Modules | 9 (includes ModernPattrens) | ✅ Complete |
-| React Modules | 3 (0-Start, AboutReact, Components) | ✅ Complete |
-| AJAX Projects | 3 | ✅ Complete |
-| JavaScript Applications | 10 | ✅ Complete |
-| Total Projects | 18 (8 HTML + 10 JS) | ✅ Complete |
-| React Modules (Active) | 3 | ✅ Complete |
-| Practice Tasks (HTML + JS) | 155+ | ✅ Complete |
-| JS-Tasks (Basic+Advanced+Bonus) | 30 | ✅ Complete |
-| Objects Sub-Topics | 6 | ✅ Complete |
-| Array Methods Sub-Topics | 9 | ✅ Complete |
-| DOM Practice Files | 8 | ✅ Complete |
-| Documentation Lines | 7,500+ | ✅ Complete |
-| Code Examples | 350+ | ✅ Complete |
+| JavaScript Applications | 15 | ✅ Complete |
+| React Learning Modules | 7 | ✅ Complete |
+| React Task Modules | 8 | ✅ Complete |
+| React 19 Projects | 11 | ✅ Complete |
+| TypeScript Projects | 1 (`1-TodoApp`) | ✅ Complete |
+| Next.js Projects | 1 (`cms`) | ✅ Complete |
+| Backend API Services | 1 (`UrbanCart`) | ✅ Complete |
+| Express Masterclass Days | 10 | ✅ Complete |
+| Backend Task Labs | 9 (Node & Express) | ✅ Complete |
+| **Total Projects (Portfolio)** | **37** | **✅ Complete** |
+| Total Practice Tasks | 160+ | ✅ Complete |
+| Documentation Lines | 12,000+ | ✅ Complete |
 
-## 🚀 Projects
+## 🚀 Projects Overview
 
-### [Projects/FrontEnd/](Projects/FrontEnd/README.md) - 18 Total Projects
+### [Projects Hub](Projects/README.md) — 37 Production Applications
 
-### HTML Projects (8)
+### BackEnd Projects (1)
 
-#### ✅ 1. Personal Portfolio
-**Focus:** Semantic HTML, Forms, Navigation  
-**Features:** About section, skills showcase, featured projects, contact form  
-**Skills:** Semantic elements, form validation, links (internal/external/email/phone)
-
-#### ✅ 2. Blog Page
-**Focus:** Article Structure, Metadata, Sidebar  
-**Features:** Multiple articles, publication dates, categories, newsletter signup  
-**Skills:** `<article>`, `<time>`, `<figure>`, `<aside>`, `<blockquote>`
-
-#### ✅ 3. Restaurant Menu
-**Focus:** Tables, Description Lists, Forms  
-**Features:** Menu by categories, hours table, reservation form  
-**Skills:** `<dl>`, `<dt>`, `<dd>`, tables, date/time inputs, `<address>`
-
-#### ✅ 4. Product Listing
-**Focus:** Forms, Tables, Product Cards  
-**Features:** 6 products with specs, ratings, pricing, testimonials  
-**Skills:** Radio buttons, checkboxes, specification tables
-
-#### ✅ 5. Landing Page
-**Focus:** Pricing Tables, Complex Forms, CTA  
-**Features:** Features section, pricing comparison, FAQ, signup form  
-**Skills:** Complex tables with colspan/rowspan, CTAs
-
-#### ✅ 6. Event Registration Form
-**Focus:** All Form Elements, Validation  
-**Features:** Multi-section registration with all HTML5 input types  
-**Skills:** All input types, fieldsets, pattern validation, accessibility
-
-#### ✅ 7. Documentation Page
-**Focus:** Navigation, Code Examples  
-**Features:** Sidebar TOC, code blocks, syntax tables  
-**Skills:** Nested navigation, anchor links, `<pre>`, `<code>`
-
-#### ✅ 8. Online Resume/CV
-**Focus:** Professional Structure  
-**Features:** Skills, experience, education, certifications, projects  
-**Skills:** Heading hierarchy, `<time>`, tables, proper structure
+#### ✅ UrbanCart E-Commerce Platform (`Projects/Backend/UrbanCart/`)
+**Tech:** Node.js ES Modules, Express 5, TypeScript 7, MongoDB Atlas, Mongoose 9, Zod 4, JWT, Bcrypt  
+**Features:** Enterprise e-commerce API server + client, user registration/login, role permissions (admin/user), product catalog CRUD, Zod schema validation  
+**Skills:** REST API architecture, database modeling, stateless JWT authentication, environment configuration
 
 ---
 
-### JavaScript Projects (10)
+### FrontEnd Projects (36)
 
-#### ✅ BookManagementApp (191 lines)
-**Tech:** ES6 Classes, LocalStorage, OOP  
-**Features:** Full CRUD operations, ISBN validation, duplicate checking, static methods for storage  
-**Skills:** Object-oriented design, data persistence, form validation
+#### HTML Projects (8)
+1. **Personal Portfolio**: Semantic HTML5, contact form, project showcase
+2. **Blog Page**: Multi-article layout with sidebar and newsletter
+3. **Restaurant Menu**: Category tables, hours, reservation form
+4. **Product Listing**: E-commerce card grid with specs and ratings
+5. **Landing Page**: SaaS pricing comparison tables and FAQ
+6. **Event Registration Form**: Complete HTML5 form input validation
+7. **Documentation Page**: Sidebar TOC, syntax tables, code blocks
+8. **Online Resume**: Professional CV structure and heading hierarchy
 
-#### ✅ To-do_App (290 lines)
-**Tech:** LocalStorage, Event delegation, Advanced DOM  
-**Features:** CRUD operations, search/filter, real-time updates, event delegation  
-**Skills:** Advanced DOM manipulation, data filtering, persistence
+#### JavaScript Projects (15)
+1. **BookManagementApp**: ES6 Classes, LocalStorage CRUD, static methods
+2. **To-do_App**: Advanced DOM, search/filter, LocalStorage persistence
+3. **MoneyTracker**: Progressive 3-stage MVC, REST API, IIFE pattern
+4. **CRUD_Application_Using_API**: Async/await, inline editing, MockAPI
+5. **ToDoUsingAPI**: Fetch API, REST methods, ES6 modules
+6. **Mind (MindVault)**: Thought capture, edit mode state, dark UI
+7. **Search (User Search)**: Live API filtering, user details modal
+8. **ColorPicker**: Random Hex/RGB generator, Clipboard API
+9. **CharacterValidator**: Real-time RegEx input validation
+10. **SimpleCounterApp**: State management, DOM events
+11. **AutoTextEffectAnimation**: Dynamic typing effect
+12. **Calculator**: Interactive math logic
+13. **CurrencyConverter**: Exchange rate API
+14. **RandomPasswordGenerator**: Configurable security rules
+15. **RockPaperSissor**: Browser game state
 
-#### ✅ MoneyTracker (559 lines)
-**Tech:** MVC Architecture, IIFE Pattern, REST API, Tailwind CSS  
-**Features:** Progressive 3-stage learning, full CRUD with API, animated UI, responsive design  
-**Skills:** MVC pattern, IIFE modules, async/await, state management, modern CSS animations
+#### React 19 Projects (11)
+1. **1-StaticPages**: Layout composition & Vite setup
+2. **2-DataDrivenReact**: Dynamic props & list mapping
+3. **3-UsingState**: `useState` event handlers & state uplifting
+4. **4-SideEffects**: Data fetching & cleanup hooks
+5. **5-CapeStoneProjects**: Multi-component application synthesis
+6. **6-ReviewApp**: User feedback rating breakdown system
+7. **7-TodoApp**: Task management CRUD with local storage
+8. **8-MovieApp**: Media catalogue UI & filter layout
+9. **9-CineBite**: Live movie discovery portal with TMDB API & React Router 7
+10. **10-NotesApp**: Workspace notes tool with Redux Toolkit & layout routes
+11. **11-TodoWithMockAPI**: Asynchronous task manager with Zustand 5 & Axios
 
-#### ✅ CRUD_Application_Using_API (270 lines)
-**Tech:** Async/Await, Fetch API, ES6 Modules  
-**Features:** Full CRUD with inline editing, event delegation, modern async patterns  
-**Skills:** Modern async patterns, RESTful operations, dynamic UI updates
+#### TypeScript Projects (1)
+1. **1-TodoApp**: Object-oriented models (`ListItem`, `FullList`), singleton pattern, DOM template rendering, LocalStorage sync
 
-#### ✅ ToDoUsingAPI (98 lines)
-**Tech:** Fetch API, REST, ES6 Modules  
-**Features:** API integration with MockAPI, modular architecture, async operations  
-**Skills:** API integration, REST methods (GET, POST, PUT, DELETE)
-
-#### ✅ ColorPicker (106 lines)
-**Tech:** Vanilla JS, Clipboard API  
-**Features:** Random RGB/Hex color generation, copy-to-clipboard, batch operations  
-**Skills:** Color algorithms, browser APIs, DOM manipulation
-
-#### ✅ CharacterValidator
-**Tech:** Real-time validation, RegEx  
-**Features:** Live input checking, dynamic UI feedback, button state management  
-**Skills:** Input validation, event-driven programming
-
-#### ✅ SimpleCounterApp
-**Tech:** DOM manipulation, Tailwind CSS  
-**Features:** Increment/decrement/reset, state management, responsive design  
-**Skills:** State handling, event listeners, modern CSS
-
-#### ✅ Mind (MindVault) (242 lines)
-**Tech:** ES6 Modules, Async/Await, REST API, Tailwind CSS  
-**Features:** Thought capturing with type categorization, full CRUD, edit mode toggle, loading states, dark UI  
-**Skills:** Modular architecture, constructor patterns, form state management (create/edit modes)
-
-#### ✅ Search (User Search Application) (77 lines)
-**Tech:** Fetch API, Array Methods, CSS Animations  
-**Features:** Real-time user filtering, detailed user views, dynamic statistics, JSONPlaceholder API integration  
-**Skills:** API consumption, filter/map/Set operations, responsive design, gradient animations
+#### Next.js Projects (1)
+1. **cms**: Full-stack Content Management System with App Router, Server Components, React 19, and Prisma ORM
 
 ## 🎯 Getting Started
 
@@ -334,485 +209,126 @@ AI-FullStackGitRepo/
 
 **Phase 1: HTML Fundamentals**
 1. 📄 Start with [FrontEnd/HTML/](FrontEnd/HTML/README.md)
-   - Complete all 10 HTML modules from basics to accessibility
-2. 🎯 Practice with [HTML Tasks](Tasks/FrontEnd/HTML/README.md)
-   - 25 structured tasks across 5 modules (Basics, Links, Media, Lists/Tables, Forms)
-3. 🚀 Build [HTML Projects](Projects/FrontEnd/HTMLProjects/README.md)
-   - 8 complete projects demonstrating HTML5 mastery
+2. 🎯 Practice with [Tasks/FrontEnd/HTML](Tasks/FrontEnd/HTML/README.md)
+3. 🚀 Build [HTML Projects](Projects/FrontEnd/HTML/README.md)
 
-**Phase 2: JavaScript Fundamentals**
+**Phase 2: JavaScript Fundamentals & ES6+**
 4. 📖 Learn [FrontEnd/JavaScript/Topics/](FrontEnd/JavaScript/Topics/README.md)
-   - Complete all 16 topics from basics to modular patterns (including WebStorage)
 5. 🎯 Practice with [Tasks/TopicTasks/](Tasks/FrontEnd/Javascript/TopicTasks/README.md)
-   - 100 exercises aligned with each topic
+6. 🚀 Master [ES6 Features](FrontEnd/JavaScript/ES6/README.md) and build [JS Projects](Projects/FrontEnd/Javascript/README.md)
 
-**Phase 3: Modern JavaScript (ES6+)**
-6. 🚀 Learn [ES6 features](FrontEnd/JavaScript/ES6/README.md)
-   - 9 modules: Arrow functions, Promises, Fetch API, HTTP, Async/Await, Destructuring, Spread/Rest, Error Handling, Modern Patterns
-7. 🎯 Complete [JS-Tasks](Tasks/FrontEnd/Javascript/JS-Tasks/README.md)
-   - Basic (10) + Advanced (10) + Bonus (10) coding challenges
+**Phase 3: React 19 & State Management**
+7. ⚛️ Study [React Learning Hub](FrontEnd/React/README.md)
+8. 🎯 Complete [React Task Labs](Tasks/FrontEnd/React/README.md) (8 task modules)
+9. 🚀 Build [React 19 Projects](Projects/FrontEnd/React/README.md) (Redux Toolkit, Zustand, Router 7, TMDB API)
 
-**Phase 4: AJAX & APIs**
-8. 🌐 Master [AJAX](FrontEnd/Ajax/README.md)
-   - Text loading, JSON parsing, External API integration
+**Phase 4: TypeScript & Next.js**
+10. 📘 Explore [TypeScript Hub](FrontEnd/Typescript/README.md) & build [1-TodoApp](Projects/FrontEnd/TypeScript/1-TodoApp/README.md)
+11. ⚡ Master [Next.js Hub](FrontEnd/Next/README.md) & full-stack [CMS App](Projects/FrontEnd/NextJS/cms/README.md)
 
-**Phase 5: Build JavaScript Projects**
-9. 🚀 Build [JavaScript Projects](Projects/FrontEnd/JavascriptProjects/README.md)
-   - Start with SimpleCounterApp
-   - Progress to BookManagementApp and API projects
-   - Advanced: Mind (MindVault) and Search applications
+**Phase 5: Node.js & Express Backend APIs**
+12. ⚙️ Study [Backend Engineering Hub](Backend/Express/README.md) (10 Masterclass Days)
+13. 🎯 Complete [Backend Task Labs](Tasks/Backend/README.md) (Node & Express Days 1-7)
+14. 🛒 Deploy [UrbanCart E-Commerce Platform API](Projects/Backend/UrbanCart/README.md)
 
-**Phase 6: React Fundamentals** ⭐ NEW
-10. ⚛️ Master [React Learning Hub](FrontEnd/React/README.md)
-    - 3 active modules: 0-Start (Fundamentals), 1-AboutReact (Concepts), 2-Components (Patterns)
-    - React 19.2.0 with Vite 7.3+ build tool
-    - JSX, Components, Props, State, Events, Conditional Rendering
+### 🛠️ Tech Stack & Ecosystem
 
-### 🔧 Tech Stack
-
-**HTML:**
-- HTML5 with semantic elements
-- Forms with all input types & validation
-- Tables (simple & complex)
-- Accessibility best practices
-- SEO-friendly markup
-
-**JavaScript (ES6+):**
-- Vanilla JavaScript with modern features
-- AJAX / Fetch API
-- Async/Await patterns
-- LocalStorage & SessionStorage APIs
-- ES6 Modules (import/export)
-- DOM Manipulation & Event Handling
-- Tailwind CSS / Materialize CSS
-
-**React:**
-- React 19.2.0
-- Vite 7.3+ build tool
-- JSX syntax
-- Functional Components
-- Props & State management
-- Events & Conditional Rendering
-- Component composition
-
-**Backend:**
-- Coming soon
-
-### 🛠️ Setup & Running
-
-**To run any project:**
-```bash
-# Navigate to project folder
-cd Projects/FrontEnd/JavascriptProjects/[project-name]
-
-# Open index.html in browser
-start index.html        # Windows
-open index.html         # macOS
-xdg-open index.html     # Linux
-```
-
-**To practice exercises:**
-```bash
-# Navigate to task folder
-cd Tasks/FrontEnd/Javascript/TopicTasks/[topic-name]
-
-# Open index.html in browser
-# Open Developer Console (F12) to see outputs
-```
+- **Frontend**: HTML5, CSS3, Tailwind CSS v4, JavaScript (ES6+), React 19, React Router DOM 7, Redux Toolkit, Zustand 5, TypeScript 6, Next.js 15 (App Router)
+- **Backend**: Node.js (ESM), Express.js 5, MongoDB, Mongoose ODM 9, Zod Schema Validation, Bcrypt, JSON Web Tokens (JWT), Axios Client, RESTful API architecture
+- **Build Tools & Environment**: Vite 8, `tsx watch`, npm, Git, Postman, VS Code
 
 ## 📈 Progress Tracker
 
-| Topic | Status | Completion Date |
-|-------|--------|-----------------|
-| **HTML Learning (HTML/)** |
-| 1-10 HTML Modules | ✅ Complete | Jan 20, 2026 |
-| HTML notes.txt | ✅ Complete | Jan 20, 2026 |
-| **HTML Tasks (Tasks/FrontEnd/HTML/)** |
-| Module 1: Basics (5 tasks) | ✅ Complete | Jan 21, 2026 |
-| Module 2: Links & Navigation (5 tasks) | ✅ Complete | Jan 21, 2026 |
-| Module 3: Images & Media (5 tasks) | ✅ Complete | Jan 21, 2026 |
-| Module 4: Lists & Tables (5 tasks) | ✅ Complete | Jan 21, 2026 |
-| Module 5: Forms (5 tasks) | ✅ Complete | Jan 21, 2026 |
-| **HTML Projects (HTMLProjects/)** |
-| 1. Personal Portfolio | ✅ Complete | Jan 20, 2026 |
-| 2. Blog Page | ✅ Complete | Jan 20, 2026 |
-| 3. Restaurant Menu | ✅ Complete | Jan 20, 2026 |
-| 4. Product Listing | ✅ Complete | Jan 20, 2026 |
-| 5. Landing Page | ✅ Complete | Jan 20, 2026 |
-| 6. Event Registration Form | ✅ Complete | Jan 20, 2026 |
-| 7. Documentation Page | ✅ Complete | Jan 20, 2026 |
-| 8. Online Resume | ✅ Complete | Jan 20, 2026 |
-| **JavaScript Fundamentals (Topics/)** |
-| Getting Started | ✅ Complete | Oct 2025 |
-| Console Methods | ✅ Complete | Oct 2025 |
-| Variables | ✅ Complete | Oct 2025 |
-| Data Types | ✅ Complete | Oct 2025 |
-| Type Conversion | ✅ Complete | Oct 2025 |
-| Numbers & Math | ✅ Complete | Oct 2025 |
-| Strings & Methods | ✅ Complete | Oct 2025 |
-| Template Strings | ✅ Complete | Oct 19, 2025 |
-| Array Methods | ✅ Complete | Oct 19, 2025 |
-| Objects | ✅ Complete | Nov 13, 2025 |
-| If/Else Statements | ✅ Complete | Nov 13, 2025 |
-| Switch Statement | ✅ Complete | Nov 13, 2025 |
-| Functions | ✅ Complete | Nov 13, 2025 |
-| DOM Manipulation | ✅ Complete | Nov 26, 2025 |
-| ModularPattern (Import/Export, IIFE) | ✅ Complete | Jan 5, 2026 |
-| AJAX & API Integration | ✅ Complete | Dec 17, 2025 |
-| **ES6 Advanced Features (ES6/)** |
-| 1. Functions (Arrow, Callback, Higher-Order) | ✅ Complete | Dec 22, 2025 |
-| 2. Promises | ✅ Complete | Dec 22, 2025 |
-| 3. Fetch API | ✅ Complete | Dec 22, 2025 |
-| 4. HTTP Methods | ✅ Complete | Dec 22, 2025 |
-| 5. Async/Await | ✅ Complete | Jan 1, 2026 |
-| 6. Destructuring | ✅ Complete | Jan 10, 2026 |
-| 7. Spread/Rest Operators | ✅ Complete | Jan 12, 2026 |
-| 8. Error Handling | ✅ Complete | Jan 10, 2026 |
-| **Practice & Projects** |
-| Basic Tasks | ✅ Complete | Oct 2025 |
-| Advanced Tasks | ✅ Complete | Oct 2025 |
-| Bonus Tasks | ✅ Complete | Dec 30, 2025 |
-| **TopicTasks (All Chapters)** | ✅ **Complete** | **Nov 13, 2025** |
-| Documentation & Notes | ✅ Enhanced | Nov 18, 2025 |
-| **To-Do App Project** | ✅ **Complete** | **Nov 26, 2025** |
-| **Character Validator** | ✅ **Complete** | **Nov 2025** |
-| **Color Picker** | ✅ **Complete** | **Nov 2025** |
-| **Simple Counter App** | ✅ **Complete** | **Dec 5, 2025** |
-| **Book Management App** | ✅ **Complete** | **Dec 13, 2025** |
-| **ToDoUsingAPI** | ✅ **Complete** | **Dec 2025** |
-| **MoneyTracker** | ✅ **Complete** | **Jan 26, 2026** |
-| **CRUD_Application_Using_API** | ✅ **Complete** | **Jan 2, 2026** |
-| **Mind (MindVault)** | ✅ **Complete** | **Feb 19, 2026** |
-| **Search (User Search)** | ✅ **Complete** | **Feb 19, 2026** |
-| **Future Goals** |
-| Bonus Challenges | ✅ **Complete** | **Dec 28 2025** |
-| Async/Await | ✅ Complete | Jan 1, 2026 |
-| Destructuring & Spread | ✅ Complete | Jan 12, 2026 |
-| Modules (Import/Export) | ✅ Complete | Jan 5, 2026 |
-| Backend Development | ⏳ Upcoming | - |
+| Topic / Module | Status | Completion Date |
+|:---|:---:|:---:|
+| **HTML Fundamentals & Projects** | ✅ Complete | Jan 20, 2026 |
+| **HTML 25 Tasks (Modules 1-5)** | ✅ Complete | Jan 21, 2026 |
+| **JavaScript Fundamentals (16 Topics)** | ✅ Complete | Jan 5, 2026 |
+| **JavaScript 100 TopicTasks** | ✅ Complete | Nov 13, 2025 |
+| **ES6 Advanced Features (9 Modules)** | ✅ Complete | Jan 12, 2026 |
+| **AJAX & Async Integration** | ✅ Complete | Dec 17, 2025 |
+| **15 JavaScript Applications** | ✅ Complete | Feb 19, 2026 |
+| **7 React Learning Modules** | ✅ Complete | Feb 2026 |
+| **8 React Task Modules** | ✅ Complete | Sep 2026 |
+| **11 React 19 Projects** | ✅ Complete | Sep 2026 |
+| **TypeScript Hub & 1-TodoApp** | ✅ Complete | Sep 2026 |
+| **Next.js App Router & CMS App** | ✅ Complete | Sep 2026 |
+| **Express Masterclass (10 Days)** | ✅ Complete | Sep 2026 |
+| **Backend Task Labs (Node & Express)** | ✅ Complete | Sep 2026 |
+| **UrbanCart E-Commerce Backend API** | ✅ Complete | Sep 2026 |
 
 **Legend:** ✅ Complete | 🔄 In Progress | ⏳ Upcoming
 
-## 💡 Immediate Goals
-
-### Current Focus
-- [ ] Practice advanced destructuring patterns with APIs
-- [ ] Build a weather app using external API with async/await
-- [ ] Practice advanced async patterns (Promise.all, Promise.race)
-- [ ] Learn backend fundamentals (Node.js, Express)
-- [ ] Explore React fundamentals
-
-### Completed Goals
-- [x] ~~Enhance JavaScript learning notes~~ ✅ Completed Oct 18, 2025
-- [x] ~~Add Template Strings chapter~~ ✅ Completed Oct 19, 2025
-- [x] ~~Add Advanced Array Methods chapter~~ ✅ Completed Oct 19, 2025
-- [x] ~~Create TopicTasks folder with structured exercises~~ ✅ Completed Oct 21, 2025
-- [x] ~~Complete remaining TopicTasks (Chapter 9)~~ ✅ Completed Oct 22, 2025
-- [x] ~~Complete TopicTasks for Chapters 10-13~~ ✅ Completed Nov 13, 2025
-- [x] ~~Reorganize project structure~~ ✅ Completed Nov 18, 2025
-- [x] ~~Start DOM chapter~~ ✅ Started Nov 18, 2025
-- [x] ~~Add DOM practice files~~ ✅ Completed Nov 19, 2025
-- [x] ~~Complete DOM manipulation exercises~~ ✅ Completed Nov 26, 2025
-- [x] ~~Complete To-Do App project~~ ✅ Completed Nov 26, 2025
-- [x] ~~Build Character Validator project~~ ✅ Completed Nov 2025
-- [x] ~~Build Color Picker project~~ ✅ Completed Nov 2025
-- [x] ~~Build Simple Counter App~~ ✅ Completed Dec 5, 2025
-- [x] ~~Build Book Management App~~ ✅ Completed Dec 13, 2025
-- [x] ~~Learn AJAX and API integration~~ ✅ Completed Dec 17, 2025
-- [x] ~~Master ES6 Functions (Arrow, Callback, Higher-Order)~~ ✅ Completed Dec 22, 2025
-- [x] ~~Learn Promises and asynchronous programming~~ ✅ Completed Dec 22, 2025
-- [x] ~~Master Fetch API for modern HTTP requests~~ ✅ Completed Dec 22, 2025
-- [x] ~~Understand HTTP methods and API responses~~ ✅ Completed Dec 22, 2025
-- [x] ~~Build ToDoUsingAPI project~~ ✅ Completed Dec 2025
-- [x] ~~Complete Bonus Tasks (10 advanced challenges)~~ ✅ Completed Dec 30, 2025
-- [x] ~~Learn Async/Await syntax and patterns~~ ✅ Completed Jan 1, 2026
-- [x] ~~Build CRUD_Application_Using_API with inline editing~~ ✅ Completed Jan 2, 2026
-- [x] ~~Master ES6 Modules (import/export) and IIFE pattern~~ ✅ Completed Jan 5, 2026
-- [x] ~~Learn Destructuring (arrays and objects)~~ ✅ Completed Jan 10, 2026
-- [x] ~~Master Spread and Rest operators for immutable operations~~ ✅ Completed Jan 12, 2026
-- [x] ~~Study Error Handling patterns (try/catch)~~ ✅ Completed Jan 10, 2026
-- [x] ~~Add 16-WebStorage topic to JavaScript learning~~ ✅ Completed Mar 15, 2026
-- [x] ~~Add 9-ModernPattrens (Optional Chaining, Nullish Coalescing) to ES6~~ ✅ Completed Mar 15, 2026
-- [x] ~~Create comprehensive React Learning Hub~~ ✅ Completed Mar 15, 2026
-- [x] ~~Document 0-Start (React Fundamentals with Vite)~~ ✅ Completed Mar 15, 2026
-- [x] ~~Document 1-AboutReact (React Concepts)~~ ✅ Completed Mar 15, 2026
-- [x] ~~Document 2-Components (Component Patterns)~~ ✅ Completed Mar 15, 2026
-- [x] ~~Update FrontEnd/README.md with React info~~ ✅ Completed Mar 15, 2026
-- [x] ~~Update JavaScript/README.md with 16-WebStorage~~ ✅ Completed Mar 15, 2026
-- [x] ~~Update main README.md with all changes~~ ✅ Completed Mar 15, 2026
-
-### Future Topics
-- **Advanced ES6+ Features**
-  - [x] Destructuring (arrays and objects) ✅ Complete
-  - [x] Spread and Rest operators ✅ Complete
-  - [x] Optional Chaining (?.) ✅ Complete (Module 9-ModernPattrens)
-  - [x] Nullish Coalescing (??) ✅ Complete (Module 9-ModernPattrens)
-  - [x] Default parameters ✅ Complete
-  - [x] Template literals (advanced) ✅ Complete
-  - [ ] Symbols and Iterators
-- **Asynchronous JavaScript (Advanced)**
-  - [x] Promise.all() and Promise.race() ✅ Complete
-  - [x] Parallel vs Sequential async operations ✅ Complete
-  - [x] Advanced error handling patterns ✅ Complete
-  - [x] Async iterators and generators ✅ Complete
-- **React Fundamentals** 🔄 **In Progress**
-  - [x] React 19.2.0 setup with Vite 7.3+ ✅ Complete (0-Start module)
-  - [x] JSX syntax and components ✅ Complete (1-AboutReact module)
-  - [x] Props and state management ✅ Complete (2-Components module)
-  - [x] Events and conditional rendering ✅ Complete
-  - [ ] React hooks (useState, useEffect, useContext)
-  - [ ] Component lifecycle
-  - [ ] Custom hooks
-  - [ ] Performance optimization
-- **Backend Development**
-  - [ ] Node.js fundamentals
-  - [ ] Express.js framework
-  - [ ] RESTful API creation
-  - [ ] Database integration (MongoDB/SQL)
-- **Advanced React & State Management**
-  - [ ] React hooks deep dive
-  - [ ] Redux or Context API
-  - [ ] Component-based architecture patterns
-  - [ ] Routing and navigation with React Router
-- **Full-Stack Integration**
-  - [ ] Connecting React frontend to backend
-  - [ ] Authentication and authorization
-  - [ ] Deployment strategies
-  - [ ] Full-stack project development
-
 ## 🎓 Learning Achievements
 
-### 📄 HTML5 Mastered
-- ✅ **25 structured HTML tasks completed** (5 modules covering all HTML fundamentals)
-- ✅ Semantic HTML5 elements (header, nav, main, article, aside, footer, section)
-- ✅ All form input types (text, email, tel, url, date, time, number, range, color, file, etc.)
-- ✅ Form validation (required, pattern, min, max, minlength, maxlength)
-- ✅ Table structures (simple & complex with colspan/rowspan)
-- ✅ Description lists (dl, dt, dd)
-- ✅ Text formatting and lists (ordered, unordered, definition)
-- ✅ Links (internal, external, email, phone, anchor)
-- ✅ Images and figures with captions
-- ✅ Responsive images and image maps
-- ✅ Video and audio elements with controls
-- ✅ Meta tags for SEO
-- ✅ Accessibility best practices (ARIA attributes)
-- ✅ Proper document structure and heading hierarchy
-- ✅ Address and time elements
-- ✅ Code display (pre, code)
-- ✅ Fieldsets and legends for form grouping
-- ✅ Navigation patterns (header, sidebar, footer, breadcrumb)
+### 📄 HTML5 & Responsive Design
+- ✅ **25 structured HTML tasks** & 8 real-world HTML projects completed
+- ✅ Semantic HTML5 structure, form validation, accessible layouts & media elements
 
-### 🏆 JavaScript Fundamentals Mastered
-- ✅ Variables (var, let, const) and scope rules
-- ✅ Data types (primitive & reference)
-- ✅ Type conversion and coercion
-- ✅ String methods and template literals
-- ✅ Array methods and manipulation
-- ✅ Object-oriented programming (OOP)
-- ✅ Prototypes and inheritance
-- ✅ ES6 Classes
-- ✅ Conditional logic (if/else, switch)
-- ✅ Functions (declarations, expressions, arrows)
-- ✅ DOM manipulation and traversal
-- ✅ Event handling and delegation
-- ✅ Modular patterns (Import/Export, IIFE)
+### 🏆 JavaScript & ES6+ Mastery
+- ✅ 16 core topics, 100 topic tasks, 9 ES6 modules & 15 production JS apps
+- ✅ OOP, ES6 Classes, Async/Await, Promises, Fetch API, DOM delegation & IIFE patterns
 
-### 🎯 Advanced Problem Solving
-- ✅ Fibonacci algorithm implementation
-- ✅ Array duplicate removal (filter & Set)
-- ✅ Custom sorting with comparator functions
-- ✅ Odd/Even number separation
-- ✅ Object merging with spread operator
-- ✅ String filtering with startsWith
-- ✅ Prime number algorithms
-- ✅ Temperature conversion formulas
-- ✅ Template literal formatting
-- ✅ Complex array filtering logic
+### ⚛️ React 19 & State Orchestration
+- ✅ 7 core learning modules, 8 task modules & 11 production React applications
+- ✅ `useState`, `useEffect`, `useReducer`, `useContext`, Redux Toolkit, Zustand 5, React Router 7, and REST API integration
 
-### 🚀 ES6+ Advanced Features
-- ✅ Arrow functions with lexical `this` binding
-- ✅ Callback functions and patterns
-- ✅ Higher-order functions
-- ✅ Promises (creation, chaining, error handling)
-- ✅ Fetch API for modern HTTP requests
-- ✅ HTTP methods (GET, POST, PUT, DELETE)
-- ✅ API response handling
-- ✅ Async/Await patterns with try-catch
-- ✅ Error handling in async operations
-- ✅ Sequential and parallel promise execution
-- ✅ Destructuring (arrays and objects)
-- ✅ Spread operator for immutable array/object operations
-- ✅ Rest operator for flexible function parameters
-- ✅ Advanced error handling patterns
+### 📘 TypeScript & Next.js App Router
+- ✅ Object-oriented TypeScript models, singleton pattern, DOM template rendering
+- ✅ Next.js App Router, Server Components, SSR/SSG rendering & Prisma ORM
 
-### 🌐 AJAX & API Integration
-- ✅ XMLHttpRequest implementation
-- ✅ JSON data parsing and rendering
-- ✅ Fetch API with promises
-- ✅ External API integration
-- ✅ Asynchronous data loading
-- ✅ Error handling for API calls
-- ✅ REST API consumption
-
-### 🛠️ Project Features Implemented
-
-**HTML Projects (8 Complete):**
-- ✅ Personal Portfolio with contact form
-- ✅ Blog Page with article structure and sidebar
-- ✅ Restaurant Menu with reservation system
-- ✅ Product Listing with specifications and pricing
-- ✅ Landing Page with pricing tables and FAQ
-- ✅ Event Registration Form with all input types
-- ✅ Documentation Page with navigation
-- ✅ Online Resume with professional structure
-
-**BookManagementApp:**
-- ✅ ES6 Class architecture (Books, UI, StoreBookToLS)
-- ✅ CRUD operations (Create, Read, Delete)
-- ✅ LocalStorage persistence
-- ✅ ISBN duplicate validation
-- ✅ Form validation & error handling
-- ✅ Dynamic DOM manipulation
-- ✅ Static methods for storage operations
-
-**To-do_App:**
-- ✅ Dynamic DOM manipulation
-- ✅ Event handling (submit, click, keyup)
-- ✅ LocalStorage API integration
-- ✅ Real-time search/filter
-- ✅ Form validation
-- ✅ Event delegation
-- ✅ Clean code refactoring
-
-**ToDoUsingAPI:**
-- ✅ REST API integration with MockAPI
-- ✅ Fetch API for all CRUD operations
-- ✅ ES6 modular architecture
-- ✅ Async/await patterns
-- ✅ Error handling
-- ✅ Dynamic UI updates
-
-**CRUD_Application_Using_API:**
-- ✅ Full CRUD operations with REST API
-- ✅ Async/await with modern error handling
-- ✅ Inline editing with state management
-- ✅ Event delegation pattern
-- ✅ Dynamic UI updates (replaceChild, createElement)
-- ✅ PUT/DELETE API methods
-- ✅ Comprehensive documentation (434 lines)
-
-**ColorPicker:**
-- ✅ Random Hex/RGB color generation
-- ✅ Modern Clipboard API
-- ✅ Dynamic grid creation
-- ✅ Batch operations
-- ✅ User feedback notifications
-
-**CharacterValidator:**
-- ✅ Real-time input validation
-- ✅ Dynamic UI feedback
-- ✅ Button state management
-- ✅ Event-driven programming
-- ✅ String manipulation
-
-**SimpleCounterApp:**
-- ✅ Increment/decrement operations
-- ✅ Reset functionality
-- ✅ State management
-- ✅ Modern Tailwind CSS styling
-- ✅ Responsive design
-
-**Mind (MindVault):**
-- ✅ ES6 Modules (thought.js, api.js, ui.js, script.js)
-- ✅ Full CRUD with REST API
-- ✅ Edit mode toggle (create vs update)
-- ✅ Loading states with spinner overlay
-- ✅ Constructor patterns & prototypes
-- ✅ Form state management
-- ✅ Dark-themed Tailwind UI
-- ✅ Type categorization (Idea, Learning, Bug)
-
-**Search (User Search Application):**
-- ✅ JSONPlaceholder API integration
-- ✅ Real-time search filtering
-- ✅ Dynamic statistics (total users, unique cities)
-- ✅ User detail views on click
-- ✅ CSS animations and gradient backgrounds
-- ✅ Filter, map, and Set operations
-- ✅ Responsive grid layout
-- ✅ Event-driven architecture
-
-### 📊 Repository Statistics
-
-**Learning Journey Duration:** 5+ months (Oct 17, 2025 - Present)  
-**HTML Modules:** 10 comprehensive learning modules  
-**HTML Tasks:** 25 structured practice tasks (5 modules)  
-**HTML Projects:** 8 complete real-world projects  
-**JavaScript Topics:** 16 fundamental topics (includes 16-WebStorage)  
-**JavaScript TopicTasks:** 100 practice exercises  
-**ES6 Modules:** 9 advanced modules (includes 9-ModernPattrens)  
-**React Modules:** 3 active modules (0-Start, 1-AboutReact, 2-Components)  
-**AJAX Projects:** 3 progressive projects  
-**Total Projects:** 21 (8 HTML + 10 JavaScript + 3 React)  
-**Total Practice Tasks:** 155+ (25 HTML + 100 JS + 30 JS-Tasks)  
-**JS-Tasks:** 30 (Basic 10 + Advanced 10 + Bonus 10)  
-**Documentation Lines:** 7,500+ lines total
-  - JavaScript/Topics/notes.txt: 2,293 lines
-  - JavaScript/ES6/notes.txt: 1,539 lines
-  - JavaScript/ES6/README.md: 1,251 lines
-  - Ajax/notes.txt: 241 lines
-  - React/README.md: 700+ lines (NEW! Comprehensive React hub)
-  - React Prerequisites: 374 lines
-  - MoneyTracker/notes.txt: 900+ lines
-  - MoneyTracker/README.md: 700+ lines  
-**Code Examples:** 350+ practical examples (updated with React JSX examples)  
-**Completion Rate:** 100% (Frontend fundamentals + React introduction complete)  
-**Objects Sub-Topics:** 6 (Constructors, Prototypes, Classes, etc.)  
-**Array Methods Sub-Topics:** 9 (Basic + map, filter, forEach, reduce)  
-**DOM Practice Files:** 8 comprehensive files  
-**JavaScript Projects:** 10 production applications  
-**React Learning Modules:** 3 complete modules
-  - 0-Start: React Fundamentals & Vite Setup
-  - 1-AboutReact: React Concepts & Patterns
-  - 2-Components: Component Architecture & Best Practices  
-**Technologies:** HTML5, JavaScript ES6+, React 19.2.0, Vite 7.3+, AJAX, Tailwind CSS  
-**Total Code Lines:** 2,678+ across JavaScript projects (excluding React)
+### ⚙️ Node.js & Express Backend REST APIs
+- ✅ Express 5 REST API development with TypeScript, Zod schema validation & Mongoose ODM
+- ✅ Stateless JWT authentication, Bcrypt password hashing, role permissions & full CRUD architecture
 
 ## 🔗 Quick Links
 
 ### 📚 Learning Resources
 | Resource | Description |
-|----------|-------------|
-| [HTML Learning](FrontEnd/HTML/README.md) | 10 modules with comprehensive notes |
-| [HTML Tasks](Tasks/FrontEnd/HTML/README.md) | 25 structured tasks across 5 modules |
-| [JavaScript Fundamentals](FrontEnd/JavaScript/Topics/README.md) | 16 topics, 2,293 lines of docs |
-| [ES6 Guide](FrontEnd/JavaScript/ES6/README.md) | 9 modules (includes Modern Patterns), 1,539 lines of docs |
-| [AJAX Tutorial](FrontEnd/Ajax/README.md) | 3 projects, 241 lines of docs |
-| [React Learning Hub](FrontEnd/React/README.md) | 3 modules (React 19.2.0, Vite 7.3+), 700+ lines of docs ⭐ NEW |
-| [React Prerequisites](FrontEnd/JavaScript/topicsNeedToLearnToMoveToReact.txt) | 374 lines checklist |
-| [FrontEnd Hub](FrontEnd/README.md) | Complete frontend documentation |
-| [Tasks Overview](Tasks/README.md) | Main tasks repository documentation |
+|:---|:---|
+| [FrontEnd Hub](FrontEnd/README.md) | Complete frontend learning path & modules |
+| [HTML Guide](FrontEnd/HTML/README.md) | 10 HTML modules with comprehensive notes |
+| [JavaScript Topics](FrontEnd/JavaScript/Topics/README.md) | 16 topics, 2,293 lines of documentation |
+| [ES6 Guide](FrontEnd/JavaScript/ES6/README.md) | 9 advanced modules, 1,539 lines of documentation |
+| [React Hub](FrontEnd/React/README.md) | 7 React learning modules & hooks guide |
+| [TypeScript Hub](FrontEnd/Typescript/README.md) | Strongly-typed OOP design & models |
+| [Next.js Hub](FrontEnd/Next/README.md) | Next.js App Router & Server Components guide |
+| [Backend Masterclass Hub](Backend/Express/README.md) | 10 Express.js & Node.js Masterclass Days |
 
-### 🎯 Practice
+### 🎯 Practice Tasks & Labs
 | Resource | Description |
-|----------|-------------|
-| [HTML Tasks](Tasks/FrontEnd/HTML/README.md) | 25 tasks: Basics, Links, Media, Lists/Tables, Forms |
-| [JavaScript Topic Tasks](Tasks/FrontEnd/Javascript/TopicTasks/README.md) | 100 tasks across 16 topics |
-| [Coding Challenges](Tasks/FrontEnd/Javascript/JS-Tasks/README.md) | Basic (10) + Advanced (10) + Bonus (10) |
-| [ES6 Practice](Tasks/FrontEnd/Javascript/ES6/) | Promise & Async/Await exercises |
+|:---|:---|
+| [Tasks Root Overview](Tasks/README.md) | Main tasks repository dashboard |
+| [HTML Tasks](Tasks/FrontEnd/HTML/README.md) | 25 structured HTML tasks across 5 modules |
+| [JavaScript Topic Tasks](Tasks/FrontEnd/Javascript/TopicTasks/README.md) | 100 exercises across 16 topics |
+| [React Task Modules](Tasks/FrontEnd/React/README.md) | 8 React task modules (0-TryLoLearn to Auth UI) |
+| [Backend Tasks Hub](Tasks/Backend/README.md) | Node.js tasks (Tasks 1 & 2) and Express labs (Days 1–7) |
 
-### 🚀 Projects
+### 🚀 Production Projects
 | Resource | Description |
-|----------|-------------|
-| [All Projects](Projects/FrontEnd/README.md) | 21 applications overview (8 HTML + 10 JS + 3 React) |
-| [HTML Projects](Projects/FrontEnd/HTMLProjects/README.md) | 8 complete HTML5 projects |
-| [JavaScript Projects](Projects/FrontEnd/JavascriptProjects/README.md) | 10 production applications |
-| [React Projects](FrontEnd/React/README.md) | 3 React learning modules with Vite ⭐ NEW |
+|:---|:---|
+| [Projects Root Overview](Projects/README.md) | 37 total portfolio projects index |
+| [FrontEnd Projects](Projects/FrontEnd/README.md) | 36 Frontend projects (HTML, JS, React, TS, Next) |
+| [React Projects Hub](Projects/FrontEnd/React/README.md) | 11 React 19 projects (Redux, Zustand, Router 7) |
+| [UrbanCart Backend API](Projects/Backend/UrbanCart/README.md) | Express 5 + TypeScript + MongoDB E-Commerce API |
 
 ---
 
 **Repository:** AI Full-Stack Development Learning Journey  
 **Author:** Sudalaimani  
 **Learning Period:** October 17, 2025 - Present  
-**Last Updated:** March 15, 2026  
-**Status:** 💚 Frontend Complete | ✅ React (3 Modules) | 🔄 Backend Upcoming
+**Last Updated:** September 7, 2026  
+**Status:** 💚 Full-Stack Path Complete | ✅ Frontend, React, TypeScript, Next.js & Backend REST APIs Complete
+
+---
+
+## 💪 Keep Learning!
+
+You've completed the full-stack engineering workspace — Frontend, React 19, TypeScript, Next.js, and Node/Express Backend APIs! 🎉
+
+- 💪 Every expert was once a beginner
+- 🎯 Focus on understanding, not memorizing
+- 🚀 Practice makes progress
+- 📚 Learn by doing
+
+**Happy Coding! 🚀**
