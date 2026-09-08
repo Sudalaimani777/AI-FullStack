@@ -121,10 +121,37 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   html {
     @apply font-sans;
   }
+}
+
+.ql-snow {
+  border: transparent !important;
+}
+
+.ql-editor {
+  min-height: 200px;
+  max-height: 500px;
+  overflow-y: auto;
+  background-color: rgb(39, 39, 42);
+}
+
+.ql-editor>p {
+  font-size: 1rem;
+}
+
+.ql-toolbar {
+  background-color: gray;
+  border-radius: 4px;
+}
+
+.ql-syntax {
+  font-family: monospace;
+  background-color: rgb(83, 83, 83);
 }

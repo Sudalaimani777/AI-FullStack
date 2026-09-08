@@ -1,0 +1,18 @@
+Generate the Prisma -> npx prisma generate
+
+List the Files -> ls -a
+
+Deleting the file -> rm -rf .git
+
+    The -r for recursive and the f for force
+    The rm is remove
+
+React Quill :-
+    Why Quill
+        Content creation has been at the core to the web since its beginning. The <textarea> provides a native and essential solution to almost any web application. But at some point you may need to add formatting to text input. This is where rich text editors come in. There are many solutions to choose from, but Quill brings a few modern ideas to consider.
+
+        To install the quill the npm is  -> npm install react-quill-new
+
+        We need to import the quill in the required component and we we to import the css from the dist folder as well
+
+        import "react-quill-new/dist/quill.snow.css";
