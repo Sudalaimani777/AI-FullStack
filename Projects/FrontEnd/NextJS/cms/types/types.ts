@@ -13,11 +13,19 @@ export interface PostData {
     metaDescription: string,
     category: string,
     keywords: string,
-    status: string
+    status: string,
+    slug?: string,
+    ogImage?: string
 }
 
 // Editor props which has the PostData
 
 export type EditorProps = {
     savePost: (data: PostData) => void
+}
+
+// Image Upload Props :-
+
+export interface ImageUploadProps {
+    returnImage: (url: string) => void; 
 }

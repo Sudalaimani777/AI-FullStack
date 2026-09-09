@@ -4,15 +4,22 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import ReactQuill from "react-quill-new";
 import "react-quill-new/dist/quill.snow.css";
+import { slugify } from "slugmaster";
+import ImageUpload from "../ImageUpload";
 
 
 const Editor = ({ savePost }: EditorProps) => {
+
     const { register, handleSubmit } = useForm<PostData>();
     const [content, setContent] = useState("");
+    const [ogImage, setOgImage] = useState("");
 
     const handleDraftSubmit = (data: PostData) => {
         console.log(data);
-        savePost({ ...data });
+        // Generate the slug based on the draft title :-
+        const generateSlug = slugify(data.title);
+
+        savePost({ ...data, slug: generateSlug, content, ogImage });
     }
 
     const handleDraftContentChange = () => {
@@ -69,6 +76,8 @@ const Editor = ({ savePost }: EditorProps) => {
                         placeholder="Enter your category"
                     />
                     <h2 className="text-xl font-bold">SEO Data</h2>
+                    {/* Input for Image Upload */}
+                    <ImageUpload returnImage={setOgImage} />
                     {/* Input for Keyword */}
                     <input
                         type="text"
