@@ -23,7 +23,7 @@ app.use("/api/auth", signInRouter);
 app.use("/api/auth", profileRouter);
 
 // @API Product :- http://localhost:5000/api/products
-app.use("/api/auth", productRouter);
+app.use("/api", productRouter);
 
 app.listen(PORT, () => {
     console.log(`The BE runs on LH ${PORT}`)
