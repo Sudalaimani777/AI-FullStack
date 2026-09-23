@@ -1,6 +1,6 @@
 import type { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
-import { UserInfoModel } from "../../model/index.js"
+import { UserInfoModel } from "../../models/index.js"
 
 // @desc : Auth Middleware
 // @route : /profile

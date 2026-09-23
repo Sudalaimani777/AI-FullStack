@@ -1,5 +1,7 @@
+import { model } from "mongoose";
+import type { UserInfo } from "../types/user-info.types.js"
 import { Schema } from "mongoose";
-import type { UserInfo } from "../types/user-info.types.js";
+
 
 const UserSchema = new Schema<UserInfo>({
     user_name: {
@@ -20,10 +22,13 @@ const UserSchema = new Schema<UserInfo>({
         required: true,
         minLength: 8
     },
-    is_admin:{
-        type:Boolean,
-        default:false
+    is_admin: {
+        type: Boolean,
+        default: false
     }
 }, { timestamps: true });
 
-export default UserSchema;
+
+const UserInfoModel = model<UserInfo>("user-info-model", UserSchema);
+
+export default UserInfoModel;

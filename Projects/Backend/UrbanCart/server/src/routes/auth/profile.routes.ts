@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { protectMiddleWare } from "../../middleware/auth/index.js";
-import { profileController } from "../../controller/auth/index.js"
+import { protectMiddleWare } from "../../middlewares/auth/index.js";
+import { profileController } from "../../controllers/auth/index.js"
 
 
 const profileRouter = Router();

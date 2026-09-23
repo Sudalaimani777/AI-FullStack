@@ -1,20 +1,24 @@
 import { Router } from "express";
-import { getProductsController, createProductController, getSingleProductController, deleteProductController, updateProductController } from "../../controller/products/index.js"
-import { protectMiddleWare, adminMiddleware } from "../../middleware/auth/index.js"
+import { 
+    getProductsController, 
+    createProductController, 
+    getSingleProductController, 
+    deleteProductController, 
+    updateProductController 
+} from "../../controllers/products/index.js";
+import { protectMiddleWare, adminMiddleware } from "../../middlewares/auth/index.js";
+import { validate } from "../../middlewares/validate.middleware.js";
+import { createProductSchema, updateProductSchema } from "../../validators/product.validator.js";
 
 const productRouter = Router();
 
-// Endpoint :- http://localhost:5000/api/products
-
 productRouter.route("/products")
     .get(getProductsController)
-    .post(protectMiddleWare, adminMiddleware, createProductController)
-
-// Endpoint :- http://localhost:5000/api/product
+    .post(protectMiddleWare, adminMiddleware, validate(createProductSchema), createProductController);
 
 productRouter.route("/product/:id")
     .get(getSingleProductController)
-    .put(protectMiddleWare, adminMiddleware, updateProductController)
-    .delete(protectMiddleWare, adminMiddleware, deleteProductController)
+    .put(protectMiddleWare, adminMiddleware, validate(updateProductSchema), updateProductController)
+    .delete(protectMiddleWare, adminMiddleware, deleteProductController);
 
 export default productRouter;
