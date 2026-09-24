@@ -12,9 +12,13 @@ import { createProductSchema, updateProductSchema } from "../../validators/produ
 
 const productRouter = Router();
 
+// API :- http://localhost:5000/api/products
+
 productRouter.route("/products")
     .get(getProductsController)
     .post(protectMiddleWare, adminMiddleware, validate(createProductSchema), createProductController);
+
+// API :- http://localhost:5000/api/product/1
 
 productRouter.route("/product/:id")
     .get(getSingleProductController)

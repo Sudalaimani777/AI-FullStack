@@ -1,4 +1,5 @@
 import { Order_Model } from "../models/index.js";
+import type { OrderStatus } from "../types/order.types.js";
 
 export const createOrderService = async (orderData: {
     userId: string;
@@ -23,3 +24,16 @@ export const getUserOrdersService = async (userId: string) => {
 export const getAllOrdersService = async () => {
     return await Order_Model.find({});
 };
+
+export const getOrderByIdService = async (orderId: string) => {
+    return await Order_Model.findById(orderId)
+}
+
+// Update Order Status Controller (Admin) :-
+export const updateOrderStatusService = async (orderId: string, orderStatus: OrderStatus) => {
+    return await Order_Model.findByIdAndUpdate(
+        orderId,
+        { order_status: orderStatus },
+        { new: true }
+    )
+}
