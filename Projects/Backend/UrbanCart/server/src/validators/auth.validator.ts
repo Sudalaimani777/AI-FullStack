@@ -11,6 +11,10 @@ export const signInSchema = z.object({
     user_password: z.string().min(1, "Password is required")
 });
 
+export const googleAuthSchema = z.object({
+    idToken: z.string().min(1, "Firebase ID token is required")
+});
+
 // Infer TypeScript types directly from Zod!
 export type SignUpInput = z.infer<typeof signUpSchema>;
 export type SignInInput = z.infer<typeof signInSchema>;
