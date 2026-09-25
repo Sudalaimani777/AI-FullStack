@@ -57,8 +57,8 @@ export const SecurityCard: React.FC<SecurityCardProps> = ({
             Password
           </span>
           <span className="text-[#77736c] text-[12px]" data-node-id="53:877">
-            <span className="hidden md:inline">Last changed 3 months ago</span>
-            <span className="inline md:hidden">Changed 3 months ago</span>
+            <span className="hidden md:inline">Manage your account password</span>
+            <span className="inline md:hidden">Manage password</span>
           </span>
         </div>
         <button

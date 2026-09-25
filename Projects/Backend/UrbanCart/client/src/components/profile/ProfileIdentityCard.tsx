@@ -1,9 +1,10 @@
 import React from 'react';
+import { User } from 'lucide-react';
 
 interface ProfileIdentityCardProps {
   name: string;
   email: string;
-  avatarSrc: string;
+  avatarSrc?: string;
   memberSince?: string;
   onEditPhoto?: () => void;
 }
@@ -12,26 +13,46 @@ export const ProfileIdentityCard: React.FC<ProfileIdentityCardProps> = ({
   name,
   email,
   avatarSrc,
-  memberSince = '2023',
+  memberSince,
   onEditPhoto,
 }) => {
+  // Generate initials if no avatar
+  const initials = name
+    ? name
+        .trim()
+        .split(' ')
+        .filter(Boolean)
+        .map((part) => part[0])
+        .slice(0, 2)
+        .join('')
+        .toUpperCase()
+    : '';
+
   return (
     <div
       className="bg-[#fff8f3] flex flex-col md:flex-row gap-[14px] md:gap-[24px] items-center p-[22px] md:p-[28px] rounded-[18px] md:rounded-[20px] w-full"
       data-node-id="53:796"
       data-name="Profile identity"
     >
-      {/* Avatar (Node 53:797) */}
+      {/* Avatar */}
       <div
-        className="border-4 border-solid border-white rounded-[999px] shrink-0 size-[104px] overflow-hidden shadow-sm relative"
+        className="border-4 border-solid border-white rounded-[999px] shrink-0 size-[104px] overflow-hidden shadow-sm relative flex items-center justify-center bg-[#ede8e0]"
         data-node-id="53:797"
         data-name="Avatar"
       >
-        <img
-          alt={name}
-          className="object-cover size-full"
-          src={avatarSrc}
-        />
+        {avatarSrc ? (
+          <img
+            alt={name || 'User avatar'}
+            className="object-cover size-full"
+            src={avatarSrc}
+          />
+        ) : initials ? (
+          <span className="text-[#24221f] font-bold text-[32px] select-none tracking-tight">
+            {initials}
+          </span>
+        ) : (
+          <User className="w-12 h-12 text-[#a39d94]" />
+        )}
       </div>
 
       {/* Identity Details */}
@@ -44,12 +65,17 @@ export const ProfileIdentityCard: React.FC<ProfileIdentityCardProps> = ({
           className="font-bold text-[#24221f] text-[24px] md:text-[28px] leading-snug"
           data-node-id="53:799"
         >
-          {name}
+          {name || 'Account'}
         </h2>
-        <p className="text-[#77736c] text-[13px] md:text-[15px]" data-node-id="53:800">
-          <span className="hidden md:inline">{email} · Member since {memberSince}</span>
-          <span className="inline md:hidden">{email}</span>
-        </p>
+        {(email || memberSince) && (
+          <p className="text-[#77736c] text-[13px] md:text-[15px]" data-node-id="53:800">
+            <span className="hidden md:inline">
+              {email}
+              {email && memberSince ? ` · Member since ${memberSince}` : memberSince ? `Member since ${memberSince}` : ''}
+            </span>
+            <span className="inline md:hidden">{email || (memberSince ? `Member since ${memberSince}` : '')}</span>
+          </p>
+        )}
         <div
           className="bg-[#fde9e2] px-[10px] py-[5px] rounded-[999px] mt-1 inline-flex items-center"
           data-node-id="53:801"
@@ -59,7 +85,7 @@ export const ProfileIdentityCard: React.FC<ProfileIdentityCardProps> = ({
             className="font-semibold text-[#c94228] text-[12px]"
             data-node-id="53:802"
           >
-            Verified account
+            Active account
           </span>
         </div>
       </div>

@@ -25,10 +25,12 @@ const MainLayout: React.FC = () => {
     checkAuth();
   }, [checkAuth]);
 
-  const normalizedPath = location.pathname.toLowerCase().replace(/\/+$/, '') || '/';
+    const normalizedPath = location.pathname.toLowerCase().replace(/\/+$/, '') || '/';
   const isAuthPage = ['/signin', '/signup', '/login', '/register'].includes(normalizedPath);
+  const isAdminPage = normalizedPath.startsWith('/admin');
 
-  if (isAuthPage) {
+  // Do not wrap Auth pages or the Admin dashboard in the customer Navbar/Footer
+  if (isAuthPage || isAdminPage) {
     return <AppRoutes />;
   }
 

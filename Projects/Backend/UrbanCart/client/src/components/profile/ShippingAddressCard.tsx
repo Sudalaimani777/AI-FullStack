@@ -66,7 +66,8 @@ export const ShippingAddressCard: React.FC<ShippingAddressCardProps> = ({
           disabled={!isEditing}
           value={streetAddress}
           onChange={(e) => onStreetAddressChange(e.target.value)}
-          className="bg-white border border-[#e7e3dc] disabled:bg-neutral-50/50 h-[46px] md:h-[50px] px-[14px] rounded-[12px] text-[#24221f] text-[15px] outline-none focus:border-[#24221f]"
+          placeholder="Street address or P.O. Box"
+          className="bg-white border border-[#e7e3dc] disabled:bg-neutral-50/50 h-[46px] md:h-[50px] px-[14px] rounded-[12px] text-[#24221f] placeholder:text-[#a39d94] text-[15px] outline-none focus:border-[#24221f] transition-colors"
           data-node-id="53:1071"
         />
       </div>
@@ -82,8 +83,8 @@ export const ShippingAddressCard: React.FC<ShippingAddressCardProps> = ({
           disabled={!isEditing}
           value={apt}
           onChange={(e) => onAptChange(e.target.value)}
-          placeholder="Apt, suite, or unit"
-          className="bg-white border border-[#e7e3dc] disabled:bg-neutral-50/50 h-[46px] md:h-[50px] px-[14px] rounded-[12px] text-[#24221f] placeholder:text-[#a39d94] text-[15px] outline-none focus:border-[#24221f]"
+          placeholder="Apartment, suite, unit, floor (optional)"
+          className="bg-white border border-[#e7e3dc] disabled:bg-neutral-50/50 h-[46px] md:h-[50px] px-[14px] rounded-[12px] text-[#24221f] placeholder:text-[#a39d94] text-[15px] outline-none focus:border-[#24221f] transition-colors"
           data-node-id="53:1075"
         />
       </div>
@@ -99,7 +100,8 @@ export const ShippingAddressCard: React.FC<ShippingAddressCardProps> = ({
             disabled={!isEditing}
             value={city}
             onChange={(e) => onCityChange(e.target.value)}
-            className="bg-white border border-[#e7e3dc] disabled:bg-neutral-50/50 h-[46px] md:h-[50px] px-[14px] rounded-[12px] text-[#24221f] text-[15px] outline-none focus:border-[#24221f]"
+            placeholder="City"
+            className="bg-white border border-[#e7e3dc] disabled:bg-neutral-50/50 h-[46px] md:h-[50px] px-[14px] rounded-[12px] text-[#24221f] placeholder:text-[#a39d94] text-[15px] outline-none focus:border-[#24221f] transition-colors"
             data-node-id="53:1080"
           />
         </div>
@@ -112,7 +114,8 @@ export const ShippingAddressCard: React.FC<ShippingAddressCardProps> = ({
             disabled={!isEditing}
             value={stateProv}
             onChange={(e) => onStateProvChange(e.target.value)}
-            className="bg-white border border-[#e7e3dc] disabled:bg-neutral-50/50 h-[46px] md:h-[50px] px-[14px] rounded-[12px] text-[#24221f] text-[15px] outline-none focus:border-[#24221f]"
+            placeholder="State / Province / Region"
+            className="bg-white border border-[#e7e3dc] disabled:bg-neutral-50/50 h-[46px] md:h-[50px] px-[14px] rounded-[12px] text-[#24221f] placeholder:text-[#a39d94] text-[15px] outline-none focus:border-[#24221f] transition-colors"
             data-node-id="53:1084"
           />
         </div>
@@ -129,7 +132,8 @@ export const ShippingAddressCard: React.FC<ShippingAddressCardProps> = ({
             disabled={!isEditing}
             value={zipCode}
             onChange={(e) => onZipCodeChange(e.target.value)}
-            className="bg-white border border-[#e7e3dc] disabled:bg-neutral-50/50 h-[46px] md:h-[50px] px-[14px] rounded-[12px] text-[#24221f] text-[15px] outline-none focus:border-[#24221f]"
+            placeholder="ZIP / Postal code"
+            className="bg-white border border-[#e7e3dc] disabled:bg-neutral-50/50 h-[46px] md:h-[50px] px-[14px] rounded-[12px] text-[#24221f] placeholder:text-[#a39d94] text-[15px] outline-none focus:border-[#24221f] transition-colors"
             data-node-id="53:1089"
           />
         </div>
@@ -142,7 +146,8 @@ export const ShippingAddressCard: React.FC<ShippingAddressCardProps> = ({
             disabled={!isEditing}
             value={country}
             onChange={(e) => onCountryChange(e.target.value)}
-            className="bg-white border border-[#e7e3dc] disabled:bg-neutral-50/50 h-[46px] md:h-[50px] px-[14px] rounded-[12px] text-[#24221f] text-[15px] outline-none focus:border-[#24221f]"
+            placeholder="Country / Region"
+            className="bg-white border border-[#e7e3dc] disabled:bg-neutral-50/50 h-[46px] md:h-[50px] px-[14px] rounded-[12px] text-[#24221f] placeholder:text-[#a39d94] text-[15px] outline-none focus:border-[#24221f] transition-colors"
             data-node-id="53:1093"
           />
         </div>

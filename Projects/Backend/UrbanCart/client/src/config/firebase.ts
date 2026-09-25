@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
     apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -14,10 +14,11 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+export const storage = getStorage(app); // 👈 2. Export storage instance
 export const googleProvider = new GoogleAuthProvider();
 
 export const signInWithGooglePopup = async (): Promise<string> => {
     const result = await signInWithPopup(auth, googleProvider);
     const idToken = await result.user.getIdToken();
     return idToken;
-}
+};

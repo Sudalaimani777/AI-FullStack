@@ -48,7 +48,8 @@ export const ContactDetailsCard: React.FC<ContactDetailsCardProps> = ({
           type="email"
           value={email}
           onChange={(e) => onEmailChange(e.target.value)}
-          className="bg-white border border-[#e7e3dc] h-[46px] md:h-[50px] px-[14px] rounded-[12px] text-[#24221f] text-[15px] outline-none focus:border-[#24221f]"
+          placeholder="Enter your email address"
+          className="bg-white border border-[#e7e3dc] h-[46px] md:h-[50px] px-[14px] rounded-[12px] text-[#24221f] placeholder:text-[#a39d94] text-[15px] outline-none focus:border-[#24221f] transition-colors"
           data-node-id="53:834"
         />
       </div>
@@ -61,25 +62,28 @@ export const ContactDetailsCard: React.FC<ContactDetailsCardProps> = ({
           type="tel"
           value={phone}
           onChange={(e) => onPhoneChange(e.target.value)}
-          className="bg-white border border-[#e7e3dc] h-[46px] md:h-[50px] px-[14px] rounded-[12px] text-[#24221f] text-[15px] outline-none focus:border-[#24221f]"
+          placeholder="+1 (555) 000-0000"
+          className="bg-white border border-[#e7e3dc] h-[46px] md:h-[50px] px-[14px] rounded-[12px] text-[#24221f] placeholder:text-[#a39d94] text-[15px] outline-none focus:border-[#24221f] transition-colors"
           data-node-id="53:838"
         />
       </div>
 
       {/* Verification status pill on mobile (Node 53:951) */}
-      <div
-        className="flex md:hidden gap-[8px] items-center w-full"
-        data-node-id="53:951"
-        data-name="Verification"
-      >
-        <CheckCircle2 className="w-[16px] h-[16px] text-[#247a57]" />
-        <span
-          className="font-semibold text-[#247a57] text-[12px]"
-          data-node-id="53:953"
+      {email && (
+        <div
+          className="flex md:hidden gap-[8px] items-center w-full"
+          data-node-id="53:951"
+          data-name="Verification"
         >
-          Email and phone verified
-        </span>
-      </div>
+          <CheckCircle2 className="w-[16px] h-[16px] text-[#247a57]" />
+          <span
+            className="font-semibold text-[#247a57] text-[12px]"
+            data-node-id="53:953"
+          >
+            Email verified
+          </span>
+        </div>
+      )}
     </div>
   );
 };

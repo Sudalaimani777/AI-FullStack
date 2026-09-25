@@ -36,8 +36,8 @@ export const NavbarDesktop: React.FC<NavbarProps> = ({
               key={link.label}
               to={link.href}
               className={`flex items-center gap-[6px] text-[14px] font-normal transition-colors duration-150 py-1 ${link.hasIndicator
-                  ? 'text-[#e45a2a] hover:text-[#c94b20]'
-                  : 'text-[#242320] hover:text-[#e45a2a]'
+                ? 'text-[#e45a2a] hover:text-[#c94b20]'
+                : 'text-[#242320] hover:text-[#e45a2a]'
                 }`}
               data-name="Navigation link"
             >
@@ -123,6 +123,15 @@ export const NavbarDesktop: React.FC<NavbarProps> = ({
               {user ? user.user_name || 'Account' : 'Account'}
             </span>
           </Link>
+          {/* Admin Cockpit Quick Link for Admins */}
+          {user?.is_admin && (
+            <Link
+              to="/admin"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#242320] text-white text-xs font-semibold hover:bg-[#e45a2a] transition-all"
+            >
+              <span>Admin</span>
+            </Link>
+          )}
         </div>
       </div>
     </div>

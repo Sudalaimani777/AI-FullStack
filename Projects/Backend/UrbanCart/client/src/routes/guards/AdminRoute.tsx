@@ -3,9 +3,6 @@ import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import { useAuthStore } from '../../store/useAuthStore';
 import { Loader2 } from 'lucide-react';
 
-
-
-
 const AdminRoute: React.FC = () => {
     const { isLoading, user } = useAuthStore();
     const location = useLocation();
@@ -19,14 +16,14 @@ const AdminRoute: React.FC = () => {
     }
 
     if (!user) {
-        return <Navigate to="/signin" state={{ from: location }} replace />
+        return <Navigate to="/signin" state={{ from: location }} replace />;
     }
 
-    if (user.is_admin === true) {
+    if (!user.is_admin) {
         return <Navigate to="/" replace />;
     }
 
     return <Outlet />;
-}
+};
 
 export default AdminRoute;

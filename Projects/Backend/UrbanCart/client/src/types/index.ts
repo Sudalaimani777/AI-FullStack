@@ -31,3 +31,46 @@ export interface AuthResponse {
   token: string;
   user: User;
 }
+
+
+export type OrderStatus = 'Pending' | 'Processing' | 'Shipped' | 'Delivered';
+
+export interface OrderItem {
+  _id?: string;
+  product: string | Product;
+  name: string;
+  price: number;
+  quantity: number;
+}
+
+export interface ShippingAddress {
+  address: string;
+  city: string;
+  postal_code: string;
+  country: string;
+}
+
+export interface Order {
+  _id: string;
+  user: {
+    _id: string;
+    user_name: string;
+    user_email: string;
+  } | string;
+  ordered_items: OrderItem[];
+  total_price: number;
+  order_status: OrderStatus;
+  shipping_address: ShippingAddress;
+  createdAt: string;
+  updatedAt: string;
+}
+
+
+export interface ProductFormData {
+  product_name: string;
+  product_price: string;
+  product_category: string;
+  product_description: string;
+  product_image: string;
+  product_stock: string;
+}

@@ -1,20 +1,16 @@
 import React, { useState } from 'react';
 
 interface PersonalInfoCardProps {
-  firstName: string;
-  lastName: string;
+  fullName: string;
   displayName: string;
-  onFirstNameChange: (v: string) => void;
-  onLastNameChange: (v: string) => void;
+  onFullNameChange: (v: string) => void;
   onDisplayNameChange: (v: string) => void;
 }
 
 export const PersonalInfoCard: React.FC<PersonalInfoCardProps> = ({
-  firstName,
-  lastName,
+  fullName,
   displayName,
-  onFirstNameChange,
-  onLastNameChange,
+  onFullNameChange,
   onDisplayNameChange,
 }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -44,49 +40,19 @@ export const PersonalInfoCard: React.FC<PersonalInfoCardProps> = ({
         </p>
       </div>
 
-      {/* Desktop: First & Last Name row; Mobile: Full Name or 2 fields */}
-      <div className="hidden md:grid grid-cols-2 gap-[16px] w-full" data-node-id="53:811">
-        <div className="flex flex-col gap-[8px]" data-node-id="53:812">
-          <label className="font-semibold text-[#24221f] text-[13px]" data-node-id="53:813">
-            First name
-          </label>
-          <input
-            type="text"
-            disabled={!isEditing}
-            value={firstName}
-            onChange={(e) => onFirstNameChange(e.target.value)}
-            className="bg-white border border-[#e7e3dc] disabled:bg-neutral-50/50 h-[50px] px-[14px] rounded-[12px] text-[#24221f] text-[15px] outline-none focus:border-[#24221f] transition-colors"
-            data-node-id="53:814"
-          />
-        </div>
-        <div className="flex flex-col gap-[8px]" data-node-id="53:816">
-          <label className="font-semibold text-[#24221f] text-[13px]" data-node-id="53:817">
-            Last name
-          </label>
-          <input
-            type="text"
-            disabled={!isEditing}
-            value={lastName}
-            onChange={(e) => onLastNameChange(e.target.value)}
-            className="bg-white border border-[#e7e3dc] disabled:bg-neutral-50/50 h-[50px] px-[14px] rounded-[12px] text-[#24221f] text-[15px] outline-none focus:border-[#24221f] transition-colors"
-            data-node-id="53:818"
-          />
-        </div>
-      </div>
-
-      {/* Mobile single Full Name field */}
-      <div className="flex md:hidden flex-col gap-[8px] w-full" data-node-id="53:930">
-        <label className="font-semibold text-[#24221f] text-[13px]">Full name</label>
+      {/* Full Name field */}
+      <div className="flex flex-col gap-[8px] w-full" data-node-id="53:811">
+        <label className="font-semibold text-[#24221f] text-[13px]" data-node-id="53:813">
+          Full name
+        </label>
         <input
           type="text"
           disabled={!isEditing}
-          value={`${firstName} ${lastName}`}
-          onChange={(e) => {
-            const parts = e.target.value.split(' ');
-            onFirstNameChange(parts[0] || '');
-            onLastNameChange(parts.slice(1).join(' '));
-          }}
-          className="bg-white border border-[#e7e3dc] disabled:bg-neutral-50/50 h-[46px] px-[14px] rounded-[12px] text-[#24221f] text-[15px] outline-none"
+          value={fullName}
+          onChange={(e) => onFullNameChange(e.target.value)}
+          placeholder="Enter your full name"
+          className="bg-white border border-[#e7e3dc] disabled:bg-neutral-50/50 h-[46px] md:h-[50px] px-[14px] rounded-[12px] text-[#24221f] placeholder:text-[#a39d94] text-[15px] outline-none focus:border-[#24221f] transition-colors"
+          data-node-id="53:814"
         />
       </div>
 
@@ -100,7 +66,8 @@ export const PersonalInfoCard: React.FC<PersonalInfoCardProps> = ({
           disabled={!isEditing}
           value={displayName}
           onChange={(e) => onDisplayNameChange(e.target.value)}
-          className="bg-white border border-[#e7e3dc] disabled:bg-neutral-50/50 h-[46px] md:h-[50px] px-[14px] rounded-[12px] text-[#24221f] text-[15px] outline-none focus:border-[#24221f] transition-colors"
+          placeholder="Enter your display name"
+          className="bg-white border border-[#e7e3dc] disabled:bg-neutral-50/50 h-[46px] md:h-[50px] px-[14px] rounded-[12px] text-[#24221f] placeholder:text-[#a39d94] text-[15px] outline-none focus:border-[#24221f] transition-colors"
           data-node-id="53:822"
         />
         <span

@@ -1,3 +1,4 @@
+// server/src/services/order.service.ts
 import { Order_Model } from "../models/index.js";
 import type { OrderStatus } from "../types/order.types.js";
 
@@ -21,19 +22,23 @@ export const getUserOrdersService = async (userId: string) => {
     return await Order_Model.find({ user: userId });
 };
 
+// Updated: Populate customer name and email so admin can see who placed the order
 export const getAllOrdersService = async () => {
-    return await Order_Model.find({});
+    return await Order_Model.find({})
+        .populate("user", "user_name user_email")
+        .sort({ createdAt: -1 }); // Newest orders first
 };
 
 export const getOrderByIdService = async (orderId: string) => {
     return await Order_Model.findById(orderId)
-}
+        .populate("user", "user_name user_email");
+};
 
-// Update Order Status Controller (Admin) :-
+// Update Order Status Controller (Admin)
 export const updateOrderStatusService = async (orderId: string, orderStatus: OrderStatus) => {
     return await Order_Model.findByIdAndUpdate(
         orderId,
         { order_status: orderStatus },
         { new: true }
-    )
-}
+    );
+};
