@@ -7,7 +7,7 @@ import {
   RegisterEditorialPanel,
 } from '../components/register';
 
-export const RegisterPage: React.FC = () => {
+const SignupPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#ede8e0] lg:flex items-stretch font-sans">
       {/* Container for mobile card or desktop full screen */}
@@ -30,3 +30,5 @@ export const RegisterPage: React.FC = () => {
     </div>
   );
 };
+
+export default SignupPage;

@@ -190,7 +190,7 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onSuccess }) => {
         {/* Sign in prompt */}
         <p className="text-center text-xs text-[#716d66] pt-1">
           Already have an account?{' '}
-          <Link to="/login" className="text-[#e45a2a] font-medium hover:underline">
+          <Link to="/signin" className="text-[#e45a2a] font-medium hover:underline">
             Sign in
           </Link>
         </p>

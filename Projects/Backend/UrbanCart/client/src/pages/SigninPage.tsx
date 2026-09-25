@@ -7,7 +7,7 @@ import {
   LoginEditorialPanel,
 } from '../components/login';
 
-export const LoginPage: React.FC = () => {
+const SigninPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#ede8e0] lg:flex items-stretch font-sans">
       {/* Container for mobile card or desktop full screen */}
@@ -30,3 +30,5 @@ export const LoginPage: React.FC = () => {
     </div>
   );
 };
+
+export default SigninPage;

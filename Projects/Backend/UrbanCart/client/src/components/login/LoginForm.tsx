@@ -153,7 +153,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSuccess }) => {
         {/* Sign up prompt */}
         <p className="text-center text-xs text-[#716d66] pt-2">
           New to UrbanCart?{' '}
-          <Link to="/register" className="text-[#e45a2a] font-medium hover:underline">
+          <Link to="/signup" className="text-[#e45a2a] font-medium hover:underline">
             Create an account
           </Link>
         </p>
