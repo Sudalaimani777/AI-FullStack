@@ -6,11 +6,20 @@ const signInController = asyncHandler(async (request: Request, response: Respons
     const { user_email, user_password } = request.body;
     const data = await signInUserService(user_email, user_password);
 
+    response.cookie("token", data.token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "lax",
+        maxAge: 30 * 24 * 60 * 60 * 1000 //30D
+    });
+
     response.status(200).json({
         message: "User Sign In Successfully",
         userInfo: {
-            ...data.userInfo,
-            token: data.token
+            _id: data.userInfo.userId,
+            user_name: data.userInfo.userName,
+            user_email: data.userInfo.userEmail,
+            is_admin: data.userInfo.isAdmin,
         }
     });
 });

@@ -1,28 +1,43 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { HomePage, CartPage, SignupPage, SigninPage } from "../pages/index";
+import { HomePage, CartPage, SignupPage, SigninPage, AdminDashboardPage, ProfilePage } from "../pages/index";
+// Protected Routes :-
+import { AdminRoute, GuestRoute, ProtectedRoute } from "./guards/index";
 
 
 export const AppRoutes: React.FC = () => {
 
-  const route = [
-    { id: 1, path: "/", element: <HomePage /> },
-    { id: 2, path: "/cart", element: <CartPage /> },
-    { id: 3, path: "/signin", element: <SigninPage /> },
-    { id: 4, path: "/signup", element: <SignupPage /> },
-    { id: 5, path: "/login", element: <Navigate to="/signin" replace /> },
-    { id: 6, path: "/register", element: <Navigate to="/signup" replace /> },
-  ];
-
   return (
     <>
       <Routes>
-        {
-          route.map(e => (
-            <Route key={e.id} path={e.path} element={e.element} />
-          ))
-        }
+
+        {/* 1. PUBLIC ROUTES */}
+        <Route path="/" element={<HomePage />} />
+
+        {/* 2. GUEST-ONLY ROUTES (Redirects authenticated users away) */}
+        <Route element={<GuestRoute />}>
+          <Route path="/signin" element={<SigninPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/login" element={<Navigate to="/signin" replace />} />
+          <Route path="/register" element={<Navigate to="/signup" replace />} />
+        </Route>
+
+        {/* 3. AUTHENTICATED USER ROUTES */}
+        <Route element={<ProtectedRoute />}>
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/account" element={<Navigate to="/profile" replace />} />
+        </Route>
+
+        {/* 4. ADMIN-ONLY ROUTES */}
+        <Route element={<AdminRoute />}>
+          <Route path="/admin" element={<AdminDashboardPage />} />
+          {/* Add more admin routes here, e.g. /admin/products */}
+        </Route>
+        
+        {/* 5. CATCH-ALL */}
         <Route path="*" element={<Navigate to="/" replace />} />
+
       </Routes>
     </>
   );

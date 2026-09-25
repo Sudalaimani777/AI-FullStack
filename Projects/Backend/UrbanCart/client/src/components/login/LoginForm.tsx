@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Eye, EyeOff, Loader2, AlertCircle } from 'lucide-react';
 import { signInSchema, type SignInFormValues } from '../../schemas/auth.schema';
 import api from '../../api/axios';
 import { useAuthStore } from '../../store/useAuthStore';
 import { GoogleSignInButton } from './GoogleSignInButton';
+import { signInWithGooglePopup } from '../../config/firebase';
+
 
 export interface LoginFormProps {
   onSuccess?: () => void;
@@ -14,10 +16,14 @@ export interface LoginFormProps {
 
 export const LoginForm: React.FC<LoginFormProps> = ({ onSuccess }) => {
   const navigate = useNavigate();
-  const setAuth = useAuthStore((state) => state.setAuth);
+  const location = useLocation();
+  const setUser = useAuthStore((state) => state.setUser);
 
   const [showPassword, setShowPassword] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
+  const [isGoogleLoading, setIsGoogleLoading] = useState(false);
+
+  const from = (location.state as { from?: { pathname: string } })?.from?.pathname || '/';
 
   const {
     register,
@@ -30,13 +36,20 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSuccess }) => {
   const onSubmit = async (values: SignInFormValues) => {
     try {
       setServerError(null);
-      const response = await api.post('/auth/login', values);
-      const { user, token } = response.data;
-      setAuth(user, token);
+      // Correct endpoint: /auth/sign-in
+      const response = await api.post('/auth/sign-in', values);
+      const user = response.data.user;
+
+      setUser(user);
+
       if (onSuccess) {
         onSuccess();
       } else {
-        navigate('/');
+        if (user?.is_admin && from === '/') {
+          navigate('/admin');
+        } else {
+          navigate(from, { replace: true });
+        }
       }
     } catch (err: unknown) {
       const errorMsg =
@@ -46,13 +59,39 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSuccess }) => {
     }
   };
 
+  const handleGoogleSignIn = async () => {
+    try {
+      setServerError(null);
+      setIsGoogleLoading(true);
+      const idToken = await signInWithGooglePopup();
+      const response = await api.post('/auth/google', { idToken });
+      const user = response.data.user || response.data.userInfo;
+      setUser(user);
+      if (onSuccess) {
+        onSuccess();
+      } else {
+        if (user?.is_admin && from === '/') {
+          navigate('/admin');
+        } else {
+          navigate(from, { replace: true });
+        }
+      }
+    } catch (err: any) {
+      console.error("Google sign-in error:", err);
+      const errorMsg =
+        err?.response?.data?.message ||
+        err?.message ||
+        'Google sign-in failed. Please try again.';
+      setServerError(errorMsg);
+    } finally {
+      setIsGoogleLoading(false);
+    }
+  };
+
   return (
     <div className="w-full max-w-[350px] sm:max-w-md mx-auto my-auto px-6 py-6 sm:px-8 lg:py-6">
       {/* Introduction */}
       <div className="mb-6 space-y-1.5">
-        <span className="text-xs font-semibold uppercase tracking-wider text-[#e45a2a]">
-          Member access
-        </span>
         <h1 className="text-3xl sm:text-4xl lg:text-[48px] leading-[1.05] font-normal text-[#242320] tracking-tight">
           Welcome back.
         </h1>
@@ -62,7 +101,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSuccess }) => {
       </div>
 
       {/* Google Sign In Button */}
-      <GoogleSignInButton />
+      <GoogleSignInButton onClick={handleGoogleSignIn} disabled={isGoogleLoading || isSubmitting} />
 
       {/* Divider */}
       <div className="flex items-center gap-3.5 my-4">
@@ -120,12 +159,8 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSuccess }) => {
               {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
             </button>
           </div>
-          {errors.user_password ? (
+          {errors.user_password && (
             <p className="text-xs text-rose-500 mt-1">{errors.user_password.message}</p>
-          ) : (
-            <p className="text-[11px] text-[#716d66] mt-1">
-              Error messages appear here when needed.
-            </p>
           )}
           <div className="flex justify-end mt-1.5">
             <a href="#forgot" className="text-xs text-[#e45a2a] hover:underline">

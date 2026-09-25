@@ -1,76 +1,159 @@
+// import type { Request, Response, NextFunction } from "express";
+// import jwt from "jsonwebtoken";
+// import { UserInfoModel } from "../../models/index.js"
+
+// // @desc : Auth Middleware
+// // @route : /profile
+
+// const protectMiddleWare = async (request: Request, response: Response, next: NextFunction): Promise<void> => {
+//     try {
+
+//         let token = request.cookies?.token;
+
+//         if (!token && request.headers.authorization) {
+//             token = request.headers.authorization.split(" ")[1];
+//         }
+
+//         if (!token) {
+//             response.status(404).json({
+//                 message: "Token Not Found"
+//             })
+//             return;
+//         }
+
+//         const jwtSecret = process.env.JWT_SECRET_TOKEN;
+
+//         if (!jwtSecret) {
+//             response.status(500).json({
+//                 message: "JWT Secret Not Configured"
+//             });
+//             return;
+//         }
+
+//         const decoded = jwt.verify(token, jwtSecret);
+
+//         if (typeof decoded === "string" || !("userId" in decoded)) {
+//             response.status(401).json({
+//                 message: "Invalid Token Payload"
+//             });
+//             return;
+//         }
+
+//         const user = await UserInfoModel.findById(decoded.userId).select("-user_password"); //The -select is used to neglect the key and the value which is present in the user object
+
+//         if (!user) {
+//             response.status(404).json({
+//                 message: "User not found"
+//             });
+//             return;
+//         }
+
+//         request.user = user;
+
+//         next();
+//         return;
+
+//         // response.status(200).json({
+//         //     message:"User moves profile successfully",
+//         //     user,
+//         //     decoded
+//         // })
+
+//     } catch (err: any) {
+//         response.status(500).json({
+//             message: "Something went wrong in the profile middleware",
+//             err
+//         });
+//         return;
+//     }
+// }
+
+// export default protectMiddleWare;
+
 import type { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
-import { UserInfoModel } from "../../models/index.js"
+import { UserInfoModel } from "../../models/index.js";
 
 // @desc : Auth Middleware
 // @route : /profile
-
 const protectMiddleWare = async (request: Request, response: Response, next: NextFunction): Promise<void> => {
     try {
+        // 1. Extract token from cookie (primary) or Bearer header (fallback)
+        let token = request.cookies?.token;
 
-        const token = request.headers.authorization;
-        
-        if (!token) {
-            response.status(404).json({
-                message: "Token Not Found"
-            })
-            return;
+        if (!token && request.headers.authorization) {
+            token = request.headers.authorization.split(" ")[1];
         }
 
-        const splitBearerToken = token.split(" ")[1];
-
-        if (!splitBearerToken) {
-            response.status(404).json({
-                message: "Bearer Not Found"
+        // 2. If no token at all, return 401 (guest user, not 404 or 500)
+        if (!token) {
+            response.status(401).json({
+                message: "Unauthorized: No session token found",
             });
             return;
         }
 
         const jwtSecret = process.env.JWT_SECRET_TOKEN;
-
         if (!jwtSecret) {
-            response.status(404).json({
-                message: "JWT Secret Not Found"
+            response.status(500).json({
+                message: "Server Configuration Error: JWT Secret Not Configured",
             });
             return;
         }
 
-        const decoded = jwt.verify(splitBearerToken, jwtSecret);
-
-        if (typeof decoded === "string" || !("userId" in decoded)) {
+        // 3. Verify JWT token safely
+        let decoded: any;
+        try {
+            decoded = jwt.verify(token, jwtSecret);
+        } catch (jwtErr) {
+            // Invalid or expired token: clear the bad cookie so it stops failing
+            response.clearCookie("token", {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === "production",
+                sameSite: "lax",
+            });
             response.status(401).json({
-                message: "Invalid Token Payload"
+                message: "Unauthorized: Session expired or invalid",
             });
             return;
         }
 
-        const user = await UserInfoModel.findById(decoded.userId).select("-user_password"); //The -select is used to neglect the key and the value which is present in the user object
+        // 4. Validate decoded payload
+        if (typeof decoded === "string" || !("userId" in decoded)) {
+            response.clearCookie("token", {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === "production",
+                sameSite: "lax",
+            });
+            response.status(401).json({
+                message: "Unauthorized: Invalid token payload",
+            });
+            return;
+        }
 
-        if(!user){
-            response.status(404).json({
-                message:"User not found"
+        // 5. Look up user in database
+        const user = await UserInfoModel.findById(decoded.userId).select("-user_password");
+
+        if (!user) {
+            response.clearCookie("token", {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === "production",
+                sameSite: "lax",
+            });
+            response.status(401).json({
+                message: "Unauthorized: User account no longer exists",
             });
             return;
         }
 
         request.user = user;
-
         next();
-        return;
-
-        // response.status(200).json({
-        //     message:"User moves profile successfully",
-        //     user,
-        //     decoded
-        // })
-        
-    } catch (err: any) {
+    } catch (err: unknown) {
         response.status(500).json({
-            message:"Something went wrong in the profile middleware",
-            err
+            message: "Internal Server Error in authentication middleware",
+            err,
         });
-        return;
     }
-}
+};
 
 export default protectMiddleWare;

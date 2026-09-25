@@ -7,6 +7,7 @@ import { signUpSchema, type SignUpFormValues } from '../../schemas/auth.schema';
 import api from '../../api/axios';
 import { useAuthStore } from '../../store/useAuthStore';
 import { GoogleSignUpButton } from './GoogleSignUpButton';
+import { signInWithGooglePopup } from '../../config/firebase';
 
 export interface RegisterFormProps {
   onSuccess?: () => void;
@@ -14,11 +15,12 @@ export interface RegisterFormProps {
 
 export const RegisterForm: React.FC<RegisterFormProps> = ({ onSuccess }) => {
   const navigate = useNavigate();
-  const setAuth = useAuthStore((state) => state.setAuth);
+  const setUser = useAuthStore((state) => state.setUser);
 
   const [showPassword, setShowPassword] = useState(false);
   const [agreed, setAgreed] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
+  const [isGoogleLoading, setIsGoogleLoading] = useState(false);
 
   const {
     register,
@@ -36,9 +38,12 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onSuccess }) => {
 
     try {
       setServerError(null);
-      const response = await api.post('/auth/register', values);
-      const { user, token } = response.data;
-      setAuth(user, token);
+      // Correct endpoint: /auth/sign-up
+      const response = await api.post('/auth/sign-up', values);
+      const user = response.data.user;
+
+      setUser(user);
+
       if (onSuccess) {
         onSuccess();
       } else {
@@ -52,13 +57,35 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onSuccess }) => {
     }
   };
 
+  const handleGoogleSignUp = async () => {
+    try {
+      setServerError(null);
+      setIsGoogleLoading(true);
+      const idToken = await signInWithGooglePopup();
+      const response = await api.post('/auth/google', { idToken });
+      const user = response.data.user || response.data.userInfo;
+      setUser(user);
+      if (onSuccess) {
+        onSuccess();
+      } else {
+        navigate('/');
+      }
+    } catch (err: any) {
+      console.error("Google sign-in error:", err);
+      const errorMsg =
+        err?.response?.data?.message ||
+        err?.message ||
+        'Google sign-in failed. Please try again.';
+      setServerError(errorMsg);
+    } finally {
+      setIsGoogleLoading(false);
+    }
+  };
+
   return (
     <div className="w-full max-w-[350px] sm:max-w-md mx-auto my-auto px-6 py-6 sm:px-8 lg:py-6">
       {/* Introduction */}
       <div className="mb-5 space-y-1.5">
-        <span className="text-xs font-semibold uppercase tracking-wider text-[#e45a2a]">
-          Join UrbanCart
-        </span>
         <h1 className="text-3xl sm:text-4xl lg:text-[44px] leading-[1.08] font-normal text-[#242320] tracking-tight">
           Make the city yours.
         </h1>
@@ -68,7 +95,7 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onSuccess }) => {
       </div>
 
       {/* Google Sign Up Button */}
-      <GoogleSignUpButton />
+      <GoogleSignUpButton onClick={handleGoogleSignUp} disabled={isGoogleLoading || isSubmitting} />
 
       {/* Divider */}
       <div className="flex items-center gap-3.5 my-4">
@@ -103,21 +130,15 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onSuccess }) => {
 
         {/* Email Address */}
         <div>
-          <label className="block text-xs font-medium text-[#242320] mb-1.5">
-            Email address
-          </label>
+          <label className="block text-xs font-medium text-[#242320] mb-1.5">Email address</label>
           <input
             type="email"
             {...register('user_email')}
             placeholder="you@example.com"
             className="w-full h-[50px] px-4 bg-white border border-[#d8d1c7] rounded-xl text-sm text-[#242320] placeholder-[#a39d94] focus:outline-none focus:border-[#242320] transition-colors"
           />
-          {errors.user_email ? (
+          {errors.user_email && (
             <p className="text-xs text-rose-500 mt-1">{errors.user_email.message}</p>
-          ) : (
-            <p className="text-[11px] text-[#716d66] mt-1">
-              We'll send order updates to this address.
-            </p>
           )}
         </div>
 
@@ -140,31 +161,27 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onSuccess }) => {
               {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
             </button>
           </div>
-          {errors.user_password ? (
+          {errors.user_password && (
             <p className="text-xs text-rose-500 mt-1">{errors.user_password.message}</p>
-          ) : (
-            <p className="text-[11px] text-[#716d66] mt-1">
-              Use 8+ characters, including a number.
-            </p>
           )}
         </div>
 
-        {/* Consent Checkbox */}
+        {/* Checkbox agreement */}
         <div className="flex items-start gap-2.5 pt-1">
           <input
             type="checkbox"
-            id="consent"
+            id="terms"
             checked={agreed}
             onChange={(e) => setAgreed(e.target.checked)}
-            className="mt-0.5 rounded border-[#d8d1c7] text-[#242320] focus:ring-0 focus:ring-offset-0 cursor-pointer"
+            className="mt-1 w-4 h-4 rounded border-gray-300 text-[#e45a2a] focus:ring-[#e45a2a] cursor-pointer"
           />
-          <label htmlFor="consent" className="text-xs text-[#716d66] leading-relaxed cursor-pointer">
-            I agree to the{' '}
-            <a href="#terms" className="text-[#242320] underline underline-offset-2">
+          <label htmlFor="terms" className="text-xs text-[#716d66] leading-relaxed cursor-pointer select-none">
+            I agree to the UrbanCart{' '}
+            <a href="#terms" className="text-[#242320] font-medium hover:underline">
               Terms of Service
             </a>{' '}
             and{' '}
-            <a href="#privacy" className="text-[#242320] underline underline-offset-2">
+            <a href="#privacy" className="text-[#242320] font-medium hover:underline">
               Privacy Policy
             </a>
             .
@@ -175,7 +192,7 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onSuccess }) => {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full h-[52px] bg-[#242320] hover:bg-[#161512] disabled:bg-[#5b5853] text-white text-sm font-medium rounded-xl transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer mt-2"
+          className="w-full h-[52px] bg-[#242320] hover:bg-[#161512] disabled:bg-[#5b5853] text-white text-sm font-medium rounded-xl transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer mt-3"
         >
           {isSubmitting ? (
             <>
@@ -188,8 +205,8 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onSuccess }) => {
         </button>
 
         {/* Sign in prompt */}
-        <p className="text-center text-xs text-[#716d66] pt-1">
-          Already have an account?{' '}
+        <p className="text-center text-xs text-[#716d66] pt-2">
+          Already a member?{' '}
           <Link to="/signin" className="text-[#e45a2a] font-medium hover:underline">
             Sign in
           </Link>

@@ -12,7 +12,7 @@ export const NavbarDesktop: React.FC<NavbarProps> = ({
   navLinks = DEFAULT_NAV_LINKS,
 }) => {
   const totalCartItems = useCartStore((state) => state.getTotalItems());
-  const { user, token } = useAuthStore();
+  const { user } = useAuthStore();
 
   return (
     <div
@@ -109,7 +109,7 @@ export const NavbarDesktop: React.FC<NavbarProps> = ({
 
           {/* Account (Node 24:24) */}
           <Link
-            to={token && user ? '/account' : '/signin'}
+            to={user ? '/profile' : '/signin'}
             className="flex items-center gap-[8px] text-[#242320] hover:text-[#e45a2a] transition-colors duration-150 p-1"
             data-node-id="24:24"
             data-name="Account"
@@ -120,7 +120,7 @@ export const NavbarDesktop: React.FC<NavbarProps> = ({
               className="hidden lg:inline text-[14px] font-normal leading-normal"
               data-node-id="24:26"
             >
-              {token && user ? user.user_name || 'Account' : 'Account'}
+              {user ? user.user_name || 'Account' : 'Account'}
             </span>
           </Link>
         </div>

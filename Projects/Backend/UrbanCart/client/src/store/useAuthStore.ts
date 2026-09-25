@@ -1,32 +1,50 @@
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
 import type { User } from '../types';
+import api from '../api/axios';
 
 interface AuthState {
   user: User | null;
-  token: string | null;
-  setAuth: (user: User, token: string) => void;
-  logout: () => void;
+  isLoading: Boolean;
+  setUser: (user: User) => void;
+  clearUser: () => void;
+  checkAuth: () => Promise<void>;
+  logout: () => Promise<void>;
   isAuthenticated: () => boolean;
   isAdmin: () => boolean;
 }
 
-export const useAuthStore = create<AuthState>()(
-  persist(
-    (set, get) => ({
-      user: null,
-      token: null,
+export const useAuthStore = create<AuthState>((set, get) => ({
+  user: null,
+  isLoading: true, // true until checkAuth resolves on first load
 
-      setAuth: (user: User, token: string) => set({ user, token }),
+  setUser: (user: User) => set({ user, isLoading: false }),
 
-      logout: () => set({ user: null, token: null }),
+  clearUser: () => set({ user: null, isLoading: false }),
 
-      isAuthenticated: () => !!get().token,
-
-      isAdmin: () => !!get().user?.is_admin,
-    }),
-    {
-      name: 'urbancart-auth',
+  checkAuth: async () => {
+    try {
+      set({ isLoading: true });
+      const response = await api.get("/auth/profile");
+      // Backend returns { authorizedUser: ... } or { user: ... }
+      const user = await response.data.authorizedUser || response.data?.user;
+      set({ user, isLoading: false })
+    } catch (error) {
+      set({ user: null, isLoading: false })
     }
-  )
-);
+  },
+
+  // Calls the backend /auth/logout endpoint to clear the cookie
+  logout: async () => {
+    try {
+      await api.post('/auth/signout');
+    } catch (err: any) {
+      console.error('Logout failed', err);
+    } finally {
+      set({ user: null, isLoading: false })
+    }
+  },
+
+  isAuthenticated: () => !!get().user,
+
+  isAdmin: () => !!get().user?.is_admin
+}))

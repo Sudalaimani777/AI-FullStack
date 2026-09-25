@@ -1,29 +1,23 @@
-import axios from 'axios';
+import axios from "axios";
+import { useAuthStore } from "../store/useAuthStore";
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
+  baseURL: import.meta.env.VITE_API_URL || "http://localhost:5000/api",
   headers: {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json"
   },
-});
+  // CRITICAL: Tells the browser to send cookies with all requests
+  withCredentials: true
+})
 
-api.interceptors.request.use(
-  (config) => {
-    const authStorage = localStorage.getItem('urbancart-auth');
-    if (authStorage) {
-      try {
-        const parsed = JSON.parse(authStorage);
-        const token = parsed?.state?.token;
-        if (token) {
-          config.headers.Authorization = `Bearer ${token}`;
-        }
-      } catch (err) {
-        console.error('Failed to parse auth storage token', err);
-      }
+api.interceptors.response.use(
+  response => response,
+  error => {
+    if (error.response?.status === 401) {
+      useAuthStore.getState().clearUser();
     }
-    return config;
-  },
-  (error) => Promise.reject(error)
-);
+    return Promise.reject(error);
+  }
+)
 
 export default api;

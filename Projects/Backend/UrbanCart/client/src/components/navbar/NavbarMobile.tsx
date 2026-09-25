@@ -33,7 +33,7 @@ export const NavbarMobileMenuOpen: React.FC<NavbarMobileMenuOpenProps> = ({
   const [internalQuery, setInternalQuery] = useState(searchQuery);
   const navigate = useNavigate();
   const totalCartItems = useCartStore((state) => state.getTotalItems());
-  const { user, token } = useAuthStore();
+  const { user } = useAuthStore();
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -410,7 +410,7 @@ export const NavbarMobileMenuOpen: React.FC<NavbarMobileMenuOpenProps> = ({
         >
           {/* Card 1: Sign in / Account (Node 36:55) */}
           <Link
-            to={token && user ? '/account' : '/signin'}
+            to={user ? '/profile' : '/signin'}
             onClick={onClose}
             className="bg-white border border-[#d8d1c7] flex flex-col justify-between h-[90px] p-[14px] rounded-[14px] hover:border-[#242320] transition-colors"
             data-node-id="36:55"
@@ -423,7 +423,7 @@ export const NavbarMobileMenuOpen: React.FC<NavbarMobileMenuOpenProps> = ({
               className="font-medium text-[13px] leading-tight text-center w-full"
               data-node-id="36:57"
             >
-              {token && user ? user.user_name || 'Account' : 'Sign in / Account'}
+              {user ? user.user_name || 'Account' : 'Sign in / Account'}
             </span>
           </Link>
 
