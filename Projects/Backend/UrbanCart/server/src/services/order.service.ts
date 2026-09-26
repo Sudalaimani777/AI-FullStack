@@ -1,5 +1,5 @@
 // server/src/services/order.service.ts
-import { Order_Model } from "../models/index.js";
+import { Order_Model, Product_Model } from "../models/index.js";
 import type { OrderStatus } from "../types/order.types.js";
 
 export const createOrderService = async (orderData: {
@@ -15,23 +15,50 @@ export const createOrderService = async (orderData: {
         shipping_address: orderData.shipping_address
     });
 
-    return await order.save();
+    const savedOrder = await order.save();
+
+    // Deduct stock for each ordered piece in the inventory catalog
+    if (Array.isArray(orderData.ordered_items)) {
+        for (const item of orderData.ordered_items) {
+            if (item.product && item.quantity) {
+                try {
+                    const product = await Product_Model.findById(item.product);
+                    if (product) {
+                        const currentStock = Math.max(
+                            0,
+                            parseInt(product.product_stock || "0", 10) - Number(item.quantity)
+                        );
+                        product.product_stock = String(currentStock);
+                        await product.save();
+                    }
+                } catch (stockError) {
+                    console.error(`Failed to deduct inventory for product ${item.product}:`, stockError);
+                }
+            }
+        }
+    }
+
+    return savedOrder;
 };
 
 export const getUserOrdersService = async (userId: string) => {
-    return await Order_Model.find({ user: userId });
+    return await Order_Model.find({ user: userId })
+        .populate("ordered_items.product", "product_name product_price product_image product_category product_stock")
+        .sort({ createdAt: -1 });
 };
 
-// Updated: Populate customer name and email so admin can see who placed the order
+// Populate customer profile + item products so admin and patrons see rich manifests
 export const getAllOrdersService = async () => {
     return await Order_Model.find({})
         .populate("user", "user_name user_email")
+        .populate("ordered_items.product", "product_name product_price product_image product_category product_stock")
         .sort({ createdAt: -1 }); // Newest orders first
 };
 
 export const getOrderByIdService = async (orderId: string) => {
     return await Order_Model.findById(orderId)
-        .populate("user", "user_name user_email");
+        .populate("user", "user_name user_email")
+        .populate("ordered_items.product", "product_name product_price product_image product_category product_stock");
 };
 
 // Update Order Status Controller (Admin)

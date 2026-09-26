@@ -17,13 +17,16 @@ const getOrdersByIdController = asyncHandler(async (request: Request, response: 
         return;
     }
 
-    const isOwner = orders.user.toString() === request.user?._id?.toString();
+    const orderUserId = (orders.user as any)?._id
+        ? (orders.user as any)._id.toString()
+        : orders.user.toString();
+    const isOwner = orderUserId === request.user?._id?.toString();
     const isAdmin = Boolean(request.user?.is_admin);
 
-    if(!isOwner || !isAdmin){
+    if (!isOwner && !isAdmin) {
         response.status(403).json({
-            message:"Access Denied"
-        })
+            message: "Access Denied"
+        });
         return;
     }
 

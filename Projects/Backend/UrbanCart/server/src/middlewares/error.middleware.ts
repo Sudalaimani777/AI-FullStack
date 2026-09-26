@@ -14,12 +14,14 @@ export const errorHandler = (
     if (err.name === "CastError") {
         statusCode = 400;
         message = `Invalid resource identifier: ${err.value}`;
+        return;
     }
 
     // Handle Mongoose duplicate key error (code 11000)
     if (err.code === 11000) {
         statusCode = 409;
         message = "Duplicate field value entered";
+        return;
     }
 
     res.status(statusCode).json({

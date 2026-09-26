@@ -6,14 +6,14 @@ import type { Order } from "../types/order.types.js";
 const OrderSchema = new Schema<Order>({
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "UserInfoModel",
+        ref: "user-info-model",
         required: true
     },
     ordered_items: [
         {
             product: {
                 type: mongoose.Schema.Types.ObjectId,
-                ref: "Product_Model",
+                ref: "product-models",
                 required: true
             },
             name: String,

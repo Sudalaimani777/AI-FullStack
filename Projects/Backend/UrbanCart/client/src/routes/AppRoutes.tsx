@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { HomePage, CartPage, SignupPage, SigninPage, AdminDashboardPage, ProfilePage } from "../pages/index";
+import { HomePage, CartPage, SignupPage, SigninPage, AdminDashboardPage, ProfilePage, ProductDetailsPage, CheckoutPage, OrderConfirmationPage } from "../pages/index";
 // Protected Routes :-
 import { AdminRoute, GuestRoute, ProtectedRoute } from "./guards/index";
 
@@ -13,6 +13,14 @@ export const AppRoutes: React.FC = () => {
 
         {/* 1. PUBLIC ROUTES */}
         <Route path="/" element={<HomePage />} />
+        <Route path="/mobile" element={<HomePage />} />
+        <Route path="/catalog" element={<HomePage />} />
+        <Route path="/product/:id" element={<ProductDetailsPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/order-confirmation/:id" element={<OrderConfirmationPage />} />
+        <Route path="/order-confirmation" element={<OrderConfirmationPage />} />
+        <Route path="/order-success" element={<OrderConfirmationPage />} />
 
         {/* 2. GUEST-ONLY ROUTES (Redirects authenticated users away) */}
         <Route element={<GuestRoute />}>
@@ -24,7 +32,6 @@ export const AppRoutes: React.FC = () => {
 
         {/* 3. AUTHENTICATED USER ROUTES */}
         <Route element={<ProtectedRoute />}>
-          <Route path="/cart" element={<CartPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/account" element={<Navigate to="/profile" replace />} />
         </Route>

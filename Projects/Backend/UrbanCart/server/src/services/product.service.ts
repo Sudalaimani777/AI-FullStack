@@ -1,8 +1,20 @@
 import { Product_Model } from "../models/index.js";
 import { ApiError } from "../utils/apiError.js";
 
-export const getAllProductsService = async () => {
-    return await Product_Model.find();
+export const getAllProductsService = async (filters?: { category?: string | undefined; search?: string | undefined }) => {
+    const query: Record<string, any> = {};
+    if (filters?.category && filters.category !== "All" && filters.category !== "All Disciplines") {
+        query.product_category = { $regex: new RegExp(`^${filters.category}$`, "i") };
+    }
+    if (filters?.search && filters.search.trim()) {
+        const searchTerm = filters.search.trim();
+        query.$or = [
+            { product_name: { $regex: searchTerm, $options: "i" } },
+            { product_description: { $regex: searchTerm, $options: "i" } },
+            { product_category: { $regex: searchTerm, $options: "i" } },
+        ];
+    }
+    return await Product_Model.find(query).sort({ _id: -1 });
 };
 
 export const getSingleProductService = async (id: string) => {
