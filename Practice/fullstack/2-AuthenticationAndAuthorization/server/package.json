@@ -1,0 +1,36 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cookieparser": "^0.1.0",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.4",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.10.2",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/cors": "^2.8.19",
+    "@types/dotenv": "^6.1.1",
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^26.6.3",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}

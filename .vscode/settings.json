@@ -10,6 +10,7 @@
         "Bento",
         "Bingbot",
         "Contentful",
+        "cookieparser",
         "Crawlability",
         "dotenv",
         "fastapi",
