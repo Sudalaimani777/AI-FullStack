@@ -27,6 +27,7 @@
         "pypdf",
         "qvtmofw",
         "shutil",
+        "slugmaster",
         "sudalai",
         "Sudhan",
         "urbancart",

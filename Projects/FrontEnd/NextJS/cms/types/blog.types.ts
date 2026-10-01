@@ -2,6 +2,6 @@ export interface Blog {
     id?: number,
     title:string,
     excerpt:string,
-    url:string,
-    image:string
+    slug:string,
+    thumbnail:string
 }

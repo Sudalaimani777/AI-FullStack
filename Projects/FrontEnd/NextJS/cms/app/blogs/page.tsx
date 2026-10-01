@@ -1,15 +1,26 @@
 import BlogCard from "@/components/blog/BlogCard"
-import { blogConfig } from "@/data/blogData"
+import { Blog } from "@/types/blog.types";
 
+const BlogPage = async () => {
 
+    const fetchAllBlogs = async () => {
+        try {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/get`);
+            const data = await response.json();
+            return data;
+        } catch (error) {
 
-const BlogPage = () => {
+        }
+    }
+
+    const blogData = await fetchAllBlogs();
+
     return (
         <>
             <section className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-8">
                 {
-                    blogConfig.map(blog => {
-                        return <BlogCard key={blog.id} title={blog.title} image={blog.image} excerpt={blog.excerpt} url={blog.url} />
+                    blogData.map((blog: Blog) => {
+                        return <BlogCard key={blog.id} title={blog.title} thumbnail={blog.thumbnail} excerpt={blog.excerpt} slug={blog.slug} />
                     })
                 }
             </section>

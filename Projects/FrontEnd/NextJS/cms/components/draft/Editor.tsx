@@ -2,10 +2,14 @@
 import { EditorProps, PostData } from "@/types/types";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import ReactQuill from "react-quill-new";
 import "react-quill-new/dist/quill.snow.css";
 import { slugify } from "slugmaster";
 import ImageUpload from "../ImageUpload";
+import dynamic from "next/dynamic";
+
+const ReactQuill = dynamic(() => import("react-quill-new"), {
+    ssr: false
+});
 
 
 const Editor = ({ savePost }: EditorProps) => {
@@ -20,10 +24,6 @@ const Editor = ({ savePost }: EditorProps) => {
         const generateSlug = slugify(data.title);
 
         savePost({ ...data, slug: generateSlug, content, ogImage });
-    }
-
-    const handleDraftContentChange = () => {
-
     }
 
     return (
@@ -44,7 +44,7 @@ const Editor = ({ savePost }: EditorProps) => {
                     {/* React Quill Text area */}
                     <ReactQuill
                         value={content}
-                        onChange={handleDraftContentChange}
+                        onChange={setContent}
                         formats={
                             ["header", "font", "size", "bold", "italic", "underline", "strike", "list", "link", "image", "code-block"]
                         }

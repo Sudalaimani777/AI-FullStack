@@ -41,14 +41,40 @@ const ImageUpload = ({ returnImage }: ImageUploadProps) => {
 
     return (
         <>
-            <div className="mt-5 mb-5">
+            <div className="mt-5 mb-5 py-2 flex flex-col gap-5 w-full">
 
-                <label htmlFor="upload">
+                <label htmlFor="upload" className="w-fit">
                     <span className="bg-gray-500/10 border border-gray-500 border-dashed p-3 rounded">Upload Cover Image</span>
                     <input type="file"
                         onChange={handleImageFileChange}
                     />
                 </label>
+
+                <div>
+                    {/* Upload Button */}
+                    {
+                        loading && (
+                            <button disabled>
+                                Uploading...
+                            </button>
+                        )
+                    }
+
+                    {/* Image URL */}
+                    {
+                        imageURL && (
+                            <div>
+                                <h3>Uploaded Successfully</h3>
+                                <img
+                                    src={imageURL}
+                                    alt="uploaded_image"
+                                    style={{ width: "30%" }}
+                                    className="border border-gray-400 rounded-md "
+                                />
+                            </div>
+                        )
+                    }
+                </div>
             </div>
         </>
     )
