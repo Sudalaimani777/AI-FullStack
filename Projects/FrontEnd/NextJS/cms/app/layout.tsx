@@ -9,7 +9,7 @@ import { Toaster } from "@/components/ui/toast";
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: "400"
+  weight: ["400", "500", "600"]
 })
 
 // const geistSans = Geist({

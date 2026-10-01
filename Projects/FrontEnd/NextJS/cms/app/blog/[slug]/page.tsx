@@ -1,51 +1,79 @@
-import dateFormat from "@/utils/dateFormat";
+import { dateFormat } from "@/utils/dateFormat";
 import { Calendar } from "lucide-react";
 import Image from "next/image";
+import type { PageProps } from "../../../types/slug.types"
+import "@/styles/blog.css";
 
-const SingleBlog = () => {
 
-    const temporaryTags = ["spaceX", "NASA", "Google"];
-    // const tempHTMl = `<p>Demo Content</p>`
+const fetchSingleBlog = async (slug: string) => {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/get/${slug}`);
+    const data = await response.json();
+    return data;
+}
+
+
+export const generateMetadata = async ({ params }: PageProps) => {
+    // 1. Await the params promise to resolve the object
+    const resolvedParams = await params;
+
+    // 2. Pass the slug into your fetch function
+    const response = await fetchSingleBlog(resolvedParams.slug);
+
+    return {
+        title: response.title,
+        description: response.excerpt,
+        openGraph: {
+            images: [response.thumbnail]
+        }
+    };
+};
+
+const SingleBlog = async ({ params }: PageProps) => {
+
+    const { slug } = await params;
+    const post = await fetchSingleBlog(slug);
 
     return (
         <>
             <section>
                 <div className="flex items-center flex-col gap-4">
-                    <Image
-                        src={"/thumbnail/banner.png"}
-                        width={500}
-                        height={250}
-                        alt="page title"
-                        className="rounded-xl border w-[90%] md:w-175"
-                    />
+                    {
+                        post?.thumbnail && <Image
+                            src={post.thumbnail}
+                            width={500}
+                            height={250}
+                            alt={post.title}
+                            className="rounded-xl border w-[90%] md:w-175"
+                        />
+                    }
+                    <h1 className="text-2xl md:text-4xl font-bold">{post.title}</h1>
                     {/* Category and Tags Wrappers */}
                     <div className="meta-of-a-blog space-y-2">
                         {/* Calender Wrapper */}
                         <div className="flex gap-2 items-center">
                             <Calendar className="text-gray-400 size-4" />
                             <p className="text-gray-400 text-xs">
-                                Created on : {dateFormat(new Date())}
+                                Created on : {dateFormat(post.createdAt)}
                             </p>
                         </div>
                         {/* Category Wrapper */}
                         <div className="text-xs flex items-center gap-2">
                             <p>Category : </p>
-                            <p className="badge border-gray-600 px-2 py-1 rounded bg-gray-600/30 w-fit">Space exploration</p>
+                            <p className="badge border-gray-600 px-2 py-1 rounded bg-gray-600/30 w-fit">{post.categorySlug}</p>
                         </div>
                         {/* Tags Wrapper */}
-                        <div className="text-xs flex items-center gap-2">
+                        {post?.keywords && <div className="text-xs flex items-center gap-2">
                             <p>Tags : </p>
                             {
-                                temporaryTags.map((tags, i) => <p key={i} className="badge border-gray-600 px-1 py-0.5 rounded bg-gray-600/30 w-fit">{tags}</p>)
+                                post?.keywords.split(",").map((tags: string, i:number) => <p key={i} className="badge border-gray-600 px-1 py-0.5 rounded bg-gray-600/30 w-fit">{tags}</p>)
                             }
                         </div>
+                        }
                     </div>
 
                     {/* Content Wrapper */}
-                    {/* <div className="content" dangerouslySetInnerHTML={{__html:tempHTMl}}></div> */}
-                    <p className="text-sm w-[90%] md:w-2/3 text-gray-300">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. In, eum nemo consectetur soluta, voluptas ut ad architecto aut praesentium saepe neque optio quo fugiat explicabo? Optio est magnam tenetur nemo nihil rem aliquam facere iure adipisci aliquid repellat voluptatum minima voluptas, aut omnis distinctio. Corrupti consequuntur fugiat iste eveniet laborum.
-                    </p>
+                    <div className="content text-sm w-[90%] md:w-2/3 text-gray-300" dangerouslySetInnerHTML={{ __html: post.content }}></div>
+
                 </div>
             </section>
         </>

@@ -4,7 +4,11 @@ import { NextResponse } from "next/server";
 
 export const GET = async () => {
     try {
-        const post = await prisma.post.findMany();
+        const post = await prisma.post.findMany({
+            where: {
+                status: "PUBLISHED"
+            }
+        });
 
         return NextResponse.json(post, { status: 200 });
     } catch (error) {
