@@ -11,6 +11,7 @@
 
 ## 📋 Table of Contents
 - [About](#-about)
+- [Repository Overview](#-repository-overview)
 - [Repository Structure](#-repository-structure)
 - [Quick Stats](#-quick-stats)
 - [Projects](#-projects)
@@ -59,6 +60,15 @@ This repository is my personal learning journey into Full-Stack Development, doc
 - ✅ 1/1 Backend E-Commerce API completed (`UrbanCart` Express 5 + TypeScript)
 - ✅ 7/7 Express Task Labs completed (`Day1` - `Day7`)
 - ✅ 2/2 Node Task Labs completed (`Task1` & `Task2`)
+
+## 🧭 Repository Overview
+
+This repo is organized to make learning, practice, and project work easy to find:
+
+- **FrontEnd/**: Learning modules and notes for HTML, JavaScript, ES6, and AJAX.
+- **Tasks/**: Guided practice exercises that align with each learning module.
+- **Projects/**: Completed HTML and JavaScript applications that apply the concepts.
+- **README.md**: The main progress tracker, learning path, and high-level summary.
 
 ## 📁 Repository Structure
 
