@@ -12,9 +12,3 @@ const app = http.createServer((request, response) => {
 app.listen(PORT, () => {    
     console.log(`The port is running on local host ${PORT}`)
 })
-
-// console.log(http);
-
-// console.log(process);
-// console.log(path)
-// console.log()
