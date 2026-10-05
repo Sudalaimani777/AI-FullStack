@@ -1,0 +1,55 @@
+1-BASICS :-
+
+    What is Backend ?
+        Backend is the part of a software system that handles data, server logics and operations out of the user's view 
+        It responds for every client request with proper response in a json format.
+
+        The Backend handles the data, logics and the architecture
+
+    What is Server ?
+        The server is a machine that host the backend logics and runs it.
+
+    Backend vs Server :-
+        Think of it like a restaurant: the server is the kitchen building itself, and the backend is the chef, the recipe book, and the pantry inside that kitchen.
+
+    Domain :-
+        A Domain is a name of the primary web address which is known as Root Domain.
+        Eg: google.com
+
+    Sub Domain :-
+        A Sub Domain is an extension created to separate the content under the same Domain address
+            Eg :- maps.google.com
+
+    The "www" is a sub Domain, used to route traffic.
+
+    Why do we need backend ?
+        It acts as a centralized authority to fetch, receive, and store data (often in a database), ensuring that application state is maintained consistently across users
+
+    How the client request reaches the backend ?
+
+        DNS Resolution :- Your browser starts with a domain name, which the DNS server translates into the specific IP address of the server
+
+        Network Routing :-  The request is routed over the internet to reach the destination hardware, such as an AWS EC2 instance
+
+        Firewall Filtering: Before entering the computer, the request passes through a security group (firewall). If the specific port (like 80 for HTTP or 443 for HTTPS) is not allowed, the request is blocked here
+
+        Reverse Proxy: Once inside the instance, a reverse proxy like Nginx receives the request. It manages traffic and performs final routing based on the domain name or path
+
+        Server Processing: Finally, the reverse proxy forwards the request to the specific local port (e.g., 3001) where the Node.js or backend application is listening to process the request
+
+    What is Reverse Proxy ?
+        A reverse proxy is a server that sits in front of other backend servers to manage incoming traffic
+
+    Why not use frontends for backend logic?
+        Using a frontend to handle backend logic is generally avoided for several key reasons regarding security, data management, and performance
+
+        Security Risks: Browsers run in sandboxed environments to protect user systems from malicious code. They are intentionally restricted from accessing the local file system or sensitive environment variables, which a backend often needs
+
+        Limited Computing Power: Frontend applications run on various devices, including smartphones or older computers with limited RAM and processing power. A centralized backend allows you to scale hardware resources (like CPU and Memory) to handle heavy tasks, ensuring a consistent experience for all users regardless of their device 
+
+        1)Security reasons
+        2)cannot call the external API, unless the API has all the required CORS headers
+        3)Browsers are nor designed to presist DB connections
+
+    What is Connection Pool ?
+        A connection pool is a cache of database connections maintained by a backend server
