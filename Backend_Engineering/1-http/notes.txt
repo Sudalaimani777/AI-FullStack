@@ -1,0 +1,280 @@
+HTTP :-
+
+    The HTTP is a medium, which helps to transfer data from one medium to an another medium. Like client to server.
+
+    There  are two models, that are heart of the HTTP protocol,
+        1) Stateless
+        2) Client-server model
+    
+        Stateless :-
+            The Stateless means, it has no memory of the past interactions meaning each and every request treated as independent request and has it's own information (headers, URL, methods) to process it
+
+            Advantages :-
+                Simpler Design :- Server do not store any memory to track the past user sessions
+                Scalability :- It allows to distribute the request across multiple servers
+
+        Client-server Model :-
+            It is a structure where a client device sends a request, the server process those request and return the response
+
+            Communication is always initiated by the client side
+
+    TCP :-
+        It stands for Transmission Control Protocol, it is a core rule that let's a device can send a data reliable to each other over the internet
+
+    OSI :-
+        It stands for Open Systems Interconnection, it is a 7 layer framework created by International Organization for Standardization to standardize how data transmit over the internet
+
+        Layer 1  (Physical Layer ) :- 
+            The layer 1 is a Physical Layer it transmit raw, unstructured bitStreams over physical hardware
+            
+            EG :- Cables, Hub and Radio Waves.
+
+        Layer 2 (Data Link Layer) :-
+            Organize bits into frames and handle node-to-node physical addressing
+
+            EG :- Ethernet, MAC Address.
+
+        Layer 3 (Network Layer) :-
+            Handles logical addressing and routes packets across different networks
+
+            EG :- IP address
+
+        Layer 4 (Transport Layer ) :-
+            Ensure reliable by passing data end-to-end by breaking into segments with protocols
+
+            EG :- TCP
+
+        Layer 5 ( Session Layer ) :-
+            Open, manages and close communication session between devices
+
+            EG :- Authentication
+        
+        Layer 6 ( Presentation Layer ) :-
+            Translate, encrypt and compress data, so the receiving device can read it 
+
+            EG :- SSL
+        
+        Layer 7 (Application Layer) :-
+            Act as a direct interface between the software and the server
+            
+            EG :- HTTP
+
+HTTP Message :-
+
+    Request Headers :-
+        user-agent : Used to identify the client, like the browser 
+        authorization : Used to sends different credentials like bearer to identify the user.
+        cookie : Having the authorized user credentials to transmit from client to server
+        accept : Used to accept what kinda content that we are receiving, like json
+
+    General Headers :-
+        Date : The date of the message
+        cache-control : Having different caching mechanism like "max-age", "no-cache"
+        connection
+
+    Representational Headers :-
+        It provides the information about the body like, 
+            content-type
+            content-length
+            content-encoding
+            E-tag
+    
+    Security Headers :-
+        Used to enhance the security of the headers's request and the response by controlling the behavior, like
+            cookies
+            x-frame-option
+
+Advantage :-
+
+    Extensible :-   
+        HTTP is highly extensible, because headers can be easily added, without altering the protocol
+
+    Remote Control :-
+        It act as a Remote control on the server side, they allow the client to send the instructions to the server to process the request
+
+        Like if the client need html as aa response, or the Json response, it defines in the request headers so the server act based on the user request.
+
+        Caching and Expiring controls
+
+HTTP Methods :-
+    HTTP methods are the different kinda actions that the client wants, like getting the data, adding information, removing details, updating details
+
+    The methods defines the intent of the request
+
+Idempotent vs Non-Idempotent :-
+
+    Idempotent :-
+        An action that can be applied multiple times without changing the final result
+
+        Like, Fetching the result on the page loads (GET), Updating the details entirely (PUT), deleting the data (DELETE)
+    
+    Non-Idempotent :-
+        A Non-Idempotent that can be modify the result on the server state (data), like updating a single data (PATCH), posting a new content (POST)
+
+        Produce different result on the same request.
+
+CORS :-
+    CORS (Cross-Origin Resource Sharing) is a vital security mechanism enforced by web browsers to manage how applications interact with resources hosted on different domains 
+
+    Without CORS, browser blocks the request and the response that are from the other origins
+
+    CORS allow the serve, who can access the request and the response.
+
+Response Codes :-
+    HTTP response codes are used to communicate the result of the request in a standardized way.
+
+    1xx Informational :-
+        The request was received, and the server is continuing the process.
+
+        • 100 Continue: The initial part of the request is good; the client should proceed to send the rest.
+        • 101 Switching Protocols: The server agrees to switch protocols (e.g., upgrading from HTTP to WebSockets).
+        • 103 Early Hints: Used to return some response headers before the final HTTP message, helping browsers pre-load resources.
+    
+    ✅ 2xx Success
+        The action was successfully received, understood, and accepted.
+
+        • 200 OK: The standard successful response where the server returns the requested data.
+        • 201 Created: The request succeeded and resulted in the creation of a new resource.
+        • 202 Accepted: The request has been accepted for processing, but processing is not yet complete (often used in asynchronous operations).
+        • 204 No Content: The request was successful, but the server is intentionally not returning any data payload (common for DELETE or PUT operations).
+        • 206 Partial Content: The server is delivering only part of the resource due to a range header sent by the client (used for video/audio streaming or resuming downloads).
+
+    🔀 3xx Redirection
+        Further action needs to be taken by the user agent to fulfill the request.
+
+        • 301 Moved Permanently: The target resource has been assigned a new permanent URL.
+        • 302 Found: The target resource resides temporarily under a different URL.
+        • 304 Not Modified: Tells the browser that the cached version of the resource is still valid, so no data needs to be re-downloaded.
+        • 307 Temporary Redirect / 308 Permanent Redirect: Modern equivalents of 302 and 301 that explicitly forbid the client from changing the HTTP method (e.g., from POST to GET) when redirecting.
+
+    ❌ 4xx Client Error
+        The request contains bad syntax or cannot be fulfilled, meaning the fault lies with the client.
+
+        • 400 Bad Request: The server cannot process the request due to a client error (e.g., malformed syntax or missing parameters).
+        • 401 Unauthorized: The request requires user authentication credentials which were missing or invalid.
+        • 403 Forbidden: The server understands who the client is, but the client does not have permission to access the resource.
+        • 404 Not Found: The server cannot find the requested resource or URL.
+        • 409 Conflict: The request could not be completed because of a conflict with the current state of the server (e.g., trying to register an email that already exists).
+        • 429 Too Many Requests: The user has sent too many requests in a given amount of time (rate limiting).
+
+    🔥 5xx Server Error
+        The server failed to fulfill an apparently valid request.
+
+        • 500 Internal Server Error: A generic error message indicating the server encountered an unexpected condition that prevented it from fulfilling the request.
+        • 502 Bad Gateway: The server, acting as a gateway or proxy, received an invalid response from the upstream server it attempted to access.
+        • 503 Service Unavailable: The server is currently unable to handle the request due to temporary overloading or maintenance.
+        • 504 Gateway Timeout: The server, acting as a gateway or proxy, did not receive a timely response from the upstream server.
+
+Caching :-
+    HTTP caching means it is a technique to store the copies of responses for the reuse, until  the response gets modified
+
+    It reduces the bandwidth and decrease the server load
+
+    Simple :- Reuse the old response result, until it's get modified
+
+    Response Headers :-
+        Cache-Control: max-age=10 -> 10 seconds
+        ETag:3441 -> Hash and computed from the response
+        Last-Modified: Sat, 17 Sep 2024 13:48:30 GMT   -> Modified date when the response are modified
+    
+    Request Headers :-
+        If-None-Match       -> When a client (like a browser) first requests a resource, the server 
+                               sends back the content along with an ETag (Entity Tag)—a unique identifier or hash representing that specific version of the file. The browser saves the file and the ETag in its cache.
+
+                                On subsequent requests for the same file, the browser sends the ETag back to the server inside the If-None-Match header. The server then checks if its current version of the resource matches the ETag provided by the client.header
+
+        If-Modified-Since   ->  The If-Modified-Since HTTP request header makes a GET or HEAD 
+                                request conditional, telling the server to send the resource only if it has changed after a specific date.
+
+
+1. Core Principles of HTTP
+        HTTP (Hypertext Transfer Protocol) is an application-layer protocol (Layer 7 in the OSI model) used by clients and servers to communicate. It is built on two fundamental ideas:
+            *   Statelessness: The server retains no memory of past interactions. Every request is entirely self-contained and must include all the necessary information (like authentication tokens or cookies) for the server to process it. 
+            *   Benefits: This simplifies server architecture and improves scalability, because a single server doesn't need to keep track of user sessions, and a server crash won't destroy a client's state.
+            *   Client-Server Model: Communication is always initiated by the client (e.g., a web browser) to request resources or actions, and the server waits for these requests to process and respond.
+
+2. Transport Protocol & HTTP Versions
+        HTTP relies on a reliable, connection-based transport protocol, almost universally *TCP (Transmission Control Protocol)*. Over the years, HTTP has evolved to improve how these TCP connections are handled:
+            *   HTTP 1.0: Opened a new TCP connection for every single request and response, which was highly inefficient and slow.
+            *   HTTP 1.1: Introduced persistent connections (keep-alive) as the default, allowing multiple requests to be sent over a single reused connection.
+            *   HTTP 2.0: Introduced multiplexing (multiple requests/responses concurrently on one connection), binary framing, header compression, and server push.
+            *   HTTP 3.0: Replaced TCP with QUIC (built over UDP) to establish faster connections and handle packet loss better, eliminating head-of-line blocking.
+
+3. Anatomy of HTTP Messages
+        Client-server communication happens via structured text messages.
+            *   Request Message (Client to Server): Contains a Request Method (e.g., GET/POST), the Resource URL, the HTTP version, Host domain, Headers, a blank line, and an optional Request Body.
+            *   Response Message (Server to Client): Contains the HTTP version, a Status Code (e.g., 200), a Status Value (e.g., OK), Headers, a blank line, and the Response Body.
+
+4. HTTP Headers
+        Headers are key-value pairs that act as metadata for the package being transmitted, allowing the system to be highly extensible and act as a "remote control" to dictate server behavior. 
+            *   Request Headers: Sent by the client to provide context (e.g., User-Agent identifies the browser, Authorization sends credentials).
+            *   General Headers: Apply to both requests and responses (e.g., Date, Connection, Cache-Control).
+            *   Representation Headers: Describe the message body (e.g., Content-Type for media format like JSON/HTML, Content-Length for byte size, Content-Encoding for gzip compression).
+            *   Security Headers: Protect against attacks (e.g., Strict-Transport-Security forces HTTPS, Content-Security-Policy prevents cross-site scripting, Set-Cookie with HTTP-only flags).
+
+5. HTTP Methods and Idempotency
+        Methods define the semantic intent of the client's request.
+            *   GET: Fetches data from the server without modifying anything.
+            *   POST: Submits new data to the server (includes a request body).
+            *   PATCH: Partially updates an existing resource.
+            *   PUT: Completely replaces an existing resource with the provided body.
+            *   DELETE: Removes a resource.
+            *   OPTIONS: Inquires about the server's capabilities (used heavily in CORS).
+
+        Idempotency is a crucial concept here:
+            *   Idempotent Methods: Can be executed multiple times and yield the exact same result on the server state (e.g., GET, PUT, DELETE).
+            *   Non-Idempotent Methods: Running them multiple times creates different results (e.g., submitting a POST request twice creates two separate resources).
+
+6. Cross-Origin Resource Sharing (CORS)
+        Browsers enforce a Same-Origin Policy, blocking web apps from making requests to different domains (origins). CORS is a security mechanism to bypass this safely.
+            *   Simple Requests: (Usually GET or POST with standard headers/content types). The browser automatically adds an Origin header. If the server allows the request, it replies with the Access-Control-Allow-Origin header containing the client's domain (or a * wildcard). If missing, the browser blocks the response.
+                *   The browser first fires an OPTIONS request asking the server if the route supports the intended method and headers.
+            *   Pre-flight Requests: Triggered if a request uses a non-simple method (PUT/DELETE), requires authorization headers, or uses a application/json content type. 
+                *   The server replies with a 204 No Content status, explicitly listing allowed origins, methods, headers, and a max-age to cache this configuration. 
+                *   If successful, the browser then sends the actual, original request.
+
+7. Standardized Status Codes
+        Status codes are three-digit numbers that act as a universal language to indicate the outcome of a request.
+            *   2xx (Success): 
+            *   1xx (Informational): Indicates headers received; client can proceed (e.g., 100 Continue for large uploads).
+                *   200 OK: Successful operation.
+                *   201 Created: Usually follows a POST request.
+                *   204 No Content: Successful, but no body to return (used in OPTIONS or DELETE).
+                *   301 Moved Permanently: The resource has a new URL.
+            *3xx (Redirection):
+                *   302 Found/Temporary Redirect: Temporarily forward to a new route.
+                *   304 Not Modified: Tells the client to use its locally cached version.
+                *   400 Bad Request: Invalid data format sent by client.
+            *4xx (Client Errors): 
+                *   401 Unauthorized: Missing or invalid authentication token.
+                *   403 Forbidden: Authenticated, but lacks necessary permissions.
+                *   404 Not Found: Incorrect URL or deleted resource.
+                *   405 Method Not Allowed: Using the wrong method for a route.
+                *   409 Conflict: Business logic violation (e.g., duplicate username).
+                *   429 Too Many Requests: Client has hit rate limits.
+            *5xx (Server Errors):
+                *   500 Internal Server Error: An unhandled exception crashed the server.
+                *   501 Not Implemented: Feature not yet supported.
+                *   502 Bad Gateway / 504 Gateway Timeout: Issues originating from proxies or load balancers failing to reach upstream servers.
+                *   503 Service Unavailable: Server down or under maintenance.
+
+8. HTTP Caching
+        Caching reuses previously downloaded responses to save bandwidth and load times.
+            *   When a client first fetches a resource, the server responds with the payload alongside three headers: Cache-Control (sets max duration), ETag (a unique hash of the payload), and Last-Modified.
+            *   On subsequent requests, the client sends conditional headers: If-None-Match (carrying the ETag) or If-Modified-Since.
+            *   If the data on the server hasn't changed, the server saves bandwidth by sending an empty 304 Not Modified response, instructing the browser to use its cached copy. If it has changed, it sends a 200 OK with the new data and a new ETag.
+
+9. Content Negotiation and Compression
+        Clients and servers can negotiate the best format to exchange data.
+            *   The client sends preferences via Accept (e.g., application/json vs application/xml), Accept-Language (e.g., en vs es), and Accept-Encoding (e.g., gzip).
+            *   The server responds with the appropriate format.
+            *   Compression: By negotiating an encoding like gzip, a server can drastically compress text responses (e.g., shrinking a 26MB JSON payload down to 3.8MB) to save massive amounts of network bandwidth.
+
+10. Handling Large Data Transfers
+            *   Large Client Uploads (Images/Video): Standard JSON is terrible for binary data. Instead, clients use a multipart/form-data request. This breaks the file into chunks separated by a unique string delimiter defined in the boundary header.
+            *   Large Server Downloads: To prevent timing out, the server streams the file in chunks using Content-Type: text/event-stream and Connection: keep-alive. The browser continually appends these chunks until the transfer finishes.
+
+11. Security (SSL/TLS & HTTPS)
+            *   TLS (Transport Layer Security): The modern, secure replacement for the outdated SSL protocol.
+            *   It encrypts data in transit to prevent interception (eavesdropping) or tampering, utilizing certificates to verify the server's identity.
+            *   HTTPS: Simply the standard HTTP protocol wrapped inside a secure TLS connection.
