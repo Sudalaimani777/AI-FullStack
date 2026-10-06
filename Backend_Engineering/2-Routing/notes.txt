@@ -1,0 +1,112 @@
+Routing :-
+
+    The http methods tells you the intension of the request to process in the server -> GET
+    The Routing tells where do you want to send the request to process -> /api/products
+
+    Simply, Routing is basically a mapping the URL parameter to a server side logic
+
+    Routing expresses the "where" of a request, indicating which resource or location on the server an action or intent is directed towards. It maps URL paths and HTTP methods (like GET, POST, PUT, DELETE) to specific server-side logic or handlers.
+
+    For example, a GET request to /users with the intent of fetching data will be mapped to a handler that returns an array of users. The combination of the HTTP method (your "what") and the route path (your "where") forms a unique key that the server uses to direct the request to the appropriate set of instructions.
+
+    Static Routing :-
+
+        The Static Routing has a combination of the http method and the URL which tells the intension of the request to process it 
+
+            EG :- GET /api/products
+
+        Static routes are defined by a fixed, unchanging URL path. They do not contain any variable parameters within the route itself.
+
+        For instance, /api/books for a GET or POST request is considered a static route. The path /api/books will always remain constant, and it typically returns a consistent type of response.
+
+    Dynamic Routing :-
+
+        The Dynamic Routing are also the same constrains, but it process a specific resource, like fetching a single product with the help of the params
+
+            EG :- GET /api/products/:id
+
+            The ":id" is the params for the particular product to process it.
+
+            Dynamic routes incorporate variable parameters directly within the URL path. These variables allow for fetching or performing actions on specific resources based on an identifier.
+
+            These are dynamic values that are part of the URL path, often coming directly after a forward slash. They semantically express what specific entity or resource the request is about.
+
+            Example: /api/users/123 where 123 is a path parameter representing the user's ID. The server can extract this ID to fetch details of that particular user.
+
+            Conventionally, dynamic parts in the route matching are often denoted with a colon, e.g., /api/users/:ID, signifying that any string in that position should be treated as a dynamic parameter.
+
+    Routing Query Params :-
+
+        The Query params is a mechanism, where the application's state filtering or conditional logic is managed using optional key-value pairs appended to the end of the URL following with the question mark "?"
+
+        EG :- GET /api/products?category=electronics&sort=asc
+
+        Common Use Cases
+            • 🔍 Filtering & Searching: Restricting results by certain attributes (e.g., ?color=blue&size=M).
+            • 📄 Pagination: Displaying a specific page within a massive catalog (e.g., ?page=3&limit=20).
+            • ↕️ Sorting: Changing the layout sequence (e.g., ?orderBy=price&direction=desc).
+            • 📊 Tracking: Passing marketing or attribution tokens (e.g., ?utm_source=newsletter).
+
+        Simple :-
+            Think of a URL like a mailing address for a specific folder inside a giant filing cabinet.
+                • Route Parameters get you to the exact folder you need.
+                • Query Parameters tell you how to sort or filter the papers inside that folder.
+
+        Query parameters are used to send additional, non-semantic key-value pairs with a request, typically for filtering, sorting, or pagination, especially with GET requests which do not have a request body .
+
+        They are appended to the URL after a question mark ? .
+        Example: /api/search?query=some+value where query is the key and some+value is the value.
+        Application in GET requests: Since GET requests don't have a body to send data, query parameters provide a mechanism to pass user-defined values or metadata to the server .
+        Useful for pagination, e.g., /api/books?page=2 , to request a specific page of data, or for filtering and sorting results .
+
+
+    
+    Nested Routing :-
+        Nested routing means structuring your URL paths to match the hierarchy of your data database or business logic.
+
+        The Database Analogy
+            Think of a database where data is nested inside other data:
+                • A Company has many Employees.
+                • An Author has many Books.
+                To fetch data safely and logically, the URL path follows that exact chain:
+                GET /authors/42/books (Get all books that belong to Author ID 42)
+
+                GET /api/user               -> Normal Route
+                GET /api/user/123           -> Nested Route
+                GET /api/user/123/posts     -> One level deep route
+
+
+            Nested routes involve embedding different resource identifiers within a single URL path to express complex semantic relationships. This practice is common in REST APIs for better organization and readability.
+
+            Example: /api/users/123/posts/456
+                     /api/users is a static part.
+                123 is a dynamic path parameter for a user ID.
+                posts is a static part representing a collection of posts.
+                456 is a dynamic path parameter for a specific post ID.
+                This structure allows for semantically clear requests, such as "fetch post with ID 456 belonging to user with ID 123". Each level of nesting can correspond to a different handler and return different granular information.
+
+    Routing Versioning and Deprecation :-
+
+        Route Versioning is the practice of managing the changes to the API so the updates don't break the existing client application.
+
+        Deprecation is the process of removing the previous API version once the latest API version released like V1 will deprecate once V2 will released
+
+        EG :- GET /api/v1/user -> version 1
+              GET /api/v2/user -> version 2
+
+                The v1 will deprecate once the v2 has been verified and move to prod
+
+        Route versioning is a common practice to manage changes in API endpoints over time without breaking existing client applications.
+
+        Versions are typically included in the URL path, e.g., /api/v1/products and /api/v2/products.
+        Allows for introducing breaking changes (e.g., changes in response format or field names) in new versions (v2) while maintaining older versions (v1) for existing clients.
+        This provides a migration window for front-end engineers to update their applications to the new API structure. Eventually, older versions can be deprecated and removed.
+
+
+
+    Catch-All Routes
+        A catch-all route is a fallback mechanism on the server that handles requests for routes that do not have a specific handler defined.
+
+            Typically represented by a wildcard, such as /*.
+            If a request doesn't match any specific route, it is directed to the catch-all handler.
+            This handler usually sends a user-friendly message, such as "route not found" or "this route does not exist", instead of a default null response, improving the user experience.
