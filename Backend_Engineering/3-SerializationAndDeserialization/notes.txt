@@ -73,3 +73,4 @@ Serialization and Deserialization :-
             FastAPI serializes the Python object back to JSON
             Travels back through the network as binary
             JSON.parse() (done automatically by axios/fetch) converts it back to a JS object
+
