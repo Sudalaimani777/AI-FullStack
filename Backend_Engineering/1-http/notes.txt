@@ -235,17 +235,17 @@ Caching :-
 
 7. Standardized Status Codes
         Status codes are three-digit numbers that act as a universal language to indicate the outcome of a request.
-            *   2xx (Success): 
             *   1xx (Informational): Indicates headers received; client can proceed (e.g., 100 Continue for large uploads).
+            *   2xx (Success): 
                 *   200 OK: Successful operation.
                 *   201 Created: Usually follows a POST request.
                 *   204 No Content: Successful, but no body to return (used in OPTIONS or DELETE).
-                *   301 Moved Permanently: The resource has a new URL.
             *3xx (Redirection):
+                *   301 Moved Permanently: The resource has a new URL.
                 *   302 Found/Temporary Redirect: Temporarily forward to a new route.
                 *   304 Not Modified: Tells the client to use its locally cached version.
-                *   400 Bad Request: Invalid data format sent by client.
             *4xx (Client Errors): 
+                *   400 Bad Request: Invalid data format sent by client.
                 *   401 Unauthorized: Missing or invalid authentication token.
                 *   403 Forbidden: Authenticated, but lacks necessary permissions.
                 *   404 Not Found: Incorrect URL or deleted resource.
