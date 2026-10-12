@@ -1,0 +1,34 @@
+Common Terminology :-
+
+    1)LLM :-
+        LLMs are AI systems that are trained by vast amount of text data to understand and generate the output or a result based on the user prompt in a human understandable language
+
+        They work as prediction engines, analyzing input and predicting the next most likely token.
+
+        LLMs perform tasks like text generation, translation, summarization, and Q&A. 
+
+        Understanding token processing is key to effective prompt engineering.
+
+        Link :- https://platform.claude.com/docs/en/about-claude/glossary
+
+    2)Token :-
+        Tokens are the fundaments units of text that the LLMs can process, create by breaking the sentences into each and every small components like words or characters.
+
+        Understanding tokens is crucial because models predict the next token in sequences, API costs are based on token count, and models have maximum token limits for input and output.
+
+    3)Context Window :-
+        Context window refers to the maximum number of tokens an LLM can process in a single interaction
+
+        Which includes both input prompt and generated output. 
+
+        When the token exceeds the Context window, older parts are truncated. 
+
+        Understanding this constraint is crucial for prompt engineering—you must balance providing sufficient context with staying within token limits.
+
+        A larger context window allows the model to handle more complex and lengthy prompts, but more context isn't automatically better. 
+        
+        As token count grows, accuracy and recall degrade, a phenomenon known as context rot. This makes curating what's in context just as important as how much space is available.
+
+        Link :- https://platform.claude.com/docs/en/build-with-claude/context-windows
+
+        

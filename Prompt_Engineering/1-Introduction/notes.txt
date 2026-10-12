@@ -1,0 +1,99 @@
+Prompt Engineering :-
+
+    Introduction :-
+
+        Prompt engineering is the practice of designing effective inputs for large language models to achieve desired outputs.
+
+        It covers techniques like few-shot prompting, chain-of-thought, and parameter tuning.
+
+        It is a practice of designing effective inputs for the LLM to work and achieve desired outputs.
+
+        This roadmap covers the fundamental concepts, core technique, model parameter and advanced methods.
+
+        It's a universal skill which is accessible by everyone, which requires no coding background, yet crucial for unlocking AI potential across diverse applications and domains
+
+
+        LLMs function as sophisticated prediction engines that process text sequentially, predicting the next token based on relationships between previous tokens and patterns from training data. 
+        They don't predict single tokens directly but generate probability distributions over possible next tokens, which are then sampled using parameters like temperature and top-K. 
+        The model repeatedly adds predicted tokens to the sequence, building responses iteratively. This token-by-token prediction process, combined with massive training datasets, enables LLMs to generate coherent, contextually relevant text across diverse applications and domains.
+
+    LLMs and how they work ?
+
+        A LLM is a model which is an instance of the Foundation model. The Foundation model are pre-trained and it has a large amount of un-labelled and self-supervised data, meaning the model learn based on the pattern rather than providing the output for the input.
+
+        In the way it produce the output in more generalizable and adaptable based on the prompt that we instruct
+
+        The LLM are trained by large amount of text dataset like books
+
+            1GB -> 178 million words
+            1PB -> 1 million GB
+
+        Parameter :- A parameter is a value that the model can change depending on the learn 
+
+        How the LLM work under the hood ?
+
+        There are three main components of LLM 
+            LLM = Data + Training + Architecture 
+
+            The transformer Architecture helps the LLM to handle the sequence of data like the sentence or a block of code 
+
+            The transformer can understand the context of each word in a sentence 
+
+            By these training, the Model can predict the next sentence by analyzing the previous context
+
+    Prompt :-
+
+        You can achieve a lot with simple prompts, but the quality of results depends on how much information you provide it and how well-crafted the prompt is
+
+         A prompt can contain information like the instruction or question you are passing to the model and include other details such as context, inputs, or examples.
+
+         A prompt contains any of the following elements:
+
+            Instruction - a specific task or instruction you want the model to perform
+
+            Context - external information or additional context that can steer the model to better responses
+
+            Input Data - the input or question that we are interested to find a response for
+
+            Output Indicator - the type or format of the output.
+
+    Models :-
+        Models are the thing that can receive, interpret and respond to the text (prompt) you write
+
+        In sort :- Models are the brain to do the work, while prompt engineering crafts the instruction to perform to get the desired output.
+
+        There are several models are quite famous.Such as,
+
+            Open AI
+            Gemini
+            Meta
+            Anthropic
+            XAI
+
+            Open AI :-
+                OpenAI develops leading language models including GPT-5.4, o3, and Codex, setting industry standards for prompt engineering. 
+                Their API provides access to frontier models with configurable parameters, and their Agents SDK enables building autonomous AI systems. 
+                The OpenAI Cookbook and platform documentation are key references for prompt engineering best practices
+
+            Google :-
+                Google develops Gemini, a family of multimodal AI models. 
+
+                The latest flagship, Gemini 3, supports text, image, video, and audio through the Gemini API and Google AI Studio. 
+
+                Google also offers specialized models including Imagen for image generation, Veo for video, and Lyria 3 for music. 
+
+                Their research has advanced many prompt engineering techniques, including Chain of Thought reasoning.
+
+            Anthropic
+                Anthropic develops Claude, a family of large language models focused on safety and helpfulness. 
+                The current lineup includes Claude Opus 4.7 (most capable, for complex reasoning and agentic coding), Claude Sonnet 4.6 (best speed-intelligence balance), and Claude Haiku 4.5 (fastest, near-frontier intelligence). 
+                All models support extended thinking, vision, and 1M token context windows.
+
+            Meta
+                Meta develops the Llama family of open-source large language models. The latest release, Llama 4, comes in Maverick and Scout variants with strong multimodal and long-context capabilities. 
+                Llama models are freely available for research and commercial use, providing transparency in training data and architecture without vendor lock-in.
+
+            xAI
+                xAI develops Grok, a conversational AI model with real-time web access and integration with X (Twitter). 
+                The latest model, Grok 4.20, features a 2M token context window, agentic tool calling, and industry-leading low hallucination rates. 
+                Grok focuses on delivering truthful, unfiltered responses with strict prompt adherence.
