@@ -1,0 +1,88 @@
+Authentication vs Authorization :-
+
+    Authentication :-
+        It is a process of verifying the identity of the user's information, device before allowing to an application. It answer the fundamental question: "Who are you ?"
+    
+    Authorization :-
+        It is a process of granting the users to access a specific services like the admin, super admin, user
+
+        It answer the fundamental question :- "What can you do ?"
+
+StateFull va StateLess :-
+
+    StateFull :-
+        The server remembers the client's past interactions and stores the session data locally on it's memory across multiple request 
+    
+    StateLess :-
+        The server doesn't remembers the client's past interactions, it is completely independent, each and every request having it's required information to process it and responds to it
+
+Sessions, JWts, Cookies :-
+
+    Sessions :-
+        It is a stateful method where the server keeps track of the user's login state
+
+        It provide the temporary server context for each user
+
+        Steps :-
+            1) Session Creation :-
+                When the user logs in, the server created a unique sessionID for the user and stores which includes the user's relevant information like the user role which persistent store like a database, redis
+
+            2) sessionID :-
+                The sessionID was sent to the client as a cookie and all the request that the client made, the user send with the cookie so the cookie contains the user's sessionID so the server can process the request
+            
+            3) Expiring :-  
+                When the sessionID is expired, the server creates a new sessionID and persist it, and sends back to the cookie
+
+    Types of Session :-
+        File based session :- Stores user information in a file which in a DB, the main issue of this is a scalability issue as a members grew
+
+
+        Database-Driven :- Relational Database rows (e.g., MySQL, PostgreSQL)
+
+        In memory / Cache :- Distributed RAM caches (e.g., Redis, Memcached)
+
+JWT :-
+
+    JWT comes in 2015, JWT having the user's claims and it is stateless
+
+    It is used to securely transmit the information between two parties in a json format
+
+    The JWT are self contains, it is base64 encoded
+
+        base64 :- series of characters, which combines the alphabets and numbers
+
+    The JWT consist of 3 main parameters, 
+        Header
+        Payload
+        Signature
+
+        Header :- 
+            Contains metadata specifying the token type (JWT) and the cryptographic signing algorithm (HS256)
+
+            Cryptographic :-
+                It is mathematical technique used to prove the authenticity of a digital data
+
+        Payload :-  
+            It contains the information about the user such as id, role, expiration time
+
+        Signature :-
+            Created by hashing the encoded header, encoded payload  and a secret private key to verify that the token is not altered
+
+    Advantages :-
+        StateLess
+        Scalability
+
+    DisAdvantages :-
+        TokenTheft
+
+Hybrid Approach of Using JWT :-
+
+    Normal -> User logs in JWT created in the server and it sends back to the client, each and every time the client send a request to the server the the request having the JWT in any formats like in Authorization headers or in cookie
+
+    Hybrid Approach :-
+        In hybrid we combine the statelessness and stateFullNess
+
+        This has the typical JWT process, once the JWT token created we maintain the JWT in blacklist which persist those JWT in some bucket like Redis
+
+Cookie :-
+    Cookie is a someway of storing a piece of information, it can be any string. It is a one way of storing information
