@@ -31,7 +31,6 @@ Common Terminology :-
 
         Link :- https://platform.claude.com/docs/en/build-with-claude/context-windows
 
-<<<<<<< HEAD
     4)Hallucination :-
         AI hallucinations are instances where an AI system produces outputs that sound plausible but are factually wrong, irrelevant or entirely fabricated.
 
@@ -253,6 +252,3 @@ Common Terminology :-
         This makes RAG adaptive for situations where facts could evolve over time.
 
         This is very useful as LLMs's parametric knowledge is static. RAG allows language models to bypass retraining, enabling access to the latest information for generating reliable outputs via retrieval-based generation.
-=======
-        
->>>>>>> origin/Project
