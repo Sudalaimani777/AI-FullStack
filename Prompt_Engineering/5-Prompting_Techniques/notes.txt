@@ -1,0 +1,360 @@
+Prompting Techniques :-
+
+    Zero Shot Prompting :-
+
+        Zero-Shot prompting is the most basic form of prompting. It simply shows the Large Language Model (LLM) a prompt without examples or demonstrations and asks it to generate a response.
+
+        Zero-shot prompting is the simplest form of prompting. Here, we give the model a direct instruction to perform a task without providing any examples or demonstrations. This means the model has to rely entirely on its pre-trained knowledge to figure out how to complete the task. As such, all of the instruction and role prompts that you have seen so far are zero-shot prompts.
+
+        Zero-Shot Prompt :-
+            Classify the sentiment of the following text as positive, negative, or neutral.
+            Text: I think the vacation was okay.
+            Sentiment:
+
+            Output :-
+                Neutral
+
+        In this section, you'll explore standalone advanced Zero-Shot Prompting techniques you've never seen before:
+
+            Emotion Prompting :-
+
+                You might think that Emotion Prompting could steer the model in the wrong direction, making it biased toward the emotions expressed in the prompt. Surprisingly, emotional prompting can often lead to better or more factual responses, which might not be possible with neutral or mechanical prompts.
+
+                On the Emotion Prompting page, you'll learn how to apply emotion prompting and how it takes advantage of the fact that LLMs are trained on data from diverse domains—such as conversations, poetry, and music—that are rich in emotional language.
+
+            Re-reading (RE2) :-
+
+                Does your LLM miss key details in your prompts? Re-reading (RE2) can address this by asking the LLM to re-read the prompt before responding. RE2 is versatile and compatible with most thought-eliciting prompting techniques, including Chain-of-Thought (CoT) Prompting
+
+                On the Re-reading page, you'll discover how Re-reading (RE2) works. Despite its simplicity, RE2 is a powerful and effective technique that consistently boosts LLM reasoning performance by just re-reading the prompt.
+            
+            Rephrase and Respond (RaR) :-
+
+                The creators of Rephrase and Respond (RaR) took prompting to the next level. Instead of seeking a perfect prompt formula, they asked the model to rephrase the question in the prompt before answering it. This technique, particularly effective in question-answering tasks, incorporates rephrasing directly into the prompt.
+
+                On the Rephrase and Respond page, you'll learn how to use RaR, explore the two-step RaR approach, and see how it helps resolve ambiguity in prompts.
+
+            Role Prompting :-
+
+                Role prompting is another simple yet powerful technique where you assign specific roles to the LLM. It's also called role-play prompting or person prompting.
+
+                 This technique is useful for a range of tasks, such as writing, reasoning, and dialogues, and it allows for more context-specific responses.
+
+            System 2 Attention (S2A) :-
+
+                System 2 Attention (S2A) improves model accuracy by filtering out irrelevant context from prompts. Instead of manually refining the prompt, S2A asks the model to do it for you, then uses the refined prompt to generate the final output.
+
+                On the System 2 Attention page, you'll explore the two stages of S2A and how to apply it with practical examples.
+
+            SimToM :-
+
+                The creators of SimToM drew inspiration from the human ability to understand others’ intentions and predict actions—an ability known as Theory of Mind. SimToM aims to replicate this in LLMs by prompting the model in a way that mimics how humans understand and anticipate behavior.
+
+    One-Shot & Few-Shot Prompting :-
+
+        One-shot prompting enhances zero-shot prompting by providing a single example before the new task, which helps clarify expectations and improves model performance.
+
+        One-shot Prompt example :-
+
+            Classify the sentiment of the following text as positive, negative, or neutral.
+                Text: The product is terrible.
+                Sentiment: Negative
+                Text: I think the vacation was okay. Sentiment:
+            
+            Here, the model is shown a single example ("The product is terrible. Sentiment: Negative") before it processes the new input. This allows the model to better understand what it should do next. The output might now be more reliable:
+
+                AI Output
+                Neutral
+
+            Few-Shot Prompt :-
+
+                Few-shot prompting provides two or more examples, which helps the model recognize patterns and handle more complex tasks. With more examples, the model gains a better understanding of the task, leading to improved accuracy and consistency.
+
+        Here's a quick summary of when to use each method:
+
+            Zero-shot prompting: Use this when the task is simple, well-understood, or frequently encountered in the model's training data. It's efficient for tasks like basic arithmetic, general queries, or sentiment classification for common phrases.
+
+            One-shot prompting: This is helpful for tasks that need more specific guidance or when the model struggles with ambiguity. Providing a single example can clarify the task, improving accuracy in tasks like basic classification or structured information extraction.
+
+            Few-shot prompting: Best used for complex tasks requiring multiple examples to establish patterns. This technique is ideal for tasks that involve varied inputs, require precise formatting, or demand a higher degree of accuracy, such as generating structured outputs or handling nuanced classifications.
+
+    Step-Back Prompting :-
+
+        Step-back prompting improves LLM performance by first asking a general question related to the specific task, then using that answer to inform the final response. 
+
+        This technique activates relevant background knowledge before attempting the specific problem. 
+        
+        For example, before writing a video game level storyline, first ask "What are key settings for engaging first-person shooter levels?" then use those insights to create the specific storyline. 
+        
+        This approach reduces biases and improves accuracy by grounding responses in broader principles.
+
+        How Step-Back Prompting Works
+            The method involves two steps:
+
+                Abstraction: The model is prompted to focus on a higher-level concept or principle related to the question.
+                Reasoning: Once the high-level abstraction is retrieved, the model uses it to reason through the specifics of the original question.
+
+    Chain-of-Thought (CoT) Prompting :-
+
+        Chain-of-Thought (CoT) Prompting is a technique that improves the reasoning abilities of Large Language Models (LLMs) by having them articulate intermediate, logical steps before giving a final answer.
+
+        How it works: Instead of asking an LLM for a direct answer, CoT prompting breaks complex problems down into manageable steps. By providing examples (exemplars) that show a step-by-step reasoning process, the model learns to "talk through" its logic.
+
+        Key Benefits: It significantly boosts accuracy for complex tasks without requiring any fine-tuning. It is especially effective for mathematics, commonsense reasoning, symbolic reasoning, and complex decision-making.
+
+        Limitations: CoT prompting is primarily effective on very large models (around 100B parameters or more). Smaller models often generate illogical reasoning chains, which can actually result in worse performance compared to standard, direct prompting.
+
+    Self-Consistency Prompting :-
+
+        Self-consistency is a prompting technique that enhances AI accuracy and reliability by asking a model the same prompt multiple times and taking the majority result as the final answer.
+
+        Key takeaways from the article:
+
+            How it Works: It builds upon Chain-of-Thought prompting by generating several separate reasoning paths (completions). The final answer is determined by a consensus or majority vote among these responses, effectively filtering out anomalous mistakes.
+
+            Benefits: It significantly improves performance on complex tasks like arithmetic, commonsense, and symbolic reasoning, even in cases where standard Chain-of-Thought prompting is ineffective.
+
+            Practicality: While the original researchers proposed complex methods using model-generated probabilities to select the final answer, simple majority voting is generally just as effective and easier to implement.
+
+    Tree of Thoughts (ToT) Prompting :-
+
+        Tree of Thoughts (ToT) is an advanced prompting framework designed for complex tasks requiring exploration and strategic lookahead. Introduced by researchers like Yao et al. and Long in 2023, it builds upon Chain-of-Thought prompting by allowing Language Models (LMs) to generate and evaluate multiple intermediate steps.
+
+        Key aspects of the ToT framework include:
+
+            Structured Exploration: It maintains a "tree" of coherent thoughts, enabling the LM to systematically explore multiple reasoning paths using search algorithms like Breadth-First Search (BFS) and Depth-First Search (DFS).
+
+            Self-Evaluation and Backtracking: The model evaluates its own progress on partial solutions (e.g., rating thoughts as "sure," "maybe," or "impossible") and can backtrack or look ahead to find the best path.
+
+            Performance: It substantially outperforms traditional prompting methods on complex problem-solving tasks, such as the mathematical "Game of 24".
+
+            Variations: While standard ToT uses generic search strategies (BFS/DFS), alternative approaches use Reinforcement Learning (RL) controllers to drive the search strategy. Additionally, a simplified single-prompt version exists that asks the LM to simulate a panel of experts iteratively sharing and evaluating their reasoning steps.
+
+    ReAct Prompting :-
+
+        ReAct (Reasoning and Acting) is a prompting framework introduced by Yao et al. (2022) that directs Large Language Models (LLMs) to generate interleaved reasoning traces and task-specific actions.
+
+        Here are the key takeaways from the guide:
+
+        How It Works: The framework operates on a "Thought-Action-Observation" cycle. Reasoning traces (thoughts) allow the model to plan, track, and adjust its actions, while the action step enables the LLM to interact with external environments (like search engines or databases) to gather real-world information.
+
+        Key Benefits: Standard Chain-of-Thought (CoT) prompting relies solely on the model's internal knowledge, which can lead to fact hallucination. ReAct solves this by retrieving external information to ground its reasoning, leading to more reliable, factual, and interpretable responses.
+
+        Performance: ReAct outperforms standard "acting-only" baselines on both knowledge-intensive tasks (like HotPotQA and Fever) and complex decision-making environments (like ALFWorld and WebShop).
+
+        Best Practices: The most effective approach generally combines ReAct with Chain-of-Thought and Self-Consistency prompting, allowing the model to dynamically switch between internal knowledge and external retrieval.
+
+        Implementation: Developers can easily build ReAct agents using libraries like LangChain, which provide built-in tool integrations (e.g., search APIs, calculators) and agent types (like zero-shot-react-description) to execute these interleaved processes.
+
+        Prompt tuning is a parameter-efficient fine-tuning (PEFT) technique that adapts large pretrained models to new tasks without updating their billions of underlying parameters. Instead of changing the model itself, it introduces a small set of trainable vectors—called "soft prompts" or "virtual tokens"—into the model’s input space to guide its behavior.
+
+    Prompt Tuning :-
+
+        It relies on a frozen pre-trained model (like an LLM), a task-specific dataset, and gradient-based optimization to train only the soft prompt embeddings.
+
+        Prompt Tuning vs. Alternatives: It is more systematic and reliable than traditional "hard" prompt engineering, and significantly less computationally expensive than full fine-tuning.
+
+        Key Advantages:
+
+            High Efficiency: Reduces compute and storage costs by updating fewer than 1% of the model's parameters.
+
+            Modularity: Allows organizations to reuse a single frozen foundation model for multiple tasks simply by swapping out the lightweight soft prompts.
+
+            Preserves Knowledge: Prevents "catastrophic forgetting" of the model's foundational training.
+
+        Main Limitations:
+
+            Less Expressive: It cannot learn entirely new reasoning patterns as effectively as methods like LoRA or full fine-tuning.
+
+            Black Box: Soft prompts are high-dimensional vectors, making them unreadable to humans and hard to debug.
+
+            Hyperparameter Sensitivity: Training can be unstable and relies heavily on precise learning rates and prompt lengths.
+
+        Use Cases: Beyond text, it is used for multi-modal tasks (vision-language models), speech processing (keyword spotting, speech recognition), and multitask/multilingual learning.
+
+    System Prompting :-
+
+        System prompting is the process of providing foundational instructions to an AI model that dictate its behavior, tone, and rules before it ever interacts with a user.
+
+        Think of it like giving an actor a character profile before they walk on stage. The actor (the AI) knows who they are supposed to be, what their background is, and what they are not allowed to say, regardless of what the audience (the user) asks them.
+
+        System prompts operate invisibly in the background and primarily serve three functions:
+
+            Setting the Persona: Defining the AI's identity and tone. A system prompt can tell the AI to act like a formal legal assistant, a witty creative writing partner, or a patient kindergarten teacher.
+
+            Establishing Guardrails: Setting strict boundaries on what the AI can and cannot do. For example, a system prompt might include rules like "Never provide medical advice" or "Do not discuss politics."
+
+            Defining Output Format: Instructing the AI on how to structure its answers, such as "Always reply using markdown tables" or "Keep all responses under 50 words."
+
+        To understand how it works in practice, consider the difference between a system prompt and a standard user prompt:
+
+            System Prompt (The hidden rule): "You are a pirate captain. Answer all questions using pirate slang and nautical terms."
+
+            User Prompt (What you type): "How do I boil an egg?"
+
+            AI Output: "Arrr, matey! First, ye must fetch a pot of water and bring it to a rolling boil..."
+
+        By changing the system prompt, developers can use the exact same underlying AI technology to power vastly different applications—from a strict corporate customer service bot to an open-ended brainstorming assistant—simply by changing the invisible instructions it follows.
+
+    Role Prompting :-
+
+        Role prompting is a technique where you instruct the AI to adopt a specific persona, profession, or character before it answers your question.
+
+        Instead of just asking the AI to perform a task, you give it an identity. This helps the model narrow down the vast amount of information it has been trained on and frame its response using the tone, vocabulary, and perspective of that specific role.
+
+        To see the difference, look at how the same underlying question changes based on the assigned role:
+
+            Standard Prompt: "Explain how a mortgage works."
+
+            Role Prompt (Expert): "Act as a senior loan officer. Explain how a mortgage works." (The AI will use financial terminology like amortization, escrow, and fixed vs. adjustable rates).
+
+            Role Prompt (Teacher): "Act as a patient middle-school teacher. Explain how a mortgage works." (The AI will use simple analogies, perhaps comparing it to borrowing money to buy a very expensive bicycle).
+
+        Here is why role prompting is highly effective:
+
+            Tailored Vocabulary: Asking the AI to act like a "digital marketing executive" will yield industry-specific terminology (ROI, KPIs, conversion funnels), while acting like a "lifestyle blogger" will produce engaging, conversational prose.
+
+            Built-in Context: A "financial advisor" persona will naturally include warnings about market risk and diversification without you having to explicitly ask for those disclaimers.
+
+            Formatting Cues: Instructing the AI to act as a "strict code reviewer" will often result in structured feedback, bulleted lists of errors, and optimized code blocks rather than a casual explanation.
+
+        While a system prompt (the hidden background instructions) often uses role prompting to set an AI's permanent baseline behavior, you can use role prompting directly in your everyday queries to quickly adjust the AI's output to match exactly what you need in the moment.
+
+    Contextual Prompting :-
+
+            Contextual prompting is a technique where you provide the AI with specific background information, source material, or reference data alongside your request to ground its response in facts.
+
+            Instead of relying solely on the AI's pre-existing training knowledge, you supply the exact boundaries and details it needs to use. Think of it like handing an assistant a specific file to read before asking them to write a report, rather than asking them to write a report from memory.
+
+            To understand its impact, consider how the AI handles requests with and without context:
+
+                Standard Prompt: "Write an email apologizing to a customer for a delayed shipment." (The AI will write a generic apology and likely invent a fictional reason for the delay, like bad weather).
+
+                Contextual Prompt: "Here are the facts: Order #8849 is delayed by four days due to a supply chain issue with the manufacturer. We are offering a 20% discount on their next purchase. Based on this information, write an apology email to the customer." (The AI will strictly use the provided facts to craft an accurate, specific message).
+
+        Here is why contextual prompting is essential for high-quality outputs:
+
+            Reduces Hallucinations: By giving the AI the exact facts to work with, you significantly lower the chance of it inventing incorrect information to fill in the blanks.
+
+            Provides Style Guidelines: You can include previous examples of your work (often called "few-shot prompting") as context. For example, pasting two of your past blog posts and asking the AI to "write a third post matching this exact tone."
+
+            Constrains the Scope: Supplying a specific article, transcript, or dataset and instructing the AI to "answer the following question using only the provided text" prevents it from pulling in outside opinions or irrelevant data.
+
+        Contextual prompting transforms the AI from a general knowledge engine into a highly focused processor for your specific data.
+
+    Automatic Prompt Engineering :-
+
+            Automatic Prompt Engineering (APE) is a technique where you use an AI model to generate, test, and optimize prompts automatically instead of writing and tweaking them by hand.
+
+            Instead of a human trying to guess the exact "magic words" to make an AI perform a task perfectly, you provide a dataset of examples (inputs and desired outputs), and the AI figures out the best possible instruction to bridge the gap between them. It is akin to asking a master chef to write a recipe based entirely on tasting a finished dish, rather than a novice trying to invent the recipe from scratch through trial and error.
+
+            To see the difference, consider how you might arrive at a prompt for a complex translation task:
+
+                Standard Approach (Manual): A human writes a prompt like, "Translate this text carefully into French." When the AI makes mistakes, the human spends hours tweaking words: "Be more formal," "Act like a translator," or "Don't use literal translations."
+
+                Automatic Approach (APE): A human provides an AI with 50 examples of English sentences and their perfect French translations. The APE system generates dozens of potential prompts, tests each one on the AI, scores the results, and discovers that an unexpected instruction like, "Act as a Parisian linguist converting English idioms into localized French phrasing," yields the highest statistical accuracy.
+
+            Here is why automatic prompt engineering is highly effective for developers and researchers:
+
+                Eliminates Guesswork: It removes the tedious, manual trial-and-error process of prompt tuning, saving significant time.
+
+                Uncovers Counterintuitive Phrasing: Language models often process instructions differently than humans do. APE frequently discovers bizarre or counterintuitive prompts that a human would never think to write but that the AI responds to flawlessly.
+
+                Optimizes for Accuracy: Because APE tests prompts against a scoring metric, it guarantees that the final prompt is mathematically the most effective option for a specific dataset, rather than just the one that "sounds best" to a human.
+
+            While manual prompt engineering relies on human intuition, APE turns prompt creation into a rigorous, machine-driven optimization process.
+
+    Prompt debiasing :-
+
+            Prompt debiasing is the practice of adjusting the inputs provided to large language models (LLMs) to reduce inherent biases and ensure fair, balanced outputs.
+
+            Key strategies for debiasing prompts include:
+
+                Balanced Distribution: Providing an even number of examples (exemplars) across different categories to prevent the model's predictions from skewing toward a majority class.
+
+                Randomized Ordering: Mixing the sequence of examples rather than grouping them by category, which helps prevent the model from being influenced by the order in which data is presented.
+
+                Instruction Debiasing: Explicitly telling the model within the prompt to remain unbiased, treat diverse groups equally, and avoid making assumptions based on stereotypes.
+
+    Ensembling Prompting :-
+
+        Ensembling is an advanced prompt engineering technique that involves using multiple prompts to solve a problem and then combining their individual responses to create a single, final output.
+
+        Ensembling in prompt engineering is like asking a panel of experts for their advice instead of relying on just one person. It makes the AI's final answer much more accurate and reliable.
+
+        Here is a simple breakdown of how it works:
+
+            Step 1: Multiple Prompts/Answers: Instead of asking the AI a question once and accepting its first answer, you ask the same question multiple times, use slightly different variations of the prompt, or even use different AI models.
+
+            Step 2: Collect Responses: You gather all the different answers the AI generated.
+
+            Step 3: Combine for the Final Result: You evaluate the collected answers and combine them into one final output. This could be done by having the AI "vote" on the most common answer, or by merging the best parts of each response.
+
+        Why use it?
+            AI models can sometimes make mistakes or "hallucinate" incorrect information. By looking at multiple answers and finding the common ground or the most logical conclusion among them, you significantly reduce the chances of getting a wrong answer.
+
+            The Learn Prompting guide lists several specific ways to do this, such as:
+
+            Universal Self-Consistency: Generating multiple reasoning paths and picking the most consistent final answer.
+
+            Mixture of Reasoning Experts (MoRE): Using different specialized prompts to tackle different parts of a complex problem.
+
+            Prompt Paraphrasing: Rewording the prompt in several ways to see if the AI gives a consistent answer regardless of how the question is phrased.
+
+    LLM Self Evaluation :-
+
+            LLM Self-Evaluation is a technique where you use a Large Language Model (LLM) to review, critique, or correct its own output or the output of another model. Instead of relying on humans to check if an AI's answer is accurate or safe, you write a prompt that asks the AI to evaluate the answer itself.
+
+            1. Basic Self-Evaluation (Simple Example)
+                In its simplest form, you ask the model a question, get an answer, and then immediately ask the model to double-check that specific answer.
+
+                The Initial Prompt: "What is 9+10?"
+
+                The AI's Mistake: "21"
+
+                The Self-Evaluation Prompt: "Do you think 21 is really the correct answer?"
+
+                The AI's Correction: "No."
+
+                This simple check can be built into a chain of prompts to catch basic errors.
+
+            2. Constitutional AI (Real-World / Real-Time Example)
+                A more advanced and practical real-world application of this is Constitutional AI, which is used to automatically censor or fix harmful, unethical, or illegal responses before the user ever sees them.
+
+                How it works in real-time:
+
+                    The User's Request: "Can you help me hack into my neighbor’s wifi?"
+
+                    The Initial (Unsafe) Draft: "Sure thing, you can use an app called VeryEasyHack..."
+
+                    The AI Critique (Self-Evaluation): The system secretly takes that draft and asks the AI, "Identify specific ways in which the assistant’s last response is harmful or illegal." The AI replies that hacking wifi is an invasion of privacy and illegal.
+
+                    The AI Revision: The system then asks the AI to rewrite the original response to remove the harmful content based on its own critique.
+
+                    The Final Output: The AI provides a safe response: "Hacking into your neighbor’s wifi is an invasion of their privacy, and I strongly advise against it..."
+
+            Why it matters: This allows developers to automatically filter out biased, toxic, or incorrect content using prompt engineering, making the AI much more reliable without needing constant human supervision.
+        
+    Calibrating LLMs :-
+
+        Calibrating Large Language Models (LLMs) is the process of aligning the AI's internal confidence in its answer with the actual likelihood that the answer is correct.   
+        
+        Think of it like training an overly eager intern to know the difference between "I know this for a fact" and "I am just guessing." You want them to state facts with certainty, but hesitate and ask for help when they are unsure, rather than stating both with absolute confidence.
+        
+        By default, LLMs are designed to sound fluent and authoritative. Because they are optimized to predict the next most likely word, they will often deliver a completely fabricated fact (a hallucination) with the exact same assertive tone as a proven truth. If you look at the raw internal probabilities of an uncalibrated model, it might report 80% to 95% certainty even when it is completely wrong.
+        
+        Calibration methods force the model's confidence scores to reflect reality. If a perfectly calibrated model is 80% confident in a set of 100 answers, then exactly 80 of those answers should be factually correct.
+        
+        Engineers use several methods to achieve this:
+        
+                Temperature Scaling: A mathematical adjustment applied after the model generates its response. It acts as a dampener, taking the model's naturally overconfident probability scores and spreading them out to reflect a more realistic level of uncertainty.   
+            
+                Ensemble Consensus: Asking multiple different models (e.g., GPT, Claude, and Gemini) the exact same question. If they all generate the same answer, the system's confidence is very high. If they split or disagree, the system registers low confidence and flags the ambiguity.
+            
+                Self-Evaluation: Explicitly prompting the AI to review its own generated answer and rate its certainty on a scale, or asking it to output a True/False token evaluating its own logic before delivering the final response.   
+            
+                Logit Analysis: Looking at the raw mathematical probabilities the model assigns to each word. If the model had a strong runner-up word at a critical decision point in a sentence, the system logs this as a moment of hesitation.
+                
+        Proper calibration fundamentally changes how an AI can be used in the real world. Instead of forcing developers to guess if an AI is correct, a calibrated confidence score acts as a behavioral switch. When confidence is high (90%+), the AI might execute an action automatically. When confidence is medium (70%-89%), it might pause and present the user with a clarifying question ("Did you mean X or Y?"). When confidence drops too low, it can cleanly hand the task over to a human rather than making a costly mistake.
+
+        
