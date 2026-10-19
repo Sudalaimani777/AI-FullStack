@@ -1,0 +1,254 @@
+Common Terminology :-
+
+    1)LLM :-
+        LLMs are AI systems that are trained by vast amount of text data to understand and generate the output or a result based on the user prompt in a human understandable language
+
+        They work as prediction engines, analyzing input and predicting the next most likely token.
+
+        LLMs perform tasks like text generation, translation, summarization, and Q&A. 
+
+        Understanding token processing is key to effective prompt engineering.
+
+        Link :- https://platform.claude.com/docs/en/about-claude/glossary
+
+    2)Token :-
+        Tokens are the fundaments units of text that the LLMs can process, create by breaking the sentences into each and every small components like words or characters.
+
+        Understanding tokens is crucial because models predict the next token in sequences, API costs are based on token count, and models have maximum token limits for input and output.
+
+    3)Context Window :-
+        Context window refers to the maximum number of tokens an LLM can process in a single interaction
+
+        Which includes both input prompt and generated output. 
+
+        When the token exceeds the Context window, older parts are truncated. 
+
+        Understanding this constraint is crucial for prompt engineering—you must balance providing sufficient context with staying within token limits.
+
+        A larger context window allows the model to handle more complex and lengthy prompts, but more context isn't automatically better. 
+        
+        As token count grows, accuracy and recall degrade, a phenomenon known as context rot. This makes curating what's in context just as important as how much space is available.
+
+        Link :- https://platform.claude.com/docs/en/build-with-claude/context-windows
+
+    4)Hallucination :-
+        AI hallucinations are instances where an AI system produces outputs that sound plausible but are factually wrong, irrelevant or entirely fabricated.
+
+        In these instances, a large language model (LLM) or other generative AI (gen AI) tool presents fake facts, invented studies, nonexistent URLs or incorrect details about real entities as factual outputs.
+
+        Generative AI models are trained to produce outputs that look statistically credible in a certain modality. Text-based LLMs, for example, are trained to predict the next token in a sequence based on patterns in massive text corpora. Image, audio and video generators learn distributions over pixels or waveforms and then synthesize new samples. When information is sparse or ambiguous, these models might create confabulations. 
+
+        An LLM might produce text that looks coherent and authoritative but does not correspond to real data or events. An image generation platform might create images with inaccurate captions or nonsensical objects. 
+
+        Why do AI hallucinations occur?
+
+            AI hallucinations happen because generative AI works by predicting plausible outputs based on patterns it observes in its training data. A generative AI does not “know” what is true or false. It only “knows” what fits the pattern.
+
+        Why AI hallucinations matter ?
+
+            AI hallucination can have significant consequences in the real world. For example, a healthcare AI model might output a false positive, incorrectly identifying a benign skin lesion as malignant and encouraging unnecessary medical interventions.
+            
+            Hallucination issues can also contribute to the spread of misinformation. If, for instance, hallucinating news bots respond to queries about a developing emergency with information that hasn’t been fact-checked, it can quickly spread falsehoods that undermine mitigation efforts.  
+
+        Reduce hallucinations :-
+            Allow Claude to say "I don't know": Explicitly give Claude permission to admit uncertainty. This simple technique can drastically reduce false information.
+
+                Example: Analyzing a merger & acquisition report
+
+                    As our M&A advisor, analyze this report on the potential acquisition of AcmeCo by ExampleCorp.
+
+                        <report>
+                            {{REPORT}}
+                        </report>
+
+                    Focus on financial projections, integration risks, and regulatory hurdles. If you're unsure about any aspect or if the report lacks necessary information, say "I don't have enough information to confidently assess this."
+
+        Advanced techniques "-
+
+            Chain-of-thought verification: Use thinking with display: "summarized", and review the summarized reasoning in the thinking blocks when an answer looks wrong. This can reveal faulty logic or assumptions.
+
+            Best-of-N verification: Run Claude through the same prompt multiple times and compare the outputs. Inconsistencies across outputs could indicate hallucinations.
+
+            Iterative refinement: Use Claude's outputs as inputs for follow-up prompts, asking it to verify or expand on previous statements. This can catch and correct inconsistencies.
+
+            External knowledge restriction: Explicitly instruct Claude to only use information from provided documents and not its general knowledge.
+        
+    5)Agents :-
+
+        AI agents are autonomous systems that use LLMs to reason, plan, and take actions to achieve specific goals. They combine language understanding with tool usage, memory, and decision-making to perform complex, multi-step tasks. Agents can interact with external APIs and services while maintaining context across interactions.
+
+        Planning and reflection: AI agents can analyze a problem, break it down into steps, and adjust their approach based on new information.
+
+        Tool access: They can interact with external tools and resources, such as databases, APIs, and software applications, to gather information and execute actions.
+
+        Memory: AI agents can store and retrieve information, allowing them to learn from past experiences and make more informed decisions.
+
+        Why build with Agents?
+
+            While large language models (LLMs) excel at simple, narrow tasks like translation or email generation, they fall short when dealing with complex, broader tasks that require multiple steps, planning, and reasoning. These complex tasks often necessitate access to external tools and information beyond the LLM's knowledge base.
+
+            For example, developing a marketing strategy might involve researching competitors, analyzing market trends, and accessing company-specific data. These actions necessitate real-world information, the latest insights, and internal company data, which a standalone LLM might not have access to.
+
+            AI agents bridge this gap by combining the capabilities of LLMs with additional features such as memory, planning, and external tools.
+
+            By leveraging these abilities, AI agents can effectively tackle complex tasks like:
+
+                Developing marketing strategies
+                Planning events
+                Providing customer support
+
+        Common Use Cases for AI Agents :-
+
+            Recommendation systems: Personalizing suggestions for products, services, or content.
+            Customer support systems: Handling inquiries, resolving issues, and providing assistance.
+            Research: Conducting in-depth investigations across various domains, such as legal, finance, and health.
+            E-commerce applications: Facilitating online shopping experiences, managing orders, and providing personalized recommendations.
+            Booking: Assisting with travel arrangements and event planning.
+            Reporting: Analyzing vast amounts of data and generating comprehensive reports.
+            Financial analysis: Analyzing market trends, assess financial data, and generate reports with unprecedented speed and accuracy.
+        
+    6)Prompt Injection :-
+
+        Prompt injection is a security vulnerability where malicious users manipulate LLM inputs to override intended behavior, bypass safety measures, or extract sensitive information. 
+
+        Attackers embed instructions within data to make models ignore original prompts and follow malicious commands. Mitigation requires input sanitization, injection-resistant prompt design, and proper security boundaries.
+
+        Prompt injection occurs when a user manipulates an AI system's instructions, forcing it to behave in unintended or unauthorized ways, such as overriding safety guardrails
+
+        Types of Attacks: Distinguishes between direct prompt injection, where a user manually overrides the system, and indirect injection, where malicious data (e.g., poisoned PDFs or web pages) is ingested by the model to trigger harmful behavior
+
+        Potential Consequences: These attacks can lead to serious outcomes, including the generation of malware, misinformation, data exfiltration, or a complete remote takeover of the system 
+
+        What is Prompt Injection?: It is a form of "social engineering" for computers, where users manipulate an AI's instructions to force it to behave in unintended ways, such as the example of tricking a car dealership's chatbot into selling an SUV for $1.
+
+        Types of Attacks:
+            Direct Prompt Injection: A malicious user directly inputs commands to bypass safety guardrails.
+
+            Indirect Prompt Injection: Malicious data (e.g., poisoned PDFs or web pages) is ingested by the model, which then triggers an exploit when an unsuspecting user interacts with it.
+
+            Consequences: These attacks can lead to malware generation, misinformation, sensitive data leakage, or even a full remote system takeover.
+
+            Potential Solutions: Because there is no single "silver bullet," experts recommend a layered approach including:
+                Data Curation: Cleaning training data to remove malicious content.
+                Human-in-the-loop: Requiring human approval for critical actions taken by the AI.
+                Input Filtering: Using filters to block suspicious prompts before they reach the model.
+                Reinforcement Learning from Human Feedback (RLHF): Teaching the model better boundaries through human interaction.
+                New Security Tools: Emerging technologies designed to scan models for embedded malware, backdoors, or Trojans.
+
+    7) Model Weights / Parameters :-
+
+        Model weights and parameters are the learned values that define an LLM's behavior and knowledge.
+
+            Parameters -> Trainable variables adjusted during training.
+            Weights -> Represent their final values.
+
+        Understanding parameter count helps gauge model capabilities - larger models typically have more parameters and better performance but require more computational resources.
+
+        LLM parameters can be sorted into three primary categories: 
+
+            Weights 
+            Biases 
+            HyperParameters
+
+        Weights :-
+
+            Weights are numerical values that represent the importance that the LLM assigns to a specific input.
+
+            Not all inputs are treated equally by the artificial intelligence (AI) model when generating responses.
+
+            The higher an input’s weight, the more relevant it is to the model’s output.
+
+            Weights directly affect how a network propagates data forward through its layers.  
+
+        Biases :-
+
+            Like weights, biases are also configured automatically during AI model training. 
+            
+            Biases are constant values added to a signal’s value from the previous layers. 
+            
+            Models use biases to allow neurons to activate under conditions where the weights alone might not be sufficient to pass through the activation function. 
+        
+        HyperParameters :-
+
+            Hyperparameters are external settings that determine a model’s behavior, shape, size, resource use and other characteristics. 
+            
+            The process of hyperparameter tuning or model tuning uses algorithms to uncover the optimal combination of hyperparameters for better performance. 
+            
+            Along with prompt engineering, hyperparameter tuning is one of the primary LLM customization methods. 
+
+                Architecture hyperparameters -> Such as the number of layers and dimension of the hidden layers, configure a model’s size and shape. 
+
+                Training hyperparameters -> Such as the learning rate and batch size, guide the model’s training process. Training hyperparameters strongly affect model performance and whether a model meets the required LLM benchmarks. 
+
+                Inference hyperparameters -> Such as temperature and top-p sampling, decide how a generative AI model produces its outputs. 
+
+                Memory and compute hyperparameters -> Such as the context window, maximum number of tokens in an output sequence and stop sequences, balance model performance and capabilities with resource requirements. 
+
+                Output quality hyperparameters -> Such as presence penalty and frequency penalty, help LLMs generate more varied and interesting outputs while controlling costs.
+
+    8) Fine Tuning vs Prompt Engineering :-
+
+        Fine-tuning trains models on specific data to specialize behavior, while prompt engineering achieves customization through input design without model modification. 
+        
+        Prompt engineering is faster, cheaper, and more accessible. 
+        
+        Fine-tuning offers deeper customization but requires significant resources and expertise.
+
+        Fine-tuning vs prompt engineering: key differences :-
+
+            Fine-tuning and prompt engineering help us adapt a general-purpose LLM to a specific use case.
+
+            However, they significantly differ in approach, cost, complexity, and use case. 
+
+              Aspect	                  Fine-Tuning	                  Prompt Engineering
+            Definition	        Retrain model on custom data	    Design input prompts to guide behavior
+            Method	            Adjusts model weights	            Uses existing model knowledge
+            Data Needed	        Large labeled dataset	            Examples and instructions
+            Technical Skill	    High (ML expertise required)	    Low (creativity and testing)
+            Setup Cost	        High (GPUs, infrastructure)	        Low (API access only)
+            Time to Deploy	    Weeks to months	                        Hours to days
+            Inference Speed	    Fast	                                    Slower
+            Inference Cost	    Low per request	                    Higher per request
+            Flexibility	        Fixed after training	            Easy to modify anytime
+            Control Level	    High precision	                    Limited by model capabilities
+            Best For	        Specialized tasks, high volume	    Prototyping, multiple tasks
+
+        What is LLM fine-tuning?
+
+            LLM fine-tuning is the process of retraining a general-purpose LLM on a specific dataset to adapt its working to a specialized task or domain. 
+            
+            Open-source LLMs are trained on massive web-scale datasets and work well for general tasks that do not require task-specific or domain-specific knowledge. 
+            
+            To make the LLMs useful for domain-specific or task-specific use cases, we create specific datasets and retrain the models using the following process:
+
+        What is prompt engineering?
+        
+            Prompt engineering is the process of designing and refining inputs to the LLMs that can help us achieve more accurate and controlled outputs. 
+            
+            Unlike fine-tuning, where we retrain the LLM using new datasets to get better results, prompt engineering decides how to ask the model to get better results without retraining the original model.
+
+    9)AI vs AGI :-
+
+        AI (Artificial Intelligence) refers to systems that perform specific tasks intelligently
+
+        AGI (Artificial General Intelligence) represents hypothetical AI with human-level reasoning across all domains.
+
+        AGI is a hypothetical type of artificial intelligence that matches or surpasses human capabilities across virtually all cognitive tasks
+
+        AGI system can generalize knowledge, transfer skills between domains, and solve novel problems without task‑specific reprogramming.
+
+    10) RAG :-
+
+        Retrieval-Augmented Generation (RAG) combines LLMs with external knowledge retrieval to ground responses in verified, current information.
+
+        RAG retrieves relevant documents before generating responses, reducing hallucinations and enabling access to information beyond the model's training cutoff. 
+        
+        This approach improves accuracy and provides source attribution.
+
+        RAG can be fine-tuned and its internal knowledge can be modified in an efficient manner and without needing retraining of the entire model.
+
+        RAG takes an input and retrieves a set of relevant/supporting documents given a source (e.g., Wikipedia). The documents are concatenated as context with the original input prompt and fed to the text generator which produces the final output.
+
+        This makes RAG adaptive for situations where facts could evolve over time.
+
+        This is very useful as LLMs's parametric knowledge is static. RAG allows language models to bypass retraining, enabling access to the latest information for generating reliable outputs via retrieval-based generation.

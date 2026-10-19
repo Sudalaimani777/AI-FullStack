@@ -1,0 +1,48 @@
+Output Control :-
+
+        Output control encompasses techniques and parameters for managing LLM response characteristics including length, format, style, and content boundaries. 
+    
+        Key methods include max tokens for length limits, stop sequences for precise boundaries, temperature for creativity control, and structured output requirements for format consistency. 
+    
+        Effective output control combines prompt engineering techniques with model parameters to ensure responses meet specific requirements. 
+    
+        This is crucial for production applications where consistent, appropriately formatted outputs are essential for user experience and system integration.
+
+    Max Tokens :-
+
+        Max tokens setting controls the maximum number of tokens an LLM can generate in response, directly impacting computation cost, response time, and energy consumption
+
+        Setting lower limits doesn't make models more concise—it simply stops generation when the limit is reached. 
+        
+        This parameter is crucial for techniques like ReAct where models might generate unnecessary tokens after the desired response. 
+        
+        Balancing max tokens involves considering cost efficiency, response completeness, and application requirements while ensuring critical information isn't truncated.
+
+        How does it work :-
+
+            Every model has a context length. GPT-4o has 128,000, Claude 3.5 Sonnet has 200,000 context length. This number cannot be exceeded.
+
+            Each of these models have output size between 4,096 to 16,384 tokens — which means that the output can’t exceed this range.
+
+    Stop Sequences :-
+
+        The stop sequence is a feature that prevents a language model from generating more text after a specific string appears. It allows developers to manage response length and curb excessive output without altering the input prompt. Stop sequences make it easy to guarantee concise, controlled responses from models.
+
+        Stop sequences are specific strings that signal the LLM to stop generating text when encountered, providing precise control over output length and format. 
+
+        Common examples include newlines, periods, or custom markers like "###" or "END".
+
+        This parameter is particularly useful for structured outputs, preventing models from generating beyond intended boundaries.
+
+        How does it work?
+            When you provide a stop sequence, the model will generate text as usual, but will halt immediately if it encounters a stop sequence. This keeps responses concise and prevents the model from drifting off into excessive output.
+
+            For example, if your stop sequence is &lt;/output&gt; , the model will stop generating text once it produces this tag. You can also set multiple stop sequences (e.g. &lt;/output&gt; , input: ), where the model will halt if any of the sequences are encountered.
+
+        When to use Stop Sequence :-
+
+            Use stop sequence to tackle a few common problems:
+
+                1/ Cost management : Because LLMs charge per token, stop sequences help you limit token usage and save costs by limiting the output.
+
+                2/ Structured outputs : In structured outputs like XML or JSON, stop sequences stop models from adding unnecessary information. This is particularly helpful for API responses where extra text might break the integration.

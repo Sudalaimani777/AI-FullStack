@@ -12,14 +12,19 @@
         "Bingbot",
         "Contentful",
         "cookieparser",
+        "corpuses",
         "Crawlability",
+        "debiasing",
         "dotenv",
+        "Ensembling",
         "fastapi",
         "forwardslash",
         "Googlebot",
         "googleusercontent",
+        "logits",
         "MERN",
         "myorders",
+        "nbsp",
         "njsproj",
         "nodemon",
         "ntvs",
@@ -35,6 +40,7 @@
         "urbancart",
         "uvicorn",
         "venv",
+        "vore",
         "wuaosna"
     ]
 }
