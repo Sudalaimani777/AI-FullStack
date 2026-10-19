@@ -5,8 +5,10 @@
 [![GitHub](https://img.shields.io/badge/GitHub-AI--FullStack-blue)](https://github.com/Sudalaimani777/AI-FullStack)
 [![JavaScript](https://img.shields.io/badge/Language-JavaScript-yellow)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![TypeScript](https://img.shields.io/badge/Language-TypeScript-blue)](https://www.typescriptlang.org/)
+[![Python](https://img.shields.io/badge/Language-Python-3776AB)](https://www.python.org/)
 [![React](https://img.shields.io/badge/Framework-React%2019-61dafb)](https://react.dev/)
 [![Node.js](https://img.shields.io/badge/Runtime-Node.js-green)](https://nodejs.org/)
+[![AI-Prompt Engineering](https://img.shields.io/badge/AI-Prompt%20Engineering-orange)](Prompt_Engineering/README.md)
 [![Learning](https://img.shields.io/badge/Status-Active%20Learning-brightgreen)]()
 
 ## 📋 Table of Contents
@@ -14,7 +16,7 @@
 - [Repository Overview](#-repository-overview)
 - [Repository Structure](#-repository-structure)
 - [Quick Stats](#-quick-stats)
-- [Projects](#-projects)
+- [Projects Overview](#-projects-overview)
 - [Getting Started](#-getting-started)
 - [Progress Tracker](#-progress-tracker)
 - [Learning Achievements](#-learning-achievements)
@@ -22,7 +24,7 @@
 
 ## 🎯 About
 
-This repository is my personal learning journey into Full-Stack Development, documenting comprehensive progress from HTML fundamentals through advanced JavaScript, React 19, TypeScript, Next.js App Router, and Node.js/Express backend APIs. It contains:
+This repository is my personal learning journey into Full-Stack Development, documenting comprehensive progress from HTML fundamentals through advanced JavaScript, React 19, TypeScript, Next.js App Router, Node.js/Express backend APIs, and modern AI engineering:
 - **25 HTML Structured Tasks** across 5 modules (Basics, Links/Navigation, Images/Media, Lists/Tables, Forms) - 100% Complete
 - **HTML Learning Module** with 10 comprehensive topics covering basics to accessibility
 - **8 Complete HTML Projects** demonstrating real-world HTML5 applications
@@ -34,15 +36,20 @@ This repository is my personal learning journey into Full-Stack Development, doc
 - **11 Production-Ready React 19 Projects** (`1-StaticPages` through `11-TodoWithMockAPI` using Redux Toolkit, Zustand, React Router 7, and TMDB API)
 - **TypeScript Hub** featuring OOP singletons, interface contracts, and 1-TodoApp
 - **Next.js Hub** featuring App Router architecture, Server Components, and full-stack CMS
-- **Backend Engineering Hub** featuring 10 Express Masterclass Days, Node & Express Task Labs, and UrbanCart (Express 5, TypeScript, MongoDB, Mongoose, Zod, JWT)
+- **Backend Masterclass Hub** featuring 10 Express Masterclass Days, Node & Express Task Labs, and UrbanCart (Express 5, TypeScript, MongoDB, Mongoose, Zod, JWT)
+- **5 Backend Engineering Deep-Dive Modules** (`0-Basics`, `1-http`, `2-Routing`, `3-SerializationAndDeserialization`, `4-AuthenticationAndAuthorization`) with architectural diagrams and technical notes
+- **6 Prompt Engineering Modules** (`1-Introduction`, `2-Common_Terminology`, `3-LLM_Configuration`, `4-Repetition_Penalties`, `5-Prompting_Techniques`, `6-Best_Prompting_Practices`)
+- **2 AI Development Lab Projects** (`1-PromptPlayground` with React 19/Tailwind v4/OpenRouter API & `2-RAG` Python FastAPI/PyPDF2 service)
+- **1 MCP Weather Server** implementing `@modelcontextprotocol/sdk` tools, resources, and stdio transport
+- **1 Full-Stack Practice Application** (`fullstack/1-LoginAndRegister` with React 19, Express 5, TypeScript, Mongoose, Bcrypt)
 - **100 JavaScript Topic-Specific Practice Tasks** aligned with each chapter (100% completed)
 - **37 Production-Ready Applications** across HTML, JavaScript, React, TypeScript, Next.js, and Node/Express Backend
-- **Professional documentation** with enhanced formatting and quick references
+- **Professional documentation** with enhanced formatting and quick references across all modules
 
 **Learning Start Date:** October 17, 2025  
-**Current Focus:** Full-Stack Development Mastery (Frontend, React, TypeScript, Next.js & Backend Complete)  
-**Latest Milestone:** Full-Stack Engineering Workspace established across AI, FrontEnd, Projects, Tasks, and BackEnd  
-**Recent Achievement:** Complete end-to-end documentation coverage across all 37 portfolio projects and task modules
+**Current Focus:** Full-Stack & AI Systems Engineering (Frontend, React, TypeScript, Next.js, Backend & Prompt Engineering)  
+**Latest Milestone:** Comprehensive Prompt Engineering & AI Architecture Hub completed with production frameworks, sampling guides, and security guardrails  
+**Recent Achievement:** Full documentation coverage across all 37 portfolio projects, AI/MCP tools, and prompt engineering modules  
 
 **Completion Status:** 
 - ✅ **25/25 HTML Tasks completed** (Modules 1-5: 100%)
@@ -60,14 +67,25 @@ This repository is my personal learning journey into Full-Stack Development, doc
 - ✅ 1/1 Backend E-Commerce API completed (`UrbanCart` Express 5 + TypeScript)
 - ✅ 7/7 Express Task Labs completed (`Day1` - `Day7`)
 - ✅ 2/2 Node Task Labs completed (`Task1` & `Task2`)
+- ✅ 5/5 Backend Engineering Deep-Dive Modules completed
+- ✅ 6/6 Prompt Engineering Modules completed
+- ✅ 2/2 AI Development Lab Projects completed
+- ✅ 1/1 Model Context Protocol (MCP) Server completed
+- ✅ 1/1 Full-Stack Practice Application completed
 
 ## 🧭 Repository Overview
 
 This repo is organized to make learning, practice, and project work easy to find:
 
-- **FrontEnd/**: Learning modules and notes for HTML, JavaScript, ES6, and AJAX.
+- **FrontEnd/**: Learning modules and notes for HTML, JavaScript, ES6, React, Next.js, and TypeScript.
+- **Backend/**: Core Node.js HTTP servers, Express 5.x masterclass days, and technical interview guides.
+- **Backend_Engineering/**: In-depth systems engineering modules covering HTTP protocols, routing architectures, serialization, and auth.
+- **Prompt_Engineering/**: Comprehensive prompt engineering curriculum covering sampling parameters, repetition penalties, CoT, ReAct, ToT, and guardrails.
+- **AI/**: AI chat playground with OpenRouter API and Python FastAPI RAG backend with PDF processing.
+- **MCP/**: Model Context Protocol (MCP) Weather Server implementation with custom tools, resources, and stdio streams.
+- **Practice/**: Decoupled end-to-end full-stack applications connecting React clients to Express APIs.
 - **Tasks/**: Guided practice exercises that align with each learning module.
-- **Projects/**: Completed HTML and JavaScript applications that apply the concepts.
+- **Projects/**: Completed production applications that apply the concepts.
 - **README.md**: The main progress tracker, learning path, and high-level summary.
 
 ## 📁 Repository Structure
@@ -75,16 +93,26 @@ This repo is organized to make learning, practice, and project work easy to find
 ```
 AI-FullStackGitRepo/
 │
-├── README.md                          # Root repository documentation
+├── README.md                          # Root repository documentation & progress dashboard
 │
-├── AI/                                # 🤖 AI Learning & Prompt Engineering
-│   └── README.md                      # AI module documentation
+├── AI/                                # 🤖 AI & LLM Development Lab
+│   ├── README.md                      # AI module overview & quickstart
+│   ├── 1-PromptPlayground/            # React 19 + Vite + Tailwind v4 + OpenRouter API chat app
+│   └── 2-RAG/                         # Python FastAPI + PyPDF2 backend for document parsing
 │
 ├── Backend/                           # ⚙️ Backend Engineering Masterclass
-│   ├── README.md                      # Backend hub guide
+│   ├── README.md                      # Backend hub guide & interview Q&A
+│   ├── Node/                          # Raw Node.js HTTP server & built-in modules
 │   └── Express/                       # 10 Express.js & Node.js Masterclass Days
 │       ├── Day1/ to Day10/            # Route controllers, Mongoose ODM, JWT Auth
 │       └── notex.txt                  # Express + TypeScript production guide
+│
+├── Backend_Engineering/               # 🏗️ Deep-Dive Backend Systems Engineering
+│   ├── 0-Basics/                      # Backend fundamentals, client-server models & diagrams
+│   ├── 1-http/                        # HTTP/HTTPS protocols, headers, methods & lifecycle
+│   ├── 2-Routing/                     # URL parsing, parametric routing & path resolution
+│   ├── 3-SerializationAndDeserialization/ # JSON, Buffers, stream parsing & encoding
+│   └── 4-AuthenticationAndAuthorization/  # Sessions, stateless JWT tokens, roles & permissions
 │
 ├── FrontEnd/                          # 🎨 Frontend Development Hub
 │   ├── README.md                      # Frontend hub documentation
@@ -97,11 +125,14 @@ AI-FullStackGitRepo/
 │   └── Typescript/                    # 📘 TypeScript Fundamentals
 │
 ├── MCP/                               # 🔌 Model Context Protocol Tools
-│   └── README.md                      # MCP server integrations & tools
+│   ├── README.md                      # MCP server documentation & Claude integration
+│   ├── server.ts                      # Weather server with tools, resources & stdio transport
+│   └── package.json                   # @modelcontextprotocol/sdk & Zod dependencies
 │
 ├── Practice/                          # 🧪 Full-Stack Practice Labs
-│   ├── README.md
-│   └── fullstack/                     # Full-stack integration practice
+│   ├── README.md                      # Practice projects guide
+│   └── fullstack/                     # Decoupled Full-Stack Web Applications
+│       └── 1-LoginAndRegister/        # React 19 + Express 5 + Mongoose + Bcrypt Auth
 │
 ├── Projects/                          # 🚀 Real-World Production Applications (37 Total)
 │   ├── README.md                      # Projects root overview
@@ -115,6 +146,15 @@ AI-FullStackGitRepo/
 │       ├── React/                     # 11 React 19 web applications
 │       ├── TypeScript/                # 1 Object-oriented TypeScript app (1-TodoApp)
 │       └── NextJS/                    # 1 Full-stack Next.js app (cms)
+│
+├── Prompt_Engineering/                # 🧠 Prompt Engineering & LLM Architecture Hub
+│   ├── README.md                      # Comprehensive guide, sampling matrix & frameworks
+│   ├── 1-Introduction/                # Prediction engines, transformer mechanics & model ecosystem
+│   ├── 2-Common_Terminology/          # Tokens, context rot, hallucination mitigation & RAG
+│   ├── 3-LLM_Configuration/           # Sampling parameters (Temp, Top-K, Top-P) & output controls
+│   ├── 4-Repetition_Penalties/        # Frequency & Presence penalties, logit bias & diversity
+│   ├── 5-Prompting_Techniques/        # CoT, ReAct, Tree of Thoughts, S2A, APE & Calibration
+│   └── 6-Best_Prompting_Practices/    # Delimiters, structured schemas, guardrails & evaluation
 │
 └── Tasks/                             # 🎯 Practice Exercises & Labs
     ├── README.md                      # Tasks root overview
@@ -132,13 +172,13 @@ AI-FullStackGitRepo/
 ## 📊 Quick Stats
 
 | Category | Count | Status |
-|----------|-------|--------|
+|---|:---:|:---:|
 | HTML Modules (Learning) | 10 | ✅ Complete |
 | HTML Tasks (Structured Practice) | 25 | ✅ Complete |
 | HTML Projects | 8 | ✅ Complete |
 | JavaScript Topics | 16 (includes WebStorage) | ✅ Complete |
 | JavaScript TopicTasks | 100 | ✅ Complete |
-| ES6 Modules | 9 (includes ModernPattrens) | ✅ Complete |
+| ES6 Modules | 9 (includes ModernPatterns) | ✅ Complete |
 | JavaScript Applications | 15 | ✅ Complete |
 | React Learning Modules | 7 | ✅ Complete |
 | React Task Modules | 8 | ✅ Complete |
@@ -148,9 +188,14 @@ AI-FullStackGitRepo/
 | Backend API Services | 1 (`UrbanCart`) | ✅ Complete |
 | Express Masterclass Days | 10 | ✅ Complete |
 | Backend Task Labs | 9 (Node & Express) | ✅ Complete |
+| Backend Engineering Modules | 5 (Basics, HTTP, Routing, Serialization, Auth) | ✅ Complete |
+| Prompt Engineering Modules | 6 (Foundations, Terminology, Config, Penalties, Techniques, Best Practices) | ✅ Complete |
+| AI Development Lab Projects | 2 (PromptPlayground & RAG) | ✅ Complete |
+| Model Context Protocol (MCP) | 1 (Weather Agent Server) | ✅ Complete |
+| Full-Stack Practice Applications | 1 (Login & Register System) | ✅ Complete |
 | **Total Projects (Portfolio)** | **37** | **✅ Complete** |
 | Total Practice Tasks | 160+ | ✅ Complete |
-| Documentation Lines | 12,000+ | ✅ Complete |
+| Documentation Lines | 15,000+ | ✅ Complete |
 
 ## 🚀 Projects Overview
 
@@ -213,6 +258,8 @@ AI-FullStackGitRepo/
 #### Next.js Projects (1)
 1. **cms**: Full-stack Content Management System with App Router, Server Components, React 19, and Prisma ORM
 
+---
+
 ## 🎯 Getting Started
 
 ### 📚 Recommended Learning Path
@@ -237,15 +284,25 @@ AI-FullStackGitRepo/
 11. ⚡ Master [Next.js Hub](FrontEnd/Next/README.md) & full-stack [CMS App](Projects/FrontEnd/NextJS/cms/README.md)
 
 **Phase 5: Node.js & Express Backend APIs**
-12. ⚙️ Study [Backend Engineering Hub](Backend/Express/README.md) (10 Masterclass Days)
+12. ⚙️ Study [Backend Engineering Hub](Backend/README.md) & [Express Masterclass](Backend/Express/README.md) (10 Masterclass Days)
 13. 🎯 Complete [Backend Task Labs](Tasks/Backend/README.md) (Node & Express Days 1-7)
 14. 🛒 Deploy [UrbanCart E-Commerce Platform API](Projects/Backend/UrbanCart/README.md)
+15. 🧪 Practice with decoupled fullstack authentication in [Practice/fullstack/1-LoginAndRegister](Practice/README.md)
+
+**Phase 6: Advanced Backend Systems Engineering**
+16. 🏗️ Master core networking, HTTP/HTTPS specs, parametric routing, serialization, and auth in [Backend_Engineering](Backend_Engineering/0-Basics/notes.txt)
+
+**Phase 7: AI, Model Context Protocol & Prompt Engineering**
+17. 🤖 Experiment with AI applications in [AI/README.md](AI/README.md) (Prompt Playground & FastAPI RAG)
+18. 🔌 Build custom AI tools & resources with the [MCP Weather Server](MCP/README.md)
+19. 🧠 Master prompt design, sampling parameters, reasoning trees, and guardrails in [Prompt Engineering](Prompt_Engineering/README.md)
 
 ### 🛠️ Tech Stack & Ecosystem
 
 - **Frontend**: HTML5, CSS3, Tailwind CSS v4, JavaScript (ES6+), React 19, React Router DOM 7, Redux Toolkit, Zustand 5, TypeScript 6, Next.js 15 (App Router)
 - **Backend**: Node.js (ESM), Express.js 5, MongoDB, Mongoose ODM 9, Zod Schema Validation, Bcrypt, JSON Web Tokens (JWT), Axios Client, RESTful API architecture
-- **Build Tools & Environment**: Vite 8, `tsx watch`, npm, Git, Postman, VS Code
+- **AI & LLMs**: OpenRouter API, Python 3, FastAPI, Uvicorn, PyPDF2, Model Context Protocol (`@modelcontextprotocol/sdk`), Prompt Engineering Reasoning (CoT, ReAct, Tree of Thoughts, APE, S2A, Calibration)
+- **Build Tools & Environment**: Vite 8, `tsx watch`, npm, Git, Postman, VS Code, Python Virtual Environments (`venv`)
 
 ## 📈 Progress Tracker
 
@@ -266,6 +323,11 @@ AI-FullStackGitRepo/
 | **Express Masterclass (10 Days)** | ✅ Complete | Sep 2026 |
 | **Backend Task Labs (Node & Express)** | ✅ Complete | Sep 2026 |
 | **UrbanCart E-Commerce Backend API** | ✅ Complete | Sep 2026 |
+| **AI Lab: Prompt Playground & RAG Service** | ✅ Complete | Sep 2026 |
+| **MCP Weather Server Implementation** | ✅ Complete | Sep 2026 |
+| **Fullstack Practice Authentication System** | ✅ Complete | Sep 2026 |
+| **Backend Engineering Systems Deep-Dive** | ✅ Complete | Oct 2026 |
+| **Prompt Engineering & LLM Architecture Hub** | ✅ Complete | Oct 2026 |
 
 **Legend:** ✅ Complete | 🔄 In Progress | ⏳ Upcoming
 
@@ -291,11 +353,32 @@ AI-FullStackGitRepo/
 - ✅ Express 5 REST API development with TypeScript, Zod schema validation & Mongoose ODM
 - ✅ Stateless JWT authentication, Bcrypt password hashing, role permissions & full CRUD architecture
 
+### 🏗️ Backend Engineering Systems Architecture
+- ✅ Deep-dive into HTTP protocols, connection lifecycles, and request/response headers
+- ✅ Parametric routing mechanics, JSON/Buffer serialization, and authentication vs. authorization paradigms
+
+### 🧠 Prompt Engineering & AI Systems
+- ✅ Thorough mastery of LLM prediction engines, token economics, context rot, and hallucination reduction
+- ✅ Inference parameter calibration (Temperature, Top-K, Top-P) and repetition penalty (Frequency/Presence) tuning
+- ✅ Advanced reasoning implementations: Chain-of-Thought (CoT), ReAct agent loops, Tree of Thoughts (ToT), System 2 Attention (S2A), and Automatic Prompt Engineering (APE)
+- ✅ Enterprise prompt security: Direct & indirect prompt injection defense, XML delimiter sandboxing, and output evaluation
+
+### 🤖 AI Lab & Model Context Protocol (MCP)
+- ✅ OpenRouter LLM chat application with React 19, Zustand, and Tailwind CSS v4
+- ✅ Retrieval-Augmented Generation (RAG) backend with Python, FastAPI, and PyPDF2
+- ✅ Custom MCP Weather Server adhering to the `@modelcontextprotocol/sdk` standard over stdio streams
+
 ## 🔗 Quick Links
 
 ### 📚 Learning Resources
 | Resource | Description |
 |:---|:---|
+| [Prompt Engineering Hub](Prompt_Engineering/README.md) | 6 modules covering LLM configurations, CoT, ReAct & guardrails |
+| [AI Development Lab](AI/README.md) | React OpenRouter Playground & Python FastAPI RAG backend |
+| [MCP Weather Server](MCP/README.md) | Model Context Protocol server tools, resources & stdio transport |
+| [Backend Engineering Hub](Backend/README.md) | Express.js & Node.js Masterclass, interview Q&A guide |
+| [Express Masterclass Hub](Backend/Express/README.md) | 10 Express.js & Node.js Masterclass Days |
+| [Full-Stack Practice Hub](Practice/README.md) | Decoupled full-stack authentication (React 19 + Express 5) |
 | [FrontEnd Hub](FrontEnd/README.md) | Complete frontend learning path & modules |
 | [HTML Guide](FrontEnd/HTML/README.md) | 10 HTML modules with comprehensive notes |
 | [JavaScript Topics](FrontEnd/JavaScript/Topics/README.md) | 16 topics, 2,293 lines of documentation |
@@ -303,7 +386,6 @@ AI-FullStackGitRepo/
 | [React Hub](FrontEnd/React/README.md) | 7 React learning modules & hooks guide |
 | [TypeScript Hub](FrontEnd/Typescript/README.md) | Strongly-typed OOP design & models |
 | [Next.js Hub](FrontEnd/Next/README.md) | Next.js App Router & Server Components guide |
-| [Backend Masterclass Hub](Backend/Express/README.md) | 10 Express.js & Node.js Masterclass Days |
 
 ### 🎯 Practice Tasks & Labs
 | Resource | Description |
@@ -327,14 +409,14 @@ AI-FullStackGitRepo/
 **Repository:** AI Full-Stack Development Learning Journey  
 **Author:** Sudalaimani  
 **Learning Period:** October 17, 2025 - Present  
-**Last Updated:** September 7, 2026  
-**Status:** 💚 Full-Stack Path Complete | ✅ Frontend, React, TypeScript, Next.js & Backend REST APIs Complete
+**Last Updated:** October 19, 2026  
+**Status:** 💚 Full-Stack & AI Path Complete | ✅ Frontend, React, TypeScript, Next.js, Backend REST APIs & Prompt Engineering Complete  
 
 ---
 
 ## 💪 Keep Learning!
 
-You've completed the full-stack engineering workspace — Frontend, React 19, TypeScript, Next.js, and Node/Express Backend APIs! 🎉
+You've completed the full-stack and AI engineering workspace — Frontend, React 19, TypeScript, Next.js, Node/Express Backend APIs, MCP, and Prompt Engineering! 🎉
 
 - 💪 Every expert was once a beginner
 - 🎯 Focus on understanding, not memorizing
