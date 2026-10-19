@@ -1,0 +1,95 @@
+Repetition Penalties :-
+
+        Repetition penalties discourage LLMs from repeating words or phrases by reducing the probability of selecting previously used tokens.
+
+        This includes frequency penalty (scales with usage count) and presence penalty (applies equally to any used token). 
+    
+        These parameters improve output quality by promoting vocabulary diversity and preventing redundant phrasing.
+
+    Tips for Writing Better Prompts :-
+
+        Start with Clear and Specific Prompts
+            Effective prompts start with being clear and specific. Generative AI only responds to the instructions you provide, so the clearer you are, the better the result.
+
+        Be Direct
+            Vague prompts lead to vague answers. Make sure your prompt directly addresses what you need.
+
+            Vague Prompt :-
+                Write something about climate change.
+
+            Clear Prompt :-
+                Write a 100-word summary of the impact of climate change on coastal cities, focusing on rising sea levels.
+
+        Best Practices:
+            Use plain, concise language: Avoid unnecessary jargon or complex sentence structures unless needed.
+            Avoid ambiguity: Make your request clear by stating exactly what you want.
+
+        Add Context for Better Results :-
+
+            AI models perform better when they have more information about the task. By adding context, you can help the model understand what you want, making its responses more accurate and relevant.
+
+            Why Context is Key
+                Without sufficient context, the AI may make incorrect assumptions or provide incomplete responses. Adding background details, instructions, or guidelines allows the AI to generate a more tailored response.
+
+        Conclusion: Practice, Refine, and Iterate
+            Key Takeaways:
+
+                Start with clear and specific prompts.
+                Experiment with prompt variations and refine as needed.
+                Use advanced techniques like few-shot prompting and chain-of-thought for more complex tasks.
+                Add context for better results and iterate based on the AI’s output.
+
+            The more you practice and refine your prompts, the better your results will become. Start experimenting with the tips and techniques discussed in this guide, and see how your AI-generated outputs improve! Use our free video course, ChatGPT for Everyone, to learn more about tactics to write effective prompts and ChatGPT use cases.
+
+
+Frequency Penalty :-
+
+    The frequency penalty parameter tells the model not to repeat a word that has already been used multiple times in the conversation.
+
+    It basically tells the model, “You’ve already used that word a lot—try something else.” The higher the penalty, the less repetitions in the generated text.
+
+    How does it work behind the scenes
+
+        The model is always deciding which word to pick next. To make good decision, the model is looking at specific word scoring, or something that we call logits . To change the scoring of a word, we apply penalties.
+
+        The frequency penalty specifically targets words that are used repeatedly, lowering their score each time they appear, which makes the model less likely to choose them again.
+
+        No penalty: “The dog is barking. The dog is playing. The dog is running.”
+
+        With frequency penalty: “The dog is barking. The dog is playing. The cat is running.”
+
+        You can apply stricter penalties with the presence penalty, which stops the model from repeating a word after it’s been used just once. Find more information about that specific penalty here.
+
+    When to use Frequency Penalty
+
+        Use the frequency penalty parameter when you’re fine with a bit of repetition but want to stop the model from overusing a specific word.
+
+        Penalties like this one are useful in situations where you want your model to be more creative like for summarizing content.
+
+        Example: In a news article summary, you’d allow words like “government” or “policy” to appear a few times, but you’d penalize the model if it starts overusing them.
+
+Presence Penalty :-
+
+    The Presence Penalty parameter prevents the model from repeating a word, even if it’s only been used once. It basically tells the model, “You’ve already used that word once — try something else.”
+
+    How does it work behind the scenes
+
+        When the model is deciding what words (or tokens) to pick next, it looks at raw scores called logits . Using these penalties will adjust these scores to avoid repetition.
+
+        If a word has been used, the presence penalty immediately lowers its score, making it less likely for the model to choose that word again — even if it’s only been used once.
+
+    Here’s a simple example:
+
+        No penalty : “The dog is barking. The dog is playing. The dog is running.”
+
+        With presence penalty : “The dog is barking. The cat is playing. The rabbit is running.”
+
+        In this case, as soon as the word “dog” appears once, the model won’t use it again.
+
+        The presence penalty is stricter, so if you want a more flexible approach, you can use the frequency penalty instead.
+
+    When to use Presence Penalty
+
+        You can use this parameter to maintain some diversity in the model’s outputs.
+
+        For example , with customer support chatBots you want to penalize the model if it’s repeating certain names or phrases — and encourage generation of wider range of helpful answers.
