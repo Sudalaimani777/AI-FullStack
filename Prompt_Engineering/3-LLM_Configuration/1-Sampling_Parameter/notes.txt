@@ -1,0 +1,72 @@
+Sampling Parameters :-
+
+    Sampling parameters (temperature, top-K, top-P) control how LLMs select tokens from probability distributions, determining output randomness and creativity.
+
+     These parameters interact: at extreme settings, one can override others (temperature 0 makes top-K/top-P irrelevant).
+
+     A balanced starting point is temperature 0.2, top-P 0.95, top-K 30 for coherent but creative results.
+
+     Understanding their interactions is crucial for optimal prompting—use temperature 0 for factual tasks, higher values for creativity, and combine settings strategically based on your specific use case.
+
+     Temperature :-
+
+        In artificial intelligence (AI) and machine learning, temperature is a parameter for adjusting the output of large language models (LLMs).
+
+        Temperature controls the randomness in token selection during text generation. 
+
+        Lower values (0-0.3) produce deterministic, factual outputs.
+
+        Medium values (0.5-0.7) balance creativity and coherence.
+
+        Higher values (0.8-1.0) generate creative, diverse outputs but may be less coherent
+
+        Use low temperature for math/facts, high for creative writing.
+
+    Top-K :-
+
+        Top K is a setting supported by some LLMs; it determines how many of the most likely tokens should be considered when generating a response.
+
+        Top-K restricts token selection to the K most likely tokens from the probability distribution. 
+
+         Low values (1-10) produce conservative, factual outputs. 
+         
+         Medium values (20-50) balance creativity and quality. 
+         
+         High values (50+) enable diverse, creative outputs. 
+         
+         Use low K for technical tasks, high K for creative writing.
+
+        How does Top K work?
+
+            LLMs, or Large Language Models, are trained on huge corpuses of text. Consequently, they feature massive dictionaries. However, some words are significantly more likely to appear (e.g. the , you , jump ) than others (e.g. omnivore , innovation , matrimony ).
+
+            These words are cataloged as tokens, the fundamental unit of LLMs. Tokenizing large words includes splitting them into smaller strings (e.g. omnivore → omni and vore).
+
+            Top K is an integer that defines how many of the most likely tokens should be considered when determining the next token.
+
+            To provide an example, imagine a response that has thus far generated the string: On burgers, I like to add . With a Top K of "2", the LLM would only consider the two most likely tokens, such as &nbsp; ketchup (0.2) &nbsp; and mustard (0.1) . There’s a long-tail of other considerations, such as onion(0.05), pickles(0.04), or butter(0.02) , but those would be cropped from consideration.
+
+            An alternative to Top K is Top P. While Top K an explicit quantity of tokens, Top P instead denotes a probabilistic sum of the subset, which can significantly vary in token count.
+
+
+    Top-P :-
+
+        Top P , also known as nucleus sampling , is a setting supported by some LLMs; it determines which tokens should be considered when generating a response.
+
+        Top-P (nucleus sampling) selects tokens from the smallest set whose cumulative probability exceeds threshold P. 
+        
+        Unlike Top-K's fixed number, Top-P dynamically adjusts based on probability distribution. 
+        
+        Low values (0.1-0.5) produce focused outputs, medium (0.6-0.9) balance creativity and coherence, high (0.9-0.99) enable creative diversity.
+
+        Because LLMs, are trained on massive corpuses of text, they have huge dictionaries. However, some words are significantly more likely to occur in text (e.g. the , you , jump ) than others (e.g. matriculation , dearth , socratic ).
+
+        Top P defines the probabilistic sum of tokens that should be considered for each subsequent token. 
+        
+        Top P’s values span from 0.0 to 1.0 . 
+        
+        Importantly, Top P defines a probabilistic sum, not a percentage. For example, a Top P of 0.5 would include the most popular tokens whose relative likelihoods sum to 50%.
+
+        For a more concrete scenario, imagine a response that has thus far generated the string: I took the dog for a . With a Top P of 0.3 , the LLM would only consider tokens like walk (0.2) &nbsp;and check-up (0.1) because their net sum is 0.3 . There’s a long-tail of other considerations, such as trip (0.05) , bath (0.04) , or wolf (0.02) , but the Top P value crops them from consideration.
+
+        An alternative to Top P is Top K. While Top P defines a probabilistic sum of a subset of tokens, Top K instead defines the size of the subset. For the aforementioned example, a Top K of 3 would include walk , check-up , and trip .
